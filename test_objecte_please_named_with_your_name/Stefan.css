@@ -1,0 +1,49 @@
+body{
+    margin: 0;
+    scroll-behavior: smooth;
+    user-select: none;
+    color: white;
+}
+
+
+.outer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.left-container{
+    display: flex;
+    justify-content: flex-start;
+    /*71.66% width 1032px */
+    height: calc(67vw/100 * 71.66);
+    /* 139.54% vh  1440px*/
+    width: 67vw;
+    background-color: blue;
+    margin: 16px 16px;
+}
+
+.side-menu{
+    height: 100%;
+    width: 16.18%;
+    background-color: aqua;
+}
+
+.right-container{
+    height: 100%;
+    width: 100%;
+    background-color: brown;
+}
+
+.member-menu{
+    height: 6.98%;
+    width: 100%;
+    background-color: black;
+}
+
+.content{
+    height: calc(100% - 6.98%);
+    width: 100%;
+    background-color: green;
+}
