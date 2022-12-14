@@ -107,9 +107,12 @@ tr td:nth-child(3){
     display: none;
 }
 
+
+
 /* hover css classes */
 tr:hover{
     background-color: #091931;
+    cursor: pointer;
 }
 
 tr:hover td:nth-child(3){
@@ -147,6 +150,24 @@ tr:hover td:nth-child(1) #img_board1{
  tr:hover td:nth-child(1) #img_contacts2{
      display: inline-table;
  }
+
+ .img_d-none{
+    opacity: 0;
+    display: none !important;
+}
+
+.img_display{
+    display: inline-table !important;
+    opacity: 1;
+}
+
+.text_color{
+    color: #FFFFFF !important;
+}
+
+.text_color1{
+    color: #CDCDCD;
+}
 
 
 /* hover css classes end */

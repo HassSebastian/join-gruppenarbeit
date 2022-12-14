@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/fonts.css">
 
-    <title>test</title>
+    <script src="./js/script.js"></script>
+
+    <title>Join 407</title>
 </head>
 
 <body>
@@ -19,25 +21,25 @@
                 <img src=".\assets\img/join_logo.png" class="logo">
                 <nav>
                     <table>
-                        <tr id="sum">
+                        <tr id="btn_summary_menu" onclick="selectedMenuButton(1)">
                             <td><img src=".\assets\img/img_summary.png" id="img_summary1"><img src=".\assets\img/img_summary_w.png" id="img_summary2"></td>
                             <td></td>
-                            <td id="sum_text">Summary</td>
+                            <td id="btn_summary_menu_text">Summary</td>
                         </tr>
-                        <tr>
+                        <tr id="btn_board_menu" onclick="selectedMenuButton(2)">
                             <td><img src=".\assets\img/img_board.png" id="img_board1"><img src=".\assets\img/img_board_w.png" id="img_board2"></td>
                             <td></td>
-                            <td>Board</td>
+                            <td id="btn_board_menu_text">Board</td>
                         </tr>
-                        <tr>
+                        <tr id="btn_add_task_menu" onclick="selectedMenuButton(3)">
                             <td><img src=".\assets\img/img_add_task.png" id="img_add_task1"><img src=".\assets\img/img_add_task_w.png" id="img_add_task2"></td>
                             <td></td>
-                            <td>Add Task</td>
+                            <td id="btn_add_task_menu_text">Add Task</td>
                         </tr>
-                        <tr>
+                        <tr id="btn_contacts_menu" onclick="selectedMenuButton(4)">
                             <td><img src=".\assets\img/img_contacts.png" id="img_contacts1"><img src=".\assets\img/img_contacts_w.png" id="img_contacts2"></td>
                             <td></td>
-                            <td>Contacts</td>
+                            <td id="btn_contacts_menu_text">Contacts</td>
                         </tr>
                     </table>
                 </nav>
