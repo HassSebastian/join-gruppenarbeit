@@ -1,0 +1,349 @@
+body {
+    margin: 0;
+    user-select: none;
+}
+
+.logIn {
+    position: relative;
+    width: 1440px;
+    height: 1024px;
+    background: #F6F7F8;
+}
+
+.notAJoinUser {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 35px;
+
+    position: absolute;
+    width: 287px;
+    height: 51px;
+    left: 1039px;
+    top: 67px;
+}
+
+.notAJoinUser span {
+    /* Not a Join user? */
+    width: 161px;
+    height: 25px;
+    /* Version 2/t6 */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
+    color: #000000;
+}
+
+.notAJoinUser button {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 16px;
+    gap: 10px;
+    width: 91px;
+    height: 51px;
+    background: #2A3647;
+    border-radius: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 120%;
+    /* or 19px */
+    color: #FFFFFF;
+}
+
+.joinLogo {
+    position: absolute;
+    left: 5.35%;
+    right: 87.71%;
+    top: 7.81%;
+    bottom: 80.28%;
+}
+
+.innerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px 0px;
+    gap: 35px;
+    position: absolute;
+    width: 652px;
+    height: 513px;
+    left: 394px;
+    top: 274px;
+    /* white */
+    background: #FFFFFF;
+    /* shadoe backlog box */
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+}
+
+.logInContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 24px;
+    width: 315px;
+    height: 97px;
+}
+
+.logInContainer span {
+    width: 315px;
+    height: 73px;
+    /* Version 2/t1 */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    /* or 73px */
+    text-align: center;
+    color: #000000;
+}
+
+.logInContainer div {
+    width: 150px;
+    height: 0px;
+    border: 3px solid #29ABE2;
+    transform: rotate(180deg);
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 29px;
+    width: 422px;
+    height: 171px;
+}
+
+.outEmailContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 422px;
+    height: 71px;
+}
+
+.container {
+    box-sizing: border-box;
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 422px;
+    height: 51px;
+    background: #FFFFFF;
+    /* Style */
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+}
+
+.innerEmailContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    width: 380px;
+    height: 25px;
+}
+
+.innerEmailContainer span {
+    width: 53px;
+    height: 25px;
+    /* Version 2/t6 */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
+    /* Style */
+    color: #D1D1D1;
+}
+
+.innerEmailContainer img {
+    width: 20px;
+    height: 18px;
+    /* icon */
+    /* background: #A8A8A8; */
+}
+
+.outPasswordContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 422px;
+    height: 71px;
+}
+
+.innerPasswordContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    width: 380px;
+    height: 25px;
+}
+
+.innerPasswordContainer span {
+    width: 97px;
+    height: 25px;
+    /* Version 2/t6 */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
+    /* Style */
+    color: #D1D1D1;
+}
+
+.innerPasswordContainer img {
+    width: 18px;
+    height: 21px;
+    /* icon */
+    /* background: #A8A8A8; */
+}
+
+.rememberMeContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 35px;
+    width: 335px;
+    height: 19px;
+}
+
+.rememberMeBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 20px;
+    width: 146px;
+    height: 19px;
+}
+
+.rememberMeBox div {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+}
+
+.rememberMeBox span {
+    width: 110px;
+    height: 19px;
+    /* Version 2/body */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    /* or 19px */
+    color: #000000;
+}
+
+.forgotPassword {
+    width: 154px;
+    height: 19px;
+    /* Version 2/body */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    /* or 19px */
+    /* Ligth blue */
+    color: #29ABE2;
+}
+
+.logInButtonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 35px;
+    width: 341px;
+    height: 51px;
+}
+
+.logInButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 0px;
+    gap: 10px;
+    width: 145px;
+    height: 51px;
+    background: #2A3647;
+    border-radius: 8px;
+}
+
+.logInButton span {
+    width: 62px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
+    color: #FFFFFF;
+}
+
+.guestButton {
+    box-sizing: border-box;
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 16px;
+    gap: 10px;
+    width: 161px;
+    height: 51px;
+    /* Version 2/ main color */
+    border: 1px solid #2A3647;
+    border-radius: 8px;
+}
+
+.guestButton span {
+    width: 129px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
+    /* Version 2/ main color */
+    color: #2A3647;
+}
