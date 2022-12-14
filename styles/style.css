@@ -13,7 +13,6 @@ body{
     align-items: center;
     max-width: 1920px;
     width: 100%;
-    margin: 16px 16px;
 }
 
 .main-container{
@@ -21,7 +20,7 @@ body{
     justify-content: flex-start;
     height: 1024px;
     width: 1440px;
-    margin: 16px 16px;
+    /* margin: 16px 16px; */
 }
 
 .side-menu{
@@ -60,8 +59,106 @@ td{
     gap: 15px;
 }
 
-td:first-child{
-    width: 26px;
+tr td:first-child{
+    /* 26px */
+    width: 108.5px;
+    text-align: right;
+}
+
+tr td:nth-child(2){
+
+    width: 15px;
+}
+
+tr td:nth-child(3){
+    width: 108.5px;
+}
+
+
+#img_summary1{
+    display: inline-table;
+}
+
+#img_summary2{
+    display: none;
+}
+
+#img_board1{
+    display: inline-table;
+}
+
+#img_board2{
+    display: none;
+}
+
+#img_add_task1{
+    display: inline-table;
+}
+
+#img_add_task2{
+    display: none;
+}
+
+#img_contacts1{
+    display: inline-table;
+}
+
+#img_contacts2{
+    display: none;
+}
+
+/* hover css classes */
+tr:hover{
+    background-color: #091931;
+}
+
+tr:hover td:nth-child(3){
+    color: #FFFFFF;
+}
+
+tr:hover td:nth-child(1) #img_summary1{
+   display: none;
+}
+
+tr:hover td:nth-child(1) #img_summary2{
+    display: inline-table;
+}
+
+tr:hover td:nth-child(1) #img_board1{
+    display: none;
+ }
+ 
+ tr:hover td:nth-child(1) #img_board2{
+     display: inline-table;
+ }
+
+ tr:hover td:nth-child(1) #img_add_task1{
+    display: none;
+ }
+ 
+ tr:hover td:nth-child(1) #img_add_task2{
+     display: inline-table;
+ }
+
+ tr:hover td:nth-child(1) #img_contacts1{
+    display: none;
+ }
+ 
+ tr:hover td:nth-child(1) #img_contacts2{
+     display: inline-table;
+ }
+
+
+/* hover css classes end */
+
+
+
+
+
+
+
+.legal_notice{
+    height: 53px;
 }
 
 .right-container{
