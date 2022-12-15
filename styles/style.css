@@ -8,7 +8,7 @@ body {
 
 /* destop view */
 .outer-container {
-    
+    overflow: hidden;
 }
 
 .main-container {
