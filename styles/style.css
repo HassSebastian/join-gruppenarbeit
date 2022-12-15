@@ -242,3 +242,50 @@ tr td:nth-child(3) {
     border-radius: 100%;
 }
 /* destop template view end */
+
+/* responsiv classes destop template */
+@media screen and (max-width: 1500px) {
+    .member-menu {
+        width: 956px;
+    }
+    .content{
+        width: 1108px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .member-menu {
+        width: 856px;
+    }
+    .content{
+        width: 1008px;
+    } 
+}
+
+@media screen and (max-width: 1300px) {
+    .member-menu {
+        width: 756px;
+    }
+    .content{
+        width: 908px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .member-menu {
+        width: 656px;
+    }
+    .content{
+        width: 808px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .member-menu {
+        width: 556px;
+    }
+    .content{
+        width: 708px;
+    }
+}
+/* responsiv classes destop template end*/
