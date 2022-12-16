@@ -19,38 +19,38 @@ async function renderSummary() {
             <h3>Sofia Müller</h3>
         </div>
         <div class="overview">
-            <div class='task_overview'>
-                <button id='taskInBoard'><span id='taskInBoardAmount'>5</span> <p>Task in Board</p></button>
-                <button id='taskInProgress'><span id='taskInProgressAmount'>2</span> <p>Task in Progress</p></button>
-                <button id='awaitingFeedback'><span id='awaitingFeedbackAmount'>2</span> <p>Awaiting Feedback</p></button>
+            <div class='taskOverview'>
+                <div id='taskInBoard'><span id='taskInBoardAmount'>5</span> <p>Task in Board</p></div>
+                <div id='taskInProgress'><span id='taskInProgressAmount'>2</span> <p>Task in Progress</p></div>
+                <div id='awaitingFeedback'><span id='awaitingFeedbackAmount'>2</span> <p>Awaiting Feedback</p></div>
             </div>
-            <div class='ugency_summary'>
-                <div class="frame67">
-                    <div class='frame59'>
-                        <img class='group7' src='./assets/img/summary_urgent.png' >
+            <div class='ugencySummary'>
+                <div class="ugent">
+                    <div class='ugentImgContainer'>
+                        <img class='ugentImg' src='./assets/img/summary_urgent.png' >
                     </div>
-                    <div class='frame63'>
+                    <div class='ugentAmount'>
                         <span >1</span>
                         <p>Urgent</p>
                     </div>
-                    <img src='./assets/img/vertical_line2' class='vector5'>
+                    <img src='./assets/img/vertical_line2' class='ugentVerticalLine'>
                 </div>
-                <div class='frame68'>
+                <div class='deadlineData'>
                     <p id='deadlineDate'>October 16, 2022</p> 
                     <p class='deadlineText'>Upcoming Deadline</p> 
                 </div>
             </div>
-            <div class='to_do'>
-                <div id='toDo'>
+            <div class='toDoData'>
+                <div class='toDo'>
                     <img src='./assets/img/to_do_pen.png' alt="">
-                    <div class='frame62'>
+                    <div class='toDoAmountData'>
                         <span>1</span>
                         <p>to-Do</p>
                     </div>
                 </div>
-                <div id='toDoDone'>
+                <div class='toDoDone'>
                     <img src='./assets/img/done.png' alt="">
-                    <div class='frame62'>
+                    <div class='toDoAmountData'>
                         <span>1</span>
                         <p>Done</p>
                     </div>
