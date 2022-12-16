@@ -142,38 +142,6 @@
     flex-grow: 0;
 }
 
-.ugency_summary {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 28px 48px;
-    gap: 61px;
-    width: 484px;
-    height: 150px;
-    background: #FFFFFF;
-    /* nuevo */
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 30px;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-}
-
-.to_do {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-    gap: 35px;
-    width: 580px;
-    height: 150px;
-    flex: none;
-    order: 2;
-    flex-grow: 0;
-}
-
 #taskInBoard {
     display: flex;
     flex-direction: column;
@@ -269,6 +237,26 @@
     margin-block-end: 0px;
 }
 
+.ugency_summary {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 28px 48px;
+    gap: 61px;
+    width: 484px;
+    /* before 150px */
+    height: 94px;
+    background: #FFFFFF;
+    /* nuevo */
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
 .frame67 {
     display: flex;
     flex-direction: row;
@@ -296,6 +284,14 @@
     flex-grow: 0;
 }
 
+.group7 {
+    width: 60px;
+    height: 60px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
 .frame63 {
     display: flex;
     flex-direction: column;
@@ -307,6 +303,37 @@
     flex: none;
     order: 1;
     flex-grow: 0;
+}
+
+.frame63 span {
+    width: 50px;
+    height: 56px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 47px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.frame63 p {
+    width: 52px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #2A3647;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
 }
 
 .vector5 {
@@ -329,4 +356,121 @@
     flex: none;
     order: 2;
     flex-grow: 0;
+}
+
+#deadlineDate {
+    width: 178px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    color: #2A3647;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+.deadlineText {
+    width: 148px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #2A3647;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+/* to do classes */
+.to_do {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 35px;
+    width: 580px;
+    height: 150px;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+#toDo,
+#toDoDone {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 38px 19px;
+    gap: 18px;
+    /* before 272.5px */
+    width: 234.5px;
+    /* before 150px */
+    height: 74px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+#toDo img,
+#toDoDone img{
+    /* position: absolute; */
+    width: 69px;
+    height: 69px;
+    left: 0px;
+    top: 0px;
+}
+
+
+.frame62 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    width: 60px;
+    height: 102px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.frame62 span {
+    width: 31px;
+    height: 77px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.frame62 p {
+    width: 60px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #2A3647;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
 }

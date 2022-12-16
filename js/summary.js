@@ -24,8 +24,38 @@ async function renderSummary() {
                 <button id='taskInProgress'><span id='taskInProgressAmount'>2</span> <p>Task in Progress</p></button>
                 <button id='awaitingFeedback'><span id='awaitingFeedbackAmount'>2</span> <p>Awaiting Feedback</p></button>
             </div>
-            <div class='ugency_summary'></div>
-            <div class='to_do'></div>
+            <div class='ugency_summary'>
+                <div class="frame67">
+                    <div class='frame59'>
+                        <img class='group7' src='./assets/img/summary_urgent.png' >
+                    </div>
+                    <div class='frame63'>
+                        <span >1</span>
+                        <p>Urgent</p>
+                    </div>
+                    <img src='./assets/img/vertical_line2' class='vector5'>
+                </div>
+                <div class='frame68'>
+                    <p id='deadlineDate'>October 16, 2022</p> 
+                    <p class='deadlineText'>Upcoming Deadline</p> 
+                </div>
+            </div>
+            <div class='to_do'>
+                <div id='toDo'>
+                    <img src='./assets/img/to_do_pen.png' alt="">
+                    <div class='frame62'>
+                        <span>1</span>
+                        <p>to-Do</p>
+                    </div>
+                </div>
+                <div id='toDoDone'>
+                    <img src='./assets/img/done.png' alt="">
+                    <div class='frame62'>
+                        <span>1</span>
+                        <p>Done</p>
+                    </div>
+                </div>
+            </div>
         </div>
     `;
 }
