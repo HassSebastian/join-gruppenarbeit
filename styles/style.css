@@ -6,19 +6,18 @@ body {
     background-color: black;
 }
 
-/* destop view */
-.outer-container {
-    overflow: hidden;
+.outerContainer {
+
 }
 
-.main-container {
+.mainContainer {
     display: flex;
     justify-content: flex-start;
     height: 1024px;
     width: 1440px;
 }
 
-.side-menu {
+.sideMenu {
     height: 1024px;
     width: 232px;
     background-color: #2A3647;
@@ -33,7 +32,6 @@ body {
     margin-bottom: 103px;
 }
 
-/* side menu classes */
 nav {
     display: flex;
     align-items: center;
@@ -62,7 +60,6 @@ tr td:first-child {
 }
 
 tr td:nth-child(2) {
-
     width: 15px;
 }
 
@@ -70,112 +67,98 @@ tr td:nth-child(3) {
     width: 108.5px;
 }
 
-
-/* side menu hover css classes */
-#img_summary1 {
+#imgSummary1 {
     display: inline-table;
 }
 
-#img_summary2 {
+#imgSummary2 {
     display: none;
 }
 
-#img_board1 {
+#imgBoard1 {
     display: inline-table;
 }
 
-#img_board2 {
+#imgBoard2 {
     display: none;
 }
 
-#img_add_task1 {
+#imgAddTask1 {
     display: inline-table;
 }
 
-#img_add_task2 {
+#imgAddTask2 {
     display: none;
 }
 
-#img_contacts1 {
+#imgContacts1 {
     display: inline-table;
 }
 
-#img_contacts2 {
+#imgContacts2 {
     display: none;
 }
 
-.tr_hover:hover {
+.trHover:hover {
     background-color: #091931;
     cursor: pointer;
 }
 
-.tr_hover:hover td:nth-child(3) {
+.trHover:hover td:nth-child(3) {
     color: #FFFFFF;
 }
 
-.tr_hover:hover td:nth-child(1) #img_summary1 {
+.trHover:hover td:nth-child(1) #imgSummary1 {
     display: none;
 }
 
-.tr_hover:hover td:nth-child(1) #img_summary2 {
+.trHover:hover td:nth-child(1) #imgSummary2 {
     display: inline-table;
 }
 
-.tr_hover:hover td:nth-child(1) #img_board1 {
+.trHover:hover td:nth-child(1) #imgBoard1 {
     display: none;
 }
 
-.tr_hover:hover td:nth-child(1) #img_board2 {
+.trHover:hover td:nth-child(1) #imgBoard2 {
     display: inline-table;
 }
 
-.tr_hover:hover td:nth-child(1) #img_add_task1 {
+.trHover:hover td:nth-child(1) #imgAddTask1 {
     display: none;
 }
 
-.tr_hover:hover td:nth-child(1) #img_add_task2 {
+.trHover:hover td:nth-child(1) #imgAddTask2 {
     display: inline-table;
 }
 
-.tr_hover:hover td:nth-child(1) #img_contacts1 {
+.trHover:hover td:nth-child(1) #imgContacts1 {
     display: none;
 }
 
-.tr_hover:hover td:nth-child(1) #img_contacts2 {
+.trHover:hover td:nth-child(1) #imgContacts2 {
     display: inline-table;
 }
 
-.img_d-none {
+.imgDisplayNone {
     opacity: 0;
     display: none !important;
 }
 
-.img_display {
+.imgDisplay {
     display: inline-table !important;
     opacity: 1;
 }
 
-.text_color {
-    color: #FFFFFF !important;
-}
-
-.text_color1 {
-    color: #CDCDCD;
-}
-
-/* hover css classes end */
-
-.legal_notice {
+.legalNotice {
     height: 53px;
 }
 
-#btn_legal_notice {
+#btnLegalNotice {
     cursor: pointer;
 }
 
-/* side menu classes end */
-
-.right-container {
+.rightContainer {
     height: 1024px;
     width: 1208px;
 }
@@ -187,8 +170,7 @@ tr td:nth-child(3) {
     color: #000000;
 }
 
-/* member menu */
-.member-menu {
+.memberMenu {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -205,17 +187,16 @@ tr td:nth-child(3) {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
 
-.member-menu h1 {
+.memberMenu h1 {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
     line-height: 120%;
-    /* or 25px */
     color: #000000;
 }
 
-#member-info {
+#memberInfo {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -225,12 +206,12 @@ tr td:nth-child(3) {
     height: 49px;
 }
 
-#member-info img:first-child {
+#memberInfo img:first-child {
     width: 31px;
     height: 31px;
 }
 
-#member-info img:last-child {
+#memberInfo img:last-child {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -241,51 +222,3 @@ tr td:nth-child(3) {
     border: 3px solid #2A3647;
     border-radius: 100%;
 }
-/* destop template view end */
-
-/* responsiv classes destop template */
-@media screen and (max-width: 1500px) {
-    .member-menu {
-        width: 956px;
-    }
-    .content{
-        width: 1108px;
-    }
-}
-
-@media screen and (max-width: 1400px) {
-    .member-menu {
-        width: 856px;
-    }
-    .content{
-        width: 1008px;
-    } 
-}
-
-@media screen and (max-width: 1300px) {
-    .member-menu {
-        width: 756px;
-    }
-    .content{
-        width: 908px;
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    .member-menu {
-        width: 656px;
-    }
-    .content{
-        width: 808px;
-    }
-}
-
-@media screen and (max-width: 1100px) {
-    .member-menu {
-        width: 556px;
-    }
-    .content{
-        width: 708px;
-    }
-}
-/* responsiv classes destop template end*/

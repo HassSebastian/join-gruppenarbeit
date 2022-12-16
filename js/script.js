@@ -4,31 +4,31 @@ let menuSelectorStyles = [
         'disabledBackground': 'background-color: default;',
         'color': 'color: #FFFFFF;',
         'color1': 'color: default;',
-        'enableImg': 'img_display',
-        'disableImg': 'img_d-none',
+        'enableImg': 'imgDisplay',
+        'disableImg': 'imgDisplayNone',
     },
     {
         'menuName': 'btn_summary_menu',
-        'img1Id': 'img_summary1',
-        'img2Id': 'img_summary2',
+        'img1Id': 'imgSummary1',
+        'img2Id': 'imgSummary2',
     },
     {
         'menuName': 'btn_board_menu',
-        'img1Id': 'img_board1',
-        'img2Id': 'img_board2',
+        'img1Id': 'imgBoard1',
+        'img2Id': 'imgBoard2',
     },
     {
         'menuName': 'btn_add_task_menu',
-        'img1Id': 'img_add_task1',
-        'img2Id': 'img_add_task2',
+        'img1Id': 'imgAddTask1',
+        'img2Id': 'imgAddTask2',
     },
     {
         'menuName': 'btn_contacts_menu',
-        'img1Id': 'img_contacts1',
-        'img2Id': 'img_contacts2',
+        'img1Id': 'imgContacts1',
+        'img2Id': 'imgContacts2',
     },
     {
-        'menuName': 'btn_legal_notice',
+        'menuName': 'btnLegalNotice',
     }
 
 ];
