@@ -1,4 +1,4 @@
-async function init_summary() {
+async function initSummary() {
     await includeHTML();
     selectedMenuButton(1);
     renderSummary();
