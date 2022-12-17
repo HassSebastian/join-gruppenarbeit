@@ -1,6 +1,6 @@
 async function initLegalNotice() {
     await includeHTML();
-    selectedMenuButton(1);
+    selectedMenuButton(5);
     renderLegalNotice();
 }
 

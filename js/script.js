@@ -11,6 +11,7 @@ let menuSelectorStyles = [
         'menuName': 'btn_summary_menu',
         'img1Id': 'imgSummary1',
         'img2Id': 'imgSummary2',
+        'url': './summary.html',
     },
     {
         'menuName': 'btn_board_menu',
@@ -29,8 +30,8 @@ let menuSelectorStyles = [
     },
     {
         'menuName': 'btnLegalNotice',
+        'url': './legalNotice.html',
     }
-
 ];
 
 let selectedMenuBtnId;
@@ -131,5 +132,16 @@ function legalNoticeSelected(){
     return selectedMenuBtnId == 5
 }
 
+async function openSubPage(menuId){
+    let url = menuSelectorStyles[menuId]['url'];
+    let target = '_parent'
+    await window.open(url, target);
+}
+
+
+function renderList(){
+    renderSummary();
+    renderLegalNotice()
+}
 
 
