@@ -1,0 +1,119 @@
+body{
+    margin: 0;
+    user-select: none;
+}
+.overlayAdd{
+    position: relative;
+width: 1212px;
+height: 594px;
+background: #FFFFFF;
+border-radius: 30px;
+}
+.blackSite{
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 66px 46px;
+gap: 12px;
+isolation: isolate;
+position: absolute;
+width: 463px;
+height: 594px;
+border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;
+left: 0px;
+top: 0px;
+background: #2A3647;
+}
+.fontAddContact{
+    width: 366px;
+height: 73px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 61px;
+line-height: 120%;
+color: #FFFFFF;
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+}
+.fontTaskArBetter{
+    width: 371px;
+height: 32px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 27px;
+line-height: 120%;
+color: #FFFFFF;
+flex: none;
+order: 1;
+flex-grow: 0;
+z-index: 1;
+}
+.vector{
+    width: 0px;
+height: 90px;
+border: 3px solid #29ABE2;
+transform: rotate(90deg);
+margin-left: 46px;
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+}
+.logoContainer{
+    position: absolute;
+left: 10.04%;
+right: 78.05%;
+top: 25.93%;
+bottom: 62.88%;
+flex: none;
+order: 3;
+flex-grow: 0;
+z-index: 3;
+}
+.logo{
+    position: absolute;
+left: 10.04%;
+right: 78.05%;
+top: 25.93%;
+bottom: 62.88%;
+}
+.close_logo{
+    position: absolute;
+width: 21.65px;
+height: 21.65px;
+left: 1141.31px;
+top: 26px;
+transform: rotate(90deg);
+}
+.name_logo_outContainer{
+    position: absolute;
+width: 120px;
+height: 120px;
+left: 533px;
+top: 204px;
+}
+.name_logo_inContainer{
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+isolation: isolate;
+position: absolute;
+width: 120px;
+height: 120px;
+left: 533px;
+top: 204px;
+background: #FFFFFF;
+border: 3px solid #FFFFFF;
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+border-radius: 70px;
+}
+<!-- NICHT FERTIG -->
