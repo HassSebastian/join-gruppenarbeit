@@ -4,6 +4,7 @@ body {
     user-select: none;
     color: white;
     background-color: black;
+    font-family: 'inter-regular';
 }
 
 .outerContainer {
