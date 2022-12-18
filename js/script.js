@@ -41,7 +41,8 @@ let includeAttribute = 'w3-include-html';
 
 async function init() {
     await includeHTML();
-    selectedMenuButton(1);
+    // selectedMenuButton(1);
+    initSummary();
 }
 
 

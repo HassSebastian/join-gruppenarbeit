@@ -3,19 +3,19 @@
         <img src=".\assets\img/join_logo.png" class="logo">
         <nav>
             <table>
-                <tr class="trHover" id="btn_summary_menu" onclick="openSubPage(1)">
+                <tr class="trHover" id="btn_summary_menu" onclick="initSummary()">
                     <td><img src=".\assets\img/img_summary.png" id="imgSummary1"><img
                             src=".\assets\img/img_summary_w.png" id="imgSummary2"></td>
                     <td></td>
                     <td id="btn_summary_menu_text">Summary</td>
                 </tr>
-                <tr class="trHover" id="btn_board_menu" onclick="openSubPage(2)">
+                <tr class="trHover" id="btn_board_menu" onclick="initBoard()">
                     <td><img src=".\assets\img/img_board.png" id="imgBoard1"><img src=".\assets\img/img_board_w.png"
                             id="imgBoard2"></td>
                     <td></td>
                     <td id="btn_board_menu_text">Board</td>
                 </tr>
-                <tr class="trHover" id="btn_add_task_menu" onclick="openSubPage(3)">
+                <tr class="trHover" id="btn_add_task_menu" onclick="initAddTask()">
                     <td><img src=".\assets\img/img_add_task.png" id="imgAddTask1"><img
                             src=".\assets\img/img_add_task_w.png" id="imgAddTask2"></td>
                     <td></td>
@@ -31,7 +31,7 @@
         </nav>
         <nav class="legalNotice">
             <table>
-                <tr id="btnLegalNotice" onclick="openSubPage(5)" title="Legal Notice">
+                <tr id="btnLegalNotice" onclick="initLegalNotice()" title="Legal Notice">
                     <td><img src="./assets/img/i.png" alt="Legal Notice"></td>
                     <td></td>
                     <td>Legal notice</td>

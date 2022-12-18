@@ -82,7 +82,7 @@ async function renderAddTask() {
         </div>
         <div class='addTaskPrio'>
             <h3>Prio</h3>
-            <div class='prio'>
+            <div class='addTaskPrioIcons'>
                 <div class='addTaskUrgent'>
                     <span>Urgent</span>
                     <img src="../assets/img/urgent_arrows.png">
