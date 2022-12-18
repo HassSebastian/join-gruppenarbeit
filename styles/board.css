@@ -1,7 +1,3 @@
-body {
-    margin: 0;
-    user-select: none;
-}
 
 .board {
     position: relative;
@@ -217,13 +213,14 @@ body {
     padding: 0px;
     gap: 35px;
     position: absolute;
-    width: 250px;
+    width: 230px;
     height: 30px;
+    left: 828px;
     top: 0px;
-}
+    }
 
 .menu span {
-    width: 185px;
+    width: max-content;
     height: 25px;
     font-family: 'Inter';
     font-style: normal;
@@ -233,8 +230,7 @@ body {
     color: #2A3647;
     flex: none;
     order: 0;
-    flex-grow: 0;
-}
+    flex-grow: 0;}
 
 .menuPlusButton {
     box-sizing: border-box;
@@ -250,6 +246,13 @@ body {
     border-radius: 10px;
     flex: none;
     order: 1;
+    flex-grow: 0;
+}
+.menuPlusButton img {
+    width: 15px;
+    height: 15px;
+    flex: none;
+    order: 0;
     flex-grow: 0;
 }
 
@@ -289,12 +292,11 @@ body {
     align-items: center;
     padding: 0px;
     gap: 35px;
-    width: 20%;
+    width: 250px;
     height: 661px;
     flex: none;
     order: 0;
-    flex-grow: 0;
-}
+    flex-grow: 0;}
 
 .taskBackground {
     display: flex;
@@ -369,4 +371,160 @@ body {
 
 .marketing {
     background: #0038FF;
+}
+
+.taskHeadline{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+width: 207px;
+height: 67px;
+border-radius: 10px;
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+.taskHeadlineContent{
+    width: 137px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 120%;
+    color: #2A3647;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.taskContent{
+    width: 207px;
+height: 38px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 120%;
+color: #A8A8A8;
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+.doneBar{
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 20px;
+width: 209px;
+height: 14px;
+flex: none;
+order: 2;
+flex-grow: 0;
+}
+.doneBar div{
+    width: 138px;
+height: 8px;
+background: #F4F4F4;
+border-radius: 2px;
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+.doneBar span{
+    width: 51px;
+height: 14px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 120%;
+color: #000000;
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+.contributorsPrio{
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 83px;
+width: 207px;
+height: 35px;
+flex: none;
+order: 3;
+flex-grow: 0;
+}
+.contributorsLogoContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    width: 93px;
+    height: 35px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.contributorsLogoBlue{
+    box-sizing: border-box;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 10px 8px;
+gap: 10px;
+width: 35px;
+height: 35px;
+background: #0190E0;
+border: 1px solid #FFFFFF;
+border-radius: 58px;
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px -6px;
+}
+.contributorsLogoPink{
+    box-sizing: border-box;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 10px 8px;
+gap: 10px;
+width: 35px;
+height: 35px;
+background: #EE00D6;
+border: 1px solid #FFFFFF;
+border-radius: 58px;
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px -6px;
+}
+.contributorsLogoGreen{
+    box-sizing: border-box;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 10px 8px;
+gap: 10px;
+width: 35px;
+height: 35px;
+background: #02CF2F;
+border: 1px solid #FFFFFF;
+border-radius: 58px;
+flex: none;
+order: 2;
+flex-grow: 0;
+}
+.prio{
+    
 }
