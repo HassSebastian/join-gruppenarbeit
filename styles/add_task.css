@@ -270,7 +270,7 @@
     margin-block-end: 0px;
 }
 
-.addTaskAddDescriptenBox input {
+/* .addTaskAddDescriptenBox input {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -286,6 +286,30 @@
     flex: none;
     order: 1;
     flex-grow: 0;
+} */
+
+.addTaskAddDescriptenBox textarea {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 18px 21px;
+    gap: 10px;
+    isolation: isolate;
+    width: 422px;
+    height: 119px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #D1D1D1;
 }
 
 .addTaskAddCategoryBox {

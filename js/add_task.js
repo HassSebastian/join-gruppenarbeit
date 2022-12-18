@@ -33,7 +33,7 @@ async function renderAddTask() {
 
         <div class='addTaskAddDescriptenBox'>
             <h3>Descripten</h3>
-            <input type="text" placeholder=''>
+            <textarea type="text" placeholder='Enter Descripten'></textarea>
         </div>
 
         <div class='addTaskAddCategoryBox'>
