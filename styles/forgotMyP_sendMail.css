@@ -109,6 +109,20 @@ body {
     flex-grow: 0;
 }
 
+.required {
+    width: 119px;
+    height: 12px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    flex: none;
+    color: red;
+    order: 1;
+    flex-grow: 0;
+}
+
 .container {
     box-sizing: border-box;
     display: flex;
