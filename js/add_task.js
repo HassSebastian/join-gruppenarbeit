@@ -63,11 +63,50 @@ async function renderAddTask() {
                 <li>Assign 3</li>
             </ul>
         </div>
+    </div>
 
-
-
+    <div class='vector4'>
 
     </div>
+
+    <div class='frame43'>
+        <div class='frame39'>
+            <h3>Due date</h3>
+            <input type="date">
+            <span>This field is required</span>
+        </div>
+        <div class='frame28'>
+            <h3>Prio</h3>
+            <div class='prio'>
+                <div class='frame14'>
+                    <span>Urgent</span>
+                    <img src="../assets/img/urgent_arrows.png">
+                </div>
+                <div class='frame25'>
+                    <span>Medium</span>
+                    <img src="../assets/img/prio_medium.png">
+                </div>
+                <div class='frame26'>
+                    <span>Low</span>
+                    <img src="../assets/img/prio_low.png">
+                </div>
+            </div>
+        </div>
+        <div class='subtask'>
+            <h3>Subtask</h3>
+            <div>
+                <input type="text" placeholder='Add new subtask'>
+                <img src="../assets/img/add_cross.png">
+            </div>
+            <div class='frame37'>
+                <input type="checkbox">
+                <span>Subtask</span>
+            </div>
+            
+        </div>
+    </div>
+
+    
 
     
     `;
