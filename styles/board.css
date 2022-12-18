@@ -1,4 +1,3 @@
-
 .board {
     position: relative;
     width: 1440px;
@@ -201,7 +200,7 @@
     position: absolute;
     width: 1058px;
     height: 30px;
-    left: 45px;
+    left: 35px;
     bottom: 11px;
 }
 
@@ -211,13 +210,13 @@
     justify-content: space-between;
     align-items: center;
     padding: 0px;
-    gap: 35px;
+    gap: 6px;
     position: absolute;
     width: 230px;
     height: 30px;
     left: 828px;
     top: 0px;
-    }
+}
 
 .menu span {
     width: max-content;
@@ -230,7 +229,8 @@
     color: #2A3647;
     flex: none;
     order: 0;
-    flex-grow: 0;}
+    flex-grow: 0;
+}
 
 .menuPlusButton {
     box-sizing: border-box;
@@ -248,6 +248,7 @@
     order: 1;
     flex-grow: 0;
 }
+
 .menuPlusButton img {
     width: 15px;
     height: 15px;
@@ -290,13 +291,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0px;
-    gap: 35px;
+    padding: 36px 0;
     width: 250px;
     height: 661px;
     flex: none;
     order: 0;
-    flex-grow: 0;}
+    flex-grow: 0;
+}
 
 .taskBackground {
     display: flex;
@@ -305,11 +306,12 @@
     align-items: center;
     padding: 18px 19px;
     gap: 10px;
-    width: 250px;
+    width: 212px;
     height: 239px;
     background: #FFFFFF;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
+    /* margin-top: 36px; */
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -373,20 +375,25 @@
     background: #0038FF;
 }
 
-.taskHeadline{
-    display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding: 0px;
-gap: 10px;
-width: 207px;
-height: 67px;
-border-radius: 10px;
-flex: none;
-order: 0;
-flex-grow: 0;
+.media {
+    background: #FFC701;
 }
-.taskHeadlineContent{
+
+.taskHeadline {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+    width: 207px;
+    height: 67px;
+    border-radius: 10px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.taskHeadlineContent {
     width: 137px;
     height: 19px;
     font-family: 'Inter';
@@ -399,68 +406,75 @@ flex-grow: 0;
     order: 0;
     flex-grow: 0;
 }
-.taskContent{
+
+.taskContent {
     width: 207px;
-height: 38px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 120%;
-color: #A8A8A8;
-flex: none;
-order: 1;
-flex-grow: 0;
+    height: 38px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #A8A8A8;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
 }
-.doneBar{
+
+.doneBar {
     display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 0px;
-gap: 20px;
-width: 209px;
-height: 14px;
-flex: none;
-order: 2;
-flex-grow: 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 20px;
+    width: 209px;
+    height: 14px;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
 }
-.doneBar div{
+
+.doneBar div {
     width: 138px;
-height: 8px;
-background: #F4F4F4;
-border-radius: 2px;
-flex: none;
-order: 0;
-flex-grow: 0;
+    height: 8px;
+    /* background: #F4F4F4; */
+    background: #29ABE2;
+    border-radius: 2px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
-.doneBar span{
+
+.doneBar span {
     width: 51px;
-height: 14px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 120%;
-color: #000000;
-flex: none;
-order: 1;
-flex-grow: 0;
+    height: 14px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
 }
-.contributorsPrio{
+
+.contributorsPrio {
     display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 0px;
-gap: 83px;
-width: 207px;
-height: 35px;
-flex: none;
-order: 3;
-flex-grow: 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 83px;
+    width: 207px;
+    height: 35px;
+    flex: none;
+    order: 3;
+    flex-grow: 0;
 }
-.contributorsLogoContainer{
+
+.contributorsLogoContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -472,59 +486,95 @@ flex-grow: 0;
     order: 0;
     flex-grow: 0;
 }
-.contributorsLogoBlue{
+
+.contributorsLogo {
     box-sizing: border-box;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 10px 8px;
-gap: 10px;
-width: 35px;
-height: 35px;
-background: #0190E0;
-border: 1px solid #FFFFFF;
-border-radius: 58px;
-flex: none;
-order: 0;
-flex-grow: 0;
-margin: 0px -6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 8px;
+    gap: 10px;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #FFFFFF;
+    border-radius: 58px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px -6px;
 }
-.contributorsLogoPink{
-    box-sizing: border-box;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 10px 8px;
-gap: 10px;
-width: 35px;
-height: 35px;
-background: #EE00D6;
-border: 1px solid #FFFFFF;
-border-radius: 58px;
-flex: none;
-order: 1;
-flex-grow: 0;
-margin: 0px -6px;
+
+.contributorsLogo span {
+    width: 15px;
+    height: 14px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
-.contributorsLogoGreen{
-    box-sizing: border-box;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 10px 8px;
-gap: 10px;
-width: 35px;
-height: 35px;
-background: #02CF2F;
-border: 1px solid #FFFFFF;
-border-radius: 58px;
-flex: none;
-order: 2;
-flex-grow: 0;
+
+.blue {
+    background: #0190E0;
 }
-.prio{
-    
+
+.pink {
+    background: #EE00D6;
+}
+
+.litegreen {
+    background: #02CF2F;
+}
+
+.yellow {
+    background: #FFA800;
+}
+
+.lila {
+    background: #9327FF;
+}
+
+.black {
+    background: #2A3647;
+}
+
+.orange {
+    background: #FF5C00;
+}
+
+.green {
+    background: #4E963D;
+}
+
+.liteblue {
+    background: #32DAFF;
+}
+
+.prio {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 18px;
+    gap: 10px;
+    width: 32px;
+    height: 32px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.prio img {
+    width: 17px;
+    height: 12px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }

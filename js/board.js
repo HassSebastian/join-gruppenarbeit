@@ -37,41 +37,6 @@ async function renderBoard() {
 
     </div>
 
-    <div class="menuOverlay">
-
-        <div class="menuTask">
-
-            <div class="menu done">
-                <span>Done</span>
-                <button class="menuPlusButton">
-                    <img src="./assets/img/plus_logo_black.png">
-                </button>
-            </div>
-
-            <div class="menu feedback">
-                <span>Anwaiting Feedback</span>
-                <button class="menuPlusButton">
-                    <img src="./assets/img/plus_logo_black.png">
-                </button>
-            </div>
-
-            <div class="menu progress">
-                <span>In progress</span>
-                <button class="menuPlusButton">
-                    <img src="./assets/img/plus_logo_black.png">
-                </button>
-            </div>
-
-            <div class="menu todo">
-                <span>To do</span>
-                <button class="menuPlusButton">
-                    <img src="./assets/img/plus_logo_black.png">
-                </button>
-            </div>
-
-        </div>
-
-    </div>
 
     <div class="canbanBoard">
 
@@ -102,24 +67,24 @@ async function renderBoard() {
 
                     <div class="contributorsPrio">
                         <div class="contributorsLogoContainer">
-                            <div class="contributorsLogoBlue">
+                            <div class="contributorsLogo blue">
                                 <span>SM</span>
                             </div>
-                            <div class="contributorsLogoPink">
+                            <div class="contributorsLogo pink">
                                 <span>MV</span>
                             </div>
-                            <div class="contributorsLogoGreen">
+                            <div class="contributorsLogo litegreen">
                                 <span>EF</span>
                             </div>
                         </div>
 
                         <div class="prio">
+                            <img src="./assets/img/low.png">
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
-
         </div>
 
         <div class="canbanContainer">
@@ -136,6 +101,30 @@ async function renderBoard() {
                     <div class="taskKategorie sales">
                         <span>Sales</span>
                     </div>
+                    <div class="taskHeadline">
+                    <span class="taskHeadlineContent">Website redesign</span>
+                    <span class="taskContent">Modify the contents of the main website...</span>
+                </div>
+
+                <div class="contributorsPrio">
+                    <div class="contributorsLogoContainer">
+                        <div class="contributorsLogo yellow">
+                            <span>AS</span>
+                        </div>
+                        <div class="contributorsLogo lila">
+                            <span>DE</span>
+                        </div>
+                        <div class="contributorsLogo black">
+                            <span>+2</span>
+                        </div>
+                    </div>
+
+                    <div class="prio">
+                        <img src="./assets/img/urgent.png">
+                    </div>
+
+                </div>
+
                 </div>
             </div>
 
@@ -155,9 +144,60 @@ async function renderBoard() {
                     <div class="taskKategorie backoffice">
                         <span>Backoffice</span>
                     </div>
+                    <div class="taskHeadline">
+                        <span class="taskHeadlineContent">Website redesign</span>
+                        <span class="taskContent">Modify the contents of the main website...</span>
+                    </div>
+
+                    <div class="contributorsPrio">
+                        <div class="contributorsLogoContainer">
+                            <div class="contributorsLogo orange">
+                                <span>MB</span>
+                            </div>
+                            <div class="contributorsLogo pink">
+                                <span>AM</span>
+                            </div>
+                            <div class="contributorsLogo black">
+                                <span>+3</span>
+                            </div>
+                        </div>
+
+                        <div class="prio">
+                            <img src="./assets/img/medium.png">
+                        </div>
+
+                    </div>
+
                 </div>
+
             </div>
 
+            <div class="taskBackground">
+                <div class="taskContainer">
+                    <div class="taskKategorie media">
+                        <span>Media</span>
+                    </div>
+                    <div class="taskHeadline">
+                        <span class="taskHeadlineContent">Video cut</span>
+                        <span class="taskContent">Edit the new company video</span>
+                    </div>
+
+                    <div class="contributorsPrio">
+                        <div class="contributorsLogoContainer">
+                            <div class="contributorsLogo blue">
+                                <span>HK</span>
+                            </div>
+                        </div>
+
+                        <div class="prio">
+                            <img src="./assets/img/medium.png">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
         </div>
 
         <div class="canbanContainer">
@@ -174,6 +214,32 @@ async function renderBoard() {
                     <div class="taskKategorie marketing">
                         <span>Marketing</span>
                     </div>
+                    <div class="taskHeadline">
+                    <span class="taskHeadlineContent">Website redesign</span>
+                    <span class="taskContent">Modify the contents of the main website...</span>
+                </div>
+
+                <div class="doneBar">
+                    <div></div>
+                    <span">3/3 Done</span>
+                </div>
+
+                <div class="contributorsPrio">
+                    <div class="contributorsLogoContainer">
+                        <div class="contributorsLogo green">
+                            <span>BZ</span>
+                        </div>
+                        <div class="contributorsLogo liteblue">
+                            <span>RS</span>
+                        </div>
+                    </div>
+
+                    <div class="prio">
+                        <img src="./assets/img/low.png">
+                    </div>
+
+                </div>
+
                 </div>
             </div>
 
