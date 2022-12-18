@@ -54,6 +54,19 @@ async function renderAddTask() {
             </div>
         </div>
 
+        <div class='addTaskAssignedBox' id='addTaskAssignedBox'>
+            <h3>Assigned to</h3>
+            <button onclick=enableDisableAssignList()><span id='selectedAssign'>Select contacts to Assign</span><img src="../assets/img/Vector 2.png" alt=""></button>
+            <ul class="addTaskAssignList listD-none" id="dropdown2">
+                <li>New Assign</li>
+                <li>Assign 2</li>
+                <li>Assign 3</li>
+            </ul>
+        </div>
+
+
+
+
     </div>
 
     
@@ -65,8 +78,10 @@ let catListStatus = false;
 function enableDisableCatList(){
     if (!catListStatus){
         document.getElementById('dropdown').classList.remove('listD-none');
+        document.getElementById('addTaskAssignedBox').classList.add('addMarginTop');
     }else{
         document.getElementById('dropdown').classList.add('listD-none');
+        document.getElementById('addTaskAssignedBox').classList.remove('addMarginTop');
     }
     catListStatus = !catListStatus;
 }
@@ -87,4 +102,15 @@ function selectCategory(catId){
         enableDisableCatList();
         document.getElementById('colorSelection').classList.add('listD-none');
     }
+}
+
+let assignListStatus = false;
+
+function enableDisableAssignList(){
+    if (!assignListStatus){
+        document.getElementById('dropdown2').classList.remove('listD-none');
+    }else{
+        document.getElementById('dropdown2').classList.add('listD-none');
+    }
+    assignListStatus = !assignListStatus;
 }
