@@ -23,6 +23,7 @@ let menuSelectorStyles = [
         'menuName': 'btn_add_task_menu',
         'img1Id': 'imgAddTask1',
         'img2Id': 'imgAddTask2',
+        'url':'./add_task.html'
     },
     {
         'menuName': 'btn_contacts_menu',
