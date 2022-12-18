@@ -2,13 +2,15 @@ body {
     margin: 0;
     user-select: none;
 }
-.board{
+
+.board {
     position: relative;
-width: 1440px;
-height: 1024px;
-overflow-y: scroll;
-background: #F6F7F8;
+    width: 1440px;
+    height: 1024px;
+    overflow-y: scroll;
+    background: #F6F7F8;
 }
+
 .boardOverlay {
     display: flex;
     flex-direction: row;
@@ -48,65 +50,71 @@ background: #F6F7F8;
     order: 0;
     flex-grow: 0;
 }
-.inputOutContainer{
+
+.inputOutContainer {
     display: flex;
-flex-direction: row;
-align-items: flex-start;
-padding: 0px;
-gap: 35px;
-width: 423px;
-height: 51px;
-flex: none;
-order: 1;
-flex-grow: 0;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 35px;
+    width: 423px;
+    height: 51px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
 }
-.inputContainer{
+
+.inputContainer {
     box-sizing: border-box;
-display: flex;
-flex-direction: row;
-align-items: center;
-padding: 13px 21px;
-gap: 10px;
-width: 251px;
-height: 51px;
-background: #FFFFFF;
-border: 1px solid #A8A8A8;
-border-radius: 10px;
-flex: none;
-order: 0;
-flex-grow: 0;
-}
-.inputInContainer{
     display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-padding: 0px;
-gap: 10px;
-width: 226px;
-height: 31px;
-flex: none;
-order: 0;
-flex-grow: 0;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 251px;
+    height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #A8A8A8;
+    border-radius: 10px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
-.vector{
+
+.inputInContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    width: 226px;
+    height: 31px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.vector {
     width: 0px;
-height: 31px;
-border: 1px solid #D1D1D1;
-flex: none;
-margin-left: 60px;
-order: 0;
-flex-grow: 0;
+    height: 31px;
+    border: 1px solid #D1D1D1;
+    flex: none;
+    margin-left: 60px;
+    order: 0;
+    flex-grow: 0;
 }
-.inputInContainer img{
+
+.inputInContainer img {
     width: 20.31px;
-height: 20.31px;
-flex: none;
-order: 1;
-flex-grow: 0;
-padding-right: 16px;
+    height: 20.31px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    padding-right: 16px;
 }
-.inputFontContainer{
+
+.inputFontContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -117,223 +125,248 @@ padding-right: 16px;
     height: 19px;
     flex: none;
     order: 0;
-    flex-grow: 0;}
-.inputFontContainer span{
+    flex-grow: 0;
+}
+
+.inputFontContainer span {
     width: 100px;
-height: 19px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 120%;
-display: flex;
-align-items: center;
-color: #D1D1D1;
-flex: none;
-order: 0;
-flex-grow: 0;
-}
-.addTaskButton{
-    box-sizing: border-box;
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 18px 10px;
-gap: 10px;
-width: 137px;
-height: 51px;
-background: #2A3647;
-border: 1px solid #2A3647;
-border-radius: 10px;
-flex: none;
-order: 1;
-flex-grow: 0;
-}
-.addTaskButton span{
-    width: 92px;
-height: 25px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 21px;
-line-height: 120%;
-color: #FFFFFF;
-flex: none;
-order: 0;
-flex-grow: 0;
-}
-.plusOutContainer{
-    width: 15px;
-height: 15px;
-flex: none;
-order: 1;
-flex-grow: 0;
-}
-.plusInContainer img{
-    position: absolute;
-width: 15px;
-height: 15px;
-left: 112px;
-top: 18px;
-}
-.menuOverlay{
-    position: absolute;
-width: 1145px;
-height: 327px;
-left: 267px;
-top: 57px;
-/* background: #F6F7F8; */
-}
-.menuTask{
-    position: absolute;
-width: 1058px;
-height: 30px;
-left: 45px;
-bottom: 11px;
-}
-.menu{
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
     display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-padding: 0px;
-gap: 35px;
-position: absolute;
-width: 250px;
-height: 30px;
-top: 0px;
+    align-items: center;
+    color: #D1D1D1;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
-.menu span{
-    width: 185px;
-height: 25px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 21px;
-line-height: 120%;
-color: #2A3647;
-flex: none;
-order: 0;
-flex-grow: 0;
-}
-.menuPlusButton{
+
+.addTaskButton {
     box-sizing: border-box;
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 3px;
-gap: 10px;
-width: 30px;
-height: 30px;
-border: 2px solid #2A3647;
-border-radius: 10px;
-flex: none;
-order: 1;
-flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    width: 137px;
+    height: 51px;
+    background: #2A3647;
+    border: 1px solid #2A3647;
+    border-radius: 10px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
 }
-.done{
+
+.addTaskButton span {
+    width: 92px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.plusOutContainer {
+    width: 15px;
+    height: 15px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.plusInContainer img {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 112px;
+    top: 18px;
+}
+
+.menuOverlay {
+    position: absolute;
+    width: 1145px;
+    height: 327px;
+    left: 267px;
+    top: 57px;
+    /* background: #F6F7F8; */
+}
+
+.menuTask {
+    position: absolute;
+    width: 1058px;
+    height: 30px;
+    left: 45px;
+    bottom: 11px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 35px;
+    position: absolute;
+    width: 250px;
+    height: 30px;
+    top: 0px;
+}
+
+.menu span {
+    width: 185px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    color: #2A3647;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.menuPlusButton {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    gap: 10px;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #2A3647;
+    border-radius: 10px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.done {
     left: 828px;
 }
-.feedback{
+
+.feedback {
     left: 552px;
 }
-.progress{
+
+.progress {
     left: 276px;
 }
-.todo{
+
+.todo {
     left: 0px;
 }
-.canbanBoard{
+
+.canbanBoard {
     display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: flex-start;
-padding: 0px;
-gap: 26px;
-position: absolute;
-width: 1078px;
-height: 661px;
-left: 302px;
-top: 343px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 26px;
+    position: absolute;
+    width: 1078px;
+    height: 661px;
+    left: 302px;
+    top: 343px;
 }
-.canbanContainer{
+
+.canbanContainer {
     display: flex;
-flex-direction: column;
-align-items: center;
-padding: 0px;
-gap: 35px;
-width: 20%;
-height: 661px;
-flex: none;
-order: 0;
-flex-grow: 0;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 35px;
+    width: 20%;
+    height: 661px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
-.taskBackground{
+
+.taskBackground {
     display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 18px 19px;
-gap: 10px;
-width: 250px;
-height: 239px;
-background: #FFFFFF;
-box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
-border-radius: 30px;
-flex: none;
-order: 1;
-flex-grow: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 19px;
+    gap: 10px;
+    width: 250px;
+    height: 239px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
 }
-.taskContainer{
+
+.taskContainer {
     display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding: 0px;
-gap: 20px;
-width: 209px;
-height: 203px;
-flex: none;
-order: 0;
-flex-grow: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+    width: 209px;
+    height: 203px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
-.taskKategorie{
+
+.taskKategorie {
     display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 4px 25px;
-gap: 10px;
-width: 50px;
-height: 27px;
-border-radius: 8px;
-flex: none;
-order: 0;
-flex-grow: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 25px;
+    gap: 10px;
+    width: 50px;
+    height: 27px;
+    border-radius: 8px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
-.taskKategorie span{
+
+.taskKategorie span {
     width: max-content;
-height: 19px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 120%;
-color: #FFFFFF;
-flex: none;
-order: 0;
-flex-grow: 0;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
-.design{
+
+.design {
     background: #FF7A00;
 }
-.sales{
+
+.sales {
     background: #FC71FF;
 }
-.backoffice{
+
+.backoffice {
     background: #1FD7C1;
 }
-.marketing{
+
+.marketing {
     background: #0038FF;
 }

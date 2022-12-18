@@ -17,6 +17,7 @@ let menuSelectorStyles = [
         'menuName': 'btn_board_menu',
         'img1Id': 'imgBoard1',
         'img2Id': 'imgBoard2',
+        'url': './board.html',       //hinzu gefügt//
     },
     {
         'menuName': 'btn_add_task_menu',
@@ -141,6 +142,7 @@ async function openSubPage(menuId){
 
 function renderList(){
     renderSummary();
+    renderBoard();              //hinzu gefügt//
     renderLegalNotice()
 }
 
