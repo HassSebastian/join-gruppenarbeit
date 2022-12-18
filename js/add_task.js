@@ -1,3 +1,8 @@
+let catListStatus = false;
+let assignListStatus = false;
+let categoryList = ['New Category', 'Category 2', 'Category 3']
+
+
 async function initAddTask() {
     await includeHTML();
     selectedMenuButton(3);
@@ -65,28 +70,28 @@ async function renderAddTask() {
         </div>
     </div>
 
-    <div class='vector4'>
+    <div class='addTaskDivider'>
 
     </div>
 
-    <div class='frame43'>
-        <div class='frame39'>
+    <div class='addTaskRightContainer'>
+        <div class='addTaskDate'>
             <h3>Due date</h3>
             <input type="date">
             <span>This field is required</span>
         </div>
-        <div class='frame28'>
+        <div class='addTaskPrio'>
             <h3>Prio</h3>
             <div class='prio'>
-                <div class='frame14'>
+                <div class='addTaskUrgent'>
                     <span>Urgent</span>
                     <img src="../assets/img/urgent_arrows.png">
                 </div>
-                <div class='frame25'>
+                <div class='addTaskMedium'>
                     <span>Medium</span>
                     <img src="../assets/img/prio_medium.png">
                 </div>
-                <div class='frame26'>
+                <div class='addTaskLow'>
                     <span>Low</span>
                     <img src="../assets/img/prio_low.png">
                 </div>
@@ -98,7 +103,7 @@ async function renderAddTask() {
                 <input type="text" placeholder='Add new subtask'>
                 <img src="../assets/img/add_cross.png">
             </div>
-            <div class='frame37'>
+            <div class='addTaskCheckbox'>
                 <input type="checkbox">
                 <span>Subtask 1</span>
             </div>
@@ -108,7 +113,6 @@ async function renderAddTask() {
     `;
 }
 
-let catListStatus = false;
 
 function enableDisableCatList(){
     if (!catListStatus){
@@ -121,8 +125,6 @@ function enableDisableCatList(){
     catListStatus = !catListStatus;
 }
 
-
-let categoryList = ['New Category', 'Category 2', 'Category 3']
 
 function selectCategory(catId){
     document.getElementById('selectedCat').innerHTML = '';
@@ -139,7 +141,6 @@ function selectCategory(catId){
     }
 }
 
-let assignListStatus = false;
 
 function enableDisableAssignList(){
     if (!assignListStatus){

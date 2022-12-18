@@ -494,14 +494,6 @@
     background-color: #0038FF;
 }
 
-
-
-
-
-
-
-
-
 .addTaskAssignedBox {
     display: flex;
     flex-direction: column;
@@ -510,11 +502,9 @@
     gap: 8px;
     width: 422px;
     height: 84px;
-    /* Inside auto layout */
     flex: none;
     order: 3;
     flex-grow: 0;
-
 }
 
 .addTaskAssignedBox h3 {
@@ -614,7 +604,7 @@
     background-size: 100%;
 }
 
-.vector4 {
+.addTaskDivider {
     position: absolute;
     width: 0px;
     height: 551px;
@@ -623,7 +613,7 @@
     border: 1px solid #D1D1D1
 }
 
-.frame43 {
+.addTaskRightContainer {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -636,20 +626,19 @@
     top: 290px;
 }
 
-.frame39 {
+.addTaskDate {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
     gap: 14px;
     width: 422px;
-    /* height: 356px; */
     flex: none;
     order: 0;
     flex-grow: 0;
 }
 
-.frame39 h3 {
+.addTaskDate h3 {
     width: 91px;
     height: 25px;
     font-family: 'Inter';
@@ -665,7 +654,7 @@
     margin-block-end: 0px;
 }
 
-.frame39 input {
+.addTaskDate input {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -690,7 +679,7 @@
     color: #D1D1D1;
 }
 
-.frame39 span {
+.addTaskDate span {
     width: 119px;
     height: 12px;
     font-family: 'Poppins';
@@ -704,7 +693,7 @@
     color: #FBBBC4;
 }
 
-.frame28 {
+.addTaskPrio {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -717,7 +706,7 @@
     flex-grow: 0;
 }
 
-.frame28 h3 {
+.addTaskPrio h3 {
     width: 39px;
     height: 25px;
     font-family: 'Inter';
@@ -748,7 +737,7 @@
     flex-grow: 0;
 }
 
-.frame14 {
+.addTaskUrgent {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -765,7 +754,7 @@
     flex-grow: 0;
 }
 
-.frame14 span {
+.addTaskUrgent span {
     width: 68px;
     height: 25px;
     font-family: 'Inter';
@@ -779,7 +768,7 @@
     flex-grow: 0;
 }
 
-.frame14 img {
+.addTaskUrgent img {
     width: 20px;
     height: 14.51px;
     flex: none;
@@ -787,7 +776,7 @@
     flex-grow: 0;
 }
 
-.frame25 {
+.addTaskMedium {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -804,7 +793,7 @@
     flex-grow: 0;
 }
 
-.frame25 span {
+.addTaskMedium span {
     width: 80px;
     height: 25px;
     font-family: 'Inter';
@@ -818,7 +807,7 @@
     flex-grow: 0;
 }
 
-.frame25 img {
+.addTaskMedium img {
     width: 20px;
     height: 7.45px;
     flex: none;
@@ -826,7 +815,7 @@
     flex-grow: 0;
 }
 
-.frame26 {
+.addTaskLow {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -843,7 +832,7 @@
     flex-grow: 0;
 }
 
-.frame26 span {
+.addTaskLow span {
     width: 42px;
     height: 25px;
     font-family: 'Inter';
@@ -857,7 +846,7 @@
     flex-grow: 0;
 }
 
-.frame26 img {
+.addTaskLow img {
     width: 20px;
     height: 14.51px;
     flex: none;
@@ -935,7 +924,7 @@
     position: relative;
 }
 
-.frame37 {
+.addTaskCheckbox {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -949,7 +938,7 @@
     flex-grow: 0;
 }
 
-.frame37 input {
+.addTaskCheckbox input {
     width: 16px;
     height: 16px;
     border-radius: 3px;
@@ -958,7 +947,7 @@
     flex-grow: 0;
 }
 
-.frame37 span {
+.addTaskCheckbox span {
     width: 74px;
     height: 19px;
     font-family: 'Inter';
