@@ -866,6 +866,8 @@
     flex: none;
     order: 0;
     flex-grow: 0;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
 }
 
 .subtask input {

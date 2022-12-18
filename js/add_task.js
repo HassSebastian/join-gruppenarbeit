@@ -100,15 +100,11 @@ async function renderAddTask() {
             </div>
             <div class='frame37'>
                 <input type="checkbox">
-                <span>Subtask</span>
+                <span>Subtask 1</span>
             </div>
             
         </div>
     </div>
-
-    
-
-    
     `;
 }
 
