@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="slideTest.css">
+    <script src="slideTest.js"></script>
+</head>
+
+<body onload="initPage1()">
+
+    <div class="page1">
+        <div class="page1joinLogoContainer">
+            <img src="../assets/img/join_Logo_Black_Big.png">
+        </div>
+    </div>
+    
+    <div class="logIn d-none">
+        <div class="notAJoinUser">
+            <span>Not a Join user?</span>
+            <button onclick="signUp()">Sign up</button>
+        </div>
+        <img src="../assets/img/join_logo_black.png" class="joinLogo">
+
+        <div class="innerContainer">
+
+            <div class="logInContainer">
+                <span>Log in</span>
+                <div></div>
+            </div>
+
+            <div class="inputContainer">
+                <div class="outEmailContainer">
+                    <div class="container">
+                        <div class="innerEmailContainer">
+                            <span>Email</span>
+                            <img src="./assets/img/email_Logo.png">
+                        </div>
+                    </div>
+                    <span class="required">This field is required</span>
+                </div>
+                <div class="outPasswordContainer">
+                    <div class="container">
+                        <div class="innerPasswordContainer">
+                            <span>Password</span>
+                            <img src="./assets/img/password_logo.png">
+                        </div>
+                    </div>
+                    <span class="required">This field is required</span>
+                </div>
+            </div>
+
+            <div class="rememberMeContainer">
+                <div class="rememberMeBox">
+                    <div>
+                        <img src="./assets/img/checkbox.png" alt="">
+                    </div>
+                    <span>Remember me</span>
+                </div>
+                <span class="forgotPassword">Forgot my password</span>
+            </div>
+
+            <div class="logInButtonContainer">
+                <button class="logInButton">
+                    <span>Log in</span>
+                </button>
+                <button class="guestButton">
+                    <span>Guest Log in</span>
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
