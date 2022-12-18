@@ -317,50 +317,168 @@
     margin-block-end: 0px;
 }
 
-
-
-
-.addTaskAddCategoryBox select {
+.addTaskAddCategoryBox button {
     box-sizing: border-box;
-
-    /* Auto layout */
-
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 18px 21px;
     gap: 10px;
     isolation: isolate;
-
     width: 422px;
     height: 51px;
-
     background: #FFFFFF;
-    /* Style */
-
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-
-    /* Inside auto layout */
-
     flex: none;
     order: 0;
     flex-grow: 0;
 }
 
-.addTaskAddAssignedBox {
+.addTaskAddCategoryBox button span {
+    width: 205px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    z-index: 0;
+    text-align: left;
+}
+
+.addTaskAddCategoryBox button input {
+    width: 205px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    z-index: 0;
+    text-align: left;
+    border: none;
+}
+
+.addTaskAddCategoryBox button img {
+    position: absolute;
+    width: 16px;
+    height: 8px;
+    left: 392px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    z-index: 1;
+}
+
+.addTaskCatList {
+    background: #FFFFFF;
+    border-top: 0px;
+    border-bottom: 1px;
+    border-left: 1px;
+    border-right: 1px;
+    border-color: #D1D1D1;
+    border-style: solid;
+    width: 420px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-top: -13px;
+    z-index: 1;
+    list-style-type: none;
+    padding: 0;
+}
+
+.listD-none {
+    display: none !important;
+}
+
+.addTaskCatList li{
+    padding-left: 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    z-index: 0;
+}
+
+.addTaskCatList li:hover {
+    background-color: #D1D1D1;
+    background-size: 100%;
+}
+
+.addTaskAddCategoryColor {
+    width: 402px;
+    height: 20px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    padding-left: 20px;
+    display: flex;
+    gap: 24px;
+}
+
+.addTaskAddCategoryColor div{
+    height: 12px;
+    width: 12px;
+    border-radius: 100%;
+    border: 1px solid #D1D1D1;
+}
+
+.color1{
+    background-color: #8AA4FF;
+}
+
+.color2{
+    background-color: #FF0000;
+}
+
+.color3{
+    background-color: #2AD300;
+}
+.color4{
+    background-color: #FF8A00;
+}
+.color5{
+    background-color: #E200BE;
+}
+.color6{
+    background-color: #0038FF;
+}
+
+
+
+
+
+
+
+
+
+/* .addTaskAddAssignedBox {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
     gap: 8px;
-
     width: 422px;
     height: 84px;
-
-
-    /* Inside auto layout */
-
     flex: none;
     order: 3;
     flex-grow: 0;
@@ -369,22 +487,12 @@
 .addTaskAddAssignedBox h3 {
     width: 118px;
     height: 25px;
-
-    /* Version 2/t6 */
-
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
     line-height: 120%;
-    /* or 25px */
-
-
     color: #000000;
-
-
-    /* Inside auto layout */
-
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -397,21 +505,12 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-
     width: 422px;
     height: 51px;
-
-    /* white */
-
     background: #FFFFFF;
-    /* Style */
-
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-
-    /* Inside auto layout */
-
     flex: none;
     order: 1;
     flex-grow: 0;
-}
+} */
