@@ -22,7 +22,7 @@ async function renderAddTask() {
                 <span>Clear</span> 
                 <img src="./assets/img/clearb.png">
             </button>
-            <button class='addTaskCreate'>
+            <button class='addTaskCreate' onclick='createTaskData()'>
                 <span>Create Task</span>
                 <img src="./assets/img/createb.png">  
             </button>
@@ -32,13 +32,13 @@ async function renderAddTask() {
     <div class='addTaskAddTitleContainer'>
         <div class='addTaskAddTitleBox'>
             <h3>Title</h3>
-            <input type="text" placeholder='Enter a title'>
+            <input type="text" placeholder='Enter a title' id='addTaskTitle'>
             <span>This field is required</span>
         </div>
 
         <div class='addTaskAddDescriptenBox'>
             <h3>Descripten</h3>
-            <textarea type="text" placeholder='Enter Descripten'></textarea>
+            <textarea type="text" placeholder='Enter Descripten' id='addTaskDescripten'></textarea>
         </div>
 
         <div class='addTaskAddCategoryBox'>
@@ -77,7 +77,7 @@ async function renderAddTask() {
     <div class='addTaskRightContainer'>
         <div class='addTaskDate'>
             <h3>Due date</h3>
-            <input type="date">
+            <input type="date" id='dueDate'>
             <span>This field is required</span>
         </div>
         <div class='addTaskPrio'>
@@ -100,7 +100,7 @@ async function renderAddTask() {
         <div class='subtask'>
             <h3>Subtask</h3>
             <div>
-                <input type="text" placeholder='Add new subtask'>
+                <input type="text" placeholder='Add new subtask' id='subTask'>
                 <img src="../assets/img/add_cross.png">
             </div>
             <div class='addTaskCheckbox'>
@@ -150,3 +150,71 @@ function enableDisableAssignList(){
     }
     assignListStatus = !assignListStatus;
 }
+
+
+// save data to local storage !!!!!!!!!!!!
+
+let joinTaskArray = [];
+let taskData = {};
+let title = '';
+let descripten = '';
+let category = '';
+let assigndTo = '';
+let dueDate = '';
+let prio = '';
+let subTask = '';
+
+
+function createTaskData(){
+    loadTask();
+    getDataFromFomular();
+    fillTaskData();
+    pushTaskData();
+    saveTask();
+}
+
+function getDataFromFomular(){
+    title = document.getElementById('addTaskTitle').value;
+    descripten = document.getElementById('addTaskDescripten').value;
+    category = document.getElementById('selectedCat').innerHTML;
+    assigndTo = 'not included jet';
+    dueDate = document.getElementById('dueDate').value;
+    prio = 'not included jet';
+    subTask = document.getElementById('subTask').value;
+}
+
+function fillTaskData(){
+    taskData = {
+        'title': title,
+        'descripten': descripten,
+        'category': category,
+        'assignedTo': assigndTo,
+        'dueDate': dueDate,
+        'prio': prio,
+        'subCategory': subTask,
+    };
+}
+
+
+function pushTaskData(){
+    joinTaskArray.push(taskData);
+}
+
+
+function saveTask(){
+    localStorage.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
+}
+
+
+function loadTask(){
+    if (localStorage.getItem('joinTaskArray')){
+        let joinTaskArrayString = localStorage.getItem('joinTaskArray');
+        joinTaskArray = JSON.parse(joinTaskArrayString); 
+    }
+}
+
+function deleteJoinTaskArrayFromServer(){
+    localStorage.removeItem('joinTaskArray');
+}
+
+// save data to local storage end!!!!!!!!!!!!
