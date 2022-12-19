@@ -988,7 +988,7 @@
 
 .test{
     transform: translateY(-500px);
-    transition: transform 500ms ease-in-out;
+    transition: transform 900ms  300ms ease-in-out;
 }
 
 .taskAddedToBoardContainer {

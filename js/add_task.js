@@ -181,7 +181,7 @@ function createTaskData() {
     saveTask();
     clearFormularData();
     showAddDiv();
-    setTimeout(initBoard, 1000 );
+    setTimeout(initBoard, 1200 );
 }
 
 function getDataFromFomular() {
