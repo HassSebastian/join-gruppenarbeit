@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-<script>
-    function contacts() {
-        alert('Verbindung zu contacts herstellen!!!');
-    }
-    function closeOverlay() {
-        alert('close Overlay Function bauen!!!');
-    }
-
-</script>
-
-
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./styles/overlayAdd.css">
-    <link rel="stylesheet" href="./styles/fonts.css">
+    <link rel="stylesheet" href="./styles/overlayEdit.css">
+
+
+    <script>
+        function contacts() {
+            alert('Verbindung zu contacts herstellen!!!');
+        }
+        function closeOverlay() {
+            alert('close Overlay Function bauen!!!');
+        }
+
+    </script>
+
+
 </head>
 
 <body>
-
     <div class="overlayAdd">
         <div class="blackSite">
             <div class="blackSiteContainer">
-                <span class="fontAddContact">Add contact</span>
-                <span class="fontTaskArBetter">Tasks are better with a team!</span>
+                <span class="fontAddContact">Edit contact</span>
                 <div class="vector"></div>
                 <div class="logoContainer">
                     <img class="logo" src="./assets/img/join_logo.png">
@@ -40,18 +37,13 @@
 
         <div class="name_logo_inContainer">
             <div class="elypse">
-                <img src="./assets/img/nameLogoOverlay.png">
+                <span>TW</span>
             </div>
         </div>
         <div class="buttonOutContainer">
             <div class="buttonInContainer">
-                <button onclick="closeOverlay()" class="cancel">
-                    <span>Cancel</span>
-                    <img src="./assets/img/close_logo.png">
-                </button>
-                <button onclick="contacts()" class="createContact">
-                    <span>Create contact</span>
-                    <img src="./assets/img/okHaeckchen.png">
+                <button onclick="contacts()" class="save">
+                    <span>Save</span>
                 </button>
             </div>
         </div>
@@ -59,21 +51,21 @@
             <div class="nameOutContainer">
                 <div class="nameContainer">
                     <div class="inputContainer">
-                        <input class="inputName" type="text" placeholder="Name">
+                        <input class="inputName" type="text" placeholder="Tatjana Wolf">
                         <img src="./assets/img/name_logo.png" alt="">
                     </div>
                     <span class="required">This field is required</span>
                 </div>
                 <div class="nameContainer">
                     <div class="inputContainer">
-                        <input class="inputName" type="email" placeholder="Email">
+                        <input class="inputName" type="email" placeholder="wolf@gmail.com">
                         <img src="./assets/img/email_Logo.png" alt="">
                     </div>
                     <span class="required">This field is required</span>
                 </div>
                 <div class="nameContainer">
                     <div class="inputContainer">
-                        <input class="inputName" type="number" placeholder="Phone">
+                        <input class="inputName" type="number" placeholder="+49 2222 222 22 2">
                         <img src="./assets/img/phoneLogo.png" alt="">
                     </div>
                     <span class="required">This field is required</span>
