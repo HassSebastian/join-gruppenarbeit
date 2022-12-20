@@ -480,6 +480,11 @@
     order: 0;
     flex-grow: 0;
     z-index: 0;
+
+    display: flex;
+    justify-content: space-between;
+    padding-right: 150px;
+    align-items: center;
 }
 
 .addTaskCatList li:hover {

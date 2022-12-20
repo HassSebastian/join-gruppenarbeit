@@ -6,7 +6,9 @@ let assignListStatus = false;
 async function initAddTask() {
     await includeHTML();
     selectedMenuButton(3);
-    renderAddTask();
+    await renderAddTask();
+    await loadExitingCategories();
+    renderCategoryList();
 }
 
 
@@ -133,14 +135,14 @@ async function renderAddTask() {
 
             <div class='addTaskAddCategoryBox'>
                 <h3>Category</h3>
-                <button onclick=enableDisableCatList() id='selectedCat'><input id='selectedCatInput' placeholder='Select task category'><span id='sColor'></span><img src="../assets/img/Vector 2.png"></button>
+                <button onclick=enableDisableCatList() id='selectedCat'><input id='selectedCatInput' placeholder='Select task category' autocomplete='off'><span id='sColor'></span><img src="../assets/img/Vector 2.png"></button>
                 <span id='catReq' class='listD-none'>This field is required</span>
                 <ul class="addTaskCatList listD-none" id="dropdown">
-                    <li onclick='selectCategory(0)'>New category</li>
+                    <!-- <li onclick='selectCategory(0)'>New category</li>
                     <li onclick='selectCategory(1)'>Category 2</li>
                     <li onclick='selectCategory(2)'>Category 3</li>
                     <li onclick='selectCategory(1)'>Category 2</li>
-                    <li onclick='selectCategory(2)'>Category 3</li>
+                    <li onclick='selectCategory(2)'>Category 3</li> -->
                 </ul>
                 <div class='addTaskAddCategoryColor listD-none' id='colorSelection'>
                     <div class='color0' onclick='addColorToCat(0)'></div>
@@ -193,7 +195,7 @@ async function renderAddTask() {
             <div class='subtask'>
                 <h3>Subtask</h3>
                 <div>
-                    <input type="text" placeholder='Add new subtask' id='subTask'>
+                    <input type="text" placeholder='Add new subtask' id='subTask' autocomplete='off'>
                     <img src="../assets/img/add_cross.png">
                 </div>
                 <div class='addTaskCheckbox'>
@@ -227,15 +229,17 @@ function enableDisableCatList() {
 
 
 function selectCategory(catId) {
-    let newCat = categoryList[catId];
+    let newCat = categoryList[catId]['category'];
+    let categoryColor = categoryList[catId]['catColor'];
     if (catId == 0) {
         document.getElementById('selectedCat').innerHTML = /*html*/`
-        <input id='selectedCatInput' placeholder='New Category'><span id='sColor'></span><img src="../assets/img/Vector 2.png">`;
+        <input id='selectedCatInput' placeholder='New Category' autocomplete='off'><span id='sColor'></span><img src="../assets/img/Vector 2.png">`;
         enableDisableCatList();
-        document.getElementById('colorSelection').classList.remove('listD-none')
+        document.getElementById('colorSelection').classList.remove('listD-none');
         document.getElementById('sColor').innerHTML = '';
     } else {
         document.getElementById('selectedCatInput').value = newCat;
+        document.getElementById('sColor').innerHTML = /*html*/`<div class='color${categoryColor} addTaskColorDiv'></div>`;
         enableDisableCatList();
         document.getElementById('colorSelection').classList.add('listD-none');
     }
@@ -298,7 +302,7 @@ function clearFormularData() {
     document.getElementById('addTaskTitle').value = '';
     descripten = document.getElementById('addTaskDescripten').value = '';
     document.getElementById('selectedCat').innerHTML = /*html*/`
-        <input  placeholder='Select task category'><span id='sColor'></span><img src="../assets/img/Vector 2.png">`;
+        <input  placeholder='Select task category' autocomplete='off'><span id='sColor'></span><img src="../assets/img/Vector 2.png">`;
     document.getElementById('dueDate').value = '';
     subTask = document.getElementById('subTask').value = '';
     document.getElementById('titleReq').style = 'opacity: 0;';
@@ -378,29 +382,34 @@ function checkInputs() {
     }
 }
 
-// let categoryList = [];
-let categoryList = ['New Category', 'Category 2', 'Category 3'];
+
+// reder function for category list
+let categoryList = [];
 
 function loadExitingCategories(){
     loadTask();
-    categoryList = [];
+    categoryList = [{'category':'New Category', 'catColor':''}];
     for (let i = 0; i < joinTaskArray.length; i++) {
         let taskCategory = joinTaskArray[i]['category'];
-        let catColor = joinTaskArray[i]['colorId'];
-        categoryList.push({'category': taskCategory, 'catColor': catColor})
+        let categoryColor = joinTaskArray[i]['catColor'];
+        categoryList.push({'category': taskCategory, 'catColor': categoryColor})
     }
-    console.log(taskList);
+    console.log(categoryList);
 }
 
 
 function renderCategoryList(){
     document.getElementById('dropdown').innerHTML = '';
-    document.getElementById('dropdown').innerHTML += /*html*/`
-        <li onclick='selectCategory(0)'>New category</li>`;
     for (let i = 0; i < categoryList.length; i++) {
         let categoryName = categoryList[i]['category'];
-        let categoryColor = categoryList[i]['colorId'];
-
+        let categoryColor = categoryList[i]['catColor'];
+        if (categoryColor != ''){
+            document.getElementById('dropdown').innerHTML += /*html*/`
+            <li onclick='selectCategory(${i})'>${categoryName}<div  class='color${categoryColor} addTaskColorDiv'></div></li>`;
+        }else{
+            document.getElementById('dropdown').innerHTML += /*html*/`
+            <li onclick='selectCategory(${i})'>${categoryName}</li>`;
+        }
     }
 }
 
