@@ -1,6 +1,6 @@
 let catListStatus = false;
 let assignListStatus = false;
-let categoryList = ['New Category', 'Category 2', 'Category 3']
+
 
 
 async function initAddTask() {
@@ -35,6 +35,8 @@ function addTaskUrgent(){
     document.getElementById('addTaskLowSpan').classList.remove('color-white');
     document.getElementById('addTaskLowImg').src="./assets/img/low.png";
 }
+
+
 function addTaskMedium(){   
     document.getElementById('addTaskMedium').classList.add('medium-color');
     document.getElementById('addTaskMediumSpan').classList.add('color-white');
@@ -48,6 +50,8 @@ function addTaskMedium(){
     document.getElementById('addTaskLowSpan').classList.remove('color-white');
     document.getElementById('addTaskLowImg').src="./assets/img/low.png";
 }
+
+
 function addTaskLow(){    
     document.getElementById('addTaskLow').classList.add('low-color');
     document.getElementById('addTaskLowSpan').classList.add('color-white');
@@ -103,6 +107,8 @@ async function renderAddTask() {
                 <span id='catReq' class='listD-none'>This field is required</span>
                 <ul class="addTaskCatList listD-none" id="dropdown">
                     <li onclick='selectCategory(0)'>New category</li>
+                    <li onclick='selectCategory(1)'>Category 2</li>
+                    <li onclick='selectCategory(2)'>Category 3</li>
                     <li onclick='selectCategory(1)'>Category 2</li>
                     <li onclick='selectCategory(2)'>Category 3</li>
                 </ul>
@@ -208,7 +214,7 @@ function selectCategory(catId) {
 
 function addColorToCat(colorId) {
     document.getElementById('sColor').innerHTML = `<div class='color${colorId} addTaskColorDiv'></div>`;
-    catColor = colorArray[colorId];
+    catColor = colorId;
 }
 
 
@@ -234,7 +240,7 @@ let assigndTo = '';
 let dueDate = '';
 let prio = '';
 let subTask = '';
-let colorArray = ['#8AA4FF', '#FF0000', '#2AD300', '#FF8A00', '#E200BE', '#E200BE']
+// let colorArray = ['#8AA4FF', '#FF0000', '#2AD300', '#FF8A00', '#E200BE', '#E200BE']
 
 function createTaskData() {
     loadTask();
@@ -341,6 +347,37 @@ function checkInputs(){
         createTaskData();
     }
 }
+
+// let categoryList = [];
+let categoryList = ['New Category', 'Category 2', 'Category 3'];
+
+function loadExitingCategories(){
+    loadTask();
+    categoryList = [];
+    for (let i = 0; i < joinTaskArray.length; i++) {
+        let taskCategory = joinTaskArray[i]['category'];
+        let catColor = joinTaskArray[i]['colorId'];
+        categoryList.push({'category': taskCategory, 'catColor': catColor})
+    }
+    console.log(taskList);
+}
+
+
+function renderCategoryList(){
+    document.getElementById('dropdown').innerHTML = '';
+    document.getElementById('dropdown').innerHTML += /*html*/`
+        <li onclick='selectCategory(0)'>New category</li>`;
+    for (let i = 0; i < categoryList.length; i++) {
+        let categoryName = categoryList[i]['category'];
+        let categoryColor = categoryList[i]['colorId'];
+
+    }
+}
+
+
+
+
+
 
 
 

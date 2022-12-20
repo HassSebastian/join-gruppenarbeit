@@ -458,7 +458,14 @@
 }
 
 .addMarginTop {
-    margin-top: 75.57px;
+    margin-top: 75.57px !important;
+}
+
+.addTaskCatList{
+    min-height: 78px;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .addTaskCatList li {
@@ -551,7 +558,7 @@
     flex: none;
     order: 3;
     flex-grow: 0;
-    margin-top: 12px;
+    /* margin-top: 12px; */
 }
 
 .addTaskAssignedBox h3 {
