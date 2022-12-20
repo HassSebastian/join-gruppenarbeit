@@ -10,6 +10,16 @@ async function initAddTask() {
 }
 
 
+function addTaskClearOn() {
+    document.getElementById('addTaskClear').src = "././assets/img/close_logo_blue.png";
+}
+
+
+function addTaskClearOff(){
+    document.getElementById('addTaskClear').src = "./assets/img/close_logo.png";
+}
+
+
 async function renderAddTask() {
     document.getElementById('content').innerHTML = '';
     document.getElementById('content').innerHTML += /*html*/ `
@@ -18,9 +28,9 @@ async function renderAddTask() {
     </div>
     <div class='addTaskBtnOuterContainer'>
         <div class='addTaskBtnInnerContainer'>
-            <button class='addTaskClear'>
+            <button class='addTaskClear' onmouseover="addTaskClearOn()" onmouseout="addTaskClearOff()">
                 <span>Clear</span> 
-                <img src="./assets/img/clearb.png">
+                <img id="addTaskClear" src="./assets/img/clearb.png">
             </button>
             <button class='addTaskCreate' onclick='createTaskData()'>
                 <span>Create Task</span>

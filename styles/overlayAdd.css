@@ -28,7 +28,7 @@ body {
     background: #2A3647;
 }
 
-.blackSiteContainer{
+.blackSiteContainer {
     display: flex;
     flex-direction: column;
     padding-left: 46px;
@@ -111,7 +111,7 @@ body {
     height: 120px;
     left: 533px;
     top: 204px;
-        background: #FFFFFF;
+    background: #FFFFFF;
     border: 3px solid #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 70px;
@@ -175,9 +175,12 @@ body {
 .cancel:hover {
     border: 2px solid #29ABE2;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    transition: 100ms ease-in-out;
 }
-.cancel:hover *{
+
+.cancel:hover * {
     color: #29ABE2;
+    transition: 100ms ease-in-out;
 }
 
 .cancel span {
@@ -216,11 +219,11 @@ body {
     flex-grow: 0;
     border: 0;
 }
-.createContact:hover{
-    background: #29ABE2;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-transition: 100ms ease-in-out;
 
+.createContact:hover {
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: 100ms ease-in-out;
 }
 
 .createContact span {
