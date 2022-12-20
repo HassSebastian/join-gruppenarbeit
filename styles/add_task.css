@@ -72,6 +72,18 @@
     flex-grow: 0;
 }
 
+.addTaskClear:hover {
+    border: 2px solid #29ABE2;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    transition: 100ms ease-in-out;
+}
+
+.addTaskClear:hover * {
+    color: #29ABE2;
+    transition: 100ms ease-in-out;
+}
+
+
 .addTaskCreate {
     display: flex;
     flex-direction: row;
@@ -86,6 +98,13 @@
     flex: none;
     order: 1;
     flex-grow: 0;
+    border: 0;
+}
+
+.addTaskCreate:hover {
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: 100ms ease-in-out;
 }
 
 .addTaskClear span {
@@ -976,7 +995,7 @@
 }
 
 /* add to Board animation */
-.content{
+.content {
     overflow: hidden;
 }
 
@@ -994,7 +1013,7 @@
     left: 414px;
 }
 
-.test{
+.test {
     transform: translateY(-500px);
     transition-delay: 900ms;
     transition-duration: 300ms;
@@ -1039,6 +1058,3 @@
     order: 1;
     flex-grow: 0;
 }
-
-
-

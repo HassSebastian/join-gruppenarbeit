@@ -49,20 +49,6 @@ body {
     z-index: 0;
 }
 
-.fontTaskArBetter {
-    width: 371px;
-    height: 32px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 27px;
-    line-height: 120%;
-    color: #FFFFFF;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    z-index: 1;
-}
 
 .vector {
     width: 90px;
@@ -121,10 +107,27 @@ body {
     width: 120px;
     height: 120px;
     border-radius: 100%;
-    background: #D1D1D1;
+    background: orange;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.elypse span {
+    position: absolute;
+    width: 80px;
+    height: 28.57px;
+    left: 20px;
+    top: 45.71px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 47px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
 }
 
 .buttonOutContainer {
@@ -155,51 +158,41 @@ body {
     flex-grow: 0;
 }
 
-.cancel {
-    box-sizing: border-box;
+.save {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 18px 10px;
     gap: 10px;
-    width: 136px;
+    width: 143px;
     height: 61px;
-    border: 1px solid #2A3647;
+    background: #2A3647;
     border-radius: 10px;
     flex: none;
     order: 0;
     flex-grow: 0;
+    border: 0;
 }
 
-.cancel:hover {
-    border: 2px solid #29ABE2;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+.save:hover {
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     transition: 100ms ease-in-out;
 }
 
-.cancel:hover * {
-    color: #29ABE2;
-    transition: 100ms ease-in-out;
-}
-
-.cancel span {
-    width: 69px;
+.save span {
+    width: 123px;
     height: 25px;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 21px;
     line-height: 120%;
-    color: #2A3647;
+    text-align: center;
+    color: #FFFFFF;
     flex: none;
     order: 0;
-    flex-grow: 0;
-}
-
-#cancelImg {
-    flex: none;
-    order: 1;
     flex-grow: 0;
 }
 
@@ -217,13 +210,6 @@ body {
     flex: none;
     order: 1;
     flex-grow: 0;
-    border: 0;
-}
-
-.createContact:hover {
-    background: #29ABE2;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    transition: 100ms ease-in-out;
 }
 
 .createContact span {
@@ -322,8 +308,6 @@ body {
 }
 
 ::placeholder {
-    position: relative;
-    top: 3px;
     width: max-content;
     height: 25px;
     font-family: 'Inter';
@@ -331,7 +315,7 @@ body {
     font-weight: 400;
     font-size: 21px;
     line-height: 120%;
-    color: #D1D1D1;
+    color: #000000;
     flex: none;
     order: 0;
     flex-grow: 0;
