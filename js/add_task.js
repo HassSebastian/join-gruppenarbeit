@@ -20,6 +20,51 @@ function addTaskClearOff(){
 }
 
 
+/*********************************************************************************/
+/*********************************************************************************/
+function addTaskUrgent(){
+    document.getElementById('addTaskUrgent').classList.add('urgent-color');
+    document.getElementById('addTaskUrgentSpan').classList.add('color-white');
+    document.getElementById('addTaskUrgentImg').src="./assets/img/urgent_white.png";
+
+    document.getElementById('addTaskMedium').classList.remove('medium-color');
+    document.getElementById('addTaskMediumSpan').classList.remove('color-white');
+    document.getElementById('addTaskMediumImg').src="./assets/img/medium.png";
+
+    document.getElementById('addTaskLow').classList.remove('low-color');
+    document.getElementById('addTaskLowSpan').classList.remove('color-white');
+    document.getElementById('addTaskLowImg').src="./assets/img/low.png";
+}
+function addTaskMedium(){   
+    document.getElementById('addTaskMedium').classList.add('medium-color');
+    document.getElementById('addTaskMediumSpan').classList.add('color-white');
+    document.getElementById('addTaskMediumImg').src="./assets/img/medium_white.png";
+
+    document.getElementById('addTaskUrgent').classList.remove('urgent-color');
+    document.getElementById('addTaskUrgentSpan').classList.remove('color-white');
+    document.getElementById('addTaskUrgentImg').src="./assets/img/urgent.png";
+
+    document.getElementById('addTaskLow').classList.remove('low-color');
+    document.getElementById('addTaskLowSpan').classList.remove('color-white');
+    document.getElementById('addTaskLowImg').src="./assets/img/low.png";
+}
+function addTaskLow(){    
+    document.getElementById('addTaskLow').classList.add('low-color');
+    document.getElementById('addTaskLowSpan').classList.add('color-white');
+    document.getElementById('addTaskLowImg').src="./assets/img/low_white.png";
+
+    document.getElementById('addTaskUrgent').classList.remove('urgent-color');
+    document.getElementById('addTaskUrgentSpan').classList.remove('color-white');
+    document.getElementById('addTaskUrgentImg').src="./assets/img/urgent.png";
+
+    document.getElementById('addTaskMedium').classList.remove('medium-color');
+    document.getElementById('addTaskMediumSpan').classList.remove('color-white');
+    document.getElementById('addTaskMediumImg').src="./assets/img/medium.png";
+}
+/*********************************************************************************/
+/*********************************************************************************/
+
+
 async function renderAddTask() {
     document.getElementById('content').innerHTML = '';
     document.getElementById('content').innerHTML += /*html*/ `
@@ -95,17 +140,17 @@ async function renderAddTask() {
             <div class='addTaskPrio'>
                 <h3>Prio</h3>
                 <div class='addTaskPrioIcons'>
-                    <div class='addTaskUrgent'>
-                        <span>Urgent</span>
-                        <img src="../assets/img/urgent_arrows.png">
+                    <div class='addTaskUrgent' id='addTaskUrgent' onclick='addTaskUrgent()'>
+                        <span id='addTaskUrgentSpan'>Urgent</span>
+                        <img id='addTaskUrgentImg' src="../assets/img/urgent_arrows.png">
                     </div>
-                    <div class='addTaskMedium'>
-                        <span>Medium</span>
-                        <img src="../assets/img/prio_medium.png">
+                    <div class='addTaskMedium' id='addTaskMedium' onclick='addTaskMedium()'>
+                        <span id='addTaskMediumSpan'>Medium</span>
+                        <img id='addTaskMediumImg' src="../assets/img/prio_medium.png">
                     </div>
-                    <div class='addTaskLow'>
-                        <span>Low</span>
-                        <img src="../assets/img/prio_low.png">
+                    <div class='addTaskLow' id='addTaskLow' onclick='addTaskLow()'>
+                        <span id='addTaskLowSpan'>Low</span>
+                        <img id='addTaskLowImg' src="../assets/img/prio_low.png">
                     </div>
                 </div>
             </div>
