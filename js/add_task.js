@@ -28,7 +28,7 @@ async function renderAddTask() {
     </div>
     <div class='addTaskBtnOuterContainer'>
         <div class='addTaskBtnInnerContainer'>
-            <button class='addTaskClear' onmouseover="addTaskClearOn()" onmouseout="addTaskClearOff()">
+            <button class='addTaskClear' onmouseover='addTaskClearOn()' onmouseout='addTaskClearOff()' onclick='clearFormularData()'>
                 <span>Clear</span> 
                 <img id="addTaskClear" src="./assets/img/clearb.png">
             </button>
@@ -54,19 +54,20 @@ async function renderAddTask() {
 
             <div class='addTaskAddCategoryBox'>
                 <h3>Category</h3>
-                <button onclick=enableDisableCatList()><span id='selectedCat'>Select task category</span><img src="../assets/img/Vector 2.png" alt=""></button>
+                <button onclick=enableDisableCatList() id='selectedCat'><input id='selectedCatInput' placeholder='Select task category'><span id='sColor'></span><img src="../assets/img/Vector 2.png"></button>
+                <span id='catReq' class='listD-none'>This field is required</span>
                 <ul class="addTaskCatList listD-none" id="dropdown">
                     <li onclick='selectCategory(0)'>New category</li>
                     <li onclick='selectCategory(1)'>Category 2</li>
                     <li onclick='selectCategory(2)'>Category 3</li>
                 </ul>
                 <div class='addTaskAddCategoryColor listD-none' id='colorSelection'>
-                    <div class='color1'></div>
-                    <div class='color2'></div>
-                    <div class='color3'></div>
-                    <div class='color4'></div>
-                    <div class='color5'></div>
-                    <div class='color6'></div>
+                    <div class='color0' onclick='addColorToCat(0)'></div>
+                    <div class='color1' onclick='addColorToCat(1)'></div>
+                    <div class='color2' onclick='addColorToCat(2)'></div>
+                    <div class='color3' onclick='addColorToCat(3)'></div>
+                    <div class='color4' onclick='addColorToCat(4)'></div>
+                    <div class='color5' onclick='addColorToCat(5)'></div>
                 </div>
             </div>
 
@@ -145,18 +146,24 @@ function enableDisableCatList() {
 
 
 function selectCategory(catId) {
-    document.getElementById('selectedCat').innerHTML = '';
     let newCat = categoryList[catId];
     if (catId == 0) {
         document.getElementById('selectedCat').innerHTML = /*html*/`
-        <input type='text' placeholder='New Category Name'>`;
+        <input id='selectedCatInput' placeholder='New Category'><span id='sColor'></span><img src="../assets/img/Vector 2.png">`;
         enableDisableCatList();
         document.getElementById('colorSelection').classList.remove('listD-none')
+        document.getElementById('sColor').innerHTML = '';
     } else {
-        document.getElementById('selectedCat').innerHTML = newCat;
+        document.getElementById('selectedCatInput').value = newCat;
         enableDisableCatList();
         document.getElementById('colorSelection').classList.add('listD-none');
     }
+}
+
+
+function addColorToCat(colorId) {
+    document.getElementById('sColor').innerHTML = `<div class='color${colorId} addTaskColorDiv'></div>`;
+    catColor = colorArray[colorId];
 }
 
 
@@ -177,11 +184,12 @@ let taskData = {};
 let title = '';
 let descripten = '';
 let category = '';
+let catColor = '';
 let assigndTo = '';
 let dueDate = '';
 let prio = '';
 let subTask = '';
-
+let colorArray = ['#8AA4FF', '#FF0000', '#2AD300', '#FF8A00', '#E200BE', '#E200BE']
 
 function createTaskData() {
     loadTask();
@@ -197,7 +205,7 @@ function createTaskData() {
 function getDataFromFomular() {
     title = document.getElementById('addTaskTitle').value;
     descripten = document.getElementById('addTaskDescripten').value;
-    category = document.getElementById('selectedCat').innerHTML;
+    category = document.getElementById('selectedCatInput').value;
     assigndTo = 'not included jet';
     dueDate = document.getElementById('dueDate').value;
     prio = 'not included jet';
@@ -208,9 +216,14 @@ function getDataFromFomular() {
 function clearFormularData(){
     document.getElementById('addTaskTitle').value ='';
     descripten = document.getElementById('addTaskDescripten').value = '';
-    document.getElementById('selectedCat').innerHTML = 'Select task category';
+    document.getElementById('selectedCat').innerHTML = /*html*/`
+        <input  placeholder='Select task category'><span id='sColor'></span><img src="../assets/img/Vector 2.png">`;
     document.getElementById('dueDate').value = '';
     subTask = document.getElementById('subTask').value = '';
+    document.getElementById('titleReq').style = 'opacity: 0;';
+    document.getElementById('dateReq').style = 'opacity: 0;';
+    document.getElementById('catReq').style = 'opacity: 0;';
+    document.getElementById('catReq').classList.add('listD-none');
 }
 
 
@@ -219,12 +232,15 @@ function fillTaskData() {
         'title': title,
         'descripten': descripten,
         'category': category,
+        'catColor': catColor,
         'assignedTo': assigndTo,
         'dueDate': dueDate,
         'prio': prio,
         'subCategory': subTask,
     };
+    catColor = '';
 }
+
 
 
 function pushTaskData() {
@@ -262,15 +278,25 @@ function notShowAddDiv(){
 function checkInputs(){
     let title = document.getElementById('addTaskTitle').value;
     let dueDate = document.getElementById('dueDate').value;
+    let category = document.getElementById('selectedCatInput').value;
     document.getElementById('titleReq').style = 'opacity: 0;';
     document.getElementById('dateReq').style = 'opacity: 0;';
+    document.getElementById('catReq').style = 'opacity: 0;';
     if (title == ''){
         document.getElementById('titleReq').style = 'opacity: 1;';
     }
     if (dueDate== ''){
         document.getElementById('dateReq').style = 'opacity: 1;';
     }
+    if (category == ''){
+        document.getElementById('catReq').style = 'opacity: 1;';
+        document.getElementById('catReq').classList.remove('listD-none');
+    }
     else{
         createTaskData();
     }
 }
+
+
+
+
