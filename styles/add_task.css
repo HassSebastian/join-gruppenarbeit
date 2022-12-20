@@ -233,6 +233,10 @@
     cursor: pointer;
 }
 
+#titleReq{
+    opacity: 0;
+}
+
 .addTaskAddTitleContainer span {
     width: 119px;
     height: 12px;
@@ -685,6 +689,10 @@
     color: #D1D1D1;
 }
 
+#dateReq{
+    opacity: 0;
+}
+
 .addTaskDate span {
     width: 119px;
     height: 12px;
@@ -988,7 +996,9 @@
 
 .test{
     transform: translateY(-500px);
-    transition: transform 900ms  300ms ease-in-out;
+    transition-delay: 900ms;
+    transition-duration: 300ms;
+    transition: transform 100ms ease-in-out;
 }
 
 .taskAddedToBoardContainer {

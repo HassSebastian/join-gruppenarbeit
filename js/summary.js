@@ -33,7 +33,7 @@ async function renderSummary() {
                         <span >1</span>
                         <p>Urgent</p>
                     </div>
-                    <img src='./assets/img/vertical_line2' class='ugentVerticalLine'>
+                    <img src='./assets/img/vertical-line2.png' class='ugentVerticalLine'>
                 </div>
                 <div class='deadlineData'>
                     <p id='deadlineDate'>October 16, 2022</p> 

@@ -22,19 +22,19 @@ async function renderAddTask() {
                 <span>Clear</span> 
                 <img src="./assets/img/clearb.png">
             </button>
-            <button class='addTaskCreate' onclick='createTaskData()'>
+            <button class='addTaskCreate' onclick='checkInputs()'>
                 <span>Create Task</span>
                 <img src="./assets/img/createb.png">  
             </button>
         </div>
     </div>
-    <form onsubmit='createTaskData(); return false'>
+    
         <div class='addTaskAddTitleContainer'>
             
             <div class='addTaskAddTitleBox'>
                 <h3>Title</h3>
-                <input  required type="text" placeholder='Enter a title' id='addTaskTitle'>
-                <span>This field is required</span>
+                <input  required type="text" placeholder='Enter a title' id='addTaskTitle' autocomplete='off'>
+                <span id='titleReq'>This field is required</span>
             </div>
 
             <div class='addTaskAddDescriptenBox'>
@@ -79,7 +79,7 @@ async function renderAddTask() {
             <div class='addTaskDate'>
                 <h3>Due date</h3>
                 <input required type="date" id='dueDate'>
-                <span>This field is required</span>
+                <span id='dateReq'>This field is required</span>
             </div>
             <div class='addTaskPrio'>
                 <h3>Prio</h3>
@@ -111,7 +111,7 @@ async function renderAddTask() {
                 
             </div>
         </div>
-    </form>
+    
     <div class="taskAddedToBoard" id='test'>
         <div class="taskAddedToBoardContainer">
             <span>Task added to board</span>
@@ -246,4 +246,21 @@ function showAddDiv(){
 
 function notShowAddDiv(){
     document.getElementById('test').classList.remove('test');
+}
+
+
+function checkInputs(){
+    let title = document.getElementById('addTaskTitle').value;
+    let dueDate = document.getElementById('dueDate').value;
+    document.getElementById('titleReq').style = 'opacity: 0;';
+    document.getElementById('dateReq').style = 'opacity: 0;';
+    if (title == ''){
+        document.getElementById('titleReq').style = 'opacity: 1;';
+    }
+    if (dueDate== ''){
+        document.getElementById('dateReq').style = 'opacity: 1;';
+    }
+    else{
+        createTaskData();
+    }
 }
