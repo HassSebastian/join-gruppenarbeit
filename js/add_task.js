@@ -34,16 +34,13 @@ function addTaskUrgent() {
         addTaskLowRemove();
     }
 }
-<<<<<<< HEAD
 
 
 function addTaskMedium(){   
     document.getElementById('addTaskMedium').classList.add('medium-color');
     document.getElementById('addTaskMediumSpan').classList.add('color-white');
     document.getElementById('addTaskMediumImg').src="./assets/img/medium_white.png";
-=======
->>>>>>> 36d7e08087669108b1fd96a9feae459f9955c9d1
-
+}
 
 function addTaskMedium() {
     const element = document.querySelector('#addTaskMedium');
@@ -78,16 +75,13 @@ function addTaskUrgentRemove() {
     document.getElementById('addTaskUrgentSpan').classList.remove('color-white');
     document.getElementById('addTaskUrgentImg').src = "./assets/img/urgent.png";
 }
-<<<<<<< HEAD
 
 
 function addTaskLow(){    
     document.getElementById('addTaskLow').classList.add('low-color');
     document.getElementById('addTaskLowSpan').classList.add('color-white');
     document.getElementById('addTaskLowImg').src="./assets/img/low_white.png";
-=======
->>>>>>> 36d7e08087669108b1fd96a9feae459f9955c9d1
-
+}
 
 function addTaskMediumRemove() {
     document.getElementById('addTaskMedium').classList.remove('medium-color');
@@ -409,12 +403,4 @@ function renderCategoryList(){
 
     }
 }
-
-
-
-
-
-
-
-
 
