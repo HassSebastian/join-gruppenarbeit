@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-<script>
-    function contacts() {
-        alert('Verbindung zu contacts herstellen!!!');
-    }
-    function closeOverlay() {
-        alert('close Overlay Function bauen!!!');
-    }
-
-</script>
-
-
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,6 +9,24 @@
     <link rel="stylesheet" href="./styles/overlayAdd.css">
     <link rel="stylesheet" href="./styles/fonts.css">
 </head>
+
+
+<script>
+    function contacts() {
+        alert('Verbindung zu contacts herstellen!!!');
+    }
+    function closeOverlay() {
+        alert('close Overlay Function bauen!!!');
+    }
+    function cancelOn() {
+        document.getElementById('cancelImg').src = "././assets/img/close_logo_blue.png";
+        // document.getElementById('cancelImg').style="width:24px;height:24px";
+    }
+    function cancelOff(){
+        document.getElementById('cancelImg').src = "./assets/img/close_logo.png";
+    }
+</script>
+
 
 <body>
 
@@ -45,9 +50,9 @@
         </div>
         <div class="buttonOutContainer">
             <div class="buttonInContainer">
-                <button onclick="closeOverlay()" class="cancel">
+                <button onclick="closeOverlay()" class="cancel" onmouseover="cancelOn()" onmouseout="cancelOff()">
                     <span>Cancel</span>
-                    <img src="./assets/img/close_logo.png">
+                    <img id="cancelImg" width="13px" height="13px" src="./assets/img/close_logo.png">
                 </button>
                 <button onclick="contacts()" class="createContact">
                     <span>Create contact</span>
