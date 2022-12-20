@@ -15,55 +15,91 @@ function addTaskClearOn() {
 }
 
 
-function addTaskClearOff(){
+function addTaskClearOff() {
     document.getElementById('addTaskClear').src = "./assets/img/close_logo.png";
 }
 
 
 /*********************************************************************************/
 /*********************************************************************************/
-function addTaskUrgent(){
-    document.getElementById('addTaskUrgent').classList.add('urgent-color');
-    document.getElementById('addTaskUrgentSpan').classList.add('color-white');
-    document.getElementById('addTaskUrgentImg').src="./assets/img/urgent_white.png";
-
-    document.getElementById('addTaskMedium').classList.remove('medium-color');
-    document.getElementById('addTaskMediumSpan').classList.remove('color-white');
-    document.getElementById('addTaskMediumImg').src="./assets/img/medium.png";
-
-    document.getElementById('addTaskLow').classList.remove('low-color');
-    document.getElementById('addTaskLowSpan').classList.remove('color-white');
-    document.getElementById('addTaskLowImg').src="./assets/img/low.png";
+function addTaskUrgent() {
+    const element = document.querySelector('#addTaskUrgent');
+    if (element.classList.contains('urgent-color')) {
+        addTaskUrgentRemove();
+    } else {
+        document.getElementById('addTaskUrgent').classList.add('urgent-color');
+        document.getElementById('addTaskUrgentSpan').classList.add('color-white');
+        document.getElementById('addTaskUrgentImg').src = "./assets/img/urgent_white.png";
+        addTaskMediumRemove();
+        addTaskLowRemove();
+    }
 }
+<<<<<<< HEAD
 
 
 function addTaskMedium(){   
     document.getElementById('addTaskMedium').classList.add('medium-color');
     document.getElementById('addTaskMediumSpan').classList.add('color-white');
     document.getElementById('addTaskMediumImg').src="./assets/img/medium_white.png";
+=======
+>>>>>>> 36d7e08087669108b1fd96a9feae459f9955c9d1
 
+
+function addTaskMedium() {
+    const element = document.querySelector('#addTaskMedium');
+    if (element.classList.contains('medium-color')) {
+        addTaskMediumRemove();
+    } else {
+        document.getElementById('addTaskMedium').classList.add('medium-color');
+        document.getElementById('addTaskMediumSpan').classList.add('color-white');
+        document.getElementById('addTaskMediumImg').src = "./assets/img/medium_white.png";
+        addTaskUrgentRemove();
+        addTaskLowRemove();
+    }
+}
+
+
+function addTaskLow() {
+    const element = document.querySelector('#addTaskLow');
+    if (element.classList.contains('low-color')) {
+        addTaskLowRemove();
+    } else {
+        document.getElementById('addTaskLow').classList.add('low-color');
+        document.getElementById('addTaskLowSpan').classList.add('color-white');
+        document.getElementById('addTaskLowImg').src = "./assets/img/low_white.png";
+        addTaskUrgentRemove();
+        addTaskMediumRemove();
+    }
+}
+
+
+function addTaskUrgentRemove() {
     document.getElementById('addTaskUrgent').classList.remove('urgent-color');
     document.getElementById('addTaskUrgentSpan').classList.remove('color-white');
-    document.getElementById('addTaskUrgentImg').src="./assets/img/urgent.png";
-
-    document.getElementById('addTaskLow').classList.remove('low-color');
-    document.getElementById('addTaskLowSpan').classList.remove('color-white');
-    document.getElementById('addTaskLowImg').src="./assets/img/low.png";
+    document.getElementById('addTaskUrgentImg').src = "./assets/img/urgent.png";
 }
+<<<<<<< HEAD
 
 
 function addTaskLow(){    
     document.getElementById('addTaskLow').classList.add('low-color');
     document.getElementById('addTaskLowSpan').classList.add('color-white');
     document.getElementById('addTaskLowImg').src="./assets/img/low_white.png";
+=======
+>>>>>>> 36d7e08087669108b1fd96a9feae459f9955c9d1
 
-    document.getElementById('addTaskUrgent').classList.remove('urgent-color');
-    document.getElementById('addTaskUrgentSpan').classList.remove('color-white');
-    document.getElementById('addTaskUrgentImg').src="./assets/img/urgent.png";
 
+function addTaskMediumRemove() {
     document.getElementById('addTaskMedium').classList.remove('medium-color');
     document.getElementById('addTaskMediumSpan').classList.remove('color-white');
-    document.getElementById('addTaskMediumImg').src="./assets/img/medium.png";
+    document.getElementById('addTaskMediumImg').src = "./assets/img/medium.png";
+}
+
+
+function addTaskLowRemove() {
+    document.getElementById('addTaskLow').classList.remove('low-color');
+    document.getElementById('addTaskLowSpan').classList.remove('color-white');
+    document.getElementById('addTaskLowImg').src = "./assets/img/low.png";
 }
 /*********************************************************************************/
 /*********************************************************************************/
@@ -250,7 +286,7 @@ function createTaskData() {
     saveTask();
     clearFormularData();
     showAddDiv();
-    setTimeout(initBoard, 1200 );
+    setTimeout(initBoard, 1200);
 }
 
 function getDataFromFomular() {
@@ -264,8 +300,8 @@ function getDataFromFomular() {
 }
 
 
-function clearFormularData(){
-    document.getElementById('addTaskTitle').value ='';
+function clearFormularData() {
+    document.getElementById('addTaskTitle').value = '';
     descripten = document.getElementById('addTaskDescripten').value = '';
     document.getElementById('selectedCat').innerHTML = /*html*/`
         <input  placeholder='Select task category'><span id='sColor'></span><img src="../assets/img/Vector 2.png">`;
@@ -317,33 +353,33 @@ function deleteJoinTaskArrayFromServer() {
 
 // save data to local storage end!!!!!!!!!!!!
 
-function showAddDiv(){
+function showAddDiv() {
     document.getElementById('test').classList.add('test');
 }
 
-function notShowAddDiv(){
+function notShowAddDiv() {
     document.getElementById('test').classList.remove('test');
 }
 
 
-function checkInputs(){
+function checkInputs() {
     let title = document.getElementById('addTaskTitle').value;
     let dueDate = document.getElementById('dueDate').value;
     let category = document.getElementById('selectedCatInput').value;
     document.getElementById('titleReq').style = 'opacity: 0;';
     document.getElementById('dateReq').style = 'opacity: 0;';
     document.getElementById('catReq').style = 'opacity: 0;';
-    if (title == ''){
+    if (title == '') {
         document.getElementById('titleReq').style = 'opacity: 1;';
     }
-    if (dueDate== ''){
+    if (dueDate == '') {
         document.getElementById('dateReq').style = 'opacity: 1;';
     }
-    if (category == ''){
+    if (category == '') {
         document.getElementById('catReq').style = 'opacity: 1;';
         document.getElementById('catReq').classList.remove('listD-none');
     }
-    else{
+    else {
         createTaskData();
     }
 }
