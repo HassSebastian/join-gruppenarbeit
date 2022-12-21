@@ -176,7 +176,7 @@ tr td:nth-child(3) {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 36px 20px 348px;
+    padding: 0px 36px 0px 348px;
     gap: 34px;
     color: black;
     position: absolute;
