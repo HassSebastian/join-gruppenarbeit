@@ -252,7 +252,7 @@
     cursor: pointer;
 }
 
-#titleReq{
+#titleReq {
     opacity: 0;
 }
 
@@ -388,6 +388,11 @@
     order: 0;
     flex-grow: 0;
     cursor: pointer;
+    position: relative;
+}
+
+.d-none{
+    display: none !important;
 }
 
 /* .addTaskAddCategoryBox button span {
@@ -425,7 +430,7 @@
     cursor: pointer;
 }
 
-.addTaskAddCategoryBox button img {
+.dropdownImg {
     position: absolute;
     width: 16px;
     height: 8px;
@@ -434,6 +439,36 @@
     order: 1;
     flex-grow: 0;
     z-index: 1;
+}
+
+.newCategoryImgDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 9px;
+    position: absolute;
+    width: 66px;
+    height: 31px;
+    left: 341px;
+    top: 11px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    z-index: 1;
+}
+
+.newCategoryImgDiv img{
+    width: 24px;
+    height: 24px;
+
+
+/* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
 .addTaskCatList {
@@ -461,7 +496,7 @@
     margin-top: 75.57px !important;
 }
 
-.addTaskCatList{
+.addTaskCatList {
     min-height: 78px;
     width: 100%;
     overflow: hidden;
@@ -482,9 +517,10 @@
     z-index: 0;
 
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     padding-right: 150px;
     align-items: center;
+    gap: 10px;
 }
 
 .addTaskCatList li:hover {
@@ -517,14 +553,14 @@
     cursor: pointer;
 }
 
-.addTaskColorDiv{
+.addTaskColorDiv {
     height: 12px;
     width: 12px;
     border-radius: 100%;
     border: 1px solid #D1D1D1;
 }
 
-#catReq{
+#catReq {
     opacity: 0;
 }
 
@@ -738,7 +774,7 @@
     color: #D1D1D1;
 }
 
-#dateReq{
+#dateReq {
     opacity: 0;
 }
 
@@ -1095,35 +1131,36 @@
 
 /*********************************************************************************/
 /*********************************************************************************/
-.addTaskUrgent:hover{
+.addTaskUrgent:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.addTaskMedium:hover{
+.addTaskMedium:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.addTaskLow:hover{
+.addTaskLow:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.color-white{
+.color-white {
     color: white !important;
 }
 
-.urgent-color{
+.urgent-color {
     background: #FF3D00;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.medium-color{
-    background:#FFA800;
+.medium-color {
+    background: #FFA800;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.low-color{
+.low-color {
     background: #7AE229;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 /*********************************************************************************/
 /*********************************************************************************/

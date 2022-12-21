@@ -138,7 +138,15 @@ async function renderAddTask() {
 
             <div class='addTaskAddCategoryBox'>
                 <h3>Category</h3>
-                <button onclick=enableDisableCatList() id='selectedCat'><input disabled id='selectedCatInput' placeholder='Select task category' autocomplete='off' minlength><span id='sColor'></span><img src="../assets/img/Vector 2.png"></button>
+                <button onclick=enableDisableCatList() id='selectedCat'>
+                    <input disabled id='selectedCatInput' placeholder='Select task category' autocomplete='off'>
+                    <span id='sColor'></span>
+                    <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
+                        <img src="../assets/img/new_cat_cancel.png">
+                        <img src="../assets/img/akar-icons_check.png">
+                    </div>
+                    <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>
+                </button>
                 <span id='catReq' class='listD-none'>This field is required</span>
                 <ul class="addTaskCatList listD-none" id="dropdown">
                     <!-- <li onclick='selectCategory(0)'>New category</li>
@@ -159,7 +167,7 @@ async function renderAddTask() {
 
             <div class='addTaskAssignedBox' id='addTaskAssignedBox'>
                 <h3>Assigned to</h3>
-                <button onclick=enableDisableAssignList()><span id='selectedAssign'>Select contacts to Assign</span><img src="../assets/img/Vector 2.png" alt=""></button>
+                <button onclick=enableDisableAssignList()><span id='selectedAssign'>Select contacts to Assign</span><img src="../assets/img/Vector 2.png" class='dropdownImg'></button>
                 <ul class="addTaskAssignList listD-none" id="dropdown2">
                     <li>New Assign</li>
                     <li>Assign 2</li>
@@ -236,15 +244,29 @@ function selectCategory(catId) {
     let categoryColor = categoryList[catId]['catColor'];
     if (catId == 0) {
         document.getElementById('selectedCat').innerHTML = /*html*/`
-        <input id='selectedCatInput' placeholder='New Category' autocomplete='off'><span id='sColor'></span><img src="../assets/img/Vector 2.png">`;
+        <input id='selectedCatInput' placeholder='New Category' autocomplete='off'>
+        <span id='sColor'></span>
+        <!-- <img src="../assets/img/Vector 2.png" class='dropdownImg'> -->
+        <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
+            <img src="../assets/img/new_cat_cancel.png">
+            <img src="../assets/img/akar-icons_check.png">
+        </div>
+        <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
+
         enableDisableCatList();
+        document.getElementById('addTaskNewCatBtn').classList.remove('d-none');
+        document.getElementById('dropdownImg').classList.add('d-none');
         document.getElementById('colorSelection').classList.remove('listD-none');
         document.getElementById('sColor').innerHTML = '';
     } else {
+
+        
         document.getElementById('selectedCatInput').value = newCat;
         document.getElementById('sColor').innerHTML = /*html*/`<div class='color${categoryColor} addTaskColorDiv'></div>`;
         catColor = categoryColor;
         enableDisableCatList();
+        document.getElementById('addTaskNewCatBtn').classList.add('d-none');
+        document.getElementById('dropdownImg').classList.remove('d-none');
         document.getElementById('colorSelection').classList.add('listD-none');
     }
 }
@@ -306,7 +328,7 @@ function clearFormularData() {
     document.getElementById('addTaskTitle').value = '';
     descripten = document.getElementById('addTaskDescripten').value = '';
     document.getElementById('selectedCat').innerHTML = /*html*/`
-        <input  placeholder='Select task category' autocomplete='off'><span id='sColor'></span><img src="../assets/img/Vector 2.png">`;
+        <input  placeholder='Select task category' autocomplete='off'><span id='sColor'></span><img src="../assets/img/Vector 2.png" class='dropdownImg'>`;
     document.getElementById('dueDate').value = '';
     subTask = document.getElementById('subTask').value = '';
     document.getElementById('titleReq').style = 'opacity: 0;';
