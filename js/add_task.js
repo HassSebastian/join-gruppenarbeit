@@ -378,24 +378,6 @@ function resetRequiredWarnings(){
 }
 
 
-// save data to local storage/server!
-function createTaskData() {
-    loadTask();
-    getDataFromFomular();
-    fillTaskData();
-    pushTaskData();
-    saveTask();
-    showAddDiv();
-    setTimeout(initBoard, 1200);
-}
-
-function getDataFromFomular() {
-    descripten = document.getElementById('addTaskDescripten').value;
-    assigndTo = 'not included jet';
-    subTask = document.getElementById('subTask').value;
-}
-
-
 // ToDo must be reworked when all selection possible !!!!!!!!!!!!!!!!
 function clearFormularData() {
     document.getElementById('addTaskTitle').value = '';
@@ -414,6 +396,24 @@ function clearFormularData() {
     document.getElementById('dateReq').style = 'opacity: 0;';
     document.getElementById('catReq').style = 'opacity: 0;';
     document.getElementById('catReq').classList.add('listD-none');
+}
+
+
+// save data to local storage/server!
+function createTaskData() {
+    loadTask();
+    getDataFromFomular();
+    fillTaskData();
+    pushTaskData();
+    saveTask();
+    showAddDiv();
+    setTimeout(initBoard, 1200);
+}
+
+function getDataFromFomular() {
+    descripten = document.getElementById('addTaskDescripten').value;
+    assigndTo = 'not included jet';
+    subTask = document.getElementById('subTask').value;
 }
 
 
