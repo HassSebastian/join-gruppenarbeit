@@ -229,7 +229,10 @@
 .add_contact {
     position: absolute;
     top: 300px;
-    left: 250px;
+    left: 0px;
+    right: 0px;
+    margin-left: auto;
+    margin-right: auto;
     width: 909px;
     height: 445.5px;
     background: #FFFFFF;
@@ -237,6 +240,7 @@
     display: flex;
     flex-direction: row;
     box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.08);
+    z-index: 1;
 }
 
 .add_contact_left {
