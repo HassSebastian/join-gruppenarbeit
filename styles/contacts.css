@@ -239,7 +239,6 @@
     box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.08);
 }
 
-<<<<<<< HEAD
 .add_contact_left {
     display: flex;
     flex-direction: column;
@@ -251,10 +250,11 @@
     border-radius: 30px 0 0 30px;
     width: 276.24px;
     background: #2A3647;
-=======
+}
+
 .new_contact:hover {
     background: #29ABE2;
->>>>>>> a877f8660612fdf76845676dcee635485e413d55
+
 }
 
 .add_contact_left img {
