@@ -257,7 +257,7 @@
 }
 
 .addTaskAddTitleContainer span {
-    width: 119px;
+    /* width: 119px; */
     height: 12px;
     font-family: 'Poppins';
     font-style: normal;
@@ -407,7 +407,7 @@
 } */
 
 .addTaskAddCategoryBox button input {
-    width: 205px;
+    /* width: 205px; */
     height: 25px;
     font-family: 'Inter';
     font-style: normal;

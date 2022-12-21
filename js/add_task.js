@@ -34,6 +34,7 @@ function addTaskUrgent() {
         document.getElementById('addTaskUrgentImg').src = "./assets/img/urgent_white.png";
         addTaskMediumRemove();
         addTaskLowRemove();
+        prio = 'urgent';
     }
 }
 
@@ -54,6 +55,7 @@ function addTaskMedium() {
         document.getElementById('addTaskMediumImg').src = "./assets/img/medium_white.png";
         addTaskUrgentRemove();
         addTaskLowRemove();
+        prio = 'medium';
     }
 }
 
@@ -68,6 +70,7 @@ function addTaskLow() {
         document.getElementById('addTaskLowImg').src = "./assets/img/low_white.png";
         addTaskUrgentRemove();
         addTaskMediumRemove();
+        prio = 'low';
     }
 }
 
@@ -135,7 +138,7 @@ async function renderAddTask() {
 
             <div class='addTaskAddCategoryBox'>
                 <h3>Category</h3>
-                <button onclick=enableDisableCatList() id='selectedCat'><input id='selectedCatInput' placeholder='Select task category' autocomplete='off'><span id='sColor'></span><img src="../assets/img/Vector 2.png"></button>
+                <button onclick=enableDisableCatList() id='selectedCat'><input disabled id='selectedCatInput' placeholder='Select task category' autocomplete='off' minlength><span id='sColor'></span><img src="../assets/img/Vector 2.png"></button>
                 <span id='catReq' class='listD-none'>This field is required</span>
                 <ul class="addTaskCatList listD-none" id="dropdown">
                     <!-- <li onclick='selectCategory(0)'>New category</li>
@@ -240,6 +243,7 @@ function selectCategory(catId) {
     } else {
         document.getElementById('selectedCatInput').value = newCat;
         document.getElementById('sColor').innerHTML = /*html*/`<div class='color${categoryColor} addTaskColorDiv'></div>`;
+        catColor = categoryColor;
         enableDisableCatList();
         document.getElementById('colorSelection').classList.add('listD-none');
     }
@@ -293,7 +297,7 @@ function getDataFromFomular() {
     category = document.getElementById('selectedCatInput').value;
     assigndTo = 'not included jet';
     dueDate = document.getElementById('dueDate').value;
-    prio = 'not included jet';
+    // prio = prio;
     subTask = document.getElementById('subTask').value;
 }
 
