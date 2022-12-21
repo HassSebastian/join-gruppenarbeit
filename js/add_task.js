@@ -1,6 +1,6 @@
 let catListStatus = false;
 let assignListStatus = false;
-
+let newCatInputActive = false;
 
 
 async function initAddTask() {
@@ -9,6 +9,7 @@ async function initAddTask() {
     await renderAddTask();
     await loadExitingCategories();
     renderCategoryList();
+    newCatInputActive = false;
 }
 
 
@@ -39,11 +40,7 @@ function addTaskUrgent() {
 }
 
 
-function addTaskMedium(){   
-    document.getElementById('addTaskMedium').classList.add('medium-color');
-    document.getElementById('addTaskMediumSpan').classList.add('color-white');
-    document.getElementById('addTaskMediumImg').src="./assets/img/medium_white.png";
-}
+
 
 function addTaskMedium() {
     const element = document.querySelector('#addTaskMedium');
@@ -82,11 +79,7 @@ function addTaskUrgentRemove() {
 }
 
 
-function addTaskLow(){    
-    document.getElementById('addTaskLow').classList.add('low-color');
-    document.getElementById('addTaskLowSpan').classList.add('color-white');
-    document.getElementById('addTaskLowImg').src="./assets/img/low_white.png";
-}
+
 
 function addTaskMediumRemove() {
     document.getElementById('addTaskMedium').classList.remove('medium-color');
@@ -227,8 +220,9 @@ async function renderAddTask() {
 }
 
 
+
 function enableDisableCatList() {
-    if (!catListStatus) {
+    if (!catListStatus && !newCatInputActive) {
         document.getElementById('dropdown').classList.remove('listD-none');
         document.getElementById('addTaskAssignedBox').classList.add('addMarginTop');
     } else {
@@ -236,6 +230,21 @@ function enableDisableCatList() {
         document.getElementById('addTaskAssignedBox').classList.remove('addMarginTop');
     }
     catListStatus = !catListStatus;
+}
+
+
+function resetCatSelection(){
+    newCatInputActive = false;
+    catListStatus = !catListStatus;
+    document.getElementById('colorSelection').classList.add('listD-none');
+    document.getElementById('selectedCat').innerHTML = /*html*/`
+    <input disabled id='selectedCatInput' placeholder='Select task category' autocomplete='off'>
+    <span id='sColor'></span>
+    <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
+        <img src="../assets/img/new_cat_cancel.png">
+        <img src="../assets/img/akar-icons_check.png">
+    </div>
+    <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
 }
 
 
@@ -248,10 +257,12 @@ function selectCategory(catId) {
         <span id='sColor'></span>
         <!-- <img src="../assets/img/Vector 2.png" class='dropdownImg'> -->
         <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
-            <img src="../assets/img/new_cat_cancel.png">
-            <img src="../assets/img/akar-icons_check.png">
+            <img src="../assets/img/new_cat_cancel.png" onclick='resetCatSelection()'>
+            <img src="../assets/img/akar-icons_check.png" onclick='setNewCategoryToList()'>
         </div>
         <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
+        // document.getElementById('dropdown').classList.add('d-none');
+        newCatInputActive = true;
 
         enableDisableCatList();
         document.getElementById('addTaskNewCatBtn').classList.remove('d-none');
@@ -259,13 +270,16 @@ function selectCategory(catId) {
         document.getElementById('colorSelection').classList.remove('listD-none');
         document.getElementById('sColor').innerHTML = '';
     } else {
+        document.getElementById('selectedCat').innerHTML = /*html*/`
+        <p id='selectedCatInput'>${newCat}</p>
+        <span id='sColor'><div class='color${categoryColor} addTaskColorDiv'></div></span>
+        <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
 
-        
-        document.getElementById('selectedCatInput').value = newCat;
-        document.getElementById('sColor').innerHTML = /*html*/`<div class='color${categoryColor} addTaskColorDiv'></div>`;
+        // document.getElementById('selectedCatInput').value = newCat;
+        // document.getElementById('sColor').innerHTML = /*html*/`<div class='color${categoryColor} addTaskColorDiv'></div>`;
         catColor = categoryColor;
         enableDisableCatList();
-        document.getElementById('addTaskNewCatBtn').classList.add('d-none');
+        // document.getElementById('addTaskNewCatBtn').classList.add('d-none');
         document.getElementById('dropdownImg').classList.remove('d-none');
         document.getElementById('colorSelection').classList.add('listD-none');
     }
@@ -300,7 +314,6 @@ let assigndTo = '';
 let dueDate = '';
 let prio = '';
 let subTask = '';
-// let colorArray = ['#8AA4FF', '#FF0000', '#2AD300', '#FF8A00', '#E200BE', '#E200BE']
 
 function createTaskData() {
     loadTask();
@@ -308,7 +321,7 @@ function createTaskData() {
     fillTaskData();
     pushTaskData();
     saveTask();
-    clearFormularData();
+    // clearFormularData();
     showAddDiv();
     setTimeout(initBoard, 1200);
 }
@@ -316,7 +329,7 @@ function createTaskData() {
 function getDataFromFomular() {
     title = document.getElementById('addTaskTitle').value;
     descripten = document.getElementById('addTaskDescripten').value;
-    category = document.getElementById('selectedCatInput').value;
+    // category = document.getElementById('selectedCatInput').value;
     assigndTo = 'not included jet';
     dueDate = document.getElementById('dueDate').value;
     // prio = prio;
@@ -328,7 +341,9 @@ function clearFormularData() {
     document.getElementById('addTaskTitle').value = '';
     descripten = document.getElementById('addTaskDescripten').value = '';
     document.getElementById('selectedCat').innerHTML = /*html*/`
-        <input  placeholder='Select task category' autocomplete='off'><span id='sColor'></span><img src="../assets/img/Vector 2.png" class='dropdownImg'>`;
+        <input  placeholder='Select task category' autocomplete='off'>
+        <span id='sColor'></span>
+        <img src="../assets/img/Vector 2.png" class='dropdownImg'>`;
     document.getElementById('dueDate').value = '';
     subTask = document.getElementById('subTask').value = '';
     document.getElementById('titleReq').style = 'opacity: 0;';
@@ -351,7 +366,6 @@ function fillTaskData() {
     };
     catColor = '';
 }
-
 
 
 function pushTaskData() {
@@ -389,7 +403,13 @@ function notShowAddDiv() {
 function checkInputs() {
     let title = document.getElementById('addTaskTitle').value;
     let dueDate = document.getElementById('dueDate').value;
-    let category = document.getElementById('selectedCatInput').value;
+    // let category = '';
+    if (newCatInputActive){
+        category = document.getElementById('selectedCatInput').value;
+    }else{
+        category = document.getElementById('selectedCatInput').innerHTML;
+    }
+    // let category = document.getElementById('selectedCatInput').value;
     document.getElementById('titleReq').style = 'opacity: 0;';
     document.getElementById('dateReq').style = 'opacity: 0;';
     document.getElementById('catReq').style = 'opacity: 0;';
@@ -437,5 +457,18 @@ function renderCategoryList(){
             <li onclick='selectCategory(${i})'>${categoryName}</li>`;
         }
     }
+}
+
+
+function setNewCategoryToList(){
+    let newSetCategory = document.getElementById('selectedCatInput').value;
+    let newCatColor = catColor;
+    let newCategoryItem = { 'category': newSetCategory, 'catColor': newCatColor};
+    categoryList.push(newCategoryItem);
+    let newCategoryIndex = categoryList.length - 1;
+    renderCategoryList();
+    selectCategory(+newCategoryIndex);
+    catListStatus = false;
+    newCatInputActive = false;
 }
 
