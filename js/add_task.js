@@ -258,7 +258,7 @@ function selectCategory(catId) {
         <!-- <img src="../assets/img/Vector 2.png" class='dropdownImg'> -->
         <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
             <img src="../assets/img/new_cat_cancel.png" onclick='resetCatSelection()'>
-            <img src="../assets/img/akar-icons_check.png">
+            <img src="../assets/img/akar-icons_check.png" onclick='setNewCategoryToList()'>
         </div>
         <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
         // document.getElementById('dropdown').classList.add('d-none');
@@ -314,7 +314,6 @@ let assigndTo = '';
 let dueDate = '';
 let prio = '';
 let subTask = '';
-// let colorArray = ['#8AA4FF', '#FF0000', '#2AD300', '#FF8A00', '#E200BE', '#E200BE']
 
 function createTaskData() {
     loadTask();
@@ -330,7 +329,7 @@ function createTaskData() {
 function getDataFromFomular() {
     title = document.getElementById('addTaskTitle').value;
     descripten = document.getElementById('addTaskDescripten').value;
-    category = document.getElementById('selectedCatInput').value;
+    // category = document.getElementById('selectedCatInput').value;
     assigndTo = 'not included jet';
     dueDate = document.getElementById('dueDate').value;
     // prio = prio;
@@ -404,7 +403,13 @@ function notShowAddDiv() {
 function checkInputs() {
     let title = document.getElementById('addTaskTitle').value;
     let dueDate = document.getElementById('dueDate').value;
-    let category = document.getElementById('selectedCatInput').value;
+    // let category = '';
+    if (newCatInputActive){
+        category = document.getElementById('selectedCatInput').value;
+    }else{
+        category = document.getElementById('selectedCatInput').innerHTML;
+    }
+    // let category = document.getElementById('selectedCatInput').value;
     document.getElementById('titleReq').style = 'opacity: 0;';
     document.getElementById('dateReq').style = 'opacity: 0;';
     document.getElementById('catReq').style = 'opacity: 0;';
@@ -452,5 +457,18 @@ function renderCategoryList(){
             <li onclick='selectCategory(${i})'>${categoryName}</li>`;
         }
     }
+}
+
+
+function setNewCategoryToList(){
+    let newSetCategory = document.getElementById('selectedCatInput').value;
+    let newCatColor = catColor;
+    let newCategoryItem = { 'category': newSetCategory, 'catColor': newCatColor};
+    categoryList.push(newCategoryItem);
+    let newCategoryIndex = categoryList.length - 1;
+    renderCategoryList();
+    selectCategory(+newCategoryIndex);
+    catListStatus = false;
+    newCatInputActive = false;
 }
 
