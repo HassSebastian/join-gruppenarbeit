@@ -10,3 +10,13 @@ async function renderContacts() {
 
     `;
 }
+
+function openNewContact() {
+    document.getElementById('new_contact').classList.remove('d-none');
+    renderContacts();
+}
+
+function closeNewContact() {
+    document.getElementById('new_contact').classList.add('d-none');
+    renderContacts();
+}

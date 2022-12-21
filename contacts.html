@@ -51,9 +51,38 @@
         <span>Better with a team</span>
     </div>
 
-    <div class="new_contact">
+    <div class="new_contact" onclick="openNewContact()">
         <span>New contact</span>
         <img src="assets/img/add_contact_icon.png" alt="">
+    </div>
+
+    <div class="add_contact d-none" id="new_contact">
+        <div class="add_contact_left">
+            <img src="assets/img/join_logo.png" alt="">
+            <h1>Add contact</h1>
+            <span>Tasks are better with a team!</span>
+            <div class="add_contact_vector_5 "></div>
+        </div>
+        <div class="add_contact_right">
+            <img src="assets/img/empty_profile_picture.png" alt="">
+            <div class="add_contact_inputs">
+                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Email">
+                <input type="text" placeholder="Phone">
+                <div class="add_contact_right_buttons">
+                    <div class="contact_cancel" onclick="closeNewContact()">
+                        <span>Cancel</span>
+                        <img src="assets/img/new_cat_cancel.png" alt="">
+                    </div>
+                    <div class="contact_create">
+                        <span>Create contact</span>
+                        <img src="assets/img/akar-icons_check_white.png" alt="">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
     </div>
 </body>
 
