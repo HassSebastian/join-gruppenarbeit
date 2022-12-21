@@ -389,18 +389,13 @@ function createTaskData() {
     fillTaskData();
     pushTaskData();
     saveTask();
-    // clearFormularData();
     showAddDiv();
     setTimeout(initBoard, 1200);
 }
 
 function getDataFromFomular() {
-    // title = document.getElementById('addTaskTitle').value;
     descripten = document.getElementById('addTaskDescripten').value;
-    // category = document.getElementById('selectedCatInput').value;
     assigndTo = 'not included jet';
-    // dueDate = document.getElementById('dueDate').value;
-    // prio = prio;
     subTask = document.getElementById('subTask').value;
 }
 
