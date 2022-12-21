@@ -208,7 +208,7 @@ border: 1px solid #2A3647;
 border-radius: 10px;
 }
 
-.new_contact :hover {
+.new_contact:hover {
     background: #29ABE2;
 }
 
