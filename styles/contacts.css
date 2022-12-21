@@ -1,9 +1,9 @@
 .Frame_97 {
     position: absolute;
     width: 453px;
-    height: 895px;
+    height: 935px;
     left: 232px;
-    top: 129px;
+    top: 89px;
     background: #FFFFFF;
     box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
 }
@@ -15,7 +15,7 @@
     padding: 0px;
     position: absolute;
     width: 357px;
-    height: 893px;
+    height: 933px;
     left: 48px;
     top: 2px;
     background: #FFFFFF;
@@ -183,4 +183,46 @@
     flex: none;
     order: 1;
     flex-grow: 0;
+}
+
+.new_contact {
+    box-sizing: border-box;
+
+/* Auto layout */
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 18px 10px;
+gap: 10px;
+
+position: absolute;
+width: 193px;
+height: 53px;
+left: 1195px;
+top: 904px;
+
+background: #2A3647;
+border: 1px solid #2A3647;
+border-radius: 10px;
+}
+
+.new_contact :hover {
+    background: #29ABE2;
+}
+
+.new_contact img {
+/* Capa 1 */
+
+
+width: 33px;
+height: 29.71px;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
 }
