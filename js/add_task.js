@@ -69,11 +69,7 @@ async function renderAddTask() {
                 </button>
                 <span id='catReq' class='listD-none'>This field is required</span>
                 <ul class="addTaskCatList listD-none" id="dropdown">
-                    <!-- <li onclick='selectCategory(0)'>New category</li>
-                    <li onclick='selectCategory(1)'>Category 2</li>
-                    <li onclick='selectCategory(2)'>Category 3</li>
-                    <li onclick='selectCategory(1)'>Category 2</li>
-                    <li onclick='selectCategory(2)'>Category 3</li> -->
+                    
                 </ul>
                 <div class='addTaskAddCategoryColor listD-none' id='colorSelection'>
                     <div class='color0' onclick='addColorToCat(0)'></div>
@@ -400,14 +396,18 @@ function getDataFromFomular() {
 }
 
 
-// ToDo must be reworked do to changes in Category
+// ToDo must be reworked when all selection possible !!!!!!!!!!!!!!!!
 function clearFormularData() {
     document.getElementById('addTaskTitle').value = '';
     descripten = document.getElementById('addTaskDescripten').value = '';
     document.getElementById('selectedCat').innerHTML = /*html*/`
-        <input  placeholder='Select task category' autocomplete='off'>
+        <input disabled id='selectedCatInput' placeholder='Select task category' autocomplete='off'>
         <span id='sColor'></span>
-        <img src="../assets/img/Vector 2.png" class='dropdownImg'>`;
+        <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
+            <img src="../assets/img/new_cat_cancel.png">
+            <img src="../assets/img/akar-icons_check.png">
+        </div>
+        <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
     document.getElementById('dueDate').value = '';
     subTask = document.getElementById('subTask').value = '';
     document.getElementById('titleReq').style = 'opacity: 0;';
