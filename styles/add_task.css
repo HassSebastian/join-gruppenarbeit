@@ -430,6 +430,24 @@
     cursor: pointer;
 }
 
+.addTaskAddCategoryBox button p{
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    z-index: 0;
+    text-align: left;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
 .dropdownImg {
     position: absolute;
     width: 16px;
@@ -457,6 +475,7 @@
     order: 1;
     flex-grow: 0;
     z-index: 1;
+    cursor: pointer;
 }
 
 .newCategoryImgDiv img{
