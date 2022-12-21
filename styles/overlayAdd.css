@@ -178,7 +178,7 @@ body {
     transition: 100ms ease-in-out;
 }
 
-.cancel:hover * {
+.cancel:hover *{
     color: #29ABE2;
     transition: 100ms ease-in-out;
 }
