@@ -190,9 +190,10 @@ body {
     gap: 10px;
     width: 380px;
     height: 25px;
+    border: 0;
+    outline: none;
 }
-
-.innerEmailContainer span {
+::placeholder{
     width: 53px;
     height: 25px;
     font-family: 'Inter';
@@ -227,17 +228,7 @@ body {
     gap: 10px;
     width: 380px;
     height: 25px;
-}
-
-.innerPasswordContainer span {
-    width: 97px;
-    height: 25px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
-    color: #D1D1D1;
+    
 }
 
 .innerPasswordContainer img {
