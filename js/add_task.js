@@ -42,20 +42,22 @@ async function renderAddTask() {
             </button>
         </div>
     </div>
-    <!-- <form onsubmit=" ;return false"></form>  -->
+    <!-- <form onsubmit="goToPrio();return false"> -->
         <div class='addTaskAddTitleContainer'>
-            
             <div class='addTaskAddTitleBox'>
                 <h3>Title</h3>
-                <form onsubmit="goToDescripten(); return false">
+                <!-- <form onsubmit='goToDescripten(); return false' > -->
                 <input  required type="text" placeholder='Enter a title' id='addTaskTitle' autocomplete='off' minlength='3'>
-                </form>
-                <span id='titleReq'>This field is required</span>
+                <!-- </form> -->
+                <span class='requiredText' id='titleReq'>This field is required</span>
             </div>
 
             <div class='addTaskAddDescriptenBox'>
                 <h3>Descripten</h3>
-                <textarea type="text" placeholder='Enter Descripten' id='addTaskDescripten'></textarea>
+                <!-- <form onblur='goToCategorySelection(); return false' id='formDesc' action='action.asp'> -->
+                <textarea form='formDesc' type="text" placeholder='Enter Descripten' id='addTaskDescripten'  required minlength='5'></textarea>
+                <!-- </form> -->
+                <span class='requiredText'  id='DescReq'>This field is required</span>
             </div>
 
             <div class='addTaskAddCategoryBox'>
@@ -69,7 +71,7 @@ async function renderAddTask() {
                     </div>
                     <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>
                 </button>
-                <span id='catReq' class='listD-none'>This field is required</span>
+                <span class='listD-none requiredText' id='catReq'>This field is required</span>
                 <ul class="addTaskCatList listD-none" id='CatListDropdown'>
                     
                 </ul>
@@ -86,6 +88,7 @@ async function renderAddTask() {
             <div class='addTaskAssignedBox' id='addTaskAssignedBox'>
                 <h3>Assigned to</h3>
                 <button onclick=enableDisableAssignList()><span id='selectedAssign'>Select contacts to Assign</span><img src="../assets/img/Vector 2.png" class='dropdownImg'></button>
+                <span id='assignReq'>This field is required</span>
                 <ul class="addTaskAssignList listD-none" id="dropdown2">
                     <li>New Assign</li>
                     <li>Assign 2</li>
@@ -102,7 +105,7 @@ async function renderAddTask() {
             <div class='addTaskDate'>
                 <h3>Due date</h3>
                 <input required type="date" id='dueDate'>
-                <span id='dateReq'>This field is required</span>
+                <span class='requiredText' id='dateReq'>This field is required</span>
             </div>
             <div class='addTaskPrio'>
                 <h3>Prio</h3>
@@ -134,7 +137,7 @@ async function renderAddTask() {
                 
             </div>
         </div>
-    
+    <!-- </form>  -->
     <div class="taskAddedToBoard" id='test'>
         <div class="taskAddedToBoardContainer">
             <span>Task added to board</span>
@@ -147,6 +150,10 @@ async function renderAddTask() {
 
 function goToDescripten(){
     document.getElementById('addTaskDescripten').focus();
+}
+
+function goToPrio(){
+    document.getElementById('addTaskUrgent').focus();
 }
 
 
