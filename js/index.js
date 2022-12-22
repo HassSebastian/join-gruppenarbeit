@@ -4,7 +4,6 @@ function initPage1(){
     setTimeout(startLogIn, 700);
 }
 function startLogIn(){
-    document.getElementById('page1').classList.add('d-none');
-    document.getElementById('logIn').classList.remove('d-none');
+    window.location.href = './logIn.html';
 }
 

@@ -9,18 +9,19 @@
     <link rel="stylesheet" href="./styles/login.css">
     <link rel="stylesheet" href="./styles/fonts.css">
     <script src="./js/script.js"></script>
+    <script src="./js/login.js"></script>
 
 
 </head>
 
 <body>
 
-    <div class="logIn">
+    <div id="logIn">
         <div class="notAJoinUser">
             <span>Not a Join user?</span>
-            <button onclick="signUp()">Sign up</button>
+            <button onclick="initSignIn()">Sign up</button>
         </div>
-        <img src="./assets/img/join_logo_black.png" class="joinLogo">
+        <img src="../assets/img/join_logo_black.png" class="joinLogo">
 
         <div class="innerContainer">
 
@@ -33,7 +34,7 @@
                 <div class="outEmailContainer">
                     <div class="container">
                         <div class="innerEmailContainer">
-                            <span>Email</span>
+                            <input class="inputLogIn" type="text" placeholder="Email">
                             <img src="./assets/img/email_Logo.png">
                         </div>
                     </div>
@@ -42,7 +43,7 @@
                 <div class="outPasswordContainer">
                     <div class="container">
                         <div class="innerPasswordContainer">
-                            <span>Password</span>
+                            <input class="inputLogIn" type="password" placeholder="Password">
                             <img src="./assets/img/password_logo.png">
                         </div>
                     </div>
@@ -61,10 +62,10 @@
             </div>
 
             <div class="logInButtonContainer">
-                <button class="logInButton">
+                <button class="logInButton" onclick="logIn()">
                     <span>Log in</span>
                 </button>
-                <button class="guestButton">
+                <button class="guestButton" onclick="guestLogIn()">
                     <span>Guest Log in</span>
                 </button>
             </div>

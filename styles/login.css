@@ -1,9 +1,4 @@
-body {
-    margin: 0;
-    user-select: none;
-}
-
-.logIn {
+#logIn {
     position: relative;
     width: 1440px;
     height: 1024px;
@@ -51,6 +46,13 @@ body {
     font-size: 16px;
     line-height: 120%;
     color: #FFFFFF;
+    border: 0;
+    cursor: pointer;
+}
+.notAJoinUser button:hover{
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: 100ms ease-in-out;
 }
 
 .joinLogo {
@@ -149,10 +151,12 @@ body {
     gap: 10px;
     width: 380px;
     height: 25px;
+    border: 0;
+    outline: none;
+    
 }
-
-.innerEmailContainer span {
-    width: 53px;
+::placeholder{
+    width: max-content;
     height: 25px;
     font-family: 'Inter';
     font-style: normal;
@@ -160,6 +164,20 @@ body {
     font-size: 21px;
     line-height: 120%;
     color: #D1D1D1;
+
+}
+.inputLogIn {
+    width: min-content;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #D1D1D1;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
 }
 
 .innerEmailContainer img {
@@ -186,17 +204,6 @@ body {
     gap: 10px;
     width: 380px;
     height: 25px;
-}
-
-.innerPasswordContainer span {
-    width: 97px;
-    height: 25px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
-    color: #D1D1D1;
 }
 
 .innerPasswordContainer img {
@@ -276,6 +283,14 @@ body {
     height: 51px;
     background: #2A3647;
     border-radius: 8px;
+    border: 0;
+    
+}
+.logInButton:hover{
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: 100ms ease-in-out;
+    cursor: pointer;
 }
 
 .logInButton span {
@@ -297,11 +312,22 @@ body {
     align-items: center;
     padding: 4px 16px;
     gap: 10px;
-    width: 161px;
+    width: max-content;
     height: 51px;
     border: 1px solid #2A3647;
     border-radius: 8px;
 }
+.guestButton:hover{
+    border: 2px solid #29ABE2;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    transition: 100ms ease-in-out;
+    cursor: pointer;
+}
+.guestButton:hover * {
+    color: #29ABE2;
+    transition: 100ms ease-in-out;
+}
+
 
 .guestButton span {
     width: 129px;
@@ -313,6 +339,7 @@ body {
     line-height: 120%;
     color: #2A3647;
 }
+
 .required {
     width: 119px;
     height: 12px;

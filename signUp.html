@@ -23,54 +23,59 @@
             <img src="./assets/img/join_logo_black.png">
         </div>
 
-        <div class="signUpContainer">
-            <div class="signUpHeadline">
-                <span>Sign up</span>
-                <div></div>
+        <form action="" onsubmit="userSignIn() ;return false">
+
+            <div class="signUpContainer">
+
+                <div class="signUpHeadline">
+                    <span>Sign up</span>
+                    <div></div>
+                </div>
+                <div class="inputContainer">
+                    <div class="outContainer">
+                        <div class="container">
+                            <div class="innerContainer">
+                                <input class="inputSignUp" type="text" placeholder="Name" id="inputNameSignUp" required>
+                                <img src="./assets/img/name_logo.png">
+                            </div>
+                        </div>
+                        <span class="required" id="requiredName">This field is required</span>
+                    </div>
+                    <div class="outContainer">
+                        <div class="container">
+                            <div class="innerContainer">
+                                <input class="inputSignUp" type="email" placeholder="Email" id="inputEmailSignUp"
+                                    required>
+                                <img src="./assets/img/email_Logo.png">
+                            </div>
+                        </div>
+                        <span class="required" id="requiredEmail">This field is required</span>
+                    </div>
+                    <div class="outContainer">
+                        <div class="container">
+                            <div class="innerContainer">
+                                <input class="inputSignUp" type="password" placeholder="Password"
+                                    id="inputPasswordSignUp" required>
+                                <img src="./assets/img/password_logo.png">
+                            </div>
+                        </div>
+                        <span class="required" id="requiredPassword">This field is required</span>
+                    </div>
+                </div>
+
+                <button class="buttonContainer"
+                >
+                    <span>Sign up</span>
+                </button>
+                <div class="arrowContainer" onclick="backToLogIn()">
+                    <img src="./assets/img/back_logo.png">
+                </div>
+
             </div>
 
-            <div class="inputContainer">
-                <div class="outContainer">
-                    <div class="container">
-                        <div class="innerContainer">
-                            <input class="inputSignUp" type="text" placeholder="Name">
-                            <img src="./assets/img/name_logo.png">
-                        </div>
-                    </div>
-                    <span class="required">This field is required</span>
-                </div>
-                <div class="outContainer">
-                    <div class="container">
-                        <div class="innerContainer">
-                            <input class="inputSignUp" type="email" placeholder="Email">
-                            <img src="./assets/img/email_Logo.png">
-                        </div>
-                    </div>
-                    <span class="required">This field is required</span>
-                </div>
-                <div class="outContainer">
-                    <div class="container">
-                        <div class="innerContainer">
-                            <input class="inputSignUp" type="password" placeholder="Password">
-                            <img src="./assets/img/password_logo.png">
-                        </div>
-                    </div>
-                    <span class="required">This field is required</span>
-                </div>
-            </div>
-
-            <button class="buttonContainer">
-                <span>Sign up</span>
-            </button>
-
-            <div class="arrowContainer">
-                <img src="./assets/img/back_logo.png">
-            </div>
-
-        </div>
+        </form>
 
     </div>
-
 
 </body>
 
