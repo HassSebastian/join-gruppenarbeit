@@ -36,7 +36,8 @@
                     <div class="outEmailContainer">
                         <div class="container">
                             <div class="innerEmailContainer">
-                                <input class="inputLogIn" type="text" placeholder="Email" required>
+                                <!-- add input field  id -->
+                                <input class="inputLogIn" type="text" placeholder="Email" required id="inputEmailLogin">
                                 <img src="./assets/img/email_Logo.png">
                             </div>
                         </div>
@@ -45,7 +46,8 @@
                     <div class="outPasswordContainer">
                         <div class="container">
                             <div class="innerPasswordContainer">
-                                <input class="inputLogIn" type="password" placeholder="Password" required>
+                                <!-- add input field  id -->
+                                <input class="inputLogIn" type="password" placeholder="Password" required id="inputPasswordLogin">
                                 <img src="./assets/img/password_logo.png">
                             </div>
                         </div>
@@ -64,7 +66,8 @@
                 </div>
 
                 <div class="logInButtonContainer">
-                    <button class="logInButton">
+                    <!-- onclick function userLogin() add to button -->
+                    <button class="logInButton" onclick="userLogin()">
                         <span>Log in</span>
                     </button>
                     <button class="guestButton" onclick="guestLogIn()">

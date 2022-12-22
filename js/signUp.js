@@ -10,6 +10,11 @@ function userSignIn() {
     let email = document.getElementById('inputEmailSignUp');
     let password = document.getElementById('inputPasswordSignUp');
 
+    // edited by Bossi
+    // first you have to load the file from localStorage before you edited this.
+    let allUsersString = localStorage.getItem('allUsers')
+    allUsers = JSON.parse(allUsersString);
+    // edited by Bossi end
 
     allUsers.push({'name': name.value, 'email': email.value, 'password': password.value});
 

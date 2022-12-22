@@ -67,6 +67,7 @@ async function renderAddTask() {
                     <span id='sColor'></span>
                     <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
                         <img src="../assets/img/new_cat_cancel.png">
+                        <img src="../assets/img/btn_divider.png">
                         <img src="../assets/img/akar-icons_check.png">
                     </div>
                     <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>
@@ -264,6 +265,7 @@ function resetCatSelectionHtml(){
         <span id='sColor'></span>
         <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
             <img src="../assets/img/new_cat_cancel.png">
+            <img src="../assets/img/btn_divider.png">
             <img src="../assets/img/akar-icons_check.png">
         </div>
         <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
@@ -302,6 +304,7 @@ function newCategoryInputHtml(){
         <span id='sColor'></span>
         <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
             <img src="../assets/img/new_cat_cancel.png" onclick='resetCatSelection()'>
+            <img src="../assets/img/btn_divider.png">
             <img src="../assets/img/akar-icons_check.png" onclick='setNewCategoryToList()'>
         </div>
         <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
@@ -414,6 +417,7 @@ function clearFormularData() {
         <span id='sColor'></span>
         <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
             <img src="../assets/img/new_cat_cancel.png">
+            <img src="../assets/img/btn_divider.png">
             <img src="../assets/img/akar-icons_check.png">
         </div>
         <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;

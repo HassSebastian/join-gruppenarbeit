@@ -7,9 +7,24 @@ function guestLogIn(){
 }
 
 function userLogin(){
+    // Edited by Bossi
+    let email = document.getElementById('inputEmailLogin').value;
+    let password = document.getElementById('inputPasswordLogin').value;
+    // load loginData
+    let allUsersString = localStorage.getItem('allUsers')
+    let loginData = JSON.parse(allUsersString);
 
-    let email = document.getElementById('inputEmailSignUp');
-    let password = document.getElementById('inputPasswordSignUp');
-    // let user = 
-
+    let loginStatus = false;
+    for (let i = 0; i < loginData.length; i++) {
+        let emailData = loginData[i]['email'];
+        if (emailData == email){
+            if (loginData[i]['password'] == password){
+                loginStatus = true;
+            }
+        }
+    }
+    if (loginStatus){
+        console.log('Login Data correct');
+    }
+    // // Edited by Bossi end
 }
