@@ -222,14 +222,17 @@ function dropdownCategoryListHtml1(categoryName, i){
 
 function setNewCategoryToList(){
     let newSetCategory = document.getElementById('selectedCatInput').value;
-    let newCatColor = catColor;
-    let newCategoryItem = { 'category': newSetCategory, 'catColor': newCatColor};
-    categoryList.push(newCategoryItem);
-    let newCategoryIndex = categoryList.length - 1;
-    renderCategoryList();
-    selectCategory(+newCategoryIndex);
-    catListStatus = false;
-    newCatInputActive = false;
+    newSetCategory = newSetCategory.trim();
+    if (newSetCategory != ''){
+        let newCatColor = catColor;
+        let newCategoryItem = { 'category': newSetCategory, 'catColor': newCatColor};
+        categoryList.push(newCategoryItem);
+        let newCategoryIndex = categoryList.length - 1;
+        renderCategoryList();
+        selectCategory(+newCategoryIndex);
+        catListStatus = false;
+        newCatInputActive = false;
+    }
 }
 
 
