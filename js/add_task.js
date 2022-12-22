@@ -1,7 +1,7 @@
 let catListStatus = false;
 let assignListStatus = false;
 let newCatInputActive = false;
-let categoryList = [];
+let addTaskCategoryList = [];
 let joinTaskArray = [];
 let taskData = {};
 let title = '';
@@ -68,7 +68,7 @@ async function renderAddTask() {
                     <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>
                 </button>
                 <span id='catReq' class='listD-none'>This field is required</span>
-                <ul class="addTaskCatList listD-none" id="dropdown">
+                <ul class="addTaskCatList listD-none" id='CatListDropdown'>
                     
                 </ul>
                 <div class='addTaskAddCategoryColor listD-none' id='colorSelection'>
@@ -145,11 +145,11 @@ async function renderAddTask() {
 
 async function loadExitingCategories(){
     loadTask();
-    categoryList = [{'category':'New Category', 'catColor':''}];
+    addTaskCategoryList = [{'category':'New Category', 'catColor':''}];
     for (let i = 0; i < joinTaskArray.length; i++) {
         let taskCategory = joinTaskArray[i]['category'];
         let categoryColor = joinTaskArray[i]['catColor'];
-        categoryList.push({'category': taskCategory, 'catColor': categoryColor})
+        addTaskCategoryList.push({'category': taskCategory, 'catColor': categoryColor})
     }
 }
 
@@ -169,10 +169,10 @@ function joinTaskArrayExistInStorage(){
 
 function enableDisableCatList() {
     if (categoryListAndNewCategoryInputNotActive()) {
-        document.getElementById('dropdown').classList.remove('listD-none');
+        document.getElementById('CatListDropdown').classList.remove('listD-none');
         document.getElementById('addTaskAssignedBox').classList.add('addMarginTop');
     } else {
-        document.getElementById('dropdown').classList.add('listD-none');
+        document.getElementById('CatListDropdown').classList.add('listD-none');
         document.getElementById('addTaskAssignedBox').classList.remove('addMarginTop');
     }
     catListStatus = !catListStatus;
@@ -185,14 +185,14 @@ function categoryListAndNewCategoryInputNotActive(){
 
 
 function renderCategoryList(){
-    document.getElementById('dropdown').innerHTML = '';
-    for (let i = 0; i < categoryList.length; i++) {
-        let categoryName = categoryList[i]['category'];
-        let categoryColor = categoryList[i]['catColor'];
+    document.getElementById('CatListDropdown').innerHTML = '';
+    for (let i = 0; i < addTaskCategoryList.length; i++) {
+        let categoryName = addTaskCategoryList[i]['category'];
+        let categoryColor = addTaskCategoryList[i]['catColor'];
         if (categoryColorAvailable(categoryColor)){
-            document.getElementById('dropdown').innerHTML += dropdownCategoryListHtml(categoryName, categoryColor, i);
+            document.getElementById('CatListDropdown').innerHTML += dropdownCategoryListHtml(categoryName, categoryColor, i);
         }else{
-            document.getElementById('dropdown').innerHTML += dropdownCategoryListHtml1(categoryName, i);
+            document.getElementById('CatListDropdown').innerHTML += dropdownCategoryListHtml1(categoryName, i);
         }
     }
 }
@@ -226,8 +226,8 @@ function setNewCategoryToList(){
     if (newSetCategory != ''){
         let newCatColor = catColor;
         let newCategoryItem = { 'category': newSetCategory, 'catColor': newCatColor};
-        categoryList.push(newCategoryItem);
-        let newCategoryIndex = categoryList.length - 1;
+        addTaskCategoryList.push(newCategoryItem);
+        let newCategoryIndex = addTaskCategoryList.length - 1;
         renderCategoryList();
         selectCategory(+newCategoryIndex);
         catListStatus = false;
@@ -294,8 +294,8 @@ function newCategoryInputHtml(){
 
 
 function setSettingsForExistingCategory(catId){
-    let newCat = categoryList[catId]['category'];
-    let categoryColor = categoryList[catId]['catColor'];
+    let newCat = addTaskCategoryList[catId]['category'];
+    let categoryColor = addTaskCategoryList[catId]['catColor'];
     document.getElementById('selectedCat').innerHTML = existingCategoryHtml(newCat, categoryColor);
     catColor = categoryColor;
     enableDisableCatList();
