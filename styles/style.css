@@ -8,7 +8,8 @@ body {
 }
 
 .outerContainer {
-
+    display: flex;
+    justify-content: center;
 }
 
 .mainContainer {
@@ -16,6 +17,7 @@ body {
     justify-content: flex-start;
     height: 1024px;
     width: 1440px;
+    position: absolute;
 }
 
 .sideMenu {

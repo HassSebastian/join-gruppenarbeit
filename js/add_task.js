@@ -74,12 +74,12 @@ async function renderAddTask() {
                     
                 </ul>
                 <div class='addTaskAddCategoryColor listD-none' id='colorSelection'>
-                    <div class='color0' onclick='addColorToCat(0)'></div>
-                    <div class='color1' onclick='addColorToCat(1)'></div>
-                    <div class='color2' onclick='addColorToCat(2)'></div>
-                    <div class='color3' onclick='addColorToCat(3)'></div>
-                    <div class='color4' onclick='addColorToCat(4)'></div>
-                    <div class='color5' onclick='addColorToCat(5)'></div>
+                    <div class='color0' id='color0Div' onclick='addColorToCat(0)'></div>
+                    <div class='color1' id='color1Div' onclick='addColorToCat(1)'></div>
+                    <div class='color2' id='color2Div' onclick='addColorToCat(2)'></div>
+                    <div class='color3' id='color3Div' onclick='addColorToCat(3)'></div>
+                    <div class='color4' id='color4Div' onclick='addColorToCat(4)'></div>
+                    <div class='color5' id='color5Div' onclick='addColorToCat(5)'></div>
                 </div>
             </div>
 
@@ -285,6 +285,7 @@ function setSettingsForNewCategoryInput(){
     document.getElementById('dropdownImg').classList.add('d-none');
     document.getElementById('colorSelection').classList.remove('listD-none');
     document.getElementById('sColor').innerHTML = '';
+    addColorToCat(3);
 }
 
 
@@ -320,8 +321,11 @@ function existingCategoryHtml(newCat, categoryColor){
 
 
 function addColorToCat(colorId) {
-    document.getElementById('sColor').innerHTML = /*html*/`
-        <div class='color${colorId} addTaskColorDiv'></div>`;
+    if (catColor != '' || catColor == '0'){
+        document.getElementById('color' + catColor + 'Div').classList.remove('colorDivSelected');
+        catColor = '';
+    }
+    document.getElementById('color' + colorId + 'Div').classList.add('colorDivSelected');
     catColor = colorId;
 }
 
