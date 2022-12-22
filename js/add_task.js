@@ -57,7 +57,7 @@ async function renderAddTask() {
                 <!-- <form onblur='goToCategorySelection(); return false' id='formDesc' action='action.asp'> -->
                 <textarea form='formDesc' type="text" placeholder='Enter Descripten' id='addTaskDescripten'  required minlength='5'></textarea>
                 <!-- </form> -->
-                <span class='requiredText'  id='DescReq'>This field is required</span>
+                <span class='requiredText' id='descReq'>This field is required</span>
             </div>
 
             <div class='addTaskAddCategoryBox'>
@@ -110,15 +110,15 @@ async function renderAddTask() {
             <div class='addTaskPrio'>
                 <h3>Prio</h3>
                 <div class='addTaskPrioIcons'>
-                    <div class='addTaskUrgent' id='addTaskUrgent' onclick='addTaskUrgent()'>
+                    <div class='addTaskUrgent' id='addTaskUrgent' onclick='addPrio(0)'>
                         <span id='addTaskUrgentSpan'>Urgent</span>
                         <img id='addTaskUrgentImg' src="../assets/img/urgent_arrows.png">
                     </div>
-                    <div class='addTaskMedium' id='addTaskMedium' onclick='addTaskMedium()'>
+                    <div class='addTaskMedium' id='addTaskMedium' onclick='addPrio(1)'>
                         <span id='addTaskMediumSpan'>Medium</span>
                         <img id='addTaskMediumImg' src="../assets/img/prio_medium.png">
                     </div>
-                    <div class='addTaskLow' id='addTaskLow' onclick='addTaskLow()'>
+                    <div class='addTaskLow' id='addTaskLow' onclick='addPrio(2)'>
                         <span id='addTaskLowSpan'>Low</span>
                         <img id='addTaskLowImg' src="../assets/img/prio_low.png">
                     </div>
@@ -360,7 +360,7 @@ function checkInputs() {
 
 
 function requiredFieldAreNotValid(){
-    return title == '' || dueDate == '' || category == '';
+    return title == '' || dueDate == '' || category == '' || descripten == '';
 }
 
 
@@ -375,6 +375,9 @@ function setRequiredTextWarnings(){
         document.getElementById('catReq').style = 'opacity: 1;';
         document.getElementById('catReq').classList.remove('listD-none');
     }
+    if (descripten == '') {
+        document.getElementById('descReq').style = 'opacity: 1;';
+    }
 }
 
 
@@ -383,6 +386,8 @@ function getReqiredFieldValues(){
     title = title.trim();
     dueDate = document.getElementById('dueDate').value;
     dueDate = dueDate.trim();
+    descripten = document.getElementById('addTaskDescripten').value;
+    descripten = descripten.trim();
     if (newCatInputActive){
         category = document.getElementById('selectedCatInput').value;
     }else{
@@ -396,6 +401,7 @@ function resetRequiredWarnings(){
     document.getElementById('titleReq').style = 'opacity: 0;';
     document.getElementById('dateReq').style = 'opacity: 0;';
     document.getElementById('catReq').style = 'opacity: 0;';
+    document.getElementById('descReq').style = 'opacity: 0;';
 }
 
 
@@ -489,16 +495,31 @@ function addPrio(prioIdIndex){
     let cListLength = document.getElementById(selectedId).classList.length;
     let btnName = selectedId.replace('addTask', '');
     idList.splice(prioIdIndex, 1);
-    if (cListLength == 1){
-        document.getElementById(selectedId).classList.add(`${btnName.toLowerCase()}-color`);
-        document.getElementById(`addTask${btnName}Span`).classList.add('color-white');
-        document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}_white.png`;
+    if (btnNotSelected(cListLength)){
+        selectPrioBtn(selectedId, btnName);
         unselectOtherBtn(idList);
     }else{
-        document.getElementById(`addTask${btnName}`).classList.remove(`${btnName.toLowerCase()}-color`);
-        document.getElementById(`addTask${btnName}Span`).classList.remove('color-white');
-        document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}.png`;
+        removeBtnSelection(btnName);
     }
+}
+
+
+function btnNotSelected(cListLength){
+    return cListLength == 1;
+}
+
+
+function selectPrioBtn(selectedId, btnName){
+    document.getElementById(selectedId).classList.add(`${btnName.toLowerCase()}-color`);
+    document.getElementById(`addTask${btnName}Span`).classList.add('color-white');
+    document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}_white.png`;
+}
+
+
+function removeBtnSelection(btnName){
+    document.getElementById(`addTask${btnName}`).classList.remove(`${btnName.toLowerCase()}-color`);
+    document.getElementById(`addTask${btnName}Span`).classList.remove('color-white');
+    document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}.png`;
 }
 
 
@@ -507,81 +528,86 @@ function unselectOtherBtn(idList){
         let selectedId = idList[i];
         let cListLength = document.getElementById(selectedId).classList.length;
         let btnName = selectedId.replace('addTask', '');
-        if (cListLength == 2){
+        if (btnIsSelected(cListLength)){
             document.getElementById(`addTask${btnName}`).classList.remove(`${btnName.toLowerCase()}-color`);
             document.getElementById(`addTask${btnName}Span`).classList.remove('color-white');
             document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}.png`;
         }
     }
 }
+
+
+function btnIsSelected(cListLength){
+    return cListLength == 2;
+}
 // A other way to control the prio buttons, with two functions end. Edit by Bossi
 /*********************************************************************************/
-function addTaskUrgent() {
-    const element = document.querySelector('#addTaskUrgent');
-    if (element.classList.contains('urgent-color')) {
-        addTaskUrgentRemove();
-    } else {
-        document.getElementById('addTaskUrgent').classList.add('urgent-color');
-        document.getElementById('addTaskUrgentSpan').classList.add('color-white');
-        document.getElementById('addTaskUrgentImg').src = "./assets/img/urgent_white.png";
-        addTaskMediumRemove();
-        addTaskLowRemove();
-        prio = 'urgent';
-    }
-}
+// function addTaskUrgent() {
+//     const element = document.querySelector('#addTaskUrgent');
+//     if (element.classList.contains('urgent-color')) {
+//         addTaskUrgentRemove();
+//     } else {
+//         document.getElementById('addTaskUrgent').classList.add('urgent-color');
+//         document.getElementById('addTaskUrgentSpan').classList.add('color-white');
+//         document.getElementById('addTaskUrgentImg').src = "./assets/img/urgent_white.png";
+//         addTaskMediumRemove();
+//         addTaskLowRemove();
+//         prio = 'urgent';
+//     }
+// }
 
 
-function addTaskMedium() {
-    const element = document.querySelector('#addTaskMedium');
-    if (element.classList.contains('medium-color')) {
-        addTaskMediumRemove();
-    } else {
-        document.getElementById('addTaskMedium').classList.add('medium-color');
-        document.getElementById('addTaskMediumSpan').classList.add('color-white');
-        document.getElementById('addTaskMediumImg').src = "./assets/img/medium_white.png";
-        addTaskUrgentRemove();
-        addTaskLowRemove();
-        prio = 'medium';
-    }
-}
+// function addTaskMedium() {
+//     const element = document.querySelector('#addTaskMedium');
+//     if (element.classList.contains('medium-color')) {
+//         addTaskMediumRemove();
+//     } else {
+//         document.getElementById('addTaskMedium').classList.add('medium-color');
+//         document.getElementById('addTaskMediumSpan').classList.add('color-white');
+//         document.getElementById('addTaskMediumImg').src = "./assets/img/medium_white.png";
+//         addTaskUrgentRemove();
+//         addTaskLowRemove();
+//         prio = 'medium';
+//     }
+// }
 
 
-function addTaskLow() {
-    const element = document.querySelector('#addTaskLow');
-    if (element.classList.contains('low-color')) {
-        addTaskLowRemove();
-    } else {
-        document.getElementById('addTaskLow').classList.add('low-color');
-        document.getElementById('addTaskLowSpan').classList.add('color-white');
-        document.getElementById('addTaskLowImg').src = "./assets/img/low_white.png";
-        addTaskUrgentRemove();
-        addTaskMediumRemove();
-        prio = 'low';
-    }
-}
+// function addTaskLow() {
+//     const element = document.querySelector('#addTaskLow');
+//     if (element.classList.contains('low-color')) {
+//         addTaskLowRemove();
+//     } else {
+//         document.getElementById('addTaskLow').classList.add('low-color');
+//         document.getElementById('addTaskLowSpan').classList.add('color-white');
+//         document.getElementById('addTaskLowImg').src = "./assets/img/low_white.png";
+//         addTaskUrgentRemove();
+//         addTaskMediumRemove();
+//         prio = 'low';
+//     }
+// }
 
 
-function addTaskUrgentRemove() {
-    document.getElementById('addTaskUrgent').classList.remove('urgent-color');
-    document.getElementById('addTaskUrgentSpan').classList.remove('color-white');
-    document.getElementById('addTaskUrgentImg').src = "./assets/img/urgent.png";
-}
+// function addTaskUrgentRemove() {
+//     document.getElementById('addTaskUrgent').classList.remove('urgent-color');
+//     document.getElementById('addTaskUrgentSpan').classList.remove('color-white');
+//     document.getElementById('addTaskUrgentImg').src = "./assets/img/urgent.png";
+// }
 
 
 
 
-function addTaskMediumRemove() {
-    document.getElementById('addTaskMedium').classList.remove('medium-color');
-    document.getElementById('addTaskMediumSpan').classList.remove('color-white');
-    document.getElementById('addTaskMediumImg').src = "./assets/img/medium.png";
-}
+// function addTaskMediumRemove() {
+//     document.getElementById('addTaskMedium').classList.remove('medium-color');
+//     document.getElementById('addTaskMediumSpan').classList.remove('color-white');
+//     document.getElementById('addTaskMediumImg').src = "./assets/img/medium.png";
+// }
 
 
-function addTaskLowRemove() {
-    document.getElementById('addTaskLow').classList.remove('low-color');
-    document.getElementById('addTaskLowSpan').classList.remove('color-white');
-    document.getElementById('addTaskLowImg').src = "./assets/img/low.png";
-}
+// function addTaskLowRemove() {
+//     document.getElementById('addTaskLow').classList.remove('low-color');
+//     document.getElementById('addTaskLowSpan').classList.remove('color-white');
+//     document.getElementById('addTaskLowImg').src = "./assets/img/low.png";
+// }
 /*********************************************************************************/
 /*********************************************************************************/
 
