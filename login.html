@@ -23,55 +23,57 @@
         </div>
         <img src="../assets/img/join_logo_black.png" class="joinLogo">
 
-        <div class="innerContainer">
+        <form action="" onsubmit="userLogin() ;return false">
 
-            <div class="logInContainer">
-                <span>Log in</span>
-                <div></div>
-            </div>
+            <div class="innerContainer">
 
-            <div class="inputContainer">
-                <div class="outEmailContainer">
-                    <div class="container">
-                        <div class="innerEmailContainer">
-                            <input class="inputLogIn" type="text" placeholder="Email">
-                            <img src="./assets/img/email_Logo.png">
-                        </div>
-                    </div>
-                    <span class="required">This field is required</span>
-                </div>
-                <div class="outPasswordContainer">
-                    <div class="container">
-                        <div class="innerPasswordContainer">
-                            <input class="inputLogIn" type="password" placeholder="Password">
-                            <img src="./assets/img/password_logo.png">
-                        </div>
-                    </div>
-                    <span class="required">This field is required</span>
-                </div>
-            </div>
-
-            <div class="rememberMeContainer">
-                <div class="rememberMeBox">
-                    <div>
-                        <img src="./assets/img/checkbox.png" alt="">
-                    </div>
-                    <span>Remember me</span>
-                </div>
-                <span class="forgotPassword">Forgot my password</span>
-            </div>
-
-            <div class="logInButtonContainer">
-                <button class="logInButton" onclick="logIn()">
+                <div class="logInContainer">
                     <span>Log in</span>
-                </button>
-                <button class="guestButton" onclick="guestLogIn()">
-                    <span>Guest Log in</span>
-                </button>
+                    <div></div>
+                </div>
+
+                <div class="inputContainer">
+                    <div class="outEmailContainer">
+                        <div class="container">
+                            <div class="innerEmailContainer">
+                                <input class="inputLogIn" type="text" placeholder="Email" required>
+                                <img src="./assets/img/email_Logo.png">
+                            </div>
+                        </div>
+                        <span class="required">This field is required</span>
+                    </div>
+                    <div class="outPasswordContainer">
+                        <div class="container">
+                            <div class="innerPasswordContainer">
+                                <input class="inputLogIn" type="password" placeholder="Password" required>
+                                <img src="./assets/img/password_logo.png">
+                            </div>
+                        </div>
+                        <span class="required">This field is required</span>
+                    </div>
+                </div>
+
+                <div class="rememberMeContainer">
+                    <div class="rememberMeBox">
+                        <div>
+                            <img src="./assets/img/checkbox.png" alt="">
+                        </div>
+                        <span>Remember me</span>
+                    </div>
+                    <span class="forgotPassword">Forgot my password</span>
+                </div>
+
+                <div class="logInButtonContainer">
+                    <button class="logInButton">
+                        <span>Log in</span>
+                    </button>
+                    <button class="guestButton" onclick="guestLogIn()">
+                        <span>Guest Log in</span>
+                    </button>
+                </div>
+
             </div>
-
-        </div>
-
+        </form>
     </div>
 
 </body>

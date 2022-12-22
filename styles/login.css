@@ -1,3 +1,8 @@
+body{
+    margin: 0;
+    user-select: none;
+}
+
 #logIn {
     position: relative;
     width: 1440px;
@@ -174,10 +179,9 @@
     font-weight: 400;
     font-size: 21px;
     line-height: 120%;
-    color: #D1D1D1;
+    /* color: #D1D1D1; */
     border: 0;
     outline: 0;
-    cursor: pointer;
 }
 
 .innerEmailContainer img {

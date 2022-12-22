@@ -6,19 +6,15 @@ function backToLogIn() {
 }
 
 function userSignIn() {
-    let name = document.getElementById('inputNameSignUp').value;
-    let email = document.getElementById('inputEmailSignUp').value;
-    let password = document.getElementById('inputPasswordSignUp').value;
+    let name = document.getElementById('inputNameSignUp');
+    let email = document.getElementById('inputEmailSignUp');
+    let password = document.getElementById('inputPasswordSignUp');
 
-    let user =     {
-        'name': name,
-        'email': email,
-        'password': password
-    }
 
-    allUsers.push(user);
+    allUsers.push({'name': name.value, 'email': email.value, 'password': password.value});
 
     let allUsersAtString = JSON.stringify(allUsers);
     localStorage.setItem('allUsers', allUsersAtString);
-    window.location.href = './login.html';
+    
+    window.location.href = './login.html?msg=Du hast dich erfolgreich registriert';
 }
