@@ -152,6 +152,30 @@ body {
     flex-grow: 0;
 }
 
+.inputSignUp{
+    border: 0;
+    outline: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+}
+
+::placeholder{
+    width: max-content;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #D1D1D1;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
 .buttonContainer {
     display: flex;
     flex-direction: row;
@@ -167,6 +191,13 @@ body {
     order: 2;
     flex-grow: 0;
     z-index: 2;
+    border: 0;
+}
+
+.buttonContainer:hover{
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+background: #29ABE2;
+cursor: pointer;
 }
 
 .buttonContainer span {
@@ -193,6 +224,7 @@ body {
     order: 3;
     flex-grow: 0;
     z-index: 3;
+    cursor: pointer;
 }
 
 .arrowContainer img {

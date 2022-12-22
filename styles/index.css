@@ -87,6 +87,7 @@ body {
     line-height: 120%;
     color: #FFFFFF;
     border: 0;
+    cursor: pointer;
 }
 .notAJoinUser button:hover{
     background: #29ABE2;
@@ -205,7 +206,7 @@ body {
     color: #D1D1D1;
 
 }
-.innerEmailContainerInput {
+.inputLogIn {
     width: min-content;
     height: 25px;
     font-family: 'Inter';
@@ -216,6 +217,7 @@ body {
     color: #D1D1D1;
     border: 0;
     outline: 0;
+    cursor: pointer;
 }
 
 .innerEmailContainer img {
@@ -242,20 +244,6 @@ body {
     gap: 10px;
     width: 380px;
     height: 25px;
-}
-
-.innerPasswordContainerInput {
-    width: min-content;
-    height: 25px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
-    color: #D1D1D1;
-    border: 0;
-    outline: 0;
-
 }
 
 .innerPasswordContainer img {
@@ -336,11 +324,13 @@ body {
     background: #2A3647;
     border-radius: 8px;
     border: 0;
+    
 }
 .logInButton:hover{
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     transition: 100ms ease-in-out;
+    cursor: pointer;
 }
 
 .logInButton span {
@@ -371,6 +361,7 @@ body {
     border: 2px solid #29ABE2;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     transition: 100ms ease-in-out;
+    cursor: pointer;
 }
 .guestButton:hover * {
     color: #29ABE2;
