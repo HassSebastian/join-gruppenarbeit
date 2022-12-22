@@ -42,12 +42,14 @@ async function renderAddTask() {
             </button>
         </div>
     </div>
-    
+    <!-- <form onsubmit=" ;return false"></form>  -->
         <div class='addTaskAddTitleContainer'>
             
             <div class='addTaskAddTitleBox'>
                 <h3>Title</h3>
-                <input  required type="text" placeholder='Enter a title' id='addTaskTitle' autocomplete='off'>
+                <form onsubmit="goToDescripten(); return false">
+                <input  required type="text" placeholder='Enter a title' id='addTaskTitle' autocomplete='off' minlength='3'>
+                </form>
                 <span id='titleReq'>This field is required</span>
             </div>
 
@@ -140,6 +142,11 @@ async function renderAddTask() {
         </div>
     </div>
     `;
+}
+
+
+function goToDescripten(){
+    document.getElementById('addTaskDescripten').focus();
 }
 
 
@@ -464,6 +471,39 @@ function addTaskClearOff() {
 
 
 /*********************************************************************************/
+// A other way to control the prio buttons, with two functions:
+function addPrio(prioIdIndex){
+    let idList = ['addTaskUrgent', 'addTaskMedium', 'addTaskLow'];
+    let selectedId = idList[+prioIdIndex];
+    let cListLength = document.getElementById(selectedId).classList.length;
+    let btnName = selectedId.replace('addTask', '');
+    idList.splice(prioIdIndex, 1);
+    if (cListLength == 1){
+        document.getElementById(selectedId).classList.add(`${btnName.toLowerCase()}-color`);
+        document.getElementById(`addTask${btnName}Span`).classList.add('color-white');
+        document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}_white.png`;
+        unselectOtherBtn(idList);
+    }else{
+        document.getElementById(`addTask${btnName}`).classList.remove(`${btnName.toLowerCase()}-color`);
+        document.getElementById(`addTask${btnName}Span`).classList.remove('color-white');
+        document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}.png`;
+    }
+}
+
+
+function unselectOtherBtn(idList){
+    for (let i = 0; i < idList.length; i++) {
+        let selectedId = idList[i];
+        let cListLength = document.getElementById(selectedId).classList.length;
+        let btnName = selectedId.replace('addTask', '');
+        if (cListLength == 2){
+            document.getElementById(`addTask${btnName}`).classList.remove(`${btnName.toLowerCase()}-color`);
+            document.getElementById(`addTask${btnName}Span`).classList.remove('color-white');
+            document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}.png`;
+        }
+    }
+}
+// A other way to control the prio buttons, with two functions end. Edit by Bossi
 /*********************************************************************************/
 function addTaskUrgent() {
     const element = document.querySelector('#addTaskUrgent');
@@ -478,8 +518,6 @@ function addTaskUrgent() {
         prio = 'urgent';
     }
 }
-
-
 
 
 function addTaskMedium() {
