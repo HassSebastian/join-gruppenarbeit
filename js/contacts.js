@@ -1,3 +1,12 @@
+let contacts = [{
+    "surname" : "Mayer",
+    "name" : "Anton",
+    "email" : "antonm@gmail.com",
+    "phone" : "+49 1111 111 11 1"
+},
+
+];
+
 async function initContacts() {
     await includeHTML();
     selectedMenuButton(2);
