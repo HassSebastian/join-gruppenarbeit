@@ -29,3 +29,7 @@ function closeNewContact() {
     document.getElementById('new_contact').classList.add('d-none');
     renderContacts();
 }
+
+function showContact(){
+    document.getElementById('showContact').classList.remove('d-none');
+}
