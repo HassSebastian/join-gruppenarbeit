@@ -129,19 +129,23 @@ async function renderAddTask() {
                 <h3>Subtask</h3>
                 <div class='inputDiv'>
                     <input type="text" placeholder='Add new subtask' id='subTask' autocomplete='off' onfocus='subTaskInputentered()' onblur='subTaskInputLeave()'>
-                    <img src="../assets/img/add_cross.png" class='subtaskCross' id='subtaskCross'>
+                    <img src="../assets/img/add_cross.png" class='subtaskCross' id='subtaskCross' onclick='enterSubTaskInput()'>
 
-                    <div class='subTaskImgDiv d-none' id='subTaskImgDiv'>
+                    <div class='subTaskImgDiv d-none' id='subTaskImgDiv' >
                         <img src="../assets/img/new_cat_cancel.png">
                         <img src="../assets/img/bnt_divider.png" class='btnDivider'>
-                        <img src="../assets/img/akar-icons_check.png">
+                        <img src="../assets/img/akar-icons_check.png" onclick='addSubtask()'>
                     </div>
 
                 </div>
-                <div class='addTaskCheckbox'>
-                    <input type="checkbox">
-                    <span>Subtask 1</span>
+                
+                <div class='addTaskCheckbox' id='subtaskCheckboxes'>
+                    <div>
+                        <input type="checkbox">
+                        <span>Subtask 1</span>
+                    </div>
                 </div>
+                
                 
             </div>
         </div>
@@ -557,10 +561,39 @@ function subTaskInputentered(){
 
 
 function subTaskInputLeave(){
-    document.getElementById('subtaskCross').classList.remove('d-none');
-    document.getElementById('subTaskImgDiv').classList.add('d-none');
+    let subTaskText = document.getElementById('subTask').value;
+    subTaskText = subTaskText.trim();
+    if (subTaskText == ''){
+        document.getElementById('subtaskCross').classList.remove('d-none');
+        document.getElementById('subTaskImgDiv').classList.add('d-none');
+    }
 }
 
+
+function enterSubTaskInput(){
+    document.getElementById('subTask').onfocus();
+
+}
+
+
+function addSubtask(){
+    let subTaskText = document.getElementById('subTask').value;
+    subTaskText = subTaskText.trim();
+    if (subTaskText != ''){
+        document.getElementById('subtaskCheckboxes').innerHTML += /*html*/`
+            <div>
+                <input type="checkbox">
+                <span>${subTaskText}</span>
+            </div>`;
+    }
+    document.getElementById('subTask').value = '';
+    subTaskInputLeave();
+}
+
+
+function notClose(event) {
+    event.stopPropagation(subTaskInputLeave());
+}
 
 
 // assign to functions
@@ -572,6 +605,9 @@ function enableDisableAssignList() {
     }
     assignListStatus = !assignListStatus;
 }
+
+
+
 
 
 

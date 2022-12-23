@@ -674,7 +674,7 @@
     width: 420px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    margin-top: -13px;
+    margin-top: -38px;
     z-index: 1;
     list-style-type: none;
     padding: 0;
@@ -1001,11 +1001,13 @@
     font-weight: 400;
     font-size: 21px;
     line-height: 120%;
-    color: #D1D1D1;
+    color: #000000;
     flex: none;
     order: 0;
     flex-grow: 0;
     z-index: 0;
+    border: 0;
+    outline: none;
 }
 
 .subtaskCross {
@@ -1024,6 +1026,7 @@
     order: 1;
     flex-grow: 0;
     z-index: 1;
+    cursor: pointer;
 }
 
 
@@ -1058,7 +1061,7 @@
 
 
 .addTaskCheckbox {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -1068,7 +1071,22 @@
     height: 19px;
     flex: none;
     order: 2;
+    flex-grow: 0; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* align-items: center; */
+    padding: 0px;
+    gap: 8px;
+    width: 300px;
+    height: 220px;
+    flex: none;
+    order: 2;
     flex-grow: 0;
+    overflow: hidden;
+    /* overflow-y: scroll; */
+    margin-top: 10px;
+
 }
 
 .addTaskCheckbox input {
@@ -1166,6 +1184,7 @@
     flex: none;
     order: 1;
     flex-grow: 0;
+    cursor: none !important;
 }
 
 /*********************************************************************************/
