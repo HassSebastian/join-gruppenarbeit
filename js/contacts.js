@@ -50,19 +50,19 @@ async function renderContacts() {
         const nameLetter = contacts[i].name.charAt(0);
 
         document.getElementById('contacts').innerHTML += /*html*/ `
-    <div class="contact">
-                       <div class="ellipse">
-                           <span>${surnameLetter}${nameLetter}</span>
-                       </div>
-                       <div class="name_and_email">
-                           <div class="name">
-                               <span>${name} ${surname}</span>
-                           </div>
-                           <div class="email">
-                               ${email}
-                           </div>
-                       </div>
-                   </div>
+        <div class="contact" onclick="showContact(${i})">
+             <div class="ellipse">
+                <span>${surnameLetter}${nameLetter}</span>
+             </div>
+             <div class="name_and_email">
+                 <div class="name">
+                     <span>${name} ${surname}</span>
+                 </div>
+                 <div class="email">
+                     ${email}
+                 </div>
+             </div>
+        </div>
        `;
 
     }
@@ -81,6 +81,40 @@ function closeNewContact() {
     renderContacts();
 }
 
-function showContact() {
-    document.getElementById('showContact').classList.remove('d-none');
+function showContact(i) {
+    const surname = contacts[i].surname;
+    const name = contacts[i].name;
+    const email = contacts[i].email;
+    const phone = contacts[i].phone;
+    const surnameLetter = contacts[i].surname.charAt(0);
+    const nameLetter = contacts[i].name.charAt(0);
+    //document.getElementById('showContact').classList.remove('d-none');
+    document.getElementById('showContact').innerHTML = '';
+    document.getElementById('showContact').innerHTML = /*html*/ `
+      <div>
+            <div class="show_contact_ellipse_5">
+                <span>${surnameLetter}${nameLetter}</span>
+            </div>
+            <div class="showContact_Name_addTask">
+                <h1>${name} ${surname}</h1>
+                <span>+ Add Task</span>
+            </div>
+        </div>
+        <div class="showContact_information_edit">
+            <div class="contact_information">
+                <div class="contact_information_edit">
+                    <h2>Contact Information</h2>
+                    <div class="edit_contact">
+                        <img src="assets/img/edit_button_black.png" alt="">
+                        <span>Edit Contact</span>
+                    </div>
+                </div>
+               
+                <h3>Email</h3>
+                <span>${email}</span>
+                <h3>Phone</h3>
+                <p>${phone}</p>
+            </div>
+        </div>
+    `;
 }
