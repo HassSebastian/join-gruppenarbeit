@@ -1,9 +1,22 @@
-let contacts = [{
-    "surname": "Mayer",
-    "name": "Anton",
-    "email": "antonm@gmail.com",
-    "phone": "+49 1111 111 11 1"
-},
+let contacts = [
+    {
+        "surname": "Mayer",
+        "name": "Anton",
+        "email": "antonm@gmail.com",
+        "phone": "+49 1111 111 11 1"
+    },
+    {
+        "surname": "Hardt",
+        "name": "Cesar",
+        "email": "cesarh@gmail.com",
+        "phone": "+49 3333 333 33 3"
+    },
+    {
+        "surname": "Müller",
+        "name": "Berta",
+        "email": "bertam@gmail.com",
+        "phone": "+49 2222 222 22 2"
+    },
 
 ];
 
@@ -13,18 +26,30 @@ async function initContacts() {
     renderContacts();
 }
 
+function compareStrings(a, b) {
+    // Assuming you want case-insensitive comparison
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+
+    return (a < b) ? -1 : (a > b) ? 1 : 0;
+}
+
+contacts.sort(function (a, b) {
+    return compareStrings(a.name, b.name);
+})
+
 async function renderContacts() {
     document.getElementById('contacts').innerHTML = '';
 
-for (let i = 0; i < contacts.length; i++) {
-    const surname = contacts[i].surname;
-    const name = contacts[i].name;
-    const email = contacts[i].email;
-    const phone = contacts[i].phone;
-    const surnameLetter = contacts[i].surname.charAt(0);
-    const nameLetter = contacts[i].name.charAt(0);
+    for (let i = 0; i < contacts.length; i++) {
+        const surname = contacts[i].surname;
+        const name = contacts[i].name;
+        const email = contacts[i].email;
+        const phone = contacts[i].phone;
+        const surnameLetter = contacts[i].surname.charAt(0);
+        const nameLetter = contacts[i].name.charAt(0);
 
-    document.getElementById('contacts').innerHTML += /*html*/ `
+        document.getElementById('contacts').innerHTML += /*html*/ `
     <div class="contact">
                        <div class="ellipse">
                            <span>${surnameLetter}${nameLetter}</span>
@@ -39,11 +64,11 @@ for (let i = 0; i < contacts.length; i++) {
                        </div>
                    </div>
        `;
-    
-}
+
+    }
 
 
-   
+
 }
 
 function openNewContact() {
