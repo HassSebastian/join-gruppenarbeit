@@ -23,8 +23,8 @@
             <img src="./assets/img/join_logo_black.png">
         </div>
 
-        <form action="" onsubmit="userSignIn() ;return false">
-
+        <form action="" onsubmit="inputValueTest() ;return false">
+            <!-- onsubmit="userSignIn() -->
             <div class="signUpContainer">
 
                 <div class="signUpHeadline">
@@ -35,7 +35,7 @@
                     <div class="outContainer">
                         <div class="container">
                             <div class="innerContainer">
-                                <input class="inputSignUp" type="text" placeholder="Name" id="inputNameSignUp" required>
+                                <input class="inputSignUp" type="text" placeholder="Name" id="inputNameSignUp">
                                 <img src="./assets/img/name_logo.png">
                             </div>
                         </div>
@@ -44,8 +44,7 @@
                     <div class="outContainer">
                         <div class="container">
                             <div class="innerContainer">
-                                <input class="inputSignUp" type="email" placeholder="Email" id="inputEmailSignUp"
-                                    required>
+                                <input class="inputSignUp" type="email" placeholder="Email" id="inputEmailSignUp">
                                 <img src="./assets/img/email_Logo.png">
                             </div>
                         </div>
@@ -54,7 +53,7 @@
                     <div class="outContainer">
                         <div class="container">
                             <div class="innerContainer">
-                                <input class="inputSignUp" type="password" placeholder="Password" id="inputPasswordSignUp" required>
+                                <input class="inputSignUp" type="password" placeholder="Password" id="inputPasswordSignUp">
                                 <img src="./assets/img/password_logo.png">
                             </div>
                         </div>
@@ -62,8 +61,7 @@
                     </div>
                 </div>
 
-                <button class="buttonContainer"
-                >
+                <button class="buttonContainer">
                     <span>Sign up</span>
                 </button>
                 <div class="arrowContainer" onclick="backToLogIn()">
