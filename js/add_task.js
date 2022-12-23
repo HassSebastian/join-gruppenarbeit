@@ -67,7 +67,7 @@ async function renderAddTask() {
                     <span id='sColor'></span>
                     <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
                         <img src="../assets/img/new_cat_cancel.png">
-                        <img src="../assets/img/btn_divider.png">
+                        <img src="../assets/img/bnt_divider.png" class='btnDivider'>
                         <img src="../assets/img/akar-icons_check.png">
                     </div>
                     <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>
@@ -127,9 +127,16 @@ async function renderAddTask() {
             </div>
             <div class='subtask'>
                 <h3>Subtask</h3>
-                <div>
-                    <input type="text" placeholder='Add new subtask' id='subTask' autocomplete='off'>
-                    <img src="../assets/img/add_cross.png">
+                <div class='inputDiv'>
+                    <input type="text" placeholder='Add new subtask' id='subTask' autocomplete='off' onfocus='subTaskInputentered()' onblur='subTaskInputLeave()'>
+                    <img src="../assets/img/add_cross.png" class='subtaskCross' id='subtaskCross'>
+
+                    <div class='subTaskImgDiv d-none' id='subTaskImgDiv'>
+                        <img src="../assets/img/new_cat_cancel.png">
+                        <img src="../assets/img/bnt_divider.png" class='btnDivider'>
+                        <img src="../assets/img/akar-icons_check.png">
+                    </div>
+
                 </div>
                 <div class='addTaskCheckbox'>
                     <input type="checkbox">
@@ -265,7 +272,7 @@ function resetCatSelectionHtml(){
         <span id='sColor'></span>
         <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
             <img src="../assets/img/new_cat_cancel.png">
-            <img src="../assets/img/btn_divider.png">
+            <img src="../assets/img/bnt_divider.png" class='btnDivider'>
             <img src="../assets/img/akar-icons_check.png">
         </div>
         <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
@@ -304,7 +311,7 @@ function newCategoryInputHtml(){
         <span id='sColor'></span>
         <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
             <img src="../assets/img/new_cat_cancel.png" onclick='resetCatSelection()'>
-            <img src="../assets/img/btn_divider.png">
+            <img src="../assets/img/bnt_divider.png" class='btnDivider'>
             <img src="../assets/img/akar-icons_check.png" onclick='setNewCategoryToList()'>
         </div>
         <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
@@ -417,7 +424,7 @@ function clearFormularData() {
         <span id='sColor'></span>
         <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
             <img src="../assets/img/new_cat_cancel.png">
-            <img src="../assets/img/btn_divider.png">
+            <img src="../assets/img/bnt_divider.png" class='btnDivider'>
             <img src="../assets/img/akar-icons_check.png">
         </div>
         <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
@@ -491,8 +498,6 @@ function addTaskClearOff() {
 }
 
 
-/*********************************************************************************/
-// A other way to control the prio buttons, with two functions:
 function addPrio(prioIdIndex){
     let idList = ['addTaskUrgent', 'addTaskMedium', 'addTaskLow'];
     let selectedId = idList[+prioIdIndex];
@@ -544,78 +549,21 @@ function unselectOtherBtn(idList){
 function btnIsSelected(cListLength){
     return cListLength == 2;
 }
-// A other way to control the prio buttons, with two functions end. Edit by Bossi
-/*********************************************************************************/
-// function addTaskUrgent() {
-//     const element = document.querySelector('#addTaskUrgent');
-//     if (element.classList.contains('urgent-color')) {
-//         addTaskUrgentRemove();
-//     } else {
-//         document.getElementById('addTaskUrgent').classList.add('urgent-color');
-//         document.getElementById('addTaskUrgentSpan').classList.add('color-white');
-//         document.getElementById('addTaskUrgentImg').src = "./assets/img/urgent_white.png";
-//         addTaskMediumRemove();
-//         addTaskLowRemove();
-//         prio = 'urgent';
-//     }
-// }
+// subtask functions
+function subTaskInputentered(){
+    document.getElementById('subtaskCross').classList.add('d-none');
+    document.getElementById('subTaskImgDiv').classList.remove('d-none');
+}
 
 
-// function addTaskMedium() {
-//     const element = document.querySelector('#addTaskMedium');
-//     if (element.classList.contains('medium-color')) {
-//         addTaskMediumRemove();
-//     } else {
-//         document.getElementById('addTaskMedium').classList.add('medium-color');
-//         document.getElementById('addTaskMediumSpan').classList.add('color-white');
-//         document.getElementById('addTaskMediumImg').src = "./assets/img/medium_white.png";
-//         addTaskUrgentRemove();
-//         addTaskLowRemove();
-//         prio = 'medium';
-//     }
-// }
-
-
-// function addTaskLow() {
-//     const element = document.querySelector('#addTaskLow');
-//     if (element.classList.contains('low-color')) {
-//         addTaskLowRemove();
-//     } else {
-//         document.getElementById('addTaskLow').classList.add('low-color');
-//         document.getElementById('addTaskLowSpan').classList.add('color-white');
-//         document.getElementById('addTaskLowImg').src = "./assets/img/low_white.png";
-//         addTaskUrgentRemove();
-//         addTaskMediumRemove();
-//         prio = 'low';
-//     }
-// }
-
-
-// function addTaskUrgentRemove() {
-//     document.getElementById('addTaskUrgent').classList.remove('urgent-color');
-//     document.getElementById('addTaskUrgentSpan').classList.remove('color-white');
-//     document.getElementById('addTaskUrgentImg').src = "./assets/img/urgent.png";
-// }
+function subTaskInputLeave(){
+    document.getElementById('subtaskCross').classList.remove('d-none');
+    document.getElementById('subTaskImgDiv').classList.add('d-none');
+}
 
 
 
-
-// function addTaskMediumRemove() {
-//     document.getElementById('addTaskMedium').classList.remove('medium-color');
-//     document.getElementById('addTaskMediumSpan').classList.remove('color-white');
-//     document.getElementById('addTaskMediumImg').src = "./assets/img/medium.png";
-// }
-
-
-// function addTaskLowRemove() {
-//     document.getElementById('addTaskLow').classList.remove('low-color');
-//     document.getElementById('addTaskLowSpan').classList.remove('color-white');
-//     document.getElementById('addTaskLowImg').src = "./assets/img/low.png";
-// }
-/*********************************************************************************/
-/*********************************************************************************/
-
-
+// assign to functions
 function enableDisableAssignList() {
     if (!assignListStatus) {
         document.getElementById('dropdown2').classList.remove('listD-none');

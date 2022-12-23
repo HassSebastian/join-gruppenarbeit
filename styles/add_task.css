@@ -243,7 +243,7 @@
     color: #000000;
 }
 
-.requiredText{
+.requiredText {
     height: 12px;
     font-family: 'Poppins';
     font-style: normal;
@@ -260,11 +260,11 @@
     opacity: 0;
 }
 
-#descReq{
+#descReq {
     opacity: 0;
 }
 
-#assignReq{
+#assignReq {
     opacity: 0;
 }
 
@@ -381,7 +381,7 @@
     position: relative;
 }
 
-.d-none{
+.d-none {
     display: none !important;
 }
 
@@ -405,7 +405,7 @@
     cursor: pointer;
 }
 
-.addTaskAddCategoryBox button p{
+.addTaskAddCategoryBox button p {
     height: 25px;
     font-family: 'Inter';
     font-style: normal;
@@ -453,12 +453,12 @@
     cursor: pointer;
 }
 
-.newCategoryImgDiv img{
+.newCategoryImgDiv img {
     width: 24px;
     height: 24px;
 
 
-/* Inside auto layout */
+    /* Inside auto layout */
 
     flex: none;
     order: 0;
@@ -555,7 +555,7 @@
     border: 1px solid #D1D1D1;
 }
 
-.colorDivSelected{
+.colorDivSelected {
     border: 2px solid #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -945,8 +945,13 @@
     align-items: flex-start;
     padding: 0px;
     gap: 8px;
+
     width: 422px;
     height: 111px;
+
+
+    /* Inside auto layout */
+
     flex: none;
     order: 2;
     flex-grow: 0;
@@ -968,7 +973,8 @@
     margin-block-end: 0px;
 }
 
-.subtask input {
+.inputDiv {
+    position: relative;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -987,7 +993,22 @@
     flex-grow: 0;
 }
 
-.subtask img {
+.subtask input {
+    width: 178px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #D1D1D1;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    z-index: 0;
+}
+
+.subtaskCross {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1005,9 +1026,36 @@
     z-index: 1;
 }
 
-.subtask div {
-    position: relative;
+
+
+.subTaskImgDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 9px;
+
+    position: absolute;
+    width: 66px;
+    height: 31px;
+    left: 341px;
+    top: 11px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    z-index: 1;
 }
+
+.subTaskImgDiv img {
+    width: 24px;
+    height: 24px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    cursor: pointer;
+}
+
 
 .addTaskCheckbox {
     display: flex;
@@ -1106,6 +1154,15 @@
     width: 22px;
     height: 26px;
     transform: rotate(-90deg);
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.btnDivider {
+    width: 0px !important;
+    height: 31px !important;
+    border: 1px solid #D1D1D1;
     flex: none;
     order: 1;
     flex-grow: 0;
