@@ -254,7 +254,12 @@ function renderCategoryList(){
     }
 }
 
-
+/**
+ * 
+ * @param {number} categoryColor - This is a number that is equal to the css color classes. Example, if the number is 1
+ * the related css color class is 'color1'.
+ * @returns 
+ */
 function categoryColorAvailable(categoryColor){
     return categoryColor != '';
 }
