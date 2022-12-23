@@ -506,6 +506,7 @@ function fillTaskData() {
         'dueDate': dueDate,
         'prio': prio,
         'subTasks': selectedSubtasks,
+        'workFlowStatus': 0,
     };
     catColor = '';
 }

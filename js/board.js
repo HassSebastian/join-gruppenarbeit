@@ -8,7 +8,7 @@ async function initBoard() {
 
 async function renderBoard() {
     document.getElementById('content').innerHTML = '';
-    document.getElementById('content').innerHTML += `
+    document.getElementById('content').innerHTML += /*html*/`
     <div class="boardOverlay">
 
         <div class="boardHeadline">
@@ -49,40 +49,41 @@ async function renderBoard() {
                     <img src="./assets/img/plus_logo_black.png">
                 </button>
             </div>
-
-            <div class="taskBackground">
-                <div class="taskContainer">
-                    <div class="taskKategorie design">
-                        <span>Design</span>
-                    </div>
-
-                    <div class="taskHeadline">
-                        <span class="taskHeadlineContent">Website redesign</span>
-                        <span class="taskContent">Modify the contents of the main website...</span>
-                    </div>
-
-                    <div class="doneBar">
-                        <div></div>
-                        <span>1/2 Done</span>
-                    </div>
-
-                    <div class="contributorsPrio">
-                        <div class="contributorsLogoContainer">
-                            <div class="contributorsLogo blue">
-                                <span>SM</span>
-                            </div>
-                            <div class="contributorsLogo pink">
-                                <span>MV</span>
-                            </div>
-                            <div class="contributorsLogo litegreen">
-                                <span>EF</span>
-                            </div>
+            <div id='toDoDiv'>
+                <div class="taskBackground">
+                    <div class="taskContainer">
+                        <div class="taskKategorie design">
+                            <span>Design</span>
                         </div>
 
-                        <div class="prio">
-                            <img src="./assets/img/low.png">
+                        <div class="taskHeadline">
+                            <span class="taskHeadlineContent">Website redesign</span>
+                            <span class="taskContent">Modify the contents of the main website...</span>
                         </div>
 
+                        <div class="doneBar">
+                            <div></div>
+                            <span>1/2 Done</span>
+                        </div>
+
+                        <div class="contributorsPrio">
+                            <div class="contributorsLogoContainer">
+                                <div class="contributorsLogo blue">
+                                    <span>SM</span>
+                                </div>
+                                <div class="contributorsLogo pink">
+                                    <span>MV</span>
+                                </div>
+                                <div class="contributorsLogo litegreen">
+                                    <span>EF</span>
+                                </div>
+                            </div>
+
+                            <div class="prio">
+                                <img src="./assets/img/low.png">
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -96,39 +97,39 @@ async function renderBoard() {
                     <img src="./assets/img/plus_logo_black.png">
                 </button>
             </div>
-
-            <div class="taskBackground">
-                <div class="taskContainer">
-                    <div class="taskKategorie sales">
-                        <span>Sales</span>
-                    </div>
-                    <div class="taskHeadline">
-                    <span class="taskHeadlineContent">Website redesign</span>
-                    <span class="taskContent">Modify the contents of the main website...</span>
-                </div>
-
-                <div class="contributorsPrio">
-                    <div class="contributorsLogoContainer">
-                        <div class="contributorsLogo yellow">
-                            <span>AS</span>
+            <div id='progressDiv'>
+                <div class="taskBackground">
+                    <div class="taskContainer">
+                        <div class="taskKategorie sales">
+                            <span>Sales</span>
                         </div>
-                        <div class="contributorsLogo lila">
-                            <span>DE</span>
-                        </div>
-                        <div class="contributorsLogo black">
-                            <span>+2</span>
-                        </div>
+                        <div class="taskHeadline">
+                        <span class="taskHeadlineContent">Website redesign</span>
+                        <span class="taskContent">Modify the contents of the main website...</span>
                     </div>
 
-                    <div class="prio">
-                        <img src="./assets/img/urgent.png">
+                    <div class="contributorsPrio">
+                        <div class="contributorsLogoContainer">
+                            <div class="contributorsLogo yellow">
+                                <span>AS</span>
+                            </div>
+                            <div class="contributorsLogo lila">
+                                <span>DE</span>
+                            </div>
+                            <div class="contributorsLogo black">
+                                <span>+2</span>
+                            </div>
+                        </div>
+
+                        <div class="prio">
+                            <img src="./assets/img/urgent.png">
+                        </div>
+
                     </div>
 
-                </div>
-
+                    </div>
                 </div>
             </div>
-
         </div>
 
         <div class="canbanContainer">
@@ -139,38 +140,38 @@ async function renderBoard() {
                     <img src="./assets/img/plus_logo_black.png">
                 </button>
             </div>
-
-            <div class="taskBackground">
-                <div class="taskContainer">
-                    <div class="taskKategorie backoffice">
-                        <span>Backoffice</span>
-                    </div>
-                    <div class="taskHeadline">
-                        <span class="taskHeadlineContent">Website redesign</span>
-                        <span class="taskContent">Modify the contents of the main website...</span>
-                    </div>
-
-                    <div class="contributorsPrio">
-                        <div class="contributorsLogoContainer">
-                            <div class="contributorsLogo orange">
-                                <span>MB</span>
-                            </div>
-                            <div class="contributorsLogo pink">
-                                <span>AM</span>
-                            </div>
-                            <div class="contributorsLogo black">
-                                <span>+3</span>
-                            </div>
+            <div id='awaitingDiv'>
+                <div class="taskBackground">
+                    <div class="taskContainer">
+                        <div class="taskKategorie backoffice">
+                            <span>Backoffice</span>
+                        </div>
+                        <div class="taskHeadline">
+                            <span class="taskHeadlineContent">Website redesign</span>
+                            <span class="taskContent">Modify the contents of the main website...</span>
                         </div>
 
-                        <div class="prio">
-                            <img src="./assets/img/medium.png">
+                        <div class="contributorsPrio">
+                            <div class="contributorsLogoContainer">
+                                <div class="contributorsLogo orange">
+                                    <span>MB</span>
+                                </div>
+                                <div class="contributorsLogo pink">
+                                    <span>AM</span>
+                                </div>
+                                <div class="contributorsLogo black">
+                                    <span>+3</span>
+                                </div>
+                            </div>
+
+                            <div class="prio">
+                                <img src="./assets/img/medium.png">
+                            </div>
+
                         </div>
 
                     </div>
-
-                </div>
-
+            </div>
             </div>
 
             <div class="taskBackground">
@@ -209,43 +210,77 @@ async function renderBoard() {
                     <img src="./assets/img/plus_logo_black.png">
                 </button>
             </div>
-
-            <div class="taskBackground">
-                <div class="taskContainer">
-                    <div class="taskKategorie marketing">
-                        <span>Marketing</span>
-                    </div>
-                    <div class="taskHeadline">
-                    <span class="taskHeadlineContent">Website redesign</span>
-                    <span class="taskContent">Modify the contents of the main website...</span>
-                </div>
-
-                <div class="doneBar">
-                    <div></div>
-                    <span">3/3 Done</span>
-                </div>
-
-                <div class="contributorsPrio">
-                    <div class="contributorsLogoContainer">
-                        <div class="contributorsLogo green">
-                            <span>BZ</span>
+            <div id='doneDiv'>
+                <div class="taskBackground">
+                    <div class="taskContainer">
+                        <div class="taskKategorie marketing">
+                            <span>Marketing</span>
                         </div>
-                        <div class="contributorsLogo liteblue">
-                            <span>RS</span>
+                        <div class="taskHeadline">
+                        <span class="taskHeadlineContent">Website redesign</span>
+                        <span class="taskContent">Modify the contents of the main website...</span>
+                    </div>
+
+                    <div class="doneBar">
+                        <div></div>
+                        <span>3/3 Done</span>
+                    </div>
+
+                    <div class="contributorsPrio">
+                        <div class="contributorsLogoContainer">
+                            <div class="contributorsLogo green">
+                                <span>BZ</span>
+                            </div>
+                            <div class="contributorsLogo liteblue">
+                                <span>RS</span>
+                            </div>
                         </div>
+
+                        <div class="prio">
+                            <img src="./assets/img/low.png">
+                        </div>
+
                     </div>
 
-                    <div class="prio">
-                        <img src="./assets/img/low.png">
                     </div>
-
-                </div>
-
                 </div>
             </div>
-
         </div>
 
     </div>
     `;
+}
+
+
+function arrayExample() {
+    taskData = {
+        'title': title,
+        'descripten': descripten,
+        'category': category,
+        'catColor': catColor,
+        'assignedTo': assigndTo,
+        'dueDate': dueDate,
+        'prio': prio,
+        'subTasks': selectedSubtasks,
+        'workFlowStatus': 0,
+    };
+}
+
+
+function loadJoinTasks() {
+    for (let i = 0; i < joinTaskArry.length; i++) {
+        const element = joinTaskArry[i]['workFlowStatus'];
+        if (element == 0){
+            let cardTitle = joinTaskArry[i]['title '];
+            let cardDescripten = joinTaskArry[i]['descripten'];
+            let cardCatColor = joinTaskArray[i]['catColor'];
+            let cardPrio = joinTaskArray[i]['prio'];
+            let subTasks = joinTaskArray[i]['subTasks'];
+        }
+    }
+}
+
+
+function renderToDo() {
+
 }
