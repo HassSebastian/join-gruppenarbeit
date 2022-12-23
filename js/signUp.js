@@ -5,50 +5,82 @@ function backToLogIn() {
     window.location.href = './logIn.html';
 }
 
-function userSignIn() {
-
-    inputValueTest(name, email, password);
-
-    // edited by Bossi
-    // first you have to load the file from localStorage before you edited this.
-    let allUsersString = localStorage.getItem('allUsers')
-    allUsers = JSON.parse(allUsersString);
-    // edited by Bossi end
-
-    allUsers.push({ 'name': name.value, 'email': email.value, 'password': password.value });
-
-    let allUsersAtString = JSON.stringify(allUsers);
-    localStorage.setItem('allUsers', allUsersAtString);
-
-    window.location.href = './login.html?msg=Du hast dich erfolgreich registriert';
-}
 
 function inputValueTest() {
-    document.querySelector('#requiredName', '#requiredEmail', '#requiredPassword').classList.remove('requiredOn');
-
     let name = document.getElementById('inputNameSignUp');
     let email = document.getElementById('inputEmailSignUp');
     let password = document.getElementById('inputPasswordSignUp');
+    let requiredName = document.getElementById('requiredName');
+    let requiredEmail = document.getElementById('requiredEmail');
+    let requiredPassword = document.getElementById('requiredPassword');
 
-    if (!name.value.length || !email.value.length || !password.value.length) {
+    if (name.value.length || email.value.length || password.value.length) {
         if (name.value.length == 0) {
-            document.getElementById('requiredName').classList.add('requiredOn');
+            requiredName.classList.add('requiredOn');
         } else {
-            document.getElementById('requiredName').classList.remove('requiredOn');
+            requiredName.classList.remove('requiredOn');
         };
-        if (email.value.length <= 8) {
-            document.getElementById('requiredEmail').classList.add('requiredOn');
+        if (email.value.length < 8 ||
+            !email.value.includes('@') ||
+            !email.value.includes('.')) {
+            requiredEmail.classList.add('requiredOn');
         } else {
-            document.getElementById('requiredEmail').classList.remove('requiredOn');
+            requiredEmail.classList.remove('requiredOn');
         };
         if (password.value.length == 0) {
-            document.getElementById('requiredPassword').classList.add('requiredOn');
+            requiredPassword.classList.add('requiredOn');
         } else {
-            document.getElementById('requiredPassword').classList.remove('requiredOn');
+            requiredPassword.classList.remove('requiredOn');
+        };
+        if (!requiredName.classList.contains('requiredOn') &&
+            !requiredEmail.classList.contains('requiredOn') &&
+            !requiredPassword.classList.contains('requiredOn')) {
+            userSignIn(name.value, email.value, password.value);
         }
-        ;
-    }else{
-        console.log('weiter');
-    };
-    console.log('fehler');
+    }
+}
+
+
+function userSignIn(name, email, password) {
+    let keyQuery = localStorage.getItem('allUsers');
+    if (keyQuery === null) {
+        keyQueryNull(name, email, password);
+    } else {
+        keyQueryOne(name, email, password);
+    }
+
+    // window.location.href = './login.html?msg=Du hast dich erfolgreich registriert';
+}
+
+
+function keyQueryNull(name, email, password) {
+    allUsers.push({ 'name': name, 'email': email, 'password': password });
+
+    let allUsersAtString = JSON.stringify(allUsers);
+    localStorage.setItem('allUsers', allUsersAtString);
+}
+
+
+function keyQueryOne(name, email, password) {
+    let allUsersString = localStorage.getItem('allUsers');
+    allUsers = JSON.parse(allUsersString);
+    allUsers.push({ 'name': name, 'email': email, 'password': password });
+
+    let allUsersAtString = JSON.stringify(allUsers);
+    localStorage.setItem('allUsers', allUsersAtString);
+}
+
+
+
+function emailToCheck() {
+    const keyToCheck = "allUsers";
+    const valueToCheck = { name: "Peter" };
+    const valueToCheckAsString = JSON.stringify(valueToCheck);
+
+    const value = localStorage.getItem(keyToCheck);
+    if (value === valueToCheckAsString) {
+        console.log(`Der Wert '${valueToCheckAsString}' wurde im Local Storage unter dem Schlüssel '${keyToCheck}' gefunden.`);
+    } else {
+        console.log(`Der Wert '${valueToCheckAsString}' wurde im Local Storage unter dem Schlüssel '${keyToCheck}' nicht gefunden.`);
+    }
 }
