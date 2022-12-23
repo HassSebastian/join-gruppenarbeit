@@ -1,7 +1,8 @@
 async function initSummary() {
     await includeHTML();
+    await renderSummary();
+    selectedMenuBtnId = 0;
     selectedMenuButton(1);
-    renderSummary();
 }
 
 

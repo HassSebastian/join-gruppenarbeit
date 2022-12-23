@@ -16,11 +16,13 @@ let subTask = '';
 
 async function initAddTask() {
     await includeHTML();
-    selectedMenuButton(3);
     await renderAddTask();
     await loadExitingCategories();
     renderCategoryList();
     newCatInputActive = false;
+    renderSubtasks();
+    selectedMenuBtnId = 0;
+    selectedMenuButton(3);
 }
 
 /**
@@ -132,8 +134,8 @@ async function renderAddTask() {
                 <h3>Subtask</h3>
                 <div class='inputDiv'>
                     <form onsubmit='addSubtask(); return false' >
-                    <input type="text" placeholder='Add new subtask' id='subTask' autocomplete='off' onfocus='subTaskInputentered()' onblur='subTaskInputLeave()' minlength='3'>
-                    <img src="../assets/img/add_cross.png" class='subtaskCross' id='subtaskCross' onclick='enterSubTaskInput()'>
+                        <input type="text" placeholder='Add new subtask' id='subTask' autocomplete='off' onfocus='subTaskInputentered()' onblur='subTaskInputLeave()' minlength='3'>
+                        <img src="../assets/img/add_cross.png" class='subtaskCross' id='subtaskCross' onclick='enterSubTaskInput()'>
                     </form>
                     <div class='subTaskImgDiv d-none' id='subTaskImgDiv' >
                         <img src="../assets/img/new_cat_cancel.png" onclick='resetSubtaskInput()'>
@@ -144,10 +146,10 @@ async function renderAddTask() {
                 </div>
                 
                 <div class='addTaskCheckbox' id='subtaskCheckboxes'>
-                    <div>
+                    <!-- <div>
                         <input type="checkbox">
                         <span>Subtask 1</span>
-                    </div>
+                    </div> -->
                 </div>
                 
                 
@@ -236,7 +238,9 @@ function categoryListAndNewCategoryInputNotActive(){
 }
 
 
-
+/**
+ * This function render the category list of the dropdown menu category.
+ */
 function renderCategoryList(){
     document.getElementById('CatListDropdown').innerHTML = '';
     for (let i = 0; i < addTaskCategoryList.length; i++) {
@@ -460,7 +464,8 @@ function clearFormularData() {
         </div>
         <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
     document.getElementById('dueDate').value = '';
-    subTask = document.getElementById('subTask').value = '';
+    resetSubtaskSelections();
+    selectedSubtasks = [];
     document.getElementById('titleReq').style = 'opacity: 0;';
     document.getElementById('dateReq').style = 'opacity: 0;';
     document.getElementById('catReq').style = 'opacity: 0;';
@@ -495,7 +500,7 @@ function fillTaskData() {
         'assignedTo': assigndTo,
         'dueDate': dueDate,
         'prio': prio,
-        'subCategory': subTask,
+        'subTasks': selectedSubtasks,
     };
     catColor = '';
 }
@@ -553,6 +558,7 @@ function selectPrioBtn(selectedId, btnName){
     document.getElementById(selectedId).classList.add(`${btnName.toLowerCase()}-color`);
     document.getElementById(`addTask${btnName}Span`).classList.add('color-white');
     document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}_white.png`;
+    prio = btnName;
 }
 
 
@@ -614,30 +620,46 @@ function addSubtask(){
     let subTaskText = document.getElementById('subTask').value;
     subTaskText = subTaskText.trim();
     if (subTaskText != '' && subTaskText.length >= 3){
-        // document.getElementById('subtaskCheckboxes').innerHTML += /*html*/`
-        //     <div>
-        //         <input type="checkbox">
-        //         <span>${subTaskText}</span>
-        //     </div>`;
-        // document.getElementById('subTask').value = '';
         subTaskInputLeave();
         subTaskArray.push(subTaskText);
         renderSubtasks();
         resetSubtaskInput();
+        document.getElementById(`subtask${subTaskArray.length - 1}`).checked = true;
+        createSubtaskListToSave();
     }
 }
 
-let subTaskArray = ['Subtask 1']
+let subTaskArray = ['Subtask 1'];
+let selectedSubtasks = [];
 
 function renderSubtasks(){
     document.getElementById('subtaskCheckboxes').innerHTML = '';
     for (let i = 0; i < subTaskArray.length; i++) {
-        let subTaskText = subTaskArray[i];
+        let subTaskTitle = subTaskArray[i];
         document.getElementById('subtaskCheckboxes').innerHTML += /*html*/`
         <div>
-            <input type="checkbox">
-            <span>${subTaskText}</span>
+            <input type="checkbox" id='subtask${i}'>
+            <span>${subTaskTitle}</span>
         </div>`;
+    }
+}
+
+
+function createSubtaskListToSave(){
+    selectedSubtasks = [];
+    for (let i = 0; i < subTaskArray.length; i++) {
+        let subTaskTitle = subTaskArray[i];
+        let checkboxBoolean = document.getElementById(`subtask${i}`).checked;
+        if (checkboxBoolean){
+            selectedSubtasks.push(subTaskTitle)
+        }
+    }
+}
+
+
+function resetSubtaskSelections(){
+    for (let i = 0; i < subTaskArray.length; i++) {
+        document.getElementById(`subtask${i}`).checked = false;
     }
 }
 

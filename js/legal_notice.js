@@ -1,7 +1,8 @@
 async function initLegalNotice() {
     await includeHTML();
+    await renderLegalNotice();
+    selectedMenuBtnId = 0;
     selectedMenuButton(5);
-    renderLegalNotice();
 }
 
 

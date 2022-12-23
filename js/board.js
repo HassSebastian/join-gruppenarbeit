@@ -1,7 +1,8 @@
 async function initBoard() {
     await includeHTML();
+    await renderBoard();
+    selectedMenuBtnId = 0;
     selectedMenuButton(2);
-    renderBoard();
 }
 
 
