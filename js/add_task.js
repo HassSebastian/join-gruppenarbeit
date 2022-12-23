@@ -629,7 +629,7 @@ function addSubtask(){
     }
 }
 
-let subTaskArray = ['Subtask 1'];
+let subTaskArray = [];
 let selectedSubtasks = [];
 
 function renderSubtasks(){
