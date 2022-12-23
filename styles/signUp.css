@@ -236,7 +236,7 @@ cursor: pointer;
 }
 
 .required {
-    width: 119px;
+    width: max-content;
     height: 12px;
     font-family: 'Poppins';
     font-style: normal;
