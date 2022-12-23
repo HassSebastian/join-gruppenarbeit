@@ -665,6 +665,10 @@ function resetSubtaskSelections(){
 
 
 // assign to functions
+/**
+ * If the list is not visible, make it visible and remove the border bottom from the button. If the
+ * list is visible, add the border bottom to the button and make the list invisible.
+ */
 function enableDisableAssignList() {
     if (!assignListStatus) {
         document.getElementById('dropdown2').classList.remove('listD-none');
@@ -672,9 +676,56 @@ function enableDisableAssignList() {
         document.getElementById('dropdown2').classList.add('listD-none');
     }
     assignListStatus = !assignListStatus;
+	if (!assignListStatus) {
+		document.getElementById('dropdown2').classList.remove('listD-none');
+		borderBottomOffAssignedBoxButton();
+	} else {
+		borderBottomOnAssignedBoxButton();
+		document.getElementById('dropdown2').classList.add('listD-none');
+	}
+	assignListStatus = !assignListStatus;
 }
 
+/**
+ * When the user clicks the 'Add Task' button,
+ * the border radius of the 'Add Task' button will change
+ * to 10px 10px 0 0.
+ */
+function borderBottomOffAssignedBoxButton() {
+	document.getElementById(
+		'addTaskAssignedButton'
+	).style = `border-radius: 10px 10px 0 0;`;
+}
 
+/**
+ * It changes the border radius of the button with the id of 'addTaskAssignedButton'
+ * to 10px.
+ */
+function borderBottomOnAssignedBoxButton() {
+	document.getElementById(
+		'addTaskAssignedButton'
+	).style = `border-radius: 10px 10px 10px 10px;`;
+}
+
+/**
+ * When the user clicks on the 'Contact email' button,
+ * the text 'Contact email' will be displayed in
+ * the 'selectedAssign' div, and the 'changeColorSelectAssign'
+ * function will be called.
+ */
+function AssigendContactEmail() {
+	document.getElementById('selectedAssign').innerHTML = `Contact email`;
+	changeColorSelectAssign();
+}
+
+/**
+ * When the user clicks on the 'Assign' button,
+ * the background color of the 'Assign' button will change
+ * to grey.
+ */
+function changeColorSelectAssign() {
+	document.getElementById('selectedAssign').classList.add('grey');
+}
 
 
 
