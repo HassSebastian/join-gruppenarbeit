@@ -23,7 +23,10 @@ async function initAddTask() {
     newCatInputActive = false;
 }
 
-
+/**
+ * This function render the HTML content of "Add Task Menu" into the content div of the HTML template.
+ * 
+ */
 async function renderAddTask() {
     document.getElementById('content').innerHTML = '';
     document.getElementById('content').innerHTML += /*html*/ `
@@ -161,6 +164,9 @@ async function renderAddTask() {
 }
 
 
+/**
+ * 
+ */
 function goToDescripten(){
     document.getElementById('addTaskDescripten').focus();
 }
@@ -169,7 +175,10 @@ function goToPrio(){
     document.getElementById('addTaskUrgent').focus();
 }
 
-
+/**
+ * This function load the data(key:joinTaskArray) from local storage. 
+ * Then it filter this data to create a JSON Array with existing categories.
+ */
 async function loadExitingCategories(){
     loadTask();
     addTaskCategoryList = [{'category':'New Category', 'catColor':''}];
@@ -181,6 +190,9 @@ async function loadExitingCategories(){
 }
 
 
+/**
+ * This function load the data(key:joinTaskArray) from local storage.
+ */
 function loadTask() {
     if (joinTaskArrayExistInStorage()) {
         let joinTaskArrayString = localStorage.getItem('joinTaskArray');
@@ -189,11 +201,19 @@ function loadTask() {
 }
 
 
+/**
+ * This function determind data(key:joinTaskArray) available in local storage.
+ * 
+ * @returns true or false
+ */
 function joinTaskArrayExistInStorage(){
     return localStorage.getItem('joinTaskArray');
 }
 
 
+/**
+ * This function enable or disable the Dropdown Menu of the category selector.
+ */
 function enableDisableCatList() {
     if (categoryListAndNewCategoryInputNotActive()) {
         document.getElementById('CatListDropdown').classList.remove('listD-none');
@@ -206,9 +226,15 @@ function enableDisableCatList() {
 }
 
 
+/**
+ * This function determind "Dropdown Menu" of the category selector and "Category Input" active or not active.
+ * 
+ * @returns true or false
+ */
 function categoryListAndNewCategoryInputNotActive(){
     return !catListStatus && !newCatInputActive;
 }
+
 
 
 function renderCategoryList(){
@@ -613,7 +639,6 @@ function renderSubtasks(){
             <span>${subTaskText}</span>
         </div>`;
     }
-    
 }
 
 
