@@ -46,9 +46,9 @@ async function renderAddTask() {
         <div class='addTaskAddTitleContainer'>
             <div class='addTaskAddTitleBox'>
                 <h3>Title</h3>
-                <!-- <form onsubmit='goToDescripten(); return false' > -->
-                <input  required type="text" placeholder='Enter a title' id='addTaskTitle' autocomplete='off' minlength='3'>
-                <!-- </form> -->
+                <form onsubmit='goToDescripten(); return false' >
+                    <input  required type="text" placeholder='Enter a title' id='addTaskTitle' autocomplete='off' minlength='3'>
+                </form>
                 <span class='requiredText' id='titleReq'>This field is required</span>
             </div>
 
@@ -128,15 +128,16 @@ async function renderAddTask() {
             <div class='subtask'>
                 <h3>Subtask</h3>
                 <div class='inputDiv'>
-                    <input type="text" placeholder='Add new subtask' id='subTask' autocomplete='off' onfocus='subTaskInputentered()' onblur='subTaskInputLeave()'>
+                    <form onsubmit='addSubtask(); return false' >
+                    <input type="text" placeholder='Add new subtask' id='subTask' autocomplete='off' onfocus='subTaskInputentered()' onblur='subTaskInputLeave()' minlength='3'>
                     <img src="../assets/img/add_cross.png" class='subtaskCross' id='subtaskCross' onclick='enterSubTaskInput()'>
-
+                    </form>
                     <div class='subTaskImgDiv d-none' id='subTaskImgDiv' >
-                        <img src="../assets/img/new_cat_cancel.png">
+                        <img src="../assets/img/new_cat_cancel.png" onclick='resetSubtaskInput()'>
                         <img src="../assets/img/bnt_divider.png" class='btnDivider'>
                         <img src="../assets/img/akar-icons_check.png" onclick='addSubtask()'>
                     </div>
-
+                    
                 </div>
                 
                 <div class='addTaskCheckbox' id='subtaskCheckboxes'>
@@ -575,24 +576,44 @@ function enterSubTaskInput(){
 
 }
 
+function resetSubtaskInput(){
+    document.getElementById('subTask').value = '';
+    // document.getElementById('subtaskCross').classList.remove('d-none');
+    // document.getElementById('subTaskImgDiv').classList.add('d-none');
+    // subTaskInputLeave();
+}
+
 
 function addSubtask(){
     let subTaskText = document.getElementById('subTask').value;
     subTaskText = subTaskText.trim();
-    if (subTaskText != ''){
-        document.getElementById('subtaskCheckboxes').innerHTML += /*html*/`
-            <div>
-                <input type="checkbox">
-                <span>${subTaskText}</span>
-            </div>`;
+    if (subTaskText != '' && subTaskText.length >= 3){
+        // document.getElementById('subtaskCheckboxes').innerHTML += /*html*/`
+        //     <div>
+        //         <input type="checkbox">
+        //         <span>${subTaskText}</span>
+        //     </div>`;
+        // document.getElementById('subTask').value = '';
+        subTaskInputLeave();
+        subTaskArray.push(subTaskText);
+        renderSubtasks();
+        resetSubtaskInput();
     }
-    document.getElementById('subTask').value = '';
-    subTaskInputLeave();
 }
 
+let subTaskArray = ['Subtask 1']
 
-function notClose(event) {
-    event.stopPropagation(subTaskInputLeave());
+function renderSubtasks(){
+    document.getElementById('subtaskCheckboxes').innerHTML = '';
+    for (let i = 0; i < subTaskArray.length; i++) {
+        let subTaskText = subTaskArray[i];
+        document.getElementById('subtaskCheckboxes').innerHTML += /*html*/`
+        <div>
+            <input type="checkbox">
+            <span>${subTaskText}</span>
+        </div>`;
+    }
+    
 }
 
 
