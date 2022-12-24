@@ -5,6 +5,11 @@ function initSignIn() {
     window.location.href = './signUp.html';
 }
 
+
+function forgotPassword(){
+    window.location.href = './forgotMyP_sendMail.html';
+}
+
 function guestLogIn() {
     alert('muss noch mit Gast Log in verbunden werden!');
 }
@@ -35,47 +40,11 @@ function checkCorrectInput() {
         };
         if (!requiredEmail.classList.contains('requiredOn') &&
             !requiredPassword.classList.contains('requiredOn')) {
-            rememberMe(email.value, password.value);
-            // weiterleitung zur RememberMe CheckBox
+            userLogin(email.value, password.value);
         }
     }
 }
 
-
-function rememberMe(email, password) {
-    let checkbox = document.getElementById('checkbox');
-    if (checkbox.checked) {
-        console.log('check');
-        rememberUser.push({ 'email': email, 'password': password });
-        let rememberUserAtString = JSON.stringify(rememberUser);
-        localStorage.setItem('rememberUser', rememberUserAtString);
-    } else {
-        console.log('no check');
-        
-        // userLogin(email, password)
-    }
-}
-function rememberUserExisting(email, password) {
-    let rememberUserString = localStorage.getItem('rememberUser');
-
-    let rememberUser = JSON.parse(rememberUserString);
-    let userExisting = false;
-    for (let i = 0; i < rememberUser.length; i++) {
-        let emailData = rememberUser[i]['email'];
-        if (emailData == email) {
-            userExisting = true;
-        }
-    }
-    if (userExisting) {
-        console.log('ist da');
-        window.location.href = './summary.html';
-
-    } else {
-        console.log('ist nicht da');
-        rememberMe(email, password);
-    }
-
-}
 
 function userLogin(email, password) {
     let allUsersString = localStorage.getItem('allUsers')
@@ -96,7 +65,7 @@ function userLogin(email, password) {
             }
         }
         if (loginStatus) {
-            rememberUserExisting(email, password); // Abfrage ob es den User im Localstorage gibt
+            rememberMe(email, password);
 
         } else {
             document.getElementById('requiredEmailLogin').classList.add('requiredOn');
@@ -106,3 +75,62 @@ function userLogin(email, password) {
         }
     }
 }
+
+
+function rememberMe(email, password) {
+    let checkbox = document.getElementById('checkbox');
+    if (checkbox.checked) {
+        rememberUserExisting(email, password);
+        console.log('check');
+    }
+    window.location.href = './summary.html';
+}
+
+
+function rememberUserExisting(email, password) {
+    let keyQuery = localStorage.getItem('rememberUser');
+    if (keyQuery === null) {
+        keyQueryNull(email, password);
+    } else {
+        rememberDoubleUserCheck(email, password);
+    }
+}
+
+
+function rememberDoubleUserCheck(email, password) {
+    let doubleUserCheckAtString = localStorage.getItem('rememberUser');
+    let rememberUser = JSON.parse(doubleUserCheckAtString);
+    let valueToCheck = email;
+    let check = 0;
+    for (let i = 0; i < rememberUser.length; i++) {
+        let testValue = rememberUser[i].email;
+        if (testValue === valueToCheck) {
+            check = 1;
+            break;
+        }
+    }
+    if (check == 1) {
+        window.location.href = './summary.html';    
+    }else{
+        keyQueryOne(email, password);
+    }
+}
+
+
+function keyQueryNull(email, password) {
+    rememberUser.push({ 'email': email, 'password': password });
+    let rememberUserAtString = JSON.stringify(rememberUser);
+    localStorage.setItem('rememberUser', rememberUserAtString);
+}
+
+
+function keyQueryOne(email, password) {
+    let rememberUserString = localStorage.getItem('rememberUser');
+    rememberUser = JSON.parse(rememberUserString);
+    rememberUser.push({ 'email': email, 'password': password });
+    let rememberUserAtString = JSON.stringify(rememberUser);
+    localStorage.setItem('rememberUser', rememberUserAtString);
+}
+
+
+

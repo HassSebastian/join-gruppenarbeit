@@ -76,7 +76,7 @@ function userSignIn(name, email, password) {
     } else {
         keyQueryOne(name, email, password);
     }
-    // window.location.href = './login.html?msg=Du hast dich erfolgreich registriert';
+    window.location.href = './login.html';
 }
 
 
