@@ -44,7 +44,7 @@ async function renderBoard() {
 
     <div class="canbanBoard">
 
-        <div class="canbanContainer dragArea"  ondrop="moveTo(0)" ondragover="allowDrop(event)">
+        <div class="canbanContainer dragArea" id='dropArea0' ondrop="moveTo(0); removeHighlight('dropArea0')"  ondragleave="removeHighlight('dropArea0')" ondragover="allowDrop(event); highlight('dropArea0')">
             <div class="menu todo">
                 <span>To do</span>
                 <button class="menuPlusButton">
@@ -56,7 +56,7 @@ async function renderBoard() {
             </div>
         </div>
 
-        <div class="canbanContainer dragArea" ondrop="moveTo(1)" ondragover="allowDrop(event)">
+        <div class="canbanContainer dragArea" id='dropArea1' ondrop="moveTo(1); removeHighlight('dropArea1')" ondragleave="removeHighlight('dropArea1')" ondragover="allowDrop(event); highlight('dropArea1')">
             <div class="menu progress">
                 <span>In progress</span>
                 <button class="menuPlusButton">
@@ -68,7 +68,7 @@ async function renderBoard() {
             </div>
         </div>
 
-        <div class="canbanContainer dragArea" ondrop="moveTo(2)" ondragover="allowDrop(event)">
+        <div class="canbanContainer dragArea" id='dropArea2' ondrop="moveTo(2); removeHighlight('dropArea2')" ondragleave="removeHighlight('dropArea2')" ondragover="allowDrop(event); highlight('dropArea2')">
             <div class="menu feedback">
                 <span>Anwaiting Feedback</span>
                 <button class="menuPlusButton">
@@ -80,7 +80,7 @@ async function renderBoard() {
             </div>
         </div>
 
-        <div class="canbanContainer dragArea" ondrop="moveTo(3)" ondragover="allowDrop(event)">
+        <div class="canbanContainer dragArea" id='dropArea3' ondrop="moveTo(3); removeHighlight('dropArea3')" ondragleave="removeHighlight('dropArea3')" ondragover="allowDrop(event); highlight('dropArea3')">
             <div class="menu done">
                 <span>Done</span>
                 <button class="menuPlusButton">
@@ -423,4 +423,14 @@ async function moveTo(area){
     joinTaskArray[currentDraggedElement]['workFlowStatus'] = area;
     await createWorkStatusArrays();
     renderAllCards();
+}
+
+
+function highlight(id){
+    document.getElementById(id).classList.add('drag-area-highlight');
+}
+
+
+function removeHighlight(id){
+    document.getElementById(id).classList.remove('drag-area-highlight');
 }
