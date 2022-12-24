@@ -4,7 +4,7 @@ async function initBoard() {
     selectedMenuBtnId = 0;
     selectedMenuButton(2);
     loadTask();
-    createWorkStatusArrays();
+    await createWorkStatusArrays();
     renderAllCards();
 }
 
@@ -142,7 +142,7 @@ function resetWorkStatusArrays() {
 }
 
 
-function createWorkStatusArrays() {
+async function createWorkStatusArrays() {
     resetWorkStatusArrays();
     for (let index = 0; index < 4; index++) {
         for (let i = 0; i < joinTaskArray.length; i++) {
@@ -225,6 +225,7 @@ function renderToDoCards() {
                     </div>
                 </div>
             </div>`;
+            
     }
     setCategoryBackgroundColorForWorkStatus0();
 }
@@ -307,7 +308,7 @@ function renderAwaitingFeedbackCards() {
         document.getElementById('awaitingDiv').innerHTML += /*html*/`
             <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})'>
                 <div class='taskContainer'>
-                    <div class='taskKategorie' id='progressCard${i}'>
+                    <div class='taskKategorie' id='feedbackCard${i}'>
                         <span>${cardCategory}</span>
                     </div>
                     <div class='taskHeadline'>
@@ -346,7 +347,7 @@ function setCategoryBackgroundColorForWorkStatus2(){
     for (let i = 0; i < workStatus2Array.length; i++){
         let cardCatColor = workStatus2Array[i]['cardCatColor'];
         let catBackground = categoryBackgroundColors[cardCatColor];
-        document.getElementById(`progressCard${i}`).style = `background-color: ${catBackground};`;
+        document.getElementById(`feedbackCard${i}`).style = `background-color: ${catBackground};`;
     }
 }
 
@@ -363,7 +364,7 @@ function renderDoneCards() {
         document.getElementById('doneDiv').innerHTML += /*html*/`
             <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})'>
                 <div class='taskContainer'>
-                    <div class='taskKategorie' id='progressCard${i}'>
+                    <div class='taskKategorie' id='doneCard${i}'>
                         <span>${cardCategory}</span>
                     </div>
                     <div class='taskHeadline'>
@@ -402,7 +403,7 @@ function setCategoryBackgroundColorForWorkStatus3(){
     for (let i = 0; i < workStatus3Array.length; i++){
         let cardCatColor = workStatus3Array[i]['cardCatColor'];
         let catBackground = categoryBackgroundColors[cardCatColor];
-        document.getElementById(`progressCard${i}`).style = `background-color: ${catBackground};`;
+        document.getElementById(`doneCard${i}`).style = `background-color: ${catBackground};`;
     }
 }
 
@@ -417,9 +418,9 @@ function allowDrop(ev) {
 }
 
 
-function moveTo(area){
+async function moveTo(area){
     // todos[currentDraggedElement]['category'] = area;
     joinTaskArray[currentDraggedElement]['workFlowStatus'] = area;
-    createWorkStatusArrays();
+    await createWorkStatusArrays();
     renderAllCards();
 }
