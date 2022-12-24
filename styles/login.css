@@ -345,7 +345,7 @@ body{
 }
 
 .required {
-    width: 119px;
+    width: max-content;
     height: 12px;
     font-family: 'Poppins';
     font-style: normal;
@@ -353,7 +353,10 @@ body{
     font-size: 12px;
     line-height: 120%;
     flex: none;
-    color: red;
+    color: transparent;
     order: 1;
     flex-grow: 0;
+}
+.requiredOn{
+    color: red;
 }

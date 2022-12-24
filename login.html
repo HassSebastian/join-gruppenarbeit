@@ -23,7 +23,7 @@
         </div>
         <img src="../assets/img/join_logo_black.png" class="joinLogo">
 
-        <form action="" onsubmit="userLogin() ;return false">
+        <form action="" onsubmit="checkCorrectInput() ;return false">
 
             <div class="innerContainer">
 
@@ -37,21 +37,22 @@
                         <div class="container">
                             <div class="innerEmailContainer">
                                 <!-- add input field  id -->
-                                <input class="inputLogIn" type="text" placeholder="Email" required id="inputEmailLogin">
+                                <input class="inputLogIn" type="text" placeholder="Email" id="inputEmailLogin">
                                 <img src="./assets/img/email_Logo.png">
                             </div>
                         </div>
-                        <span class="required">This field is required</span>
+                        <span class="required" id="requiredEmailLogin">This field is required</span>
                     </div>
                     <div class="outPasswordContainer">
                         <div class="container">
                             <div class="innerPasswordContainer">
                                 <!-- add input field  id -->
-                                <input class="inputLogIn" type="password" placeholder="Password" required id="inputPasswordLogin">
+                                <input class="inputLogIn" type="password" placeholder="Password"
+                                    id="inputPasswordLogin">
                                 <img src="./assets/img/password_logo.png">
                             </div>
                         </div>
-                        <span class="required">This field is required</span>
+                        <span class="required" id="requiredPasswordLogin">This field is required</span>
                     </div>
                 </div>
 
@@ -62,12 +63,11 @@
                         </div>
                         <span>Remember me</span>
                     </div>
-                    <span class="forgotPassword">Forgot my password</span>
                 </div>
 
                 <div class="logInButtonContainer">
                     <!-- onclick function userLogin() add to button -->
-                    <button class="logInButton" onclick="userLogin()">
+                    <button class="logInButton">
                         <span>Log in</span>
                     </button>
                     <button class="guestButton" onclick="guestLogIn()">
@@ -77,6 +77,7 @@
 
             </div>
         </form>
+
     </div>
 
 </body>
