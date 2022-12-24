@@ -148,4 +148,7 @@ function renderList(){
     renderLegalNotice()
 }
 
+// desktop_template.html help Button
+function help(){
 
+}
