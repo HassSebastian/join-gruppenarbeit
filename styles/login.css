@@ -237,11 +237,13 @@ body{
     height: 19px;
 }
 
-.rememberMeBox div {
+.rememberMeBox div { 
+    display: flex;
+    align-items: center;
     width: 16px;
     height: 16px;
     border-radius: 3px;
-}
+} 
 
 .rememberMeBox span {
     width: 110px;
