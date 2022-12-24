@@ -44,8 +44,8 @@ async function renderBoard() {
 
     <div class="canbanBoard">
 
-        <div class="canbanContainer dragArea"  id='open' ondrop="moveTo(0)" ondragover="allowDrop(event)">
-            <div class="menu todo">>
+        <div class="canbanContainer dragArea"  ondrop="moveTo(0)" ondragover="allowDrop(event)">
+            <div class="menu todo">
                 <span>To do</span>
                 <button class="menuPlusButton">
                     <img src="./assets/img/plus_logo_black.png">
@@ -56,7 +56,7 @@ async function renderBoard() {
             </div>
         </div>
 
-        <div class="canbanContainer dragArea" id='close' ondrop="moveTo(1)" ondragover="allowDrop(event)">
+        <div class="canbanContainer dragArea" ondrop="moveTo(1)" ondragover="allowDrop(event)">
             <div class="menu progress">
                 <span>In progress</span>
                 <button class="menuPlusButton">
@@ -68,7 +68,7 @@ async function renderBoard() {
             </div>
         </div>
 
-        <div class="canbanContainer dragArea" id='close' ondrop="moveTo(2)" ondragover="allowDrop(event)">>
+        <div class="canbanContainer dragArea" ondrop="moveTo(2)" ondragover="allowDrop(event)">
             <div class="menu feedback">
                 <span>Anwaiting Feedback</span>
                 <button class="menuPlusButton">
@@ -80,7 +80,7 @@ async function renderBoard() {
             </div>
         </div>
 
-        <div class="canbanContainer dragArea" id='close' ondrop="moveTo(3)" ondragover="allowDrop(event)">
+        <div class="canbanContainer dragArea" ondrop="moveTo(3)" ondragover="allowDrop(event)">
             <div class="menu done">
                 <span>Done</span>
                 <button class="menuPlusButton">
@@ -196,7 +196,7 @@ function renderToDoCards() {
             <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})'>
                 <div class='taskContainer'>
                     <div class='taskKategorie' id='toDoCardCat${i}'>
-                        <span >${cardCategory}</span>
+                        <span>${cardCategory}</span>
                     </div>
                     <div class='taskHeadline'>
                         <span class='taskHeadlineContent'>${cardTitle}</span>
@@ -252,7 +252,7 @@ function renderInProgressCards() {
             <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})'>
                 <div class='taskContainer'>
                     <div class='taskKategorie' id='progressCard${i}'>
-                        <span >${cardCategory}</span>
+                        <span>${cardCategory}</span>
                     </div>
                     <div class='taskHeadline'>
                         <span class='taskHeadlineContent'>${cardTitle}</span>
@@ -282,13 +282,13 @@ function renderInProgressCards() {
                 </div>
             </div>`;
     }
-    // setCategoryBackgroundColorForWorkStatus1();
+    setCategoryBackgroundColorForWorkStatus1();
 }
 
 
 function setCategoryBackgroundColorForWorkStatus1(){
     for (let i = 0; i < workStatus1Array.length; i++){
-        let cardCatColor = workStatus0Array[i]['cardCatColor'];
+        let cardCatColor = workStatus1Array[i]['cardCatColor'];
         let catBackground = categoryBackgroundColors[cardCatColor];
         document.getElementById(`progressCard${i}`).style = `background-color: ${catBackground};`;
     }
@@ -308,7 +308,7 @@ function renderAwaitingFeedbackCards() {
             <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})'>
                 <div class='taskContainer'>
                     <div class='taskKategorie' id='progressCard${i}'>
-                        <span >${cardCategory}</span>
+                        <span>${cardCategory}</span>
                     </div>
                     <div class='taskHeadline'>
                         <span class='taskHeadlineContent'>${cardTitle}</span>
@@ -337,6 +337,16 @@ function renderAwaitingFeedbackCards() {
                     </div>
                 </div>
             </div>`;
+    }
+    setCategoryBackgroundColorForWorkStatus2();
+}
+
+
+function setCategoryBackgroundColorForWorkStatus2(){
+    for (let i = 0; i < workStatus2Array.length; i++){
+        let cardCatColor = workStatus2Array[i]['cardCatColor'];
+        let catBackground = categoryBackgroundColors[cardCatColor];
+        document.getElementById(`progressCard${i}`).style = `background-color: ${catBackground};`;
     }
 }
 
@@ -354,7 +364,7 @@ function renderDoneCards() {
             <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})'>
                 <div class='taskContainer'>
                     <div class='taskKategorie' id='progressCard${i}'>
-                        <span >${cardCategory}</span>
+                        <span>${cardCategory}</span>
                     </div>
                     <div class='taskHeadline'>
                         <span class='taskHeadlineContent'>${cardTitle}</span>
@@ -384,12 +394,21 @@ function renderDoneCards() {
                 </div>
             </div>`;
     }
+    setCategoryBackgroundColorForWorkStatus3();
+}
+
+
+function setCategoryBackgroundColorForWorkStatus3(){
+    for (let i = 0; i < workStatus3Array.length; i++){
+        let cardCatColor = workStatus3Array[i]['cardCatColor'];
+        let catBackground = categoryBackgroundColors[cardCatColor];
+        document.getElementById(`progressCard${i}`).style = `background-color: ${catBackground};`;
+    }
 }
 
 
 function startDrag(id){
     currentDraggedElement = id;
-
 }
 
 
