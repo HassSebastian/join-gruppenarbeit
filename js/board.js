@@ -38,55 +38,84 @@ async function renderBoard() {
             </button>
 
         </div>
-
+    </div>
+    <div class='frame191'>
+        <div class='frame192'>
+            <!-- <div class='frame136'></div> -->
+            <div class="frame136">
+                <span>To do</span>
+                <button class="menuPlusButton">
+                    <img src="./assets/img/plus_logo_black.png">
+                </button>
+            </div>
+            <div class='frame149'>
+                <span>In progress</span>
+                <button class="menuPlusButton">
+                    <img src="./assets/img/plus_logo_black.png">
+                </button>
+            </div>
+            <div class='frame137'>
+                <span>Anwaiting Feedback</span>
+                <button class="menuPlusButton">
+                    <img src="./assets/img/plus_logo_black.png">
+                </button>
+            </div>
+            
+            <div class='frame138'>
+                <span>Done</span>
+                    <button class="menuPlusButton">
+                    <img src="./assets/img/plus_logo_black.png">
+                </button>
+            </div>
+        </div>
     </div>
 
 
     <div class="canbanBoard">
 
         <div class="canbanContainer dragArea" id='dropArea0' ondrop="moveTo(0); removeHighlight('dropArea0')"  ondragleave="removeHighlight('dropArea0')" ondragover="allowDrop(event); highlight('dropArea0')">
-            <div class="menu todo">
+            <!-- <div class="menu todo">
                 <span>To do</span>
                 <button class="menuPlusButton">
                     <img src="./assets/img/plus_logo_black.png">
                 </button>
-            </div>
+            </div> -->
             <div id='toDoDiv'>
                 
             </div>
         </div>
 
         <div class="canbanContainer dragArea" id='dropArea1' ondrop="moveTo(1); removeHighlight('dropArea1')" ondragleave="removeHighlight('dropArea1')" ondragover="allowDrop(event); highlight('dropArea1')">
-            <div class="menu progress">
+            <!-- <div class="menu progress">
                 <span>In progress</span>
                 <button class="menuPlusButton">
                     <img src="./assets/img/plus_logo_black.png">
                 </button>
-            </div>
+            </div> -->
             <div id='progressDiv'>
                 
             </div>
         </div>
 
         <div class="canbanContainer dragArea" id='dropArea2' ondrop="moveTo(2); removeHighlight('dropArea2')" ondragleave="removeHighlight('dropArea2')" ondragover="allowDrop(event); highlight('dropArea2')">
-            <div class="menu feedback">
+            <!-- <div class="menu feedback">
                 <span>Anwaiting Feedback</span>
                 <button class="menuPlusButton">
                     <img src="./assets/img/plus_logo_black.png">
                 </button>
-            </div>
+            </div> -->
             <div id='awaitingDiv'>
                 
             </div>
         </div>
 
         <div class="canbanContainer dragArea" id='dropArea3' ondrop="moveTo(3); removeHighlight('dropArea3')" ondragleave="removeHighlight('dropArea3')" ondragover="allowDrop(event); highlight('dropArea3')">
-            <div class="menu done">
+            <!-- <div class="menu done">
                 <span>Done</span>
                 <button class="menuPlusButton">
                     <img src="./assets/img/plus_logo_black.png">
                 </button>
-            </div>
+            </div> -->
             <div id='doneDiv'>
                 
             </div>
@@ -118,11 +147,11 @@ let workStatus2Array = [];
 let workStatus3Array = [];
 let currentDraggedElement;
 let categoryBackgroundColors = [
-    '#8aa4ff', 
-    '#ff0000', 
-    '#2ad300', 
-    '#ff8a00', 
-    '#e200be', 
+    '#8aa4ff',
+    '#ff0000',
+    '#2ad300',
+    '#ff8a00',
+    '#e200be',
     '#0038ff'
 ];
 
@@ -134,9 +163,9 @@ function resetWorkStatusArrays() {
     workStatus2Array = [];
     workStatus3Array = [];
     workStatusArray = [
-        workStatus0Array, 
-        workStatus1Array, 
-        workStatus2Array, 
+        workStatus0Array,
+        workStatus1Array,
+        workStatus2Array,
         workStatus3Array
     ];
 }
@@ -191,7 +220,7 @@ function renderToDoCards() {
         let cardCategory = workStatus0Array[i]['cardCategory'];
         let cardPrio = workStatus0Array[i]['cardPrio'];
         let subTasks = workStatus0Array[i]['subTasks'];
-        let taskIndex =workStatus0Array[i]['taskIndex'];
+        let taskIndex = workStatus0Array[i]['taskIndex'];
         document.getElementById('toDoDiv').innerHTML += /*html*/`
             <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})'>
                 <div class='taskContainer'>
@@ -225,14 +254,14 @@ function renderToDoCards() {
                     </div>
                 </div>
             </div>`;
-            
+
     }
     setCategoryBackgroundColorForWorkStatus0();
 }
 
 
-function setCategoryBackgroundColorForWorkStatus0(){
-    for (let i = 0; i < workStatus0Array.length; i++){
+function setCategoryBackgroundColorForWorkStatus0() {
+    for (let i = 0; i < workStatus0Array.length; i++) {
         let cardCatColor = workStatus0Array[i]['cardCatColor'];
         let catBackground = categoryBackgroundColors[cardCatColor];
         document.getElementById(`toDoCardCat${i}`).style = `background-color: ${catBackground};`;
@@ -248,7 +277,7 @@ function renderInProgressCards() {
         let cardCategory = workStatus1Array[i]['cardCategory'];
         let cardPrio = workStatus1Array[i]['cardPrio'];
         let subTasks = workStatus1Array[i]['subTasks'];
-        let taskIndex =workStatus1Array[i]['taskIndex'];
+        let taskIndex = workStatus1Array[i]['taskIndex'];
         document.getElementById('progressDiv').innerHTML += /*html*/`
             <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})'>
                 <div class='taskContainer'>
@@ -287,8 +316,8 @@ function renderInProgressCards() {
 }
 
 
-function setCategoryBackgroundColorForWorkStatus1(){
-    for (let i = 0; i < workStatus1Array.length; i++){
+function setCategoryBackgroundColorForWorkStatus1() {
+    for (let i = 0; i < workStatus1Array.length; i++) {
         let cardCatColor = workStatus1Array[i]['cardCatColor'];
         let catBackground = categoryBackgroundColors[cardCatColor];
         document.getElementById(`progressCard${i}`).style = `background-color: ${catBackground};`;
@@ -304,7 +333,7 @@ function renderAwaitingFeedbackCards() {
         let cardCategory = workStatus2Array[i]['cardCategory'];
         let cardPrio = workStatus2Array[i]['cardPrio'];
         let subTasks = workStatus2Array[i]['subTasks'];
-        let taskIndex =workStatus2Array[i]['taskIndex'];
+        let taskIndex = workStatus2Array[i]['taskIndex'];
         document.getElementById('awaitingDiv').innerHTML += /*html*/`
             <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})'>
                 <div class='taskContainer'>
@@ -343,8 +372,8 @@ function renderAwaitingFeedbackCards() {
 }
 
 
-function setCategoryBackgroundColorForWorkStatus2(){
-    for (let i = 0; i < workStatus2Array.length; i++){
+function setCategoryBackgroundColorForWorkStatus2() {
+    for (let i = 0; i < workStatus2Array.length; i++) {
         let cardCatColor = workStatus2Array[i]['cardCatColor'];
         let catBackground = categoryBackgroundColors[cardCatColor];
         document.getElementById(`feedbackCard${i}`).style = `background-color: ${catBackground};`;
@@ -360,7 +389,7 @@ function renderDoneCards() {
         let cardCategory = workStatus3Array[i]['cardCategory'];
         let cardPrio = workStatus3Array[i]['cardPrio'];
         let subTasks = workStatus3Array[i]['subTasks'];
-        let taskIndex =workStatus3Array[i]['taskIndex'];
+        let taskIndex = workStatus3Array[i]['taskIndex'];
         document.getElementById('doneDiv').innerHTML += /*html*/`
             <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})'>
                 <div class='taskContainer'>
@@ -399,8 +428,8 @@ function renderDoneCards() {
 }
 
 
-function setCategoryBackgroundColorForWorkStatus3(){
-    for (let i = 0; i < workStatus3Array.length; i++){
+function setCategoryBackgroundColorForWorkStatus3() {
+    for (let i = 0; i < workStatus3Array.length; i++) {
         let cardCatColor = workStatus3Array[i]['cardCatColor'];
         let catBackground = categoryBackgroundColors[cardCatColor];
         document.getElementById(`doneCard${i}`).style = `background-color: ${catBackground};`;
@@ -408,7 +437,7 @@ function setCategoryBackgroundColorForWorkStatus3(){
 }
 
 
-function startDrag(id){
+function startDrag(id) {
     currentDraggedElement = id;
 }
 
@@ -418,19 +447,18 @@ function allowDrop(ev) {
 }
 
 
-async function moveTo(area){
-    // todos[currentDraggedElement]['category'] = area;
+async function moveTo(area) {
     joinTaskArray[currentDraggedElement]['workFlowStatus'] = area;
     await createWorkStatusArrays();
     renderAllCards();
 }
 
 
-function highlight(id){
+function highlight(id) {
     document.getElementById(id).classList.add('drag-area-highlight');
 }
 
 
-function removeHighlight(id){
+function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
 }

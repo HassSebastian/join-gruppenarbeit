@@ -158,7 +158,7 @@
     border: 0;
 }
 
-.addTaskButton:hover{
+.addTaskButton:hover {
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     transition: 100ms ease-in-out;
@@ -223,6 +223,8 @@
     height: 30px;
     left: 828px;
     top: 0px;
+    /* edit by Bossi 24.12.2022 */
+    /* margin-top: -36px; */
 }
 
 .menu span {
@@ -289,21 +291,39 @@
     gap: 26px;
     position: absolute;
     width: 1078px;
-    height: 661px;
+    height: 607px;
     left: 302px;
-    top: 343px;
+    top: 408px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.canbanBoard::-webkit-scrollbar{
+    width: 0px;
 }
 
 .canbanContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 36px 0;
+    /* padding: 36px 0; */
     width: 250px;
-    height: 661px;
+    height: 100%;
     flex: none;
     order: 0;
     flex-grow: 0;
+    /* edit by Bossi 24.12.2022 */
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    /* padding: 36px 0; */
+    /* width: 250px;
+    height: 570px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    overflow: hidden;
+    overflow-y: auto; */
 }
 
 .taskBackground {
@@ -586,6 +606,171 @@
     flex-grow: 0;
 }
 
-.drag-area-highlight{
+.drag-area-highlight {
     background-color: rgba(0, 0, 0, 0.2);
+}
+
+.frame191 {
+    position: absolute;
+    width: 1145px;
+    height: 57px;
+    left: 267px;
+    top: 327px;
+
+    background: #F6F7F8;
+}
+
+.frame192 {
+    position: absolute;
+    width: 1058px;
+    height: 30px;
+    left: 45px;
+    bottom: 11px;
+}
+
+
+
+
+
+
+
+.frame136 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 35px;
+
+    position: absolute;
+    width: 230px;
+    height: 30px;
+    left: 0px;
+    top: 0px;
+
+}
+
+.frame136 span {
+    width: 57px;
+    height: 25px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
+
+
+    color: #2A3647;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.frame149 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 35px;
+
+    position: absolute;
+    width: 230px;
+    height: 30px;
+    left: 276px;
+    top: 0px;
+}
+
+.frame149 span {
+    width: 116px;
+    height: 25px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
+
+
+    color: #2A3647;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.frame137 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 6px;
+    position: absolute;
+    width: 230px;
+    height: 30px;
+    left: 545px;
+    top: 0px;
+
+}
+
+.frame137 span {
+    width: max-content;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    color: #2A3647;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.frame138 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 35px;
+
+    position: absolute;
+    width: 230px;
+    height: 30px;
+    left: 828px;
+    top: 0px;
+}
+
+.frame138 span {
+    width: 54px;
+    height: 25px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
+
+
+    color: #2A3647;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
