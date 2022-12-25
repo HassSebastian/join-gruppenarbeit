@@ -548,6 +548,10 @@ display: flex;
     align-items: flex-end;
 }
 
+.edit_contact:hover {
+    cursor: pointer;
+}
+
 .edit_contact span {
     width: 100px;
     height: 19px;
