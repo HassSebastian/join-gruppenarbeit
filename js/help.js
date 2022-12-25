@@ -2,9 +2,8 @@ async function initHelp() {
     await includeHTML();
     await renderHelp();
     selectedMenuBtnId = 0;
-    selectedMenuButton(5);
+    selectedMenuButton(0);
 }
-
 
 
 function back() {
