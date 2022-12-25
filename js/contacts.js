@@ -112,8 +112,11 @@ function openEditContact(i) {
                 <span>Update contact</span>
                 <img src="assets/img/akar-icons_check_white.png" alt="">
             </div>
-
         </div>
+        <div class="contact_delete" onclick="deleteContact(${i})">
+                <span>Delete contact</span>
+                <img src="assets/img/bin.png" alt="">
+            </div>
     </div>
     `;
     renderContacts();
@@ -183,6 +186,12 @@ function editContact(i) {
     contact.phone = document.getElementById('editContactPhone').value;
 
     contacts.splice(i, 1, contact);
+    sortContacts();
+    closeEditContact();
+}
+
+function deleteContact(i) {
+    contacts.splice(i, 1);
     sortContacts();
     closeEditContact();
 }
