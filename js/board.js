@@ -112,11 +112,187 @@ function boardHtml(){
                     
                 </div>
             </div>
+        </div>
+
+        <div class='shadowOverlay d-none' id='boardPopup' onclick='disablePopupWindow()'>
+            <div class="boardTaskCardPopup" onclick='stopClose(event)'>
+                <div class="taskCardPopupCategory">
+                    <span>Sales</span>
+                </div>
+                <div class="taskCardPopupTask">
+                    <span>Call potencial clients</span>
+                </div>
+                <span class="taskCardPopupDescription">Make the product presentation to prospective buyers</span>
+                <div class="taskCardPopupDateContainer">
+                    <span class="taskCardPopupDateText">Due date:</span>
+                    <span class="taskCardPopupDueDate">05-08-2022</span>
+                </div>
+                <div class="taskCardPopupPriorityContainer">
+                    <!-- classes down must be changed later ! -->
+                <span>Priority:</span>
+                <div class="urgency">
+                    <span>Urgent</span>
+                    <img src="./assets/img/urgent_white.png" alt="">
+                </div>
+            </div>
+            <span class="assigend">Assigend To:</span>
+            <img class="close_logo" src="./assets/img/close_logo.png" onclick='disablePopupWindow()'>
+            <div class="editButton">
+                <img src="./assets/img/edit_button.png">
+            </div>
+        
+            <div class="members">
+                <div class="davidEisenberg">
+                    <span class="shortcut">DE</span>
+                </div>
+                <span class="name">David Eisenberg</span>
+            </div>
+            <div class="members">
+                <div class="benediktZiegler">
+                    <span class="shortcut">BZ</span>
+                </div>
+                <span class="name">Benedikt Ziegler</span>
+            </div>
+            <div class="members">
+                <div class="marcelBauer">
+                    <span class="shortcut">MB</span>
+                </div>
+                <span class="name">Marcel Bauer</span>
+            </div>
+            <div class="members">
+                <div class="stefanieFarber">
+                    <span class="shortcut">SF</span>
+                </div>
+                <span class="name">Stefanie Farber</span>
+            </div>
+
+            <!-- </div> -->
         </div>`;
 }
 
 
-// todo if already done delete this function. This function is only for info.
+// Testarea PopupCard ***********************************************************************************************
+
+/**
+ * this function remove the d-none class from the popup window. The result is that the Popup Window is shown.
+ */
+function enablePopupWindow(){
+    document.getElementById('boardPopup').classList.remove('d-none');
+}
+
+
+/**
+ * this function add the d-none class to the popup window. The result is that the Popup Window not shown.
+ */
+function disablePopupWindow(){
+    document.getElementById('boardPopup').classList.add('d-none');
+}
+
+
+/**
+ * this function prevent the closure of the popup window when clicking on the Popup Task Card.
+ */
+function stopClose(event){
+    event.stopPropagation();
+}
+
+
+function renderPopupTaskCard(taskIndex){
+    console.log('rendering started for ', taskIndex)
+    let cardTitle = joinTaskArray[taskIndex]['title'];
+    let cardDescription = joinTaskArray[taskIndex]['descripten'];
+    let cardCategory = joinTaskArray[taskIndex]['category'];
+    let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
+    let taskPrio = joinTaskArray[taskIndex]['prio'];
+    console.log(cardTitle, cardDescription, cardCategory, cardDueDate, taskPrio);
+    document.getElementById('boardPopup').innerHTML = '';
+    document.getElementById('boardPopup').innerHTML = /*html*/`
+        <div class="boardTaskCardPopup" onclick='stopClose(event)'>
+            <div class="taskCardPopupCategory" id='taskCardPopupCategory'>
+                <span>${cardCategory}</span>
+            </div>
+            <div class="taskCardPopupTask">
+                <span>${cardTitle}</span>
+            </div>
+            <span class="taskCardPopupDescription">${cardDescription}</span>
+            <div class="taskCardPopupDateContainer">
+                <span class="taskCardPopupDateText">Due date:</span>
+                <span class="taskCardPopupDueDate">${cardDueDate}</span>
+            </div>
+            <div class="taskCardPopupPriorityContainer">
+                <!-- classes down must be changed later ! -->
+            <span>Priority:</span>
+            <div class="urgency" id='prioContainer'>
+                <span>${taskPrio}</span>
+                <img src="./assets/img/urgent_white.png" id='cardPrioImg'>
+            </div>
+        </div>
+        <span class="assigend">Assigend To:</span>
+        <img class="close_logo" src="./assets/img/close_logo.png" onclick='disablePopupWindow()'>
+        <div class="editButton">
+            <img src="./assets/img/edit_button.png">
+        </div>
+    
+        <div class="members">
+            <div class="davidEisenberg">
+                <span class="shortcut">DE</span>
+            </div>
+            <span class="name">David Eisenberg</span>
+        </div>
+        <div class="members">
+            <div class="benediktZiegler">
+                <span class="shortcut">BZ</span>
+            </div>
+            <span class="name">Benedikt Ziegler</span>
+        </div>
+        <div class="members">
+            <div class="marcelBauer">
+                <span class="shortcut">MB</span>
+            </div>
+            <span class="name">Marcel Bauer</span>
+        </div>
+        <div class="members">
+            <div class="stefanieFarber">
+                <span class="shortcut">SF</span>
+            </div>
+            <span class="name">Stefanie Farber</span>
+        </div>`;
+
+    setTaskCardPopupCatColor(taskIndex);
+    setTaskCardPopupPrioBackground(taskIndex);
+
+}
+
+
+function setTaskCardPopupCatColor(taskIndex){
+    let cardCatColorIndex = joinTaskArray[taskIndex]['catColor'];
+    let cardCatColor = categoryBackgroundColors[cardCatColorIndex];
+    document.getElementById('taskCardPopupCategory').style = `background-color: ${cardCatColor};`;
+}
+
+let prioColorAndUrlArray = [
+    {
+    'urgent': ['#FF3D00', './assets/img/urgent_white.png'],
+    'medium': ['#FFA800', './assets/img/medium_white.png'],
+    'low': ['#7AE229', './assets/img/low_white.png'],
+    }
+]
+
+
+function setTaskCardPopupPrioBackground(taskIndex){
+    let cardPrio = joinTaskArray[taskIndex]['prio'];
+    cardPrio = cardPrio.toLowerCase();
+    let cardPrioBackground = prioColorAndUrlArray[0][cardPrio][0];
+    let cardPrioImgSrc = prioColorAndUrlArray[0][cardPrio][1];
+    document.getElementById('prioContainer').style = `background-color: ${cardPrioBackground};`;
+    document.getElementById('cardPrioImg').src = cardPrioImgSrc;
+}
+
+// Testarea PopupCard end***********************************************************************************************
+
+
+
+// todo if already done delete this function. And rename descriten to description, also in AddTask ! This function is only for info.
 function arrayExample() {
     taskData = {
         'title': title,
@@ -212,7 +388,7 @@ function renderAllCards() {
 /**
  * this function render all todo cards.
  */
-// class design löschen !?
+// toDo class design löschen !?
 function renderToDoCards() {
     document.getElementById('toDoDiv').innerHTML = '';
     for (let i = 0; i < workStatus0Array.length; i++) {
@@ -235,7 +411,7 @@ function toDoCardHtml(arrayIndex){
     let cardCategory = workStatus0Array[arrayIndex]['cardCategory'];
     let taskIndex = workStatus0Array[arrayIndex]['taskIndex'];
     return /*html*/`
-        <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})'>
+        <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
             <div class='taskContainer'>
                 <div class='taskKategorie' id='toDoCardCat${arrayIndex}'>
                     <span>${cardCategory}</span>
@@ -307,7 +483,7 @@ function inProgressHtml(arrayIndex){
         let cardCategory = workStatus1Array[arrayIndex]['cardCategory'];
         let taskIndex = workStatus1Array[arrayIndex]['taskIndex'];
         return /*html*/`
-            <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})'>
+            <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
                 <div class='taskContainer'>
                     <div class='taskKategorie' id='progressCard${arrayIndex}'>
                         <span>${cardCategory}</span>
@@ -379,7 +555,7 @@ function awaitingFeedbackHtml(arrayIndex){
     let cardCategory = workStatus2Array[arrayIndex]['cardCategory'];
     let taskIndex = workStatus2Array[arrayIndex]['taskIndex'];
     return /*html*/`
-        <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})'>
+        <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
             <div class='taskContainer'>
                 <div class='taskKategorie' id='feedbackCard${arrayIndex}'>
                     <span>${cardCategory}</span>
@@ -450,7 +626,7 @@ function doneHtml(arrayIndex){
     let cardCategory = workStatus3Array[arrayIndex]['cardCategory'];
     let taskIndex = workStatus3Array[arrayIndex]['taskIndex'];
     return /*html*/`
-        <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})'>
+        <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
             <div class='taskContainer'>
                 <div class='taskKategorie' id='doneCard${arrayIndex}'>
                     <span>${cardCategory}</span>
