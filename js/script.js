@@ -148,7 +148,7 @@ function renderList(){
     renderLegalNotice()
 }
 
-// desktop_template.html help Button
+// desktop_template.html help function
 function help(){
-
+window.location.href = './help.html'
 }
