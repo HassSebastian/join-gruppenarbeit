@@ -45,12 +45,11 @@ async function renderContacts() {
         const surname = contacts[i].surname;
         const name = contacts[i].name;
         const email = contacts[i].email;
-        const phone = contacts[i].phone;
         const surnameLetter = contacts[i].surname.charAt(0);
         const nameLetter = contacts[i].name.charAt(0);
 
         document.getElementById('contacts').innerHTML += /*html*/ `
-        <div class="contact" onclick="showContact(${i})">
+        <div class="contact" id="contact${i}" onclick="showContact(${i})">
              <div class="ellipse">
                 <span>${surnameLetter}${nameLetter}</span>
              </div>
@@ -88,7 +87,6 @@ function showContact(i) {
     const phone = contacts[i].phone;
     const surnameLetter = contacts[i].surname.charAt(0);
     const nameLetter = contacts[i].name.charAt(0);
-    //document.getElementById('showContact').classList.remove('d-none');
     document.getElementById('showContact').innerHTML = '';
     document.getElementById('showContact').innerHTML = /*html*/ `
       <div>
@@ -117,4 +115,16 @@ function showContact(i) {
             </div>
         </div>
     `;
+}
+
+function addContact() {
+    var contact = {};
+
+    contact.name = document.getElementById("contactName").value;
+    contact.surname = document.getElementById("contactSurname").value;
+    contact.email = document.getElementById("contactEmail").value;
+    contact.phone = document.getElementById("contactPhone").value;
+
+    contacts.push(contact);  
+    closeNewContact();
 }

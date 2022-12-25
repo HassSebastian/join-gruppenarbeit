@@ -63,15 +63,16 @@
         <div class="add_contact_right">
             <img src="assets/img/empty_profile_picture.png" alt="">
             <div class="add_contact_inputs">
-                <input type="text" placeholder="Name">
-                <input type="text" placeholder="Email">
-                <input type="text" placeholder="Phone">
+                <input type="text" placeholder="Name" id="contactName">
+                <input type="text" placeholder="Surname" id="contactSurname">
+                <input type="text" placeholder="Email" id="contactEmail">
+                <input type="text" placeholder="Phone" id="contactPhone">
                 <div class="add_contact_right_buttons">
                     <div class="contact_cancel" onclick="closeNewContact()">
                         <span>Cancel</span>
                         <img src="assets/img/new_cat_cancel.png" alt="">
                     </div>
-                    <div class="contact_create">
+                    <div class="contact_create" onclick="addContact()">
                         <span>Create contact</span>
                         <img src="assets/img/akar-icons_check_white.png" alt="">
                     </div>
