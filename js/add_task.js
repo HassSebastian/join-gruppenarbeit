@@ -146,13 +146,8 @@ async function renderAddTask() {
                 </div>
                 
                 <div class='addTaskCheckbox' id='subtaskCheckboxes'>
-                    <!-- <div>
-                        <input type="checkbox">
-                        <span>Subtask 1</span>
-                    </div> -->
+    
                 </div>
-                
-                
             </div>
         </div>
     <!-- </form>  -->
@@ -166,9 +161,6 @@ async function renderAddTask() {
 }
 
 
-/**
- * 
- */
 function goToDescripten(){
     document.getElementById('addTaskDescripten').focus();
 }
@@ -255,16 +247,23 @@ function renderCategoryList(){
 }
 
 /**
- * 
+ * this function checked, a backgroundcolor is set for this category.
  * @param {number} categoryColor - This is a number that is equal to the css color classes. Example, if the number is 1
  * the related css color class is 'color1'.
- * @returns 
+ * @returns - true, if a backgroundcolor is set. if not, it returns false.
  */
 function categoryColorAvailable(categoryColor){
     return categoryColor != '';
 }
 
 
+/**
+ * this function return the html code for the category list if backgroundcolor is available.
+ * @param {string} categoryName - is the category name as string.
+ * @param {number} categoryColor - is a number that is related to the category backgroundcolor.
+ * @param {number} i - is the index number of the category array.
+ * @returns - the html string for the category list if backgroundcolor is available.
+ */
 function dropdownCategoryListHtml(categoryName, categoryColor, i){
     return /*html*/`
         <li onclick='selectCategory(${i})'>
@@ -274,6 +273,13 @@ function dropdownCategoryListHtml(categoryName, categoryColor, i){
 }
 
 
+/**
+ * this function return the html code for the category list if backgroundcolor is not available.
+ * @param {string} categoryName - is the category name as string.
+ * @param {number} categoryColor - is a number that is related to the category backgroundcolor.
+ * @param {number} i - is the index number of the category array.
+ * @returns - the html string for the category list if backgroundcolor is not available.
+ */
 function dropdownCategoryListHtml1(categoryName, i){
     return /*html*/`
         <li onclick='selectCategory(${i})'>
@@ -282,6 +288,9 @@ function dropdownCategoryListHtml1(categoryName, i){
 }
 
 
+/**
+ * this function add a new category to the category list.
+ */
 function setNewCategoryToList(){
     let newSetCategory = document.getElementById('selectedCatInput').value;
     newSetCategory = newSetCategory.trim();
@@ -298,6 +307,9 @@ function setNewCategoryToList(){
 }
 
 
+/**
+ * this function set the input field for a new category to 'selected a category'.
+ */
 function resetCatSelection(){
     newCatInputActive = false;
     catListStatus = !catListStatus;
@@ -306,6 +318,9 @@ function resetCatSelection(){
 }
 
 
+/**
+ * this function return the input html code for the category selection 'selected a category'.
+ */
 function resetCatSelectionHtml(){
     return /*html*/`
         <input disabled id='selectedCatInput' placeholder='Select task category' autocomplete='off'>
@@ -317,6 +332,7 @@ function resetCatSelectionHtml(){
         </div>
         <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
 }
+
 
 
 function selectCategory(catId) {
