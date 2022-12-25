@@ -292,7 +292,7 @@ function toDoCardHtml(arrayIndex){
     return /*html*/`
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
             <div class='taskContainer'>
-                <div class='taskKategorie' id='toDoCardCat${arrayIndex}'>
+                <div class='boardTaskCategory' id='toDoCardCat${arrayIndex}'>
                     <span>${cardCategory}</span>
                 </div>
                 <div class='taskHeadline'>
@@ -364,7 +364,7 @@ function inProgressHtml(arrayIndex){
         return /*html*/`
             <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
                 <div class='taskContainer'>
-                    <div class='taskKategorie' id='progressCard${arrayIndex}'>
+                    <div class='boardTaskCategory' id='progressCard${arrayIndex}'>
                         <span>${cardCategory}</span>
                     </div>
                     <div class='taskHeadline'>
@@ -436,7 +436,7 @@ function awaitingFeedbackHtml(arrayIndex){
     return /*html*/`
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
             <div class='taskContainer'>
-                <div class='taskKategorie' id='feedbackCard${arrayIndex}'>
+                <div class='boardTaskCategory' id='feedbackCard${arrayIndex}'>
                     <span>${cardCategory}</span>
                 </div>
                 <div class='taskHeadline'>
@@ -507,7 +507,7 @@ function doneHtml(arrayIndex){
     return /*html*/`
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
             <div class='taskContainer'>
-                <div class='taskKategorie' id='doneCard${arrayIndex}'>
+                <div class='boardTaskCategory' id='doneCard${arrayIndex}'>
                     <span>${cardCategory}</span>
                 </div>
                 <div class='taskHeadline'>
@@ -879,7 +879,7 @@ function renderAddTaskPopupHtml(){
             </div>
         </div>
         <!-- </form>  -->
-        <div class="taskAddedToBoard" id='test'>
+        <div class="boardtaskAddedToBoard" id='test'>
             <div class="taskAddedToBoardContainer">
                 <span>Task added to board</span>
                 <img src="./assets/img/img_board_w.png">

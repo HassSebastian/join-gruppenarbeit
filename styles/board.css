@@ -357,14 +357,14 @@
     flex-grow: 0;
 }
 
-.taskKategorie {
+.boardTaskCategory {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 4px 25px;
     gap: 10px;
-    width: 50px;
+    min-width: 103px;
     height: 27px;
     border-radius: 8px;
     flex: none;
@@ -372,7 +372,7 @@
     flex-grow: 0;
 }
 
-.taskKategorie span {
+.boardTaskCategory span {
     width: max-content;
     height: 19px;
     font-family: 'Inter';
@@ -774,6 +774,7 @@
     left: 0px;
     z-index: 10;
     cursor: pointer;
+    overflow: hidden;
 }
 
 
@@ -1213,4 +1214,18 @@
     flex: none;
     order: 0;
     flex-grow: 0;
+}
+
+.boardtaskAddedToBoard {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0px;
+	position: relative;
+	width: 326px;
+	height: 74px;
+	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
+	top: 854px;
+	left: -528px;
 }
