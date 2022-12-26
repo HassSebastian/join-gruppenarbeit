@@ -613,6 +613,7 @@
 }
 
 .addTaskAssignedBox button {
+	position: relative;
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: row;
@@ -629,6 +630,17 @@
 	order: 0;
 	flex-grow: 0;
 	cursor: pointer;
+}
+
+.addTaskAssignedBox input {
+	border: 0;
+	background-color: unset;
+	outline: none;
+	font-family: 'Inter';
+	font-style: normal;
+	font-size: 21px;
+	font-weight: 400;
+	color: black;
 }
 
 .addTaskAssignedBox button span {
@@ -651,16 +663,35 @@
 	color: #d1d1d1 !important;
 }
 
-.addTaskAssignedBox button img {
+.black {
+	color: #000000 !important;
+}
+
+.assignToCancelConfirmImgContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 0px;
+	gap: 9px;
+
 	position: absolute;
-	width: 16px;
-	height: 8px;
-	left: 392px;
+	width: 66px;
+	height: 31px;
+	left: 341px;
+	top: 11px;
+
+	/* Inside auto layout */
+
 	flex: none;
 	order: 1;
 	flex-grow: 0;
 	z-index: 1;
-	cursor: pointer;
+}
+
+.assignToCancelConfirmImgContainer img {
+	width: 24px;
+	height: 24px !important;
 }
 
 .addTaskAssignList {
@@ -691,10 +722,12 @@
 }
 
 .addTaskAssignList li {
+	width: 422px;
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	justify-content: space-between;
 	padding: 12px 21px;
 	gap: 10px;
 	isolation: isolate;
@@ -702,12 +735,52 @@
 	order: 1;
 	flex-grow: 0;
 	font-size: 21px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
 	cursor: pointer;
 }
 
 .addTaskAssignList li:hover {
 	background-color: #d1d1d1;
 	background-size: 100%;
+}
+
+.assignCheckboxContainer {
+	position: relative;
+	height: 17px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.checkBox {
+	position: relative;
+	height: 11px;
+	width: 11px;
+	background: #000000;
+	border-radius: 3px;
+	height: 11px;
+	width: 11px;
+	background: #000000;
+	border-radius: 3px;
+	/* position: absolute; */
+	left: 392px px;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+}
+
+.rectangleCheckBox {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	background: #000000;
+	border-radius: 1px;
+	z-index: 1;
 }
 
 .inviteNewContacts {
@@ -1228,3 +1301,24 @@
 
 /*********************************************************************************/
 /*********************************************************************************/
+
+/* display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+position: absolute;
+width: 30px;
+height: 30px;
+left: 386px;
+top: 11px;
+
+
+
+
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0; */
