@@ -187,6 +187,7 @@ function editContact(i) {
 
     contacts.splice(i, 1, contact);
     sortContacts();
+    showContact(i)
     closeEditContact();
 }
 
