@@ -15,6 +15,27 @@ let dueDate = '';
 let prio = '';
 let subTask = '';
 
+/* 
+!TEST ARRAY for renderFunciont (assignedContact list in dropdown menu) */
+let assignedContacts = [
+	{
+		firstName: 'Christopher Kai',
+		lastName: 'Greenkohl',
+	},
+	{
+		firstName: 'Thorsten',
+		lastName: 'Kern',
+	},
+	{
+		firstName: 'Frieda',
+		lastName: 'April',
+	},
+	{
+		firstName: 'Helmut',
+		lastName: 'Müller',
+	},
+];
+
 async function initAddTask() {
 	await includeHTML();
 	await renderAddTask();
@@ -145,14 +166,7 @@ async function renderAddTask() {
             </button>
             <span id="assignReq">This field is required</span>
             <ul class="addTaskAssignList listD-none" id="dropdown2">
-				
-				<li>
-					Max Müller
-					<div onclick="assignToggleCheckBox()" id="assignCheckboxContainer" class="assignCheckboxContainer">
-						<img class="checkBox" src="assets/img/checkbox.png" alt="checkbox" />
-						<img id="rectangleCheckBox" class="rectangleCheckBox d-none" src="assets/img/rectangleCheckBox.png" />
-					</div>
-				</li>
+
 				<li onclick="assigendContactEmail()" class="inviteNewContacts">
 					Invite new contacts<img
 						class="assignInviteNewContactImage"
@@ -726,7 +740,10 @@ function resetSubtaskSelections() {
 	}
 }
 
-/*======================= 
+/* 
+!Christian working here 
+*/
+/*=======================
    ASSIGN TO FUNCTIONS (start: 24.12.2022)
 =======================*/
 
@@ -738,6 +755,7 @@ function enableDisableAssignList() {
 	if (!assignListStatus) {
 		document.getElementById('dropdown2').classList.remove('listD-none');
 		borderBottomOffAssignedBoxButton();
+		renderContactsInAssignDropDownMenu();
 	} else {
 		borderBottomOnAssignedBoxButton();
 		document.getElementById('dropdown2').classList.add('listD-none');
@@ -845,20 +863,55 @@ function assignBoxBackToDefaultMode() {
 
 let check = false;
 
-function assignToggleCheckBox() {
+/**
+ * If the checkbox is not checked, add a checkmark to the checkbox. If the checkbox is checked, remove
+ * the checkmark from the checkbox.
+ * @param contact - the contact that was clicked on
+ */
+function assignToggleCheckBox(contact) {
 	if (!check) {
-		addCheckMarkToCheckBox();
+		addCheckMarkToCheckBox(contact);
 	} else {
-		removeCheckMarkFromCheckBox();
+		removeCheckMarkFromCheckBox(contact);
 	}
 
 	check = !check;
 }
 
-function addCheckMarkToCheckBox() {
-	document.getElementById('rectangleCheckBox').classList.remove('d-none');
+function addCheckMarkToCheckBox(contact) {
+	document.getElementById(`checkMark${contact}`).classList.remove('d-none');
 }
 
-function removeCheckMarkFromCheckBox() {
-	document.getElementById('rectangleCheckBox').classList.add('d-none');
+function removeCheckMarkFromCheckBox(contact) {
+	document.getElementById(`checkMark${contact}`).classList.add('d-none');
+}
+
+function generateAssignContactListForDropDownMenu(firstName, lastName, contact) {
+	return /*html*/ `
+	<li onclick="assignToggleCheckBox(${contact})">
+		${firstName} ${lastName}
+		<div  class="assignCheckboxContainer">
+			<img class="checkBox" src="assets/img/check_box.png" alt="checkbox" />
+			<img id="checkMark${contact}" class="checkMark d-none" src="assets/img/check_mark.png" />
+		</div>
+	</li>
+	`;
+}
+
+/**
+ * This function loops through the assignedContacts array and generates a list of contacts for the
+ * dropdown menu.
+ *! "contact" might not be the best name. To be reconsidered!!
+ */
+function renderContactsInAssignDropDownMenu() {
+	for (let contact = 0; contact < assignedContacts.length; contact++) {
+		let firstName = assignedContacts[contact].firstName;
+		let lastName = assignedContacts[contact].lastName;
+		let assignedContactList = document.getElementById('dropdown2');
+		assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(
+			firstName,
+			lastName,
+			contact
+		);
+	}
 }

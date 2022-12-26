@@ -803,7 +803,7 @@
 	flex-grow: 0;
 }
 
-.rectangleCheckBox {
+.checkMark {
 	position: absolute;
 	background: #000000;
 	border-radius: 1px;
