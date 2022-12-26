@@ -13,7 +13,8 @@ function inputValueTest() {
     let requiredName = document.getElementById('requiredName');
     let requiredEmail = document.getElementById('requiredEmail');
     let requiredPassword = document.getElementById('requiredPassword');
-
+    requiredEmail.classList.remove('requiredOn');
+    requiredEmail.innerHTML = `This field is required`;
     if (name.value.length || email.value.length || password.value.length) {
         if (name.value.length == 0) {
             requiredName.classList.add('requiredOn');
@@ -35,7 +36,35 @@ function inputValueTest() {
         if (!requiredName.classList.contains('requiredOn') &&
             !requiredEmail.classList.contains('requiredOn') &&
             !requiredPassword.classList.contains('requiredOn')) {
-            userSignIn(name.value, email.value, password.value);
+            emailToCheck(name.value, email.value, password.value);
+        }
+    }
+}
+
+
+function emailToCheck(name, email, password) {
+    let allUsersAtString = localStorage.getItem('allUsers');
+    let requiredEmail = document.getElementById('requiredEmail');
+    if (allUsersAtString === null) {
+        allUsers.push({ 'name': name, 'email': email, 'password': password });
+        let allUsersAtString = JSON.stringify(allUsers);
+        localStorage.setItem('allUsers', allUsersAtString);
+    } else {
+        let allUsers = JSON.parse(allUsersAtString);
+        let valueToCheck = email;
+        let check = 0;
+        for (let i = 0; i < allUsers.length; i++) {
+            let testValue = allUsers[i].email;
+            if (testValue === valueToCheck) {
+                check = 1;
+                break;
+            }
+        }
+        if (check == 1) {
+            requiredEmail.classList.add('requiredOn');
+            requiredEmail.innerHTML = `This email address is already available!!`;
+        } else {
+            userSignIn(name, email, password);
         }
     }
 }
@@ -48,14 +77,12 @@ function userSignIn(name, email, password) {
     } else {
         keyQueryOne(name, email, password);
     }
-
-    // window.location.href = './login.html?msg=Du hast dich erfolgreich registriert';
+    window.location.href = './login.html';
 }
 
 
 function keyQueryNull(name, email, password) {
     allUsers.push({ 'name': name, 'email': email, 'password': password });
-
     let allUsersAtString = JSON.stringify(allUsers);
     localStorage.setItem('allUsers', allUsersAtString);
 }
@@ -65,22 +92,6 @@ function keyQueryOne(name, email, password) {
     let allUsersString = localStorage.getItem('allUsers');
     allUsers = JSON.parse(allUsersString);
     allUsers.push({ 'name': name, 'email': email, 'password': password });
-
     let allUsersAtString = JSON.stringify(allUsers);
     localStorage.setItem('allUsers', allUsersAtString);
-}
-
-
-
-function emailToCheck() {
-    const keyToCheck = "allUsers";
-    const valueToCheck = { name: "Peter" };
-    const valueToCheckAsString = JSON.stringify(valueToCheck);
-
-    const value = localStorage.getItem(keyToCheck);
-    if (value === valueToCheckAsString) {
-        console.log(`Der Wert '${valueToCheckAsString}' wurde im Local Storage unter dem Schlüssel '${keyToCheck}' gefunden.`);
-    } else {
-        console.log(`Der Wert '${valueToCheckAsString}' wurde im Local Storage unter dem Schlüssel '${keyToCheck}' nicht gefunden.`);
-    }
 }

@@ -156,9 +156,10 @@
     order: 1;
     flex-grow: 0;
     border: 0;
+    cursor: pointer;
 }
 
-.addTaskButton:hover{
+.addTaskButton:hover {
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     transition: 100ms ease-in-out;
@@ -223,6 +224,8 @@
     height: 30px;
     left: 828px;
     top: 0px;
+    /* edit by Bossi 24.12.2022 */
+    /* margin-top: -36px; */
 }
 
 .menu span {
@@ -254,6 +257,19 @@
     flex: none;
     order: 1;
     flex-grow: 0;
+    cursor: pointer;
+    background-image: url("../assets/img/plus_logo_black.png");
+    background-position: center;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+}
+
+.menuPlusButton:hover {
+    background-image: url("../assets/img/plus_logo_blue.png");
+    border: 2px solid #29ABE2;
+    ;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: 100ms ease-in-out;
 }
 
 .menuPlusButton img {
@@ -289,21 +305,39 @@
     gap: 26px;
     position: absolute;
     width: 1078px;
-    height: 661px;
+    height: 607px;
     left: 302px;
-    top: 343px;
+    top: 408px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.canbanBoard::-webkit-scrollbar {
+    width: 0px;
 }
 
 .canbanContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 36px 0;
+    /* padding: 36px 0; */
     width: 250px;
-    height: 661px;
+    height: 100%;
     flex: none;
     order: 0;
     flex-grow: 0;
+    /* edit by Bossi 24.12.2022 */
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    /* padding: 36px 0; */
+    /* width: 250px;
+    height: 570px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    overflow: hidden;
+    overflow-y: auto; */
 }
 
 .taskBackground {
@@ -322,6 +356,7 @@
     flex: none;
     order: 1;
     flex-grow: 0;
+    cursor: pointer;
 }
 
 .taskContainer {
@@ -337,14 +372,14 @@
     flex-grow: 0;
 }
 
-.taskKategorie {
+.boardTaskCategory {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 4px 25px;
     gap: 10px;
-    width: 50px;
+    min-width: 103px;
     height: 27px;
     border-radius: 8px;
     flex: none;
@@ -352,7 +387,7 @@
     flex-grow: 0;
 }
 
-.taskKategorie span {
+.boardTaskCategory span {
     width: max-content;
     height: 19px;
     font-family: 'Inter';
@@ -584,4 +619,793 @@
     flex: none;
     order: 0;
     flex-grow: 0;
+}
+
+.drag-area-highlight {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.frame191 {
+    position: absolute;
+    width: 1145px;
+    height: 57px;
+    left: 267px;
+    top: 327px;
+
+    background: #F6F7F8;
+}
+
+.frame192 {
+    position: absolute;
+    width: 1058px;
+    height: 30px;
+    left: 45px;
+    bottom: 11px;
+}
+
+.frame136 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 35px;
+
+    position: absolute;
+    width: 230px;
+    height: 30px;
+    left: 0px;
+    top: 0px;
+
+}
+
+.frame136 span {
+    width: 57px;
+    height: 25px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
+
+
+    color: #2A3647;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.frame149 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 35px;
+
+    position: absolute;
+    width: 230px;
+    height: 30px;
+    left: 276px;
+    top: 0px;
+}
+
+.frame149 span {
+    width: 116px;
+    height: 25px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
+
+
+    color: #2A3647;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.frame137 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 6px;
+    position: absolute;
+    width: 230px;
+    height: 30px;
+    left: 545px;
+    top: 0px;
+
+}
+
+.frame137 span {
+    width: max-content;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    color: #2A3647;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.frame138 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 35px;
+
+    position: absolute;
+    width: 230px;
+    height: 30px;
+    left: 828px;
+    top: 0px;
+}
+
+.frame138 span {
+    width: 54px;
+    height: 25px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    color: #2A3647;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+/* add by Bossi 25.12 */
+.shadowOverlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1024px;
+    width: 1440px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    left: 0px;
+    z-index: 10;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+
+/* Copy from boardTaskCardPopup.css */
+.boardTaskCardPopup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 50px;
+    gap: 25px;
+    isolation: isolate;
+    position: relative;
+    width: 623px;
+    height: 824px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    cursor: auto;
+}
+
+.taskCardPopupCategory {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 36.5px;
+    gap: 10px;
+    min-width: 142px;
+    height: 40px;
+    background: #FC71FF;
+    border-radius: 8px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    z-index: 0;
+}
+
+.taskCardPopupCategory span {
+    /* width: 69px; */
+    height: 32px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 120%;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.taskCardPopupTask {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 1px;
+    width: 523px;
+    height: 146px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    z-index: 1;
+}
+
+.taskCardPopupTask span {
+    width: 523px;
+    height: 146px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    color: #2A3647;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.taskCardPopupDescription {
+    width: 518px;
+    height: 50px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    z-index: 2;
+}
+
+.taskCardPopupDateContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 25px;
+    width: 246px;
+    height: 25px;
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+    z-index: 3;
+}
+
+.taskCardPopupDateText {
+    width: 99px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.taskCardPopupDueDate {
+    width: 122px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.taskCardPopupPriorityContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 25px;
+    width: 238px;
+    height: 33px;
+    flex: none;
+    order: 4;
+    flex-grow: 0;
+    z-index: 4;
+}
+
+.taskCardPopupPriorityContainer span {
+    width: 82px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.urgency {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 18px;
+    gap: 10px;
+    width: 131px;
+    height: 33px;
+    background: #FF3D00;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.urgency span {
+    width: max-content;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.urgency img {
+    width: 17px;
+    height: 12px;
+    transform: rotate(-360deg);
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.assigend {
+    width: 134px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 5;
+    flex-grow: 0;
+    z-index: 5;
+}
+
+.close_logo {
+    position: absolute;
+    width: 21.65px;
+    height: 21.65px;
+    left: 574.31px;
+    top: 34px;
+    transform: rotate(90deg);
+    flex: none;
+    order: 9;
+    flex-grow: 0;
+    z-index: 9;
+    cursor: pointer;
+}
+
+.editButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 6px;
+    position: absolute;
+    width: 57px;
+    height: 57px;
+    left: 525px;
+    top: 737px;
+    background: #2A3647;
+    border-radius: 10px;
+    flex: none;
+    order: 10;
+    flex-grow: 0;
+    z-index: 10;
+}
+
+.editButton:hover {
+    background: #29ABE2;
+    border-radius: 10px;
+    transition: 100ms ease-in-out;
+    cursor: pointer;
+}
+
+/* .editButton img {
+    width: 5.64px;
+    height: 30.9px;
+    transform: matrix(-0.85, -0.52, -0.52, 0.85, 0, 0);
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+} */
+
+.members {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 25px;
+    width: 231px;
+    height: 45px;
+    flex: none;
+    order: 6;
+    flex-grow: 0;
+    z-index: 6;
+}
+
+.members div {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 8px;
+    gap: 10px;
+    width: 45px;
+    height: 45px;
+    /* background: #9327FF; */
+    border: 2px solid #FFFFFF;
+    border-radius: 58px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.shortcut {
+    width: 22px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.name {
+    width: 161px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.davidEisenberg {
+    background: #9327FF;
+}
+
+.benediktZiegler {
+    background: #FFA800;
+}
+
+.marcelBauer {
+    background: #0223CF;
+}
+
+.stefanieFarber {
+    background: #CB02CF;
+}
+
+
+/* add by Bossi */
+/* boardAddTaskPopup*/
+
+#boardAddTaskPopup {
+    position: relative;
+    width: 1116px;
+    height: 914px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgb(0 0 0 / 10%);
+    border-radius: 30px;
+    left: 162px;
+}
+
+.boardAddTaskHeadlineDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 1px;
+    position: absolute;
+    width: 466px;
+    height: 78px;
+    left: 74px;
+    top: 63px;
+}
+
+.boardAddTaskAddTitleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 14px;
+    position: absolute;
+    width: 422px;
+    height: 506px;
+    left: 74px;
+    top: 182px;
+}
+
+.boardAddTaskAddTitleBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 422px;
+    height: 104px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.boardAddTaskDivider {
+    position: absolute;
+    width: 0px;
+    height: 669px;
+    left: 555px;
+    top: 182px;
+    border: 2px solid #D1D1D1;
+}
+
+.boardAddTaskRightContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 0px;
+    gap: 14px;
+    position: absolute;
+    width: 422px;
+    height: 356px;
+    left: 614px;
+    top: 182px;
+}
+
+.boardAddTaskBtnOuterContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px;
+    gap: 4px;
+    position: absolute;
+    width: 338px;
+    height: 61px;
+    left: 703px;
+    top: 781px;
+}
+
+.boardAddTaskBtnInnerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 25px;
+    width: 338px;
+    height: 61px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.boardtaskAddedToBoard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    position: relative;
+    width: 326px;
+    height: 74px;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
+    top: 653px;
+    left: -522px;
+}
+
+/* Edit Task Card css classes */
+.boardEditTitleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 5px;
+    position: absolute;
+    width: 422px;
+    height: 81px;
+    left: 101px;
+    top: 53px;
+}
+
+.boardEditTitleContainer span {
+    width: 65px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.boardEditTitleContainer input {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 422px;
+    height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.boardEditDescriptionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 5px;
+    position: absolute;
+    width: 422px;
+    height: 149px;
+    left: 101px;
+    top: 154px;
+}
+
+.boardEditDescriptionContainer span {
+    width: 154px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.boardEditDescriptionContainer textarea {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 18px 21px;
+    gap: 10px;
+    isolation: isolate;
+    width: 422px;
+    height: 119px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+}
+
+.boardEditDateContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 5px;
+    position: absolute;
+    width: 422px;
+    height: 81px;
+    left: 101px;
+    top: 333px;
+}
+
+.boardEditDateContainer span {
+    /* width: 91px; */
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.boardEditDateContainer input {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 18px 21px;
+    gap: 10px;
+    isolation: isolate;
+    width: 422px;
+    height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    /* width: 119px;
+    height: 25px; */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
 }

@@ -164,76 +164,56 @@ async function renderAddTask() {
 
     <div class="addTaskDivider"></div>
 
-    <div class="addTaskRightContainer">
-        <div class="addTaskDate">
-            <h3>Due date</h3>
-            <input required type="date" id="dueDate" />
-            <span class="requiredText" id="dateReq">This field is required</span>
         </div>
-        <div class="addTaskPrio">
-            <h3>Prio</h3>
-            <div class="addTaskPrioIcons">
-                <div class="addTaskUrgent" id="addTaskUrgent" onclick="addPrio(0)">
-                    <span id="addTaskUrgentSpan">Urgent</span>
-                    <img
-                        id="addTaskUrgentImg"
-                        src="../assets/img/urgent_arrows.png"
-                    />
-                </div>
-                <div class="addTaskMedium" id="addTaskMedium" onclick="addPrio(1)">
-                    <span id="addTaskMediumSpan">Medium</span>
-                    <img
-                        id="addTaskMediumImg"
-                        src="../assets/img/prio_medium.png"
-                    />
-                </div>
-                <div class="addTaskLow" id="addTaskLow" onclick="addPrio(2)">
-                    <span id="addTaskLowSpan">Low</span>
-                    <img id="addTaskLowImg" src="../assets/img/prio_low.png" />
-                </div>
-            </div>
-        </div>
-        <div class="subtask">
-            <h3>Subtask</h3>
-            <div class="inputDiv">
-                <form onsubmit="addSubtask(); return false">
-                    <input
-                        type="text"
-                        placeholder="Add new subtask"
-                        id="subTask"
-                        autocomplete="off"
-                        onfocus="subTaskInputentered()"
-                        onblur="subTaskInputLeave()"
-                        minlength="3"
-                    />
-                    <img
-                        src="../assets/img/add_cross.png"
-                        class="subtaskCross"
-                        id="subtaskCross"
-                        onclick="enterSubTaskInput()"
-                    />
-                </form>
-                <div class="subTaskImgDiv d-none" id="subTaskImgDiv">
-                    <img
-                        src="../assets/img/new_cat_cancel.png"
-                        onclick="resetSubtaskInput()"
-                    />
-                    <img src="../assets/img/bnt_divider.png" class="btnDivider" />
-                    <img
-                        src="../assets/img/akar-icons_check.png"
-                        onclick="addSubtask()"
-                    />
-                </div>
-            </div>
 
-            <div class="addTaskCheckbox" id="subtaskCheckboxes">
-                <div>
-                    <input type="checkbox" />
-                    <span>Subtask 1</span>
+        <div class='addTaskRightContainer'>
+            <div class='addTaskDate'>
+                <h3>Due date</h3>
+                <input required type="date" id='dueDate'>
+                <span class='requiredText' id='dateReq'>This field is required</span>
+            </div>
+            <div class='addTaskPrio'>
+                <h3>Prio</h3>
+                <div class='addTaskPrioIcons'>
+                    <div class='addTaskUrgent' id='addTaskUrgent' onclick='addPrio(0)'>
+                        <span id='addTaskUrgentSpan'>Urgent</span>
+                        <img id='addTaskUrgentImg' src="../assets/img/urgent_arrows.png">
+                    </div>
+                    <div class='addTaskMedium' id='addTaskMedium' onclick='addPrio(1)'>
+                        <span id='addTaskMediumSpan'>Medium</span>
+                        <img id='addTaskMediumImg' src="../assets/img/prio_medium.png">
+                    </div>
+                    <div class='addTaskLow' id='addTaskLow' onclick='addPrio(2)'>
+                        <span id='addTaskLowSpan'>Low</span>
+                        <img id='addTaskLowImg' src="../assets/img/prio_low.png">
+                    </div>
                 </div>
             </div>
+            <div class='subtask'>
+                <h3>Subtask</h3>
+                <div class='inputDiv'>
+                    <form onsubmit='addSubtask(); return false' >
+                        <input type="text" placeholder='Add new subtask' id='subTask' autocomplete='off' onfocus='subTaskInputentered()' onblur='subTaskInputLeave()' minlength='3'>
+                        <img src="../assets/img/add_cross.png" class='subtaskCross' id='subtaskCross' onclick='enterSubTaskInput()'>
+                    </form>
+                    <div class='subTaskImgDiv d-none' id='subTaskImgDiv' >
+                        <img src="../assets/img/new_cat_cancel.png" onclick='resetSubtaskInput()'>
+                        <img src="../assets/img/bnt_divider.png" class='btnDivider'>
+                        <img src="../assets/img/akar-icons_check.png" onclick='addSubtask()'>
+                    </div>
+                    
+                </div>
+                
+                <div class='addTaskCheckbox' id='subtaskCheckboxes'>
+                    <!-- <div>
+                        <input type="checkbox">
+                        <span>Subtask 1</span>
+                    </div> -->
+                </div>
+                
+                
+            </div>
         </div>
-    </div>
     <!-- </form>  -->
     <div class="taskAddedToBoard" id="test">
         <div class="taskAddedToBoardContainer">
@@ -335,6 +315,12 @@ function renderCategoryList() {
 	}
 }
 
+/**
+ *
+ * @param {number} categoryColor - This is a number that is equal to the css color classes. Example, if the number is 1
+ * the related css color class is 'color1'.
+ * @returns
+ */
 function categoryColorAvailable(categoryColor) {
 	return categoryColor != '';
 }

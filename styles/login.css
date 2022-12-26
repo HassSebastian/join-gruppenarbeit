@@ -237,11 +237,13 @@ body{
     height: 19px;
 }
 
-.rememberMeBox div {
+.rememberMeBox div { 
+    display: flex;
+    align-items: center;
     width: 16px;
     height: 16px;
     border-radius: 3px;
-}
+} 
 
 .rememberMeBox span {
     width: 110px;
@@ -263,6 +265,7 @@ body{
     font-size: 16px;
     line-height: 120%;
     color: #29ABE2;
+    cursor: pointer;
 }
 
 .logInButtonContainer {
@@ -345,7 +348,7 @@ body{
 }
 
 .required {
-    width: 119px;
+    width: max-content;
     height: 12px;
     font-family: 'Poppins';
     font-style: normal;
@@ -353,7 +356,10 @@ body{
     font-size: 12px;
     line-height: 120%;
     flex: none;
-    color: red;
+    color: transparent;
     order: 1;
     flex-grow: 0;
+}
+.requiredOn{
+    color: red;
 }
