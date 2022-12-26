@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 let catListStatus = false;
 let assignListStatus = false;
@@ -6,24 +6,24 @@ let newCatInputActive = false;
 let addTaskCategoryList = [];
 let joinTaskArray = [];
 let taskData = {};
-let title = "";
-let descripten = "";
-let category = "";
-let catColor = "";
-let assigndTo = "";
-let dueDate = "";
-let prio = "";
-let subTask = "";
+let title = '';
+let descripten = '';
+let category = '';
+let catColor = '';
+let assigndTo = '';
+let dueDate = '';
+let prio = '';
+let subTask = '';
 
 async function initAddTask() {
-  await includeHTML();
-  await renderAddTask();
-  await loadExitingCategories();
-  renderCategoryList();
-  newCatInputActive = false;
-  renderSubtasks();
-  selectedMenuBtnId = 0;
-  selectedMenuButton(3);
+	await includeHTML();
+	await renderAddTask();
+	await loadExitingCategories();
+	renderCategoryList();
+	newCatInputActive = false;
+	renderSubtasks();
+	selectedMenuBtnId = 0;
+	selectedMenuButton(3);
 }
 
 /**
@@ -31,8 +31,8 @@ async function initAddTask() {
  *
  */
 async function renderAddTask() {
-  document.getElementById("content").innerHTML = "";
-  document.getElementById("content").innerHTML += /*html*/ `
+	document.getElementById('content').innerHTML = '';
+	document.getElementById('content').innerHTML += /*html*/ `
     <div class="addTaskHeadlineDiv">
 	    <h2 class="addTHeadline">Add Task</h2>
     </div>
@@ -227,11 +227,11 @@ async function renderAddTask() {
 }
 
 function goToDescripten() {
-  document.getElementById("addTaskDescripten").focus();
+	document.getElementById('addTaskDescripten').focus();
 }
 
 function goToPrio() {
-  document.getElementById("addTaskUrgent").focus();
+	document.getElementById('addTaskUrgent').focus();
 }
 
 /**
@@ -239,26 +239,26 @@ function goToPrio() {
  * Then it filter this data to create a JSON Array with existing categories.
  */
 async function loadExitingCategories() {
-  loadTask();
-  addTaskCategoryList = [{ category: "New Category", catColor: "" }];
-  for (let i = 0; i < joinTaskArray.length; i++) {
-    let taskCategory = joinTaskArray[i]["category"];
-    let categoryColor = joinTaskArray[i]["catColor"];
-    addTaskCategoryList.push({
-      category: taskCategory,
-      catColor: categoryColor,
-    });
-  }
+	loadTask();
+	addTaskCategoryList = [{ category: 'New Category', catColor: '' }];
+	for (let i = 0; i < joinTaskArray.length; i++) {
+		let taskCategory = joinTaskArray[i]['category'];
+		let categoryColor = joinTaskArray[i]['catColor'];
+		addTaskCategoryList.push({
+			category: taskCategory,
+			catColor: categoryColor,
+		});
+	}
 }
 
 /**
  * This function load the data(key:joinTaskArray) from local storage.
  */
 function loadTask() {
-  if (joinTaskArrayExistInStorage()) {
-    let joinTaskArrayString = localStorage.getItem("joinTaskArray");
-    joinTaskArray = JSON.parse(joinTaskArrayString);
-  }
+	if (joinTaskArrayExistInStorage()) {
+		let joinTaskArrayString = localStorage.getItem('joinTaskArray');
+		joinTaskArray = JSON.parse(joinTaskArrayString);
+	}
 }
 
 /**
@@ -267,23 +267,21 @@ function loadTask() {
  * @returns true or false
  */
 function joinTaskArrayExistInStorage() {
-  return localStorage.getItem("joinTaskArray");
+	return localStorage.getItem('joinTaskArray');
 }
 
 /**
  * This function enable or disable the Dropdown Menu of the category selector.
  */
 function enableDisableCatList() {
-  if (categoryListAndNewCategoryInputNotActive()) {
-    document.getElementById("CatListDropdown").classList.remove("listD-none");
-    document.getElementById("addTaskAssignedBox").classList.add("addMarginTop");
-  } else {
-    document.getElementById("CatListDropdown").classList.add("listD-none");
-    document
-      .getElementById("addTaskAssignedBox")
-      .classList.remove("addMarginTop");
-  }
-  catListStatus = !catListStatus;
+	if (categoryListAndNewCategoryInputNotActive()) {
+		document.getElementById('CatListDropdown').classList.remove('listD-none');
+		document.getElementById('addTaskAssignedBox').classList.add('addMarginTop');
+	} else {
+		document.getElementById('CatListDropdown').classList.add('listD-none');
+		document.getElementById('addTaskAssignedBox').classList.remove('addMarginTop');
+	}
+	catListStatus = !catListStatus;
 }
 
 /**
@@ -292,25 +290,25 @@ function enableDisableCatList() {
  * @returns true or false
  */
 function categoryListAndNewCategoryInputNotActive() {
-  return !catListStatus && !newCatInputActive;
+	return !catListStatus && !newCatInputActive;
 }
 
 /**
  * This function render the category list of the dropdown menu category.
  */
 function renderCategoryList() {
-  document.getElementById("CatListDropdown").innerHTML = "";
-  for (let i = 0; i < addTaskCategoryList.length; i++) {
-    let categoryName = addTaskCategoryList[i]["category"];
-    let categoryColor = addTaskCategoryList[i]["catColor"];
-    if (categoryColorAvailable(categoryColor)) {
-      document.getElementById("CatListDropdown").innerHTML +=
-        dropdownCategoryListHtml(categoryName, categoryColor, i);
-    } else {
-      document.getElementById("CatListDropdown").innerHTML +=
-        dropdownCategoryListHtml1(categoryName, i);
-    }
-  }
+	document.getElementById('CatListDropdown').innerHTML = '';
+	for (let i = 0; i < addTaskCategoryList.length; i++) {
+		let categoryName = addTaskCategoryList[i]['category'];
+		let categoryColor = addTaskCategoryList[i]['catColor'];
+		if (categoryColorAvailable(categoryColor)) {
+			document.getElementById('CatListDropdown').innerHTML +=
+				dropdownCategoryListHtml(categoryName, categoryColor, i);
+		} else {
+			document.getElementById('CatListDropdown').innerHTML +=
+				dropdownCategoryListHtml1(categoryName, i);
+		}
+	}
 }
 
 /**
@@ -320,7 +318,7 @@ function renderCategoryList() {
  * @returns - true, if a backgroundcolor is set. if not, it returns false.
  */
 function categoryColorAvailable(categoryColor) {
-  return categoryColor != "";
+	return categoryColor != '';
 }
 
 /**
@@ -331,7 +329,7 @@ function categoryColorAvailable(categoryColor) {
  * @returns - the html string for the category list if backgroundcolor is available.
  */
 function dropdownCategoryListHtml(categoryName, categoryColor, i) {
-  return /*html*/ `
+	return /*html*/ `
         <li onclick='selectCategory(${i})'>
             ${categoryName}
             <div  class='color${categoryColor} addTaskColorDiv'></div>
@@ -346,7 +344,7 @@ function dropdownCategoryListHtml(categoryName, categoryColor, i) {
  * @returns - the html string for the category list if backgroundcolor is not available.
  */
 function dropdownCategoryListHtml1(categoryName, i) {
-  return /*html*/ `
+	return /*html*/ `
         <li onclick='selectCategory(${i})'>
             ${categoryName}
         </li>`;
@@ -356,35 +354,35 @@ function dropdownCategoryListHtml1(categoryName, i) {
  * this function add a new category to the category list.
  */
 function setNewCategoryToList() {
-  let newSetCategory = document.getElementById("selectedCatInput").value;
-  newSetCategory = newSetCategory.trim();
-  if (newSetCategory != "") {
-    let newCatColor = catColor;
-    let newCategoryItem = { category: newSetCategory, catColor: newCatColor };
-    addTaskCategoryList.push(newCategoryItem);
-    let newCategoryIndex = addTaskCategoryList.length - 1;
-    renderCategoryList();
-    selectCategory(+newCategoryIndex);
-    catListStatus = false;
-    newCatInputActive = false;
-  }
+	let newSetCategory = document.getElementById('selectedCatInput').value;
+	newSetCategory = newSetCategory.trim();
+	if (newSetCategory != '') {
+		let newCatColor = catColor;
+		let newCategoryItem = { category: newSetCategory, catColor: newCatColor };
+		addTaskCategoryList.push(newCategoryItem);
+		let newCategoryIndex = addTaskCategoryList.length - 1;
+		renderCategoryList();
+		selectCategory(+newCategoryIndex);
+		catListStatus = false;
+		newCatInputActive = false;
+	}
 }
 
 /**
  * this function set the input field for a new category to 'selected a category'.
  */
 function resetCatSelection() {
-  newCatInputActive = false;
-  catListStatus = !catListStatus;
-  document.getElementById("colorSelection").classList.add("listD-none");
-  document.getElementById("selectedCat").innerHTML = resetCatSelectionHtml();
+	newCatInputActive = false;
+	catListStatus = !catListStatus;
+	document.getElementById('colorSelection').classList.add('listD-none');
+	document.getElementById('selectedCat').innerHTML = resetCatSelectionHtml();
 }
 
 /**
  * this function return the input html code for the category selection 'selected a category'.
  */
 function resetCatSelectionHtml() {
-  return /*html*/ `
+	return /*html*/ `
         <input disabled id='selectedCatInput' placeholder='Select task category' autocomplete='off'>
         <span id='sColor'></span>
         <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
@@ -396,30 +394,30 @@ function resetCatSelectionHtml() {
 }
 
 function selectCategory(catId) {
-  if (newCategoryCreationIsSelected(catId)) {
-    setSettingsForNewCategoryInput();
-  } else {
-    setSettingsForExistingCategory(catId);
-  }
+	if (newCategoryCreationIsSelected(catId)) {
+		setSettingsForNewCategoryInput();
+	} else {
+		setSettingsForExistingCategory(catId);
+	}
 }
 
 function newCategoryCreationIsSelected(catId) {
-  return catId == 0;
+	return catId == 0;
 }
 
 function setSettingsForNewCategoryInput() {
-  document.getElementById("selectedCat").innerHTML = newCategoryInputHtml();
-  newCatInputActive = true;
-  enableDisableCatList();
-  document.getElementById("addTaskNewCatBtn").classList.remove("d-none");
-  document.getElementById("dropdownImg").classList.add("d-none");
-  document.getElementById("colorSelection").classList.remove("listD-none");
-  document.getElementById("sColor").innerHTML = "";
-  addColorToCat(3);
+	document.getElementById('selectedCat').innerHTML = newCategoryInputHtml();
+	newCatInputActive = true;
+	enableDisableCatList();
+	document.getElementById('addTaskNewCatBtn').classList.remove('d-none');
+	document.getElementById('dropdownImg').classList.add('d-none');
+	document.getElementById('colorSelection').classList.remove('listD-none');
+	document.getElementById('sColor').innerHTML = '';
+	addColorToCat(3);
 }
 
 function newCategoryInputHtml() {
-  return /*html*/ `
+	return /*html*/ `
         <input id='selectedCatInput' placeholder='New Category' autocomplete='off'>
         <span id='sColor'></span>
         <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
@@ -431,103 +429,101 @@ function newCategoryInputHtml() {
 }
 
 function setSettingsForExistingCategory(catId) {
-  let newCat = addTaskCategoryList[catId]["category"];
-  let categoryColor = addTaskCategoryList[catId]["catColor"];
-  document.getElementById("selectedCat").innerHTML = existingCategoryHtml(
-    newCat,
-    categoryColor
-  );
-  catColor = categoryColor;
-  enableDisableCatList();
-  document.getElementById("dropdownImg").classList.remove("d-none");
-  document.getElementById("colorSelection").classList.add("listD-none");
+	let newCat = addTaskCategoryList[catId]['category'];
+	let categoryColor = addTaskCategoryList[catId]['catColor'];
+	document.getElementById('selectedCat').innerHTML = existingCategoryHtml(
+		newCat,
+		categoryColor
+	);
+	catColor = categoryColor;
+	enableDisableCatList();
+	document.getElementById('dropdownImg').classList.remove('d-none');
+	document.getElementById('colorSelection').classList.add('listD-none');
 }
 
 function existingCategoryHtml(newCat, categoryColor) {
-  return /*html*/ `
+	return /*html*/ `
         <p id='selectedCatInput'>${newCat}</p>
         <span id='sColor'><div class='color${categoryColor} addTaskColorDiv'></div></span>
         <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
 }
 
 function addColorToCat(colorId) {
-  if (catColor != "" || catColor == "0") {
-    document
-      .getElementById("color" + catColor + "Div")
-      .classList.remove("colorDivSelected");
-    catColor = "";
-  }
-  document
-    .getElementById("color" + colorId + "Div")
-    .classList.add("colorDivSelected");
-  catColor = colorId;
+	if (catColor != '' || catColor == '0') {
+		document
+			.getElementById('color' + catColor + 'Div')
+			.classList.remove('colorDivSelected');
+		catColor = '';
+	}
+	document.getElementById('color' + colorId + 'Div').classList.add('colorDivSelected');
+	catColor = colorId;
 }
 
 function showAddDiv() {
-  document.getElementById("test").classList.add("test");
+	document.getElementById('test').classList.add('test');
 }
 
 function notShowAddDiv() {
-  document.getElementById("test").classList.remove("test");
+	document.getElementById('test').classList.remove('test');
 }
 
 function checkInputs() {
-  getReqiredFieldValues();
-  resetRequiredWarnings();
-  if (requiredFieldAreNotValid()) {
-    setRequiredTextWarnings();
-  } else {
-    createTaskData();
-  }
+	getReqiredFieldValues();
+	resetRequiredWarnings();
+	if (requiredFieldAreNotValid()) {
+		setRequiredTextWarnings();
+	} else {
+		createTaskData();
+	}
 }
 
 function requiredFieldAreNotValid() {
-  return title == "" || dueDate == "" || category == "" || descripten == "";
+	return title == '' || dueDate == '' || category == '' || descripten == '';
 }
 
 function setRequiredTextWarnings() {
-  if (title == "") {
-    document.getElementById("titleReq").style = "opacity: 1;";
-  }
-  if (dueDate == "") {
-    document.getElementById("dateReq").style = "opacity: 1;";
-  }
-  if (category == "") {
-    document.getElementById("catReq").style = "opacity: 1;";
-    document.getElementById("catReq").classList.remove("listD-none");
-  }
-  if (descripten == "") {
-    document.getElementById("descReq").style = "opacity: 1;";
-  }
+	if (title == '') {
+		document.getElementById('titleReq').style = 'opacity: 1;';
+	}
+	if (dueDate == '') {
+		document.getElementById('dateReq').style = 'opacity: 1;';
+	}
+	if (category == '') {
+		document.getElementById('catReq').style = 'opacity: 1;';
+		document.getElementById('catReq').classList.remove('listD-none');
+	}
+	if (descripten == '') {
+		document.getElementById('descReq').style = 'opacity: 1;';
+	}
 }
 
 function getReqiredFieldValues() {
-  title = document.getElementById("addTaskTitle").value;
-  title = title.trim();
-  dueDate = document.getElementById("dueDate").value;
-  dueDate = dueDate.trim();
-  descripten = document.getElementById("addTaskDescripten").value;
-  descripten = descripten.trim();
-  if (newCatInputActive) {
-    category = document.getElementById("selectedCatInput").value;
-  } else {
-    category = document.getElementById("selectedCatInput").innerHTML;
-  }
-  category = category.trim();
+	title = document.getElementById('addTaskTitle').value;
+	title = title.trim();
+	dueDate = document.getElementById('dueDate').value;
+	dueDate = dueDate.trim();
+	descripten = document.getElementById('addTaskDescripten').value;
+	descripten = descripten.trim();
+	if (newCatInputActive) {
+		category = document.getElementById('selectedCatInput').value;
+	} else {
+		category = document.getElementById('selectedCatInput').innerHTML;
+	}
+	category = category.trim();
 }
 
 function resetRequiredWarnings() {
-  document.getElementById("titleReq").style = "opacity: 0;";
-  document.getElementById("dateReq").style = "opacity: 0;";
-  document.getElementById("catReq").style = "opacity: 0;";
-  document.getElementById("descReq").style = "opacity: 0;";
+	document.getElementById('titleReq').style = 'opacity: 0;';
+	document.getElementById('dateReq').style = 'opacity: 0;';
+	document.getElementById('catReq').style = 'opacity: 0;';
+	document.getElementById('descReq').style = 'opacity: 0;';
 }
 
 // ToDo must be reworked when all selection possible !!!!!!!!!!!!!!!!
 function clearFormularData() {
-  document.getElementById("addTaskTitle").value = "";
-  descripten = document.getElementById("addTaskDescripten").value = "";
-  document.getElementById("selectedCat").innerHTML = /*html*/ `
+	document.getElementById('addTaskTitle').value = '';
+	descripten = document.getElementById('addTaskDescripten').value = '';
+	document.getElementById('selectedCat').innerHTML = /*html*/ `
         <input disabled id='selectedCatInput' placeholder='Select task category' autocomplete='off'>
         <span id='sColor'></span>
         <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
@@ -536,203 +532,198 @@ function clearFormularData() {
             <img src="../assets/img/akar-icons_check.png">
         </div>
         <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
-  document.getElementById("dueDate").value = "";
-  resetSubtaskSelections();
-  selectedSubtasks = [];
-  document.getElementById("titleReq").style = "opacity: 0;";
-  document.getElementById("dateReq").style = "opacity: 0;";
-  document.getElementById("catReq").style = "opacity: 0;";
-  document.getElementById("catReq").classList.add("listD-none");
+	document.getElementById('dueDate').value = '';
+	resetSubtaskSelections();
+	selectedSubtasks = [];
+	document.getElementById('titleReq').style = 'opacity: 0;';
+	document.getElementById('dateReq').style = 'opacity: 0;';
+	document.getElementById('catReq').style = 'opacity: 0;';
+	document.getElementById('catReq').classList.add('listD-none');
 }
 
 // save data to local storage/server!
 function createTaskData() {
-  loadTask();
-  getDataFromFomular();
-  fillTaskData();
-  pushTaskData();
-  saveTask();
-  showAddDiv();
-  setTimeout(initBoard, 1200);
+	loadTask();
+	getDataFromFomular();
+	fillTaskData();
+	pushTaskData();
+	saveTask();
+	showAddDiv();
+	setTimeout(initBoard, 1200);
 }
 
 function getDataFromFomular() {
-  descripten = document.getElementById("addTaskDescripten").value;
-  assigndTo = "not included jet";
-  subTask = document.getElementById("subTask").value;
+	descripten = document.getElementById('addTaskDescripten').value;
+	assigndTo = 'not included jet';
+	subTask = document.getElementById('subTask').value;
 }
 
 function fillTaskData() {
-  taskData = {
-    title: title,
-    descripten: descripten,
-    category: category,
-    catColor: catColor,
-    assignedTo: assigndTo,
-    dueDate: dueDate,
-    prio: prio,
-    subTasks: selectedSubtasks,
-    workFlowStatus: 0,
-  };
-  catColor = "";
+	taskData = {
+		title: title,
+		descripten: descripten,
+		category: category,
+		catColor: catColor,
+		assignedTo: assigndTo,
+		dueDate: dueDate,
+		prio: prio,
+		subTasks: selectedSubtasks,
+		workFlowStatus: 0,
+	};
+	catColor = '';
 }
 
 function pushTaskData() {
-  joinTaskArray.push(taskData);
+	joinTaskArray.push(taskData);
 }
 
 function saveTask() {
-  localStorage.setItem("joinTaskArray", JSON.stringify(joinTaskArray));
+	localStorage.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
 }
 
 // deleteJoinTaskArrayFromServer() is not used in this code, it is only to remove the Array from Server!!!!!!!!!!!
 function deleteJoinTaskArrayFromServer() {
-  localStorage.removeItem("joinTaskArray");
+	localStorage.removeItem('joinTaskArray');
 }
 // save data to local storage/server end!
 
 /******************************************************************************** */
 function addTaskClearOn() {
-  document.getElementById("addTaskClear").src =
-    "././assets/img/close_logo_blue.png";
+	document.getElementById('addTaskClear').src = '././assets/img/close_logo_blue.png';
 }
 
 function addTaskClearOff() {
-  document.getElementById("addTaskClear").src = "./assets/img/close_logo.png";
+	document.getElementById('addTaskClear').src = './assets/img/close_logo.png';
 }
 
 function addPrio(prioIdIndex) {
-  let idList = ["addTaskUrgent", "addTaskMedium", "addTaskLow"];
-  let selectedId = idList[+prioIdIndex];
-  let cListLength = document.getElementById(selectedId).classList.length;
-  let btnName = selectedId.replace("addTask", "");
-  idList.splice(prioIdIndex, 1);
-  if (btnNotSelected(cListLength)) {
-    selectPrioBtn(selectedId, btnName);
-    unselectOtherBtn(idList);
-  } else {
-    removeBtnSelection(btnName);
-  }
+	let idList = ['addTaskUrgent', 'addTaskMedium', 'addTaskLow'];
+	let selectedId = idList[+prioIdIndex];
+	let cListLength = document.getElementById(selectedId).classList.length;
+	let btnName = selectedId.replace('addTask', '');
+	idList.splice(prioIdIndex, 1);
+	if (btnNotSelected(cListLength)) {
+		selectPrioBtn(selectedId, btnName);
+		unselectOtherBtn(idList);
+	} else {
+		removeBtnSelection(btnName);
+	}
 }
 
 function btnNotSelected(cListLength) {
-  return cListLength == 1;
+	return cListLength == 1;
 }
 
 function selectPrioBtn(selectedId, btnName) {
-  document
-    .getElementById(selectedId)
-    .classList.add(`${btnName.toLowerCase()}-color`);
-  document.getElementById(`addTask${btnName}Span`).classList.add("color-white");
-  document.getElementById(
-    `addTask${btnName}Img`
-  ).src = `./assets/img/${btnName.toLowerCase()}_white.png`;
-  prio = btnName;
+	document.getElementById(selectedId).classList.add(`${btnName.toLowerCase()}-color`);
+	document.getElementById(`addTask${btnName}Span`).classList.add('color-white');
+	document.getElementById(
+		`addTask${btnName}Img`
+	).src = `./assets/img/${btnName.toLowerCase()}_white.png`;
+	prio = btnName;
 }
 
 function removeBtnSelection(btnName) {
-  document
-    .getElementById(`addTask${btnName}`)
-    .classList.remove(`${btnName.toLowerCase()}-color`);
-  document
-    .getElementById(`addTask${btnName}Span`)
-    .classList.remove("color-white");
-  document.getElementById(
-    `addTask${btnName}Img`
-  ).src = `./assets/img/${btnName.toLowerCase()}.png`;
+	document
+		.getElementById(`addTask${btnName}`)
+		.classList.remove(`${btnName.toLowerCase()}-color`);
+	document.getElementById(`addTask${btnName}Span`).classList.remove('color-white');
+	document.getElementById(
+		`addTask${btnName}Img`
+	).src = `./assets/img/${btnName.toLowerCase()}.png`;
 }
 
 function unselectOtherBtn(idList) {
-  for (let i = 0; i < idList.length; i++) {
-    let selectedId = idList[i];
-    let cListLength = document.getElementById(selectedId).classList.length;
-    let btnName = selectedId.replace("addTask", "");
-    if (btnIsSelected(cListLength)) {
-      document
-        .getElementById(`addTask${btnName}`)
-        .classList.remove(`${btnName.toLowerCase()}-color`);
-      document
-        .getElementById(`addTask${btnName}Span`)
-        .classList.remove("color-white");
-      document.getElementById(
-        `addTask${btnName}Img`
-      ).src = `./assets/img/${btnName.toLowerCase()}.png`;
-    }
-  }
+	for (let i = 0; i < idList.length; i++) {
+		let selectedId = idList[i];
+		let cListLength = document.getElementById(selectedId).classList.length;
+		let btnName = selectedId.replace('addTask', '');
+		if (btnIsSelected(cListLength)) {
+			document
+				.getElementById(`addTask${btnName}`)
+				.classList.remove(`${btnName.toLowerCase()}-color`);
+			document
+				.getElementById(`addTask${btnName}Span`)
+				.classList.remove('color-white');
+			document.getElementById(
+				`addTask${btnName}Img`
+			).src = `./assets/img/${btnName.toLowerCase()}.png`;
+		}
+	}
 }
 
 function btnIsSelected(cListLength) {
-  return cListLength == 2;
+	return cListLength == 2;
 }
 // subtask functions
 function subTaskInputentered() {
-  document.getElementById("subtaskCross").classList.add("d-none");
-  document.getElementById("subTaskImgDiv").classList.remove("d-none");
+	document.getElementById('subtaskCross').classList.add('d-none');
+	document.getElementById('subTaskImgDiv').classList.remove('d-none');
 }
 
 function subTaskInputLeave() {
-  let subTaskText = document.getElementById("subTask").value;
-  subTaskText = subTaskText.trim();
-  if (subTaskText == "") {
-    document.getElementById("subtaskCross").classList.remove("d-none");
-    document.getElementById("subTaskImgDiv").classList.add("d-none");
-  }
+	let subTaskText = document.getElementById('subTask').value;
+	subTaskText = subTaskText.trim();
+	if (subTaskText == '') {
+		document.getElementById('subtaskCross').classList.remove('d-none');
+		document.getElementById('subTaskImgDiv').classList.add('d-none');
+	}
 }
 
 function enterSubTaskInput() {
-  document.getElementById("subTask").onfocus();
+	document.getElementById('subTask').onfocus();
 }
 
 function resetSubtaskInput() {
-  document.getElementById("subTask").value = "";
-  // document.getElementById('subtaskCross').classList.remove('d-none');
-  // document.getElementById('subTaskImgDiv').classList.add('d-none');
-  // subTaskInputLeave();
+	document.getElementById('subTask').value = '';
+	// document.getElementById('subtaskCross').classList.remove('d-none');
+	// document.getElementById('subTaskImgDiv').classList.add('d-none');
+	// subTaskInputLeave();
 }
 
 function addSubtask() {
-  let subTaskText = document.getElementById("subTask").value;
-  subTaskText = subTaskText.trim();
-  if (subTaskText != "" && subTaskText.length >= 3) {
-    subTaskInputLeave();
-    subTaskArray.push(subTaskText);
-    renderSubtasks();
-    resetSubtaskInput();
-    document.getElementById(`subtask${subTaskArray.length - 1}`).checked = true;
-    createSubtaskListToSave();
-  }
+	let subTaskText = document.getElementById('subTask').value;
+	subTaskText = subTaskText.trim();
+	if (subTaskText != '' && subTaskText.length >= 3) {
+		subTaskInputLeave();
+		subTaskArray.push(subTaskText);
+		renderSubtasks();
+		resetSubtaskInput();
+		document.getElementById(`subtask${subTaskArray.length - 1}`).checked = true;
+		createSubtaskListToSave();
+	}
 }
 
 let subTaskArray = [];
 let selectedSubtasks = [];
 
 function renderSubtasks() {
-  document.getElementById("subtaskCheckboxes").innerHTML = "";
-  for (let i = 0; i < subTaskArray.length; i++) {
-    let subTaskTitle = subTaskArray[i];
-    document.getElementById("subtaskCheckboxes").innerHTML += /*html*/ `
+	document.getElementById('subtaskCheckboxes').innerHTML = '';
+	for (let i = 0; i < subTaskArray.length; i++) {
+		let subTaskTitle = subTaskArray[i];
+		document.getElementById('subtaskCheckboxes').innerHTML += /*html*/ `
         <div>
             <input type="checkbox" id='subtask${i}'>
             <span>${subTaskTitle}</span>
         </div>`;
-  }
+	}
 }
 
 function createSubtaskListToSave() {
-  selectedSubtasks = [];
-  for (let i = 0; i < subTaskArray.length; i++) {
-    let subTaskTitle = subTaskArray[i];
-    let checkboxBoolean = document.getElementById(`subtask${i}`).checked;
-    if (checkboxBoolean) {
-      selectedSubtasks.push(subTaskTitle);
-    }
-  }
+	selectedSubtasks = [];
+	for (let i = 0; i < subTaskArray.length; i++) {
+		let subTaskTitle = subTaskArray[i];
+		let checkboxBoolean = document.getElementById(`subtask${i}`).checked;
+		if (checkboxBoolean) {
+			selectedSubtasks.push(subTaskTitle);
+		}
+	}
 }
 
 function resetSubtaskSelections() {
-  for (let i = 0; i < subTaskArray.length; i++) {
-    document.getElementById(`subtask${i}`).checked = false;
-  }
+	for (let i = 0; i < subTaskArray.length; i++) {
+		document.getElementById(`subtask${i}`).checked = false;
+	}
 }
 
 /*======================= 
@@ -744,14 +735,14 @@ function resetSubtaskSelections() {
  * list is visible, add the border bottom to the button and make the list invisible.
  */
 function enableDisableAssignList() {
-  if (!assignListStatus) {
-    document.getElementById("dropdown2").classList.remove("listD-none");
-    borderBottomOffAssignedBoxButton();
-  } else {
-    borderBottomOnAssignedBoxButton();
-    document.getElementById("dropdown2").classList.add("listD-none");
-  }
-  assignListStatus = !assignListStatus;
+	if (!assignListStatus) {
+		document.getElementById('dropdown2').classList.remove('listD-none');
+		borderBottomOffAssignedBoxButton();
+	} else {
+		borderBottomOnAssignedBoxButton();
+		document.getElementById('dropdown2').classList.add('listD-none');
+	}
+	assignListStatus = !assignListStatus;
 }
 
 /**
@@ -760,9 +751,9 @@ function enableDisableAssignList() {
  * to 10px 10px 0 0.
  */
 function borderBottomOffAssignedBoxButton() {
-  document.getElementById(
-    "addTaskAssignedButton"
-  ).style = `border-radius: 10px 10px 0 0;`;
+	document.getElementById(
+		'addTaskAssignedButton'
+	).style = `border-radius: 10px 10px 0 0;`;
 }
 
 /**
@@ -770,101 +761,104 @@ function borderBottomOffAssignedBoxButton() {
  * to 10px.
  */
 function borderBottomOnAssignedBoxButton() {
-  document.getElementById(
-    "addTaskAssignedButton"
-  ).style = `border-radius: 10px 10px 10px 10px;`;
+	document.getElementById(
+		'addTaskAssignedButton'
+	).style = `border-radius: 10px 10px 10px 10px;`;
 }
 
 function assignChangeInputPlaceholderToContactEmail() {
-  document.getElementsByName("selectedAssign")[0].placeholder = `Contact email`;
+	document.getElementsByName('selectedAssign')[0].placeholder = `Contact email`;
 }
 
 function enableInputaddTasAssign() {
-  document.getElementById("selectedAssign").disabled = false;
+	document.getElementById('selectedAssign').disabled = false;
 }
 
 function showCancelConfirmButtons() {
-  document
-    .getElementById("assignToCancelConfirmImgContainer")
-    .classList.remove("d-none");
+	document
+		.getElementById('assignToCancelConfirmImgContainer')
+		.classList.remove('d-none');
 }
 
 function hideAssignDropDownImg() {
-  document.getElementById("assignDropDownImg").classList.add("d-none");
+	document.getElementById('assignDropDownImg').classList.add('d-none');
 }
 
 function assignInputAutoFocus() {
-  document.getElementById("selectedAssign").focus();
+	document.getElementById('selectedAssign').focus();
 }
 
 /**
  * Prepares everything to to being able to assign someone to current task.
  */
 function assigendContactEmail() {
-  assignChangeInputPlaceholderToContactEmail();
-  enableInputaddTasAssign();
-  showCancelConfirmButtons();
-  hideAssignDropDownImg();
-  assignInputAutoFocus();
+	assignChangeInputPlaceholderToContactEmail();
+	enableInputaddTasAssign();
+	showCancelConfirmButtons();
+	hideAssignDropDownImg();
+	assignInputAutoFocus();
+	changeAssignPlaceholderColorToGrey();
 }
 
 function doNotCloseOnClick(event) {
-  event.stopPropagation();
+	event.stopPropagation();
 }
 
 function assignInputPlaceholderToDefaultMode() {
-  document.getElementsByName(
-    "selectedAssign"
-  )[0].placeholder = `Select contacts to Assign`;
+	document.getElementsByName(
+		'selectedAssign'
+	)[0].placeholder = `Select contacts to Assign`;
 }
 
 function assignInputValueToDefault() {
-  document.getElementById("selectedAssign").value = "";
+	document.getElementById('selectedAssign').value = '';
 }
 
 function hideCancelConfirmButtons() {
-  document
-    .getElementById("assignToCancelConfirmImgContainer")
-    .classList.add("d-none");
+	document.getElementById('assignToCancelConfirmImgContainer').classList.add('d-none');
 }
 
 function showAssignDropDownImg() {
-  document.getElementById("assignDropDownImg").classList.remove("d-none");
+	document.getElementById('assignDropDownImg').classList.remove('d-none');
 }
 
 function disableInputaddTasAssign() {
-  document.getElementById("selectedAssign").disabled = true;
+	document.getElementById('selectedAssign').disabled = true;
 }
 
-function changeAssignPlaceholderColorToBlack() {
-  document.getElementById("selectedAssign").classList.add("black");
+function changeAssignPlaceholderColorToGrey() {
+	document.getElementById('selectedAssign').classList.add('greyPlaceholder');
+}
+
+function changeAssignPlaceholderColorToDefault() {
+	document.getElementById('selectedAssign').classList.remove('greyPlaceholder');
 }
 
 function assignBoxBackToDefaultMode() {
-  assignInputPlaceholderToDefaultMode();
-  assignInputValueToDefault();
-  hideCancelConfirmButtons();
-  showAssignDropDownImg();
-  disableInputaddTasAssign();
-  /* changeAssignPlaceholderColorToBlack(); */ //geht nicht. Warum?
+	assignInputPlaceholderToDefaultMode();
+	changeAssignPlaceholderColorToDefault();
+	assignInputValueToDefault();
+	hideCancelConfirmButtons();
+	showAssignDropDownImg();
+	disableInputaddTasAssign();
 }
 
 let check = false;
 
 function assignToggleCheckBox() {
-  if (!check) {
-    addCheckMarkToCheckBox();
-  } else {
-    removeCheckMarkFromCheckBox();
-  }
+	if (!check) {
+		addCheckMarkToCheckBox();
+	} else {
+		removeCheckMarkFromCheckBox();
+	}
 
-  check = !check;
+	check = !check;
 }
 
 function addCheckMarkToCheckBox() {
-  document.getElementById("rectangleCheckBox").classList.remove("d-none");
+	document.getElementById('rectangleCheckBox').classList.remove('d-none');
 }
 
 function removeCheckMarkFromCheckBox() {
-  document.getElementById("rectangleCheckBox").classList.add("d-none");
+	document.getElementById('rectangleCheckBox').classList.add('d-none');
 }
