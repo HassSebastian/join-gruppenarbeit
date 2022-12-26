@@ -66,27 +66,27 @@ function boardHtml(){
             <div class='frame192'>
                 <div class="frame136">
                     <span>To do</span>
-                    <button class="menuPlusButton">
-                        <img src="./assets/img/plus_logo_black.png">
+                    <button class="menuPlusButton" onclick='showAddTaskPopupWindow()'>
+                        <!-- <img src="./assets/img/plus.svg"> -->
                     </button>
                 </div>
                 <div class='frame149'>
                     <span>In progress</span>
-                    <button class="menuPlusButton">
-                        <img src="./assets/img/plus_logo_black.png">
+                    <button class="menuPlusButton" onclick='showAddTaskPopupWindow()'>
+                        <!-- <img src="./assets/img/plus_logo_black.png"> -->
                     </button>
                 </div>
                 <div class='frame137'>
                     <span>Anwaiting Feedback</span>
-                    <button class="menuPlusButton">
-                        <img src="./assets/img/plus_logo_black.png">
+                    <button class="menuPlusButton" onclick='showAddTaskPopupWindow()'>
+                        <!-- <img src="./assets/img/plus_logo_black.png"> -->
                     </button>
                 </div>
                 
                 <div class='frame138'>
                     <span>Done</span>
-                        <button class="menuPlusButton">
-                        <img src="./assets/img/plus_logo_black.png">
+                        <button class="menuPlusButton" onclick='showAddTaskPopupWindow()'>
+                        <!-- <img src="./assets/img/plus_logo_black.png"> -->
                     </button>
                 </div>
             </div>
@@ -661,7 +661,7 @@ function renderPopupTaskCard(taskIndex){
         </div>
         <span class="assigend">Assigend To:</span>
         <img class="close_logo" src="./assets/img/close_logo.png" onclick='disablePopupWindow()'>
-        <div class="editButton">
+        <div class="editButton" onclick='editTaskCard(${taskIndex})'>
             <img src="./assets/img/edit_button.png">
         </div>
     
@@ -729,6 +729,34 @@ function setTaskCardPopupPrioBackground(taskIndex){
     let cardPrioImgSrc = prioColorAndUrlArray[0][cardPrio][1];
     document.getElementById('prioContainer').style = `background-color: ${cardPrioBackground};`;
     document.getElementById('cardPrioImg').src = cardPrioImgSrc;
+}
+
+// Edit Taskcard popup
+function editTaskCard(taskIndex){
+    let cardTitle = joinTaskArray[taskIndex]['title'];
+    let cardDescription = joinTaskArray[taskIndex]['descripten'];
+    let cardCategory = joinTaskArray[taskIndex]['category'];
+    let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
+    let taskPrio = joinTaskArray[taskIndex]['prio'];
+    document.getElementById('boardPopup').innerHTML = '';
+    document.getElementById('boardPopup').innerHTML = /*html*/`
+        <div class="boardTaskCardPopup" onclick='stopClose(event)'>
+            <img class="close_logo" src="./assets/img/close_logo.png" onclick='disablePopupWindow()'>
+            <div class='boardEditTitleContainer'>
+                <span>Title</span>
+                <input type="text">
+            </div>
+            <div class='boardEditDescriptionContainer'>
+                <span>Descripten</span>
+                <textarea name="Description" id="" cols="30" rows="10"></textarea>
+            </div>
+            <div class='boardEditDateContainer'>
+                <span>Due Date</span>
+                <input type="date">
+            </div>
+        </div>`;
+        
+
 }
 // render function for the detail view of the task card end.
 
