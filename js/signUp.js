@@ -13,8 +13,8 @@ function inputValueTest() {
     let requiredName = document.getElementById('requiredName');
     let requiredEmail = document.getElementById('requiredEmail');
     let requiredPassword = document.getElementById('requiredPassword');
-    document.getElementById('requiredEmail').classList.remove('requiredOn');
-    document.getElementById('requiredEmail').innerHTML = `This field is required`;
+    requiredEmail.classList.remove('requiredOn');
+    requiredEmail.innerHTML = `This field is required`;
     if (name.value.length || email.value.length || password.value.length) {
         if (name.value.length == 0) {
             requiredName.classList.add('requiredOn');
@@ -44,6 +44,7 @@ function inputValueTest() {
 
 function emailToCheck(name, email, password) {
     let allUsersAtString = localStorage.getItem('allUsers');
+    let requiredEmail = document.getElementById('requiredEmail');
     if (allUsersAtString === null) {
         allUsers.push({ 'name': name, 'email': email, 'password': password });
         let allUsersAtString = JSON.stringify(allUsers);
@@ -60,8 +61,8 @@ function emailToCheck(name, email, password) {
             }
         }
         if (check == 1) {
-            document.getElementById('requiredEmail').classList.add('requiredOn');
-            document.getElementById('requiredEmail').innerHTML = `This email address is already available!!`;
+            requiredEmail.classList.add('requiredOn');
+            requiredEmail.innerHTML = `This email address is already available!!`;
         } else {
             userSignIn(name, email, password);
         }
