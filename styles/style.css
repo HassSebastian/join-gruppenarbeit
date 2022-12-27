@@ -212,6 +212,7 @@ tr td:nth-child(3) {
 #memberInfo img:first-child {
     width: 31px;
     height: 31px;
+    cursor: pointer;
 }
 
 #memberInfo img:last-child {

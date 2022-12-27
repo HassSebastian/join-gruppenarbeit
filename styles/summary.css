@@ -120,7 +120,7 @@
 
 #taskInBoard,
 #taskInProgress,
-#awaitingFeedback{
+#awaitingFeedback {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -135,6 +135,12 @@
     flex: none;
     order: 2;
     flex-grow: 0;
+}
+
+#taskInBoard:hover,
+#taskInProgress:hover,
+#awaitingFeedback:hover {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #taskInBoardAmount,
@@ -188,6 +194,10 @@
     flex: none;
     order: 1;
     flex-grow: 0;
+}
+
+.ugencySummary:hover {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .ugent {
@@ -350,10 +360,17 @@
     flex: none;
     order: 0;
     flex-grow: 0;
+    cursor: pointer;
+}
+
+.toDo:hover,
+.toDoDone:hover {
+    background: #F9F9F9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .toDo img,
-.toDoDone img{
+.toDoDone img {
     width: 69px;
     height: 69px;
 }
