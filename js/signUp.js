@@ -5,7 +5,7 @@ function backToLogIn() {
     window.location.href = './logIn.html';
 }
 
-
+// check input formatting
 function inputValueTest() {
     let name = document.getElementById('inputNameSignUp');
     let email = document.getElementById('inputEmailSignUp');
@@ -41,7 +41,7 @@ function inputValueTest() {
     }
 }
 
-
+// check email existing
 function emailToCheck(name, email, password) {
     let allUsersAtString = localStorage.getItem('allUsers');
     let requiredEmail = document.getElementById('requiredEmail');
@@ -69,7 +69,7 @@ function emailToCheck(name, email, password) {
     }
 }
 
-
+// save user data and forward to login site
 function userSignIn(name, email, password) {
     let keyQuery = localStorage.getItem('allUsers');
     if (keyQuery === null) {
@@ -80,14 +80,14 @@ function userSignIn(name, email, password) {
     window.location.href = './login.html';
 }
 
-
+// save user data help fuction -null-
 function keyQueryNull(name, email, password) {
     allUsers.push({ 'name': name, 'email': email, 'password': password });
     let allUsersAtString = JSON.stringify(allUsers);
     localStorage.setItem('allUsers', allUsersAtString);
 }
 
-
+// save user data help function -one-
 function keyQueryOne(name, email, password) {
     let allUsersString = localStorage.getItem('allUsers');
     allUsers = JSON.parse(allUsersString);

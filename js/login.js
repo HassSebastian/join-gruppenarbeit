@@ -10,10 +10,14 @@ function forgotPassword(){
     window.location.href = './forgotMyP_sendMail.html';
 }
 
+
 function guestLogIn() {
     alert('muss noch mit Gast Log in verbunden werden!');
 }
 
+
+
+// check input formatting
 function checkCorrectInput() {
     let email = document.getElementById('inputEmailLogin');
     let password = document.getElementById('inputPasswordLogin');
@@ -46,13 +50,17 @@ function checkCorrectInput() {
 }
 
 
+// user login
 function userLogin(email, password) {
     let allUsersString = localStorage.getItem('allUsers')
+    let requiredEmailLogin = document.getElementById('requiredEmailLogin');
+    let requiredPasswordLogin = document.getElementById('requiredPasswordLogin');
+
     if (allUsersString === null) {
-        document.getElementById('requiredEmailLogin').classList.add('requiredOn');
-        document.getElementById('requiredEmailLogin').innerHTML = `No user available. please  <b>Sign up!!</b>`;
-        document.getElementById('requiredPasswordLogin').classList.add('requiredOn');
-        document.getElementById('requiredPasswordLogin').innerHTML = `No user available. please  <b>Sign up!!</b>`;
+        requiredEmailLogin.classList.add('requiredOn');
+        requiredEmailLogin.innerHTML = `No user available. please  <b>Sign up!!</b>`;
+        requiredPasswordLogin.classList.add('requiredOn');
+        requiredPasswordLogin.innerHTML = `No user available. please  <b>Sign up!!</b>`;
     } else {
         let loginData = JSON.parse(allUsersString);
         let loginStatus = false;
@@ -68,15 +76,16 @@ function userLogin(email, password) {
             rememberMe(email, password);
 
         } else {
-            document.getElementById('requiredEmailLogin').classList.add('requiredOn');
-            document.getElementById('requiredEmailLogin').innerHTML = `Email or Password do not match!!`;
-            document.getElementById('requiredPasswordLogin').classList.add('requiredOn');
-            document.getElementById('requiredPasswordLogin').innerHTML = `Email or Password do not match!!`;
+            requiredEmailLogin.classList.add('requiredOn');
+            requiredEmailLogin.innerHTML = `Email or Password do not match!!`;
+            requiredPasswordLogin.classList.add('requiredOn');
+            requiredPasswordLogin.innerHTML = `Email or Password do not match!!`;
         }
     }
 }
 
 
+//  remember me checkbox check
 function rememberMe(email, password) {
     let checkbox = document.getElementById('checkbox');
     if (checkbox.checked) {
@@ -87,6 +96,7 @@ function rememberMe(email, password) {
 }
 
 
+// remember me check - user existing in localstorage
 function rememberUserExisting(email, password) {
     let keyQuery = localStorage.getItem('rememberUser');
     if (keyQuery === null) {
@@ -97,6 +107,7 @@ function rememberUserExisting(email, password) {
 }
 
 
+// remember me check - double entries
 function rememberDoubleUserCheck(email, password) {
     let doubleUserCheckAtString = localStorage.getItem('rememberUser');
     let rememberUser = JSON.parse(doubleUserCheckAtString);
@@ -117,6 +128,7 @@ function rememberDoubleUserCheck(email, password) {
 }
 
 
+// remember me help fuction -null-
 function keyQueryNull(email, password) {
     rememberUser.push({ 'email': email, 'password': password });
     let rememberUserAtString = JSON.stringify(rememberUser);
@@ -124,6 +136,7 @@ function keyQueryNull(email, password) {
 }
 
 
+// remember me help function -one-
 function keyQueryOne(email, password) {
     let rememberUserString = localStorage.getItem('rememberUser');
     rememberUser = JSON.parse(rememberUserString);
@@ -131,6 +144,3 @@ function keyQueryOne(email, password) {
     let rememberUserAtString = JSON.stringify(rememberUser);
     localStorage.setItem('rememberUser', rememberUserAtString);
 }
-
-
-
