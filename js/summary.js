@@ -122,9 +122,6 @@ function showDate() {
     if (day < 10) {
         day = "0" + day;
     }
-    if (month < 10) {
-        month = "0" + month;
-    }
     let dateString = currentDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
     document.getElementById("deadlineDate").innerHTML = dateString;
 }
