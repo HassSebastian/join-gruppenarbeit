@@ -23,7 +23,7 @@ let menuSelectorStyles = [
         'menuName': 'btn_add_task_menu',
         'img1Id': 'imgAddTask1',
         'img2Id': 'imgAddTask2',
-        'url':'./add_task.html'
+        'url': './add_task.html'
     },
     {
         'menuName': 'btn_contacts_menu',
@@ -72,12 +72,12 @@ function selectedMenuButton(menuId) {
 }
 
 
-function selectedMenuNotShownAndNotLegalNotice(menuId){
+function selectedMenuNotShownAndNotLegalNotice(menuId) {
     return selectedMenuBtnId != menuId && menuId != 5;
 }
 
 
-function selectedMenuIsLegalNoticeAndNotShown(menuId){
+function selectedMenuIsLegalNoticeAndNotShown(menuId) {
     return menuId == 5 && selectedMenuBtnId != 5;
 }
 
@@ -96,7 +96,7 @@ function setMenuBtnStyle(menuId) {
 }
 
 
-function otherMenuBtnPreSelected(){
+function otherMenuBtnPreSelected() {
     return selectedMenuBtnId;
 }
 
@@ -126,29 +126,34 @@ function deselectMenuButton(menuId) {
 }
 
 
-function legalNoticeNotSelected(){
+function legalNoticeNotSelected() {
     return selectedMenuBtnId != 5;
 }
 
 
-function legalNoticeSelected(){
+function legalNoticeSelected() {
     return selectedMenuBtnId == 5
 }
 
-async function openSubPage(menuId){
+async function openSubPage(menuId) {
     let url = menuSelectorStyles[menuId]['url'];
     let target = '_parent'
     await window.open(url, target);
 }
 
 
-function renderList(){
+function renderList() {
     renderSummary();
     renderBoard();              //hinzu gefügt//
     renderLegalNotice()
 }
 
 // desktop_template.html help function
-function help(){
-window.location.href = './help.html'
+function help() {
+    window.location.href = './help.html';
+}
+
+
+function dataPrivacy() {
+    window.location.href = './dataPrivacy.html';
 }
