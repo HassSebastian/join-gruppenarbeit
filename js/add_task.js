@@ -17,24 +17,40 @@ let subTask = '';
 
 /* 
 !TEST ARRAY for renderFunciont (assignedContact list in dropdown menu) */
-let assignedContacts = [
+let contactsToAssignTo = [
+	{
+		firstName: 'Lisa',
+		lastName: 'Kammler',
+		email: 'lisa.kammler@webber.de',
+		check: false,
+	},
 	{
 		firstName: 'Christopher Kai',
 		lastName: 'Greenkohl',
+		email: 'ck.greeny@hotmail.com',
+		check: false,
 	},
 	{
 		firstName: 'Thorsten',
 		lastName: 'Kern',
+		email: 'thosten.kernel@hobby.com',
+		check: false,
 	},
 	{
 		firstName: 'Frieda',
 		lastName: 'April',
+		email: 'aPril_frieda@shite.sa',
+		check: false,
 	},
 	{
 		firstName: 'Helmut',
 		lastName: 'Müller',
+		email: 'sindSaödf@hurz.de',
+		check: false,
 	},
 ];
+
+let taskForce = []; // team that will be working on the current task
 
 async function initAddTask() {
 	await includeHTML();
@@ -45,6 +61,7 @@ async function initAddTask() {
 	renderSubtasks();
 	selectedMenuBtnId = 0;
 	selectedMenuButton(3);
+	renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
 }
 
 /**
@@ -117,12 +134,12 @@ async function renderAddTask() {
                 />
                 <span id="sColor"></span>
                 <div class="newCategoryImgDiv d-none" id="addTaskNewCatBtn">
-                    <img src="../assets/img/new_cat_cancel.png" />
-                    <img src="../assets/img/bnt_divider.png" class="btnDivider" />
-                    <img src="../assets/img/akar-icons_check.png" />
+                    <img src="assets/img/new_cat_cancel.png" />
+                    <img src="assets/img/bnt_divider.png" class="btnDivider" />
+                    <img src="assets/img/akar-icons_check.png" />
                 </div>
                 <img
-                    src="../assets/img/Vector 2.png"
+                    src="assets/img/Vector 2.png"
                     class="dropdownImg"
                     id="dropdownImg"
                 />
@@ -150,7 +167,7 @@ async function renderAddTask() {
 						id="selectedAssign"
 						name="selectedAssign"
 						class="inputselectedAssign"
-						placeholder="Select contacts to Assign"
+						placeholder="Select contacts to assign"
 						autocomplete="off"
 					/>
 				
@@ -162,7 +179,7 @@ async function renderAddTask() {
 					<img class="assignToDeviderIcon"src="assets/img/bnt_divider.png" />
 					<img class="assignToCheckIcon" src="assets/img/akar-icons_check.png" alt="confirm" />
 				</div>
-				<img id="assignDropDownImg" src="../assets/img/Vector 2.png" class="dropdownImg" />
+				<img id="assignDropDownImg" src="assets/img/Vector 2.png" class="dropdownImg" />
             </button>
             <span id="assignReq">This field is required</span>
             <ul class="addTaskAssignList listD-none" id="dropdown2">
@@ -755,7 +772,6 @@ function enableDisableAssignList() {
 	if (!assignListStatus) {
 		document.getElementById('dropdown2').classList.remove('listD-none');
 		borderBottomOffAssignedBoxButton();
-		renderContactsInAssignDropDownMenu();
 	} else {
 		borderBottomOnAssignedBoxButton();
 		document.getElementById('dropdown2').classList.add('listD-none');
@@ -861,21 +877,42 @@ function assignBoxBackToDefaultMode() {
 	disableInputaddTasAssign();
 }
 
-let check = false;
+function findIndexOfContactToRemoveFromTaskViaEmailAddress(email, index) {
+	index = taskForce.findIndex((memberOfTaskForce) => {
+		return memberOfTaskForce.email == email;
+	});
+	console.log(index);
+}
+
+function removeSelectedContactFromTaskForce(email, index) {
+	findIndexOfContactToRemoveFromTaskViaEmailAddress(email, index);
+
+	taskForce.splice(index, 1); // only last one gets removed
+	console.log('remove Index', index);
+}
 
 /**
  * If the checkbox is not checked, add a checkmark to the checkbox. If the checkbox is checked, remove
  * the checkmark from the checkbox.
  * @param contact - the contact that was clicked on
+ * ! to renamed soon!
  */
 function assignToggleCheckBox(contact) {
-	if (!check) {
+	let checkStatus = contactsToAssignTo[contact].check;
+	let email = contactsToAssignTo[contact].email;
+	let index;
+
+	if (!checkStatus) {
 		addCheckMarkToCheckBox(contact);
+		addSelectedContactToTaskForce(contact);
+		console.table(taskForce);
 	} else {
 		removeCheckMarkFromCheckBox(contact);
+		removeSelectedContactFromTaskForce(email, index);
+		console.table(taskForce);
 	}
-
-	check = !check;
+	checkStatus = !checkStatus;
+	contactsToAssignTo[contact].check = checkStatus;
 }
 
 function addCheckMarkToCheckBox(contact) {
@@ -904,9 +941,9 @@ function generateAssignContactListForDropDownMenu(firstName, lastName, contact) 
  *! "contact" might not be the best name. To be reconsidered!!
  */
 function renderContactsInAssignDropDownMenu() {
-	for (let contact = 0; contact < assignedContacts.length; contact++) {
-		let firstName = assignedContacts[contact].firstName;
-		let lastName = assignedContacts[contact].lastName;
+	for (let contact = 0; contact < contactsToAssignTo.length; contact++) {
+		let firstName = contactsToAssignTo[contact].firstName;
+		let lastName = contactsToAssignTo[contact].lastName;
 		let assignedContactList = document.getElementById('dropdown2');
 		assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(
 			firstName,
@@ -915,3 +952,18 @@ function renderContactsInAssignDropDownMenu() {
 		);
 	}
 }
+
+function addSelectedContactToTaskForce(contact) {
+	taskForce.push(contactsToAssignTo[contact]);
+}
+
+/* 
+!Further functions 
+
+uncheck all contacts in the list (clear button)
+back to default mode "select contacts to assign"
+
+function mit push funktioniert nicht oben! toggle
+
+
+*/
