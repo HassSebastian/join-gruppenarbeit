@@ -23,6 +23,7 @@
     left: 48px;
     top: 2px;
     background: #FFFFFF;
+    overflow: scroll;
 }
 
 .letters {
