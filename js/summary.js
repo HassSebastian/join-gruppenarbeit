@@ -42,18 +42,18 @@ async function renderSummary() {
                 </div>
             </div>
             <div class='toDoData'>
-                <div class='toDo'>
-                    <img src='./assets/img/to_do_pen.png' alt="">
+                <div class='toDo' id='toDo' onmouseover="toDoHoverOn()" onmouseout="toDoHoverOff()">
+                    <img id='toDoImg' src='./assets/img/to_do_pen.png' alt="">
                     <div class='toDoAmountData'>
-                        <span>1</span>
-                        <p>to-Do</p>
+                        <span id='toDoAmountTasks'>1</span>
+                        <p id='toDoAmountP'>to-Do</p>
                     </div>
                 </div>
-                <div class='toDoDone'>
-                    <img src='./assets/img/done.png' alt="">
+                <div class='toDoDone' id='toDoDone' onmouseover="toDoDoneHoverOn()" onmouseout="toDoDoneHoverOff()">
+                    <img id='toDoDoneImg' src='./assets/img/done.png' alt="">
                     <div class='toDoAmountData'>
-                        <span>1</span>
-                        <p>Done</p>
+                        <span id='toDoDoneAmountTasks'>1</span>
+                        <p id='toDoDoneAmountP'>Done</p>
                     </div>
                 </div>
             </div>
@@ -62,3 +62,34 @@ async function renderSummary() {
 }
 
 
+// Hover ToDo and Done Button
+function toDoHoverOn(){
+    document.getElementById('toDoImg').src = "./assets/img/to_do_pen_black.png";
+    document.getElementById('toDo').classList.add('toDoHover');
+    document.getElementById('toDoAmountTasks').classList.add('toDoHoverSpanP');
+    document.getElementById('toDoAmountP').classList.add('toDoHoverSpanP');
+}
+
+
+function toDoHoverOff(){
+    document.getElementById('toDoImg').src = "./assets/img/to_do_pen.png";
+    document.getElementById('toDo').classList.remove('toDoHover');
+    document.getElementById('toDoAmountTasks').classList.remove('toDoHoverSpanP');
+    document.getElementById('toDoAmountP').classList.remove('toDoHoverSpanP');
+}
+
+
+function toDoDoneHoverOn(){
+    document.getElementById('toDoDoneImg').src = "./assets/img/done_black.png";
+    document.getElementById('toDoDone').classList.add('toDoHover');
+    document.getElementById('toDoDoneAmountTasks').classList.add('toDoHoverSpanP');
+    document.getElementById('toDoDoneAmountP').classList.add('toDoHoverSpanP');
+}
+
+
+function toDoDoneHoverOff(){
+    document.getElementById('toDoDoneImg').src = "./assets/img/done.png";
+    document.getElementById('toDoDone').classList.remove('toDoHover');
+    document.getElementById('toDoDoneAmountTasks').classList.remove('toDoHoverSpanP');
+    document.getElementById('toDoDoneAmountP').classList.remove('toDoHoverSpanP');
+}
