@@ -661,7 +661,7 @@ function renderPopupTaskCard(taskIndex){
         </div>
         <span class="assigend">Assigend To:</span>
         <img class="close_logo" src="./assets/img/close_logo.png" onclick='disablePopupWindow()'>
-        <div class="editButton" onclick='editTaskCard(${taskIndex})'>
+        <div class="editButton" onclick='openEditTaskCard(${taskIndex})'>
             <img src="./assets/img/edit_button.png">
         </div>
     
@@ -732,32 +732,84 @@ function setTaskCardPopupPrioBackground(taskIndex){
 }
 
 // Edit Taskcard popup
-function editTaskCard(taskIndex){
-    let cardTitle = joinTaskArray[taskIndex]['title'];
-    let cardDescription = joinTaskArray[taskIndex]['descripten'];
-    let cardCategory = joinTaskArray[taskIndex]['category'];
-    let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
-    let taskPrio = joinTaskArray[taskIndex]['prio'];
+async function openEditTaskCard(taskIndex){
+    await renderEditTaskCardHtml();
+    renderEditTaskCardInputFields(taskIndex)
+}
+
+
+async function renderEditTaskCardHtml(){
     document.getElementById('boardPopup').innerHTML = '';
     document.getElementById('boardPopup').innerHTML = /*html*/`
         <div class="boardTaskCardPopup" onclick='stopClose(event)'>
             <img class="close_logo" src="./assets/img/close_logo.png" onclick='disablePopupWindow()'>
             <div class='boardEditTitleContainer'>
                 <span>Title</span>
-                <input type="text">
+                <input type="text" placeholder="Enter a title" id='boardEditTitle'>
             </div>
             <div class='boardEditDescriptionContainer'>
                 <span>Descripten</span>
-                <textarea name="Description" id="" cols="30" rows="10"></textarea>
+                <textarea name="Description"  cols="30" rows="10" placeholder="Enter Descriptiom" id='boardEditDecription'></textarea>
             </div>
             <div class='boardEditDateContainer'>
                 <span>Due Date</span>
-                <input type="date">
+                <input type="date" id='boardEditDueDate'>
             </div>
-        </div>`;
-        
 
+            <div class='editTaskCardPrio'>
+                <h3>Prio</h3>
+                <div class='editTaskCardPrioBtn'>
+                    <div class='addTaskUrgent' id='addTaskUrgent' onclick='addPrio(0)'>
+                        <span id='addTaskUrgentSpan'>Urgent</span>
+                        <img id='addTaskUrgentImg' src="../assets/img/urgent_arrows.png">
+                    </div>
+                    <div class='addTaskMedium' id='addTaskMedium' onclick='addPrio(1)'>
+                        <span id='addTaskMediumSpan'>Medium</span>
+                        <img id='addTaskMediumImg' src="../assets/img/prio_medium.png">
+                    </div>
+                    <div class='addTaskLow' id='addTaskLow' onclick='addPrio(2)'>
+                        <span id='addTaskLowSpan'>Low</span>
+                        <img id='addTaskLowImg' src="../assets/img/prio_low.png">
+                    </div>
+                </div>
+            </div>
+
+            <button class='editTaskOkBtn'>Ok <img src="../assets/img/akar-icons_check_white.png" ></button>
+        </div>`;
 }
+
+
+function renderEditTaskCardInputFields(taskIndex){
+    let cardTitle = joinTaskArray[taskIndex]['title'];
+    let cardDescription = joinTaskArray[taskIndex]['descripten'];
+    let cardCategory = joinTaskArray[taskIndex]['category'];
+    let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
+    let taskPrio = joinTaskArray[taskIndex]['prio'];
+    let prioArray = {'Urgent': 0, 'Medium': 1 , 'Low': 2};
+    let taskPrioNumber = prioArray[taskPrio];
+    addPrio(taskPrioNumber);
+    document.getElementById('boardEditTitle'). value = cardTitle;
+    document.getElementById('boardEditDecription').value = cardDescription;
+    document.getElementById('boardEditDueDate').value = cardDueDate;
+}
+
+
+function getDataFromEditTaskCard(){
+    // taskData = {
+    //     'title': title,
+    //     'descripten': descripten,
+    //     'category': category,
+    //     'catColor': catColor,
+    //     'assignedTo': assigndTo,
+    //     'dueDate': dueDate,
+    //     'prio': prio,
+    //     'subTasks': selectedSubtasks,
+    //     'workFlowStatus': 0,
+    // };
+}
+
+  
+
 // render function for the detail view of the task card end.
 
 
