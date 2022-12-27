@@ -300,7 +300,6 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 13px;
     width: 178px;
     height: 57px;
     flex: none;
@@ -309,7 +308,7 @@
 }
 
 #deadlineDate {
-    width: 178px;
+    width: max-content;
     height: 25px;
     font-family: 'Inter';
     font-style: normal;
