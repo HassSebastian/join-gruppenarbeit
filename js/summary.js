@@ -27,20 +27,20 @@ async function renderSummary() {
                 <div id='taskInProgress'><span id='taskInProgressAmount'>2</span> <p>Task in Progress</p></div>
                 <div id='awaitingFeedback'><span id='awaitingFeedbackAmount'>2</span> <p>Awaiting Feedback</p></div>
             </div>
-            <div class='ugencySummary'>
+            <div class='ugencySummary' onmouseover="ugencySummaryHoverOn()" onmouseout="ugencySummaryHoverOff()">
                 <div class="ugent">
                     <div class='ugentImgContainer'>
-                        <img class='ugentImg' src='./assets/img/summary_urgent.png' >
+                        <img class='ugentImg' id='urgentImg' src='./assets/img/summary_urgent.png' >
                     </div>
                     <div class='ugentAmount'>
-                        <span >1</span>
-                        <p>Urgent</p>
+                        <span id='ugencySummaryAmount' >1</span>
+                        <p id='ugencySummaryurgent'>Urgent</p>
                     </div>
                     <img src='./assets/img/vertical-line2.png' class='ugentVerticalLine'>
                 </div>
                 <div class='deadlineData'>
                     <p id='deadlineDate'>October 16, 2022</p> 
-                    <p class='deadlineText'>Upcoming Deadline</p> 
+                    <p class='deadlineText' id='deadlineText'>Upcoming Deadline</p> 
                 </div>
             </div>
             <div class='toDoData'>
@@ -64,7 +64,7 @@ async function renderSummary() {
 }
 
 
-// Hover ToDo and Done Button
+// Hover Summary help-function
 function toDoHoverOn() {
     document.getElementById('toDoImg').src = "./assets/img/to_do_pen_black.png";
     document.getElementById('toDo').classList.add('toDoHover');
@@ -96,6 +96,23 @@ function toDoDoneHoverOff() {
     document.getElementById('toDoDoneAmountP').classList.remove('toDoHoverSpanP');
 }
 
+
+function ugencySummaryHoverOn() {
+    document.getElementById('ugencySummaryAmount').classList.add('toDoHoverSpanP');
+    document.getElementById('deadlineDate').classList.add('toDoHoverSpanP');
+    document.getElementById('deadlineText').classList.add('toDoHoverSpanP');
+    document.getElementById('ugencySummaryurgent').classList.add('toDoHoverSpanP');
+}
+
+
+function ugencySummaryHoverOff() {
+    document.getElementById('ugencySummaryAmount').classList.remove('toDoHoverSpanP');
+    document.getElementById('deadlineDate').classList.remove('toDoHoverSpanP');
+    document.getElementById('deadlineText').classList.remove('toDoHoverSpanP');
+    document.getElementById('ugencySummaryurgent').classList.remove('toDoHoverSpanP');
+}
+
+
 // show date in Summary 
 function showDate() {
     let currentDate = new Date();
@@ -112,20 +129,21 @@ function showDate() {
     document.getElementById("deadlineDate").innerHTML = dateString;
 }
 
+
 // greet User
 function showTime() {
     let currentTime = new Date();
     let hours = currentTime.getHours();
     let timeString = hours;
-    if(timeString >= 6){
+    if (timeString >= 6) {
         document.getElementById('greetUser').innerHTML = `Good Morning,`;
     }
-    if(timeString >= 12){
+    if (timeString >= 12) {
         document.getElementById('greetUser').innerHTML = `Good Day,`;
     }
-    if(timeString >= 18){
+    if (timeString >= 18) {
         document.getElementById('greetUser').innerHTML = `Good Evening,`;
     }
-  }
+}
 
 
