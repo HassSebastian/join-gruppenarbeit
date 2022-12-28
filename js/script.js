@@ -164,5 +164,5 @@ function logOutBtn(){
 }
 
 function logOut(){
-    alert('Muss noch definiert werden');
+    window.location.href = './index.html';
 }
