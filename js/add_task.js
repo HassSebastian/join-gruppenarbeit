@@ -182,6 +182,7 @@ async function renderAddTask() {
 				<img id="assignDropDownImg" src="assets/img/Vector 2.png" class="dropdownImg" />
             </button>
             <span id="assignReq">This field is required</span>
+			<div id="badgesTaskForce" class="badgesTaskForce"></div>
             <ul class="addTaskAssignList listD-none" id="dropdown2">
 
 				<li onclick="assigendContactEmail()" class="inviteNewContacts">
@@ -194,7 +195,6 @@ async function renderAddTask() {
 			</ul>
         </div>
     </div>
-
     <div class="addTaskDivider"></div>
 
         </div>
@@ -389,7 +389,10 @@ function setNewCategoryToList() {
 	newSetCategory = newSetCategory.trim();
 	if (newSetCategory != '') {
 		let newCatColor = catColor;
-		let newCategoryItem = { category: newSetCategory, catColor: newCatColor };
+		let newCategoryItem = {
+			category: newSetCategory,
+			catColor: newCatColor,
+		};
 		addTaskCategoryList.push(newCategoryItem);
 		let newCategoryIndex = addTaskCategoryList.length - 1;
 		renderCategoryList();
@@ -773,9 +776,11 @@ function enableDisableAssignList() {
 	if (!assignListStatus) {
 		document.getElementById('dropdown2').classList.remove('listD-none');
 		borderBottomOffAssignedBoxButton();
+		showBadgesTaskForce();
 	} else {
 		borderBottomOnAssignedBoxButton();
 		document.getElementById('dropdown2').classList.add('listD-none');
+		hideBadgesTaskForce();
 	}
 	assignListStatus = !assignListStatus;
 }
@@ -924,9 +929,11 @@ function addRemoveToggleForTaskForce(
 	if (!addedToTaskForce) {
 		addCheckMarkToCheckBox(contact);
 		addSelectedContactToTaskForce(contact);
+		renderBadgesMemberOfTaskForce();
 	} else {
 		removeCheckMarkFromCheckBox(contact);
 		removeSelectedContactFromTaskForce(indexOfMemberInTaskForce);
+		renderBadgesMemberOfTaskForce();
 	}
 }
 
@@ -938,8 +945,8 @@ function addRemoveToggleForTaskForce(
 function addContactToTaskForceWithCheckBox(contact) {
 	let addedToTaskForce = coworkersToAssignTo[contact].check;
 	let emailAddress = coworkersToAssignTo[contact].email;
-	let indexOfMemberInTaskForce = findIndexOfMemberOfTaskForce(emailAddress);
-	addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberInTaskForce);
+	let indexOfMemberOfTaskForce = findIndexOfMemberOfTaskForce(emailAddress);
+	addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberOfTaskForce);
 	addedToTaskForce = !addedToTaskForce;
 	coworkersToAssignTo[contact].check = addedToTaskForce;
 	console.log(taskForce.length);
@@ -976,8 +983,6 @@ function renderContactsInAssignDropDownMenu() {
 	}
 }
 
-/* 
-!TEST */
 function setCheckStatusToFalse() {
 	taskForce.forEach((member) => {
 		member.check = false;
@@ -992,22 +997,66 @@ function checkStatusToFalse() {
 	}
 }
 
-/* 
-!TEST */
 function clearTaskForce() {
 	checkStatusToFalse();
 	taskForce = [];
 	enableDisableAssignList();
-	console.log(taskForce.length);
+	console.table(taskForce.length);
 }
 
+function getInitials() {}
+
 /* 
-!Further functions 
-
-uncheck all contacts in the list (clear button)
-back to default mode "select contacts to assign"
-
-function mit push funktioniert nicht oben! toggle
-
-
+!28.12.2022 Render Buttons with initials
 */
+
+function renderBadgesMemberOfTaskForce() {
+	let badgeContainer = document.getElementById('badgesTaskForce');
+	badgeContainer.innerHTML = '';
+	for (
+		let memberOfTaskForce = 0;
+		memberOfTaskForce < taskForce.length;
+		memberOfTaskForce++
+	) {
+		const initialFirstName = taskForce[memberOfTaskForce].firstName.charAt(0);
+		const initialLastName = taskForce[memberOfTaskForce].lastName.charAt(0);
+		badgeContainer.innerHTML += generateBadgesTaskForceHtml(
+			memberOfTaskForce,
+			initialFirstName,
+			initialLastName
+		);
+	}
+}
+
+function generateBadgesTaskForceHtml(
+	memberOfTaskForce,
+	initialFirstName,
+	initialLastName
+) {
+	return /*html*/ `
+		<div id="${memberOfTaskForce}" class="badgeTaskForce">
+			${initialFirstName}${initialLastName}
+		</div>
+	`;
+}
+
+function hideBadgesTaskForce() {
+	document.getElementById('badgesTaskForce').classList.remove('d-none');
+}
+
+function showBadgesTaskForce() {
+	document.getElementById('badgesTaskForce').classList.add('d-none');
+}
+
+let BackgroundColorForBadges = [
+	'#02CF2F',
+	'#EE00D6',
+	'#0190E0',
+	'#FF7200',
+	'#FF2500',
+	'#AF1616',
+	'#FFC700',
+	'#3E0099',
+	'#462F8A',
+	'#FF7A00',
+];

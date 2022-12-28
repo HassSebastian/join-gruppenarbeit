@@ -70,6 +70,7 @@
 	flex: none;
 	order: 0;
 	flex-grow: 0;
+	cursor: pointer;
 }
 
 .addTaskClear:hover {
@@ -724,6 +725,25 @@
 .assignToCancelConfirmImgContainer img {
 	width: 24px;
 	height: 24px !important;
+}
+
+.badgesTaskForce {
+	display: flex;
+	gap: 5px;
+	width: 422px;
+	flex-wrap: wrap;
+}
+
+.badgeTaskForce {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 45px;
+	width: 45px;
+	color: white;
+	background-color: red;
+	border-radius: 100%;
+	font-size: 21px;
 }
 
 .addTaskAssignList {
