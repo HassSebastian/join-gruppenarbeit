@@ -877,17 +877,16 @@ function assignBoxBackToDefaultMode() {
 	disableInputaddTasAssign();
 }
 
-function findIndexOfContactToRemoveFromTaskViaEmailAddress(email, index) {
-	index = taskForce.findIndex((memberOfTaskForce) => {
+/* function findIndexOfContactToRemoveFromTaskViaEmailAddress(email) {
+	let index = taskForce.findIndex((memberOfTaskForce) => {
 		return memberOfTaskForce.email == email;
 	});
 	console.log(index);
-}
+	return index;
+} */
 
-function removeSelectedContactFromTaskForce(email, index) {
-	findIndexOfContactToRemoveFromTaskViaEmailAddress(email, index);
-
-	taskForce.splice(index, 1); // only last one gets removed
+function removeSelectedContactFromTaskForce(index) {
+	taskForce.splice(index, 1);
 	console.log('remove Index', index);
 }
 
@@ -900,19 +899,20 @@ function removeSelectedContactFromTaskForce(email, index) {
 function assignToggleCheckBox(contact) {
 	let checkStatus = contactsToAssignTo[contact].check;
 	let email = contactsToAssignTo[contact].email;
-	let index;
+	let index = taskForce.findIndex((memberOfTaskForce) => {
+		return memberOfTaskForce.email == email;
+	});
 
 	if (!checkStatus) {
 		addCheckMarkToCheckBox(contact);
 		addSelectedContactToTaskForce(contact);
-		console.table(taskForce);
 	} else {
 		removeCheckMarkFromCheckBox(contact);
-		removeSelectedContactFromTaskForce(email, index);
-		console.table(taskForce);
+		removeSelectedContactFromTaskForce(index);
 	}
 	checkStatus = !checkStatus;
 	contactsToAssignTo[contact].check = checkStatus;
+	console.table(taskForce);
 }
 
 function addCheckMarkToCheckBox(contact) {
