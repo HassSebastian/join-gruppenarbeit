@@ -135,7 +135,7 @@ function boardHtml(){
                     <img src="./assets/img/urgent_white.png" alt="">
                 </div>
             </div>
-            <span class="assigend">Assigend To:</span>
+            <span class="assigned">Assigned To:</span>
             <img class="close_logo" src="./assets/img/close_logo.png" onclick='disablePopupWindow()'>
             <div class="editButton">
                 <img src="./assets/img/edit_button.png">
@@ -575,7 +575,12 @@ function allowDrop(ev) {
  * to todo tasks.
  */
 async function moveTo(area) {
+    // toDo if abfrage ob es verschoben werden darf !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // if (joinTaskArray[currentDraggedElement]['workFlowStatus'] == 2){
+        
+    // }
     joinTaskArray[currentDraggedElement]['workFlowStatus'] = area;
+    await saveTask();
     await createWorkStatusArrays();
     renderAllCards();
 }
@@ -659,7 +664,8 @@ function renderPopupTaskCard(taskIndex){
                 <img src="./assets/img/urgent_white.png" id='cardPrioImg'>
             </div>
         </div>
-        <span class="assigend">Assigend To:</span>
+
+        <span class="assigned">Assigned To:</span>
         <img class="close_logo" src="./assets/img/close_logo.png" onclick='disablePopupWindow()'>
         <div class="editButton" onclick='openEditTaskCard(${taskIndex})'>
             <img src="./assets/img/edit_button.png">
@@ -667,32 +673,54 @@ function renderPopupTaskCard(taskIndex){
     
         <div class="members">
             <div class="davidEisenberg">
-                <span class="shortcut">DE</span>
+                <span class="shortcut" title='David Eisenberg'>DE</span>
             </div>
-            <span class="name">David Eisenberg</span>
-        </div>
-        <div class="members">
             <div class="benediktZiegler">
-                <span class="shortcut">BZ</span>
+                <span class="shortcut" title='Benedikt Ziegler'>BZ</span>
             </div>
-            <span class="name">Benedikt Ziegler</span>
-        </div>
-        <div class="members">
             <div class="marcelBauer">
-                <span class="shortcut">MB</span>
+                <span class="shortcut" title='Marcel Bauer'>MB</span>
             </div>
-            <span class="name">Marcel Bauer</span>
-        </div>
-        <div class="members">
             <div class="stefanieFarber">
-                <span class="shortcut">SF</span>
+                <span class="shortcut" title='Stefanie Farber'>SF</span>
             </div>
-            <span class="name">Stefanie Farber</span>
-        </div>`;
+        </div>
+        
+        <div class='boardSubtasksTitleDiv'>
+            <span class='boardSubtaskTitle'>Subtasks:</span>
+                
+        </div >
+        <div class='boardSubtasksDiv'>
+            <div>
+                <input type="checkbox" id='subtask0' onclick='checkboxSubtaskSelected(0)'>
+                <span>move the Taskcard to in progress</span>
+            </div>
+            <div>
+                <input type="checkbox" id='subtask1' onclick='checkboxSubtaskSelected(1)'>
+                <span>edit this Taskcard, rename the title</span>
+            </div>
+            <div>
+                <input type="checkbox" id='subtask2' onclick='checkboxSubtaskSelected(2)'>
+                <span>verschiebe</span>
+            </div>
+            <div>
+                <input type="checkbox" id='subtask3' onclick='checkboxSubtaskSelected(3)'>
+                <span>verschiebe</span>
+            </div>
+        </div>
+        
+        `;
 
     setTaskCardPopupCatColor(taskIndex);
     setTaskCardPopupPrioBackground(taskIndex);
 
+}
+
+
+function checkboxSubtaskSelected(subIndex){
+    let subindexNo = subIndex;
+    let checkboxStatus = document.getElementById(`subtask${subIndex}`).checked;
+    console.log(checkboxStatus, subindexNo);
 }
 
 

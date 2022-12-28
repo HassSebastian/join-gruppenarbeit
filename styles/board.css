@@ -993,7 +993,7 @@
     flex-grow: 0;
 }
 
-.assigend {
+.assigned, .boardSubtaskTitle {
     width: 134px;
     height: 25px;
     font-family: 'Inter';
@@ -1063,7 +1063,7 @@
     flex-direction: row;
     align-items: center;
     padding: 0px;
-    gap: 25px;
+    /* gap: 25px; */
     width: 231px;
     height: 45px;
     flex: none;
@@ -1090,6 +1090,45 @@
     flex-grow: 0;
 }
 
+.boardSubtasksTitleDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    /* gap: 25px; */
+    width: 231px;
+    height: 45px;
+    flex: none;
+    order: 6;
+    flex-grow: 0;
+    z-index: 6;
+}
+
+.boardSubtasksDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 25px;
+    width: 460px;
+    height: 45px;
+    flex: none;
+    order: 6;
+    flex-grow: 0;
+    z-index: 6;
+    flex-wrap: wrap;
+}
+
+.boardSubtasksDiv div span{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+}
+
+
+
+
 .shortcut {
     width: 22px;
     height: 19px;
@@ -1104,7 +1143,7 @@
     flex-grow: 0;
 }
 
-.name {
+/* .name {
     width: 161px;
     height: 25px;
     font-family: 'Inter';
@@ -1117,7 +1156,7 @@
     flex: none;
     order: 1;
     flex-grow: 0;
-}
+} */
 
 .davidEisenberg {
     background: #9327FF;
@@ -1486,5 +1525,6 @@
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    border-color: #29ABE2;
+    /* border-color: #29ABE2; */
+    border-width: 0px;
 }
