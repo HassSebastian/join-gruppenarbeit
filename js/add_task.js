@@ -570,6 +570,7 @@ function clearFormularData() {
 	document.getElementById('dateReq').style = 'opacity: 0;';
 	document.getElementById('catReq').style = 'opacity: 0;';
 	document.getElementById('catReq').classList.add('listD-none');
+	clearTaskForce(); // TEST von Christian
 }
 
 // save data to local storage/server!
@@ -941,6 +942,8 @@ function addContactToTaskForceWithCheckBox(contact) {
 	addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberInTaskForce);
 	addedToTaskForce = !addedToTaskForce;
 	coworkersToAssignTo[contact].check = addedToTaskForce;
+	console.log(taskForce.length);
+	console.table(taskForce);
 }
 
 function generateAssignContactListForDropDownMenu(firstName, lastName, contact) {
@@ -971,6 +974,31 @@ function renderContactsInAssignDropDownMenu() {
 			contact
 		);
 	}
+}
+
+/* 
+!TEST */
+function setCheckStatusToFalse() {
+	taskForce.forEach((member) => {
+		member.check = false;
+		console.log(member.check);
+	});
+}
+
+function checkStatusToFalse() {
+	for (let coworker = 0; coworker < coworkersToAssignTo.length; coworker++) {
+		coworkersToAssignTo[coworker].check = false;
+		removeCheckMarkFromCheckBox(coworker);
+	}
+}
+
+/* 
+!TEST */
+function clearTaskForce() {
+	checkStatusToFalse();
+	taskForce = [];
+	enableDisableAssignList();
+	console.log(taskForce.length);
 }
 
 /* 
