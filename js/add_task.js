@@ -1060,3 +1060,7 @@ let BackgroundColorForBadges = [
 	'#462F8A',
 	'#FF7A00',
 ];
+
+/* !
+!HIER WEITERMACHEN: ZUFÄLLIGE FARBE FÜR BADGES!
+ */
