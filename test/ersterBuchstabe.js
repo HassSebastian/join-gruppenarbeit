@@ -5,7 +5,7 @@ let users = [
         password: "123456789"
     },
     {
-        name: "Sigmunde Köhler",
+        name: "Sigmunde Arafad",
         email: "sigmundekoehler@test.de",
         password: "123456789"
     },
@@ -15,7 +15,7 @@ let users = [
         password: "123456789"
     },
     {
-        name: "Klaudia Schönfeld",
+        name: "Klaudia Bumsbine",
         email: "klaudiaschoenfeld@test.de",
         password: "123456789"
     },
