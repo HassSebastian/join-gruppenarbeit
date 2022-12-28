@@ -17,7 +17,7 @@ let subTask = '';
 
 /* 
 !TEST ARRAY for renderFunciont (assignedContact list in dropdown menu) */
-let contactsToAssignTo = [
+let coworkersToAssignTo = [
 	{
 		firstName: 'Lisa',
 		lastName: 'Kammler',
@@ -175,7 +175,7 @@ async function renderAddTask() {
 				id="assignToCancelConfirmImgContainer"
 				class="assignToCancelConfirmImgContainer d-none"
 				>
-					<img onclick="assignBoxBackToDefaultMode()" class="assignToCancelIcon" src="assets/img/cancel-black.png" alt="cancel" />
+					<img onclick="assignBoxBackToDefaultMode(), enableAssignList()" class="assignToCancelIcon" src="assets/img/cancel-black.png" alt="cancel" />
 					<img class="assignToDeviderIcon"src="assets/img/bnt_divider.png" />
 					<img class="assignToCheckIcon" src="assets/img/akar-icons_check.png" alt="confirm" />
 				</div>
@@ -779,6 +779,11 @@ function enableDisableAssignList() {
 	assignListStatus = !assignListStatus;
 }
 
+function enableAssignList() {
+	document.getElementById('dropdown2').classList.remove('listD-none');
+	assignListStatus = !assignListStatus;
+}
+
 /**
  * When the user clicks the 'Add Task' button,
  * the border radius of the 'Add Task' button will change
@@ -877,55 +882,70 @@ function assignBoxBackToDefaultMode() {
 	disableInputaddTasAssign();
 }
 
-/* function findIndexOfContactToRemoveFromTaskViaEmailAddress(email) {
-	let index = taskForce.findIndex((memberOfTaskForce) => {
-		return memberOfTaskForce.email == email;
-	});
-	console.log(index);
-	return index;
-} */
-
-function removeSelectedContactFromTaskForce(index) {
-	taskForce.splice(index, 1);
-	console.log('remove Index', index);
-}
-
 /**
- * If the checkbox is not checked, add a checkmark to the checkbox. If the checkbox is checked, remove
- * the checkmark from the checkbox.
- * @param contact - the contact that was clicked on
- * ! to renamed soon!
+ * Find the index of the member of the task force whose email address is the same as the email address
+ * passed in as a parameter.
+ * @param emailAddress - The email address of the member of the task force.
+ * @returns The index of the member of the task force.
  */
-function assignToggleCheckBox(contact) {
-	let checkStatus = contactsToAssignTo[contact].check;
-	let email = contactsToAssignTo[contact].email;
-	let index = taskForce.findIndex((memberOfTaskForce) => {
-		return memberOfTaskForce.email == email;
+function findIndexOfMemberOfTaskForce(emailAddress) {
+	return taskForce.findIndex((memberOfTaskForce) => {
+		return memberOfTaskForce.email == emailAddress;
 	});
-
-	if (!checkStatus) {
-		addCheckMarkToCheckBox(contact);
-		addSelectedContactToTaskForce(contact);
-	} else {
-		removeCheckMarkFromCheckBox(contact);
-		removeSelectedContactFromTaskForce(index);
-	}
-	checkStatus = !checkStatus;
-	contactsToAssignTo[contact].check = checkStatus;
-	console.table(taskForce);
 }
 
 function addCheckMarkToCheckBox(contact) {
 	document.getElementById(`checkMark${contact}`).classList.remove('d-none');
 }
 
+function addSelectedContactToTaskForce(contact) {
+	taskForce.push(coworkersToAssignTo[contact]);
+}
+
 function removeCheckMarkFromCheckBox(contact) {
 	document.getElementById(`checkMark${contact}`).classList.add('d-none');
 }
 
+function removeSelectedContactFromTaskForce(index) {
+	taskForce.splice(index, 1);
+}
+
+/**
+ * @param addedToTaskForce - boolean, true if the contact is already in the task force, false if not
+ * @param contact - the contact that was selected
+ * @param indexOfMemberInTaskForce - The index of the contact in the task force array.
+ */
+function addRemoveToggleForTaskForce(
+	addedToTaskForce,
+	contact,
+	indexOfMemberInTaskForce
+) {
+	if (!addedToTaskForce) {
+		addCheckMarkToCheckBox(contact);
+		addSelectedContactToTaskForce(contact);
+	} else {
+		removeCheckMarkFromCheckBox(contact);
+		removeSelectedContactFromTaskForce(indexOfMemberInTaskForce);
+	}
+}
+
+/**
+ * It adds a contact to the task force if the contact is not already in the task force, and removes the
+ * contact from the task force if the contact is already in the task force.
+ * @param contact - the name of the contact
+ */
+function addContactToTaskForceWithCheckBox(contact) {
+	let addedToTaskForce = coworkersToAssignTo[contact].check;
+	let emailAddress = coworkersToAssignTo[contact].email;
+	let indexOfMemberInTaskForce = findIndexOfMemberOfTaskForce(emailAddress);
+	addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberInTaskForce);
+	addedToTaskForce = !addedToTaskForce;
+	coworkersToAssignTo[contact].check = addedToTaskForce;
+}
+
 function generateAssignContactListForDropDownMenu(firstName, lastName, contact) {
 	return /*html*/ `
-	<li onclick="assignToggleCheckBox(${contact})">
+	<li onclick="addContactToTaskForceWithCheckBox(${contact})">
 		${firstName} ${lastName}
 		<div  class="assignCheckboxContainer">
 			<img class="checkBox" src="assets/img/check_box.png" alt="checkbox" />
@@ -941,9 +961,9 @@ function generateAssignContactListForDropDownMenu(firstName, lastName, contact) 
  *! "contact" might not be the best name. To be reconsidered!!
  */
 function renderContactsInAssignDropDownMenu() {
-	for (let contact = 0; contact < contactsToAssignTo.length; contact++) {
-		let firstName = contactsToAssignTo[contact].firstName;
-		let lastName = contactsToAssignTo[contact].lastName;
+	for (let contact = 0; contact < coworkersToAssignTo.length; contact++) {
+		let firstName = coworkersToAssignTo[contact].firstName;
+		let lastName = coworkersToAssignTo[contact].lastName;
 		let assignedContactList = document.getElementById('dropdown2');
 		assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(
 			firstName,
@@ -951,10 +971,6 @@ function renderContactsInAssignDropDownMenu() {
 			contact
 		);
 	}
-}
-
-function addSelectedContactToTaskForce(contact) {
-	taskForce.push(contactsToAssignTo[contact]);
 }
 
 /* 
