@@ -158,8 +158,8 @@ body{
     height: 25px;
     border: 0;
     outline: none;
-    
 }
+
 ::placeholder{
     width: max-content;
     height: 25px;
@@ -169,8 +169,8 @@ body{
     font-size: 21px;
     line-height: 120%;
     color: #D1D1D1;
-
 }
+
 .inputLogIn {
     width: min-content;
     height: 25px;

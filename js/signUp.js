@@ -16,19 +16,22 @@ function inputValueTest() {
     requiredEmail.classList.remove('requiredOn');
     requiredEmail.innerHTML = `This field is required`;
     if (name.value.length || email.value.length || password.value.length) {
-        if (name.value.length == 0) {
+        if (name.value.length == 0 ||
+            email.value[0] === ' ') {
             requiredName.classList.add('requiredOn');
         } else {
             requiredName.classList.remove('requiredOn');
         };
         if (email.value.length < 8 ||
             !email.value.includes('@') ||
-            !email.value.includes('.')) {
+            !email.value.includes('.') ||
+            email.value[0] === ' ') {
             requiredEmail.classList.add('requiredOn');
         } else {
             requiredEmail.classList.remove('requiredOn');
         };
-        if (password.value.length == 0) {
+        if (password.value.length == 0 ||
+            email.value[0] === ' ') {
             requiredPassword.classList.add('requiredOn');
         } else {
             requiredPassword.classList.remove('requiredOn');
