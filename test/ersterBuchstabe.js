@@ -1,57 +1,29 @@
 let users = [
-<<<<<<< HEAD
-    {
-        name: "Frank Jens",
-        email: "frankjens@test.de",
-        password: "123456789"
-    },
-    {
-        name: "Sigmunde Arafad",
-        email: "sigmundekoehler@test.de",
-        password: "123456789"
-    },
-    {
-        name: "Gertraut Harald",
-        email: "gertrautharald@test.de",
-        password: "123456789"
-    },
-    {
-        name: "Klaudia Bumsbine",
-        email: "klaudiaschoenfeld@test.de",
-        password: "123456789"
-    },
-    {
-        name: "Peter Lustig",
-        email: "Peterlustig@test.de",
-        password: "123456789"
-    }
-=======
 	{
-		name: 'Frank Jens',
-		email: 'frankjens@test.de',
-		password: '123456789',
+		name: "Frank Jens",
+		email: "frankjens@test.de",
+		password: "123456789"
 	},
 	{
-		name: 'Sigmunde Köhler',
-		email: 'sigmundekoehler@test.de',
-		password: '123456789',
+		name: "Sigmunde Arafad",
+		email: "sigmundekoehler@test.de",
+		password: "123456789"
 	},
 	{
-		name: 'Gertraut Harald',
-		email: 'gertrautharald@test.de',
-		password: '123456789',
+		name: "Gertraut Harald",
+		email: "gertrautharald@test.de",
+		password: "123456789"
 	},
 	{
-		name: 'Klaudia Schönfeld',
-		email: 'klaudiaschoenfeld@test.de',
-		password: '123456789',
+		name: "Klaudia Bumsbine",
+		email: "klaudiaschoenfeld@test.de",
+		password: "123456789"
 	},
 	{
-		name: 'Peter Lustig',
-		email: 'Peterlustig@test.de',
-		password: '123456789',
-	},
->>>>>>> 1ed32628c574c70ed361bfdce140238fd87601e8
+		name: "Peter Lustig",
+		email: "Peterlustig@test.de",
+		password: "123456789"
+	}
 ];
 
 let colors = [
@@ -65,7 +37,8 @@ let colors = [
 ];
 
 function user() {
-	for (i = 0; i < users.length; i++) {
+	
+	for (let i = 0; i < users.length; i++) {
 		let vorUndZuName = users[i].name;
 		let firstLetter = vorUndZuName[0]; //nimmt vom ersten Namen den ersten Buchstaben [0]
 		let spaceIndex = users[i].name.indexOf(' '); //sucht mit indexOf(" ") das Lehrzeichen. Es befindet sich an Stelle x
