@@ -6,7 +6,7 @@ function initSignIn() {
 }
 
 
-function forgotPassword(){
+function forgotPassword() {
     window.location.href = './forgotMyP_sendMail.html';
 }
 
@@ -32,12 +32,14 @@ function checkCorrectInput() {
     if (email.value.length || password.value.length) {
         if (email.value.length < 8 ||
             !email.value.includes('@') ||
-            !email.value.includes('.')) {
+            !email.value.includes('.') ||
+            email.value[0] === ' ') {
             requiredEmail.classList.add('requiredOn');
         } else {
             requiredEmail.classList.remove('requiredOn');
         };
-        if (password.value.length == 0) {
+        if (password.value.length == 0 ||
+            email.value[0] === ' ') {
             requiredPassword.classList.add('requiredOn');
         } else {
             requiredPassword.classList.remove('requiredOn');
@@ -121,8 +123,8 @@ function rememberDoubleUserCheck(email, password) {
         }
     }
     if (check == 1) {
-        window.location.href = './summary.html';    
-    }else{
+        window.location.href = './summary.html';
+    } else {
         keyQueryOne(email, password);
     }
 }
