@@ -279,11 +279,13 @@ function renderToDoCards() {
     document.getElementById('toDoDiv').innerHTML = '';
     for (let i = 0; i < workStatus0Array.length; i++) {
         let cardPrio = workStatus0Array[i]['cardPrio'];
-        let subTasks = workStatus0Array[i]['subTasks'];
+        let subTasksAmount = workStatus0Array[i]['subTasks'].length;
         document.getElementById('toDoDiv').innerHTML += toDoCardHtml(i);
     }
     setCategoryBackgroundColorForWorkStatus0();
 }
+
+
 
 
 /**
@@ -296,6 +298,9 @@ function toDoCardHtml(arrayIndex){
     let cardDescription = workStatus0Array[arrayIndex]['cardDescription'];
     let cardCategory = workStatus0Array[arrayIndex]['cardCategory'];
     let taskIndex = workStatus0Array[arrayIndex]['taskIndex'];
+    let workStatusArrayNo = 0;
+    let subTasksAmount = workStatus0Array[arrayIndex]['subTasks'].length;
+    let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
     return /*html*/`
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
             <div class='taskContainer'>
@@ -308,7 +313,7 @@ function toDoCardHtml(arrayIndex){
                 </div>
                 <div class='doneBar'>
                     <div></div>
-                    <span>1/2 Done</span>
+                    <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
                 </div>
                 <div class='contributorsPrio'>
                     <div class='contributorsLogoContainer'>
@@ -329,6 +334,18 @@ function toDoCardHtml(arrayIndex){
                 </div>
             </div>
         </div>`;
+}
+
+
+function determindSubTasksDone(arrayIndex, workStatusArrayNo){
+    let doneAmount = 0;
+    for (let i = 0; i < workStatusArray[workStatusArrayNo][arrayIndex]['subTasks'].length; i++) {
+        let subTaskStatus = workStatusArray[workStatusArrayNo][arrayIndex]['subTasks'][i]['subtaskStatus'];
+        if (subTaskStatus){
+            doneAmount += 1;
+        }
+    }
+    return doneAmount;
 }
 
 
@@ -368,6 +385,9 @@ function inProgressHtml(arrayIndex){
         let cardDescription = workStatus1Array[arrayIndex]['cardDescription'];
         let cardCategory = workStatus1Array[arrayIndex]['cardCategory'];
         let taskIndex = workStatus1Array[arrayIndex]['taskIndex'];
+        let workStatusArrayNo = 1;
+        let subTasksAmount = workStatus1Array[arrayIndex]['subTasks'].length;
+        let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
         return /*html*/`
             <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
                 <div class='taskContainer'>
@@ -380,7 +400,7 @@ function inProgressHtml(arrayIndex){
                     </div>
                     <div class='doneBar'>
                         <div></div>
-                        <span>1/2 Done</span>
+                        <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
                     </div>
                     <div class='contributorsPrio'>
                         <div class='contributorsLogoContainer'>
@@ -440,6 +460,9 @@ function awaitingFeedbackHtml(arrayIndex){
     let cardDescription = workStatus2Array[arrayIndex]['cardDescription'];
     let cardCategory = workStatus2Array[arrayIndex]['cardCategory'];
     let taskIndex = workStatus2Array[arrayIndex]['taskIndex'];
+    let workStatusArrayNo = 2;
+    let subTasksAmount = workStatus2Array[arrayIndex]['subTasks'].length;
+    let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
     return /*html*/`
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
             <div class='taskContainer'>
@@ -452,7 +475,7 @@ function awaitingFeedbackHtml(arrayIndex){
                 </div>
                 <div class='doneBar'>
                     <div></div>
-                    <span>1/2 Done</span>
+                    <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
                 </div>
                 <div class='contributorsPrio'>
                     <div class='contributorsLogoContainer'>
@@ -511,6 +534,9 @@ function doneHtml(arrayIndex){
     let cardDescription = workStatus3Array[arrayIndex]['cardDescription'];
     let cardCategory = workStatus3Array[arrayIndex]['cardCategory'];
     let taskIndex = workStatus3Array[arrayIndex]['taskIndex'];
+    let workStatusArrayNo = 3;
+    let subTasksAmount = workStatus3Array[arrayIndex]['subTasks'].length;
+    let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
     return /*html*/`
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
             <div class='taskContainer'>
@@ -523,7 +549,7 @@ function doneHtml(arrayIndex){
                 </div>
                 <div class='doneBar'>
                     <div></div>
-                    <span>1/2 Done</span>
+                    <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
                 </div>
                 <div class='contributorsPrio'>
                     <div class='contributorsLogoContainer'>
