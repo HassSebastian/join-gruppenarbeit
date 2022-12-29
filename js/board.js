@@ -498,6 +498,7 @@ function awaitingFeedbackHtml(arrayIndex){
         </div>`;
 }
 
+
 /**
  * this function set the backgroundcolor of the catogory in the awaiting feedback task card.
  */
@@ -818,8 +819,6 @@ function setTaskCardPopupCatColor(taskIndex){
 }
 
 
-
-
 /**
  * This function sets the background color of the prio button and transfers the url of the image associated with the prio button.
  * @param {*} taskIndex --this value is equal to the index number of the main array "joinTaskArray", where
@@ -833,6 +832,7 @@ function setTaskCardPopupPrioBackground(taskIndex){
     document.getElementById('prioContainer').style = `background-color: ${cardPrioBackground};`;
     document.getElementById('cardPrioImg').src = cardPrioImgSrc;
 }
+
 
 // Edit Taskcard popup
 async function openEditTaskCard(taskIndex){
