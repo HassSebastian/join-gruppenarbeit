@@ -255,6 +255,7 @@ button span {
     order: 3;
     flex-grow: 0;
     z-index: 3;
+    cursor: pointer;
 }
 
 .arrowContainer img {

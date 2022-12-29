@@ -207,6 +207,7 @@ tr td:nth-child(3) {
     gap: 26px;
     width: 106px;
     height: 49px;
+    cursor: pointer;
 }
 
 #memberInfo img:first-child {
@@ -225,4 +226,15 @@ tr td:nth-child(3) {
     height: 49px;
     border: 3px solid #2A3647;
     border-radius: 100%;
+}
+
+.logOut{
+    position: absolute;
+    top: 89px;
+    right: 25px;
+    cursor: pointer;
+    display: none;
+}
+.logOutOn{
+    display: block;
 }

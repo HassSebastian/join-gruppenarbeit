@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./styles/forgotMyP_Reset.css">
     <link rel="stylesheet" href="./styles/fonts.css">
     <script src="./js/script.js"></script>
+    <script src="./js/forgotMyP_Reset.js"></script>
 
 
 </head>
@@ -16,50 +17,55 @@
 <body>
 
     <div class="forgotReset">
-        <div class="forgotResetContainer">
-            <div class="forgotResetHeadline">
-                <span>Reset your password</span>
-                <div></div>
-            </div>
-            
-            <span class="forgotPasswordContent">Change your account password</span>
+        <form action="" onsubmit="inputForgotEmaiCheck() ;return false">
 
-            <div class="inputContainer">
 
-                <div class="outContainer">
-                    <div class="container">
-                        <div class="innerContainer">
-                            <span>New password</span>
-                        </div>
-                    </div>
-                    <span class="required">This field is required</span>
-                </div>
-                <div class="outContainer">
-                    <div class="container">
-                        <div class="innerContainer">
-                            <span>Confirm password</span>
-                        </div>
-                    </div>
-                    <span class="required">This field is required</span>
+            <div class="forgotResetContainer">
+                <div class="forgotResetHeadline">
+                    <span>Reset your password</span>
+                    <div></div>
                 </div>
 
+                <span class="forgotPasswordContent">Change your account password</span>
+
+                <div class="inputContainer">
+
+                    <div class="outContainer">
+                        <div class="container">
+                            <div class="innerContainer">
+                                <input class="inputPassword" type="password" placeholder="New password" id="inputNewPassword">
+                            </div>
+                        </div>
+                        <span class="required" id="requiredNewPassword">This field is required</span>
+                    </div>
+                    <div class="outContainer">
+                        <div class="container">
+                            <div class="innerContainer">
+                                <input class="inputPassword" type="password" placeholder="Confirm password" id="inputConfirmPassword">
+                            </div>
+                        </div>
+                        <span class="required" id="requiredConfirmPassword">This field is required</span>
+                    </div>
+
+                </div>
+
+                <div class="buttonContainer">
+                    <button>
+                        <span>Continue</span>
+                    </button>
+                </div>
+
+                <div class="arrowContainer" onclick="back()">
+                    <img src="./assets/img/back_logo.png">
+                </div>
+
             </div>
 
-            <div class="buttonContainer">
-                <button>
-                    <span>Continue</span>
-                </button>
+            <div class="joinLogo">
+                <img src="./assets/img/join_logo_black.png">
             </div>
+        </form>
 
-            <div class="arrowContainer">
-                <img src="./assets/img/back_logo.png">
-            </div>
-
-        </div>
-
-        <div class="joinLogo">
-            <img src="./assets/img/join_logo_black.png">
-        </div>
 
     </div>
 

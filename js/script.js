@@ -157,3 +157,12 @@ function help() {
 function dataPrivacy() {
     window.location.href = './dataPrivacy.html';
 }
+
+
+function logOutBtn(){
+    document.getElementById("logOut").classList.add('logOutOn');
+}
+
+function logOut(){
+    window.location.href = './index.html';
+}

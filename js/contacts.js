@@ -1,167 +1,19 @@
 let contacts = [
     {
-        "surname": "Mayer",
-        "name": "Anton",
+        "name": "Anton Mayer",
         "email": "antonm@gmail.com",
         "phone": "+49 1111 111 11 1"
     },
     {
-        "surname": "Hardt",
-        "name": "Cesar",
+        "name": "Cesar Hardt",
         "email": "cesarh@gmail.com",
         "phone": "+49 3333 333 33 3"
     },
     {
-        "surname": "Müller",
-        "name": "Berta",
+        "name": "Berta Müller",
         "email": "bertam@gmail.com",
         "phone": "+49 2222 222 22 2"
-    },
-    {
-        "surname": "Mayer",
-        "name": "Anton",
-        "email": "antonm@gmail.com",
-        "phone": "+49 1111 111 11 1"
-    },
-    {
-        "surname": "Hardt",
-        "name": "Cesar",
-        "email": "cesarh@gmail.com",
-        "phone": "+49 3333 333 33 3"
-    },
-    {
-        "surname": "Müller",
-        "name": "Berta",
-        "email": "bertam@gmail.com",
-        "phone": "+49 2222 222 22 2"
-    },
-    {
-        "surname": "Mayer",
-        "name": "Anton",
-        "email": "antonm@gmail.com",
-        "phone": "+49 1111 111 11 1"
-    },
-    {
-        "surname": "Hardt",
-        "name": "Cesar",
-        "email": "cesarh@gmail.com",
-        "phone": "+49 3333 333 33 3"
-    },
-    {
-        "surname": "Müller",
-        "name": "Berta",
-        "email": "bertam@gmail.com",
-        "phone": "+49 2222 222 22 2"
-    },
-    {
-        "surname": "Mayer",
-        "name": "Anton",
-        "email": "antonm@gmail.com",
-        "phone": "+49 1111 111 11 1"
-    },
-    {
-        "surname": "Hardt",
-        "name": "Cesar",
-        "email": "cesarh@gmail.com",
-        "phone": "+49 3333 333 33 3"
-    },
-    {
-        "surname": "Müller",
-        "name": "Berta",
-        "email": "bertam@gmail.com",
-        "phone": "+49 2222 222 22 2"
-    },
-    {
-        "surname": "Mayer",
-        "name": "Anton",
-        "email": "antonm@gmail.com",
-        "phone": "+49 1111 111 11 1"
-    },
-    {
-        "surname": "Hardt",
-        "name": "Cesar",
-        "email": "cesarh@gmail.com",
-        "phone": "+49 3333 333 33 3"
-    },
-    {
-        "surname": "Müller",
-        "name": "Berta",
-        "email": "bertam@gmail.com",
-        "phone": "+49 2222 222 22 2"
-    },
-    {
-        "surname": "Mayer",
-        "name": "Anton",
-        "email": "antonm@gmail.com",
-        "phone": "+49 1111 111 11 1"
-    },
-    {
-        "surname": "Hardt",
-        "name": "Cesar",
-        "email": "cesarh@gmail.com",
-        "phone": "+49 3333 333 33 3"
-    },
-    {
-        "surname": "Müller",
-        "name": "Berta",
-        "email": "bertam@gmail.com",
-        "phone": "+49 2222 222 22 2"
-    },
-    {
-        "surname": "Mayer",
-        "name": "Anton",
-        "email": "antonm@gmail.com",
-        "phone": "+49 1111 111 11 1"
-    },
-    {
-        "surname": "Hardt",
-        "name": "Cesar",
-        "email": "cesarh@gmail.com",
-        "phone": "+49 3333 333 33 3"
-    },
-    {
-        "surname": "Müller",
-        "name": "Berta",
-        "email": "bertam@gmail.com",
-        "phone": "+49 2222 222 22 2"
-    },
-    {
-        "surname": "Mayer",
-        "name": "Anton",
-        "email": "antonm@gmail.com",
-        "phone": "+49 1111 111 11 1"
-    },
-    {
-        "surname": "Hardt",
-        "name": "Cesar",
-        "email": "cesarh@gmail.com",
-        "phone": "+49 3333 333 33 3"
-    },
-    {
-        "surname": "Müller",
-        "name": "Berta",
-        "email": "bertam@gmail.com",
-        "phone": "+49 2222 222 22 2"
-    },
-    {
-        "surname": "Mayer",
-        "name": "Anton",
-        "email": "antonm@gmail.com",
-        "phone": "+49 1111 111 11 1"
-    },
-    {
-        "surname": "Hardt",
-        "name": "Cesar",
-        "email": "cesarh@gmail.com",
-        "phone": "+49 3333 333 33 3"
-    },
-    {
-        "surname": "Müller",
-        "name": "Berta",
-        "email": "bertam@gmail.com",
-        "phone": "+49 2222 222 22 2"
-    },
-
+    }
 ];
 
 async function initContacts() {
@@ -192,20 +44,21 @@ async function renderContacts() {
     document.getElementById('contacts').innerHTML = '';
 
     for (let i = 0; i < contacts.length; i++) {
-        const surname = contacts[i].surname;
         const name = contacts[i].name;
         const email = contacts[i].email;
-        const surnameLetter = contacts[i].surname.charAt(0);
         const nameLetter = contacts[i].name.charAt(0);
+        let spaceIndex = contacts[i].name.indexOf(' ');
+        const surname = contacts[i].name.substring(spaceIndex + 1);
+        let surnameLetter = surname[0];
 
         document.getElementById('contacts').innerHTML += /*html*/ `
         <div class="contact" id="contact${i}" onclick="showContact(${i})">
              <div class="ellipse">
-                <span>${surnameLetter}${nameLetter}</span>
+                <span>${nameLetter}${surnameLetter}</span>
              </div>
              <div class="name_and_email">
                  <div class="name">
-                     <span>${name} ${surname}</span>
+                     <span>${name}</span>
                  </div>
                  <div class="email">
                      ${email}
@@ -272,20 +125,21 @@ function closeEditContact() {
 }
 
 function showContact(i) {
-    const surname = contacts[i].surname;
     const name = contacts[i].name;
     const email = contacts[i].email;
     const phone = contacts[i].phone;
-    const surnameLetter = contacts[i].surname.charAt(0);
     const nameLetter = contacts[i].name.charAt(0);
+    let spaceIndex = contacts[i].name.indexOf(' ');
+    const surname = contacts[i].name.substring(spaceIndex + 1);
+    let surnameLetter = surname[0];
     document.getElementById('showContact').innerHTML = '';
     document.getElementById('showContact').innerHTML = /*html*/ `
       <div>
             <div class="show_contact_ellipse_5">
-                <span>${surnameLetter}${nameLetter}</span>
+                <span>${nameLetter}${surnameLetter}</span>
             </div>
             <div class="showContact_Name_addTask">
-                <h1>${name} ${surname}</h1>
+                <h1>${name}</h1>
                 <span>+ Add Task</span>
             </div>
         </div>
