@@ -724,8 +724,8 @@ function renderSubtask(taskIndex){
     let subtaskArray = joinTaskArray[taskIndex]['subTasks'];
     if (subtaskArray.length > 0){
         for (let i = 0; i < subtaskArray.length; i++) {
-            let subtaskText = subtaskArray[i];
-            document.getElementById('subtaskListTaskCard').innerHTML = /*html*/`
+            let subtaskText = subtaskArray[i]['subtaskText'];
+            document.getElementById('subtaskListTaskCard').innerHTML += /*html*/`
                 <div>
                     <input type="checkbox" id='subtask${i}' onclick='checkboxSubtaskSelected(${i})'>
                     <span>${subtaskText}</span>
