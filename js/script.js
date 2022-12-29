@@ -160,7 +160,7 @@ function dataPrivacy() {
 
 
 function logOutBtn(){
-    document.getElementById("logOut").classList.add('logOutOn');
+    document.getElementById("logOut").classList.toggle('logOutOn');
 }
 
 function logOut(){
