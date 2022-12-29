@@ -12,6 +12,13 @@ let categoryBackgroundColors = [
     '#e200be',
     '#0038ff'
 ];
+let prioColorAndUrlArray = [
+    {
+    'urgent': ['#FF3D00', './assets/img/urgent_white.png'],
+    'medium': ['#FFA800', './assets/img/medium_white.png'],
+    'low': ['#7AE229', './assets/img/low_white.png'],
+    }
+];
 
 
 async function initBoard() {
@@ -636,6 +643,11 @@ function stopClose(event){
 
 
 // render function for the detail view of the task card.
+
+/**
+ * this function render the HTML code for the detail view of a taskcard.
+ * @param {number} taskIndex - this value is equal to the index position in the main array 'joinTaskArray'.
+ */
 function renderPopupTaskCard(taskIndex){
     let cardTitle = joinTaskArray[taskIndex]['title'];
     let cardDescription = joinTaskArray[taskIndex]['descripten'];
@@ -719,6 +731,10 @@ function renderPopupTaskCard(taskIndex){
 }
 
 
+/**
+ * this function render the HTML code for the subTasks in the board detail view taskcard.
+ * @param {*} taskIndex - this value is equal to the index position in the main array 'joinTaskArray'.
+ */
 function renderSubtask(taskIndex){
     document.getElementById('subtaskListTaskCard').innerHTML = '';
     let subtaskArray = joinTaskArray[taskIndex]['subTasks'];
@@ -727,23 +743,24 @@ function renderSubtask(taskIndex){
             let subtaskText = subtaskArray[i]['subtaskText'];
             document.getElementById('subtaskListTaskCard').innerHTML += /*html*/`
                 <div>
-                    <input type="checkbox" id='subtask${i}' onclick='checkboxSubtaskSelected(${i})'>
+                    <input type="checkbox" id='subtask${i}' onclick='checkboxSubtaskSelected(${i}, ${taskIndex})'>
                     <span>${subtaskText}</span>
                 </div>`;
         }
     }
-    
 }
 
-function checkboxSubtaskSelected(subIndex){
-    let subindexNo = subIndex;
-    let checkboxStatus = document.getElementById(`subtask${subIndex}`).checked;
-    console.log(checkboxStatus, subindexNo);
+// test function to determind which subtask is performed.
+function checkboxSubtaskSelected(subTaskIndex, taskIndex){
+    let checkboxStatus = document.getElementById(`subtask${subTaskIndex}`).checked;
+    joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'] = checkboxStatus;
+    console.log(taskIndex, subTaskIndex);
+    // let subTaskStatusBoard = joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subt']
 }
 
 
 /**
- * 
+ * this function set the category background-color of the category.
  * @param {number} taskIndex -this value is equal to the index number of the main array "joinTaskArray", where
  * the task card information is stored.
  */
@@ -754,13 +771,6 @@ function setTaskCardPopupCatColor(taskIndex){
 }
 
 
-let prioColorAndUrlArray = [
-    {
-    'urgent': ['#FF3D00', './assets/img/urgent_white.png'],
-    'medium': ['#FFA800', './assets/img/medium_white.png'],
-    'low': ['#7AE229', './assets/img/low_white.png'],
-    }
-]
 
 
 /**
