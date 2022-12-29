@@ -744,6 +744,7 @@
 	background-color: red;
 	border-radius: 100%;
 	font-size: 21px;
+	cursor: pointer;
 }
 
 .addTaskAssignList {
