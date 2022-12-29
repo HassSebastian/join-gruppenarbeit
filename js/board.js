@@ -750,12 +750,15 @@ function renderSubtask(taskIndex){
     }
 }
 
+
 // test function to determind which subtask is performed.
 function checkboxSubtaskSelected(subTaskIndex, taskIndex){
     let checkboxStatus = document.getElementById(`subtask${subTaskIndex}`).checked;
     joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'] = checkboxStatus;
     console.log(taskIndex, subTaskIndex);
-    // let subTaskStatusBoard = joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subt']
+    let subTaskText= joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskText'];
+    let subTaskStatus = joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'];
+    console.log(subTaskText, subTaskStatus);
 }
 
 

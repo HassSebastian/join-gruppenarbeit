@@ -688,6 +688,7 @@ function getDataFromFomular() {
  * this fuction collect all data for the Taskcard in a JSON format.
  */
 function fillTaskData() {
+	setSubtaskStatusForBoardToFalse();
 	taskData = {
 		title: title,
 		descripten: descripten,
@@ -702,6 +703,12 @@ function fillTaskData() {
 	catColor = '';
 }
 
+
+function setSubtaskStatusForBoardToFalse(){
+	for (let i = 0; i < selectedSubtasks.length; i++) {
+		selectedSubtasks[i]['subtaskStatus'] = false;
+	}
+}
 
 /**
  * this function push all Taskdata to the main Array.
@@ -894,7 +901,7 @@ function createSubtaskListToSave() {
 	selectedSubtasks = [];
 	for (let i = 0; i < subTaskArray.length; i++) {
 		let subTaskText = subTaskArray[i]['subtaskText'];
-		let subTaskStatus =subTaskArray[i]['subtaskStatus'];
+		let subTaskStatus = subTaskArray[i]['subtaskStatus'];
 		let subtaskJson = {'subtaskText': subTaskText, 'subtaskStatus': subTaskStatus};
 		if (subTaskStatus) {
 			selectedSubtasks.push(subtaskJson);
