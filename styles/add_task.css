@@ -1241,7 +1241,7 @@
 	left: 414px;
 }
 
-.test {
+.taskCreatedIndication {
 	transform: translateY(-500px);
 	transition-delay: 900ms;
 	transition-duration: 300ms;

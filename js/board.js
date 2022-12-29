@@ -642,6 +642,8 @@ function renderPopupTaskCard(taskIndex){
     let cardCategory = joinTaskArray[taskIndex]['category'];
     let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
     let taskPrio = joinTaskArray[taskIndex]['prio'];
+    let subtaskArray = joinTaskArray[taskIndex]['subTasks'];
+    console.log(subtaskArray);
     document.getElementById('boardPopup').innerHTML = '';
     document.getElementById('boardPopup').innerHTML = /*html*/`
         <div class="boardTaskCardPopup" onclick='stopClose(event)'>
@@ -690,8 +692,8 @@ function renderPopupTaskCard(taskIndex){
             <span class='boardSubtaskTitle'>Subtasks:</span>
                 
         </div >
-        <div class='boardSubtasksDiv'>
-            <div>
+        <div class='boardSubtasksDiv' id='subtaskListTaskCard'>
+            <!-- <div>
                 <input type="checkbox" id='subtask0' onclick='checkboxSubtaskSelected(0)'>
                 <span>move the Taskcard to in progress</span>
             </div>
@@ -706,16 +708,32 @@ function renderPopupTaskCard(taskIndex){
             <div>
                 <input type="checkbox" id='subtask3' onclick='checkboxSubtaskSelected(3)'>
                 <span>verschiebe</span>
-            </div>
+            </div> -->
         </div>
         
         `;
 
     setTaskCardPopupCatColor(taskIndex);
     setTaskCardPopupPrioBackground(taskIndex);
-
+    renderSubtask(taskIndex);
 }
 
+
+function renderSubtask(taskIndex){
+    document.getElementById('subtaskListTaskCard').innerHTML = '';
+    let subtaskArray = joinTaskArray[taskIndex]['subTasks'];
+    if (subtaskArray.length > 0){
+        for (let i = 0; i < subtaskArray.length; i++) {
+            let subtaskText = subtaskArray[i];
+            document.getElementById('subtaskListTaskCard').innerHTML = /*html*/`
+                <div>
+                    <input type="checkbox" id='subtask${i}' onclick='checkboxSubtaskSelected(${i})'>
+                    <span>${subtaskText}</span>
+                </div>`;
+        }
+    }
+    
+}
 
 function checkboxSubtaskSelected(subIndex){
     let subindexNo = subIndex;
