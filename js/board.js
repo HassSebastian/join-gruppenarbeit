@@ -731,11 +731,17 @@ function renderPopupTaskCard(taskIndex){
 }
 
 
+async function renderSubtask(taskIndex){
+    await renderSubtaskHtml(taskIndex);
+    setSubTaskStatus(taskIndex);
+}
+
+
 /**
  * this function render the HTML code for the subTasks in the board detail view taskcard.
  * @param {*} taskIndex - this value is equal to the index position in the main array 'joinTaskArray'.
  */
-function renderSubtask(taskIndex){
+async function renderSubtaskHtml(taskIndex){
     document.getElementById('subtaskListTaskCard').innerHTML = '';
     let subtaskArray = joinTaskArray[taskIndex]['subTasks'];
     if (subtaskArray.length > 0){
@@ -745,20 +751,32 @@ function renderSubtask(taskIndex){
                 <div>
                     <input type="checkbox" id='subtask${i}' onclick='checkboxSubtaskSelected(${i}, ${taskIndex})'>
                     <span>${subtaskText}</span>
-                </div>`;
+                </div>`;      
+        }
+    }
+}
+
+
+function setSubTaskStatus(taskIndex){
+    let subtaskArray = joinTaskArray[taskIndex]['subTasks'];
+    for (let i = 0; i < subtaskArray.length; i++) {
+        if (subtaskArray[i]['subtaskStatus']){
+            document.getElementById(`subtask${i}`).checked = true;
         }
     }
 }
 
 
 // test function to determind which subtask is performed.
-function checkboxSubtaskSelected(subTaskIndex, taskIndex){
+async function checkboxSubtaskSelected(subTaskIndex, taskIndex){
     let checkboxStatus = document.getElementById(`subtask${subTaskIndex}`).checked;
     joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'] = checkboxStatus;
     console.log(taskIndex, subTaskIndex);
     let subTaskText= joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskText'];
     let subTaskStatus = joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'];
     console.log(subTaskText, subTaskStatus);
+    joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'] = checkboxStatus;
+    await saveTask();
 }
 
 
