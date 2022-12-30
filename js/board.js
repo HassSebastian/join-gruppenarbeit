@@ -272,6 +272,17 @@ function renderAllCards() {
 
 
 /**
+ * It takes two numbers, divides the first by the second, and multiplies the result by 100
+ * @param number - The number you want to calculate the percentage of.
+ * @param total - The total number of items.
+ * @returns The percentage of the number in relation to the total.
+ */
+function calculatePercentage(number, total) {
+    return (number / total) * 100;
+  }
+
+
+/**
  * this function render all todo cards.
  */
 // toDo class design löschen !?
@@ -301,6 +312,7 @@ function toDoCardHtml(arrayIndex){
     let workStatusArrayNo = 0;
     let subTasksAmount = workStatus0Array[arrayIndex]['subTasks'].length;
     let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+    let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
     return /*html*/`
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
             <div class='taskContainer'>
@@ -312,7 +324,9 @@ function toDoCardHtml(arrayIndex){
                     <span class='taskContent'>${cardDescription}</span>
                 </div>
                 <div class='doneBar'>
-                    <div></div>
+                    <div class='doneBarOuter'>
+                        <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;'></div>
+                    </div>
                     <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
                 </div>
                 <div class='contributorsPrio'>
@@ -334,9 +348,21 @@ function toDoCardHtml(arrayIndex){
                 </div>
             </div>
         </div>`;
+        
 }
 
 
+
+
+
+/**
+ * The function determindSubTasksDone() takes two arguments, the first is the index of the
+ * workStatusArray[workStatusArrayNo] array, the second is the index of the workStatusArray array. The
+ * function returns the amount of subTasks that are done.
+ * @param arrayIndex - the index of the task in the array
+ * @param workStatusArrayNo - the index of the workStatusArray that you want to check.
+ * @returns The amount of subTasks that are done.
+ */
 function determindSubTasksDone(arrayIndex, workStatusArrayNo){
     let doneAmount = 0;
     for (let i = 0; i < workStatusArray[workStatusArrayNo][arrayIndex]['subTasks'].length; i++) {
@@ -388,6 +414,7 @@ function inProgressHtml(arrayIndex){
         let workStatusArrayNo = 1;
         let subTasksAmount = workStatus1Array[arrayIndex]['subTasks'].length;
         let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+        let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
         return /*html*/`
             <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
                 <div class='taskContainer'>
@@ -399,7 +426,9 @@ function inProgressHtml(arrayIndex){
                         <span class='taskContent'>${cardDescription}</span>
                     </div>
                     <div class='doneBar'>
-                        <div></div>
+                        <div class='doneBarOuter'>
+                            <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;'></div>
+                        </div>
                         <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
                     </div>
                     <div class='contributorsPrio'>
@@ -463,6 +492,7 @@ function awaitingFeedbackHtml(arrayIndex){
     let workStatusArrayNo = 2;
     let subTasksAmount = workStatus2Array[arrayIndex]['subTasks'].length;
     let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+    let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
     return /*html*/`
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
             <div class='taskContainer'>
@@ -474,7 +504,9 @@ function awaitingFeedbackHtml(arrayIndex){
                     <span class='taskContent'>${cardDescription}</span>
                 </div>
                 <div class='doneBar'>
-                    <div></div>
+                    <div class='doneBarOuter'>
+                        <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;'></div>
+                    </div>
                     <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
                 </div>
                 <div class='contributorsPrio'>
@@ -538,6 +570,7 @@ function doneHtml(arrayIndex){
     let workStatusArrayNo = 3;
     let subTasksAmount = workStatus3Array[arrayIndex]['subTasks'].length;
     let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+    let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
     return /*html*/`
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
             <div class='taskContainer'>
@@ -549,7 +582,9 @@ function doneHtml(arrayIndex){
                     <span class='taskContent'>${cardDescription}</span>
                 </div>
                 <div class='doneBar'>
-                    <div></div>
+                    <div class='doneBarOuter'>
+                        <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;'></div>
+                    </div>
                     <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
                 </div>
                 <div class='contributorsPrio'>
