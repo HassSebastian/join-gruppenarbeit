@@ -931,8 +931,7 @@ function resetSubtaskSelections() {
 =======================*/
 
 /**
- * If the list is not visible, make it visible and remove the border bottom from the button. If the
- * list is visible, add the border bottom to the button and make the list invisible.
+ * Shows or hides dropdown menu of assign section
  */
 function enableDisableAssignList() {
 	if (!assignListStatus) {
@@ -947,6 +946,9 @@ function enableDisableAssignList() {
 	assignListStatus = !assignListStatus;
 }
 
+/**
+ * Just shows dropdown menu of assign list
+ */
 function enableAssignList() {
 	document.getElementById('dropdown2').classList.remove('listD-none');
 	assignListStatus = !assignListStatus;
@@ -977,11 +979,11 @@ function assignChangeInputPlaceholderToContactEmail() {
 	document.getElementsByName('selectedAssign')[0].placeholder = `Contact email`;
 }
 
-function enableInputaddTasAssign() {
+function enableInputAddTaskAssign() {
 	document.getElementById('selectedAssign').disabled = false;
 }
 
-function showCancelConfirmButtons() {
+function showCancelConfirmButtonsAssignSection() {
 	document
 		.getElementById('assignToCancelConfirmImgContainer')
 		.classList.remove('d-none');
@@ -991,6 +993,9 @@ function hideAssignDropDownImg() {
 	document.getElementById('assignDropDownImg').classList.add('d-none');
 }
 
+/**
+ * It activates focus of input field in assign section
+ */
 function assignInputAutoFocus() {
 	document.getElementById('selectedAssign').focus();
 }
@@ -1000,13 +1005,21 @@ function assignInputAutoFocus() {
  */
 function assigendContactEmail() {
 	assignChangeInputPlaceholderToContactEmail();
-	enableInputaddTasAssign();
-	showCancelConfirmButtons();
+	enableInputAddTaskAssign();
+	showCancelConfirmButtonsAssignSection();
 	hideAssignDropDownImg();
 	assignInputAutoFocus();
 	changeAssignPlaceholderColorToGrey();
 }
 
+/**
+ * "If the user clicks on the dropdown menu, don't close the dropdown menu."
+ *
+ * The function is called when the user clicks on the dropdown menu. The event.stopPropagation() method
+ * stops the event from bubbling up the DOM tree, preventing the event from being triggered on the
+ * parent element
+ * @param event - The event object.
+ */
 function doNotCloseOnClick(event) {
 	event.stopPropagation();
 }
@@ -1170,7 +1183,7 @@ let backgroundColorForBadges = [
 	'#FF7A00',
 ];
 
-let index;
+let index; // !Das muss nach oben, wenn oder weg jenachdem wie wir es letztlich machen
 
 function chooseColorForTaskForceBadge(initialFirstName, initialLastName) {
 	let asciInintalFirstName = initialFirstName.charCodeAt(0);
@@ -1179,6 +1192,16 @@ function chooseColorForTaskForceBadge(initialFirstName, initialLastName) {
 	index = sum % 10;
 }
 
+/**
+ * It takes in a bunch of parameters and returns a string of HTML.
+ * @param memberOfTaskForce - This is the name of the task force.
+ * @param firstName - "John"
+ * @param lastName - "Smith"
+ * @param initialFirstName - The first letter of the first name
+ * @param initialLastName - "S"
+ * @param index - the index of the current member in the array of members
+ * @returns A string of HTML.
+ */
 function generateBadgesTaskForceHtml(
 	memberOfTaskForce,
 	firstName,
@@ -1199,6 +1222,10 @@ function generateBadgesTaskForceHtml(
 		`;
 }
 
+/**
+ * It takes the first and last name of each member of the task force and generates a badge for each
+ * member.
+ */
 function renderBadgesMemberOfTaskForce() {
 	let badgeContainer = document.getElementById('badgesTaskForce');
 	badgeContainer.innerHTML = '';
@@ -1247,6 +1274,7 @@ function clearTaskForce() {
 
 function frontEndDeveloper() {
 	document.getElementById('selectedAssign').value = `Just frontend. Sorry! ;)`;
+	alert('This function is part of backend. The course is about frontend though');
 }
 
 /**
