@@ -1,4 +1,32 @@
-'use strict';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: add_task.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: add_task.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
 
 let catListStatus = false;
 let assignListStatus = false;
@@ -96,32 +124,32 @@ async function initAddTask() {
 async function renderAddTask() {
 	document.getElementById('content').innerHTML = '';
 	document.getElementById('content').innerHTML += /*html*/ `
-	<div class="addTaskHeadlineDiv">
-		<h2 class="addTHeadline">Add Task</h2>
-	</div>
-	<div class="addTaskBtnOuterContainer">
-		<div class="addTaskBtnInnerContainer">
-			<button
+	&lt;div class="addTaskHeadlineDiv">
+		&lt;h2 class="addTHeadline">Add Task&lt;/h2>
+	&lt;/div>
+	&lt;div class="addTaskBtnOuterContainer">
+		&lt;div class="addTaskBtnInnerContainer">
+			&lt;button
 				class="addTaskClear"
 				onmouseover="addTaskClearOn()"
 				onmouseout="addTaskClearOff()"
 				onclick="clearFormularData()"
 			>
-				<span>Clear</span>
-				<img id="addTaskClear" src="./assets/img/clearb.png" />
-			</button>
-			<button class="addTaskCreate" onclick="checkInputs()">
-				<span>Create Task</span>
-				<img src="./assets/img/createb.png" />
-			</button>
-		</div>
-	</div>
-	<!-- <form onsubmit="goToPrio();return false"> -->
-	<div class="addTaskAddTitleContainer">
-		<div class="addTaskAddTitleBox">
-			<h3>Title</h3>
-			<form onsubmit="goToDescripten(); return false">
-				<input
+				&lt;span>Clear&lt;/span>
+				&lt;img id="addTaskClear" src="./assets/img/clearb.png" />
+			&lt;/button>
+			&lt;button class="addTaskCreate" onclick="checkInputs()">
+				&lt;span>Create Task&lt;/span>
+				&lt;img src="./assets/img/createb.png" />
+			&lt;/button>
+		&lt;/div>
+	&lt;/div>
+	&lt;!-- &lt;form onsubmit="goToPrio();return false"> -->
+	&lt;div class="addTaskAddTitleContainer">
+		&lt;div class="addTaskAddTitleBox">
+			&lt;h3>Title&lt;/h3>
+			&lt;form onsubmit="goToDescripten(); return false">
+				&lt;input
 					required
 					type="text"
 					placeholder="Enter a title"
@@ -129,64 +157,64 @@ async function renderAddTask() {
 					autocomplete="off"
 					minlength="3"
 				/>
-			</form>
-			<span class="requiredText" id="titleReq">This field is required</span>
-		</div>
+			&lt;/form>
+			&lt;span class="requiredText" id="titleReq">This field is required&lt;/span>
+		&lt;/div>
 
-		<div class="addTaskAddDescriptenBox">
-			<h3>Descripten</h3>
-			<!-- <form onblur='goToCategorySelection(); return false' id='formDesc' action='action.asp'> -->
-			<textarea
+		&lt;div class="addTaskAddDescriptenBox">
+			&lt;h3>Descripten&lt;/h3>
+			&lt;!-- &lt;form onblur='goToCategorySelection(); return false' id='formDesc' action='action.asp'> -->
+			&lt;textarea
 				form="formDesc"
 				type="text"
 				placeholder="Enter Descripten"
 				id="addTaskDescripten"
 				required
 				minlength="5"
-			></textarea>
-			<!-- </form> -->
-			<span class="requiredText" id="descReq">This field is required</span>
-		</div>
+			>&lt;/textarea>
+			&lt;!-- &lt;/form> -->
+			&lt;span class="requiredText" id="descReq">This field is required&lt;/span>
+		&lt;/div>
 
-		<div class="addTaskAddCategoryBox">
-			<h3>Category</h3>
-			<button onclick="enableDisableCatList()" id="selectedCat">
-				<input
+		&lt;div class="addTaskAddCategoryBox">
+			&lt;h3>Category&lt;/h3>
+			&lt;button onclick="enableDisableCatList()" id="selectedCat">
+				&lt;input
 					disabled
 					id="selectedCatInput"
 					placeholder="Select task category"
 					autocomplete="off"
 				/>
-				<span id="sColor"></span>
-				<div class="newCategoryImgDiv d-none" id="addTaskNewCatBtn">
-					<img src="assets/img/new_cat_cancel.png" />
-					<img src="assets/img/bnt_divider.png" class="btnDivider" />
-					<img src="assets/img/akar-icons_check.png" />
-				</div>
-				<img
+				&lt;span id="sColor">&lt;/span>
+				&lt;div class="newCategoryImgDiv d-none" id="addTaskNewCatBtn">
+					&lt;img src="assets/img/new_cat_cancel.png" />
+					&lt;img src="assets/img/bnt_divider.png" class="btnDivider" />
+					&lt;img src="assets/img/akar-icons_check.png" />
+				&lt;/div>
+				&lt;img
 					src="assets/img/Vector 2.png"
 					class="dropdownImg"
 					id="dropdownImg"
 				/>
-			</button>
-			<span class="listD-none requiredText" id="catReq"
-				>This field is required</span
+			&lt;/button>
+			&lt;span class="listD-none requiredText" id="catReq"
+				>This field is required&lt;/span
 			>
-			<ul class="addTaskCatList listD-none" id="CatListDropdown"></ul>
-			<div class="addTaskAddCategoryColor listD-none" id="colorSelection">
-				<div class="color0" id="color0Div" onclick="addColorToCat(0)"></div>
-				<div class="color1" id="color1Div" onclick="addColorToCat(1)"></div>
-				<div class="color2" id="color2Div" onclick="addColorToCat(2)"></div>
-				<div class="color3" id="color3Div" onclick="addColorToCat(3)"></div>
-				<div class="color4" id="color4Div" onclick="addColorToCat(4)"></div>
-				<div class="color5" id="color5Div" onclick="addColorToCat(5)"></div>
-			</div>
-		</div>
+			&lt;ul class="addTaskCatList listD-none" id="CatListDropdown">&lt;/ul>
+			&lt;div class="addTaskAddCategoryColor listD-none" id="colorSelection">
+				&lt;div class="color0" id="color0Div" onclick="addColorToCat(0)">&lt;/div>
+				&lt;div class="color1" id="color1Div" onclick="addColorToCat(1)">&lt;/div>
+				&lt;div class="color2" id="color2Div" onclick="addColorToCat(2)">&lt;/div>
+				&lt;div class="color3" id="color3Div" onclick="addColorToCat(3)">&lt;/div>
+				&lt;div class="color4" id="color4Div" onclick="addColorToCat(4)">&lt;/div>
+				&lt;div class="color5" id="color5Div" onclick="addColorToCat(5)">&lt;/div>
+			&lt;/div>
+		&lt;/div>
 
-		<div class="addTaskAssignedBox" id="addTaskAssignedBox">
-			<h3>Assigned to</h3>
-			<button id="addTaskAssignedButton" onclick="enableDisableAssignList()">
-				<input
+		&lt;div class="addTaskAssignedBox" id="addTaskAssignedBox">
+			&lt;h3>Assigned to&lt;/h3>
+			&lt;button id="addTaskAssignedButton" onclick="enableDisableAssignList()">
+				&lt;input
 						disabled
 						onclick="doNotCloseOnClick(event)"
 						id="selectedAssign"
@@ -196,79 +224,79 @@ async function renderAddTask() {
 						autocomplete="off"
 					/>
 				
-				<div
+				&lt;div
 				id="assignToCancelConfirmImgContainer"
 				class="assignToCancelConfirmImgContainer d-none"
 				>
-					<img
+					&lt;img
 					onclick="assignBoxBackToDefaultMode(), enableAssignList()"
 					class="assignToCancelIcon"
 					src="assets/img/cancel-black.png"
 					alt="cancel"
 					/>
-					<img class="assignToDeviderIcon" src="assets/img/bnt_divider.png" />
-					<img
+					&lt;img class="assignToDeviderIcon" src="assets/img/bnt_divider.png" />
+					&lt;img
 					onclick="frontEndDeveloper()"
 					class="assignToCheckIcon"
 					src="assets/img/akar-icons_check.png"
 					alt="confirm"
 					/>
-				</div>
-				<img id="assignDropDownImg" src="assets/img/Vector 2.png" class="dropdownImg" />
-			</button>
-			<span id="assignReq">This field is required</span>
-			<div id="badgesTaskForce" class="badgesTaskForce"></div>
-			<ul class="addTaskAssignList listD-none" id="dropdown2">
+				&lt;/div>
+				&lt;img id="assignDropDownImg" src="assets/img/Vector 2.png" class="dropdownImg" />
+			&lt;/button>
+			&lt;span id="assignReq">This field is required&lt;/span>
+			&lt;div id="badgesTaskForce" class="badgesTaskForce">&lt;/div>
+			&lt;ul class="addTaskAssignList listD-none" id="dropdown2">
 
-				<li onclick="assigendContactEmail()" class="inviteNewContacts">
-					Invite new contacts<img
+				&lt;li onclick="assigendContactEmail()" class="inviteNewContacts">
+					Invite new contacts&lt;img
 						class="assignInviteNewContactImage"
 						src="assets/img/assigned_inviteNewContact.png"
 						alt=""
 					/>
-				</li>
-				<li>
+				&lt;/li>
+				&lt;li>
 		You
-		<div  class="assignCheckboxContainer">
-			<img class="checkBox" src="assets/img/check_box.png" alt="checkbox" />
-			<img class="checkMark" src="assets/img/check_mark.png" />
-		</div>
-	</li>
-			</ul>
-		</div>
-	</div>
-	<div class="addTaskDivider"></div>
+		&lt;div  class="assignCheckboxContainer">
+			&lt;img class="checkBox" src="assets/img/check_box.png" alt="checkbox" />
+			&lt;img class="checkMark" src="assets/img/check_mark.png" />
+		&lt;/div>
+	&lt;/li>
+			&lt;/ul>
+		&lt;/div>
+	&lt;/div>
+	&lt;div class="addTaskDivider">&lt;/div>
 
-		</div>
+		&lt;/div>
 
-		<div class='addTaskRightContainer'>
-			<div class='addTaskDate'>
-				<h3>Due date</h3>
-				<input required type="date" id='dueDate'>
-				<span class='requiredText' id='dateReq'>This field is required</span>
-			</div>
-			<div class='addTaskPrio'>
-				<h3>Prio</h3>
-				<div class='addTaskPrioIcons'>
-					<div class='addTaskUrgent' id='addTaskUrgent' onclick='addPrio(0)'>
-						<span id='addTaskUrgentSpan'>Urgent</span>
-						<img id='addTaskUrgentImg' src="../assets/img/urgent_arrows.png">
-					</div>
-					<div class='addTaskMedium' id='addTaskMedium' onclick='addPrio(1)'>
-						<span id='addTaskMediumSpan'>Medium</span>
-						<img id='addTaskMediumImg' src="../assets/img/prio_medium.png">
-					</div>
-					<div class='addTaskLow' id='addTaskLow' onclick='addPrio(2)'>
-						<span id='addTaskLowSpan'>Low</span>
-						<img id='addTaskLowImg' src="../assets/img/prio_low.png">
-					</div>
-				</div>
-			</div>
-			<div class='subtask'>
-				<h3>Subtask</h3>
-				<div class='inputDiv'>
-					<form onsubmit='addSubtask(); return false' >
-					<input
+		&lt;div class='addTaskRightContainer'>
+			&lt;div class='addTaskDate'>
+				&lt;h3>Due date&lt;/h3>
+				&lt;input required type="date" id='dueDate'>
+				&lt;span class='requiredText' id='dateReq'>This field is required&lt;/span>
+			&lt;/div>
+			&lt;div class='addTaskPrio'>
+				&lt;h3>Prio&lt;/h3>
+				&lt;div class='addTaskPrioIcons'>
+					&lt;div class='addTaskUrgent' id='addTaskUrgent' onclick='addPrio(0)'>
+						&lt;span id='addTaskUrgentSpan'>Urgent&lt;/span>
+						&lt;img id='addTaskUrgentImg' src="../assets/img/urgent_arrows.png">
+					&lt;/div>
+					&lt;div class='addTaskMedium' id='addTaskMedium' onclick='addPrio(1)'>
+						&lt;span id='addTaskMediumSpan'>Medium&lt;/span>
+						&lt;img id='addTaskMediumImg' src="../assets/img/prio_medium.png">
+					&lt;/div>
+					&lt;div class='addTaskLow' id='addTaskLow' onclick='addPrio(2)'>
+						&lt;span id='addTaskLowSpan'>Low&lt;/span>
+						&lt;img id='addTaskLowImg' src="../assets/img/prio_low.png">
+					&lt;/div>
+				&lt;/div>
+			&lt;/div>
+			&lt;div class='subtask'>
+				&lt;h3>Subtask&lt;/h3>
+				&lt;div class='inputDiv'>
+					&lt;form onsubmit='addSubtask(); return false' >
+					&lt;input
 					type="text"
 					placeholder="Add new subtask"
 					id="subTask"
@@ -277,38 +305,38 @@ async function renderAddTask() {
 					onblur="subTaskInputLeave()"
 					minlength="3"
 				/>
-				<img
+				&lt;img
 					src="../assets/img/add_cross.png"
 					class="subtaskCross"
 					id="subtaskCross"
 					onclick="enterSubTaskInput()"
 				/>
-					</form>
-					<div class='subTaskImgDiv d-none' id='subTaskImgDiv' >
-						<img src="../assets/img/new_cat_cancel.png" onclick='resetSubtaskInput()'>
-						<img src="../assets/img/bnt_divider.png" class='btnDivider'>
-						<img src="../assets/img/akar-icons_check.png" onclick='addSubtask()'>
-					</div>
+					&lt;/form>
+					&lt;div class='subTaskImgDiv d-none' id='subTaskImgDiv' >
+						&lt;img src="../assets/img/new_cat_cancel.png" onclick='resetSubtaskInput()'>
+						&lt;img src="../assets/img/bnt_divider.png" class='btnDivider'>
+						&lt;img src="../assets/img/akar-icons_check.png" onclick='addSubtask()'>
+					&lt;/div>
 					
-				</div>
+				&lt;/div>
 				
-				<div class='addTaskCheckbox' id='subtaskCheckboxes'>
-					<!-- <div>
-						<input type="checkbox">
-						<span>Subtask 1</span>
-					</div> -->
-				</div>
+				&lt;div class='addTaskCheckbox' id='subtaskCheckboxes'>
+					&lt;!-- &lt;div>
+						&lt;input type="checkbox">
+						&lt;span>Subtask 1&lt;/span>
+					&lt;/div> -->
+				&lt;/div>
 				
 				
-			</div>
-		</div>
-	<!-- </form>  -->
-	<div class="taskAddedToBoard" id="taskCreatedIndication">
-		<div class="taskAddedToBoardContainer">
-			<span>Task added to board</span>
-			<img src="./assets/img/img_board_w.png" />
-		</div>
-	</div>    
+			&lt;/div>
+		&lt;/div>
+	&lt;!-- &lt;/form>  -->
+	&lt;div class="taskAddedToBoard" id="taskCreatedIndication">
+		&lt;div class="taskAddedToBoardContainer">
+			&lt;span>Task added to board&lt;/span>
+			&lt;img src="./assets/img/img_board_w.png" />
+		&lt;/div>
+	&lt;/div>    
 
 
 
@@ -332,7 +360,7 @@ function goToPrio() {
 async function loadExitingCategories() {
 	loadTask();
 	addTaskCategoryList = [{ category: 'New Category', catColor: '' }];
-	for (let i = 0; i < joinTaskArray.length; i++) {
+	for (let i = 0; i &lt; joinTaskArray.length; i++) {
 		let taskCategory = joinTaskArray[i]['category'];
 		let categoryColor = joinTaskArray[i]['catColor'];
 		addTaskCategoryList.push({
@@ -381,7 +409,7 @@ function enableDisableCatList() {
  * @returns true or false
  */
 function categoryListAndNewCategoryInputNotActive() {
-	return !catListStatus && !newCatInputActive;
+	return !catListStatus &amp;&amp; !newCatInputActive;
 }
 
 /**
@@ -389,7 +417,7 @@ function categoryListAndNewCategoryInputNotActive() {
  */
 function renderCategoryList() {
 	document.getElementById('CatListDropdown').innerHTML = '';
-	for (let i = 0; i < addTaskCategoryList.length; i++) {
+	for (let i = 0; i &lt; addTaskCategoryList.length; i++) {
 		let categoryName = addTaskCategoryList[i]['category'];
 		let categoryColor = addTaskCategoryList[i]['catColor'];
 		if (categoryColorAvailable(categoryColor)) {
@@ -421,10 +449,10 @@ function categoryColorAvailable(categoryColor) {
  */
 function dropdownCategoryListHtml(categoryName, categoryColor, i) {
 	return /*html*/ `
-        <li onclick='selectCategory(${i})'>
+        &lt;li onclick='selectCategory(${i})'>
             ${categoryName}
-            <div  class='color${categoryColor} addTaskColorDiv'></div>
-        </li>`;
+            &lt;div  class='color${categoryColor} addTaskColorDiv'>&lt;/div>
+        &lt;/li>`;
 }
 
 /**
@@ -436,9 +464,9 @@ function dropdownCategoryListHtml(categoryName, categoryColor, i) {
  */
 function dropdownCategoryListHtml1(categoryName, i) {
 	return /*html*/ `
-        <li onclick='selectCategory(${i})'>
+        &lt;li onclick='selectCategory(${i})'>
             ${categoryName}
-        </li>`;
+        &lt;/li>`;
 }
 
 /**
@@ -477,14 +505,14 @@ function resetCatSelection() {
  */
 function resetCatSelectionHtml() {
 	return /*html*/ `
-        <input disabled id='selectedCatInput' placeholder='Select task category' autocomplete='off'>
-        <span id='sColor'></span>
-        <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
-            <img src="../assets/img/new_cat_cancel.png">
-            <img src="../assets/img/bnt_divider.png" class='btnDivider'>
-            <img src="../assets/img/akar-icons_check.png">
-        </div>
-        <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
+        &lt;input disabled id='selectedCatInput' placeholder='Select task category' autocomplete='off'>
+        &lt;span id='sColor'>&lt;/span>
+        &lt;div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
+            &lt;img src="../assets/img/new_cat_cancel.png">
+            &lt;img src="../assets/img/bnt_divider.png" class='btnDivider'>
+            &lt;img src="../assets/img/akar-icons_check.png">
+        &lt;/div>
+        &lt;img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
 }
 
 /**
@@ -530,14 +558,14 @@ function setSettingsForNewCategoryInput() {
  */
 function newCategoryInputHtml() {
 	return /*html*/ `
-        <input id='selectedCatInput' placeholder='New Category' autocomplete='off'>
-        <span id='sColor'></span>
-        <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
-            <img src="../assets/img/new_cat_cancel.png" onclick='resetCatSelection()'>
-            <img src="../assets/img/bnt_divider.png" class='btnDivider'>
-            <img src="../assets/img/akar-icons_check.png" onclick='setNewCategoryToList()'>
-        </div>
-        <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
+        &lt;input id='selectedCatInput' placeholder='New Category' autocomplete='off'>
+        &lt;span id='sColor'>&lt;/span>
+        &lt;div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
+            &lt;img src="../assets/img/new_cat_cancel.png" onclick='resetCatSelection()'>
+            &lt;img src="../assets/img/bnt_divider.png" class='btnDivider'>
+            &lt;img src="../assets/img/akar-icons_check.png" onclick='setNewCategoryToList()'>
+        &lt;/div>
+        &lt;img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
 }
 
 /**
@@ -565,9 +593,9 @@ function setSettingsForExistingCategory(catId) {
  */
 function existingCategoryHtml(newCat, categoryColor) {
 	return /*html*/ `
-        <p id='selectedCatInput'>${newCat}</p>
-        <span id='sColor'><div class='color${categoryColor} addTaskColorDiv'></div></span>
-        <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
+        &lt;p id='selectedCatInput'>${newCat}&lt;/p>
+        &lt;span id='sColor'>&lt;div class='color${categoryColor} addTaskColorDiv'>&lt;/div>&lt;/span>
+        &lt;img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
 }
 
 /**
@@ -677,14 +705,14 @@ function clearFormularData() {
 	document.getElementById('addTaskTitle').value = '';
 	descripten = document.getElementById('addTaskDescripten').value = '';
 	document.getElementById('selectedCat').innerHTML = /*html*/ `
-        <input disabled id='selectedCatInput' placeholder='Select task category' autocomplete='off'>
-        <span id='sColor'></span>
-        <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
-            <img src="../assets/img/new_cat_cancel.png">
-            <img src="../assets/img/bnt_divider.png" class='btnDivider'>
-            <img src="../assets/img/akar-icons_check.png">
-        </div>
-        <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
+        &lt;input disabled id='selectedCatInput' placeholder='Select task category' autocomplete='off'>
+        &lt;span id='sColor'>&lt;/span>
+        &lt;div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
+            &lt;img src="../assets/img/new_cat_cancel.png">
+            &lt;img src="../assets/img/bnt_divider.png" class='btnDivider'>
+            &lt;img src="../assets/img/akar-icons_check.png">
+        &lt;/div>
+        &lt;img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
 	document.getElementById('dueDate').value = '';
 	resetSubtaskSelections();
 	selectedSubtasks = [];
@@ -733,7 +761,7 @@ function fillTaskData() {
 }
 
 function setSubtaskStatusForBoardToFalse() {
-	for (let i = 0; i < selectedSubtasks.length; i++) {
+	for (let i = 0; i &lt; selectedSubtasks.length; i++) {
 		selectedSubtasks[i]['subtaskStatus'] = false;
 	}
 }
@@ -805,7 +833,7 @@ function removeBtnSelection(btnName) {
 }
 
 function unselectOtherBtn(idList) {
-	for (let i = 0; i < idList.length; i++) {
+	for (let i = 0; i &lt; idList.length; i++) {
 		let selectedId = idList[i];
 		let cListLength = document.getElementById(selectedId).classList.length;
 		let btnName = selectedId.replace('addTask', '');
@@ -856,7 +884,7 @@ function resetSubtaskInput() {
 function addSubtask() {
 	let subTaskText = document.getElementById('subTask').value;
 	subTaskText = subTaskText.trim();
-	if (subTaskText != '' && subTaskText.length >= 3) {
+	if (subTaskText != '' &amp;&amp; subTaskText.length >= 3) {
 		subTaskInputLeave();
 		// subTaskArray.push(subTaskText);
 		pushNewSubtaskDatatoArray(subTaskText);
@@ -876,7 +904,7 @@ function pushNewSubtaskDatatoArray(subTaskText) {
 
 async function renderSubtasks() {
 	await subtaskListHtml();
-	for (let i = 0; i < subTaskArray.length; i++) {
+	for (let i = 0; i &lt; subTaskArray.length; i++) {
 		if (subTaskArray[i]['subtaskStatus']) {
 			document.getElementById(`subtask${i}`).checked = true;
 		}
@@ -885,13 +913,13 @@ async function renderSubtasks() {
 
 async function subtaskListHtml() {
 	document.getElementById('subtaskCheckboxes').innerHTML = '';
-	for (let i = 0; i < subTaskArray.length; i++) {
+	for (let i = 0; i &lt; subTaskArray.length; i++) {
 		let subTaskTitle = subTaskArray[i]['subtaskText'];
 		document.getElementById('subtaskCheckboxes').innerHTML += /*html*/ `
-        <div>
-            <input type="checkbox" id='subtask${i}' onclick='subtaskSelectionChange(${i})'>
-            <span>${subTaskTitle}</span>
-        </div>`;
+        &lt;div>
+            &lt;input type="checkbox" id='subtask${i}' onclick='subtaskSelectionChange(${i})'>
+            &lt;span>${subTaskTitle}&lt;/span>
+        &lt;/div>`;
 	}
 }
 
@@ -907,7 +935,7 @@ function subtaskSelectionChange(subTaskIndex) {
 
 function createSubtaskListToSave() {
 	selectedSubtasks = [];
-	for (let i = 0; i < subTaskArray.length; i++) {
+	for (let i = 0; i &lt; subTaskArray.length; i++) {
 		let subTaskText = subTaskArray[i]['subtaskText'];
 		let subTaskStatus = subTaskArray[i]['subtaskStatus'];
 		let subtaskJson = { subtaskText: subTaskText, subtaskStatus: subTaskStatus };
@@ -918,7 +946,7 @@ function createSubtaskListToSave() {
 }
 
 function resetSubtaskSelections() {
-	for (let i = 0; i < subTaskArray.length; i++) {
+	for (let i = 0; i &lt; subTaskArray.length; i++) {
 		document.getElementById(`subtask${i}`).checked = false;
 	}
 }
@@ -1128,13 +1156,13 @@ function addContactToTaskForceWithCheckBox(contact) {
 
 function generateAssignContactListForDropDownMenu(firstName, lastName, contact) {
 	return /*html*/ `
-	<li onclick="addContactToTaskForceWithCheckBox(${contact})">
+	&lt;li onclick="addContactToTaskForceWithCheckBox(${contact})">
 		${firstName} ${lastName}
-		<div  class="assignCheckboxContainer">
-			<img class="checkBox" src="assets/img/check_box.png" alt="checkbox" />
-			<img id="checkMark${contact}" class="checkMark d-none" src="assets/img/check_mark.png" />
-		</div>
-	</li>
+		&lt;div  class="assignCheckboxContainer">
+			&lt;img class="checkBox" src="assets/img/check_box.png" alt="checkbox" />
+			&lt;img id="checkMark${contact}" class="checkMark d-none" src="assets/img/check_mark.png" />
+		&lt;/div>
+	&lt;/li>
 	`;
 }
 
@@ -1144,7 +1172,7 @@ function generateAssignContactListForDropDownMenu(firstName, lastName, contact) 
  *! "contact" might not be the best name. To be reconsidered!!
  */
 function renderContactsInAssignDropDownMenu() {
-	for (let contact = 0; contact < coworkersToAssignTo.length; contact++) {
+	for (let contact = 0; contact &lt; coworkersToAssignTo.length; contact++) {
 		let firstName = coworkersToAssignTo[contact].firstName;
 		let lastName = coworkersToAssignTo[contact].lastName;
 		let assignedContactList = document.getElementById('dropdown2');
@@ -1164,7 +1192,7 @@ function setCheckStatusToFalse() {
 }
 
 function checkStatusToFalse() {
-	for (let coworker = 0; coworker < coworkersToAssignTo.length; coworker++) {
+	for (let coworker = 0; coworker &lt; coworkersToAssignTo.length; coworker++) {
 		coworkersToAssignTo[coworker].check = false;
 		removeCheckMarkFromCheckBox(coworker);
 	}
@@ -1216,14 +1244,14 @@ function generateBadgesTaskForceHtml(
 	index
 ) {
 	return /*html*/ `
-		<div
+		&lt;div
 			id="${memberOfTaskForce}"
 			class="badgeTaskForce"
 			title="${firstName} ${lastName}"
 			style="background-color:${backgroundColorForBadges[index]}"
 		>
 			${initialFirstName}${initialLastName}
-		</div>
+		&lt;/div>
 		`;
 }
 
@@ -1236,7 +1264,7 @@ function renderBadgesMemberOfTaskForce() {
 	badgeContainer.innerHTML = '';
 	for (
 		let memberOfTaskForce = 0;
-		memberOfTaskForce < taskForce.length;
+		memberOfTaskForce &lt; taskForce.length;
 		memberOfTaskForce++
 	) {
 		const initialFirstName = taskForce[memberOfTaskForce].firstName.charAt(0);
@@ -1286,3 +1314,26 @@ function frontEndDeveloper() {
  * !NOCH ERLEDIGEN:
 FUnktion: Der, der die Task anlegt, erscheint automatisch in der Taksforce!!!!!!!
  */
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addColorToCat">addColorToCat</a></li><li><a href="global.html#addContactToTaskForceWithCheckBox">addContactToTaskForceWithCheckBox</a></li><li><a href="global.html#addRemoveToggleForTaskForce">addRemoveToggleForTaskForce</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#assigendContactEmail">assigendContactEmail</a></li><li><a href="global.html#assignInputAutoFocus">assignInputAutoFocus</a></li><li><a href="global.html#awaitingFeedbackHtml">awaitingFeedbackHtml</a></li><li><a href="global.html#boardHtml">boardHtml</a></li><li><a href="global.html#borderBottomOffAssignedBoxButton">borderBottomOffAssignedBoxButton</a></li><li><a href="global.html#borderBottomOnAssignedBoxButton">borderBottomOnAssignedBoxButton</a></li><li><a href="global.html#categoryColorAvailable">categoryColorAvailable</a></li><li><a href="global.html#categoryListAndNewCategoryInputNotActive">categoryListAndNewCategoryInputNotActive</a></li><li><a href="global.html#checkInputs">checkInputs</a></li><li><a href="global.html#chooseColorForTaskForceBadge">chooseColorForTaskForceBadge</a></li><li><a href="global.html#createWorkStatusArrays">createWorkStatusArrays</a></li><li><a href="global.html#createWorkStatusJson">createWorkStatusJson</a></li><li><a href="global.html#disablePopupWindow">disablePopupWindow</a></li><li><a href="global.html#doNotCloseOnClick">doNotCloseOnClick</a></li><li><a href="global.html#doneHtml">doneHtml</a></li><li><a href="global.html#dropdownCategoryListHtml">dropdownCategoryListHtml</a></li><li><a href="global.html#dropdownCategoryListHtml1">dropdownCategoryListHtml1</a></li><li><a href="global.html#enableAssignList">enableAssignList</a></li><li><a href="global.html#enableDisableAssignList">enableDisableAssignList</a></li><li><a href="global.html#enableDisableCatList">enableDisableCatList</a></li><li><a href="global.html#enablePopupWindow">enablePopupWindow</a></li><li><a href="global.html#existingCategoryHtml">existingCategoryHtml</a></li><li><a href="global.html#fillTaskData">fillTaskData</a></li><li><a href="global.html#findIndexOfMemberOfTaskForce">findIndexOfMemberOfTaskForce</a></li><li><a href="global.html#generateBadgesTaskForceHtml">generateBadgesTaskForceHtml</a></li><li><a href="global.html#getReqiredFieldValues">getReqiredFieldValues</a></li><li><a href="global.html#highlight">highlight</a></li><li><a href="global.html#inProgressHtml">inProgressHtml</a></li><li><a href="global.html#joinTaskArrayExistInStorage">joinTaskArrayExistInStorage</a></li><li><a href="global.html#loadExitingCategories">loadExitingCategories</a></li><li><a href="global.html#loadJSONFromServer">loadJSONFromServer</a></li><li><a href="global.html#loadTask">loadTask</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#newCategoryCreationIsSelected">newCategoryCreationIsSelected</a></li><li><a href="global.html#newCategoryInputHtml">newCategoryInputHtml</a></li><li><a href="global.html#notShowAddDiv">notShowAddDiv</a></li><li><a href="global.html#pushTaskData">pushTaskData</a></li><li><a href="global.html#removeHighlight">removeHighlight</a></li><li><a href="global.html#renderAddTask">renderAddTask</a></li><li><a href="global.html#renderAddTaskPopup">renderAddTaskPopup</a></li><li><a href="global.html#renderAddTaskPopupHtml">renderAddTaskPopupHtml</a></li><li><a href="global.html#renderAllCards">renderAllCards</a></li><li><a href="global.html#renderAwaitingFeedbackCards">renderAwaitingFeedbackCards</a></li><li><a href="global.html#renderBadgesMemberOfTaskForce">renderBadgesMemberOfTaskForce</a></li><li><a href="global.html#renderBoard">renderBoard</a></li><li><a href="global.html#renderCategoryList">renderCategoryList</a></li><li><a href="global.html#renderContactsInAssignDropDownMenu">renderContactsInAssignDropDownMenu</a></li><li><a href="global.html#renderDoneCards">renderDoneCards</a></li><li><a href="global.html#renderInProgressCards">renderInProgressCards</a></li><li><a href="global.html#renderPopupTaskCard">renderPopupTaskCard</a></li><li><a href="global.html#renderSubtaskHtml">renderSubtaskHtml</a></li><li><a href="global.html#renderToDoCards">renderToDoCards</a></li><li><a href="global.html#requiredFieldAreNotValid">requiredFieldAreNotValid</a></li><li><a href="global.html#resetCatSelection">resetCatSelection</a></li><li><a href="global.html#resetCatSelectionHtml">resetCatSelectionHtml</a></li><li><a href="global.html#resetRequiredWarnings">resetRequiredWarnings</a></li><li><a href="global.html#resetWorkStatusArrays">resetWorkStatusArrays</a></li><li><a href="global.html#saveJSONToServer">saveJSONToServer</a></li><li><a href="global.html#saveTask">saveTask</a></li><li><a href="global.html#selectCategory">selectCategory</a></li><li><a href="global.html#setCategoryBackgroundColorForWorkStatus0">setCategoryBackgroundColorForWorkStatus0</a></li><li><a href="global.html#setCategoryBackgroundColorForWorkStatus1">setCategoryBackgroundColorForWorkStatus1</a></li><li><a href="global.html#setCategoryBackgroundColorForWorkStatus2">setCategoryBackgroundColorForWorkStatus2</a></li><li><a href="global.html#setCategoryBackgroundColorForWorkStatus3">setCategoryBackgroundColorForWorkStatus3</a></li><li><a href="global.html#setNewCategoryToList">setNewCategoryToList</a></li><li><a href="global.html#setRequiredTextWarnings">setRequiredTextWarnings</a></li><li><a href="global.html#setSettingsForExistingCategory">setSettingsForExistingCategory</a></li><li><a href="global.html#setSettingsForNewCategoryInput">setSettingsForNewCategoryInput</a></li><li><a href="global.html#setTaskCardPopupCatColor">setTaskCardPopupCatColor</a></li><li><a href="global.html#setTaskCardPopupPrioBackground">setTaskCardPopupPrioBackground</a></li><li><a href="global.html#showAddDiv">showAddDiv</a></li><li><a href="global.html#startDrag">startDrag</a></li><li><a href="global.html#stopClose">stopClose</a></li><li><a href="global.html#toDoCardHtml">toDoCardHtml</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Fri Dec 30 2022 13:00:23 GMT+0100 (Mitteleuropäische Normalzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
