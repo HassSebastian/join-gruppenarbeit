@@ -43,6 +43,7 @@ function sortContacts() {
 async function renderContent() {
 document.getElementById('content').innerHTML = '';
 document.getElementById('content').innerHTML = /*html*/`
+
 <div>
 
 
@@ -59,7 +60,7 @@ document.getElementById('content').innerHTML = /*html*/`
 
 
 <div class="showContact" id="showContact">
-    
+
 </div>
 
 
@@ -110,8 +111,13 @@ document.getElementById('content').innerHTML = /*html*/`
 
 </div>
 </div>
+
 `;
 renderContacts();
+}
+
+function contactListHTML(){
+    return 
 }
 
 async function renderContacts() {
@@ -143,18 +149,6 @@ async function renderContacts() {
 
     }
 
-
-
-}
-
-function openNewContact() {
-    document.getElementById('new_contact').classList.remove('d-none');
-    renderContacts();
-}
-
-function closeNewContact() {
-    document.getElementById('new_contact').classList.add('d-none');
-    renderContacts();
 }
 
 function openEditContact(i) {
@@ -162,14 +156,14 @@ function openEditContact(i) {
     document.getElementById('edit_contact').innerHTML /*html*/ = '';
     document.getElementById('edit_contact').innerHTML = /*html*/ `
     <div class="add_contact_left">
-    <img src="assets/img/join_logo.png" alt="">
-    <h1>Add contact</h1>
-    <span>Tasks are better with a team!</span>
+      <img src="assets/img/join_logo.png" alt="">
+      <h1>Add contact</h1>
+      <span>Tasks are better with a team!</span>
     <div class="add_contact_vector_5 "></div>
-</div>
-<div class="add_contact_right">
-    <img src="assets/img/empty_profile_picture.png" alt="">
-    <div class="add_contact_inputs">
+    </div>
+      <div class="add_contact_right">
+      <img src="assets/img/empty_profile_picture.png" alt="">
+      <div class="add_contact_inputs">
         <input type="text" placeholder="Name" id="editContactName">
         <input type="text" placeholder="Surname" id="editContactSurname">
         <input type="text" placeholder="Email" id="editContactEmail">
@@ -193,6 +187,14 @@ function openEditContact(i) {
     renderContacts();
 }
 
+function openNewContact() {
+    document.getElementById('new_contact').classList.remove('d-none');
+}
+
+function closeNewContact() {
+    document.getElementById('new_contact').classList.add('d-none');
+}
+
 function closeEditContact() {
     document.getElementById('edit_contact').classList.add('d-none');
     renderContacts();
@@ -206,6 +208,7 @@ function showContact(i) {
     let spaceIndex = contacts[i].name.indexOf(' ');
     const surname = contacts[i].name.substring(spaceIndex + 1);
     let surnameLetter = surname[0];
+    document.getElementById('showContact').classList.remove('d-none')
     document.getElementById('showContact').innerHTML = '';
     document.getElementById('showContact').innerHTML = /*html*/ `
       <div>
@@ -267,4 +270,5 @@ function deleteContact(i) {
     contacts.splice(i, 1);
     sortContacts();
     closeEditContact();
+    document.getElementById('showContact').classList.add('d-none')
 }
