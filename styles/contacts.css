@@ -222,6 +222,8 @@
 .new_contact span {
     font-family: 'Inter';
     font-size: 21px;
+    color: white;
+
 }
 
 .new_contact:hover {
@@ -283,11 +285,13 @@
     font-size: 29px;
     margin-block-start: 0px;
     margin-block-end: 0px;
+    color: white;
 }
 
 .add_contact_left span {
     font-family: 'Inter';
     font-size: 13px;
+    color: white;
 }
 
 .add_contact_vector_5 {

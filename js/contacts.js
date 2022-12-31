@@ -19,7 +19,7 @@ let contacts = [
 async function initContacts() {
     await includeHTML();
     selectedMenuButton(2);
-    renderContacts();
+    renderContent();
 }
 
 function compareStrings(a, b) {
@@ -38,6 +38,80 @@ function sortContacts() {
     contacts.sort(function (a, b) {
         return compareStrings(a.name, b.name);
     })
+}
+
+async function renderContent() {
+document.getElementById('content').innerHTML = '';
+document.getElementById('content').innerHTML = /*html*/`
+<div>
+
+
+<div class="Frame_97">
+    <div class="Contact_list">
+        <div class="letters">
+            <span>A</span>
+        </div>
+        <div class="Vector_10"></div>
+        <div class="contacts" id="contacts">
+        </div>
+    </div>
+</div>
+
+
+<div class="showContact" id="showContact">
+    
+</div>
+
+
+<div class="better_with_a_team">
+    <h1>Contacts</h1>
+    <div class="vector_5"></div>
+    <span>Better with a team</span>
+</div>
+
+
+<div class="new_contact" onclick="openNewContact()">
+    <span>New contact</span>
+    <img src="assets/img/add_contact_icon.png" alt="">
+</div>
+
+
+<div class="add_contact d-none" id="new_contact">
+    <div class="add_contact_left">
+        <img src="assets/img/join_logo.png" alt="">
+        <h1>Add contact</h1>
+        <span>Tasks are better with a team!</span>
+        <div class="add_contact_vector_5 "></div>
+    </div>
+    <div class="add_contact_right">
+        <img src="assets/img/empty_profile_picture.png" alt="">
+        <div class="add_contact_inputs">
+            <input type="text" placeholder="Name" id="contactName">
+            <input type="text" placeholder="Email" id="contactEmail">
+            <input type="text" placeholder="Phone" id="contactPhone">
+            <div class="add_contact_right_buttons">
+                <div class="contact_cancel" onclick="closeNewContact()">
+                    <span>Cancel</span>
+                    <img src="assets/img/new_cat_cancel.png" alt="">
+                </div>
+                <div class="contact_create" onclick="addContact()">
+                    <span>Create contact</span>
+                    <img src="assets/img/akar-icons_check_white.png" alt="">
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="add_contact d-none" id="edit_contact">
+
+
+</div>
+</div>
+`;
+renderContacts();
 }
 
 async function renderContacts() {
