@@ -233,7 +233,7 @@ async function renderAddTask() {
 			<img class="checkBox" src="assets/img/check_box.png" alt="checkbox" />
 			<img class="checkMark" src="assets/img/check_mark.png" />
 		</div>
-	</li>
+			</li>
 			</ul>
 		</div>
 	</div>

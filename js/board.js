@@ -236,16 +236,18 @@ async function createWorkStatusArrays() {
 }
 
 
+
 /**
- * This function create a JSON file for the workstatus Arrays.
- * @param {string} cardTitle - is the title of the related task.
- * @param {string} cardDescription - is the descripten of the related task.
- * @param {number} cardCatColor - is a number that is ralated to a fixed backgroundcolor for the category.
- * @param {string} cardCategory - is the category of the related task.
- * @param {string} cardPrio - is the priority of the related task.
- * @param {array} subTasks - is a array with all subtask of the related task.
- * @param {number} taskIndex - is the index number of the related task in the main array 'jsonTaskArray'.
- * @returns - a json.
+ * It takes in a bunch of parameters and returns a JSON object.
+ * @param cardTitle - The title of the card
+ * @param cardDescription - The description of the task.
+ * @param cardCatColor - The color of the category.
+ * @param cardCategory - The category of the task.
+ * @param cardPrio - The priority of the task.
+ * @param subTasks - This is an array of objects that contain the following:
+ * @param taskIndex - The index of the task in the array.
+ * @returns An object with the following properties:
+ * cardTitle, cardDescription, cardCatColor, cardCategory, cardPrio, subTasks, taskIndex
  */
 function createWorkStatusJson(cardTitle, cardDescription, cardCatColor, cardCategory, cardPrio, subTasks, taskIndex) {
     return {
@@ -260,8 +262,9 @@ function createWorkStatusJson(cardTitle, cardDescription, cardCatColor, cardCate
 }
 
 
+
 /**
- * this function call subfunction to render all task cards.
+ * This function renders all the cards in the Kanban board.
  */
 function renderAllCards() {
     renderToDoCards();
@@ -348,7 +351,6 @@ function toDoCardHtml(arrayIndex){
                 </div>
             </div>
         </div>`;
-        
 }
 
 
@@ -690,6 +692,7 @@ function enablePopupWindow(){
  */
 function disablePopupWindow(){
     document.getElementById('boardPopup').classList.add('d-none');
+    renderAllCards();
 }
 
 
@@ -1036,23 +1039,64 @@ function renderAddTaskPopupHtml(){
                     </div>
                 </div>
 
-                <div class='addTaskAssignedBox' id='addTaskAssignedBox'>
-                    <h3>Assigned to</h3>
-                    <button onclick=enableDisableAssignList()><span id='selectedAssign'>Select contacts to Assign</span><img src="../assets/img/Vector 2.png" class='dropdownImg'></button>
-                    <span id='assignReq'>This field is required</span>
+                <div class="addTaskAssignedBox" id="addTaskAssignedBox">
+			        <h3>Assigned to</h3>
+			        <button id="addTaskAssignedButton" onclick="enableDisableAssignList()">
+                    <input
+                            disabled
+                            onclick="doNotCloseOnClick(event)"
+                            id="selectedAssign"
+                            name="selectedAssign"
+                            class="inputselectedAssign"
+                            placeholder="Select contacts to assign"
+                            autocomplete="off"
+                        />
+				
+                    <div
+                    id="assignToCancelConfirmImgContainer"
+                    class="assignToCancelConfirmImgContainer d-none"
+                    >
+                        <img
+                        onclick="assignBoxBackToDefaultMode(), enableAssignList()"
+                        class="assignToCancelIcon"
+                        src="assets/img/cancel-black.png"
+                        alt="cancel"
+                        />
+                        <img class="assignToDeviderIcon" src="assets/img/bnt_divider.png" />
+                        <img
+                        onclick="frontEndDeveloper()"
+                        class="assignToCheckIcon"
+                        src="assets/img/akar-icons_check.png"
+                        alt="confirm"
+                        />
+                    </div>
+                    <img id="assignDropDownImg" src="assets/img/Vector 2.png" class="dropdownImg" />
+                    </button>
+                    <span id="assignReq">This field is required</span>
+                    <div id="badgesTaskForce" class="badgesTaskForce"></div>
                     <ul class="addTaskAssignList listD-none" id="dropdown2">
-                        <li>New Assign</li>
-                        <li>Assign 2</li>
-                        <li>Assign 3</li>
-                    </ul>
+
+                    <li onclick="assigendContactEmail()" class="inviteNewContacts">
+                        Invite new contacts<img
+                            class="assignInviteNewContactImage"
+                            src="assets/img/assigned_inviteNewContact.png"
+                            alt=""
+                        />
+                    </li>
+                    <li>
+                    You
+                    <div  class="assignCheckboxContainer">
+                        <img class="checkBox" src="assets/img/check_box.png" alt="checkbox" />
+                        <img class="checkMark" src="assets/img/check_mark.png" />
+                    </div>
                 </div>
+
+
+            <div class='boardAddTaskDividerBoard'>
+
             </div>
 
-            <div class='boardAddTaskDivider'>
-
-            </div>
-
-            <div class='boardAddTaskRightContainer'>
+            <div class='boardAddTaskRightContainer alignToBoard'>
                 <div class='addTaskDate'>
                     <h3>Due date</h3>
                     <input required type="date" id='dueDate'>
@@ -1097,7 +1141,7 @@ function renderAddTaskPopupHtml(){
             </div>
         </div>
         <!-- </form>  -->
-        <div class="boardtaskAddedToBoard" id='test'>
+        <div class="boardtaskAddedToBoard" id='taskCreatedIndication'>
             <div class="taskAddedToBoardContainer">
                 <span>Task added to board</span>
                 <img src="./assets/img/img_board_w.png">
