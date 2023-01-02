@@ -1,16 +1,15 @@
 async function initSummary() {
-    await includeHTML();
-    await renderSummary();
-    selectedMenuBtnId = 0;
-    selectedMenuButton(1);
-    showDate();
-    showTime();
+	await includeHTML();
+	await renderSummary();
+	selectedMenuBtnId = 0;
+	selectedMenuButton(1);
+	showDate();
+	showTime();
 }
 
-
 async function renderSummary() {
-    document.getElementById('content').innerHTML = '';
-    document.getElementById('content').innerHTML += /*html*/ `
+	document.getElementById('content').innerHTML = '';
+	document.getElementById('content').innerHTML += /*html*/ `
     <!-- <div class='summary_content'> -->
         <div class='title'>
             <h3>Summary</h3>
@@ -63,82 +62,76 @@ async function renderSummary() {
     `;
 }
 
-
 // Hover Summary help-function
 function toDoHoverOn() {
-    document.getElementById('toDoImg').src = "./assets/img/to_do_pen_black.png";
-    document.getElementById('toDo').classList.add('toDoHover');
-    document.getElementById('toDoAmountTasks').classList.add('toDoHoverSpanP');
-    document.getElementById('toDoAmountP').classList.add('toDoHoverSpanP');
+	document.getElementById('toDoImg').src = './assets/img/to_do_pen_black.png';
+	document.getElementById('toDo').classList.add('toDoHover');
+	document.getElementById('toDoAmountTasks').classList.add('toDoHoverSpanP');
+	document.getElementById('toDoAmountP').classList.add('toDoHoverSpanP');
 }
-
 
 function toDoHoverOff() {
-    document.getElementById('toDoImg').src = "./assets/img/to_do_pen.png";
-    document.getElementById('toDo').classList.remove('toDoHover');
-    document.getElementById('toDoAmountTasks').classList.remove('toDoHoverSpanP');
-    document.getElementById('toDoAmountP').classList.remove('toDoHoverSpanP');
+	document.getElementById('toDoImg').src = './assets/img/to_do_pen.png';
+	document.getElementById('toDo').classList.remove('toDoHover');
+	document.getElementById('toDoAmountTasks').classList.remove('toDoHoverSpanP');
+	document.getElementById('toDoAmountP').classList.remove('toDoHoverSpanP');
 }
-
 
 function toDoDoneHoverOn() {
-    document.getElementById('toDoDoneImg').src = "./assets/img/done_black.png";
-    document.getElementById('toDoDone').classList.add('toDoHover');
-    document.getElementById('toDoDoneAmountTasks').classList.add('toDoHoverSpanP');
-    document.getElementById('toDoDoneAmountP').classList.add('toDoHoverSpanP');
+	document.getElementById('toDoDoneImg').src = './assets/img/done_black.png';
+	document.getElementById('toDoDone').classList.add('toDoHover');
+	document.getElementById('toDoDoneAmountTasks').classList.add('toDoHoverSpanP');
+	document.getElementById('toDoDoneAmountP').classList.add('toDoHoverSpanP');
 }
-
 
 function toDoDoneHoverOff() {
-    document.getElementById('toDoDoneImg').src = "./assets/img/done.png";
-    document.getElementById('toDoDone').classList.remove('toDoHover');
-    document.getElementById('toDoDoneAmountTasks').classList.remove('toDoHoverSpanP');
-    document.getElementById('toDoDoneAmountP').classList.remove('toDoHoverSpanP');
+	document.getElementById('toDoDoneImg').src = './assets/img/done.png';
+	document.getElementById('toDoDone').classList.remove('toDoHover');
+	document.getElementById('toDoDoneAmountTasks').classList.remove('toDoHoverSpanP');
+	document.getElementById('toDoDoneAmountP').classList.remove('toDoHoverSpanP');
 }
-
 
 function ugencySummaryHoverOn() {
-    document.getElementById('ugencySummaryAmount').classList.add('toDoHoverSpanP');
-    document.getElementById('deadlineDate').classList.add('toDoHoverSpanP');
-    document.getElementById('deadlineText').classList.add('toDoHoverSpanP');
-    document.getElementById('ugencySummaryurgent').classList.add('toDoHoverSpanP');
+	document.getElementById('ugencySummaryAmount').classList.add('toDoHoverSpanP');
+	document.getElementById('deadlineDate').classList.add('toDoHoverSpanP');
+	document.getElementById('deadlineText').classList.add('toDoHoverSpanP');
+	document.getElementById('ugencySummaryurgent').classList.add('toDoHoverSpanP');
 }
-
 
 function ugencySummaryHoverOff() {
-    document.getElementById('ugencySummaryAmount').classList.remove('toDoHoverSpanP');
-    document.getElementById('deadlineDate').classList.remove('toDoHoverSpanP');
-    document.getElementById('deadlineText').classList.remove('toDoHoverSpanP');
-    document.getElementById('ugencySummaryurgent').classList.remove('toDoHoverSpanP');
+	document.getElementById('ugencySummaryAmount').classList.remove('toDoHoverSpanP');
+	document.getElementById('deadlineDate').classList.remove('toDoHoverSpanP');
+	document.getElementById('deadlineText').classList.remove('toDoHoverSpanP');
+	document.getElementById('ugencySummaryurgent').classList.remove('toDoHoverSpanP');
 }
 
-
-// show date in Summary 
+// show date in Summary
 function showDate() {
-    let currentDate = new Date();
-    let day = currentDate.getDate();
-    if (day < 10) {
-        day = "0" + day;
-    }
-    let dateString = currentDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-    document.getElementById("deadlineDate").innerHTML = dateString;
+	let currentDate = new Date();
+	let day = currentDate.getDate();
+	if (day < 10) {
+		day = '0' + day;
+	}
+	let dateString = currentDate.toLocaleDateString('en-US', {
+		month: 'long',
+		day: 'numeric',
+		year: 'numeric',
+	});
+	document.getElementById('deadlineDate').innerHTML = dateString;
 }
-
 
 // greet User
 function showTime() {
-    let currentTime = new Date();
-    let hours = currentTime.getHours();
-    let timeString = hours;
-    if (timeString >= 6) {
-        document.getElementById('greetUser').innerHTML = `Good Morning,`;
-    }
-    if (timeString >= 12) {
-        document.getElementById('greetUser').innerHTML = `Good Day,`;
-    }
-    if (timeString >= 18) {
-        document.getElementById('greetUser').innerHTML = `Good Evening,`;
-    }
+	let currentTime = new Date();
+	let hours = currentTime.getHours();
+	let timeString = hours;
+	if (timeString >= 6) {
+		document.getElementById('greetUser').innerHTML = `Good Morning,`;
+	}
+	if (timeString >= 12) {
+		document.getElementById('greetUser').innerHTML = `Good Day,`;
+	}
+	if (timeString >= 18) {
+		document.getElementById('greetUser').innerHTML = `Good Evening,`;
+	}
 }
-
-
