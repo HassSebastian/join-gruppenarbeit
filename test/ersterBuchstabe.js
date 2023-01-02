@@ -24,7 +24,13 @@ let users = [
 		email: 'Peterlustig@test.de',
 		password: '123456789',
 	},
+	{
+		name: 'Peter Klausen',
+		email: 'Peterlustig@test.de',
+		password: '123456789',
+	},
 ];
+
 
 let colors = [
 	'#462F8A',
@@ -36,36 +42,40 @@ let colors = [
 	'#29ABE2',
 ];
 
+
+let alphabetOrd = { A: [], B: [], C: [], D: [], E: [], F: [], G: [], H: [], I: [], J: [], K: [], L: [], M: [], N: [], O: [], P: [], Q: [], R: [], S: [], T: [], U: [], V: [], W: [], X: [], Y: [], Z: [] };
+
+
 function user() {
 	for (let i = 0; i < users.length; i++) {
 		let vorUndZuName = users[i].name;
-		let firstLetter = vorUndZuName[0]; //nimmt vom ersten Namen den ersten Buchstaben [0]
-		let spaceIndex = users[i].name.indexOf(' '); //sucht mit indexOf(" ") das Lehrzeichen. Es befindet sich an Stelle x
-
-		let secondName = users[i].name.substring(spaceIndex + 1); // ausgegeben wird, users[i].name.Stelle x + 1
+		let firstLetter = vorUndZuName[0];
+		let spaceIndex = users[i].name.indexOf(' ');
+		let secondName = users[i].name.substring(spaceIndex + 1);
 		let secondLetter = secondName[0];
-
-		console.log('firstLetter:' + firstLetter);
-
-		console.log('secondLetter:' + secondLetter);
-
-		// die Buchstaben werden in asciiCode umgewandelt
 		let asciiFirstLetter = firstLetter.charCodeAt(0);
 		let asciiSecondLetter = secondLetter.charCodeAt(0);
-
-		// der asciiCode wird addiert
 		let sum = asciiFirstLetter + asciiSecondLetter;
-
-		// die Zahl wird durch 7 geteilt (7 Farben Array) und der Restwert ist das Ergebniss
 		let result = sum % 7;
 
-		console.log('farbeNr:' + result);
+		alphabetOrd[firstLetter].push(vorUndZuName); // hier werden die namen in das alphabetOrd array eingeordnet
+	}
+	alphabet();
+}
 
-		document.getElementById('ersteBuchstaben').innerHTML += `
-            <div class="test">
-                <div>${vorUndZuName}</div>
-                <div style="background:${colors[result]}">${firstLetter} + ${secondLetter}</div>
-            </div>
-        `;
+
+// die funktion gibt die namen aus dem array alphabetOrd geordnet aus
+function alphabet() {
+	for (let wertNachDemArray in alphabetOrd) {
+		if (alphabetOrd[wertNachDemArray].length > 0) {
+			document.getElementById('ersteBuchstaben').innerHTML += `
+		<div id='${wertNachDemArray}'>${wertNachDemArray}</div>
+		`;
+			for (i = 0; i < alphabetOrd[wertNachDemArray].length; i++) {
+				document.getElementById(wertNachDemArray).innerHTML += `
+			<div>${alphabetOrd[wertNachDemArray][i]}</div>
+			`;
+			}
+		}
 	}
 }
