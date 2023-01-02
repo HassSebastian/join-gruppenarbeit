@@ -98,7 +98,7 @@ function boardHtml(){
                 </div>
             </div>
         </div>
-        <div class="canbanBoard">
+        <div class="canbanBoard" onscroll='changeHeightDropArea()' id='canbanBoard'>
             <div class="canbanContainer dragArea" id='dropArea0' ondrop="moveTo(0); removeHighlight('dropArea0')"  ondragleave="removeHighlight('dropArea0')" ondragover="allowDrop(event); highlight('dropArea0')">
                 <div id='toDoDiv'>
                     
@@ -611,13 +611,29 @@ function doneHtml(arrayIndex){
 
 
 /**
+ * When the user scrolls down the page, the height of the drop areas will increase to match the height
+ * of the page.
+ */
+function changeHeightDropArea(){
+    const elmnt = document.getElementById('canbanBoard');
+    let y = elmnt.scrollTop + 1;
+    let newHeight = y + 600;
+    document.getElementById('dropArea0').style = `height: ${newHeight}px;`;
+    document.getElementById('dropArea1').style = `height: ${newHeight}px;`;
+    document.getElementById('dropArea2').style = `height: ${newHeight}px;`;
+    document.getElementById('dropArea3').style = `height: ${newHeight}px;`;
+}
+
+
+/**
  * this function set the backgroundcolor of the catogory in the done task card.
  */
 function setCategoryBackgroundColorForWorkStatus3() {
     for (let i = 0; i < workStatus3Array.length; i++) {
         let cardCatColor = workStatus3Array[i]['cardCatColor'];
         let catBackground = categoryBackgroundColors[cardCatColor];
-        document.getElementById(`doneCard${i}`).style = `background-color: ${catBackground};`;
+        document.getElementById(`doneCard${i}`).style = `background-color: ${catBackground} !important;`;
+       
     }
 }
 
