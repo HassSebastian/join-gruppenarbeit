@@ -17,7 +17,7 @@ function inputValueTest() {
     requiredEmail.innerHTML = `This field is required`;
     if (name.value.length || email.value.length || password.value.length) {
         if (name.value.length == 0 ||
-            email.value[0] === ' ') {
+            name.value[0] === ' ') {
             requiredName.classList.add('requiredOn');
         } else {
             requiredName.classList.remove('requiredOn');
@@ -31,7 +31,7 @@ function inputValueTest() {
             requiredEmail.classList.remove('requiredOn');
         };
         if (password.value.length == 0 ||
-            email.value[0] === ' ') {
+            password.value[0] === ' ') {
             requiredPassword.classList.add('requiredOn');
         } else {
             requiredPassword.classList.remove('requiredOn');

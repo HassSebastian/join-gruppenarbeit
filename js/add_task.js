@@ -11,7 +11,6 @@ let descripten = '';
 let category = '';
 let catColor = '';
 let assigndTo = '';
-let assignToArray = [];
 let dueDate = '';
 let prio = '';
 let subTask = '';
@@ -697,10 +696,9 @@ function clearFormularData() {
 }
 
 // save data to local storage/server!
-async function createTaskData() {
+function createTaskData() {
 	loadTask();
 	getDataFromFomular();
-	await createAssignToListForSave();
 	fillTaskData();
 	pushTaskData();
 	saveTask();
@@ -711,17 +709,8 @@ async function createTaskData() {
 // toDo this is a transition function that to have reworked after all data for task card avalable.
 function getDataFromFomular() {
 	descripten = document.getElementById('addTaskDescripten').value;
-	// assigndTo = assignToArray;
+	assigndTo = 'not included jet';
 	subTask = document.getElementById('subTask').value;
-}
-
-async function createAssignToListForSave(){
-	for (let i = 0; i < coworkersToAssignTo.length; i++) {
-		let checkStatus= coworkersToAssignTo[i]['check'];
-		if(checkStatus){
-			assignToArray.push(coworkersToAssignTo[i]);
-		}
-	}
 }
 
 /**
@@ -734,7 +723,7 @@ function fillTaskData() {
 		descripten: descripten,
 		category: category,
 		catColor: catColor,
-		assignedTo: assignToArray,
+		assignedTo: assigndTo,
 		dueDate: dueDate,
 		prio: prio,
 		subTasks: selectedSubtasks,
@@ -942,7 +931,8 @@ function resetSubtaskSelections() {
 =======================*/
 
 /**
- * Shows or hides dropdown menu of assign section
+ * If the list is not visible, make it visible and remove the border bottom from the button. If the
+ * list is visible, add the border bottom to the button and make the list invisible.
  */
 function enableDisableAssignList() {
 	if (!assignListStatus) {
@@ -957,9 +947,6 @@ function enableDisableAssignList() {
 	assignListStatus = !assignListStatus;
 }
 
-/**
- * Just shows dropdown menu of assign list
- */
 function enableAssignList() {
 	document.getElementById('dropdown2').classList.remove('listD-none');
 	assignListStatus = !assignListStatus;
@@ -990,11 +977,11 @@ function assignChangeInputPlaceholderToContactEmail() {
 	document.getElementsByName('selectedAssign')[0].placeholder = `Contact email`;
 }
 
-function enableInputAddTaskAssign() {
+function enableInputaddTasAssign() {
 	document.getElementById('selectedAssign').disabled = false;
 }
 
-function showCancelConfirmButtonsAssignSection() {
+function showCancelConfirmButtons() {
 	document
 		.getElementById('assignToCancelConfirmImgContainer')
 		.classList.remove('d-none');
@@ -1004,9 +991,6 @@ function hideAssignDropDownImg() {
 	document.getElementById('assignDropDownImg').classList.add('d-none');
 }
 
-/**
- * It activates focus of input field in assign section
- */
 function assignInputAutoFocus() {
 	document.getElementById('selectedAssign').focus();
 }
@@ -1016,21 +1000,13 @@ function assignInputAutoFocus() {
  */
 function assigendContactEmail() {
 	assignChangeInputPlaceholderToContactEmail();
-	enableInputAddTaskAssign();
-	showCancelConfirmButtonsAssignSection();
+	enableInputaddTasAssign();
+	showCancelConfirmButtons();
 	hideAssignDropDownImg();
 	assignInputAutoFocus();
 	changeAssignPlaceholderColorToGrey();
 }
 
-/**
- * "If the user clicks on the dropdown menu, don't close the dropdown menu."
- *
- * The function is called when the user clicks on the dropdown menu. The event.stopPropagation() method
- * stops the event from bubbling up the DOM tree, preventing the event from being triggered on the
- * parent element
- * @param event - The event object.
- */
 function doNotCloseOnClick(event) {
 	event.stopPropagation();
 }
@@ -1135,6 +1111,8 @@ function addContactToTaskForceWithCheckBox(contact) {
 	addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberOfTaskForce);
 	addedToTaskForce = !addedToTaskForce;
 	coworkersToAssignTo[contact].check = addedToTaskForce;
+	console.log(taskForce.length);
+	console.table(taskForce);
 }
 
 function generateAssignContactListForDropDownMenu(firstName, lastName, contact) {
@@ -1286,6 +1264,7 @@ function clearTaskForce() {
 	console.table(taskForce.length);
 	renderBadgesMemberOfTaskForce();
 	closeDropDownAssignTo();
+	console.table(taskForce);
 }
 
 function frontEndDeveloper() {

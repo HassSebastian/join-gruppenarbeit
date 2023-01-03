@@ -1,35 +1,3 @@
-let users = [
-	{
-		name: 'Frank Jens',
-		email: 'frankjens@test.de',
-		password: '123456789',
-	},
-	{
-		name: 'Sigmunde Arafad',
-		email: 'sigmundekoehler@test.de',
-		password: '123456789',
-	},
-	{
-		name: 'Gertraut Harald',
-		email: 'gertrautharald@test.de',
-		password: '123456789',
-	},
-	{
-		name: 'Klaudia Bumsbine',
-		email: 'klaudiaschoenfeld@test.de',
-		password: '123456789',
-	},
-	{
-		name: 'Peter Lustig',
-		email: 'Peterlustig@test.de',
-		password: '123456789',
-	},
-	{
-		name: 'Peter Klausen',
-		email: 'Peterlustig@test.de',
-		password: '123456789',
-	},
-];
 
 
 let colors = [
@@ -48,15 +16,20 @@ let alphabetOrd = { A: [], B: [], C: [], D: [], E: [], F: [], G: [], H: [], I: [
 
 function user() {
 	for (let i = 0; i < users.length; i++) {
+		// ab hier wird der jeweils erste Buchstabe des Vor und Nachnamen separiert 
 		let vorUndZuName = users[i].name;
 		let firstLetter = vorUndZuName[0];
 		let spaceIndex = users[i].name.indexOf(' ');
 		let secondName = users[i].name.substring(spaceIndex + 1);
 		let secondLetter = secondName[0];
+
+		// ab hier wird die Farbe bestimmt. Buchstaben in asci umgewandelt. 
+		// addiert und durch 7 Farben geteilt.
+		// der Restwert ist dann die Farbe aus dem colors Array in Zeile 3
 		let asciiFirstLetter = firstLetter.charCodeAt(0);
 		let asciiSecondLetter = secondLetter.charCodeAt(0);
 		let sum = asciiFirstLetter + asciiSecondLetter;
-		let result = sum % 7;
+		let result = sum % 7; 	// rersult ist dann die Farbe aus dem colors Array in Zeile 3
 
 		alphabetOrd[firstLetter].push(vorUndZuName); // hier werden die namen in das alphabetOrd array eingeordnet
 	}

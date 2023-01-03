@@ -135,3 +135,21 @@ function showTime() {
 		document.getElementById('greetUser').innerHTML = `Good Evening,`;
 	}
 }
+
+/* 
+! HIer gehts weiter
+*/
+
+/* Wo ist der joinTaskArray  
+
+laden vom localstorage!
+
+
+*/
+
+let emailOfLoggedInUser = 'ck.greeny@hotmail.com';
+
+function getAmountAllTaks() {}
+
+let allTaks = joinTaskArray.length;
+console.log(allTaks);
