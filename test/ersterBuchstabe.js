@@ -24,7 +24,8 @@ function user() {
 		let asciiFirstLetter = firstLetter.charCodeAt(0);
 		let asciiSecondLetter = secondLetter.charCodeAt(0);
 		let sum = asciiFirstLetter + asciiSecondLetter;
-		let result = sum % 7;
+		
+		let result = sum % 7; 	// rersult ist dann die Farbe aus dem colors Array in Zeile 3
 
 		alphabetOrd[firstLetter].push(vorUndZuName); // hier werden die namen in das alphabetOrd array eingeordnet
 	}
