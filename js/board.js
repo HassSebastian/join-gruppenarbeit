@@ -185,7 +185,7 @@ function arrayExample() {
         'descripten': descripten,
         'category': category,
         'catColor': catColor,
-        'assignedTo': assigndTo,
+        'assignedTo': assignedToArray,
         'dueDate': dueDate,
         'prio': prio,
         'subTasks': selectedSubtasks,
@@ -228,28 +228,37 @@ async function createWorkStatusArrays() {
                 let cardCategory = joinTaskArray[i]['category'];
                 let cardPrio = joinTaskArray[i]['prio'];
                 let subTasks = joinTaskArray[i]['subTasks'];
+                let assignedToList = joinTaskArray[i]['assignedTo'];
                 let taskIndex = i;
-                workStatusArray[index].push(createWorkStatusJson(cardTitle, cardDescription, cardCatColor, cardCategory, cardPrio, subTasks, taskIndex));
+                workStatusArray[index].push(createWorkStatusJson(cardTitle, cardDescription, cardCatColor, cardCategory, cardPrio, subTasks, taskIndex, assignedToList));
             }
         }
     }
 }
 
 
-
 /**
  * It takes in a bunch of parameters and returns a JSON object.
- * @param cardTitle - The title of the card
- * @param cardDescription - The description of the task.
- * @param cardCatColor - The color of the category.
- * @param cardCategory - The category of the task.
- * @param cardPrio - The priority of the task.
+ * @param cardTitle - The title of the card.
+ * @param cardDescription - The description of the card.
+ * @param cardCatColor - The color of the category of the card.
+ * @param cardCategory - The category of the card (e.g. "Bug", "Feature", "Task", etc.)
+ * @param cardPrio - is the priority of the task.
  * @param subTasks - This is an array of objects that contain the following:
- * @param taskIndex - The index of the task in the array.
+ * @param taskIndex - The index of the task in the list of tasks.
+ * @param assignedToList - This is a list of objects that contain the name and email of the person
+ * assigned to the task.
  * @returns An object with the following properties:
- * cardTitle, cardDescription, cardCatColor, cardCategory, cardPrio, subTasks, taskIndex
+ * cardTitle
+ * cardDescription
+ * cardCatColor
+ * cardCategory
+ * cardPrio
+ * subTasks
+ * taskIndex
+ * assignedTo
  */
-function createWorkStatusJson(cardTitle, cardDescription, cardCatColor, cardCategory, cardPrio, subTasks, taskIndex) {
+function createWorkStatusJson(cardTitle, cardDescription, cardCatColor, cardCategory, cardPrio, subTasks, taskIndex, assignedToList) {
     return {
         'cardTitle': cardTitle,
         'cardDescription': cardDescription,
@@ -258,6 +267,7 @@ function createWorkStatusJson(cardTitle, cardDescription, cardCatColor, cardCate
         'cardPrio': cardPrio,
         'subTasks': subTasks,
         'taskIndex': taskIndex,
+        'assignedTo': assignedToList,
     };
 }
 
@@ -300,6 +310,11 @@ function renderToDoCards() {
 }
 
 
+function renderAssignTo(){
+    
+}
+
+
 
 
 /**
@@ -316,6 +331,9 @@ function toDoCardHtml(arrayIndex){
     let subTasksAmount = workStatus0Array[arrayIndex]['subTasks'].length;
     let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
     let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
+
+    let assignedToPersons = workStatus0Array[arrayIndex]['assignedTo'];
+
     return /*html*/`
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
             <div class='taskContainer'>
