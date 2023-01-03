@@ -165,4 +165,5 @@ function logOutBtn(){
 
 function logOut(){
     window.location.href = './index.html';
+    localStorage.removeItem('loggedUser');
 }
