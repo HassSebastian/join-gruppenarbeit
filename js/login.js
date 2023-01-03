@@ -1,4 +1,5 @@
 let rememberUser = [];
+let loggedUser = [];
 
 
 function initSignIn() {
@@ -53,30 +54,28 @@ function checkCorrectInput() {
 
 
 // user login
+
 function userLogin(email, password) {
-    let allUsersString = localStorage.getItem('allUsers')
     let requiredEmailLogin = document.getElementById('requiredEmailLogin');
     let requiredPasswordLogin = document.getElementById('requiredPasswordLogin');
-
-    if (allUsersString === null) {
+    if (users.length == null) {
         requiredEmailLogin.classList.add('requiredOn');
         requiredEmailLogin.innerHTML = `No user available. please  <b>Sign up!!</b>`;
         requiredPasswordLogin.classList.add('requiredOn');
         requiredPasswordLogin.innerHTML = `No user available. please  <b>Sign up!!</b>`;
     } else {
-        let loginData = JSON.parse(allUsersString);
-        let loginStatus = false;
-        for (let i = 0; i < loginData.length; i++) {
-            let emailData = loginData[i]['email'];
+        let loginStatus;
+        for (let i = 0; i < users.length; i++) {
+            let emailData = users[i]['email'];
             if (emailData == email) {
-                if (loginData[i]['password'] == password) {
-                    loginStatus = true;
+                if (users[i]['password'] == password) {
+                    loginStatus = i;
+                    break;
                 }
             }
         }
         if (loginStatus) {
-            rememberMe(email, password);
-
+            rememberMe(email, password, loginStatus);
         } else {
             requiredEmailLogin.classList.add('requiredOn');
             requiredEmailLogin.innerHTML = `Email or Password do not match!!`;
@@ -88,12 +87,17 @@ function userLogin(email, password) {
 
 
 //  remember me checkbox check
-function rememberMe(email, password) {
+function rememberMe(email, password, loginStatus) {
     let checkbox = document.getElementById('checkbox');
     if (checkbox.checked) {
         rememberUserExisting(email, password);
-        console.log('check');
     }
+
+    loggedUser.push(loginStatus);
+    let loggedUserAtString = JSON.stringify(loggedUser);
+    localStorage.setItem('loggedUser', loggedUserAtString);
+
+
     window.location.href = './summary.html';
 }
 
