@@ -147,4 +147,9 @@ laden vom localstorage!
 
 */
 
-function getAmountAllYourTaks() {}
+let emailOfLoggedInUser = 'ck.greeny@hotmail.com';
+
+function getAmountAllTaks() {}
+
+let allTaks = joinTaskArray.length;
+console.log(allTaks);

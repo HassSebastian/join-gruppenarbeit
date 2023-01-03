@@ -11,7 +11,6 @@ let descripten = '';
 let category = '';
 let catColor = '';
 let assigndTo = '';
-let assignToArray = [];
 let dueDate = '';
 let prio = '';
 let subTask = '';
@@ -697,10 +696,9 @@ function clearFormularData() {
 }
 
 // save data to local storage/server!
-async function createTaskData() {
+function createTaskData() {
 	loadTask();
 	getDataFromFomular();
-	await createAssignToListForSave();
 	fillTaskData();
 	pushTaskData();
 	saveTask();
@@ -711,17 +709,8 @@ async function createTaskData() {
 // toDo this is a transition function that to have reworked after all data for task card avalable.
 function getDataFromFomular() {
 	descripten = document.getElementById('addTaskDescripten').value;
-	// assigndTo = assignToArray;
+	assigndTo = 'not included jet';
 	subTask = document.getElementById('subTask').value;
-}
-
-async function createAssignToListForSave(){
-	for (let i = 0; i < coworkersToAssignTo.length; i++) {
-		let checkStatus= coworkersToAssignTo[i]['check'];
-		if(checkStatus){
-			assignToArray.push(coworkersToAssignTo[i]);
-		}
-	}
 }
 
 /**
@@ -734,7 +723,7 @@ function fillTaskData() {
 		descripten: descripten,
 		category: category,
 		catColor: catColor,
-		assignedTo: assignToArray,
+		assignedTo: assigndTo,
 		dueDate: dueDate,
 		prio: prio,
 		subTasks: selectedSubtasks,
@@ -1121,6 +1110,7 @@ function addRemoveToggleForTaskForce(
 		removeSelectedContactFromTaskForce(indexOfMemberInTaskForce);
 		renderBadgesMemberOfTaskForce();
 	}
+	console.table(taskForce);
 }
 
 /**
@@ -1170,7 +1160,6 @@ function renderContactsInAssignDropDownMenu() {
 function setCheckStatusToFalse() {
 	taskForce.forEach((member) => {
 		member.check = false;
-		console.log(member.check);
 	});
 }
 
@@ -1286,6 +1275,7 @@ function clearTaskForce() {
 	console.table(taskForce.length);
 	renderBadgesMemberOfTaskForce();
 	closeDropDownAssignTo();
+	console.table(taskForce);
 }
 
 function frontEndDeveloper() {
