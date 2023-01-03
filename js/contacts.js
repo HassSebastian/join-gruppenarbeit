@@ -5,6 +5,11 @@ let contacts = [
         "phone": "+49 1111 111 11 1"
     },
     {
+        "name": "Aal Mayer",
+        "email": "antonm@gmail.com",
+        "phone": "+49 1111 111 11 1"
+    },
+    {
         "name": "Cesar Hardt",
         "email": "cesarh@gmail.com",
         "phone": "+49 3333 333 33 3"
@@ -40,22 +45,28 @@ function sortContacts() {
     })
 }
 
+function findFirstWithLetter(letter) {
+    const sortedArray = contacts.sort((a, b) => a.name.localeCompare(b.name));
+  for (let element of sortedArray) {
+    if (Object.values(element).some(value => value.includes(letter))) {
+      return element;
+    }
+  }
+  return null;
+}
+
 async function renderContent() {
-document.getElementById('content').innerHTML = '';
-document.getElementById('content').innerHTML = /*html*/`
+    document.getElementById('content').innerHTML = '';
+    document.getElementById('content').innerHTML = /*html*/`
 
 <div>
 
 
 <div class="Frame_97">
-    <div class="Contact_list">
-        <div class="letters">
-            <span>A</span>
+    <div class="Contact_list" id="Contact_list">
+
+
         </div>
-        <div class="Vector_10"></div>
-        <div class="contacts" id="contacts">
-        </div>
-    </div>
 </div>
 
 
@@ -113,15 +124,15 @@ document.getElementById('content').innerHTML = /*html*/`
 </div>
 
 `;
-renderContacts();
+    renderContacts();
 }
 
-function contactListHTML(){
-    return 
+function contactListHTML() {
+    return
 }
 
 async function renderContacts() {
-    document.getElementById('contacts').innerHTML = '';
+    document.getElementById('Contact_list').innerHTML = '';
 
     for (let i = 0; i < contacts.length; i++) {
         const name = contacts[i].name;
@@ -130,26 +141,49 @@ async function renderContacts() {
         let spaceIndex = contacts[i].name.indexOf(' ');
         const surname = contacts[i].name.substring(spaceIndex + 1);
         let surnameLetter = surname[0];
+        const result = findFirstWithLetter(i);
 
-        document.getElementById('contacts').innerHTML += /*html*/ `
-        <div class="contact" id="contact${i}" onclick="showContact(${i})">
-             <div class="ellipse">
-                <span>${nameLetter}${surnameLetter}</span>
-             </div>
-             <div class="name_and_email">
-                 <div class="name">
-                     <span>${name}</span>
+        if (result === contacts[0]) {
+            document.getElementById('Contact_list').innerHTML += /*html*/ `
+             <div class="letters">
+                <span>${nameLetter}</span>
+                <div class="Vector_10"></div>
+            </div>
+            <div class="contact" id="contact${i}" onclick="showContact(${i})">
+                 <div class="ellipse">
+                    <span>${nameLetter}${surnameLetter}</span>
                  </div>
-                 <div class="email">
-                     ${email}
+                 <div class="name_and_email">
+                     <div class="name">
+                         <span>${name}</span>
+                     </div>
+                     <div class="email">
+                         ${email}
+                     </div>
                  </div>
-             </div>
+            </div>
         </div>
        `;
+          } else {
+            document.getElementById('Contact_list').innerHTML += /*html*/ `
+           <div class="contact" id="contact${i}" onclick="showContact(${i})">
+                <div class="ellipse">
+                   <span>${nameLetter}${surnameLetter}</span>
+                </div>
+                <div class="name_and_email">
+                    <div class="name">
+                        <span>${name}</span>
+                    </div>
+                    <div class="email">
+                        ${email}
+                    </div>
+                </div>
+           </div>
+       </div>
+      `;
+          }
 
-    }
-
-}
+}}
 
 function openEditContact(i) {
     document.getElementById('edit_contact').classList.remove('d-none')
@@ -243,7 +277,6 @@ function addContact() {
     var contact = {};
 
     contact.name = document.getElementById('contactName').value;
-    contact.surname = document.getElementById('contactSurname').value;
     contact.email = document.getElementById('contactEmail').value;
     contact.phone = document.getElementById('contactPhone').value;
 
@@ -256,7 +289,6 @@ function editContact(i) {
     var contact = {};
 
     contact.name = document.getElementById('editContactName').value;
-    contact.surname = document.getElementById('editContactSurname').value;
     contact.email = document.getElementById('editContactEmail').value;
     contact.phone = document.getElementById('editContactPhone').value;
 

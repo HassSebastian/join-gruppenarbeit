@@ -36,12 +36,12 @@
     font-size: 21px;
     line-height: 120%;
     display: flex;
-    align-items: center;
-    color: #000000;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin-bottom: 16px;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.letters span {
+    margin-bottom: 8px;
 }
 
 .Vector_10 {
