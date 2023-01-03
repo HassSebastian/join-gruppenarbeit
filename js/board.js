@@ -330,10 +330,13 @@ function renderAssignToHtml(taskIndex) {
             let firstName = assignedList[i]['firstName'];
             let lastName = assignedList[i]['lastName'];
             let nameLetters = firstName[0] + lastName[0];
+            chooseColorForTaskForceBadge(firstName[0], lastName[0]);
+            // toDo index ist in der addTask.js eine Globale Variable, bitte ändern.
+            let assignToColor = backgroundColorForBadges[index];
             let assignToTitle = firstName + ' ' + lastName;
             // console.log(firstName, lastName, nameLetters, assignToTitle);
             document.getElementById(divId).innerHTML += /*html*/`
-                <div class='contributorsLogo blue' title='${assignToTitle}'>
+                <div class='contributorsLogo blue' title='${assignToTitle}' style='background-color: ${assignToColor}'>
                     <span>${nameLetters}</span>
                 </div>`;
         }

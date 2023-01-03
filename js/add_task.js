@@ -759,7 +759,7 @@ function pushTaskData() {
 /**
  * this function save the main array to the local storage.
  */
-function saveTask() {
+async function saveTask() {
 	localStorage.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
 }
 
