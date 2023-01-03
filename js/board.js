@@ -14,9 +14,9 @@ let categoryBackgroundColors = [
 ];
 let prioColorAndUrlArray = [
     {
-    'urgent': ['#FF3D00', './assets/img/urgent_white.png'],
-    'medium': ['#FFA800', './assets/img/medium_white.png'],
-    'low': ['#7AE229', './assets/img/low_white.png'],
+        'urgent': ['#FF3D00', './assets/img/urgent_white.png'],
+        'medium': ['#FFA800', './assets/img/medium_white.png'],
+        'low': ['#7AE229', './assets/img/low_white.png'],
     }
 ];
 
@@ -45,7 +45,7 @@ async function renderBoard() {
  * this function returns the basic board html string
  * @returns - basic board html string
  */
-function boardHtml(){
+function boardHtml() {
     return /*html*/`
         <div class="boardOverlay">
             <div class="boardHeadline">
@@ -281,6 +281,7 @@ function renderAllCards() {
     renderInProgressCards();
     renderAwaitingFeedbackCards();
     renderDoneCards();
+    renderAssignTo();
 }
 
 
@@ -292,14 +293,14 @@ function renderAllCards() {
  */
 function calculatePercentage(number, total) {
     return (number / total) * 100;
-  }
+}
 
 
 /**
  * this function render all todo cards.
  */
 // toDo class design löschen !?
-function renderToDoCards() {
+async function renderToDoCards() {
     document.getElementById('toDoDiv').innerHTML = '';
     for (let i = 0; i < workStatus0Array.length; i++) {
         let cardPrio = workStatus0Array[i]['cardPrio'];
@@ -311,10 +312,33 @@ function renderToDoCards() {
 
 
 function renderAssignTo(){
-    
+    for (let i = 0; i < workStatusArray.length; i++) {
+        for (let index = 0; index < workStatusArray[i].length; index++) {
+            let taskIndex = workStatusArray[i][index]['taskIndex'];
+            renderAssignToHtml(taskIndex);
+        }   
+    }
 }
 
 
+function renderAssignToHtml(taskIndex) {
+    let assignedList = joinTaskArray[taskIndex]['assignedTo'];
+    let divId = 'contributorsList' + taskIndex;
+    document.getElementById(divId).innerHTML = '';
+    if (assignedList.length > 0) {
+        for (let i = 0; i < assignedList.length; i++) {
+            let firstName = assignedList[i]['firstName'];
+            let lastName = assignedList[i]['lastName'];
+            let nameLetters = firstName[0] + lastName[0];
+            let assignToTitle = firstName + ' ' + lastName;
+            // console.log(firstName, lastName, nameLetters, assignToTitle);
+            document.getElementById(divId).innerHTML += /*html*/`
+                <div class='contributorsLogo blue' title='${assignToTitle}'>
+                    <span>${nameLetters}</span>
+                </div>`;
+        }
+    }
+}
 
 
 /**
@@ -322,7 +346,7 @@ function renderAssignTo(){
  * @param {number} arrayIndex - is the index number of the workStatus0Array.
  * @returns - the html string for each todo task card.
  */
-function toDoCardHtml(arrayIndex){
+function toDoCardHtml(arrayIndex) {
     let cardTitle = workStatus0Array[arrayIndex]['cardTitle'];
     let cardDescription = workStatus0Array[arrayIndex]['cardDescription'];
     let cardCategory = workStatus0Array[arrayIndex]['cardCategory'];
@@ -332,7 +356,6 @@ function toDoCardHtml(arrayIndex){
     let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
     let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 
-    let assignedToPersons = workStatus0Array[arrayIndex]['assignedTo'];
 
     return /*html*/`
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
@@ -351,8 +374,8 @@ function toDoCardHtml(arrayIndex){
                     <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
                 </div>
                 <div class='contributorsPrio'>
-                    <div class='contributorsLogoContainer'>
-                        <div class='contributorsLogo blue'>
+                    <div class='contributorsLogoContainer' id='contributorsList${taskIndex}'>
+                        <!-- <div class='contributorsLogo blue'>
                             <span>SM</span>
                         </div>
                         <div class='contributorsLogo pink'>
@@ -360,7 +383,7 @@ function toDoCardHtml(arrayIndex){
                         </div>
                         <div class='contributorsLogo litegreen'>
                             <span>EF</span>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class='prio'>
@@ -369,6 +392,7 @@ function toDoCardHtml(arrayIndex){
                 </div>
             </div>
         </div>`;
+    
 }
 
 
@@ -383,11 +407,11 @@ function toDoCardHtml(arrayIndex){
  * @param workStatusArrayNo - the index of the workStatusArray that you want to check.
  * @returns The amount of subTasks that are done.
  */
-function determindSubTasksDone(arrayIndex, workStatusArrayNo){
+function determindSubTasksDone(arrayIndex, workStatusArrayNo) {
     let doneAmount = 0;
     for (let i = 0; i < workStatusArray[workStatusArrayNo][arrayIndex]['subTasks'].length; i++) {
         let subTaskStatus = workStatusArray[workStatusArrayNo][arrayIndex]['subTasks'][i]['subtaskStatus'];
-        if (subTaskStatus){
+        if (subTaskStatus) {
             doneAmount += 1;
         }
     }
@@ -426,16 +450,16 @@ function renderInProgressCards() {
  * @param {number} arrayIndex - is the index number of the workStatus1Array.
  * @returns - the html string for each in progress task card
  */
-function inProgressHtml(arrayIndex){
-        let cardTitle = workStatus1Array[arrayIndex]['cardTitle'];
-        let cardDescription = workStatus1Array[arrayIndex]['cardDescription'];
-        let cardCategory = workStatus1Array[arrayIndex]['cardCategory'];
-        let taskIndex = workStatus1Array[arrayIndex]['taskIndex'];
-        let workStatusArrayNo = 1;
-        let subTasksAmount = workStatus1Array[arrayIndex]['subTasks'].length;
-        let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
-        let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
-        return /*html*/`
+function inProgressHtml(arrayIndex) {
+    let cardTitle = workStatus1Array[arrayIndex]['cardTitle'];
+    let cardDescription = workStatus1Array[arrayIndex]['cardDescription'];
+    let cardCategory = workStatus1Array[arrayIndex]['cardCategory'];
+    let taskIndex = workStatus1Array[arrayIndex]['taskIndex'];
+    let workStatusArrayNo = 1;
+    let subTasksAmount = workStatus1Array[arrayIndex]['subTasks'].length;
+    let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+    let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
+    return /*html*/`
             <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
                 <div class='taskContainer'>
                     <div class='boardTaskCategory' id='progressCard${arrayIndex}'>
@@ -504,7 +528,7 @@ function renderAwaitingFeedbackCards() {
  * @param {number} arrayIndex - is the index number of the workStatus2Array.
  * @returns - the html string for each awaitingFeedback task card
  */
-function awaitingFeedbackHtml(arrayIndex){
+function awaitingFeedbackHtml(arrayIndex) {
     let cardTitle = workStatus2Array[arrayIndex]['cardTitle'];
     let cardDescription = workStatus2Array[arrayIndex]['cardDescription'];
     let cardCategory = workStatus2Array[arrayIndex]['cardCategory'];
@@ -582,7 +606,7 @@ function renderDoneCards() {
  * @param {number} arrayIndex - is the index number of the workStatus3Array.
  * @returns - the html string for each done task card
  */
-function doneHtml(arrayIndex){
+function doneHtml(arrayIndex) {
     let cardTitle = workStatus3Array[arrayIndex]['cardTitle'];
     let cardDescription = workStatus3Array[arrayIndex]['cardDescription'];
     let cardCategory = workStatus3Array[arrayIndex]['cardCategory'];
@@ -632,7 +656,7 @@ function doneHtml(arrayIndex){
  * When the user scrolls down the page, the height of the drop areas will increase to match the height
  * of the page.
  */
-function changeHeightDropArea(){
+function changeHeightDropArea() {
     const elmnt = document.getElementById('canbanBoard');
     let y = elmnt.scrollTop;
     let newHeight = y + 600;
@@ -681,7 +705,7 @@ function allowDrop(ev) {
 async function moveTo(area) {
     // toDo if abfrage ob es verschoben werden darf !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // if (joinTaskArray[currentDraggedElement]['workFlowStatus'] == 2){
-        
+
     // }
     joinTaskArray[currentDraggedElement]['workFlowStatus'] = area;
     await saveTask();
@@ -715,7 +739,7 @@ function removeHighlight(id) {
 /**
  * this function remove the d-none class from the popup window. The result is that the Popup Window is shown.
  */
-function enablePopupWindow(){
+function enablePopupWindow() {
     document.getElementById('boardPopup').classList.remove('d-none');
 }
 
@@ -723,7 +747,7 @@ function enablePopupWindow(){
 /**
  * this function add the d-none class to the popup window. The result is that the Popup Window not shown.
  */
-function disablePopupWindow(){
+function disablePopupWindow() {
     document.getElementById('boardPopup').classList.add('d-none');
     renderAllCards();
 }
@@ -732,7 +756,7 @@ function disablePopupWindow(){
 /**
  * this function prevent the closure of the popup window when clicking on the Popup Task Card.
  */
-function stopClose(event){
+function stopClose(event) {
     event.stopPropagation();
 }
 
@@ -746,7 +770,7 @@ function stopClose(event){
  * this function render the HTML code for the detail view of a taskcard.
  * @param {number} taskIndex - this value is equal to the index position in the main array 'joinTaskArray'.
  */
-function renderPopupTaskCard(taskIndex){
+function renderPopupTaskCard(taskIndex) {
     let cardTitle = joinTaskArray[taskIndex]['title'];
     let cardDescription = joinTaskArray[taskIndex]['descripten'];
     let cardCategory = joinTaskArray[taskIndex]['category'];
@@ -829,7 +853,7 @@ function renderPopupTaskCard(taskIndex){
 }
 
 
-async function renderSubtask(taskIndex){
+async function renderSubtask(taskIndex) {
     await renderSubtaskHtml(taskIndex);
     setSubTaskStatus(taskIndex);
 }
@@ -839,26 +863,26 @@ async function renderSubtask(taskIndex){
  * this function render the HTML code for the subTasks in the board detail view taskcard.
  * @param {*} taskIndex - this value is equal to the index position in the main array 'joinTaskArray'.
  */
-async function renderSubtaskHtml(taskIndex){
+async function renderSubtaskHtml(taskIndex) {
     document.getElementById('subtaskListTaskCard').innerHTML = '';
     let subtaskArray = joinTaskArray[taskIndex]['subTasks'];
-    if (subtaskArray.length > 0){
+    if (subtaskArray.length > 0) {
         for (let i = 0; i < subtaskArray.length; i++) {
             let subtaskText = subtaskArray[i]['subtaskText'];
             document.getElementById('subtaskListTaskCard').innerHTML += /*html*/`
                 <div>
                     <input type="checkbox" id='subtask${i}' onclick='checkboxSubtaskSelected(${i}, ${taskIndex})'>
                     <span>${subtaskText}</span>
-                </div>`;      
+                </div>`;
         }
     }
 }
 
 
-function setSubTaskStatus(taskIndex){
+function setSubTaskStatus(taskIndex) {
     let subtaskArray = joinTaskArray[taskIndex]['subTasks'];
     for (let i = 0; i < subtaskArray.length; i++) {
-        if (subtaskArray[i]['subtaskStatus']){
+        if (subtaskArray[i]['subtaskStatus']) {
             document.getElementById(`subtask${i}`).checked = true;
         }
     }
@@ -866,11 +890,11 @@ function setSubTaskStatus(taskIndex){
 
 
 // test function to determind which subtask is performed.
-async function checkboxSubtaskSelected(subTaskIndex, taskIndex){
+async function checkboxSubtaskSelected(subTaskIndex, taskIndex) {
     let checkboxStatus = document.getElementById(`subtask${subTaskIndex}`).checked;
     joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'] = checkboxStatus;
     console.log(taskIndex, subTaskIndex);
-    let subTaskText= joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskText'];
+    let subTaskText = joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskText'];
     let subTaskStatus = joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'];
     console.log(subTaskText, subTaskStatus);
     joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'] = checkboxStatus;
@@ -883,7 +907,7 @@ async function checkboxSubtaskSelected(subTaskIndex, taskIndex){
  * @param {number} taskIndex -this value is equal to the index number of the main array "joinTaskArray", where
  * the task card information is stored.
  */
-function setTaskCardPopupCatColor(taskIndex){
+function setTaskCardPopupCatColor(taskIndex) {
     let cardCatColorIndex = joinTaskArray[taskIndex]['catColor'];
     let cardCatColor = categoryBackgroundColors[cardCatColorIndex];
     document.getElementById('taskCardPopupCategory').style = `background-color: ${cardCatColor};`;
@@ -895,7 +919,7 @@ function setTaskCardPopupCatColor(taskIndex){
  * @param {*} taskIndex --this value is equal to the index number of the main array "joinTaskArray", where
  * the task card information is stored.
  */
-function setTaskCardPopupPrioBackground(taskIndex){
+function setTaskCardPopupPrioBackground(taskIndex) {
     let cardPrio = joinTaskArray[taskIndex]['prio'];
     cardPrio = cardPrio.toLowerCase();
     let cardPrioBackground = prioColorAndUrlArray[0][cardPrio][0];
@@ -906,13 +930,13 @@ function setTaskCardPopupPrioBackground(taskIndex){
 
 
 // Edit Taskcard popup
-async function openEditTaskCard(taskIndex){
+async function openEditTaskCard(taskIndex) {
     await renderEditTaskCardHtml();
     renderEditTaskCardInputFields(taskIndex)
 }
 
 
-async function renderEditTaskCardHtml(){
+async function renderEditTaskCardHtml() {
     document.getElementById('boardPopup').innerHTML = '';
     document.getElementById('boardPopup').innerHTML = /*html*/`
         <div class="boardTaskCardPopup" onclick='stopClose(event)'>
@@ -953,22 +977,22 @@ async function renderEditTaskCardHtml(){
 }
 
 
-function renderEditTaskCardInputFields(taskIndex){
+function renderEditTaskCardInputFields(taskIndex) {
     let cardTitle = joinTaskArray[taskIndex]['title'];
     let cardDescription = joinTaskArray[taskIndex]['descripten'];
     let cardCategory = joinTaskArray[taskIndex]['category'];
     let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
     let taskPrio = joinTaskArray[taskIndex]['prio'];
-    let prioArray = {'Urgent': 0, 'Medium': 1 , 'Low': 2};
+    let prioArray = { 'Urgent': 0, 'Medium': 1, 'Low': 2 };
     let taskPrioNumber = prioArray[taskPrio];
     addPrio(taskPrioNumber);
-    document.getElementById('boardEditTitle'). value = cardTitle;
+    document.getElementById('boardEditTitle').value = cardTitle;
     document.getElementById('boardEditDecription').value = cardDescription;
     document.getElementById('boardEditDueDate').value = cardDueDate;
 }
 
 
-function getDataFromEditTaskCard(){
+function getDataFromEditTaskCard() {
     // taskData = {
     //     'title': title,
     //     'descripten': descripten,
@@ -982,13 +1006,13 @@ function getDataFromEditTaskCard(){
     // };
 }
 
-  
+
 
 // render function for the detail view of the task card end.
 
 
 // render function for the creation of a new task card.
-async function showAddTaskPopupWindow(){
+async function showAddTaskPopupWindow() {
     enablePopupWindow();
     await renderAddTaskPopup();
     loadExitingCategories();
@@ -1002,7 +1026,7 @@ async function showAddTaskPopupWindow(){
 /**
  * this function render the popup menu AddTask.
  */
-async function renderAddTaskPopup(){
+async function renderAddTaskPopup() {
     document.getElementById('boardPopup').innerHTML = '';
     document.getElementById('boardPopup').innerHTML = renderAddTaskPopupHtml();
 }
@@ -1012,7 +1036,7 @@ async function renderAddTaskPopup(){
  * this function returns the popup Menu html string
  * @returns - Board popup Menu html string.
  */
-function renderAddTaskPopupHtml(){
+function renderAddTaskPopupHtml() {
     return /*html*/`
         <div id='boardAddTaskPopup' onclick='stopClose(event)'>
             <div class='boardAddTaskHeadlineDiv'>
