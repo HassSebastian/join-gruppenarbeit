@@ -616,7 +616,7 @@ function doneHtml(arrayIndex){
  */
 function changeHeightDropArea(){
     const elmnt = document.getElementById('canbanBoard');
-    let y = elmnt.scrollTop + 1;
+    let y = elmnt.scrollTop;
     let newHeight = y + 600;
     document.getElementById('dropArea0').style = `height: ${newHeight}px;`;
     document.getElementById('dropArea1').style = `height: ${newHeight}px;`;
@@ -633,7 +633,6 @@ function setCategoryBackgroundColorForWorkStatus3() {
         let cardCatColor = workStatus3Array[i]['cardCatColor'];
         let catBackground = categoryBackgroundColors[cardCatColor];
         document.getElementById(`doneCard${i}`).style = `background-color: ${catBackground} !important;`;
-       
     }
 }
 
@@ -978,6 +977,7 @@ async function showAddTaskPopupWindow(){
     renderCategoryList();
     newCatInputActive = false;
     renderSubtasks();
+    renderContactsInAssignDropDownMenu();
 }
 
 
