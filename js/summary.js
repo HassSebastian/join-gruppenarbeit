@@ -135,3 +135,16 @@ function showTime() {
 		document.getElementById('greetUser').innerHTML = `Good Evening,`;
 	}
 }
+
+/* 
+! HIer gehts weiter
+*/
+
+/* Wo ist der joinTaskArray  
+
+laden vom localstorage!
+
+
+*/
+
+function getAmountAllYourTaks() {}
