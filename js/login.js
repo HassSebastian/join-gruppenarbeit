@@ -64,52 +64,18 @@ function userLogin(email, password) {
         requiredPasswordLogin.classList.add('requiredOn');
         requiredPasswordLogin.innerHTML = `No user available. please  <b>Sign up!!</b>`;
     } else {
-        let loginStatus = 0;
+        let loginStatus;
         for (let i = 0; i < users.length; i++) {
             let emailData = users[i]['email'];
             if (emailData == email) {
                 if (users[i]['password'] == password) {
                     loginStatus = i;
-                }
-            }
-        }
-        if (loginStatus) {
-            rememberMe(email, password, loginStatus);
-        } else {
-            requiredEmailLogin.classList.add('requiredOn');
-            requiredEmailLogin.innerHTML = `Email or Password do not match!!`;
-            requiredPasswordLogin.classList.add('requiredOn');
-            requiredPasswordLogin.innerHTML = `Email or Password do not match!!`;
-        }
-    }
-}
-
-
-function userLoginV1(email, password) {
-    let allUsersString = localStorage.getItem('allUsers')
-    let requiredEmailLogin = document.getElementById('requiredEmailLogin');
-    let requiredPasswordLogin = document.getElementById('requiredPasswordLogin');
-
-    if (allUsersString === null) {
-        requiredEmailLogin.classList.add('requiredOn');
-        requiredEmailLogin.innerHTML = `No user available. please  <b>Sign up!!</b>`;
-        requiredPasswordLogin.classList.add('requiredOn');
-        requiredPasswordLogin.innerHTML = `No user available. please  <b>Sign up!!</b>`;
-    } else {
-        let loginData = JSON.parse(allUsersString);
-        let loginStatus = false;
-        for (let i = 0; i < loginData.length; i++) {
-            let emailData = loginData[i]['email'];
-            if (emailData == email) {
-                if (loginData[i]['password'] == password) {
-                    loginStatus = true;
                     break;
                 }
             }
         }
         if (loginStatus) {
-            rememberMe(email, password);
-
+            rememberMe(email, password, loginStatus);
         } else {
             requiredEmailLogin.classList.add('requiredOn');
             requiredEmailLogin.innerHTML = `Email or Password do not match!!`;
