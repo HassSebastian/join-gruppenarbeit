@@ -11,6 +11,7 @@ let descripten = '';
 let category = '';
 let catColor = '';
 let assigndTo = '';
+let assignToArray = [];
 let dueDate = '';
 let prio = '';
 let subTask = '';
@@ -696,9 +697,10 @@ function clearFormularData() {
 }
 
 // save data to local storage/server!
-function createTaskData() {
+async function createTaskData() {
 	loadTask();
 	getDataFromFomular();
+	await createAssignToListForSave();
 	fillTaskData();
 	pushTaskData();
 	saveTask();
@@ -709,8 +711,17 @@ function createTaskData() {
 // toDo this is a transition function that to have reworked after all data for task card avalable.
 function getDataFromFomular() {
 	descripten = document.getElementById('addTaskDescripten').value;
-	assigndTo = 'not included jet';
+	// assigndTo = assignToArray;
 	subTask = document.getElementById('subTask').value;
+}
+
+async function createAssignToListForSave(){
+	for (let i = 0; i < coworkersToAssignTo.length; i++) {
+		let checkStatus= coworkersToAssignTo[i]['check'];
+		if(checkStatus){
+			assignToArray.push(coworkersToAssignTo[i]);
+		}
+	}
 }
 
 /**
@@ -723,7 +734,7 @@ function fillTaskData() {
 		descripten: descripten,
 		category: category,
 		catColor: catColor,
-		assignedTo: assigndTo,
+		assignedTo: assignToArray,
 		dueDate: dueDate,
 		prio: prio,
 		subTasks: selectedSubtasks,
