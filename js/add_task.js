@@ -931,7 +931,8 @@ function resetSubtaskSelections() {
 =======================*/
 
 /**
- * Shows or hides dropdown menu of assign section
+ * If the list is not visible, make it visible and remove the border bottom from the button. If the
+ * list is visible, add the border bottom to the button and make the list invisible.
  */
 function enableDisableAssignList() {
 	if (!assignListStatus) {
@@ -946,9 +947,6 @@ function enableDisableAssignList() {
 	assignListStatus = !assignListStatus;
 }
 
-/**
- * Just shows dropdown menu of assign list
- */
 function enableAssignList() {
 	document.getElementById('dropdown2').classList.remove('listD-none');
 	assignListStatus = !assignListStatus;
@@ -979,11 +977,11 @@ function assignChangeInputPlaceholderToContactEmail() {
 	document.getElementsByName('selectedAssign')[0].placeholder = `Contact email`;
 }
 
-function enableInputAddTaskAssign() {
+function enableInputaddTasAssign() {
 	document.getElementById('selectedAssign').disabled = false;
 }
 
-function showCancelConfirmButtonsAssignSection() {
+function showCancelConfirmButtons() {
 	document
 		.getElementById('assignToCancelConfirmImgContainer')
 		.classList.remove('d-none');
@@ -993,9 +991,6 @@ function hideAssignDropDownImg() {
 	document.getElementById('assignDropDownImg').classList.add('d-none');
 }
 
-/**
- * It activates focus of input field in assign section
- */
 function assignInputAutoFocus() {
 	document.getElementById('selectedAssign').focus();
 }
@@ -1005,21 +1000,13 @@ function assignInputAutoFocus() {
  */
 function assigendContactEmail() {
 	assignChangeInputPlaceholderToContactEmail();
-	enableInputAddTaskAssign();
-	showCancelConfirmButtonsAssignSection();
+	enableInputaddTasAssign();
+	showCancelConfirmButtons();
 	hideAssignDropDownImg();
 	assignInputAutoFocus();
 	changeAssignPlaceholderColorToGrey();
 }
 
-/**
- * "If the user clicks on the dropdown menu, don't close the dropdown menu."
- *
- * The function is called when the user clicks on the dropdown menu. The event.stopPropagation() method
- * stops the event from bubbling up the DOM tree, preventing the event from being triggered on the
- * parent element
- * @param event - The event object.
- */
 function doNotCloseOnClick(event) {
 	event.stopPropagation();
 }
@@ -1110,7 +1097,6 @@ function addRemoveToggleForTaskForce(
 		removeSelectedContactFromTaskForce(indexOfMemberInTaskForce);
 		renderBadgesMemberOfTaskForce();
 	}
-	console.table(taskForce);
 }
 
 /**
@@ -1125,6 +1111,8 @@ function addContactToTaskForceWithCheckBox(contact) {
 	addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberOfTaskForce);
 	addedToTaskForce = !addedToTaskForce;
 	coworkersToAssignTo[contact].check = addedToTaskForce;
+	console.log(taskForce.length);
+	console.table(taskForce);
 }
 
 function generateAssignContactListForDropDownMenu(firstName, lastName, contact) {
@@ -1160,6 +1148,7 @@ function renderContactsInAssignDropDownMenu() {
 function setCheckStatusToFalse() {
 	taskForce.forEach((member) => {
 		member.check = false;
+		console.log(member.check);
 	});
 }
 
