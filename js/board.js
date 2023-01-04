@@ -1094,6 +1094,16 @@ function setPrioPreselection(taskIndex){
 }
 
 
+function resetAssignToList(){
+    for (let i = 0; i < coworkersToAssignTo.length; i++) {
+        const element = coworkersToAssignTo[i];
+        coworkersToAssignTo[i]['check'] = false;
+        assignToArray = [];
+        taskForce =[];
+    }
+}
+
+
 function getDataFromEditTaskCard(){
     // taskData = {
     //     'title': title,
