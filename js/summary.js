@@ -1,12 +1,12 @@
 async function initSummary() {
+	loadTask();
 	await includeHTML();
 	await renderSummary();
 	selectedMenuBtnId = 0;
 	selectedMenuButton(1);
 	showDate();
 	showTime();
-	loadLoggedInUserEmail();
-	getAmountTasksForLoggedInUser();
+	loadLoggedInUserArray();
 }
 
 async function renderSummary() {
@@ -150,17 +150,19 @@ Kann loggedUser auch ein String sein, statt ein Arry? Einfacher!
 
 let loggedInUserIndex; // Test: Im Array ist immer nur eine Zahl drin
 let emailAddress;
-let allYourTasks = 0;
+let allYourTasksAmount = 0;
+let allYourTask = []; // Bossis Idee, für workflow 0-3
 
 /**
  * It takes the loggedUserAtString from localStorage,
  * parses it into a JSON object,
  * and then logs the id of the object to the console.
  */
-function loadLoggedInUserEmail() {
+function loadLoggedInUserArray() {
 	let loggedUserAtString = localStorage.getItem('loggedUser');
 	loggedUser = JSON.parse(loggedUserAtString);
 	getLoggedUserIndex();
+	getEmailAdrressOfLoggedUser(loggedInUserIndex);
 }
 
 /**
@@ -189,3 +191,5 @@ function getAmountTasksForLoggedInUser() {
 		});
 	}
 }
+
+console.log(users.includes('sigmundekoehler@test.de'));
