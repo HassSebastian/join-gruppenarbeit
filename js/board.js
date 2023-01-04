@@ -336,7 +336,7 @@ function renderAssignToHtml(taskIndex) {
             let assignToTitle = firstName + ' ' + lastName;
             // console.log(firstName, lastName, nameLetters, assignToTitle);
             document.getElementById(divId).innerHTML += /*html*/`
-                <div class='contributorsLogo blue' title='${assignToTitle}' style='background-color: ${assignToColor}'>
+                <div class='contributorsLogo' title='${assignToTitle}' style='background-color: ${assignToColor}'>
                     <span>${nameLetters}</span>
                 </div>`;
         }
@@ -478,8 +478,8 @@ function inProgressHtml(arrayIndex){
                         <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
                     </div>
                     <div class='contributorsPrio'>
-                        <div class='contributorsLogoContainer'>
-                            <div class='contributorsLogo blue'>
+                        <div class='contributorsLogoContainer' id='contributorsList${taskIndex}'>
+                            <!-- <div class='contributorsLogo blue'>
                                 <span>SM</span>
                             </div>
                             <div class='contributorsLogo pink'>
@@ -487,7 +487,7 @@ function inProgressHtml(arrayIndex){
                             </div>
                             <div class='contributorsLogo litegreen'>
                                 <span>EF</span>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class='prio'>
@@ -556,8 +556,8 @@ function awaitingFeedbackHtml(arrayIndex){
                     <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
                 </div>
                 <div class='contributorsPrio'>
-                    <div class='contributorsLogoContainer'>
-                        <div class='contributorsLogo blue'>
+                    <div class='contributorsLogoContainer' id='contributorsList${taskIndex}'>
+                        <!-- <div class='contributorsLogo blue'>
                             <span>SM</span>
                         </div>
                         <div class='contributorsLogo pink'>
@@ -565,7 +565,7 @@ function awaitingFeedbackHtml(arrayIndex){
                         </div>
                         <div class='contributorsLogo litegreen'>
                             <span>EF</span>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class='prio'>
@@ -634,8 +634,8 @@ function doneHtml(arrayIndex){
                     <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
                 </div>
                 <div class='contributorsPrio'>
-                    <div class='contributorsLogoContainer'>
-                        <div class='contributorsLogo blue'>
+                    <div class='contributorsLogoContainer' id='contributorsList${taskIndex}'>
+                        <!-- <div class='contributorsLogo blue'>
                             <span>SM</span>
                         </div>
                         <div class='contributorsLogo pink'>
@@ -643,7 +643,7 @@ function doneHtml(arrayIndex){
                         </div>
                         <div class='contributorsLogo litegreen'>
                             <span>EF</span>
-                        </div>
+                        </div> -->
                     </div>
                     <div class='prio'>
                         <img src='./assets/img/low.png'>
