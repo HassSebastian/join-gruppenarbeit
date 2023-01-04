@@ -693,7 +693,8 @@ function clearFormularData() {
 	document.getElementById('dateReq').style = 'opacity: 0;';
 	document.getElementById('catReq').style = 'opacity: 0;';
 	document.getElementById('catReq').classList.add('listD-none');
-	clearTaskForce(); // TEST von Christian
+	// clearTaskForce(); // TEST von Christian
+	resetAssignToList(); // edited by Bossi 04.01.2022, the function is in the board.js
 }
 
 // save data to local storage/server!
@@ -706,6 +707,7 @@ async function createTaskData() {
 	saveTask();
 	showAddDiv();
 	setTimeout(initBoard, 1200);
+	resetAssignToList();
 }
 
 // toDo this is a transition function that to have reworked after all data for task card avalable.
@@ -1277,15 +1279,15 @@ function closeDropDownAssignTo() {
 	enableDisableAssignList();
 }
 
-function clearTaskForce() {
-	checkStatusToFalse();
-	taskForce = [];
-	enableDisableAssignList();
-	console.table('Length tskforce', taskForce.length);
-	renderBadgesMemberOfTaskForce();
-	closeDropDownAssignTo();
-	console.table('content', taskForce);
-}
+// function clearTaskForce() {
+// 	checkStatusToFalse();
+// 	taskForce = [];
+// 	enableDisableAssignList();
+// 	console.table('Length tskforce', taskForce.length);
+// 	renderBadgesMemberOfTaskForce();
+// 	closeDropDownAssignTo();
+// 	console.table('content', taskForce);
+// }
 
 function frontEndDeveloper() {
 	/* document.getElementById('selectedAssign').value = `Just frontend. Sorry! ;)`; */
