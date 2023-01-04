@@ -15,7 +15,8 @@ async function initSummary() {
 		allYourTasksAmount,
 		allYourToDoTasksAmount,
 		allYourInProgressTasksAmount,
-		allYourAwaitingFeedbackTasksAmount
+		allYourAwaitingFeedbackTasksAmount,
+		allYourDoneTasks
 	);
 	selectedMenuBtnId = 0;
 	selectedMenuButton(1);
@@ -73,7 +74,7 @@ function generateSummaryHtml(
                 <div class='toDoDone' id='toDoDone' onmouseover="toDoDoneHoverOn()" onmouseout="toDoDoneHoverOff()">
                     <img id='toDoDoneImg' src='./assets/img/done.png' alt="">
                     <div class='toDoAmountData'>
-                        <span id='toDoDoneAmountTasks'>1</span>
+                        <span id='toDoDoneAmountTasks'>${allYourDoneTasks}</span>
                         <p id='toDoDoneAmountP'>Done</p>
                     </div>
                 </div>
@@ -86,14 +87,16 @@ async function renderSummary(
 	allYourTasksAmount,
 	allYourToDoTasksAmount,
 	allYourInProgressTasksAmount,
-	allYourAwaitingFeedbackTasksAmount
+	allYourAwaitingFeedbackTasksAmount,
+	allYourDoneTasks
 ) {
 	document.getElementById('content').innerHTML = '';
 	document.getElementById('content').innerHTML += generateSummaryHtml(
 		allYourTasksAmount,
 		allYourToDoTasksAmount,
 		allYourInProgressTasksAmount,
-		allYourAwaitingFeedbackTasksAmount
+		allYourAwaitingFeedbackTasksAmount,
+		allYourDoneTasks
 	);
 }
 
