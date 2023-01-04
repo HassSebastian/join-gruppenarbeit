@@ -21,21 +21,21 @@ let selectedSubtasks = [];
 !TEST ARRAY for renderFunciont (assignedContact list in dropdown menu) */
 let coworkersToAssignTo = [
 	{
-		firstName: 'Lisa',
-		lastName: 'Kammler',
-		email: 'lisa.kammler@webber.de',
+		firstName: 'Frank',
+		lastName: 'Jens',
+		email: 'frankjens@test.de',
 		check: false,
 	},
 	{
-		firstName: 'Christopher Kai',
-		lastName: 'Greenkohl',
-		email: 'ck.greeny@hotmail.com',
+		firstName: 'Sigmunde ',
+		lastName: 'Arafad',
+		email: 'sigmundekoehler@test.de',
 		check: false,
 	},
 	{
-		firstName: 'Thorsten',
-		lastName: 'Kern',
-		email: 'thosten.kernel@hobby.com',
+		firstName: 'Gertraut ',
+		lastName: 'Harald',
+		email: 'gertrautharald@test.de',
 		check: false,
 	},
 	{
@@ -1291,8 +1291,3 @@ function frontEndDeveloper() {
 	/* document.getElementById('selectedAssign').value = `Just frontend. Sorry! ;)`; */
 	alert('This function is part of backend. The course is about frontend though');
 }
-
-/**
- * !NOCH ERLEDIGEN:
-FUnktion: Der, der die Task anlegt, erscheint automatisch in der Taksforce!!!!!!!
- */

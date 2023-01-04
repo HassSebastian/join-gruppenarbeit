@@ -5,6 +5,8 @@ async function initSummary() {
 	selectedMenuButton(1);
 	showDate();
 	showTime();
+	loadLoggedInUserEmail();
+	getAmountTasksForLoggedInUser();
 }
 
 async function renderSummary() {
@@ -136,20 +138,54 @@ function showTime() {
 	}
 }
 
+/**
+ * !NOCH ERLEDIGEN:
+FUnktion: Der, der die Task anlegt, erscheint automatisch in der Taksforce!!!!!!!
+ */
+
 /* 
-! HIer gehts weiter
+!FRAGE:
+Kann loggedUser auch ein String sein, statt ein Arry? Einfacher!
 */
 
-/* Wo ist der joinTaskArray  
+let loggedInUserIndex; // Test: Im Array ist immer nur eine Zahl drin
+let emailAddress;
+let allYourTasks = 0;
 
-laden vom localstorage!
+/**
+ * It takes the loggedUserAtString from localStorage,
+ * parses it into a JSON object,
+ * and then logs the id of the object to the console.
+ */
+function loadLoggedInUserEmail() {
+	let loggedUserAtString = localStorage.getItem('loggedUser');
+	loggedUser = JSON.parse(loggedUserAtString);
+	getLoggedUserIndex();
+}
 
+/**
+ * This function takes the logged in user's index from the array
+ * and assigns it to a variable.
+ */
+function getLoggedUserIndex() {
+	loggedInUserIndex = loggedUser[0];
+}
 
-*/
+/**
+ * This function takes the index of the logged in user
+ * and returns the email address of that user.
+ * @param loggedInUserIndex - The index of the user in the users array.
+ */
+function getEmailAdrressOfLoggedUser(loggedInUserIndex) {
+	emailAddress = users[loggedInUserIndex].email;
+	console.log(emailAddress);
+}
 
-let emailOfLoggedInUser = 'ck.greeny@hotmail.com';
-
-function getAmountAllTaks() {}
-
-let allTaks = joinTaskArray.length;
-console.log(allTaks);
+function getAmountTasksForLoggedInUser() {
+	for (let task = 0; task < joinTaskArray.length; task++) {
+		const assignedTo = joinTaskArray[task].assignedTo;
+		return assignedTo.findIndex((memberOfTaskForce) => {
+			return memberOfTaskForce.email == 'sigmundekoehler@test.de';
+		});
+	}
+}
