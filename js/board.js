@@ -956,7 +956,7 @@ function setTaskCardPopupPrioBackground(taskIndex){
 
 // Edit Taskcard popup
 async function openEditTaskCard(taskIndex){
-    await renderEditTaskCardHtml();
+    await renderEditTaskCardHtml(taskIndex);
     renderEditTaskCardInputFields(taskIndex);
     await renderContactsInAssignDropDownMenu();
     renderEditTaskCardInputFields(taskIndex);
@@ -965,7 +965,7 @@ async function openEditTaskCard(taskIndex){
 }
 
 
-async function renderEditTaskCardHtml(){
+async function renderEditTaskCardHtml(taskIndex){
     document.getElementById('boardPopup').innerHTML = '';
     document.getElementById('boardPopup').innerHTML = /*html*/`
         <div class="boardTaskCardPopup" onclick='stopClose(event)'>
@@ -986,15 +986,15 @@ async function renderEditTaskCardHtml(){
             <div class='editTaskCardPrio'>
                 <h3>Prio</h3>
                 <div class='editTaskCardPrioBtn'>
-                    <div class='addTaskUrgent' id='addTaskUrgent' onclick='addPrio(0)'>
+                    <div class='addTaskUrgent' id='addTaskUrgent' onclick='addPrio(0); prioStatusChange(0)'>
                         <span id='addTaskUrgentSpan'>Urgent</span>
                         <img id='addTaskUrgentImg' src="../assets/img/urgent_arrows.png">
                     </div>
-                    <div class='addTaskMedium' id='addTaskMedium' onclick='addPrio(1)'>
+                    <div class='addTaskMedium' id='addTaskMedium' onclick='addPrio(1); prioStatusChange(1)'>
                         <span id='addTaskMediumSpan'>Medium</span>
                         <img id='addTaskMediumImg' src="../assets/img/prio_medium.png">
                     </div>
-                    <div class='addTaskLow' id='addTaskLow' onclick='addPrio(2)'>
+                    <div class='addTaskLow' id='addTaskLow' onclick='addPrio(2); prioStatusChange(2)'>
                         <span id='addTaskLowSpan'>Low</span>
                         <img id='addTaskLowImg' src="../assets/img/prio_low.png">
                     </div>
@@ -1053,7 +1053,7 @@ async function renderEditTaskCardHtml(){
                     </div>
                 </div>
 
-            <button class='editTaskOkBtn'>Ok <img src="../assets/img/akar-icons_check_white.png" ></button>
+            <button class='editTaskOkBtn' onclick='getTaskChanges(${taskIndex})'>Ok <img src="../assets/img/akar-icons_check_white.png" ></button>
         </div>`;
 }
 
@@ -1091,6 +1091,7 @@ function setPrioPreselection(taskIndex){
     let preselectedPrio = joinTaskArray[taskIndex]['prio'];
     let boardPrioStatusJson = {'Urgent': 0, 'Medium': 1, 'Low': 2};
     addPrio(boardPrioStatusJson[preselectedPrio]);
+    boardEditedPrio = preselectedPrio;
 }
 
 
@@ -1116,6 +1117,34 @@ function getDataFromEditTaskCard(){
     //     'subTasks': selectedSubtasks,
     //     'workFlowStatus': 0,
     // };
+}
+
+
+// TODO Bossi rework the next two function
+function getTaskChanges(taskIndex){
+    let boardEditedTitle = document.getElementById('boardEditTitle').value;
+    let boardEditedDescripten = document.getElementById('boardEditDecription').value;
+    let boardEditedDueDate = document.getElementById('boardEditDueDate').value;
+    joinTaskArray[taskIndex]['assignedTo'] = taskForce;
+    joinTaskArray[taskIndex]['title'] = boardEditedTitle;
+    joinTaskArray[taskIndex]['descripten'] = boardEditedDescripten;
+    joinTaskArray[taskIndex]['dueDate'] = boardEditedDueDate;
+    joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
+    saveTask();
+    initBoard();
+    disablePopupWindow();
+}
+
+let boardEditedPrio = '';
+
+
+function prioStatusChange(index){
+    let statusNames = ['Urgent', 'Medium', 'Low'];
+    if (statusNames[index] == boardEditedPrio){
+        boardEditedPrio = '';
+    }else{
+        boardEditedPrio = statusNames[index];
+    }
 }
 
   
