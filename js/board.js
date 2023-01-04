@@ -390,7 +390,7 @@ function toDoCardHtml(arrayIndex) {
                     </div>
 
                     <div class='prio'>
-                        <img src='./assets/img/low.png' id='contributorsPrioIcon${taskIndex}'>
+                        <img src='./assets/img/low.png' id='contributorsPrioIcon${taskIndex}'> <!--id von Basti hinzugefügt-->
                     </div>
                 </div>
             </div>
@@ -491,7 +491,7 @@ function inProgressHtml(arrayIndex){
                         </div>
 
                         <div class='prio'>
-                            <img src='./assets/img/low.png' id='contributorsPrioIcon${taskIndex}'>
+                            <img src='./assets/img/low.png' id='contributorsPrioIcon${taskIndex}'> <!--id von Basti hinzugefügt-->
                         </div>
                     </div>
                 </div>
@@ -569,7 +569,7 @@ function awaitingFeedbackHtml(arrayIndex){
                     </div>
 
                     <div class='prio'>
-                        <img src='./assets/img/low.png' id='contributorsPrioIcon${taskIndex}'>
+                        <img src='./assets/img/low.png' id='contributorsPrioIcon${taskIndex}'> <!--id von Basti hinzugefügt-->
                     </div>
                 </div>
             </div>
