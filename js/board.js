@@ -283,7 +283,7 @@ function renderAllCards() {
     renderDoneCards();
     renderAssignTo();
 }
-
+toDoCardHtml
 
 /**
  * It takes two numbers, divides the first by the second, and multiplies the result by 100
@@ -390,7 +390,7 @@ function toDoCardHtml(arrayIndex) {
                     </div>
 
                     <div class='prio'>
-                        <img src='./assets/img/low.png'>
+                        <img src='./assets/img/low.png' id='contributorsPrioIcon${taskIndex}'>
                     </div>
                 </div>
             </div>
@@ -491,7 +491,7 @@ function inProgressHtml(arrayIndex){
                         </div>
 
                         <div class='prio'>
-                            <img src='./assets/img/low.png'>
+                            <img src='./assets/img/low.png' id='contributorsPrioIcon${taskIndex}'>
                         </div>
                     </div>
                 </div>
@@ -569,7 +569,7 @@ function awaitingFeedbackHtml(arrayIndex){
                     </div>
 
                     <div class='prio'>
-                        <img src='./assets/img/low.png'>
+                        <img src='./assets/img/low.png' id='contributorsPrioIcon${taskIndex}'>
                     </div>
                 </div>
             </div>
@@ -646,7 +646,7 @@ function doneHtml(arrayIndex){
                         </div> -->
                     </div>
                     <div class='prio'>
-                        <img src='./assets/img/low.png'>
+                        <img src='./assets/img/low.png' id='contributorsPrioIcon${taskIndex}'>
                     </div>
                 </div>
             </div>
