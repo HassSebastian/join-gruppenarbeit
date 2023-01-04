@@ -715,10 +715,10 @@ function getDataFromFomular() {
 	subTask = document.getElementById('subTask').value;
 }
 
-async function createAssignToListForSave(){
+async function createAssignToListForSave() {
 	for (let i = 0; i < coworkersToAssignTo.length; i++) {
-		let checkStatus= coworkersToAssignTo[i]['check'];
-		if(checkStatus){
+		let checkStatus = coworkersToAssignTo[i]['check'];
+		if (checkStatus) {
 			assignToArray.push(coworkersToAssignTo[i]);
 		}
 	}
@@ -945,21 +945,30 @@ function resetSubtaskSelections() {
  * If the list is not visible, make it visible and remove the border bottom from the button. If the
  * list is visible, add the border bottom to the button and make the list invisible.
  */
+
+function hideDropDownAssignTo() {
+	document.getElementById('dropdown2').classList.add('listD-none');
+}
+
+function showDropDownAssignTo() {
+	document.getElementById('dropdown2').classList.remove('listD-none');
+}
+
 function enableDisableAssignList() {
 	if (!assignListStatus) {
-		document.getElementById('dropdown2').classList.remove('listD-none');
 		borderBottomOffAssignedBoxButton();
+		showDropDownAssignTo();
 		showBadgesTaskForce();
 	} else {
 		borderBottomOnAssignedBoxButton();
-		document.getElementById('dropdown2').classList.add('listD-none');
+		hideDropDownAssignTo();
 		hideBadgesTaskForce();
 	}
 	assignListStatus = !assignListStatus;
 }
 
 function enableAssignList() {
-	document.getElementById('dropdown2').classList.remove('listD-none');
+	showDropDownAssignTo();
 	assignListStatus = !assignListStatus;
 }
 
@@ -1272,14 +1281,14 @@ function clearTaskForce() {
 	checkStatusToFalse();
 	taskForce = [];
 	enableDisableAssignList();
-	console.table(taskForce.length);
+	console.table('Length tskforce', taskForce.length);
 	renderBadgesMemberOfTaskForce();
 	closeDropDownAssignTo();
-	console.table(taskForce);
+	console.table('content', taskForce);
 }
 
 function frontEndDeveloper() {
-	document.getElementById('selectedAssign').value = `Just frontend. Sorry! ;)`;
+	/* document.getElementById('selectedAssign').value = `Just frontend. Sorry! ;)`; */
 	alert('This function is part of backend. The course is about frontend though');
 }
 
