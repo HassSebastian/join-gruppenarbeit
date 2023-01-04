@@ -778,8 +778,7 @@ function renderPopupTaskCard(taskIndex){
     let cardCategory = joinTaskArray[taskIndex]['category'];
     let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
     let taskPrio = joinTaskArray[taskIndex]['prio'];
-    let subtaskArray = joinTaskArray[taskIndex]['subTasks'];
-    console.log(subtaskArray);
+    // let subtaskArray = joinTaskArray[taskIndex]['subTasks'];
     document.getElementById('boardPopup').innerHTML = '';
     document.getElementById('boardPopup').innerHTML = /*html*/`
         <div class="boardTaskCardPopup" onclick='stopClose(event)'>
@@ -809,8 +808,8 @@ function renderPopupTaskCard(taskIndex){
             <img src="./assets/img/edit_button.png">
         </div>
     
-        <div class="members">
-            <div class="davidEisenberg">
+        <div class="members" id='members'>
+            <!-- <div class="davidEisenberg">
                 <span class="shortcut" title='David Eisenberg'>DE</span>
             </div>
             <div class="benediktZiegler">
@@ -821,7 +820,7 @@ function renderPopupTaskCard(taskIndex){
             </div>
             <div class="stefanieFarber">
                 <span class="shortcut" title='Stefanie Farber'>SF</span>
-            </div>
+            </div> -->
         </div>
         
         <div class='boardSubtasksTitleDiv'>
@@ -852,6 +851,30 @@ function renderPopupTaskCard(taskIndex){
     setTaskCardPopupCatColor(taskIndex);
     setTaskCardPopupPrioBackground(taskIndex);
     renderSubtask(taskIndex);
+    renderAssignToHtml2(taskIndex);
+}
+
+
+function renderAssignToHtml2(taskIndex) {
+    let assignedList = joinTaskArray[taskIndex]['assignedTo'];
+    let divId = 'members';
+    document.getElementById(divId).innerHTML = '';
+    if (assignedList.length > 0) {
+        for (let i = 0; i < assignedList.length; i++) {
+            let firstName = assignedList[i]['firstName'];
+            let lastName = assignedList[i]['lastName'];
+            let nameLetters = firstName[0] + lastName[0];
+            chooseColorForTaskForceBadge(firstName[0], lastName[0]);
+            // toDo index ist in der addTask.js eine Globale Variable, bitte ändern.
+            let assignToColor = backgroundColorForBadges[index];
+            let assignToTitle = firstName + ' ' + lastName;
+            // console.log(firstName, lastName, nameLetters, assignToTitle);
+            document.getElementById(divId).innerHTML += /*html*/`
+                <div  title='${assignToTitle}' style='background-color: ${assignToColor}'>
+                    <span class='shortcut'>${nameLetters}</span>
+                </div>`;
+        }
+    }
 }
 
 
@@ -934,7 +957,11 @@ function setTaskCardPopupPrioBackground(taskIndex){
 // Edit Taskcard popup
 async function openEditTaskCard(taskIndex){
     await renderEditTaskCardHtml();
-    renderEditTaskCardInputFields(taskIndex)
+    renderEditTaskCardInputFields(taskIndex);
+    await renderContactsInAssignDropDownMenu();
+    renderEditTaskCardInputFields(taskIndex);
+    boardEditTaskCardAssignPreseselction(taskIndex);
+    setPrioPreselection(taskIndex);
 }
 
 
@@ -974,6 +1001,58 @@ async function renderEditTaskCardHtml(){
                 </div>
             </div>
 
+            <div class="addTaskAssignedBox boardAddTaskAssignedBox" id="addTaskAssignedBox">
+			        <h3>Assigned to</h3>
+			        <button id="addTaskAssignedButton" onclick="enableDisableAssignList()">
+                    <input
+                            disabled
+                            onclick="doNotCloseOnClick(event)"
+                            id="selectedAssign"
+                            name="selectedAssign"
+                            class="inputselectedAssign"
+                            placeholder="Select contacts to assign"
+                            autocomplete="off"
+                        />
+				
+                    <div
+                    id="assignToCancelConfirmImgContainer"
+                    class="assignToCancelConfirmImgContainer d-none"
+                    >
+                        <img
+                        onclick="assignBoxBackToDefaultMode(), enableAssignList()"
+                        class="assignToCancelIcon"
+                        src="assets/img/cancel-black.png"
+                        alt="cancel"
+                        />
+                        <img class="assignToDeviderIcon" src="assets/img/bnt_divider.png" />
+                        <img
+                        onclick="frontEndDeveloper()"
+                        class="assignToCheckIcon"
+                        src="assets/img/akar-icons_check.png"
+                        alt="confirm"
+                        />
+                    </div>
+                    <img id="assignDropDownImg" src="assets/img/Vector 2.png" class="dropdownImg" />
+                    </button>
+                    <span id="assignReq">This field is required</span>
+                    <div id="badgesTaskForce" class="badgesTaskForce"></div>
+                    <ul class="addTaskAssignList listD-none" id="dropdown2">
+
+                    <li onclick="assigendContactEmail()" class="inviteNewContacts">
+                        Invite new contacts<img
+                            class="assignInviteNewContactImage"
+                            src="assets/img/assigned_inviteNewContact.png"
+                            alt=""
+                        />
+                    </li>
+                    <li>
+                    You
+                    <div  class="assignCheckboxContainer">
+                        <img class="checkBox" src="assets/img/check_box.png" alt="checkbox" />
+                        <img class="checkMark" src="assets/img/check_mark.png" />
+                    </div>
+                </div>
+
             <button class='editTaskOkBtn'>Ok <img src="../assets/img/akar-icons_check_white.png" ></button>
         </div>`;
 }
@@ -991,6 +1070,27 @@ function renderEditTaskCardInputFields(taskIndex){
     document.getElementById('boardEditTitle'). value = cardTitle;
     document.getElementById('boardEditDecription').value = cardDescription;
     document.getElementById('boardEditDueDate').value = cardDueDate;
+}
+
+
+function boardEditTaskCardAssignPreseselction(taskIndex){
+    let assignToArray = joinTaskArray[taskIndex]['assignedTo'];
+    for (let i = 0; i < assignToArray.length; i++) {
+        let refEmail = assignToArray[i]['email'];
+        for (let index = 0; index < coworkersToAssignTo.length; index++) {
+            let email = coworkersToAssignTo[index]['email'];
+            if (refEmail == email){
+                addContactToTaskForceWithCheckBox(index);
+            }
+        }
+    } 
+}
+
+
+function setPrioPreselection(taskIndex){
+    let preselectedPrio = joinTaskArray[taskIndex]['prio'];
+    let boardPrioStatusJson = {'Urgent': 0, 'Medium': 1, 'Low': 2};
+    addPrio(boardPrioStatusJson[preselectedPrio]);
 }
 
 
@@ -1020,7 +1120,7 @@ async function showAddTaskPopupWindow(){
     loadExitingCategories();
     renderCategoryList();
     newCatInputActive = false;
-    renderSubtasks();
+    // renderSubtasks();
     renderContactsInAssignDropDownMenu();
 }
 
@@ -1041,6 +1141,7 @@ async function renderAddTaskPopup(){
 function renderAddTaskPopupHtml(){
     return /*html*/`
         <div id='boardAddTaskPopup' onclick='stopClose(event)'>
+            <img class="close_logo_edit_task" src="./assets/img/close_logo.png" onclick='disablePopupWindow()'>
             <div class='boardAddTaskHeadlineDiv'>
                 <h2 class='addTHeadline'>Add Task</h2>
             </div>

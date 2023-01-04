@@ -1161,7 +1161,7 @@
     flex-grow: 0;
 } */
 
-.davidEisenberg {
+/* .davidEisenberg {
     background: #9327FF;
 }
 
@@ -1175,7 +1175,7 @@
 
 .stefanieFarber {
     background: #CB02CF;
-}
+} */
 
 
 /* add by Bossi */
@@ -1295,6 +1295,22 @@
 }
 
 /* Edit Task Card css classes */
+
+.close_logo_edit_task{
+    position: absolute;
+    width: 21.65px;
+    height: 21.65px;
+    left: 1056px;
+    top: 26px;
+    transform: rotate(90deg);
+    flex: none;
+    order: 9;
+    flex-grow: 0;
+    z-index: 9;
+    cursor: pointer;
+}
+
+
 .boardEditTitleContainer {
     display: flex;
     flex-direction: column;
@@ -1539,4 +1555,27 @@
     left: 481px;
     top: 0px;
     border: 2px solid #D1D1D1;
+}
+
+.addTaskAssignedBox2{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 422px;
+    height: 84px;
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+    margin-top: 12px;
+    position: absolute;
+    top: 578px;
+    left: 101px;
+}
+
+.boardAddTaskAssignedBox{
+    position: absolute;
+    top: 578px;
+    left: 101px;
 }

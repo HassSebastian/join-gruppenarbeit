@@ -1143,7 +1143,7 @@ function generateAssignContactListForDropDownMenu(firstName, lastName, contact) 
  * dropdown menu.
  *! "contact" might not be the best name. To be reconsidered!!
  */
-function renderContactsInAssignDropDownMenu() {
+async function renderContactsInAssignDropDownMenu() {
 	for (let contact = 0; contact < coworkersToAssignTo.length; contact++) {
 		let firstName = coworkersToAssignTo[contact].firstName;
 		let lastName = coworkersToAssignTo[contact].lastName;
