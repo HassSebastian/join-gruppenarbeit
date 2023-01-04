@@ -1,17 +1,35 @@
+let loggedInUserIndex; // Test: Im Array ist immer nur eine Zahl drin
+let emailAddress;
+let allYourTasksAmount = 0;
+let allYourToDoTasksAmount = 0;
+let allYourInProgressTasksAmount = 0;
+let allYourAwaitingFeedbackTasksAmount = 0;
+let allYourDoneTasks = 0;
+let allYourTasks = []; // Bossis Idee, für workflow 0-3
+
 async function initSummary() {
 	loadTask();
+	await loadAmountsForSummary(); // await später für server wichtig
 	await includeHTML();
-	await renderSummary();
+	await renderSummary(
+		allYourTasksAmount,
+		allYourToDoTasksAmount,
+		allYourInProgressTasksAmount,
+		allYourAwaitingFeedbackTasksAmount
+	);
 	selectedMenuBtnId = 0;
 	selectedMenuButton(1);
 	showDate();
 	showTime();
-	loadLoggedInUserArray();
 }
 
-async function renderSummary() {
-	document.getElementById('content').innerHTML = '';
-	document.getElementById('content').innerHTML += /*html*/ `
+function generateSummaryHtml(
+	allYourTasksAmount,
+	allYourToDoTasksAmount,
+	allYourInProgressTasksAmount,
+	allYourAwaitingFeedbackTasksAmount
+) {
+	return /*html*/ `
     <!-- <div class='summary_content'> -->
         <div class='title'>
             <h3>Summary</h3>
@@ -24,9 +42,9 @@ async function renderSummary() {
         </div>
         <div class="overview">
             <div class='taskOverview'>
-                <div id='taskInBoard'><span id='taskInBoardAmount'>5</span> <p>Task in Board</p></div>
-                <div id='taskInProgress'><span id='taskInProgressAmount'>2</span> <p>Task in Progress</p></div>
-                <div id='awaitingFeedback'><span id='awaitingFeedbackAmount'>2</span> <p>Awaiting Feedback</p></div>
+                <div id='taskInBoard'><span id='taskInBoardAmount'>${allYourTasksAmount}</span> <p>Task in Board</p></div>
+                <div id='taskInProgress'><span id='taskInProgressAmount'>${allYourInProgressTasksAmount}</span> <p>Task in Progress</p></div>
+                <div id='awaitingFeedback'><span id='awaitingFeedbackAmount'>${allYourAwaitingFeedbackTasksAmount}</span> <p>Awaiting Feedback</p></div>
             </div>
             <div class='ugencySummary' onmouseover="ugencySummaryHoverOn()" onmouseout="ugencySummaryHoverOff()">
                 <div class="ugent">
@@ -48,7 +66,7 @@ async function renderSummary() {
                 <div class='toDo' id='toDo' onmouseover="toDoHoverOn()" onmouseout="toDoHoverOff()">
                     <img id='toDoImg' src='./assets/img/to_do_pen.png' alt="">
                     <div class='toDoAmountData'>
-                        <span id='toDoAmountTasks'>1</span>
+                        <span id='toDoAmountTasks'>${allYourToDoTasksAmount}</span>
                         <p id='toDoAmountP'>to-Do</p>
                     </div>
                 </div>
@@ -62,6 +80,21 @@ async function renderSummary() {
             </div>
         </div>
     `;
+}
+
+async function renderSummary(
+	allYourTasksAmount,
+	allYourToDoTasksAmount,
+	allYourInProgressTasksAmount,
+	allYourAwaitingFeedbackTasksAmount
+) {
+	document.getElementById('content').innerHTML = '';
+	document.getElementById('content').innerHTML += generateSummaryHtml(
+		allYourTasksAmount,
+		allYourToDoTasksAmount,
+		allYourInProgressTasksAmount,
+		allYourAwaitingFeedbackTasksAmount
+	);
 }
 
 // Hover Summary help-function
@@ -148,11 +181,6 @@ FUnktion: Der, der die Task anlegt, erscheint automatisch in der Taksforce!!!!!!
 Kann loggedUser auch ein String sein, statt ein Arry? Einfacher!
 */
 
-let loggedInUserIndex; // Test: Im Array ist immer nur eine Zahl drin
-let emailAddress;
-let allYourTasksAmount = 0;
-let allYourTask = []; // Bossis Idee, für workflow 0-3
-
 /**
  * It takes the loggedUserAtString from localStorage,
  * parses it into a JSON object,
@@ -161,8 +189,7 @@ let allYourTask = []; // Bossis Idee, für workflow 0-3
 function loadLoggedInUserArray() {
 	let loggedUserAtString = localStorage.getItem('loggedUser');
 	loggedUser = JSON.parse(loggedUserAtString);
-	getLoggedUserIndex();
-	getEmailAdrressOfLoggedUser(loggedInUserIndex);
+	console.log(loggedUser);
 }
 
 /**
@@ -171,6 +198,7 @@ function loadLoggedInUserArray() {
  */
 function getLoggedUserIndex() {
 	loggedInUserIndex = loggedUser[0];
+	console.log(loggedInUserIndex);
 }
 
 /**
@@ -178,18 +206,47 @@ function getLoggedUserIndex() {
  * and returns the email address of that user.
  * @param loggedInUserIndex - The index of the user in the users array.
  */
-function getEmailAdrressOfLoggedUser(loggedInUserIndex) {
+function getEmailAdrressOfLoggedUser() {
 	emailAddress = users[loggedInUserIndex].email;
 	console.log(emailAddress);
 }
 
 function getAmountTasksForLoggedInUser() {
+	/* 
+	!KÜRZEN CHRISTIAN */
 	for (let task = 0; task < joinTaskArray.length; task++) {
 		const assignedTo = joinTaskArray[task].assignedTo;
-		return assignedTo.findIndex((memberOfTaskForce) => {
-			return memberOfTaskForce.email == 'sigmundekoehler@test.de';
-		});
+		const workflowStatus = joinTaskArray[task].workFlowStatus;
+		for (
+			let memberOfTaskForce = 0;
+			memberOfTaskForce < assignedTo.length;
+			memberOfTaskForce++
+		) {
+			const email = assignedTo[memberOfTaskForce].email;
+			console.log('workflow', workflowStatus);
+			if (email == emailAddress) allYourTasksAmount++;
+			if (email == emailAddress && workflowStatus === 0) allYourToDoTasksAmount++;
+			if (email == emailAddress && workflowStatus === 1) allYourInProgressTasksAmount++;
+			if (email == emailAddress && workflowStatus === 2) allYourAwaitingFeedbackTasksAmount++;
+			if (email == emailAddress && workflowStatus === 3) allYourDoneTasks++;
+
+			console.log(allYourTasksAmount);
+			console.log('todo', allYourToDoTasksAmount);
+		}
 	}
 }
 
-console.log(users.includes('sigmundekoehler@test.de'));
+function getAmountToDoTasksForLoggedInUser() {
+	for (let task = 0; task < joinTaskArray.length; task++) {
+		const workflowStatus = joinTaskArray[task].workFlowStatus;
+		if (workflowStatus === 0) allYourToDoTasksAmount++;
+		console.log(workflowStatus);
+	}
+}
+
+async function loadAmountsForSummary() {
+	loadLoggedInUserArray();
+	getLoggedUserIndex();
+	getEmailAdrressOfLoggedUser();
+	getAmountTasksForLoggedInUser();
+}
