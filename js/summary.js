@@ -4,7 +4,8 @@ let allYourTasksAmount = 0;
 let allYourToDoTasksAmount = 0;
 let allYourInProgressTasksAmount = 0;
 let allYourAwaitingFeedbackTasksAmount = 0;
-let allYourDoneTasks = 0;
+let allYourDoneTasksAmount = 0;
+let yourUrgentTasksAmount = 0;
 let allYourTasks = []; // Bossis Idee, für workflow 0-3
 
 async function initSummary() {
@@ -16,7 +17,8 @@ async function initSummary() {
 		allYourToDoTasksAmount,
 		allYourInProgressTasksAmount,
 		allYourAwaitingFeedbackTasksAmount,
-		allYourDoneTasks
+		allYourDoneTasksAmount,
+		yourUrgentTasksAmount
 	);
 	selectedMenuBtnId = 0;
 	selectedMenuButton(1);
@@ -28,7 +30,9 @@ function generateSummaryHtml(
 	allYourTasksAmount,
 	allYourToDoTasksAmount,
 	allYourInProgressTasksAmount,
-	allYourAwaitingFeedbackTasksAmount
+	allYourAwaitingFeedbackTasksAmount,
+	allYourDoneTasksAmount,
+	yourUrgentTasksAmount
 ) {
 	return /*html*/ `
     <!-- <div class='summary_content'> -->
@@ -53,7 +57,7 @@ function generateSummaryHtml(
                         <img class='ugentImg' id='urgentImg' src='./assets/img/summary_urgent.png' >
                     </div>
                     <div class='ugentAmount'>
-                        <span id='ugencySummaryAmount' >1</span>
+                        <span id='ugencySummaryAmount' >${yourUrgentTasksAmount}</span>
                         <p id='ugencySummaryurgent'>Urgent</p>
                     </div>
                     <img src='./assets/img/vertical-line2.png' class='ugentVerticalLine'>
@@ -74,7 +78,7 @@ function generateSummaryHtml(
                 <div class='toDoDone' id='toDoDone' onmouseover="toDoDoneHoverOn()" onmouseout="toDoDoneHoverOff()">
                     <img id='toDoDoneImg' src='./assets/img/done.png' alt="">
                     <div class='toDoAmountData'>
-                        <span id='toDoDoneAmountTasks'>${allYourDoneTasks}</span>
+                        <span id='toDoDoneAmountTasks'>${allYourDoneTasksAmount}</span>
                         <p id='toDoDoneAmountP'>Done</p>
                     </div>
                 </div>
@@ -88,7 +92,8 @@ async function renderSummary(
 	allYourToDoTasksAmount,
 	allYourInProgressTasksAmount,
 	allYourAwaitingFeedbackTasksAmount,
-	allYourDoneTasks
+	allYourDoneTasksAmount,
+	yourUrgentTasksAmount
 ) {
 	document.getElementById('content').innerHTML = '';
 	document.getElementById('content').innerHTML += generateSummaryHtml(
@@ -96,7 +101,8 @@ async function renderSummary(
 		allYourToDoTasksAmount,
 		allYourInProgressTasksAmount,
 		allYourAwaitingFeedbackTasksAmount,
-		allYourDoneTasks
+		allYourDoneTasksAmount,
+		yourUrgentTasksAmount
 	);
 }
 
@@ -220,6 +226,7 @@ function getAmountTasksForLoggedInUser() {
 	for (let task = 0; task < joinTaskArray.length; task++) {
 		const assignedTo = joinTaskArray[task].assignedTo;
 		const workflowStatus = joinTaskArray[task].workFlowStatus;
+		const priority = joinTaskArray[task].prio;
 		for (
 			let memberOfTaskForce = 0;
 			memberOfTaskForce < assignedTo.length;
@@ -231,7 +238,8 @@ function getAmountTasksForLoggedInUser() {
 			if (email == emailAddress && workflowStatus === 0) allYourToDoTasksAmount++;
 			if (email == emailAddress && workflowStatus === 1) allYourInProgressTasksAmount++;
 			if (email == emailAddress && workflowStatus === 2) allYourAwaitingFeedbackTasksAmount++;
-			if (email == emailAddress && workflowStatus === 3) allYourDoneTasks++;
+			if (email == emailAddress && workflowStatus === 3) allYourDoneTasksAmount++;
+			if (email == emailAddress && priority === 'Urgent') yourUrgentTasksAmount++;
 
 			console.log(allYourTasksAmount);
 			console.log('todo', allYourToDoTasksAmount);
