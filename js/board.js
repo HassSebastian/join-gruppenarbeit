@@ -491,7 +491,7 @@ function inProgressHtml(arrayIndex){
                         </div>
 
                         <div class='prio'>
-                            <img src='./assets/img/low.png' id='contributorsPrioIcon${taskIndex}'>
+                            <img src='./assets/img/low.png'>
                         </div>
                     </div>
                 </div>

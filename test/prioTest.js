@@ -1,5 +1,5 @@
 function showContributorsPrioIcon(){
-    document.getElementById('contributorsPrioIcon$0').src = './assets/img/medium_white.png';
+    document.getElementById('contributorsPrioIcon0').src = './assets/img/medium_white.png';
 }
 
 
