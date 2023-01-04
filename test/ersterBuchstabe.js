@@ -41,8 +41,9 @@ function user() {
 function alphabet() {
 	for (let wertNachDemArray in alphabetOrd) {
 		if (alphabetOrd[wertNachDemArray].length > 0) {
-			document.getElementById('ersteBuchstaben').innerHTML += `
-		<div id='${wertNachDemArray}'>${wertNachDemArray}</div>
+			document.getElementById('ersteBuchstaben').innerHTML += /*html*/ `
+		<div style='border-bottom: 1px solid black'>${wertNachDemArray}</div>
+		<div id='${wertNachDemArray}'></div> <!-- hier wird der Unterstrich generiert --> 
 		`;
 			for (i = 0; i < alphabetOrd[wertNachDemArray].length; i++) {
 				document.getElementById(wertNachDemArray).innerHTML += `
