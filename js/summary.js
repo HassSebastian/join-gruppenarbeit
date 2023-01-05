@@ -10,6 +10,7 @@ let allYourTasks = []; // Bossis Idee, für workflow 0-3
 
 async function initSummary() {
 	loadTask();
+	resetCouters();
 	await loadAmountsForSummary(); // await später für server wichtig
 	await includeHTML();
 	await renderSummary(
@@ -25,6 +26,16 @@ async function initSummary() {
 	showDate();
 	showTime();
 }
+
+function resetCouters() {
+	allYourTasksAmount = 0;
+	allYourToDoTasksAmount = 0;
+	allYourInProgressTasksAmount = 0;
+	allYourAwaitingFeedbackTasksAmount = 0;
+	allYourDoneTasksAmount = 0;
+	yourUrgentTasksAmount = 0;
+}
+
 
 function generateSummaryHtml(
 	allYourTasksAmount,
