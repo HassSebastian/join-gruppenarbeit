@@ -10,6 +10,7 @@ let allYourTasks = []; // Bossis Idee, für workflow 0-3
 
 async function initSummary() {
 	loadTask();
+	resetCounters();
 	await loadAmountsForSummary(); // await später für server wichtig
 	await includeHTML();
 	await renderSummary(
@@ -25,6 +26,16 @@ async function initSummary() {
 	showDate();
 	showTime();
 }
+
+function resetCounters() {
+	allYourTasksAmount = 0;
+	allYourToDoTasksAmount = 0;
+	allYourInProgressTasksAmount = 0;
+	allYourAwaitingFeedbackTasksAmount = 0;
+	allYourDoneTasksAmount = 0;
+	yourUrgentTasksAmount = 0;
+}
+
 
 function generateSummaryHtml(
 	allYourTasksAmount,
@@ -43,7 +54,7 @@ function generateSummaryHtml(
         </div>
         <div class='welcome'>
             <h4 id='greetUser'></h4>
-            <h3>Sofia Müller</h3>
+            <h3>${users[loggedUser[0]].name}</h3>
         </div>
         <div class="overview">
             <div class='taskOverview'>

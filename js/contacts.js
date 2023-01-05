@@ -40,6 +40,7 @@ function user() {
     alphabet();
 }
 
+<<<<<<< HEAD
 function alphabet() {
     document.getElementById('Contact_list').innerHTML = '';
     for (let wertNachDemArray in alphabetOrd) {
@@ -79,6 +80,16 @@ function alphabet() {
             }
         }
     }
+=======
+function findFirstWithLetter(letter) {
+    const sortedArray = contacts.sort((a, b) => a.name.localeCompare(b.name));
+    for (let element of sortedArray) {
+        if (Object.values(element).some(value => value.includes(letter))) {
+            return element;
+        }
+    }
+    return null;
+>>>>>>> 068661ca73a75708642bc04e1ddb429e0d4d5141
 }
 
 async function renderContent() {
@@ -123,8 +134,75 @@ async function renderContent() {
 </div>
 
 `;
+<<<<<<< HEAD
 }
 
+=======
+    renderContacts();
+
+    //renderContactsTest();
+}
+
+function contactListHTML() {
+    return
+}
+
+async function renderContacts() {
+    document.getElementById('Contact_list').innerHTML = '';
+
+    for (let i = 0; i < contacts.length; i++) {
+        const name = contacts[i].name;
+        const email = contacts[i].email;
+        const nameLetter = contacts[i].name.charAt(0);
+        let spaceIndex = contacts[i].name.indexOf(' ');
+        const surname = contacts[i].name.substring(spaceIndex + 1);
+        let surnameLetter = surname[0];
+        const result = findFirstWithLetter(i);
+
+        if (result === contacts[0]) {
+            document.getElementById('Contact_list').innerHTML += /*html*/ `
+             <div class="letters">
+                <span>${nameLetter}</span>
+                <div class="Vector_10"></div>
+            </div>
+            <div class="contact" id="contact${i}" onclick="showContact(${i})">
+                 <div class="ellipse">
+                    <span>${nameLetter}${surnameLetter}</span>
+                 </div>
+                 <div class="name_and_email">
+                     <div class="name">
+                         <span>${name}</span>
+                     </div>
+                     <div class="email">
+                         ${email}
+                     </div>
+                 </div>
+            </div>
+        </div>
+       `;
+        } else {
+            document.getElementById('Contact_list').innerHTML += /*html*/ `
+           <div class="contact" id="contact${i}" onclick="showContact(${i})">
+                <div class="ellipse">
+                   <span>${nameLetter}${surnameLetter}</span>
+                </div>
+                <div class="name_and_email">
+                    <div class="name">
+                        <span>${name}</span>
+                    </div>
+                    <div class="email">
+                        ${email}
+                    </div>
+                </div>
+           </div>
+       </div>
+      `;
+        }
+
+    }
+}
+
+>>>>>>> 068661ca73a75708642bc04e1ddb429e0d4d5141
 function openEditContact(i) {
     document.getElementById('edit_contact').classList.remove('d-none')
     document.getElementById('edit_contact').innerHTML /*html*/ = '';

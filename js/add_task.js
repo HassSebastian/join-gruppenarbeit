@@ -336,12 +336,32 @@ async function loadExitingCategories() {
 	for (let i = 0; i < joinTaskArray.length; i++) {
 		let taskCategory = joinTaskArray[i]['category'];
 		let categoryColor = joinTaskArray[i]['catColor'];
-		addTaskCategoryList.push({
-			category: taskCategory,
-			catColor: categoryColor,
-		});
+
+		let newCategoryItem = {'category': taskCategory, 'catColor': categoryColor,};
+		if (!checkCategoryList(newCategoryItem)){
+			addTaskCategoryList.push({
+				category: taskCategory,
+				catColor: categoryColor,
+			});
+		}
 	}
 }
+
+
+// function checkCategoryList(newCategoryItem){
+// 	let categoryName1 = newCategoryItem['category'];
+// 	let categoryColor1 = newCategoryItem['catColor'];
+// 	let doubleEntry = false;
+// 	for (let i = 0; i < addTaskCategoryList.length; i++) {
+// 		let listCategory = addTaskCategoryList[i]['category'];
+// 		let listCatColor = addTaskCategoryList[i]['catColor'];
+// 		if (listCategory == categoryName1 && listCatColor == categoryColor1){
+// 			doubleEntry = true;
+// 			selectCategory(i);
+// 		}
+// 	}
+// 	return doubleEntry;
+// }
 
 /**
  * This function load the data(key:joinTaskArray) from local storage.
@@ -403,6 +423,8 @@ function renderCategoryList() {
 	}
 }
 
+
+
 /**
  * this function checked, a backgroundcolor is set for this category.
  * @param {number} categoryColor - This is a number that is equal to the css color classes. Example, if the number is 1
@@ -454,11 +476,13 @@ function setNewCategoryToList() {
 			category: newSetCategory,
 			catColor: newCatColor,
 		};
-		checkCategoryList(newCategoryItem);
-		addTaskCategoryList.push(newCategoryItem);
-		let newCategoryIndex = addTaskCategoryList.length - 1;
-		renderCategoryList();
-		selectCategory(+newCategoryIndex);
+		// checkCategoryList(newCategoryItem);
+		if (!checkCategoryList(newCategoryItem)){
+			addTaskCategoryList.push(newCategoryItem);
+			let newCategoryIndex = addTaskCategoryList.length - 1;
+			renderCategoryList();
+			selectCategory(+newCategoryIndex);
+		}
 		catListStatus = false;
 		newCatInputActive = false;
 	}
@@ -466,9 +490,22 @@ function setNewCategoryToList() {
 
 
 function checkCategoryList(newCategoryItem){
-	let doubleEntry = addTaskCategoryList.includes(newCategoryItem);
-	console.log('CatDouble ', doubleEntry);
+	let categoryName1 = newCategoryItem['category'];
+	let categoryColor1 = newCategoryItem['catColor'];
+	let doubleEntry = false;
+	for (let i = 0; i < addTaskCategoryList.length; i++) {
+		let listCategory = addTaskCategoryList[i]['category'];
+		let listCatColor = addTaskCategoryList[i]['catColor'];
+		if (listCategory == categoryName1 && listCatColor == categoryColor1){
+			doubleEntry = true;
+			selectCategory(i);
+		}
+	}
+	return doubleEntry;
 }
+
+
+
 
 /**
  * this function set the input field for a new category to 'selected a category'.
@@ -1146,6 +1183,7 @@ function addContactToTaskForceWithCheckBox(contact) {
 	console.log(taskForce.length);
 	console.table(taskForce);
 }
+
 
 function generateAssignContactListForDropDownMenu(firstName, lastName, contact) {
 	return /*html*/ `
