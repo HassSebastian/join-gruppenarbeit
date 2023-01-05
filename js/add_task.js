@@ -1184,6 +1184,7 @@ function addContactToTaskForceWithCheckBox(contact) {
 	console.table(taskForce);
 }
 
+
 function generateAssignContactListForDropDownMenu(firstName, lastName, contact) {
 	return /*html*/ `
 	<li onclick="addContactToTaskForceWithCheckBox(${contact})">

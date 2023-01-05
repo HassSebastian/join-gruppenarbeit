@@ -973,6 +973,7 @@ function setTaskCardPopupPrioBackground(taskIndex){
 
 // Edit Taskcard popup
 async function openEditTaskCard(taskIndex){
+    resetAssignToList();
     await renderEditTaskCardHtml(taskIndex);
     renderEditTaskCardInputFields(taskIndex);
     await renderContactsInAssignDropDownMenu();
