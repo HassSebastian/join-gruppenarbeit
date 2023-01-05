@@ -98,3 +98,13 @@ function keyQueryOne(name, email, password) {
     let allUsersAtString = JSON.stringify(allUsers);
     localStorage.setItem('allUsers', allUsersAtString);
 }
+
+function passwordShowIcon(){
+	document.getElementById('passwordLogo').classList.toggle('d-none');
+	document.getElementById('pwShowButton').classList.toggle('d-none');
+	if(document.getElementById('passwordLogo').classList.contains('d-none')){
+	document.getElementById('inputPasswordSignUp').type="text";
+	}else{
+		document.getElementById('inputPasswordSignUp').type="password";
+	}
+}

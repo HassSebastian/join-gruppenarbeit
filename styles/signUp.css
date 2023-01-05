@@ -250,3 +250,6 @@ cursor: pointer;
 .requiredOn{
     color: red;
 }
+.d-none{
+    display: none !important;
+}

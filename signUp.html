@@ -53,7 +53,10 @@
                         <div class="container">
                             <div class="innerContainer">
                                 <input class="inputSignUp" type="password" placeholder="Password" id="inputPasswordSignUp">
-                                <img src="./assets/img/password_logo.png">
+                                <div onclick="passwordShowIcon()">
+                                    <img src="./assets/img/password_logo.png" id="passwordLogo">
+                                    <img src="./assets/img/pwShowButton.png" id="pwShowButton" class="d-none">
+                                </div>
                             </div>
                         </div>
                         <span class="required" id="requiredPassword">This field is required</span>
