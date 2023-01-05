@@ -141,3 +141,13 @@ function keyQueryOne(email, password) {
 	let rememberUserAtString = JSON.stringify(rememberUser);
 	localStorage.setItem('rememberUser', rememberUserAtString);
 }
+
+function passwordShowIcon(){
+	document.getElementById('passwordLogo').classList.toggle('d-none');
+	document.getElementById('pwShowButton').classList.toggle('d-none');
+	if(document.getElementById('passwordLogo').classList.contains('d-none')){
+	document.getElementById('inputPasswordLogin').type="text";
+	}else{
+		document.getElementById('inputPasswordLogin').type="password";
+	}
+}
