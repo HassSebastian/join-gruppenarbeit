@@ -47,12 +47,12 @@ function sortContacts() {
 
 function findFirstWithLetter(letter) {
     const sortedArray = contacts.sort((a, b) => a.name.localeCompare(b.name));
-  for (let element of sortedArray) {
-    if (Object.values(element).some(value => value.includes(letter))) {
-      return element;
+    for (let element of sortedArray) {
+        if (Object.values(element).some(value => value.includes(letter))) {
+            return element;
+        }
     }
-  }
-  return null;
+    return null;
 }
 
 async function renderContent() {
@@ -125,6 +125,8 @@ async function renderContent() {
 
 `;
     renderContacts();
+
+    //renderContactsTest();
 }
 
 function contactListHTML() {
@@ -164,7 +166,7 @@ async function renderContacts() {
             </div>
         </div>
        `;
-          } else {
+        } else {
             document.getElementById('Contact_list').innerHTML += /*html*/ `
            <div class="contact" id="contact${i}" onclick="showContact(${i})">
                 <div class="ellipse">
@@ -181,9 +183,10 @@ async function renderContacts() {
            </div>
        </div>
       `;
-          }
+        }
 
-}}
+    }
+}
 
 function openEditContact(i) {
     document.getElementById('edit_contact').classList.remove('d-none')
