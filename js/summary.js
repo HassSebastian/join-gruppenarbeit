@@ -43,7 +43,7 @@ function generateSummaryHtml(
         </div>
         <div class='welcome'>
             <h4 id='greetUser'></h4>
-            <h3>Sofia Müller</h3>
+            <h3>${users[loggedUser[0]].name}</h3>
         </div>
         <div class="overview">
             <div class='taskOverview'>
