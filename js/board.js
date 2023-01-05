@@ -1390,5 +1390,7 @@ function showDeleteButton(taskIndex) {
 }
 
 function deleteButton(taskIndex){
-    alert('Hier muss noch die delete Funktion hin :-)');
+    joinTaskArray.splice(taskIndex, 1);
+    saveTask();
+    initBoard();
 }
