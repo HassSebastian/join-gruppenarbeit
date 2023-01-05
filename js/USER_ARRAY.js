@@ -26,7 +26,7 @@ let users = [
 	},
 	{
 		name: 'Peter Klausen',
-		email: 'Peterlustig@test.de',
+		email: 'PeterKlausen@test.de',
 		password: '123456789',
 	},
     {
@@ -58,6 +58,11 @@ let users = [
 		name: 'Jorginia Klaus',
 		email: 'jorginiaklaus@test.de',
 		password: '123456789',
+	},
+	{
+		name: 'Claudia Schiffer',
+		email: 'warmaljung@web.de',
+		password: '123',
 	},
 
 ];
