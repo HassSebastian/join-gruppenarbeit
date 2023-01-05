@@ -303,9 +303,9 @@ function calculatePercentage(number, total) {
 async function renderToDoCards() {
     document.getElementById('toDoDiv').innerHTML = '';
     for (let i = 0; i < workStatus0Array.length; i++) {
-        let cardPrio = workStatus0Array[i]['cardPrio'];
-        let subTasksAmount = workStatus0Array[i]['subTasks'].length;
         document.getElementById('toDoDiv').innerHTML += toDoCardHtml(i);
+        let taskIndex = workStatus0Array[i]['taskIndex'];
+        showContributorsPrioIcon(taskIndex);
     }
     setCategoryBackgroundColorForWorkStatus0();
 }
@@ -439,9 +439,9 @@ function setCategoryBackgroundColorForWorkStatus0() {
 function renderInProgressCards() {
     document.getElementById('progressDiv').innerHTML = '';
     for (let i = 0; i < workStatus1Array.length; i++) {
-        let cardPrio = workStatus1Array[i]['cardPrio'];
-        let subTasks = workStatus1Array[i]['subTasks'];
         document.getElementById('progressDiv').innerHTML += inProgressHtml(i);
+        let taskIndex = workStatus1Array[i]['taskIndex'];
+        showContributorsPrioIcon(taskIndex);
     }
     setCategoryBackgroundColorForWorkStatus1();
 }
@@ -517,9 +517,9 @@ function setCategoryBackgroundColorForWorkStatus1() {
 function renderAwaitingFeedbackCards() {
     document.getElementById('awaitingDiv').innerHTML = '';
     for (let i = 0; i < workStatus2Array.length; i++) {
-        let cardPrio = workStatus2Array[i]['cardPrio'];
-        let subTasks = workStatus2Array[i]['subTasks'];
         document.getElementById('awaitingDiv').innerHTML += awaitingFeedbackHtml(i);
+        let taskIndex = workStatus2Array[i]['taskIndex'];
+        showContributorsPrioIcon(taskIndex);
     }
     setCategoryBackgroundColorForWorkStatus2();
 }
@@ -595,9 +595,9 @@ function setCategoryBackgroundColorForWorkStatus2() {
 function renderDoneCards() {
     document.getElementById('doneDiv').innerHTML = '';
     for (let i = 0; i < workStatus3Array.length; i++) {
-        let cardPrio = workStatus3Array[i]['cardPrio'];
-        let subTasks = workStatus3Array[i]['subTasks'];
         document.getElementById('doneDiv').innerHTML += doneHtml(i);
+        let taskIndex = workStatus3Array[i]['taskIndex'];
+        showContributorsPrioIcon(taskIndex);
     }
     setCategoryBackgroundColorForWorkStatus3();
 }
@@ -679,6 +679,23 @@ function setCategoryBackgroundColorForWorkStatus3() {
         document.getElementById(`doneCard${i}`).style = `background-color: ${catBackground} !important;`;
     }
 }
+
+
+let showContributorsPrioIcons = { M: './assets/img/medium.png', U: './assets/img/urgent.png', L: './assets/img/low.png' };
+
+function showContributorsPrioIcon(taskIndex) {
+    for (let a in showContributorsPrioIcons) {
+        let prio = joinTaskArray[taskIndex].prio[0];
+        if (a = prio) {
+            document.getElementById(`contributorsPrioIcon${taskIndex}`).src = `${showContributorsPrioIcons[a]}`;
+            break;
+        }
+    }
+}
+
+
+// in board.js habe ich dafür in Zeile 393, 494 und 572 eine id hinzugefügt //
+// es muss nur noch der Start der Funktion eingebunden werden //
 
 
 /**

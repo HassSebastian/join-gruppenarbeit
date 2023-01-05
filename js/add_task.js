@@ -454,6 +454,7 @@ function setNewCategoryToList() {
 			category: newSetCategory,
 			catColor: newCatColor,
 		};
+		checkCategoryList(newCategoryItem);
 		addTaskCategoryList.push(newCategoryItem);
 		let newCategoryIndex = addTaskCategoryList.length - 1;
 		renderCategoryList();
@@ -461,6 +462,12 @@ function setNewCategoryToList() {
 		catListStatus = false;
 		newCatInputActive = false;
 	}
+}
+
+
+function checkCategoryList(newCategoryItem){
+	let doubleEntry = addTaskCategoryList.includes(newCategoryItem);
+	console.log('CatDouble ', doubleEntry);
 }
 
 /**
@@ -496,6 +503,7 @@ function resetCatSelectionHtml() {
 function selectCategory(catId) {
 	if (newCategoryCreationIsSelected(catId)) {
 		setSettingsForNewCategoryInput();
+		
 	} else {
 		setSettingsForExistingCategory(catId);
 	}
@@ -695,6 +703,7 @@ function clearFormularData() {
 	document.getElementById('catReq').classList.add('listD-none');
 	// clearTaskForce(); // TEST von Christian
 	resetAssignToList(); // edited by Bossi 04.01.2022, the function is in the board.js
+	subTaskArray = [];
 }
 
 // save data to local storage/server!
@@ -708,6 +717,7 @@ async function createTaskData() {
 	showAddDiv();
 	setTimeout(initBoard, 1200);
 	resetAssignToList();
+	clearFormularData();
 }
 
 // toDo this is a transition function that to have reworked after all data for task card avalable.
