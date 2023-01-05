@@ -147,6 +147,8 @@ function boardHtml() {
             <div class="editButton">
                 <img src="./assets/img/edit_button.png">
             </div>
+            
+            
         
             <div class="members">
                 <div class="davidEisenberg">
@@ -1072,6 +1074,10 @@ async function renderEditTaskCardHtml(taskIndex){
                 </div>
 
             <button class='editTaskOkBtn' onclick='getTaskChanges(${taskIndex})'>Ok <img src="../assets/img/akar-icons_check_white.png" ></button>
+            <!-- Delete Button edited by Bossi  -->
+            <button class="deleteButton">
+                Delete <img src="../assets/img/akar-icons_check_white.png" >
+            </button>
         </div>`;
 }
 

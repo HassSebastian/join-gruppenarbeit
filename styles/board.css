@@ -1548,6 +1548,33 @@
     border-width: 0px;
 }
 
+/* Delete Button edited by Bossi  */
+.deleteButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+
+    position: absolute;
+    width: 83px;
+    height: 61px;
+    left: 308px;
+    top: 719px;
+
+    background: #2A3647;
+    border-radius: 10px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
+    color: #FFFFFF;
+}
+
 .boardAddTaskDividerBoard{
     position: absolute;
     width: 0px;
