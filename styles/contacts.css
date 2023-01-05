@@ -326,6 +326,7 @@
     width: 316.5px;
     margin-right: 53px;
     margin-bottom: 26.5px;
+    text-transform: capitalize;
 }
 
 .add_contact_right_buttons {

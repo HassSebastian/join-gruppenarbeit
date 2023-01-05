@@ -1,58 +1,84 @@
-let contacts = [
-    {
-        "name": "Anton Mayer",
-        "email": "antonm@gmail.com",
-        "phone": "+49 1111 111 11 1"
-    },
-    {
-        "name": "Aal Mayer",
-        "email": "antonm@gmail.com",
-        "phone": "+49 1111 111 11 1"
-    },
-    {
-        "name": "Cesar Hardt",
-        "email": "cesarh@gmail.com",
-        "phone": "+49 3333 333 33 3"
-    },
-    {
-        "name": "Berta Müller",
-        "email": "bertam@gmail.com",
-        "phone": "+49 2222 222 22 2"
-    }
-];
+let alphabetOrd = { A: [], B: [], C: [], D: [], E: [], F: [], G: [], H: [], I: [], J: [], K: [], L: [], M: [], N: [], O: [], P: [], Q: [], R: [], S: [], T: [], U: [], V: [], W: [], X: [], Y: [], Z: [] };
 
 async function initContacts() {
     await includeHTML();
     selectedMenuButton(2);
     renderContent();
+    user();
 }
 
-function compareStrings(a, b) {
-    // Assuming you want case-insensitive comparison
-    a = a.toLowerCase();
-    b = b.toLowerCase();
+function user() {
+    alphabetOrd = { A: [], B: [], C: [], D: [], E: [], F: [], G: [], H: [], I: [], J: [], K: [], L: [], M: [], N: [], O: [], P: [], Q: [], R: [], S: [], T: [], U: [], V: [], W: [], X: [], Y: [], Z: [] };
+    for (let i = 0; i < contacts.length; i++) {
+        // ab hier wird der jeweils erste Buchstabe des Vor und Nachnamen separiert 
+        let vorUndZuName = contacts[i].name;
+        let firstLetter = vorUndZuName[0];
+        let spaceIndex = contacts[i].name.indexOf(' ');
+        let secondName = contacts[i].name.substring(spaceIndex + 1);
+        let secondLetter = secondName[0];
+        let email = contacts[i].email;
+        let phone = contacts[i].phone;
+        let id = contacts[i].id;
 
-    return (a < b) ? -1 : (a > b) ? 1 : 0;
-}
+        // ab hier wird die Farbe bestimmt. Buchstaben in asci umgewandelt. 
+        // addiert und durch 7 Farben geteilt.
+        // der Restwert ist dann die Farbe aus dem colors Array in Zeile 3
+        let asciiFirstLetter = firstLetter.charCodeAt(0);
+        let asciiSecondLetter = secondLetter.charCodeAt(0);
+        let sum = asciiFirstLetter + asciiSecondLetter;
+        let result = sum % 7; 	// rersult ist dann die Farbe aus dem colors Array in Zeile 3
 
-contacts.sort(function (a, b) {
-    return compareStrings(a.name, b.name);
-})
+        var contact = {};
 
-function sortContacts() {
-    contacts.sort(function (a, b) {
-        return compareStrings(a.name, b.name);
-    })
-}
+        contact.name = vorUndZuName;
+        contact.email = email;
+        contact.phone = phone;
+        contact.id = id;
 
-function findFirstWithLetter(letter) {
-    const sortedArray = contacts.sort((a, b) => a.name.localeCompare(b.name));
-  for (let element of sortedArray) {
-    if (Object.values(element).some(value => value.includes(letter))) {
-      return element;
+        alphabetOrd[firstLetter].push(contact); // hier werden die Kontakte in das alphabetOrd array eingeordnet
     }
-  }
-  return null;
+    alphabet();
+}
+
+function alphabet() {
+    document.getElementById('Contact_list').innerHTML = '';
+    for (let wertNachDemArray in alphabetOrd) {
+        if (alphabetOrd[wertNachDemArray].length > 0) {
+            document.getElementById('Contact_list').innerHTML += /*html*/ `
+        <div class="letters">
+                <span>${wertNachDemArray}</span>
+                <div class="Vector_10"></div>
+        </div>
+        <div id='${wertNachDemArray}'></div> <!-- hier wird der Unterstrich generiert --> 
+		`;
+            for (i = 0; i < alphabetOrd[wertNachDemArray].length; i++) {
+                let vorUndZuName = alphabetOrd[wertNachDemArray][i].name;
+                let firstLetter = vorUndZuName[0];
+                let spaceIndex = alphabetOrd[wertNachDemArray][i].name.indexOf(' ');
+                let secondName = alphabetOrd[wertNachDemArray][i].name.substring(spaceIndex + 1);
+                let secondLetter = secondName[0];
+                let email = alphabetOrd[wertNachDemArray][i].email;
+                let id = alphabetOrd[wertNachDemArray][i].id;
+                document.getElementById(wertNachDemArray).innerHTML += `
+
+                <div class="contact" id="contact${i}" onclick="showContact(${id})">
+                 <div class="ellipse">
+                    <span>${firstLetter}${secondLetter}</span>
+                 </div>
+                 <div class="name_and_email">
+                     <div class="name">
+                         <span>${vorUndZuName}</span>
+                     </div>
+                     <div class="email">
+                         ${email}
+                     </div>
+                 </div>
+            </div>
+        </div>
+			`;
+            }
+        }
+    }
 }
 
 async function renderContent() {
@@ -88,34 +114,7 @@ async function renderContent() {
 </div>
 
 
-<div class="add_contact d-none" id="new_contact">
-    <div class="add_contact_left">
-        <img src="assets/img/join_logo.png" alt="">
-        <h1>Add contact</h1>
-        <span>Tasks are better with a team!</span>
-        <div class="add_contact_vector_5 "></div>
-    </div>
-    <div class="add_contact_right">
-        <img src="assets/img/empty_profile_picture.png" alt="">
-        <div class="add_contact_inputs">
-            <input type="text" placeholder="Name" id="contactName">
-            <input type="text" placeholder="Email" id="contactEmail">
-            <input type="text" placeholder="Phone" id="contactPhone">
-            <div class="add_contact_right_buttons">
-                <div class="contact_cancel" onclick="closeNewContact()">
-                    <span>Cancel</span>
-                    <img src="assets/img/new_cat_cancel.png" alt="">
-                </div>
-                <div class="contact_create" onclick="addContact()">
-                    <span>Create contact</span>
-                    <img src="assets/img/akar-icons_check_white.png" alt="">
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-</div>
+<div class="add_contact d-none" id="new_contact"></div>
 
 <div class="add_contact d-none" id="edit_contact">
 
@@ -124,66 +123,7 @@ async function renderContent() {
 </div>
 
 `;
-    renderContacts();
 }
-
-function contactListHTML() {
-    return
-}
-
-async function renderContacts() {
-    document.getElementById('Contact_list').innerHTML = '';
-
-    for (let i = 0; i < contacts.length; i++) {
-        const name = contacts[i].name;
-        const email = contacts[i].email;
-        const nameLetter = contacts[i].name.charAt(0);
-        let spaceIndex = contacts[i].name.indexOf(' ');
-        const surname = contacts[i].name.substring(spaceIndex + 1);
-        let surnameLetter = surname[0];
-        const result = findFirstWithLetter(i);
-
-        if (result === contacts[0]) {
-            document.getElementById('Contact_list').innerHTML += /*html*/ `
-             <div class="letters">
-                <span>${nameLetter}</span>
-                <div class="Vector_10"></div>
-            </div>
-            <div class="contact" id="contact${i}" onclick="showContact(${i})">
-                 <div class="ellipse">
-                    <span>${nameLetter}${surnameLetter}</span>
-                 </div>
-                 <div class="name_and_email">
-                     <div class="name">
-                         <span>${name}</span>
-                     </div>
-                     <div class="email">
-                         ${email}
-                     </div>
-                 </div>
-            </div>
-        </div>
-       `;
-          } else {
-            document.getElementById('Contact_list').innerHTML += /*html*/ `
-           <div class="contact" id="contact${i}" onclick="showContact(${i})">
-                <div class="ellipse">
-                   <span>${nameLetter}${surnameLetter}</span>
-                </div>
-                <div class="name_and_email">
-                    <div class="name">
-                        <span>${name}</span>
-                    </div>
-                    <div class="email">
-                        ${email}
-                    </div>
-                </div>
-           </div>
-       </div>
-      `;
-          }
-
-}}
 
 function openEditContact(i) {
     document.getElementById('edit_contact').classList.remove('d-none')
@@ -198,10 +138,9 @@ function openEditContact(i) {
       <div class="add_contact_right">
       <img src="assets/img/empty_profile_picture.png" alt="">
       <div class="add_contact_inputs">
-        <input type="text" placeholder="Name" id="editContactName">
-        <input type="text" placeholder="Surname" id="editContactSurname">
-        <input type="text" placeholder="Email" id="editContactEmail">
-        <input type="text" placeholder="Phone" id="editContactPhone">
+        <input type="text" placeholder="Name" id="editContactName" required="required" pattern="^\S+\s\S+$">
+        <input type="text" placeholder="Email" id="editContactEmail" required="required" pattern="^\S+\s\S+$">
+        <input type="text" placeholder="Phone" id="editContactPhone" required="required" pattern="^\S+\s\S+$">
         <div class="add_contact_right_buttons">
             <div class="contact_cancel" onclick="closeEditContact()">
                 <span>Cancel</span>
@@ -218,11 +157,41 @@ function openEditContact(i) {
             </div>
     </div>
     `;
-    renderContacts();
 }
 
 function openNewContact() {
+    document.getElementById('new_contact').innerHTML= '';
+    document.getElementById('new_contact').innerHTML= /*html*/`
+    <div class="add_contact_left">
+        <img src="assets/img/join_logo.png" alt="">
+        <h1>Add contact</h1>
+        <span>Tasks are better with a team!</span>
+        <div class="add_contact_vector_5 "></div>
+    </div>
+    <div class="add_contact_right">
+        <img src="assets/img/empty_profile_picture.png" alt="">
+        <div class="add_contact_inputs">
+            <input type="text" placeholder="Name" id="contactName" required="required" pattern="^\S+\s\S+$">
+            <input type="text" placeholder="Email" id="contactEmail" required="required" pattern="^\S+\s\S+$">
+            <input type="text" placeholder="Phone" id="contactPhone" required="required" pattern="^\S+\s\S+$">
+            <div class="add_contact_right_buttons">
+                <div class="contact_cancel" onclick="closeNewContact()">
+                    <span>Cancel</span>
+                    <img src="assets/img/new_cat_cancel.png" alt="">
+                </div>
+                <div class="contact_create" onclick="addContact()">
+                    <span>Create contact</span>
+                    <img src="assets/img/akar-icons_check_white.png" alt="">
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    `;
+
     document.getElementById('new_contact').classList.remove('d-none');
+    closeEditContact();
 }
 
 function closeNewContact() {
@@ -231,7 +200,6 @@ function closeNewContact() {
 
 function closeEditContact() {
     document.getElementById('edit_contact').classList.add('d-none');
-    renderContacts();
 }
 
 function showContact(i) {
@@ -239,6 +207,7 @@ function showContact(i) {
     const email = contacts[i].email;
     const phone = contacts[i].phone;
     const nameLetter = contacts[i].name.charAt(0);
+    const id = contacts[i].id;
     let spaceIndex = contacts[i].name.indexOf(' ');
     const surname = contacts[i].name.substring(spaceIndex + 1);
     let surnameLetter = surname[0];
@@ -258,7 +227,7 @@ function showContact(i) {
             <div class="contact_information">
                 <div class="contact_information_edit">
                     <h2>Contact Information</h2>
-                    <div class="edit_contact" onclick="openEditContact(${i})">
+                    <div class="edit_contact" onclick="openEditContact(${id})">
                         <img src="assets/img/edit_button_black.png" alt="">
                         <span>Edit Contact</span>
                     </div>
@@ -276,31 +245,36 @@ function showContact(i) {
 function addContact() {
     var contact = {};
 
-    contact.name = document.getElementById('contactName').value;
+    inputName = document.getElementById('contactName').value;
+    contact.name = inputName.charAt(0).toUpperCase() + inputName.slice(1);
     contact.email = document.getElementById('contactEmail').value;
     contact.phone = document.getElementById('contactPhone').value;
+    contact.id = contacts.length;
+
 
     contacts.push(contact);
-    sortContacts();
     closeNewContact();
+    user();
 }
 
 function editContact(i) {
     var contact = {};
 
-    contact.name = document.getElementById('editContactName').value;
+    inputName = document.getElementById('editContactName').value;
+    contact.name = inputName.charAt(0).toUpperCase() + inputName.slice(1);
     contact.email = document.getElementById('editContactEmail').value;
     contact.phone = document.getElementById('editContactPhone').value;
+    contact.id = contacts.length;
 
     contacts.splice(i, 1, contact);
-    sortContacts();
     showContact(i)
     closeEditContact();
+    user();
 }
 
 function deleteContact(i) {
     contacts.splice(i, 1);
-    sortContacts();
+    user();
     closeEditContact();
     document.getElementById('showContact').classList.add('d-none')
 }
