@@ -625,7 +625,7 @@
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-.frame191 {
+.boardSubheaders {
     position: absolute;
     width: 1145px;
     height: 57px;
@@ -635,7 +635,7 @@
     background: #F6F7F8;
 }
 
-.frame192 {
+.boardSubtitleContainer {
     position: absolute;
     width: 1058px;
     height: 30px;
@@ -643,7 +643,7 @@
     bottom: 11px;
 }
 
-.frame136 {
+.toDoAreaHeader {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -659,7 +659,7 @@
 
 }
 
-.frame136 span {
+.toDoAreaHeader span {
     width: 57px;
     height: 25px;
 
@@ -681,7 +681,7 @@
     flex-grow: 0;
 }
 
-.frame149 {
+.inProgressAreaHeader {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -696,7 +696,7 @@
     top: 0px;
 }
 
-.frame149 span {
+.inProgressAreaHeader span {
     width: 116px;
     height: 25px;
 
@@ -718,7 +718,7 @@
     flex-grow: 0;
 }
 
-.frame137 {
+.awaitingFeedbackAreaHeader {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -733,7 +733,7 @@
 
 }
 
-.frame137 span {
+.awaitingFeedbackAreaHeader span {
     width: max-content;
     height: 25px;
     font-family: 'Inter';
@@ -747,7 +747,7 @@
     flex-grow: 0;
 }
 
-.frame138 {
+.doneAreaHeader {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -762,7 +762,7 @@
     top: 0px;
 }
 
-.frame138 span {
+.doneAreaHeader span {
     width: 54px;
     height: 25px;
 

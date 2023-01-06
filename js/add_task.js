@@ -88,7 +88,6 @@ async function initAddTask() {
 	selectedMenuBtnId = 0;
 	selectedMenuButton(3);
 	renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
-	// resetCatSelection();
 }
 
 function generateAddTaskHtml() {
@@ -284,10 +283,7 @@ function generateAddTaskHtml() {
 				</div>
 				
 				<div class='addTaskCheckbox' id='subtaskCheckboxes'>
-					<!-- <div>
-						<input type="checkbox">
-						<span>Subtask 1</span>
-					</div> -->
+					
 				</div>
 				
 				
@@ -344,21 +340,6 @@ async function loadExitingCategories() {
 		}
 	}
 }
-
-// function checkCategoryList1(newCategoryItem){
-// 	let categoryName1 = newCategoryItem['category'];
-// 	let categoryColor1 = newCategoryItem['catColor'];
-// 	let doubleEntry = false;
-// 	for (let i = 0; i < addTaskCategoryList.length; i++) {
-// 		let listCategory = addTaskCategoryList[i]['category'];
-// 		let listCatColor = addTaskCategoryList[i]['catColor'];
-// 		if (listCategory == categoryName1 && listCatColor == categoryColor1){
-// 			doubleEntry = true;
-// 			// selectCategory(i);
-// 		}
-// 	}
-// 	return doubleEntry;
-// }
 
 /**
  * This function load the data(key:joinTaskArray) from local storage.
@@ -736,12 +717,12 @@ function clearFormularData() {
 	document.getElementById('dateReq').style = 'opacity: 0;';
 	document.getElementById('catReq').style = 'opacity: 0;';
 	document.getElementById('catReq').classList.add('listD-none');
-	// clearTaskForce(); // TEST von Christian
 	resetAssignToList(); // edited by Bossi 04.01.2022, the function is in the board.js
 	subTaskArray = [];
 }
 
 // save data to local storage/server!
+
 async function createTaskData() {
 	loadTask();
 	getDataFromFomular();
@@ -758,7 +739,6 @@ async function createTaskData() {
 // toDo this is a transition function that to have reworked after all data for task card avalable.
 function getDataFromFomular() {
 	descripten = document.getElementById('addTaskDescripten').value;
-	// assigndTo = assignToArray;
 	subTask = document.getElementById('subTask').value;
 }
 
@@ -913,9 +893,6 @@ function enterSubTaskInput() {
 
 function resetSubtaskInput() {
 	document.getElementById('subTask').value = '';
-	// document.getElementById('subtaskCross').classList.remove('d-none');
-	// document.getElementById('subTaskImgDiv').classList.add('d-none');
-	// subTaskInputLeave();
 }
 
 function addSubtask() {

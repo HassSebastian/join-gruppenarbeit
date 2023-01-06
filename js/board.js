@@ -21,6 +21,11 @@ let prioColorAndUrlArray = [
 ];
 
 
+/**
+ * The function initBoard() is an async function that calls the async functions includeHTML(),
+ * renderBoard(), loadTask(), and createWorkStatusArrays(), and then calls the function
+ * renderAllCards().
+ */
 async function initBoard() {
     await includeHTML();
     await renderBoard();
@@ -47,74 +52,74 @@ async function renderBoard() {
  */
 function boardHtml() {
     return /*html*/`
-        <div class="boardOverlay">
-            <div class="boardHeadline">
+        <div class='boardOverlay'>
+            <div class='boardHeadline'>
                 <span>Board</span>
             </div>
-            <div class="inputOutContainer">
-                <div class="inputContainer">
-                    <div class="inputInContainer">
-                        <div class="inputFontContainer">
+            <div class='inputOutContainer'>
+                <div class='inputContainer'>
+                    <div class='inputInContainer'>
+                        <div class='inputFontContainer'>
                             <span>Find Task</span>
                         </div>
-                        <div class="vector"></div>
-                        <img src="./assets/img/search_logo.png">
+                        <div class='vector'></div>
+                        <img src='./assets/img/search_logo.png'>
                     </div>
                 </div>
-                <button class="addTaskButton" onclick='showAddTaskPopupWindow()'>
+                <button class='addTaskButton' onclick='showAddTaskPopupWindow()'>
                     <span>Add task</span>
-                    <div class="plusOutContainer">
-                        <img src="./assets/img/plus_logo_white.png">
+                    <div class='plusOutContainer'>
+                        <img src='./assets/img/plus_logo_white.png'>
                     </div>
                 </button>
             </div>
         </div>
-        <div class='frame191'>
-            <div class='frame192'>
-                <div class="frame136">
+        <div class='boardSubheaders'>
+            <div class='boardSubtitleContainer'>
+                <div class='toDoAreaHeader'>
                     <span>To do</span>
-                    <button class="menuPlusButton" onclick='showAddTaskPopupWindow()'>
-                        <!-- <img src="./assets/img/plus.svg"> -->
+                    <button class='menuPlusButton' onclick='showAddTaskPopupWindow()'>
+                        <!-- <img src='./assets/img/plus.svg'> -->
                     </button>
                 </div>
-                <div class='frame149'>
+                <div class='inProgressAreaHeader'>
                     <span>In progress</span>
-                    <button class="menuPlusButton" onclick='showAddTaskPopupWindow()'>
-                        <!-- <img src="./assets/img/plus_logo_black.png"> -->
+                    <button class='menuPlusButton' onclick='showAddTaskPopupWindow()'>
+                        <!-- <img src='./assets/img/plus_logo_black.png'> -->
                     </button>
                 </div>
-                <div class='frame137'>
+                <div class='awaitingFeedbackAreaHeader'>
                     <span>Anwaiting Feedback</span>
-                    <button class="menuPlusButton" onclick='showAddTaskPopupWindow()'>
-                        <!-- <img src="./assets/img/plus_logo_black.png"> -->
+                    <button class='menuPlusButton' onclick='showAddTaskPopupWindow()'>
+                        <!-- <img src='./assets/img/plus_logo_black.png'> -->
                     </button>
                 </div>
                 
-                <div class='frame138'>
+                <div class='doneAreaHeader'>
                     <span>Done</span>
-                        <button class="menuPlusButton" onclick='showAddTaskPopupWindow()'>
-                        <!-- <img src="./assets/img/plus_logo_black.png"> -->
+                        <button class='menuPlusButton' onclick='showAddTaskPopupWindow()'>
+                        <!-- <img src='./assets/img/plus_logo_black.png'> -->
                     </button>
                 </div>
             </div>
         </div>
-        <div class="canbanBoard" onscroll='changeHeightDropArea()' id='canbanBoard'>
-            <div class="canbanContainer dragArea" id='dropArea0' ondrop="moveTo(0); removeHighlight('dropArea0')"  ondragleave="removeHighlight('dropArea0')" ondragover="allowDrop(event); highlight('dropArea0')">
+        <div class='canbanBoard' onscroll='changeHeightDropArea()' id='canbanBoard'>
+            <div class='canbanContainer dragArea' id='dropArea0' ondrop='moveTo(0); removeHighlight('dropArea0')'  ondragleave='removeHighlight('dropArea0')' ondragover='allowDrop(event); highlight('dropArea0')'>
                 <div id='toDoDiv'>
                     
                 </div>
             </div>
-            <div class="canbanContainer dragArea" id='dropArea1' ondrop="moveTo(1); removeHighlight('dropArea1')" ondragleave="removeHighlight('dropArea1')" ondragover="allowDrop(event); highlight('dropArea1')">
+            <div class='canbanContainer dragArea' id='dropArea1' ondrop='moveTo(1); removeHighlight('dropArea1')' ondragleave='removeHighlight('dropArea1')' ondragover='allowDrop(event); highlight('dropArea1')'>
                 <div id='progressDiv'>
                     
                 </div>
             </div>
-            <div class="canbanContainer dragArea" id='dropArea2' ondrop="moveTo(2); removeHighlight('dropArea2')" ondragleave="removeHighlight('dropArea2')" ondragover="allowDrop(event); highlight('dropArea2')">
+            <div class='canbanContainer dragArea' id='dropArea2' ondrop='moveTo(2); removeHighlight('dropArea2')' ondragleave='removeHighlight('dropArea2')' ondragover='allowDrop(event); highlight('dropArea2')'>
                 <div id='awaitingDiv'>
                     
                 </div>
             </div>
-            <div class="canbanContainer dragArea" id='dropArea3' ondrop="moveTo(3); removeHighlight('dropArea3')" ondragleave="removeHighlight('dropArea3')" ondragover="allowDrop(event); highlight('dropArea3')">
+            <div class='canbanContainer dragArea' id='dropArea3' ondrop='moveTo(3); removeHighlight('dropArea3')' ondragleave='removeHighlight('dropArea3')' ondragover='allowDrop(event); highlight('dropArea3')'>
                 <div id='doneDiv'>
                     
                 </div>
@@ -122,77 +127,60 @@ function boardHtml() {
         </div>
 
         <div class='shadowOverlay d-none' id='boardPopup' onclick='disablePopupWindow()'>
-            <div class="boardTaskCardPopup" onclick='stopClose(event)'>
-                <div class="taskCardPopupCategory">
+            <div class='boardTaskCardPopup' onclick='stopClose(event)'>
+                <div class='taskCardPopupCategory'>
                     <span>Sales</span>
                 </div>
-                <div class="taskCardPopupTask">
+                <div class='taskCardPopupTask'>
                     <span>Call potencial clients</span>
                 </div>
-                <span class="taskCardPopupDescription">Make the product presentation to prospective buyers</span>
-                <div class="taskCardPopupDateContainer">
-                    <span class="taskCardPopupDateText">Due date:</span>
-                    <span class="taskCardPopupDueDate">05-08-2022</span>
+                <span class='taskCardPopupDescription'>Make the product presentation to prospective buyers</span>
+                <div class='taskCardPopupDateContainer'>
+                    <span class='taskCardPopupDateText'>Due date:</span>
+                    <span class='taskCardPopupDueDate'>05-08-2022</span>
                 </div>
-                <div class="taskCardPopupPriorityContainer">
+                <div class='taskCardPopupPriorityContainer'>
                     <!-- classes down must be changed later ! -->
                 <span>Priority:</span>
-                <div class="urgency">
+                <div class='urgency'>
                     <span>Urgent</span>
-                    <img src="./assets/img/urgent_white.png" alt="">
+                    <img src='./assets/img/urgent_white.png' alt=''>
                 </div>
             </div>
-            <span class="assigned">Assigned To:</span>
-            <img class="close_logo" src="./assets/img/close_logo.png" onclick='disablePopupWindow()'>
-            <div class="editButton">
-                <img src="./assets/img/edit_button.png">
+            <span class='assigned'>Assigned To:</span>
+            <img class='close_logo' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'>
+            <div class='editButton'>
+                <img src='./assets/img/edit_button.png'>
             </div>
             
             
         
-            <div class="members">
-                <div class="davidEisenberg">
-                    <span class="shortcut">DE</span>
+            <div class='members'>
+                <div class='davidEisenberg'>
+                    <span class='shortcut'>DE</span>
                 </div>
-                <span class="name">David Eisenberg</span>
+                <span class='name'>David Eisenberg</span>
             </div>
-            <div class="members">
-                <div class="benediktZiegler">
-                    <span class="shortcut">BZ</span>
+            <div class='members'>
+                <div class='benediktZiegler'>
+                    <span class='shortcut'>BZ</span>
                 </div>
-                <span class="name">Benedikt Ziegler</span>
+                <span class='name'>Benedikt Ziegler</span>
             </div>
-            <div class="members">
-                <div class="marcelBauer">
-                    <span class="shortcut">MB</span>
+            <div class='members'>
+                <div class='marcelBauer'>
+                    <span class='shortcut'>MB</span>
                 </div>
-                <span class="name">Marcel Bauer</span>
+                <span class='name'>Marcel Bauer</span>
             </div>
-            <div class="members">
-                <div class="stefanieFarber">
-                    <span class="shortcut">SF</span>
+            <div class='members'>
+                <div class='stefanieFarber'>
+                    <span class='shortcut'>SF</span>
                 </div>
-                <span class="name">Stefanie Farber</span>
+                <span class='name'>Stefanie Farber</span>
             </div>
 
-            <!-- </div> -->
         </div>`;
-}
-
-
-// todo if already done delete this function. And rename descriten to description, also in AddTask ! This function is only for info.
-function arrayExample() {
-    taskData = {
-        'title': title,
-        'descripten': descripten,
-        'category': category,
-        'catColor': catColor,
-        'assignedTo': assignedToArray,
-        'dueDate': dueDate,
-        'prio': prio,
-        'subTasks': selectedSubtasks,
-        'workFlowStatus': 0,
-    };
 }
 
 
@@ -244,7 +232,7 @@ async function createWorkStatusArrays() {
  * @param cardTitle - The title of the card.
  * @param cardDescription - The description of the card.
  * @param cardCatColor - The color of the category of the card.
- * @param cardCategory - The category of the card (e.g. "Bug", "Feature", "Task", etc.)
+ * @param cardCategory - The category of the card (e.g. 'Bug', 'Feature', 'Task', etc.)
  * @param cardPrio - is the priority of the task.
  * @param subTasks - This is an array of objects that contain the following:
  * @param taskIndex - The index of the task in the list of tasks.
@@ -637,15 +625,7 @@ function doneHtml(arrayIndex) {
                 </div>
                 <div class='contributorsPrio'>
                     <div class='contributorsLogoContainer' id='contributorsList${taskIndex}'>
-                        <!-- <div class='contributorsLogo blue'>
-                            <span>SM</span>
-                        </div>
-                        <div class='contributorsLogo pink'>
-                            <span>MV</span>
-                        </div>
-                        <div class='contributorsLogo litegreen'>
-                            <span>EF</span>
-                        </div> -->
+                        
                     </div>
                     <div class='prio'>
                         <img src='./assets/img/low.png' id='contributorsPrioIcon${taskIndex}'>
@@ -800,45 +780,45 @@ function renderPopupTaskCard(taskIndex) {
     // let subtaskArray = joinTaskArray[taskIndex]['subTasks'];
     document.getElementById('boardPopup').innerHTML = '';
     document.getElementById('boardPopup').innerHTML = /*html*/`
-        <div class="boardTaskCardPopup" onclick='stopClose(event)'>
-            <div class="taskCardPopupCategory" id='taskCardPopupCategory'>
+        <div class='boardTaskCardPopup' onclick='stopClose(event)'>
+            <div class='taskCardPopupCategory' id='taskCardPopupCategory'>
                 <span>${cardCategory}</span>
             </div>
-            <div class="taskCardPopupTask">
+            <div class='taskCardPopupTask'>
                 <span>${cardTitle}</span>
             </div>
-            <span class="taskCardPopupDescription">${cardDescription}</span>
-            <div class="taskCardPopupDateContainer">
-                <span class="taskCardPopupDateText">Due date:</span>
-                <span class="taskCardPopupDueDate">${cardDueDate}</span>
+            <span class='taskCardPopupDescription'>${cardDescription}</span>
+            <div class='taskCardPopupDateContainer'>
+                <span class='taskCardPopupDateText'>Due date:</span>
+                <span class='taskCardPopupDueDate'>${cardDueDate}</span>
             </div>
-            <div class="taskCardPopupPriorityContainer">
+            <div class='taskCardPopupPriorityContainer'>
                 <!-- classes down must be changed later ! -->
             <span>Priority:</span>
-            <div class="urgency" id='prioContainer'>
+            <div class='urgency' id='prioContainer'>
                 <span>${taskPrio}</span>
-                <img src="./assets/img/urgent_white.png" id='cardPrioImg'>
+                <img src='./assets/img/urgent_white.png' id='cardPrioImg'>
             </div>
         </div>
 
-        <span class="assigned">Assigned To:</span>
-        <img class="close_logo" src="./assets/img/close_logo.png" onclick='disablePopupWindow()'>
-        <div class="editButton" onclick='openEditTaskCard(${taskIndex})'>
-            <img src="./assets/img/edit_button.png">
+        <span class='assigned'>Assigned To:</span>
+        <img class='close_logo' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'>
+        <div class='editButton' onclick='openEditTaskCard(${taskIndex})'>
+            <img src='./assets/img/edit_button.png'>
         </div>
     
-        <div class="members" id='members'>
-            <!-- <div class="davidEisenberg">
-                <span class="shortcut" title='David Eisenberg'>DE</span>
+        <div class='members' id='members'>
+            <!-- <div class='davidEisenberg'>
+                <span class='shortcut' title='David Eisenberg'>DE</span>
             </div>
-            <div class="benediktZiegler">
-                <span class="shortcut" title='Benedikt Ziegler'>BZ</span>
+            <div class='benediktZiegler'>
+                <span class='shortcut' title='Benedikt Ziegler'>BZ</span>
             </div>
-            <div class="marcelBauer">
-                <span class="shortcut" title='Marcel Bauer'>MB</span>
+            <div class='marcelBauer'>
+                <span class='shortcut' title='Marcel Bauer'>MB</span>
             </div>
-            <div class="stefanieFarber">
-                <span class="shortcut" title='Stefanie Farber'>SF</span>
+            <div class='stefanieFarber'>
+                <span class='shortcut' title='Stefanie Farber'>SF</span>
             </div> -->
         </div>
         
@@ -848,19 +828,19 @@ function renderPopupTaskCard(taskIndex) {
         </div >
         <div class='boardSubtasksDiv' id='subtaskListTaskCard'>
             <!-- <div>
-                <input type="checkbox" id='subtask0' onclick='checkboxSubtaskSelected(0)'>
+                <input type='checkbox' id='subtask0' onclick='checkboxSubtaskSelected(0)'>
                 <span>move the Taskcard to in progress</span>
             </div>
             <div>
-                <input type="checkbox" id='subtask1' onclick='checkboxSubtaskSelected(1)'>
+                <input type='checkbox' id='subtask1' onclick='checkboxSubtaskSelected(1)'>
                 <span>edit this Taskcard, rename the title</span>
             </div>
             <div>
-                <input type="checkbox" id='subtask2' onclick='checkboxSubtaskSelected(2)'>
+                <input type='checkbox' id='subtask2' onclick='checkboxSubtaskSelected(2)'>
                 <span>verschiebe</span>
             </div>
             <div>
-                <input type="checkbox" id='subtask3' onclick='checkboxSubtaskSelected(3)'>
+                <input type='checkbox' id='subtask3' onclick='checkboxSubtaskSelected(3)'>
                 <span>verschiebe</span>
             </div> -->
         </div>
@@ -915,7 +895,7 @@ async function renderSubtaskHtml(taskIndex) {
             let subtaskText = subtaskArray[i]['subtaskText'];
             document.getElementById('subtaskListTaskCard').innerHTML += /*html*/`
                 <div>
-                    <input type="checkbox" id='subtask${i}' onclick='checkboxSubtaskSelected(${i}, ${taskIndex})'>
+                    <input type='checkbox' id='subtask${i}' onclick='checkboxSubtaskSelected(${i}, ${taskIndex})'>
                     <span>${subtaskText}</span>
                 </div>`;
         }
@@ -948,7 +928,7 @@ async function checkboxSubtaskSelected(subTaskIndex, taskIndex) {
 
 /**
  * this function set the category background-color of the category.
- * @param {number} taskIndex -this value is equal to the index number of the main array "joinTaskArray", where
+ * @param {number} taskIndex -this value is equal to the index number of the main array 'joinTaskArray', where
  * the task card information is stored.
  */
 function setTaskCardPopupCatColor(taskIndex) {
@@ -960,7 +940,7 @@ function setTaskCardPopupCatColor(taskIndex) {
 
 /**
  * This function sets the background color of the prio button and transfers the url of the image associated with the prio button.
- * @param {*} taskIndex --this value is equal to the index number of the main array "joinTaskArray", where
+ * @param {*} taskIndex --this value is equal to the index number of the main array 'joinTaskArray', where
  * the task card information is stored.
  */
 function setTaskCardPopupPrioBackground(taskIndex) {
@@ -989,19 +969,19 @@ async function openEditTaskCard(taskIndex) {
 async function renderEditTaskCardHtml(taskIndex) {
     document.getElementById('boardPopup').innerHTML = '';
     document.getElementById('boardPopup').innerHTML = /*html*/`
-        <div class="boardTaskCardPopup" onclick='stopClose(event)'>
-            <img class="close_logo" src="./assets/img/close_logo.png" onclick='disablePopupWindow()'>
+        <div class='boardTaskCardPopup' onclick='stopClose(event)'>
+            <img class='close_logo' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'>
             <div class='boardEditTitleContainer'>
                 <span>Title</span>
-                <input type="text" placeholder="Enter a title" id='boardEditTitle'>
+                <input type='text' placeholder='Enter a title' id='boardEditTitle'>
             </div>
             <div class='boardEditDescriptionContainer'>
                 <span>Descripten</span>
-                <textarea name="Description"  cols="30" rows="10" placeholder="Enter Descriptiom" id='boardEditDecription'></textarea>
+                <textarea name='Description'  cols='30' rows='10' placeholder='Enter Descriptiom' id='boardEditDecription'></textarea>
             </div>
             <div class='boardEditDateContainer'>
                 <span>Due Date</span>
-                <input type="date" id='boardEditDueDate'>
+                <input type='date' id='boardEditDueDate'>
             </div>
 
             <div class='editTaskCardPrio'>
@@ -1009,75 +989,75 @@ async function renderEditTaskCardHtml(taskIndex) {
                 <div class='editTaskCardPrioBtn'>
                     <div class='addTaskUrgent' id='addTaskUrgent' onclick='addPrio(0); prioStatusChange(0)'>
                         <span id='addTaskUrgentSpan'>Urgent</span>
-                        <img id='addTaskUrgentImg' src="../assets/img/urgent_arrows.png">
+                        <img id='addTaskUrgentImg' src='../assets/img/urgent_arrows.png'>
                     </div>
                     <div class='addTaskMedium' id='addTaskMedium' onclick='addPrio(1); prioStatusChange(1)'>
                         <span id='addTaskMediumSpan'>Medium</span>
-                        <img id='addTaskMediumImg' src="../assets/img/prio_medium.png">
+                        <img id='addTaskMediumImg' src='../assets/img/prio_medium.png'>
                     </div>
                     <div class='addTaskLow' id='addTaskLow' onclick='addPrio(2); prioStatusChange(2)'>
                         <span id='addTaskLowSpan'>Low</span>
-                        <img id='addTaskLowImg' src="../assets/img/prio_low.png">
+                        <img id='addTaskLowImg' src='../assets/img/prio_low.png'>
                     </div>
                 </div>
             </div>
 
-            <div class="addTaskAssignedBox boardAddTaskAssignedBox" id="addTaskAssignedBox">
+            <div class='addTaskAssignedBox boardAddTaskAssignedBox' id='addTaskAssignedBox'>
 			        <h3>Assigned to</h3>
-			        <button id="addTaskAssignedButton" onclick="enableDisableAssignList()">
+			        <button id='addTaskAssignedButton' onclick='enableDisableAssignList()'>
                     <input
                             disabled
-                            onclick="doNotCloseOnClick(event)"
-                            id="selectedAssign"
-                            name="selectedAssign"
-                            class="inputselectedAssign"
-                            placeholder="Select contacts to assign"
-                            autocomplete="off"
+                            onclick='doNotCloseOnClick(event)'
+                            id='selectedAssign'
+                            name='selectedAssign'
+                            class='inputselectedAssign'
+                            placeholder='Select contacts to assign'
+                            autocomplete='off'
                         />
 				
                     <div
-                    id="assignToCancelConfirmImgContainer"
-                    class="assignToCancelConfirmImgContainer d-none"
+                    id='assignToCancelConfirmImgContainer'
+                    class='assignToCancelConfirmImgContainer d-none'
                     >
                         <img
-                        onclick="assignBoxBackToDefaultMode(), enableAssignList()"
-                        class="assignToCancelIcon"
-                        src="assets/img/cancel-black.png"
-                        alt="cancel"
+                        onclick='assignBoxBackToDefaultMode(), enableAssignList()'
+                        class='assignToCancelIcon'
+                        src='assets/img/cancel-black.png'
+                        alt='cancel'
                         />
-                        <img class="assignToDeviderIcon" src="assets/img/bnt_divider.png" />
+                        <img class='assignToDeviderIcon' src='assets/img/bnt_divider.png' />
                         <img
-                        onclick="frontEndDeveloper()"
-                        class="assignToCheckIcon"
-                        src="assets/img/akar-icons_check.png"
-                        alt="confirm"
+                        onclick='frontEndDeveloper()'
+                        class='assignToCheckIcon'
+                        src='assets/img/akar-icons_check.png'
+                        alt='confirm'
                         />
                     </div>
-                    <img id="assignDropDownImg" src="assets/img/Vector 2.png" class="dropdownImg" />
+                    <img id='assignDropDownImg' src='assets/img/Vector 2.png' class='dropdownImg' />
                     </button>
-                    <span id="assignReq">This field is required</span>
-                    <div id="badgesTaskForce" class="badgesTaskForce"></div>
-                    <ul class="addTaskAssignList listD-none" id="dropdown2">
+                    <span id='assignReq'>This field is required</span>
+                    <div id='badgesTaskForce' class='badgesTaskForce'></div>
+                    <ul class='addTaskAssignList listD-none' id='dropdown2'>
 
-                    <li onclick="assigendContactEmail()" class="inviteNewContacts">
+                    <li onclick='assigendContactEmail()' class='inviteNewContacts'>
                         Invite new contacts<img
-                            class="assignInviteNewContactImage"
-                            src="assets/img/assigned_inviteNewContact.png"
-                            alt=""
+                            class='assignInviteNewContactImage'
+                            src='assets/img/assigned_inviteNewContact.png'
+                            alt=''
                         />
                     </li>
                     <li>
                     You
-                    <div  class="assignCheckboxContainer">
-                        <img class="checkBox" src="assets/img/check_box.png" alt="checkbox" />
-                        <img class="checkMark" src="assets/img/check_mark.png" />
+                    <div  class='assignCheckboxContainer'>
+                        <img class='checkBox' src='assets/img/check_box.png' alt='checkbox' />
+                        <img class='checkMark' src='assets/img/check_mark.png' />
                     </div>
                 </div>
 
-            <button class='editTaskOkBtn' onclick='getTaskChanges(${taskIndex})'>Ok <img src="../assets/img/akar-icons_check_white.png" ></button>
+            <button class='editTaskOkBtn' onclick='getTaskChanges(${taskIndex})'>Ok <img src='../assets/img/akar-icons_check_white.png' ></button>
             <!-- Delete Button edited by Bossi  -->
-            <button class="deleteButton d-none" id="deleteButton" onclick="deleteButton(${taskIndex})"> <!--edit by Basti-->
-                Delete <img src="../assets/img/akar-icons_check_white.png" >
+            <button class='deleteButton d-none' id='deleteButton' onclick='deleteButton(${taskIndex})'> <!--edit by Basti-->
+                Delete <img src='../assets/img/akar-icons_check_white.png' >
             </button>
         </div>`;
 }
@@ -1205,7 +1185,7 @@ async function renderAddTaskPopup() {
 function renderAddTaskPopupHtml() {
     return /*html*/`
         <div id='boardAddTaskPopup' onclick='stopClose(event)'>
-            <img class="close_logo_edit_task" src="./assets/img/close_logo.png" onclick='disablePopupWindow()'>
+            <img class='close_logo_edit_task' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'>
             <div class='boardAddTaskHeadlineDiv'>
                 <h2 class='addTHeadline'>Add Task</h2>
             </div>
@@ -1213,11 +1193,11 @@ function renderAddTaskPopupHtml() {
                 <div class='boardAddTaskBtnInnerContainer'>
                     <button class='addTaskClear' onmouseover='addTaskClearOn()' onmouseout='addTaskClearOff()' onclick='clearFormularData()'>
                         <span>Clear</span> 
-                        <img id="addTaskClear" src="./assets/img/clearb.png">
+                        <img id='addTaskClear' src='./assets/img/clearb.png'>
                     </button>
                     <button class='addTaskCreate' onclick='checkInputs()'>
                         <span>Create Task</span>
-                        <img src="./assets/img/createb.png">  
+                        <img src='./assets/img/createb.png'>  
                     </button>
                 </div>
             </div>
@@ -1225,7 +1205,7 @@ function renderAddTaskPopupHtml() {
                 <div class='addTaskAddTitleBox'>
                     <h3>Title</h3>
                     <form onsubmit='goToDescripten(); return false' >
-                        <input  required type="text" placeholder='Enter a title' id='addTaskTitle' autocomplete='off' minlength='3'>
+                        <input  required type='text' placeholder='Enter a title' id='addTaskTitle' autocomplete='off' minlength='3'>
                     </form>
                     <span class='requiredText' id='titleReq'>This field is required</span>
                 </div>
@@ -1233,7 +1213,7 @@ function renderAddTaskPopupHtml() {
                 <div class='addTaskAddDescriptenBox'>
                     <h3>Descripten</h3>
                     <!-- <form onblur='goToCategorySelection(); return false' id='formDesc' action='action.asp'> -->
-                    <textarea form='formDesc' type="text" placeholder='Enter Descripten' id='addTaskDescripten'  required minlength='5'></textarea>
+                    <textarea form='formDesc' type='text' placeholder='Enter Descripten' id='addTaskDescripten'  required minlength='5'></textarea>
                     <!-- </form> -->
                     <span class='requiredText' id='descReq'>This field is required</span>
                 </div>
@@ -1244,14 +1224,14 @@ function renderAddTaskPopupHtml() {
                         <input disabled id='selectedCatInput' placeholder='Select task category' autocomplete='off'>
                         <span id='sColor'></span>
                         <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
-                            <img src="../assets/img/new_cat_cancel.png">
-                            <img src="../assets/img/bnt_divider.png" class='btnDivider'>
-                            <img src="../assets/img/akar-icons_check.png">
+                            <img src='../assets/img/new_cat_cancel.png'>
+                            <img src='../assets/img/bnt_divider.png' class='btnDivider'>
+                            <img src='../assets/img/akar-icons_check.png'>
                         </div>
-                        <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>
+                        <img src='../assets/img/Vector 2.png' class='dropdownImg' id='dropdownImg'>
                     </button>
                     <span class='listD-none requiredText' id='catReq'>This field is required</span>
-                    <ul class="addTaskCatList listD-none" id='CatListDropdown'>
+                    <ul class='addTaskCatList listD-none' id='CatListDropdown'>
                         
                     </ul>
                     <div class='addTaskAddCategoryColor listD-none' id='colorSelection'>
@@ -1264,55 +1244,55 @@ function renderAddTaskPopupHtml() {
                     </div>
                 </div>
 
-                <div class="addTaskAssignedBox" id="addTaskAssignedBox">
+                <div class='addTaskAssignedBox' id='addTaskAssignedBox'>
 			        <h3>Assigned to</h3>
-			        <button id="addTaskAssignedButton" onclick="enableDisableAssignList()">
+			        <button id='addTaskAssignedButton' onclick='enableDisableAssignList()'>
                     <input
                             disabled
-                            onclick="doNotCloseOnClick(event)"
-                            id="selectedAssign"
-                            name="selectedAssign"
-                            class="inputselectedAssign"
-                            placeholder="Select contacts to assign"
-                            autocomplete="off"
+                            onclick='doNotCloseOnClick(event)'
+                            id='selectedAssign'
+                            name='selectedAssign'
+                            class='inputselectedAssign'
+                            placeholder='Select contacts to assign'
+                            autocomplete='off'
                         />
 				
                     <div
-                    id="assignToCancelConfirmImgContainer"
-                    class="assignToCancelConfirmImgContainer d-none"
+                    id='assignToCancelConfirmImgContainer'
+                    class='assignToCancelConfirmImgContainer d-none'
                     >
                         <img
-                        onclick="assignBoxBackToDefaultMode(), enableAssignList()"
-                        class="assignToCancelIcon"
-                        src="assets/img/cancel-black.png"
-                        alt="cancel"
+                        onclick='assignBoxBackToDefaultMode(), enableAssignList()'
+                        class='assignToCancelIcon'
+                        src='assets/img/cancel-black.png'
+                        alt='cancel'
                         />
-                        <img class="assignToDeviderIcon" src="assets/img/bnt_divider.png" />
+                        <img class='assignToDeviderIcon' src='assets/img/bnt_divider.png' />
                         <img
-                        onclick="frontEndDeveloper()"
-                        class="assignToCheckIcon"
-                        src="assets/img/akar-icons_check.png"
-                        alt="confirm"
+                        onclick='frontEndDeveloper()'
+                        class='assignToCheckIcon'
+                        src='assets/img/akar-icons_check.png'
+                        alt='confirm'
                         />
                     </div>
-                    <img id="assignDropDownImg" src="assets/img/Vector 2.png" class="dropdownImg" />
+                    <img id='assignDropDownImg' src='assets/img/Vector 2.png' class='dropdownImg' />
                     </button>
-                    <span id="assignReq">This field is required</span>
-                    <div id="badgesTaskForce" class="badgesTaskForce"></div>
-                    <ul class="addTaskAssignList listD-none" id="dropdown2">
+                    <span id='assignReq'>This field is required</span>
+                    <div id='badgesTaskForce' class='badgesTaskForce'></div>
+                    <ul class='addTaskAssignList listD-none' id='dropdown2'>
 
-                    <li onclick="assigendContactEmail()" class="inviteNewContacts">
+                    <li onclick='assigendContactEmail()' class='inviteNewContacts'>
                         Invite new contacts<img
-                            class="assignInviteNewContactImage"
-                            src="assets/img/assigned_inviteNewContact.png"
-                            alt=""
+                            class='assignInviteNewContactImage'
+                            src='assets/img/assigned_inviteNewContact.png'
+                            alt=''
                         />
                     </li>
                     <li>
                     You
-                    <div  class="assignCheckboxContainer">
-                        <img class="checkBox" src="assets/img/check_box.png" alt="checkbox" />
-                        <img class="checkMark" src="assets/img/check_mark.png" />
+                    <div  class='assignCheckboxContainer'>
+                        <img class='checkBox' src='assets/img/check_box.png' alt='checkbox' />
+                        <img class='checkMark' src='assets/img/check_mark.png' />
                     </div>
                 </div>
 
@@ -1324,7 +1304,7 @@ function renderAddTaskPopupHtml() {
             <div class='boardAddTaskRightContainer alignToBoard'>
                 <div class='addTaskDate'>
                     <h3>Due date</h3>
-                    <input required type="date" id='dueDate'>
+                    <input required type='date' id='dueDate'>
                     <span class='requiredText' id='dateReq'>This field is required</span>
                 </div>
                 <div class='addTaskPrio'>
@@ -1332,15 +1312,15 @@ function renderAddTaskPopupHtml() {
                     <div class='addTaskPrioIcons'>
                         <div class='addTaskUrgent' id='addTaskUrgent' onclick='addPrio(0)'>
                             <span id='addTaskUrgentSpan'>Urgent</span>
-                            <img id='addTaskUrgentImg' src="../assets/img/urgent_arrows.png">
+                            <img id='addTaskUrgentImg' src='../assets/img/urgent_arrows.png'>
                         </div>
                         <div class='addTaskMedium' id='addTaskMedium' onclick='addPrio(1)'>
                             <span id='addTaskMediumSpan'>Medium</span>
-                            <img id='addTaskMediumImg' src="../assets/img/prio_medium.png">
+                            <img id='addTaskMediumImg' src='../assets/img/prio_medium.png'>
                         </div>
                         <div class='addTaskLow' id='addTaskLow' onclick='addPrio(2)'>
                             <span id='addTaskLowSpan'>Low</span>
-                            <img id='addTaskLowImg' src="../assets/img/prio_low.png">
+                            <img id='addTaskLowImg' src='../assets/img/prio_low.png'>
                         </div>
                     </div>
                 </div>
@@ -1348,13 +1328,13 @@ function renderAddTaskPopupHtml() {
                     <h3>Subtask</h3>
                     <div class='inputDiv'>
                         <form onsubmit='addSubtask(); return false' >
-                            <input type="text" placeholder='Add new subtask' id='subTask' autocomplete='off' onfocus='subTaskInputentered()' onblur='subTaskInputLeave()' minlength='3'>
-                            <img src="../assets/img/add_cross.png" class='subtaskCross' id='subtaskCross' onclick='enterSubTaskInput()'>
+                            <input type='text' placeholder='Add new subtask' id='subTask' autocomplete='off' onfocus='subTaskInputentered()' onblur='subTaskInputLeave()' minlength='3'>
+                            <img src='../assets/img/add_cross.png' class='subtaskCross' id='subtaskCross' onclick='enterSubTaskInput()'>
                         </form>
                         <div class='subTaskImgDiv d-none' id='subTaskImgDiv' >
-                            <img src="../assets/img/new_cat_cancel.png" onclick='resetSubtaskInput()'>
-                            <img src="../assets/img/bnt_divider.png" class='btnDivider'>
-                            <img src="../assets/img/akar-icons_check.png" onclick='addSubtask()'>
+                            <img src='../assets/img/new_cat_cancel.png' onclick='resetSubtaskInput()'>
+                            <img src='../assets/img/bnt_divider.png' class='btnDivider'>
+                            <img src='../assets/img/akar-icons_check.png' onclick='addSubtask()'>
                         </div>
                         
                     </div>
@@ -1366,10 +1346,10 @@ function renderAddTaskPopupHtml() {
             </div>
         </div>
         <!-- </form>  -->
-        <div class="boardtaskAddedToBoard" id='taskCreatedIndication'>
-            <div class="taskAddedToBoardContainer">
+        <div class='boardtaskAddedToBoard' id='taskCreatedIndication'>
+            <div class='taskAddedToBoardContainer'>
                 <span>Task added to board</span>
-                <img src="./assets/img/img_board_w.png">
+                <img src='./assets/img/img_board_w.png'>
             </div>
         </div>`;
 }
