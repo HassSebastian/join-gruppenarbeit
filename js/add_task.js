@@ -88,6 +88,7 @@ async function initAddTask() {
 	selectedMenuBtnId = 0;
 	selectedMenuButton(3);
 	renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
+	// resetCatSelection();
 }
 
 /**
@@ -348,7 +349,7 @@ async function loadExitingCategories() {
 }
 
 
-// function checkCategoryList(newCategoryItem){
+// function checkCategoryList1(newCategoryItem){
 // 	let categoryName1 = newCategoryItem['category'];
 // 	let categoryColor1 = newCategoryItem['catColor'];
 // 	let doubleEntry = false;
@@ -357,7 +358,7 @@ async function loadExitingCategories() {
 // 		let listCatColor = addTaskCategoryList[i]['catColor'];
 // 		if (listCategory == categoryName1 && listCatColor == categoryColor1){
 // 			doubleEntry = true;
-// 			selectCategory(i);
+// 			// selectCategory(i);
 // 		}
 // 	}
 // 	return doubleEntry;
@@ -482,8 +483,9 @@ function setNewCategoryToList() {
 			let newCategoryIndex = addTaskCategoryList.length - 1;
 			renderCategoryList();
 			selectCategory(+newCategoryIndex);
+			enableDisableCatList();
 		}
-		catListStatus = false;
+		// enableDisableCatList();
 		newCatInputActive = false;
 	}
 }
@@ -498,7 +500,6 @@ function checkCategoryList(newCategoryItem){
 		let listCatColor = addTaskCategoryList[i]['catColor'];
 		if (listCategory == categoryName1 && listCatColor == categoryColor1){
 			doubleEntry = true;
-			selectCategory(i);
 		}
 	}
 	return doubleEntry;
