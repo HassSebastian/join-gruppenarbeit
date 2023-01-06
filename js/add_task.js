@@ -1180,8 +1180,8 @@ function addContactToTaskForceWithCheckBox(contact) {
 	addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberOfTaskForce);
 	addedToTaskForce = !addedToTaskForce;
 	coworkersToAssignTo[contact].check = addedToTaskForce;
-	console.log(taskForce.length);
-	console.table(taskForce);
+	// console.log(taskForce.length);
+	// console.table(taskForce);
 }
 
 
@@ -1218,7 +1218,7 @@ async function renderContactsInAssignDropDownMenu() {
 function setCheckStatusToFalse() {
 	taskForce.forEach((member) => {
 		member.check = false;
-		console.log(member.check);
+		// log(member.checonsole.ck);
 	});
 }
 

@@ -937,10 +937,10 @@ function setSubTaskStatus(taskIndex) {
 async function checkboxSubtaskSelected(subTaskIndex, taskIndex) {
     let checkboxStatus = document.getElementById(`subtask${subTaskIndex}`).checked;
     joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'] = checkboxStatus;
-    console.log(taskIndex, subTaskIndex);
+    // log(taskIndex, subTaskIndexconsole.);
     let subTaskText = joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskText'];
     let subTaskStatus = joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'];
-    console.log(subTaskText, subTaskStatus);
+    // console.log(subTaskText, subTaskStatus);
     joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'] = checkboxStatus;
     await saveTask();
 }
