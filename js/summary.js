@@ -36,7 +36,6 @@ function resetCounters() {
 	yourUrgentTasksAmount = 0;
 }
 
-
 function generateSummaryHtml(
 	allYourTasksAmount,
 	allYourToDoTasksAmount,
@@ -128,36 +127,52 @@ function toDoHoverOn() {
 function toDoHoverOff() {
 	document.getElementById('toDoImg').src = './assets/img/to_do_pen.png';
 	document.getElementById('toDo').classList.remove('toDoHover');
-	document.getElementById('toDoAmountTasks').classList.remove('toDoHoverSpanP');
+	document
+		.getElementById('toDoAmountTasks')
+		.classList.remove('toDoHoverSpanP');
 	document.getElementById('toDoAmountP').classList.remove('toDoHoverSpanP');
 }
 
 function toDoDoneHoverOn() {
 	document.getElementById('toDoDoneImg').src = './assets/img/done_black.png';
 	document.getElementById('toDoDone').classList.add('toDoHover');
-	document.getElementById('toDoDoneAmountTasks').classList.add('toDoHoverSpanP');
+	document
+		.getElementById('toDoDoneAmountTasks')
+		.classList.add('toDoHoverSpanP');
 	document.getElementById('toDoDoneAmountP').classList.add('toDoHoverSpanP');
 }
 
 function toDoDoneHoverOff() {
 	document.getElementById('toDoDoneImg').src = './assets/img/done.png';
 	document.getElementById('toDoDone').classList.remove('toDoHover');
-	document.getElementById('toDoDoneAmountTasks').classList.remove('toDoHoverSpanP');
-	document.getElementById('toDoDoneAmountP').classList.remove('toDoHoverSpanP');
+	document
+		.getElementById('toDoDoneAmountTasks')
+		.classList.remove('toDoHoverSpanP');
+	document
+		.getElementById('toDoDoneAmountP')
+		.classList.remove('toDoHoverSpanP');
 }
 
 function ugencySummaryHoverOn() {
-	document.getElementById('ugencySummaryAmount').classList.add('toDoHoverSpanP');
+	document
+		.getElementById('ugencySummaryAmount')
+		.classList.add('toDoHoverSpanP');
 	document.getElementById('deadlineDate').classList.add('toDoHoverSpanP');
 	document.getElementById('deadlineText').classList.add('toDoHoverSpanP');
-	document.getElementById('ugencySummaryurgent').classList.add('toDoHoverSpanP');
+	document
+		.getElementById('ugencySummaryurgent')
+		.classList.add('toDoHoverSpanP');
 }
 
 function ugencySummaryHoverOff() {
-	document.getElementById('ugencySummaryAmount').classList.remove('toDoHoverSpanP');
+	document
+		.getElementById('ugencySummaryAmount')
+		.classList.remove('toDoHoverSpanP');
 	document.getElementById('deadlineDate').classList.remove('toDoHoverSpanP');
 	document.getElementById('deadlineText').classList.remove('toDoHoverSpanP');
-	document.getElementById('ugencySummaryurgent').classList.remove('toDoHoverSpanP');
+	document
+		.getElementById('ugencySummaryurgent')
+		.classList.remove('toDoHoverSpanP');
 }
 
 // show date in Summary
@@ -231,9 +246,30 @@ function getEmailAdrressOfLoggedUser() {
 	console.log(emailAddress);
 }
 
-function getAmountTasksForLoggedInUser() {
-	/* 
-	!KÜRZEN CHRISTIAN */
+/**
+ * If the email address is the same as the email address of the user, then add one to the amount of
+ * tasks that the user has.
+ * @param email - the email address of the person who is assigned to the task
+ * @param workflowStatus - 0 = To Do, 1 = In Progress, 2 = Awaiting Feedback, 3 = Done
+ * @param priority - 0 = Low, 1 = Medium, 2 = High, 3 = Urgent
+ */
+function itemsToUpdate(email, workflowStatus, priority) {
+	if (email == emailAddress) allYourTasksAmount++;
+	if (email == emailAddress && workflowStatus === 0) allYourToDoTasksAmount++;
+	if (email == emailAddress && workflowStatus === 1)
+		allYourInProgressTasksAmount++;
+	if (email == emailAddress && workflowStatus === 2)
+		allYourAwaitingFeedbackTasksAmount++;
+	if (email == emailAddress && workflowStatus === 3) allYourDoneTasksAmount++;
+	if (email == emailAddress && priority === 'Urgent') yourUrgentTasksAmount++;
+}
+
+/**
+ * It loops through the joinTaskArray, and for each task,
+ * it loops through the assignedTo array, and
+ * for each member of the assignedTo array, it calls the itemsToUpdate function.
+ */
+function updatingSummary() {
 	for (let task = 0; task < joinTaskArray.length; task++) {
 		const assignedTo = joinTaskArray[task].assignedTo;
 		const workflowStatus = joinTaskArray[task].workFlowStatus;
@@ -244,31 +280,19 @@ function getAmountTasksForLoggedInUser() {
 			memberOfTaskForce++
 		) {
 			const email = assignedTo[memberOfTaskForce].email;
-			console.log('workflow', workflowStatus);
-			if (email == emailAddress) allYourTasksAmount++;
-			if (email == emailAddress && workflowStatus === 0) allYourToDoTasksAmount++;
-			if (email == emailAddress && workflowStatus === 1) allYourInProgressTasksAmount++;
-			if (email == emailAddress && workflowStatus === 2) allYourAwaitingFeedbackTasksAmount++;
-			if (email == emailAddress && workflowStatus === 3) allYourDoneTasksAmount++;
-			if (email == emailAddress && priority === 'Urgent') yourUrgentTasksAmount++;
-
-			console.log(allYourTasksAmount);
-			console.log('todo', allYourToDoTasksAmount);
+			itemsToUpdate(email, workflowStatus, priority);
 		}
 	}
 }
 
-function getAmountToDoTasksForLoggedInUser() {
-	for (let task = 0; task < joinTaskArray.length; task++) {
-		const workflowStatus = joinTaskArray[task].workFlowStatus;
-		if (workflowStatus === 0) allYourToDoTasksAmount++;
-		console.log(workflowStatus);
-	}
-}
-
+/**
+ * This function loads the logged in user's array,
+ * gets the index of the logged in user, gets the email
+ * address of the logged in user, and updates the summary.
+ */
 async function loadAmountsForSummary() {
 	loadLoggedInUserArray();
 	getLoggedUserIndex();
 	getEmailAdrressOfLoggedUser();
-	getAmountTasksForLoggedInUser();
+	updatingSummary();
 }
