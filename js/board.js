@@ -1049,7 +1049,6 @@ function setPrioPreselection(taskIndex) {
  */
 function resetAssignToList() {
     for (let i = 0; i < coworkersToAssignTo.length; i++) {
-        const element = coworkersToAssignTo[i];
         coworkersToAssignTo[i]['check'] = false;
         assignToArray = [];
         taskForce = [];
@@ -1057,7 +1056,12 @@ function resetAssignToList() {
 }
 
 
-// TODO Bossi rework the next two function
+
+/**
+ * It takes the values from the input fields and saves them to the array.
+ * </code>
+ * @param taskIndex - the index of the task in the array
+ */
 function getTaskChanges(taskIndex) {
     let boardEditedTitle = document.getElementById('boardEditTitle').value;
     let boardEditedDescripten = document.getElementById('boardEditDecription').value;
@@ -1073,13 +1077,31 @@ function getTaskChanges(taskIndex) {
 }
 
 
+/**
+ * If the user clicks on a priority button, the function will check if the button is already selected.
+ * If it is, it will deselect it. If it isn't, it will select it
+ * @param index - the index of the status in the statusNames array
+ */
 function prioStatusChange(index) {
     let statusNames = ['Urgent', 'Medium', 'Low'];
-    if (statusNames[index] == boardEditedPrio) {
+    if (actualClickedPrioBtnIsSet(index, statusNames)) {
         boardEditedPrio = '';
     } else {
         boardEditedPrio = statusNames[index];
     }
+}
+
+
+/**
+ * If the index of the clicked button is the same as the index of the edited priority, then return
+ * true, else return false.
+ * @param index - the index of the button in the array of buttons
+ * @param statusNames - an array of strings, each string is a status name
+ * @returns the value of the expression:
+ * statusNames[index] == boardEditedPrio
+ */
+function actualClickedPrioBtnIsSet(index, statusNames){
+    return statusNames[index] == boardEditedPrio;
 }
 
 
