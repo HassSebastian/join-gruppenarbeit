@@ -5,6 +5,7 @@ let workStatus2Array = [];
 let workStatus3Array = [];
 let boardEditedPrio = '';
 let currentDraggedElement;
+let showContributorsPrioIcons = { M: './assets/img/medium.png', U: './assets/img/urgent.png', L: './assets/img/low.png' };
 let categoryBackgroundColors = [
     '#8aa4ff',
     '#ff0000',
@@ -128,8 +129,7 @@ function boardHtml() {
         </div>
         <div class='shadowOverlay d-none' id='boardPopup' onclick='disablePopupWindow()'>
            
-        </div>
-`;
+        </div>`;
 }
 
 
@@ -273,6 +273,11 @@ function renderAssignTo() {
 }
 
 
+/**
+ * It takes the index of a task in the joinTaskArray, and then it renders the assignedTo property of
+ * that task as HTML.
+ * @param taskIndex - the index of the task in the joinTaskArray
+ */
 function renderAssignToHtml(taskIndex) {
     let assignedList = joinTaskArray[taskIndex]['assignedTo'];
     let divId = 'contributorsList' + taskIndex;
@@ -594,8 +599,10 @@ function setCategoryBackgroundColorForWorkStatus3() {
 }
 
 
-let showContributorsPrioIcons = { M: './assets/img/medium.png', U: './assets/img/urgent.png', L: './assets/img/low.png' };
-
+/**
+ * It takes the priority of a task and displays the corresponding icon.
+ * @param taskIndex - The index of the task in the array.
+ */
 function showContributorsPrioIcon(taskIndex) {
     for (let a in showContributorsPrioIcons) {
         let prio = joinTaskArray[taskIndex].prio[0];
@@ -761,7 +768,7 @@ function renderAssignToHtml2(taskIndex) {
     let assignedList = joinTaskArray[taskIndex]['assignedTo'];
     let divId = 'members';
     document.getElementById(divId).innerHTML = '';
-    if (assignedList.length > 0) {
+    if (assignedToDataExists(assignedList)) {
         for (let i = 0; i < assignedList.length; i++) {
             let firstName = assignedList[i]['firstName'];
             let lastName = assignedList[i]['lastName'];
@@ -775,6 +782,16 @@ function renderAssignToHtml2(taskIndex) {
                 </div>`;
         }
     }
+}
+
+
+/**
+ * If the length of the assignedList is greater than 0, then return true. Otherwise, return false.
+ * @param assignedList - [{id: 1, name: 'John'}, {id: 2, name: 'Jane'}]
+ * @returns true if the assignedList length is greater than 0.
+ */
+function assignedToDataExists(assignedList){
+    return assignedList.length > 0;
 }
 
 
@@ -796,7 +813,7 @@ async function renderSubtask(taskIndex) {
 async function renderSubtaskHtml(taskIndex) {
     document.getElementById('subtaskListTaskCard').innerHTML = '';
     let subtaskArray = joinTaskArray[taskIndex]['subTasks'];
-    if (subtaskArray.length > 0) {
+    if (subtaskExist(subtaskArray)) {
         for (let i = 0; i < subtaskArray.length; i++) {
             let subtaskText = subtaskArray[i]['subtaskText'];
             document.getElementById('subtaskListTaskCard').innerHTML += /*html*/`
@@ -809,6 +826,17 @@ async function renderSubtaskHtml(taskIndex) {
 }
 
 
+
+/**
+ * If the length of the array is greater than 0, then the array has at least one element.
+ * @param subtaskArray - an array of subtasks
+ * @returns true if the subtaskArray length is greater than 0.
+ */
+function subtaskExist(subtaskArray){
+    return subtaskArray.length > 0;
+}
+
+
 /**
  * If the subtaskStatus is true, then check the checkbox.
  * @param taskIndex - the index of the task in the joinTaskArray
@@ -816,10 +844,23 @@ async function renderSubtaskHtml(taskIndex) {
 function setSubTaskStatus(taskIndex) {
     let subtaskArray = joinTaskArray[taskIndex]['subTasks'];
     for (let i = 0; i < subtaskArray.length; i++) {
-        if (subtaskArray[i]['subtaskStatus']) {
+        if (subtaskStatusIsTrue(i, subtaskArray)) {
             document.getElementById(`subtask${i}`).checked = true;
         }
     }
+}
+
+
+/**
+ * If the subtaskStatus property of the subtask object at the given index is true, return true,
+ * otherwise return false.
+ * @param subtaskIndex - The index of the subtask in the subtask array.
+ * @param subtaskArray - The array of subtasks
+ * @returns the value of the subtaskStatus property of the object at the index of subtaskIndex in the
+ * array subtaskArray.
+ */
+function subtaskStatusIsTrue(subtaskIndex, subtaskArray){
+    return subtaskArray[subtaskIndex]['subtaskStatus'];
 }
 
 
