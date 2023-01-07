@@ -64,5 +64,25 @@ let users = [
 		email: 'warmaljung@web.de',
 		password: '123',
 	},
+	{
+		name: 'Basti H',
+		email: 'bastih@test.de',
+		password: '123456789',
+	},
+	{
+		name: 'Stefan B',
+		email: 'stafanb@test.de',
+		password: '123456789',
+	},
+	{
+		name: 'Christian G',
+		email: 'christiang@test.de',
+		password: '123456789',
+	},
+	{
+		name: 'Dorian J',
+		email: 'dorianj@web.de',
+		password: '123',
+	},
 
 ];
