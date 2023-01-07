@@ -1057,21 +1057,6 @@ function resetAssignToList() {
 }
 
 
-function getDataFromEditTaskCard() {
-    // taskData = {
-    //     'title': title,
-    //     'descripten': descripten,
-    //     'category': category,
-    //     'catColor': catColor,
-    //     'assignedTo': assigndTo,
-    //     'dueDate': dueDate,
-    //     'prio': prio,
-    //     'subTasks': selectedSubtasks,
-    //     'workFlowStatus': 0,
-    // };
-}
-
-
 // TODO Bossi rework the next two function
 function getTaskChanges(taskIndex) {
     let boardEditedTitle = document.getElementById('boardEditTitle').value;
