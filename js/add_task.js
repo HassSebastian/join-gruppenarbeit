@@ -17,6 +17,8 @@ let prio = '';
 let subTask = '';
 let subTaskArray = [];
 let selectedSubtasks = [];
+// let index; 
+let badgesIndex;
 /* 
 !TEST ARRAY for renderFunciont (assignedContact list in dropdown menu) */
 let coworkersToAssignTo = [
@@ -1243,7 +1245,6 @@ let backgroundColorForBadges = [
 	'#FF7A00',
 ];
 
-let index; // !Das muss nach oben, wenn oder weg jenachdem wie wir es letztlich machen
 
 /**
  * Given a first name and a last name, return the index of the color to use for the task force badge.
@@ -1254,7 +1255,7 @@ function chooseColorForTaskForceBadge(initialFirstName, initialLastName) {
 	let asciInintalFirstName = initialFirstName.charCodeAt(0);
 	let asciInintalLastName = initialLastName.charCodeAt(0);
 	let sum = asciInintalFirstName + asciInintalLastName;
-	index = sum % 10;
+	badgesIndex= sum % 10;
 }
 
 /**
@@ -1264,7 +1265,7 @@ function chooseColorForTaskForceBadge(initialFirstName, initialLastName) {
  * @param lastName - "Smith"
  * @param initialFirstName - The first letter of the first name
  * @param initialLastName - "S"
- * @param index - the index of the current member in the array of members
+ * @param badgesIndex - the index of the current member in the array of members
  * @returns A string of HTML.
  */
 function generateBadgesTaskForceHtml(
@@ -1273,14 +1274,14 @@ function generateBadgesTaskForceHtml(
 	lastName,
 	initialFirstName,
 	initialLastName,
-	index
+	badgesIndex
 ) {
 	return /*html*/ `
 		<div
 			id="${memberOfTaskForce}"
 			class="badgeTaskForce"
 			title="${firstName} ${lastName}"
-			style="background-color:${backgroundColorForBadges[index]}"
+			style="background-color:${backgroundColorForBadges[badgesIndex]}"
 		>
 			${initialFirstName}${initialLastName}
 		</div>
@@ -1311,7 +1312,7 @@ function renderBadgesMemberOfTaskForce() {
 			lastName,
 			initialFirstName,
 			initialLastName,
-			index
+			badgesIndex,
 		);
 	}
 }

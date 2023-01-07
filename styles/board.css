@@ -401,7 +401,7 @@
     flex-grow: 0;
 }
 
-.design {
+/* .design {
     background: #FF7A00;
 }
 
@@ -419,7 +419,7 @@
 
 .media {
     background: #FFC701;
-}
+} */
 
 .taskHeadline {
     display: flex;

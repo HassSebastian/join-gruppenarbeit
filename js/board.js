@@ -104,83 +104,31 @@ function boardHtml() {
             </div>
         </div>
         <div class='canbanBoard' onscroll='changeHeightDropArea()' id='canbanBoard'>
-            <div class='canbanContainer dragArea' id='dropArea0' ondrop='moveTo(0); removeHighlight('dropArea0')'  ondragleave='removeHighlight('dropArea0')' ondragover='allowDrop(event); highlight('dropArea0')'>
+        <div class="canbanContainer dragArea" id='dropArea0' ondrop="moveTo(0); removeHighlight('dropArea0')"  ondragleave="removeHighlight('dropArea0')" ondragover="allowDrop(event); highlight('dropArea0')">
                 <div id='toDoDiv'>
                     
                 </div>
             </div>
-            <div class='canbanContainer dragArea' id='dropArea1' ondrop='moveTo(1); removeHighlight('dropArea1')' ondragleave='removeHighlight('dropArea1')' ondragover='allowDrop(event); highlight('dropArea1')'>
+            <div class="canbanContainer dragArea" id='dropArea1' ondrop="moveTo(1); removeHighlight('dropArea1')" ondragleave="removeHighlight('dropArea1')" ondragover="allowDrop(event); highlight('dropArea1')">
                 <div id='progressDiv'>
                     
                 </div>
             </div>
-            <div class='canbanContainer dragArea' id='dropArea2' ondrop='moveTo(2); removeHighlight('dropArea2')' ondragleave='removeHighlight('dropArea2')' ondragover='allowDrop(event); highlight('dropArea2')'>
+            <div class="canbanContainer dragArea" id='dropArea2' ondrop="moveTo(2); removeHighlight('dropArea2')" ondragleave="removeHighlight('dropArea2')" ondragover="allowDrop(event); highlight('dropArea2')">
                 <div id='awaitingDiv'>
                     
                 </div>
             </div>
-            <div class='canbanContainer dragArea' id='dropArea3' ondrop='moveTo(3); removeHighlight('dropArea3')' ondragleave='removeHighlight('dropArea3')' ondragover='allowDrop(event); highlight('dropArea3')'>
+            <div class="canbanContainer dragArea" id='dropArea3' ondrop="moveTo(3); removeHighlight('dropArea3')" ondragleave="removeHighlight('dropArea3')" ondragover="allowDrop(event); highlight('dropArea3')">
                 <div id='doneDiv'>
                     
                 </div>
             </div>
         </div>
-
         <div class='shadowOverlay d-none' id='boardPopup' onclick='disablePopupWindow()'>
-            <div class='boardTaskCardPopup' onclick='stopClose(event)'>
-                <div class='taskCardPopupCategory'>
-                    <span>Sales</span>
-                </div>
-                <div class='taskCardPopupTask'>
-                    <span>Call potencial clients</span>
-                </div>
-                <span class='taskCardPopupDescription'>Make the product presentation to prospective buyers</span>
-                <div class='taskCardPopupDateContainer'>
-                    <span class='taskCardPopupDateText'>Due date:</span>
-                    <span class='taskCardPopupDueDate'>05-08-2022</span>
-                </div>
-                <div class='taskCardPopupPriorityContainer'>
-                    <!-- classes down must be changed later ! -->
-                <span>Priority:</span>
-                <div class='urgency'>
-                    <span>Urgent</span>
-                    <img src='./assets/img/urgent_white.png' alt=''>
-                </div>
-            </div>
-            <span class='assigned'>Assigned To:</span>
-            <img class='close_logo' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'>
-            <div class='editButton'>
-                <img src='./assets/img/edit_button.png'>
-            </div>
-            
-            
-        
-            <div class='members'>
-                <div class='davidEisenberg'>
-                    <span class='shortcut'>DE</span>
-                </div>
-                <span class='name'>David Eisenberg</span>
-            </div>
-            <div class='members'>
-                <div class='benediktZiegler'>
-                    <span class='shortcut'>BZ</span>
-                </div>
-                <span class='name'>Benedikt Ziegler</span>
-            </div>
-            <div class='members'>
-                <div class='marcelBauer'>
-                    <span class='shortcut'>MB</span>
-                </div>
-                <span class='name'>Marcel Bauer</span>
-            </div>
-            <div class='members'>
-                <div class='stefanieFarber'>
-                    <span class='shortcut'>SF</span>
-                </div>
-                <span class='name'>Stefanie Farber</span>
-            </div>
-
-        </div>`;
+           
+        </div>
+`;
 }
 
 
@@ -203,27 +151,37 @@ function resetWorkStatusArrays() {
 
 
 /**
- * This function fill the four workstatus arrays with the related data.
- * The workstatus 0 is equal to the status 'todo'. The workstatus 1 is equal to 'in progress', and so on.
+ * For each element in the joinTaskArray, if the element's workFlowStatus is equal to the index, then
+ * createWorkStatusArrayData(index, i)
  */
 async function createWorkStatusArrays() {
     resetWorkStatusArrays();
     for (let index = 0; index < 4; index++) {
         for (let i = 0; i < joinTaskArray.length; i++) {
-            const element = joinTaskArray[i]['workFlowStatus'];
-            if (element == index) {
-                let cardTitle = joinTaskArray[i]['title'];
-                let cardDescription = joinTaskArray[i]['descripten'];
-                let cardCatColor = joinTaskArray[i]['catColor'];
-                let cardCategory = joinTaskArray[i]['category'];
-                let cardPrio = joinTaskArray[i]['prio'];
-                let subTasks = joinTaskArray[i]['subTasks'];
-                let assignedToList = joinTaskArray[i]['assignedTo'];
-                let taskIndex = i;
-                workStatusArray[index].push(createWorkStatusJson(cardTitle, cardDescription, cardCatColor, cardCategory, cardPrio, subTasks, taskIndex, assignedToList));
+            let taskWorkStatus = joinTaskArray[i]['workFlowStatus'];
+            if (taskWorkStatus == index) {
+                createWorkStatusArrayData(index, i)
             }
         }
     }
+}
+
+
+/**
+ * It takes the data from the joinTaskArray and creates a new array called workStatusArray.
+ * @param index - the index of the array that the json will be pushed to
+ * @param taskIndex - the index of the task in the joinTaskArray
+ */
+function createWorkStatusArrayData(index, taskIndex){
+    let cardTitle = joinTaskArray[taskIndex]['title'];
+    let cardDescription = joinTaskArray[taskIndex]['descripten'];
+    let cardCatColor = joinTaskArray[taskIndex]['catColor'];
+    let cardCategory = joinTaskArray[taskIndex]['category'];
+    let cardPrio = joinTaskArray[taskIndex]['prio'];
+    let subTasks = joinTaskArray[taskIndex]['subTasks'];
+    let assignedToList = joinTaskArray[taskIndex]['assignedTo'];
+    let wJson = createWorkStatusJson(cardTitle, cardDescription, cardCatColor, cardCategory, cardPrio, subTasks, taskIndex, assignedToList);
+    workStatusArray[index].push(wJson);
 }
 
 
@@ -262,7 +220,6 @@ function createWorkStatusJson(cardTitle, cardDescription, cardCatColor, cardCate
 }
 
 
-
 /**
  * This function renders all the cards in the Kanban board.
  */
@@ -273,7 +230,7 @@ function renderAllCards() {
     renderDoneCards();
     renderAssignTo();
 }
-toDoCardHtml
+
 
 /**
  * It takes two numbers, divides the first by the second, and multiplies the result by 100
@@ -286,10 +243,10 @@ function calculatePercentage(number, total) {
 }
 
 
+
 /**
- * this function render all todo cards.
+ * It loops through an array of objects, and for each object, it adds a card to the DOM.
  */
-// toDo class design löschen !?
 async function renderToDoCards() {
     document.getElementById('toDoDiv').innerHTML = '';
     for (let i = 0; i < workStatus0Array.length; i++) {
@@ -301,6 +258,10 @@ async function renderToDoCards() {
 }
 
 
+/**
+ * For each array in the workStatusArray, for each object in the array, get the taskIndex property of
+ * the object and pass it to the renderAssignToHtml function.
+ */
 function renderAssignTo() {
     for (let i = 0; i < workStatusArray.length; i++) {
         for (let index = 0; index < workStatusArray[i].length; index++) {
@@ -321,10 +282,8 @@ function renderAssignToHtml(taskIndex) {
             let lastName = assignedList[i]['lastName'];
             let nameLetters = firstName[0] + lastName[0];
             chooseColorForTaskForceBadge(firstName[0], lastName[0]);
-            // toDo index ist in der addTask.js eine Globale Variable, bitte ändern.
-            let assignToColor = backgroundColorForBadges[index];
+            let assignToColor = backgroundColorForBadges[badgesIndex];
             let assignToTitle = firstName + ' ' + lastName;
-            // console.log(firstName, lastName, nameLetters, assignToTitle);
             document.getElementById(divId).innerHTML += /*html*/`
                 <div class='contributorsLogo' title='${assignToTitle}' style='background-color: ${assignToColor}'>
                     <span>${nameLetters}</span>
@@ -808,18 +767,7 @@ function renderPopupTaskCard(taskIndex) {
         </div>
     
         <div class='members' id='members'>
-            <!-- <div class='davidEisenberg'>
-                <span class='shortcut' title='David Eisenberg'>DE</span>
-            </div>
-            <div class='benediktZiegler'>
-                <span class='shortcut' title='Benedikt Ziegler'>BZ</span>
-            </div>
-            <div class='marcelBauer'>
-                <span class='shortcut' title='Marcel Bauer'>MB</span>
-            </div>
-            <div class='stefanieFarber'>
-                <span class='shortcut' title='Stefanie Farber'>SF</span>
-            </div> -->
+            
         </div>
         
         <div class='boardSubtasksTitleDiv'>
@@ -827,25 +775,8 @@ function renderPopupTaskCard(taskIndex) {
                 
         </div >
         <div class='boardSubtasksDiv' id='subtaskListTaskCard'>
-            <!-- <div>
-                <input type='checkbox' id='subtask0' onclick='checkboxSubtaskSelected(0)'>
-                <span>move the Taskcard to in progress</span>
-            </div>
-            <div>
-                <input type='checkbox' id='subtask1' onclick='checkboxSubtaskSelected(1)'>
-                <span>edit this Taskcard, rename the title</span>
-            </div>
-            <div>
-                <input type='checkbox' id='subtask2' onclick='checkboxSubtaskSelected(2)'>
-                <span>verschiebe</span>
-            </div>
-            <div>
-                <input type='checkbox' id='subtask3' onclick='checkboxSubtaskSelected(3)'>
-                <span>verschiebe</span>
-            </div> -->
-        </div>
-        
-        `;
+            
+        </div>`;
 
     setTaskCardPopupCatColor(taskIndex);
     setTaskCardPopupPrioBackground(taskIndex);
