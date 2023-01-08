@@ -23,27 +23,27 @@ let badgesIndex;
 !TEST ARRAY for renderFunciont (assignedContact list in dropdown menu) */
 let coworkersToAssignTo = [
 	{
-		name: 'Basti H',
+		firstName: 'Basti',
 		email: 'bastih@test.de',
-		password: '123456789',
+		lastName: 'H',
 		check: false,
 	},
 	{
-		name: 'Stefan B',
-		email: 'stafanb@test.de',
-		password: '123456789',
+		firstName: 'Stefan',
+		lastName: 'B',
+		email: 'stefanb@test.de',
 		check: false,
 	},
 	{
-		name: 'Christian G',
+		firstName: 'Christian',
+		lastName: 'G',
 		email: 'christiang@test.de',
-		password: '123456789',
 		check: false,
 	},
 	{
-		name: 'Dorian J',
+		firstName: 'Dorian',
+		lastName: 'J',
 		email: 'dorianj@web.de',
-		password: '123',
 		check: false,
 	},
 	{
@@ -754,7 +754,7 @@ function clearFormularData() {
 // save data to local storage/server!
 
 async function createTaskData() {
-	loadTask();
+	await loadTask();
 	getDataFromFomular();
 	await createAssignToListForSave();
 	fillTaskData();

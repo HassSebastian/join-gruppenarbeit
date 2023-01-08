@@ -71,7 +71,7 @@ let users = [
 	},
 	{
 		name: 'Stefan B',
-		email: 'stafanb@test.de',
+		email: 'stefanb@test.de',
 		password: '123456789',
 	},
 	{
