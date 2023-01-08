@@ -38,6 +38,8 @@ let menuSelectorStyles = [
 
 let selectedMenuBtnId;
 let includeAttribute = 'w3-include-html';
+setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+// https://gruppe-407.developerakademie.net/smallest_backend_ever
 
 async function init() {
     await includeHTML();
