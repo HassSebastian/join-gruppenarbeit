@@ -262,7 +262,7 @@ function generateAddTaskHtml() {
 		<div class='addTaskRightContainer'>
 			<div class='addTaskDate'>
 				<h3>Due date</h3>
-				<input required type="date" id='dueDate' min="2023-01-01" disable=true >
+				<input required type="date" id='dueDate' min="2023-01-01">
 				<span class='requiredText' id='dateReq'>This field is required</span>
 			</div>
 			<div class='addTaskPrio'>
