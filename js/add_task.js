@@ -1402,5 +1402,5 @@ function currentDate() {
  * the id of dueDate to the current date.
  */
 function setFutureDatesOnlyForInputDueDate() {
-	let today = (document.getElementById('dueDate').min = currentDate());
+	document.getElementById('dueDate').min = currentDate();
 }
