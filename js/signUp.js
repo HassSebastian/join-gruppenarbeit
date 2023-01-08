@@ -49,9 +49,7 @@ function emailToCheck(name, email, password) {
     let allUsersAtString = localStorage.getItem('allUsers');
     let requiredEmail = document.getElementById('requiredEmail');
     if (allUsersAtString === null) {
-        allUsers.push({ 'name': name, 'email': email, 'password': password });
-        let allUsersAtString = JSON.stringify(allUsers);
-        localStorage.setItem('allUsers', allUsersAtString);
+        firstAndSecondLetter(name, email, password); 
     } else {
         let allUsers = JSON.parse(allUsersAtString);
         let valueToCheck = email;
@@ -67,34 +65,61 @@ function emailToCheck(name, email, password) {
             requiredEmail.classList.add('requiredOn');
             requiredEmail.innerHTML = `This email address is already available!!`;
         } else {
-            userSignIn(name, email, password);
+            firstAndSecondLetter(name, email, password);
         }
     }
 }
 
+function firstAndSecondLetter(name, email, password){
+    let vorUndZuName = name;
+    let firstLetter = name[0];
+    let spaceIndex = name.indexOf(' ');
+    let secondName = name.substring(spaceIndex + 1);
+    let secondLetter = secondName[0];
+
+
+    console.log('N',vorUndZuName);
+    console.log('FL',firstLetter);
+    console.log('SL',secondLetter);
+    console.log(firstLetter+secondLetter);
+
+    nameColorCalc(firstLetter, secondLetter, name, email, password);
+}
+function nameColorCalc(firstLetter, secondLetter, name, email, password){
+    let asciiFirstLetter = firstLetter.charCodeAt(0);
+    let asciiSecondLetter = secondLetter.charCodeAt(0);
+    let sum = asciiFirstLetter + asciiSecondLetter;
+    let colorIndex = sum % 10; 	// rersult ist dann die Farbe aus dem colors Array in Zeile 3
+
+    console.log('colorIndex:',colorIndex);
+    userSignIn(firstLetter, secondLetter, name, email, password, colorIndex)
+}
+
+
+
 // save user data and forward to login site
-function userSignIn(name, email, password) {
+function userSignIn(firstLetter, secondLetter, name, email, password, colorIndex) {
     let keyQuery = localStorage.getItem('allUsers');
     if (keyQuery === null) {
-        keyQueryNull(name, email, password);
+        keyQueryNull(firstLetter, secondLetter, name, email, password, colorIndex);
     } else {
-        keyQueryOne(name, email, password);
+        keyQueryOne(firstLetter, secondLetter, name, email, password, colorIndex);
     }
     window.location.href = './login.html';
 }
 
 // save user data help fuction -null-
-function keyQueryNull(name, email, password) {
-    allUsers.push({ 'name': name, 'email': email, 'password': password });
+function keyQueryNull(firstLetter, secondLetter, name, email, password, colorIndex) {
+    allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter});
     let allUsersAtString = JSON.stringify(allUsers);
     localStorage.setItem('allUsers', allUsersAtString);
 }
 
 // save user data help function -one-
-function keyQueryOne(name, email, password) {
+function keyQueryOne(firstLetter, secondLetter, name, email, password, colorIndex) {
     let allUsersString = localStorage.getItem('allUsers');
     allUsers = JSON.parse(allUsersString);
-    allUsers.push({ 'name': name, 'email': email, 'password': password });
+    allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter});
     let allUsersAtString = JSON.stringify(allUsers);
     localStorage.setItem('allUsers', allUsersAtString);
 }
