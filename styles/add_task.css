@@ -915,6 +915,10 @@
 	color: #d1d1d1;
 }
 
+.addTaskDate input::-webkit-calendar-picker-indicator {
+	cursor: pointer;
+}
+
 .addTaskPrio {
 	display: flex;
 	flex-direction: column;
