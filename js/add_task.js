@@ -17,7 +17,7 @@ let prio = '';
 let subTask = '';
 let subTaskArray = [];
 let selectedSubtasks = [];
-// let index; 
+// let index;
 let badgesIndex;
 /* 
 !TEST ARRAY for renderFunciont (assignedContact list in dropdown menu) */
@@ -115,6 +115,7 @@ async function initAddTask() {
 	selectedMenuBtnId = 0;
 	selectedMenuButton(3);
 	renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
+	setFutureDatesOnlyForInputDueDate();
 }
 
 function generateAddTaskHtml() {
@@ -261,7 +262,7 @@ function generateAddTaskHtml() {
 		<div class='addTaskRightContainer'>
 			<div class='addTaskDate'>
 				<h3>Due date</h3>
-				<input required type="date" id='dueDate'>
+				<input required type="date" id='dueDate' min="2023-01-01" disable=true >
 				<span class='requiredText' id='dateReq'>This field is required</span>
 			</div>
 			<div class='addTaskPrio'>
@@ -378,7 +379,7 @@ async function loadTask() {
 	// }
 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	await downloadFromServer();
-    joinTaskArray = JSON.parse(backend.getItem('joinTaskArray')) || [];
+	joinTaskArray = JSON.parse(backend.getItem('joinTaskArray')) || [];
 }
 
 /**
@@ -819,7 +820,7 @@ function pushTaskData() {
 async function saveTask() {
 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	// localStorage.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
-    backend.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
+	backend.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
 }
 
 // deleteJoinTaskArrayFromServer() is not used in this code, it is only to remove the Array from Server!!!!!!!!!!!
@@ -1276,7 +1277,6 @@ let backgroundColorForBadges = [
 	'#FF7A00',
 ];
 
-
 /**
  * Given a first name and a last name, return the index of the color to use for the task force badge.
  * @param initialFirstName - The first letter of the first name of the user.
@@ -1286,7 +1286,7 @@ function chooseColorForTaskForceBadge(initialFirstName, initialLastName) {
 	let asciInintalFirstName = initialFirstName.charCodeAt(0);
 	let asciInintalLastName = initialLastName.charCodeAt(0);
 	let sum = asciInintalFirstName + asciInintalLastName;
-	badgesIndex= sum % 10;
+	badgesIndex = sum % 10;
 }
 
 /**
@@ -1343,7 +1343,7 @@ function renderBadgesMemberOfTaskForce() {
 			lastName,
 			initialFirstName,
 			initialLastName,
-			badgesIndex,
+			badgesIndex
 		);
 	}
 }
@@ -1378,3 +1378,29 @@ function frontEndDeveloper() {
 	);
 }
 
+/**
+ * It returns the current date in the format YYYY-MM-DD.
+ * @returns The current date in the format of YYYY-MM-DD.
+ */
+function currentDate() {
+	let date = new Date();
+
+	let day = date.getDate();
+	let month = date.getMonth() + 1;
+	let year = date.getFullYear();
+
+	if (month < 10) month = '0' + month;
+	if (day < 10) day = '0' + day;
+
+	let today = year + '-' + month + '-' + day;
+	return today;
+}
+
+/**
+ * The function setFutureDatesOnlyForInputDueDate()
+ * sets the minimum date for the input element with
+ * the id of dueDate to the current date.
+ */
+function setFutureDatesOnlyForInputDueDate() {
+	let today = (document.getElementById('dueDate').min = currentDate());
+}
