@@ -688,6 +688,7 @@ function setRequiredTextWarnings() {
 	if (title == '') {
 		document.getElementById('titleReq').style = 'opacity: 1;';
 	}
+	checkFutureDate();
 	if (dueDate == '') {
 		document.getElementById('dateReq').style = 'opacity: 1;';
 	}
@@ -708,6 +709,7 @@ function getReqiredFieldValues() {
 	title = title.trim();
 	dueDate = document.getElementById('dueDate').value;
 	dueDate = dueDate.trim();
+	console.log('duedate', dueDate);
 	descripten = document.getElementById('addTaskDescripten').value;
 	descripten = descripten.trim();
 	if (newCatInputActive) {
@@ -1404,4 +1406,27 @@ function currentDate() {
  */
 function setFutureDatesOnlyForInputDueDate() {
 	document.getElementById('dueDate').min = currentDate();
+}
+
+var date = new Date('1887-06-01'); // some mock date
+var milliseconds = date.getTime();
+
+console.log('milli', milliseconds);
+
+/* 564447600000 */
+/* 564447600000 */
+/* 564447600000 */
+/* 564451200000 */
+
+/* 
+! HIER Weitermachen. umbennen und kürzen usw.
+*/
+function checkFutureDate() {
+	let inputDate = document.getElementById('dueDate').value;
+	let inputDateMs = new Date(inputDate);
+	let currentDateMs = new Date();
+	console.log(inputDateMs.getTime(), currentDateMs.getTime());
+	if (inputDateMs.getTime() < currentDateMs.getTime()) {
+		document.getElementById('dateReq').style = 'opacity: 1';
+	}
 }
