@@ -105,7 +105,15 @@ function userSignIn(firstLetter, secondLetter, name, email, password, colorIndex
     } else {
         keyQueryOne(firstLetter, secondLetter, name, email, password, colorIndex);
     }
-    window.location.href = './login.html';
+    signUpDone();
+    setTimeout(() => {
+        window.location.href = './login.html';
+    }, 2000);
+}
+
+function signUpDone(){
+    document.getElementById('signUpButton').classList.add('d-none');
+    document.getElementById('signUpButtonDone').classList.remove('d-none');
 }
 
 // save user data help fuction -null-
