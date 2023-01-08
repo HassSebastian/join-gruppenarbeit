@@ -23,6 +23,30 @@ let badgesIndex;
 !TEST ARRAY for renderFunciont (assignedContact list in dropdown menu) */
 let coworkersToAssignTo = [
 	{
+		name: 'Basti H',
+		email: 'bastih@test.de',
+		password: '123456789',
+		check: false,
+	},
+	{
+		name: 'Stefan B',
+		email: 'stafanb@test.de',
+		password: '123456789',
+		check: false,
+	},
+	{
+		name: 'Christian G',
+		email: 'christiang@test.de',
+		password: '123456789',
+		check: false,
+	},
+	{
+		name: 'Dorian J',
+		email: 'dorianj@web.de',
+		password: '123',
+		check: false,
+	},
+	{
 		firstName: 'Frank',
 		lastName: 'Jens',
 		email: 'frankjens@test.de',
@@ -81,6 +105,7 @@ let coworkersToAssignTo = [
 let taskForce = []; // team that will be working on the current task
 
 async function initAddTask() {
+	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	await includeHTML();
 	await renderAddTask();
 	await loadExitingCategories();
@@ -346,11 +371,14 @@ async function loadExitingCategories() {
 /**
  * This function load the data(key:joinTaskArray) from local storage.
  */
-function loadTask() {
-	if (joinTaskArrayExistInStorage()) {
-		let joinTaskArrayString = localStorage.getItem('joinTaskArray');
-		joinTaskArray = JSON.parse(joinTaskArrayString);
-	}
+async function loadTask() {
+	// if (joinTaskArrayExistInStorage()) {
+	// 	let joinTaskArrayString = localStorage.getItem('joinTaskArray');
+	// 	joinTaskArray = JSON.parse(joinTaskArrayString);
+	// }
+	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+	await downloadFromServer();
+    joinTaskArray = JSON.parse(backend.getItem('joinTaskArray')) || [];
 }
 
 /**
@@ -789,12 +817,15 @@ function pushTaskData() {
  * this function save the main array to the local storage.
  */
 async function saveTask() {
-	localStorage.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
+	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+	// localStorage.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
+    backend.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
 }
 
 // deleteJoinTaskArrayFromServer() is not used in this code, it is only to remove the Array from Server!!!!!!!!!!!
-function deleteJoinTaskArrayFromServer() {
-	localStorage.removeItem('joinTaskArray');
+async function deleteJoinTaskArrayFromServer() {
+	// localStorage.removeItem('joinTaskArray');
+	await backend.deleteItem('joinTaskArray');
 }
 // save data to local storage/server end!
 

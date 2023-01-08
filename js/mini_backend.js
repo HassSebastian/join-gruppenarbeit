@@ -109,3 +109,6 @@ function determineProxySettings() {
         return 'https://cors-anywhere.herokuapp.com/';
     }
 }
+
+
+// setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');

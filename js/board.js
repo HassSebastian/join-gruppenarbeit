@@ -29,6 +29,7 @@ let prioColorAndUrlArray = [
  * renderAllCards().
  */
 async function initBoard() {
+    setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
     await includeHTML();
     await renderBoard();
     selectedMenuBtnId = 0;
@@ -36,6 +37,7 @@ async function initBoard() {
     loadTask();
     await createWorkStatusArrays();
     renderAllCards();
+    
 }
 
 

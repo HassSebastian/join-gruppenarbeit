@@ -9,6 +9,7 @@ let yourUrgentTasksAmount = 0;
 let allYourTasks = []; // Bossis Idee, für workflow 0-3
 
 async function initSummary() {
+	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	loadTask();
 	resetCounters();
 	await loadAmountsForSummary(); // await später für server wichtig

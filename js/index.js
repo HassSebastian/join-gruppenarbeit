@@ -4,6 +4,6 @@ function initPage1(){
     setTimeout(startLogIn, 700);
 }
 function startLogIn(){
-    window.location.href = './logIn.html';
+    window.location.href = './login.html';
 }
 
