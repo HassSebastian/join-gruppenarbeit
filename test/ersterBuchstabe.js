@@ -53,3 +53,28 @@ function alphabet() {
 		}
 	}
 }
+
+
+function firstAndSecondLetter(name){
+    let vorUndZuName = name;
+    let firstLetter = name[0];
+    let spaceIndex = name.indexOf(' ');
+    let secondName = name.substring(spaceIndex + 1);
+    let secondLetter = secondName[0];
+
+
+    console.log('N',vorUndZuName);
+    console.log('FL',firstLetter);
+    console.log('SL',secondLetter);
+    console.log(firstLetter+secondLetter);
+
+    nameColorCalc(firstLetter, secondLetter);
+}
+function nameColorCalc(firstLetter, secondLetter){
+    let asciiFirstLetter = firstLetter.charCodeAt(0);
+    let asciiSecondLetter = secondLetter.charCodeAt(0);
+    let sum = asciiFirstLetter + asciiSecondLetter;
+    let result = sum % 10; 	// rersult ist dann die Farbe aus dem colors Array in Zeile 3
+
+    console.log('ColorNr:',result);
+}

@@ -1275,6 +1275,7 @@ let backgroundColorForBadges = [
 	'#3E0099',
 	'#462F8A',
 	'#FF7A00',
+	'#000000',
 ];
 
 /**
