@@ -353,33 +353,39 @@ function allowDrop(ev) {
  * @param {number} area - is related to the droparea, example: area=0, droparea is 0, this is equal to workstatus0 equal
  * to todo tasks.
  */
-async function moveTo(area) {
+// async function moveTo(area) {
     // toDo if abfrage ob es verschoben werden darf !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // if (joinTaskArray[currentDraggedElement]['workFlowStatus'] == 2){
 
     // }
     checkToMove(area);
-    joinTaskArray[currentDraggedElement]['workFlowStatus'] = area;
-    await saveTask();
-    await createWorkStatusArrays();
-    renderAllCards();
-}
+    // joinTaskArray[currentDraggedElement]['workFlowStatus'] = area;
+    // await saveTask();
+    // await createWorkStatusArrays();
+    // renderAllCards();
+// }
 
 
-async function checkToMove(area){
+function moveTo(area){
     let doneBarDraggedElement = document.getElementById(`doneBar${currentDraggedElement}`);
     let doneBarOuterDraggedElement = document.getElementById(`doneBarOuter${currentDraggedElement}`);
     let doneBarWidth = doneBarDraggedElement.offsetWidth;
     let doneBarOuterWidth = doneBarOuterDraggedElement.offsetWidth;
-    console.log(doneBarWidth, doneBarOuterWidth);
     let workFlowStatusDraggedElement = joinTaskArray[currentDraggedElement]['workFlowStatus'];
-    console.log(doneBarWidth);
     if ((doneBarWidth == doneBarOuterWidth && workFlowStatusDraggedElement >= 1) || (workFlowStatusDraggedElement < 1 && area < 2)){
-        console.log('True');
+        moveToNewArea(area);
     }
     if(area < workFlowStatusDraggedElement){
-        console.log('back True');
+        moveToNewArea(area);
     }
+}
+
+
+async function moveToNewArea(area){
+    joinTaskArray[currentDraggedElement]['workFlowStatus'] = area;
+    await saveTask();
+    await createWorkStatusArrays();
+    renderAllCards();
 }
 
 
