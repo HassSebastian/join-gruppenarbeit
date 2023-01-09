@@ -1,5 +1,8 @@
 let jsonFromServer = {};
 let BASE_SERVER_URL;
+let nocorsString = '/nocors.php?json=database&noache=';
+let jsonFileName = 'join_task_array';
+let nocorsNewString = '/nocors.php?json=' + jsonFileName + '&noache=';
 
 const backend = {
     setItem: function(key, item) {
@@ -46,6 +49,7 @@ function loadJSONFromServerOld() {
     return new Promise(function(resolve, reject) {
         let xhttp = new XMLHttpRequest();
         let proxy = determineProxySettings();
+
         let serverURL = proxy + BASE_SERVER_URL + '/nocors.php?json=database&noache=' + (new Date().getTime());
 
 
@@ -109,3 +113,4 @@ function determineProxySettings() {
         return 'https://cors-anywhere.herokuapp.com/';
     }
 }
+

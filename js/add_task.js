@@ -105,7 +105,7 @@ let coworkersToAssignTo = [
 let taskForce = []; // team that will be working on the current task
 
 async function initAddTask() {
-	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+	// setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	await includeHTML();
 	await renderAddTask();
 	await loadExitingCategories();
@@ -262,7 +262,7 @@ function generateAddTaskHtml() {
 		<div class='addTaskRightContainer'>
 			<div class='addTaskDate'>
 				<h3>Due date</h3>
-				<input required type="date" id='dueDate' min="2023-01-01" disable=true >
+				<input required type="date" id='dueDate' min="2023-01-01">
 				<span class='requiredText' id='dateReq'>This field is required</span>
 			</div>
 			<div class='addTaskPrio'>
@@ -350,8 +350,13 @@ function goToPrio() {
  * Then it filter this data to create a JSON Array with existing categories.
  */
 async function loadExitingCategories() {
-	loadTask();
-	addTaskCategoryList = [{ category: 'New Category', catColor: '' }];
+	await loadTask();
+	addTaskCategoryList = [
+		{
+			category: 'New Category',
+			catColor: '',
+		},
+	];
 	for (let i = 0; i < joinTaskArray.length; i++) {
 		let taskCategory = joinTaskArray[i]['category'];
 		let categoryColor = joinTaskArray[i]['catColor'];
@@ -373,10 +378,6 @@ async function loadExitingCategories() {
  * This function load the data(key:joinTaskArray) from local storage.
  */
 async function loadTask() {
-	// if (joinTaskArrayExistInStorage()) {
-	// 	let joinTaskArrayString = localStorage.getItem('joinTaskArray');
-	// 	joinTaskArray = JSON.parse(joinTaskArrayString);
-	// }
 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	await downloadFromServer();
 	joinTaskArray = JSON.parse(backend.getItem('joinTaskArray')) || [];
@@ -396,17 +397,11 @@ function joinTaskArrayExistInStorage() {
  */
 function enableDisableCatList() {
 	if (categoryListAndNewCategoryInputNotActive()) {
-		document
-			.getElementById('CatListDropdown')
-			.classList.remove('listD-none');
-		document
-			.getElementById('addTaskAssignedBox')
-			.classList.add('addMarginTop');
+		document.getElementById('CatListDropdown').classList.remove('listD-none');
+		document.getElementById('addTaskAssignedBox').classList.add('addMarginTop');
 	} else {
 		document.getElementById('CatListDropdown').classList.add('listD-none');
-		document
-			.getElementById('addTaskAssignedBox')
-			.classList.remove('addMarginTop');
+		document.getElementById('addTaskAssignedBox').classList.remove('addMarginTop');
 	}
 	catListStatus = !catListStatus;
 }
@@ -429,11 +424,13 @@ function renderCategoryList() {
 		let categoryName = addTaskCategoryList[i]['category'];
 		let categoryColor = addTaskCategoryList[i]['catColor'];
 		if (categoryColorAvailable(categoryColor)) {
-			document.getElementById('CatListDropdown').innerHTML +=
-				dropdownCategoryListHtml(categoryName, categoryColor, i);
+			document.getElementById('CatListDropdown').innerHTML += dropdownCategoryListHtml(
+				categoryName,
+				categoryColor,
+				i
+			);
 		} else {
-			document.getElementById('CatListDropdown').innerHTML +=
-				dropdownCategoryListHtml1(categoryName, i);
+			document.getElementById('CatListDropdown').innerHTML += dropdownCategoryListHtml1(categoryName, i);
 		}
 	}
 }
@@ -601,10 +598,7 @@ function newCategoryInputHtml() {
 function setSettingsForExistingCategory(catId) {
 	let newCat = addTaskCategoryList[catId]['category'];
 	let categoryColor = addTaskCategoryList[catId]['catColor'];
-	document.getElementById('selectedCat').innerHTML = existingCategoryHtml(
-		newCat,
-		categoryColor
-	);
+	document.getElementById('selectedCat').innerHTML = existingCategoryHtml(newCat, categoryColor);
 	catColor = categoryColor;
 	enableDisableCatList();
 	document.getElementById('dropdownImg').classList.remove('d-none');
@@ -630,14 +624,10 @@ function existingCategoryHtml(newCat, categoryColor) {
  */
 function addColorToCat(colorId) {
 	if (catColor != '' || catColor == '0') {
-		document
-			.getElementById('color' + catColor + 'Div')
-			.classList.remove('colorDivSelected');
+		document.getElementById('color' + catColor + 'Div').classList.remove('colorDivSelected');
 		catColor = '';
 	}
-	document
-		.getElementById('color' + colorId + 'Div')
-		.classList.add('colorDivSelected');
+	document.getElementById('color' + colorId + 'Div').classList.add('colorDivSelected');
 	catColor = colorId;
 }
 
@@ -645,18 +635,14 @@ function addColorToCat(colorId) {
  * this function show a popup, that indicated that the new task is succsessfully created.
  */
 function showAddDiv() {
-	document
-		.getElementById('taskCreatedIndication')
-		.classList.add('taskCreatedIndication');
+	document.getElementById('taskCreatedIndication').classList.add('taskCreatedIndication');
 }
 
 /**
  * this function inhibited to show a popup, that indicated that the new task is succsessfuly created.
  */
 function notShowAddDiv() {
-	document
-		.getElementById('taskCreatedIndication')
-		.classList.remove('taskCreatedIndication');
+	document.getElementById('taskCreatedIndication').classList.remove('taskCreatedIndication');
 }
 
 /**
@@ -682,22 +668,90 @@ function requiredFieldAreNotValid() {
 }
 
 /**
- * this function enable or disable the indication 'this field is required'.
+ * It returns the current date in the format YYYY-MM-DD.
+ * @returns The current date in the format of YYYY-MM-DD.
  */
-function setRequiredTextWarnings() {
+function currentDate() {
+	let date = new Date();
+
+	let day = date.getDate();
+	let month = date.getMonth() + 1;
+	let year = date.getFullYear();
+
+	if (month < 10) month = '0' + month;
+	if (day < 10) day = '0' + day;
+
+	let today = year + '-' + month + '-' + day;
+	return today;
+}
+
+/**
+ * The function setFutureDatesOnlyForInputDueDate()
+ * sets the minimum date for the input element with
+ * the id of dueDate to the current date.
+ */
+function setFutureDatesOnlyForInputDueDate() {
+	document.getElementById('dueDate').min = currentDate();
+}
+
+/**
+ * If the title is empty, make the titleReq element visible
+ */
+function checkTitle() {
 	if (title == '') {
 		document.getElementById('titleReq').style = 'opacity: 1;';
 	}
+}
+
+/**
+ * If the input date is older than the current date,
+ * then display the error message
+ */
+function checkFutureDate() {
+	let inputDate = new Date(dueDate);
+	let currentDate = new Date();
+	if (inputDate < currentDate) {
+		document.getElementById('dateReq').style = 'opacity: 1';
+	}
+}
+
+/**
+ * If the dueDate variable is empty, then make the dateReq div visible.
+ */
+function checkDueDateExists() {
 	if (dueDate == '') {
 		document.getElementById('dateReq').style = 'opacity: 1;';
 	}
+}
+
+/**
+ * If the category variable is empty, then make the catReq element visible.
+ */
+function checkCategory() {
 	if (category == '') {
 		document.getElementById('catReq').style = 'opacity: 1;';
 		document.getElementById('catReq').classList.remove('listD-none');
 	}
+}
+
+/**
+ * If the description is empty, make the description required message visible.
+ */
+function checkDiscription() {
 	if (descripten == '') {
 		document.getElementById('descReq').style = 'opacity: 1;';
 	}
+}
+
+/**
+ * this function enable or disable the indication 'this field is required'.
+ */
+function setRequiredTextWarnings() {
+	checkTitle();
+	checkFutureDate();
+	checkDueDateExists();
+	checkCategory();
+	checkDiscription();
 }
 
 /**
@@ -708,6 +762,7 @@ function getReqiredFieldValues() {
 	title = title.trim();
 	dueDate = document.getElementById('dueDate').value;
 	dueDate = dueDate.trim();
+	console.log('duedate', dueDate);
 	descripten = document.getElementById('addTaskDescripten').value;
 	descripten = descripten.trim();
 	if (newCatInputActive) {
@@ -832,8 +887,7 @@ async function deleteJoinTaskArrayFromServer() {
 
 /******************************************************************************** */
 function addTaskClearOn() {
-	document.getElementById('addTaskClear').src =
-		'././assets/img/close_logo_blue.png';
+	document.getElementById('addTaskClear').src = '././assets/img/close_logo_blue.png';
 }
 
 function addTaskClearOff() {
@@ -859,28 +913,16 @@ function btnNotSelected(cListLength) {
 }
 
 function selectPrioBtn(selectedId, btnName) {
-	document
-		.getElementById(selectedId)
-		.classList.add(`${btnName.toLowerCase()}-color`);
-	document
-		.getElementById(`addTask${btnName}Span`)
-		.classList.add('color-white');
-	document.getElementById(
-		`addTask${btnName}Img`
-	).src = `./assets/img/${btnName.toLowerCase()}_white.png`;
+	document.getElementById(selectedId).classList.add(`${btnName.toLowerCase()}-color`);
+	document.getElementById(`addTask${btnName}Span`).classList.add('color-white');
+	document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}_white.png`;
 	prio = btnName;
 }
 
 function removeBtnSelection(btnName) {
-	document
-		.getElementById(`addTask${btnName}`)
-		.classList.remove(`${btnName.toLowerCase()}-color`);
-	document
-		.getElementById(`addTask${btnName}Span`)
-		.classList.remove('color-white');
-	document.getElementById(
-		`addTask${btnName}Img`
-	).src = `./assets/img/${btnName.toLowerCase()}.png`;
+	document.getElementById(`addTask${btnName}`).classList.remove(`${btnName.toLowerCase()}-color`);
+	document.getElementById(`addTask${btnName}Span`).classList.remove('color-white');
+	document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}.png`;
 }
 
 function unselectOtherBtn(idList) {
@@ -889,15 +931,9 @@ function unselectOtherBtn(idList) {
 		let cListLength = document.getElementById(selectedId).classList.length;
 		let btnName = selectedId.replace('addTask', '');
 		if (btnIsSelected(cListLength)) {
-			document
-				.getElementById(`addTask${btnName}`)
-				.classList.remove(`${btnName.toLowerCase()}-color`);
-			document
-				.getElementById(`addTask${btnName}Span`)
-				.classList.remove('color-white');
-			document.getElementById(
-				`addTask${btnName}Img`
-			).src = `./assets/img/${btnName.toLowerCase()}.png`;
+			document.getElementById(`addTask${btnName}`).classList.remove(`${btnName.toLowerCase()}-color`);
+			document.getElementById(`addTask${btnName}Span`).classList.remove('color-white');
+			document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}.png`;
 		}
 	}
 }
@@ -946,7 +982,10 @@ function addSubtask() {
 
 // new Array function here
 function pushNewSubtaskDatatoArray(subTaskText) {
-	let subtaskJson = { subtaskText: subTaskText, subtaskStatus: true };
+	let subtaskJson = {
+		subtaskText: subTaskText,
+		subtaskStatus: true,
+	};
 	subTaskArray.push(subtaskJson);
 }
 
@@ -972,9 +1011,7 @@ async function subtaskListHtml() {
 }
 
 function subtaskSelectionChange(subTaskIndex) {
-	let actualSubTaskStatus = document.getElementById(
-		`subtask${subTaskIndex}`
-	).checked;
+	let actualSubTaskStatus = document.getElementById(`subtask${subTaskIndex}`).checked;
 	if (actualSubTaskStatus) {
 		subTaskArray[subTaskIndex]['subtaskStatus'] = true;
 	} else {
@@ -1048,9 +1085,7 @@ function enableAssignList() {
  * to 10px 10px 0 0.
  */
 function borderBottomOffAssignedBoxButton() {
-	document.getElementById(
-		'addTaskAssignedButton'
-	).style = `border-radius: 10px 10px 0 0;`;
+	document.getElementById('addTaskAssignedButton').style = `border-radius: 10px 10px 0 0;`;
 }
 
 /**
@@ -1058,15 +1093,11 @@ function borderBottomOffAssignedBoxButton() {
  * to 10px.
  */
 function borderBottomOnAssignedBoxButton() {
-	document.getElementById(
-		'addTaskAssignedButton'
-	).style = `border-radius: 10px 10px 10px 10px;`;
+	document.getElementById('addTaskAssignedButton').style = `border-radius: 10px 10px 10px 10px;`;
 }
 
 function assignChangeInputPlaceholderToContactEmail() {
-	document.getElementsByName(
-		'selectedAssign'
-	)[0].placeholder = `Contact email`;
+	document.getElementsByName('selectedAssign')[0].placeholder = `Contact email`;
 }
 
 function enableInputaddTasAssign() {
@@ -1074,9 +1105,7 @@ function enableInputaddTasAssign() {
 }
 
 function showCancelConfirmButtons() {
-	document
-		.getElementById('assignToCancelConfirmImgContainer')
-		.classList.remove('d-none');
+	document.getElementById('assignToCancelConfirmImgContainer').classList.remove('d-none');
 }
 
 function hideAssignDropDownImg() {
@@ -1104,9 +1133,7 @@ function doNotCloseOnClick(event) {
 }
 
 function assignInputPlaceholderToDefaultMode() {
-	document.getElementsByName(
-		'selectedAssign'
-	)[0].placeholder = `Select contacts to Assign`;
+	document.getElementsByName('selectedAssign')[0].placeholder = `Select contacts to Assign`;
 }
 
 function assignInputValueToDefault() {
@@ -1114,9 +1141,7 @@ function assignInputValueToDefault() {
 }
 
 function hideCancelConfirmButtons() {
-	document
-		.getElementById('assignToCancelConfirmImgContainer')
-		.classList.add('d-none');
+	document.getElementById('assignToCancelConfirmImgContainer').classList.add('d-none');
 }
 
 function showAssignDropDownImg() {
@@ -1132,9 +1157,7 @@ function changeAssignPlaceholderColorToGrey() {
 }
 
 function changeAssignPlaceholderColorToDefault() {
-	document
-		.getElementById('selectedAssign')
-		.classList.remove('greyPlaceholder');
+	document.getElementById('selectedAssign').classList.remove('greyPlaceholder');
 }
 
 function assignBoxBackToDefaultMode() {
@@ -1179,11 +1202,7 @@ function removeSelectedContactFromTaskForce(index) {
  * @param contact - the contact that was selected
  * @param indexOfMemberInTaskForce - The index of the contact in the task force array.
  */
-function addRemoveToggleForTaskForce(
-	addedToTaskForce,
-	contact,
-	indexOfMemberInTaskForce
-) {
+function addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberInTaskForce) {
 	if (!addedToTaskForce) {
 		addCheckMarkToCheckBox(contact);
 		addSelectedContactToTaskForce(contact);
@@ -1204,22 +1223,14 @@ function addContactToTaskForceWithCheckBox(contact) {
 	let addedToTaskForce = coworkersToAssignTo[contact].check;
 	let emailAddress = coworkersToAssignTo[contact].email;
 	let indexOfMemberOfTaskForce = findIndexOfMemberOfTaskForce(emailAddress);
-	addRemoveToggleForTaskForce(
-		addedToTaskForce,
-		contact,
-		indexOfMemberOfTaskForce
-	);
+	addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberOfTaskForce);
 	addedToTaskForce = !addedToTaskForce;
 	coworkersToAssignTo[contact].check = addedToTaskForce;
 	// console.log(taskForce.length);
 	// console.table(taskForce);
 }
 
-function generateAssignContactListForDropDownMenu(
-	firstName,
-	lastName,
-	contact
-) {
+function generateAssignContactListForDropDownMenu(firstName, lastName, contact) {
 	return /*html*/ `
 	<li onclick="addContactToTaskForceWithCheckBox(${contact})">
 		${firstName} ${lastName}
@@ -1241,12 +1252,7 @@ async function renderContactsInAssignDropDownMenu() {
 		let firstName = coworkersToAssignTo[contact].firstName;
 		let lastName = coworkersToAssignTo[contact].lastName;
 		let assignedContactList = document.getElementById('dropdown2');
-		assignedContactList.innerHTML +=
-			generateAssignContactListForDropDownMenu(
-				firstName,
-				lastName,
-				contact
-			);
+		assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(firstName, lastName, contact);
 	}
 }
 
@@ -1327,13 +1333,8 @@ function generateBadgesTaskForceHtml(
 function renderBadgesMemberOfTaskForce() {
 	let badgeContainer = document.getElementById('badgesTaskForce');
 	badgeContainer.innerHTML = '';
-	for (
-		let memberOfTaskForce = 0;
-		memberOfTaskForce < taskForce.length;
-		memberOfTaskForce++
-	) {
-		const initialFirstName =
-			taskForce[memberOfTaskForce].firstName.charAt(0);
+	for (let memberOfTaskForce = 0; memberOfTaskForce < taskForce.length; memberOfTaskForce++) {
+		const initialFirstName = taskForce[memberOfTaskForce].firstName.charAt(0);
 		const initialLastName = taskForce[memberOfTaskForce].lastName.charAt(0);
 		const firstName = taskForce[memberOfTaskForce].firstName;
 		const lastName = taskForce[memberOfTaskForce].lastName;
@@ -1374,34 +1375,5 @@ function closeDropDownAssignTo() {
 
 function frontEndDeveloper() {
 	/* document.getElementById('selectedAssign').value = `Just frontend. Sorry! ;)`; */
-	alert(
-		'This function is part of backend. The course is about frontend though'
-	);
-}
-
-/**
- * It returns the current date in the format YYYY-MM-DD.
- * @returns The current date in the format of YYYY-MM-DD.
- */
-function currentDate() {
-	let date = new Date();
-
-	let day = date.getDate();
-	let month = date.getMonth() + 1;
-	let year = date.getFullYear();
-
-	if (month < 10) month = '0' + month;
-	if (day < 10) day = '0' + day;
-
-	let today = year + '-' + month + '-' + day;
-	return today;
-}
-
-/**
- * The function setFutureDatesOnlyForInputDueDate()
- * sets the minimum date for the input element with
- * the id of dueDate to the current date.
- */
-function setFutureDatesOnlyForInputDueDate() {
-	document.getElementById('dueDate').min = currentDate();
+	alert('This function is part of backend. The course is about frontend though');
 }
