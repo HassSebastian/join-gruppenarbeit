@@ -105,7 +105,7 @@ let coworkersToAssignTo = [
 let taskForce = []; // team that will be working on the current task
 
 async function initAddTask() {
-	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+	// setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	await includeHTML();
 	await renderAddTask();
 	await loadExitingCategories();
@@ -350,7 +350,7 @@ function goToPrio() {
  * Then it filter this data to create a JSON Array with existing categories.
  */
 async function loadExitingCategories() {
-	loadTask();
+	await loadTask();
 	addTaskCategoryList = [{ category: 'New Category', catColor: '' }];
 	for (let i = 0; i < joinTaskArray.length; i++) {
 		let taskCategory = joinTaskArray[i]['category'];

@@ -124,7 +124,7 @@ function toDoCardHtml(arrayIndex) {
     let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
     let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
     return /*html*/`
-        <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
+        <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})'>
             <div class='taskContainer'>
                 <div class='boardTaskCategory' id='toDoCardCat${arrayIndex}'>
                     <span>${cardCategory}</span>
@@ -167,7 +167,7 @@ function inProgressHtml(arrayIndex) {
     let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
     let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
     return /*html*/`
-            <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
+            <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})'>
                 <div class='taskContainer'>
                     <div class='boardTaskCategory' id='progressCard${arrayIndex}'>
                         <span>${cardCategory}</span>
@@ -210,7 +210,7 @@ function awaitingFeedbackHtml(arrayIndex) {
     let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
     let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
     return /*html*/`
-        <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
+        <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})'>
             <div class='taskContainer'>
                 <div class='boardTaskCategory' id='feedbackCard${arrayIndex}'>
                     <span>${cardCategory}</span>
@@ -253,7 +253,7 @@ function doneHtml(arrayIndex) {
     let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
     let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
     return /*html*/`
-        <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCard(${taskIndex})'>
+        <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})'>
             <div class='taskContainer'>
                 <div class='boardTaskCategory' id='doneCard${arrayIndex}'>
                     <span>${cardCategory}</span>
@@ -602,4 +602,62 @@ function renderAddTaskPopupHtml() {
                 <img src='./assets/img/img_board_w.png'>
             </div>
         </div>`;
+}
+
+
+/**
+ * this function render the HTML code for the detail view of a taskcard.
+ * @param {number} taskIndex - this value is equal to the index position in the main array 'joinTaskArray'.
+ */
+function renderPopupTaskCardHtml(taskIndex) {
+    let cardTitle = joinTaskArray[taskIndex]['title'];
+    let cardDescription = joinTaskArray[taskIndex]['descripten'];
+    let cardCategory = joinTaskArray[taskIndex]['category'];
+    let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
+    let taskPrio = joinTaskArray[taskIndex]['prio'];
+    document.getElementById('boardPopup').innerHTML = '';
+    document.getElementById('boardPopup').innerHTML = /*html*/`
+        <div class='boardTaskCardPopup' onclick='stopClose(event)'>
+            <div class='taskCardPopupCategory' id='taskCardPopupCategory'>
+                <span>${cardCategory}</span>
+            </div>
+            <div class='taskCardPopupTask'>
+                <span>${cardTitle}</span>
+            </div>
+            <span class='taskCardPopupDescription'>${cardDescription}</span>
+            <div class='taskCardPopupDateContainer'>
+                <span class='taskCardPopupDateText'>Due date:</span>
+                <span class='taskCardPopupDueDate'>${cardDueDate}</span>
+            </div>
+            <div class='taskCardPopupPriorityContainer'>
+                <!-- classes down must be changed later ! -->
+            <span>Priority:</span>
+            <div class='urgency' id='prioContainer'>
+                <span>${taskPrio}</span>
+                <img src='./assets/img/urgent_white.png' id='cardPrioImg'>
+            </div>
+        </div>
+
+        <span class='assigned'>Assigned To:</span>
+        <img class='close_logo' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'>
+        <div class='editButton' onclick='openEditTaskCard(${taskIndex})'>
+            <img src='./assets/img/edit_button.png'>
+        </div>
+    
+        <div class='members' id='members'>
+            
+        </div>
+        
+        <div class='boardSubtasksTitleDiv'>
+            <span class='boardSubtaskTitle'>Subtasks:</span>
+                
+        </div >
+        <div class='boardSubtasksDiv' id='subtaskListTaskCard'>
+            
+        </div>`;
+
+    setTaskCardPopupCatColor(taskIndex);
+    setTaskCardPopupPrioBackground(taskIndex);
+    renderSubtask(taskIndex);
+    renderAssignToHtml2(taskIndex);
 }

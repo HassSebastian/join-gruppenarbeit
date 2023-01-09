@@ -32,62 +32,7 @@ function stopClose(event) {
 
 // render function for the detail view of the task card.
 
-/**
- * this function render the HTML code for the detail view of a taskcard.
- * @param {number} taskIndex - this value is equal to the index position in the main array 'joinTaskArray'.
- */
-function renderPopupTaskCard(taskIndex) {
-    let cardTitle = joinTaskArray[taskIndex]['title'];
-    let cardDescription = joinTaskArray[taskIndex]['descripten'];
-    let cardCategory = joinTaskArray[taskIndex]['category'];
-    let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
-    let taskPrio = joinTaskArray[taskIndex]['prio'];
-    document.getElementById('boardPopup').innerHTML = '';
-    document.getElementById('boardPopup').innerHTML = /*html*/`
-        <div class='boardTaskCardPopup' onclick='stopClose(event)'>
-            <div class='taskCardPopupCategory' id='taskCardPopupCategory'>
-                <span>${cardCategory}</span>
-            </div>
-            <div class='taskCardPopupTask'>
-                <span>${cardTitle}</span>
-            </div>
-            <span class='taskCardPopupDescription'>${cardDescription}</span>
-            <div class='taskCardPopupDateContainer'>
-                <span class='taskCardPopupDateText'>Due date:</span>
-                <span class='taskCardPopupDueDate'>${cardDueDate}</span>
-            </div>
-            <div class='taskCardPopupPriorityContainer'>
-                <!-- classes down must be changed later ! -->
-            <span>Priority:</span>
-            <div class='urgency' id='prioContainer'>
-                <span>${taskPrio}</span>
-                <img src='./assets/img/urgent_white.png' id='cardPrioImg'>
-            </div>
-        </div>
 
-        <span class='assigned'>Assigned To:</span>
-        <img class='close_logo' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'>
-        <div class='editButton' onclick='openEditTaskCard(${taskIndex})'>
-            <img src='./assets/img/edit_button.png'>
-        </div>
-    
-        <div class='members' id='members'>
-            
-        </div>
-        
-        <div class='boardSubtasksTitleDiv'>
-            <span class='boardSubtaskTitle'>Subtasks:</span>
-                
-        </div >
-        <div class='boardSubtasksDiv' id='subtaskListTaskCard'>
-            
-        </div>`;
-
-    setTaskCardPopupCatColor(taskIndex);
-    setTaskCardPopupPrioBackground(taskIndex);
-    renderSubtask(taskIndex);
-    renderAssignToHtml2(taskIndex);
-}
 
 
 /**
