@@ -371,17 +371,12 @@ async function checkToMove(area){
     let doneBarWidth = doneBarDraggedElement.offsetWidth;
     let workFlowStatusDraggedElement = joinTaskArray[currentDraggedElement]['workFlowStatus'];
     console.log(doneBarWidth);
-    if (doneBarWidth == 138 && workFlowStatusDraggedElement >= 2){
-        console.log('True')
-    }else{
-        console.log('false')
+    if ((doneBarWidth == 138 && workFlowStatusDraggedElement >= 1) || (workFlowStatusDraggedElement < 1 && area < 2)){
+        console.log('True');
     }
-    if (workFlowStatusDraggedElement < 2 && area < 3){
-        console.log('True 2')
-    }else{
-        console.log('false 2')
+    if(area < workFlowStatusDraggedElement){
+        console.log('back True');
     }
-   
 }
 
 
