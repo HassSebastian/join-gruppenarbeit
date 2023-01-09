@@ -110,5 +110,3 @@ function determineProxySettings() {
     }
 }
 
-
-// setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
