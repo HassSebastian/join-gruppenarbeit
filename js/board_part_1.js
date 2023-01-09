@@ -358,7 +358,7 @@ function allowDrop(ev) {
     // if (joinTaskArray[currentDraggedElement]['workFlowStatus'] == 2){
 
     // }
-    checkToMove(area);
+    // checkToMove(area);
     // joinTaskArray[currentDraggedElement]['workFlowStatus'] = area;
     // await saveTask();
     // await createWorkStatusArrays();
@@ -405,5 +405,4 @@ function highlight(id) {
 function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
 }
-
 
