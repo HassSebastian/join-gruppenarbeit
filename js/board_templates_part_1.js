@@ -135,7 +135,7 @@ function toDoCardHtml(arrayIndex) {
                 </div>
                 <div class='doneBar'>
                     <div class='doneBarOuter'>
-                        <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;'></div>
+                        <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;' id='doneBar${taskIndex}'></div>
                     </div>
                     <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
                 </div>
@@ -178,7 +178,7 @@ function inProgressHtml(arrayIndex) {
                     </div>
                     <div class='doneBar'>
                         <div class='doneBarOuter'>
-                            <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;'></div>
+                            <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;' id='doneBar${taskIndex}'></div>
                         </div>
                         <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
                     </div>
@@ -221,7 +221,7 @@ function awaitingFeedbackHtml(arrayIndex) {
                 </div>
                 <div class='doneBar'>
                     <div class='doneBarOuter'>
-                        <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;'></div>
+                        <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;' id='doneBar${taskIndex}'></div>
                     </div>
                     <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
                 </div>
@@ -264,7 +264,7 @@ function doneHtml(arrayIndex) {
                 </div>
                 <div class='doneBar'>
                     <div class='doneBarOuter'>
-                        <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;'></div>
+                        <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;' id='doneBar${taskIndex}'></div>
                     </div>
                     <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
                 </div>

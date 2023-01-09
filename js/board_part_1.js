@@ -358,10 +358,30 @@ async function moveTo(area) {
     // if (joinTaskArray[currentDraggedElement]['workFlowStatus'] == 2){
 
     // }
+    checkToMove(area);
     joinTaskArray[currentDraggedElement]['workFlowStatus'] = area;
     await saveTask();
     await createWorkStatusArrays();
     renderAllCards();
+}
+
+
+async function checkToMove(area){
+    let doneBarDraggedElement = document.getElementById(`doneBar${currentDraggedElement}`);
+    let doneBarWidth = doneBarDraggedElement.offsetWidth;
+    let workFlowStatusDraggedElement = joinTaskArray[currentDraggedElement]['workFlowStatus'];
+    console.log(doneBarWidth);
+    if (doneBarWidth == 138 && workFlowStatusDraggedElement >= 2){
+        console.log('True')
+    }else{
+        console.log('false')
+    }
+    if (workFlowStatusDraggedElement < 2 && area < 3){
+        console.log('True 2')
+    }else{
+        console.log('false 2')
+    }
+   
 }
 
 
