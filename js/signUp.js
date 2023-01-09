@@ -119,23 +119,23 @@ function signUpDone(){
 // save user data help fuction -null-
 function keyQueryNull(firstLetter, secondLetter, name, email, password, colorIndex) {
     allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter});
-    let allUsersAtString = JSON.stringify(allUsers);
-    localStorage.setItem('allUsers', allUsersAtString);
+    // let allUsersAtString = JSON.stringify(allUsers);
+    // localStorage.setItem('allUsers', allUsersAtString);
 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-	backend.setItem('users', JSON.stringify(users));
+	backend.setItem('users', JSON.stringify(allUsers));
 
 
 }
 
 // save user data help function -one-
 function keyQueryOne(firstLetter, secondLetter, name, email, password, colorIndex) {
-    let allUsersString = localStorage.getItem('allUsers');
-    allUsers = JSON.parse(allUsersString);
+    // let allUsersString = localStorage.getItem('allUsers');
+    // allUsers = JSON.parse(allUsersString);
     allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter});
-    let allUsersAtString = JSON.stringify(allUsers);
-    localStorage.setItem('allUsers', allUsersAtString);
+    // let allUsersAtString = JSON.stringify(allUsers);
+    // localStorage.setItem('allUsers', allUsersAtString);
 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-	backend.setItem('users', JSON.stringify(users));
+	backend.setItem('users', JSON.stringify(allUsers));
 
 
 }
