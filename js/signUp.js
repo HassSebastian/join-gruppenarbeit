@@ -121,6 +121,10 @@ function keyQueryNull(firstLetter, secondLetter, name, email, password, colorInd
     allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter});
     let allUsersAtString = JSON.stringify(allUsers);
     localStorage.setItem('allUsers', allUsersAtString);
+	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+	backend.setItem('users', JSON.stringify(users));
+
+
 }
 
 // save user data help function -one-
@@ -130,6 +134,10 @@ function keyQueryOne(firstLetter, secondLetter, name, email, password, colorInde
     allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter});
     let allUsersAtString = JSON.stringify(allUsers);
     localStorage.setItem('allUsers', allUsersAtString);
+	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+	backend.setItem('users', JSON.stringify(users));
+
+
 }
 
 function passwordShowIcon(){
