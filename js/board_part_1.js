@@ -368,10 +368,13 @@ async function moveTo(area) {
 
 async function checkToMove(area){
     let doneBarDraggedElement = document.getElementById(`doneBar${currentDraggedElement}`);
+    let doneBarOuterDraggedElement = document.getElementById(`doneBarOuter${currentDraggedElement}`);
     let doneBarWidth = doneBarDraggedElement.offsetWidth;
+    let doneBarOuterWidth = doneBarOuterDraggedElement.offsetWidth;
+    console.log(doneBarWidth, doneBarOuterWidth);
     let workFlowStatusDraggedElement = joinTaskArray[currentDraggedElement]['workFlowStatus'];
     console.log(doneBarWidth);
-    if ((doneBarWidth == 138 && workFlowStatusDraggedElement >= 1) || (workFlowStatusDraggedElement < 1 && area < 2)){
+    if ((doneBarWidth == doneBarOuterWidth && workFlowStatusDraggedElement >= 1) || (workFlowStatusDraggedElement < 1 && area < 2)){
         console.log('True');
     }
     if(area < workFlowStatusDraggedElement){
