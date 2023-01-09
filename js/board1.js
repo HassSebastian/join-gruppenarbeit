@@ -1,0 +1,382 @@
+// Testarea PopupCard ***********************************************************************************************
+
+// basic function for the popup window
+
+/**
+ * this function remove the d-none class from the popup window. The result is that the Popup Window is shown.
+ */
+function enablePopupWindow() {
+    document.getElementById('boardPopup').classList.remove('d-none');
+}
+
+
+/**
+ * this function add the d-none class to the popup window. The result is that the Popup Window not shown.
+ */
+function disablePopupWindow() {
+    document.getElementById('boardPopup').classList.add('d-none');
+    renderAllCards();
+}
+
+
+/**
+ * this function prevent the closure of the popup window when clicking on the Popup Task Card.
+ */
+function stopClose(event) {
+    event.stopPropagation();
+}
+
+
+// basic function popup end
+
+
+// render function for the detail view of the task card.
+
+/**
+ * this function render the HTML code for the detail view of a taskcard.
+ * @param {number} taskIndex - this value is equal to the index position in the main array 'joinTaskArray'.
+ */
+function renderPopupTaskCard(taskIndex) {
+    let cardTitle = joinTaskArray[taskIndex]['title'];
+    let cardDescription = joinTaskArray[taskIndex]['descripten'];
+    let cardCategory = joinTaskArray[taskIndex]['category'];
+    let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
+    let taskPrio = joinTaskArray[taskIndex]['prio'];
+    document.getElementById('boardPopup').innerHTML = '';
+    document.getElementById('boardPopup').innerHTML = /*html*/`
+        <div class='boardTaskCardPopup' onclick='stopClose(event)'>
+            <div class='taskCardPopupCategory' id='taskCardPopupCategory'>
+                <span>${cardCategory}</span>
+            </div>
+            <div class='taskCardPopupTask'>
+                <span>${cardTitle}</span>
+            </div>
+            <span class='taskCardPopupDescription'>${cardDescription}</span>
+            <div class='taskCardPopupDateContainer'>
+                <span class='taskCardPopupDateText'>Due date:</span>
+                <span class='taskCardPopupDueDate'>${cardDueDate}</span>
+            </div>
+            <div class='taskCardPopupPriorityContainer'>
+                <!-- classes down must be changed later ! -->
+            <span>Priority:</span>
+            <div class='urgency' id='prioContainer'>
+                <span>${taskPrio}</span>
+                <img src='./assets/img/urgent_white.png' id='cardPrioImg'>
+            </div>
+        </div>
+
+        <span class='assigned'>Assigned To:</span>
+        <img class='close_logo' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'>
+        <div class='editButton' onclick='openEditTaskCard(${taskIndex})'>
+            <img src='./assets/img/edit_button.png'>
+        </div>
+    
+        <div class='members' id='members'>
+            
+        </div>
+        
+        <div class='boardSubtasksTitleDiv'>
+            <span class='boardSubtaskTitle'>Subtasks:</span>
+                
+        </div >
+        <div class='boardSubtasksDiv' id='subtaskListTaskCard'>
+            
+        </div>`;
+
+    setTaskCardPopupCatColor(taskIndex);
+    setTaskCardPopupPrioBackground(taskIndex);
+    renderSubtask(taskIndex);
+    renderAssignToHtml2(taskIndex);
+}
+
+
+/**
+ * If the length of the assignedList is greater than 0, then return true. Otherwise, return false.
+ * @param assignedList - [{id: 1, name: 'John'}, {id: 2, name: 'Jane'}]
+ * @returns true if the assignedList length is greater than 0.
+ */
+function assignedToDataExists(assignedList){
+    return assignedList.length > 0;
+}
+
+
+/**
+ * Render the subtask HTML for the given task index, then set the subtask status for the given task
+ * index.
+ * @param taskIndex - The index of the task in the task array.
+ */
+async function renderSubtask(taskIndex) {
+    await renderSubtaskHtml(taskIndex);
+    setSubTaskStatus(taskIndex);
+}
+
+
+/**
+ * If the length of the array is greater than 0, then the array has at least one element.
+ * @param subtaskArray - an array of subtasks
+ * @returns true if the subtaskArray length is greater than 0.
+ */
+function subtaskExist(subtaskArray){
+    return subtaskArray.length > 0;
+}
+
+
+/**
+ * If the subtaskStatus is true, then check the checkbox.
+ * @param taskIndex - the index of the task in the joinTaskArray
+ */
+function setSubTaskStatus(taskIndex) {
+    let subtaskArray = joinTaskArray[taskIndex]['subTasks'];
+    for (let i = 0; i < subtaskArray.length; i++) {
+        if (subtaskStatusIsTrue(i, subtaskArray)) {
+            document.getElementById(`subtask${i}`).checked = true;
+        }
+    }
+}
+
+
+/**
+ * If the subtaskStatus property of the subtask object at the given index is true, return true,
+ * otherwise return false.
+ * @param subtaskIndex - The index of the subtask in the subtask array.
+ * @param subtaskArray - The array of subtasks
+ * @returns the value of the subtaskStatus property of the object at the index of subtaskIndex in the
+ * array subtaskArray.
+ */
+function subtaskStatusIsTrue(subtaskIndex, subtaskArray){
+    return subtaskArray[subtaskIndex]['subtaskStatus'];
+}
+
+
+/**
+ * It's a function that takes two parameters, one is the index of the subtask and the other is the
+ * index of the task. It then gets the status of the checkbox and sets the status of the subtask in the
+ * array to the status of the checkbox.
+ * @param subTaskIndex - the index of the subtask in the subtask array
+ * @param taskIndex - The index of the task in the array.
+ */
+async function checkboxSubtaskSelected(subTaskIndex, taskIndex) {
+    let checkboxStatus = document.getElementById(`subtask${subTaskIndex}`).checked;
+    joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'] = checkboxStatus;
+    joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'] = checkboxStatus;
+    await saveTask();
+}
+
+
+/**
+ * this function set the category background-color of the category.
+ * @param {number} taskIndex -this value is equal to the index number of the main array 'joinTaskArray', where
+ * the task card information is stored.
+ */
+function setTaskCardPopupCatColor(taskIndex) {
+    let cardCatColorIndex = joinTaskArray[taskIndex]['catColor'];
+    let cardCatColor = categoryBackgroundColors[cardCatColorIndex];
+    document.getElementById('taskCardPopupCategory').style = `background-color: ${cardCatColor};`;
+}
+
+
+/**
+ * This function sets the background color of the prio button and transfers the url of the image associated with the prio button.
+ * @param {*} taskIndex --this value is equal to the index number of the main array 'joinTaskArray', where
+ * the task card information is stored.
+ */
+function setTaskCardPopupPrioBackground(taskIndex) {
+    let cardPrio = joinTaskArray[taskIndex]['prio'];
+    cardPrio = cardPrio.toLowerCase();
+    let cardPrioBackground = prioColorAndUrlArray[0][cardPrio][0];
+    let cardPrioImgSrc = prioColorAndUrlArray[0][cardPrio][1];
+    document.getElementById('prioContainer').style = `background-color: ${cardPrioBackground};`;
+    document.getElementById('cardPrioImg').src = cardPrioImgSrc;
+}
+
+
+// Edit Taskcard popup
+
+
+/**
+ * It opens a modal window with a form to edit a task.
+ * @param taskIndex - the index of the task in the array of tasks
+ */
+async function openEditTaskCard(taskIndex) {
+    resetAssignToList();
+    await renderEditTaskCardHtml(taskIndex);
+    showDeleteButton(taskIndex);
+    renderEditTaskCardInputFields(taskIndex);
+    await renderContactsInAssignDropDownMenu();
+    renderEditTaskCardInputFields(taskIndex);
+    boardEditTaskCardAssignPreseselction(taskIndex);
+    setPrioPreselection(taskIndex);
+}
+
+
+/**
+ * It takes the index of the task in the array and then renders the input fields with the values of the
+ * task.
+ * </code>
+ * @param taskIndex - the index of the task in the array
+ */
+function renderEditTaskCardInputFields(taskIndex) {
+    let cardTitle = joinTaskArray[taskIndex]['title'];
+    let cardDescription = joinTaskArray[taskIndex]['descripten'];
+    let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
+    let taskPrio = joinTaskArray[taskIndex]['prio'];
+    let prioArray = { 'Urgent': 0, 'Medium': 1, 'Low': 2 };
+    let taskPrioNumber = prioArray[taskPrio];
+    addPrio(taskPrioNumber);
+    document.getElementById('boardEditTitle').value = cardTitle;
+    document.getElementById('boardEditDecription').value = cardDescription;
+    document.getElementById('boardEditDueDate').value = cardDueDate;
+}
+
+
+/**
+ * It takes an array of objects, and compares the email property of each object in the array to the
+ * email property of each object in another array. If the email properties match, it adds the object
+ * from the second array to a third array.
+ * 
+ * I'm trying to figure out how to do this with a forEach loop. I've tried a few different things, but
+ * I can't seem to get it to work.
+ * 
+ * Here's what I've tried:
+ * @param taskIndex - the index of the task in the joinTaskArray
+ */
+function boardEditTaskCardAssignPreseselction(taskIndex) {
+    let assignToArray = joinTaskArray[taskIndex]['assignedTo'];
+    for (let i = 0; i < assignToArray.length; i++) {
+        let refEmail = assignToArray[i]['email'];
+        for (let index = 0; index < coworkersToAssignTo.length; index++) {
+            let email = coworkersToAssignTo[index]['email'];
+            if (refEmail == email) {
+                addContactToTaskForceWithCheckBox(index);
+            }
+        }
+    }
+}
+
+
+/**
+ * It takes a taskIndex as an argument, and then sets the preselected priority of the task to the
+ * priority of the task at the given taskIndex.
+ * @param taskIndex - The index of the task in the array.
+ */
+function setPrioPreselection(taskIndex) {
+    let preselectedPrio = joinTaskArray[taskIndex]['prio'];
+    let boardPrioStatusJson = { 'Urgent': 0, 'Medium': 1, 'Low': 2 };
+    addPrio(boardPrioStatusJson[preselectedPrio]);
+    boardEditedPrio = preselectedPrio;
+}
+
+
+/**
+ * This function resets the check property of each object in the coworkersToAssignTo array to false,
+ * and then empties the assignToArray and taskForce arrays.
+ */
+function resetAssignToList() {
+    for (let i = 0; i < coworkersToAssignTo.length; i++) {
+        coworkersToAssignTo[i]['check'] = false;
+        assignToArray = [];
+        taskForce = [];
+    }
+}
+
+
+/**
+ * It takes the values from the input fields and saves them to the array.
+ * </code>
+ * @param taskIndex - the index of the task in the array
+ */
+function getTaskChanges(taskIndex) {
+    let boardEditedTitle = document.getElementById('boardEditTitle').value;
+    let boardEditedDescripten = document.getElementById('boardEditDecription').value;
+    let boardEditedDueDate = document.getElementById('boardEditDueDate').value;
+    joinTaskArray[taskIndex]['assignedTo'] = taskForce;
+    joinTaskArray[taskIndex]['title'] = boardEditedTitle;
+    joinTaskArray[taskIndex]['descripten'] = boardEditedDescripten;
+    joinTaskArray[taskIndex]['dueDate'] = boardEditedDueDate;
+    joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
+    saveTask();
+    initBoard();
+    disablePopupWindow();
+}
+
+
+/**
+ * If the user clicks on a priority button, the function will check if the button is already selected.
+ * If it is, it will deselect it. If it isn't, it will select it
+ * @param index - the index of the status in the statusNames array
+ */
+function prioStatusChange(index) {
+    let statusNames = ['Urgent', 'Medium', 'Low'];
+    if (actualClickedPrioBtnIsSet(index, statusNames)) {
+        boardEditedPrio = '';
+    } else {
+        boardEditedPrio = statusNames[index];
+    }
+}
+
+
+/**
+ * If the index of the clicked button is the same as the index of the edited priority, then return
+ * true, else return false.
+ * @param index - the index of the button in the array of buttons
+ * @param statusNames - an array of strings, each string is a status name
+ * @returns the value of the expression:
+ * statusNames[index] == boardEditedPrio
+ */
+function actualClickedPrioBtnIsSet(index, statusNames){
+    return statusNames[index] == boardEditedPrio;
+}
+
+
+
+// render function for the detail view of the task card end.
+
+
+// render function for the creation of a new task card.
+
+
+/**
+ * Show the add task popup window by enabling the popup window, rendering the add task popup, loading
+ * the existing categories, rendering the category list, setting the new category input to inactive,
+ * and rendering the contacts in the assign drop down menu.
+ */
+async function showAddTaskPopupWindow() {
+    enablePopupWindow();
+    await renderAddTaskPopup();
+    loadExitingCategories();
+    renderCategoryList();
+    newCatInputActive = false;
+    renderContactsInAssignDropDownMenu();
+}
+
+
+/**
+ * this function render the popup menu AddTask.
+ */
+async function renderAddTaskPopup() {
+    document.getElementById('boardPopup').innerHTML = '';
+    document.getElementById('boardPopup').innerHTML = renderAddTaskPopupHtml();
+}
+
+
+/**
+ * If the workFlowStatus of the task is 3, then remove the class 'd-none' from the delete button.
+ * @param taskIndex - the index of the task in the array
+ */
+function showDeleteButton(taskIndex) {
+    if (joinTaskArray[taskIndex].workFlowStatus == 3) {
+        document.getElementById('deleteButton').classList.remove('d-none');
+    }
+}
+
+
+/**
+ * The function deleteButton() takes the taskIndex as a parameter and removes the task from the
+ * joinTaskArray at the taskIndex position. Then it saves the task and initializes the board.
+ * @param taskIndex - The index of the task in the array.
+ */
+function deleteButton(taskIndex){
+    joinTaskArray.splice(taskIndex, 1);
+    saveTask();
+    initBoard();
+}
