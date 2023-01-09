@@ -1,10 +1,11 @@
 let jsonFromServer = {};
 let BASE_SERVER_URL;
+let jsonFileName = 'JoinTaskArray';
 
 const backend = {
     setItem: function(key, item) {
         jsonFromServer[key] = item;
-        return saveJSONToServer();
+        return saveJSONToServer1();
     },
     getItem: function(key) {
         if (!jsonFromServer[key]) {
@@ -14,20 +15,20 @@ const backend = {
     },
     deleteItem: function(key) {
         delete jsonFromServer[key];
-        return saveJSONToServer();
+        return saveJSONToServer1();
     }
 };
 window.onload = async function() {
-    downloadFromServer();
+    downloadFromServer1();
 }
 
-async function downloadFromServer() {
-    let result = await loadJSONFromServer();
+async function downloadFromServer1() {
+    let result = await loadJSONFromServer1();
     jsonFromServer = JSON.parse(result);
     console.log('Loaded', result);
 }
 
-function setURL(url) {
+function setURL1(url) {
     BASE_SERVER_URL = url;
 }
 
@@ -36,8 +37,8 @@ function setURL(url) {
  * payload {JSON | Array} - The payload you want to store
  */
 
-async function loadJSONFromServer() {
-    let response = await fetch(BASE_SERVER_URL + '/nocors.php?json=database&noache=' + (new Date().getTime()));
+async function loadJSONFromServer1() {
+    let response = await fetch(BASE_SERVER_URL + `/nocors.php?json=${jsonFileName}&noache=` + (new Date().getTime()));
     return await response.text();
 
 }
@@ -46,7 +47,7 @@ function loadJSONFromServerOld() {
     return new Promise(function(resolve, reject) {
         let xhttp = new XMLHttpRequest();
         let proxy = determineProxySettings();
-        let serverURL = proxy + BASE_SERVER_URL + '/nocors.php?json=database&noache=' + (new Date().getTime());
+        let serverURL = proxy + BASE_SERVER_URL + `/nocors.php?json=${jsonFileName}&noache=` + (new Date().getTime());
 
 
 
@@ -76,7 +77,7 @@ function loadJSONFromServerOld() {
 /**
  * Saves a JSON or JSON Array to the Server
  */
-function saveJSONToServer() {
+function saveJSONToServer1() {
     return new Promise(function(resolve, reject) {
         let xhttp = new XMLHttpRequest();
         let proxy = determineProxySettings();
