@@ -165,6 +165,10 @@ function ugencySummaryHoverOn() {
 		.classList.add('toDoHoverSpanP');
 }
 
+/**
+ * It removes the class 'toDoHoverSpanP' from the elements with the ids 'ugencySummaryAmount',
+ * 'deadlineDate', 'deadlineText', and 'ugencySummaryurgent'.
+ */
 function ugencySummaryHoverOff() {
 	document
 		.getElementById('ugencySummaryAmount')

@@ -682,23 +682,72 @@ function requiredFieldAreNotValid() {
 }
 
 /**
- * this function enable or disable the indication 'this field is required'.
+ * The function setFutureDatesOnlyForInputDueDate()
+ * sets the minimum date for the input element with
+ * the id of dueDate to the current date.
  */
-function setRequiredTextWarnings() {
+function setFutureDatesOnlyForInputDueDate() {
+	document.getElementById('dueDate').min = currentDate();
+}
+
+/**
+ * If the title is empty, make the titleReq element visible
+ */
+function checkTitle() {
 	if (title == '') {
 		document.getElementById('titleReq').style = 'opacity: 1;';
 	}
-	checkFutureDate();
+}
+
+/**
+ * If the input date is older than the current date,
+ * then display the error message
+ */
+function checkFutureDate() {
+	let inputDate = new Date(dueDate);
+	let currentDate = new Date();
+	if (inputDate < currentDate) {
+		document.getElementById('dateReq').style = 'opacity: 1';
+	}
+}
+
+/**
+ * If the dueDate variable is empty, then make the dateReq div visible.
+ */
+function checkDueDateExists() {
 	if (dueDate == '') {
 		document.getElementById('dateReq').style = 'opacity: 1;';
 	}
+}
+
+/**
+ * If the category variable is empty, then make the catReq element visible.
+ */
+function checkCategory() {
 	if (category == '') {
 		document.getElementById('catReq').style = 'opacity: 1;';
 		document.getElementById('catReq').classList.remove('listD-none');
 	}
+}
+
+/**
+ * If the description is empty, make the description required message visible.
+ */
+function checkDiscription() {
 	if (descripten == '') {
 		document.getElementById('descReq').style = 'opacity: 1;';
 	}
+}
+
+/**
+ * this function enable or disable the indication 'this field is required'.
+ */
+function setRequiredTextWarnings() {
+	checkTitle();
+	checkFutureDate();
+	checkDueDateExists();
+	checkCategory();
+	checkDiscription();
 }
 
 /**
@@ -1397,36 +1446,4 @@ function currentDate() {
 
 	let today = year + '-' + month + '-' + day;
 	return today;
-}
-
-/**
- * The function setFutureDatesOnlyForInputDueDate()
- * sets the minimum date for the input element with
- * the id of dueDate to the current date.
- */
-function setFutureDatesOnlyForInputDueDate() {
-	document.getElementById('dueDate').min = currentDate();
-}
-
-var date = new Date('1887-06-01'); // some mock date
-var milliseconds = date.getTime();
-
-console.log('milli', milliseconds);
-
-/* 564447600000 */
-/* 564447600000 */
-/* 564447600000 */
-/* 564451200000 */
-
-/* 
-! HIER Weitermachen. umbennen und kürzen usw.
-*/
-function checkFutureDate() {
-	let inputDate = document.getElementById('dueDate').value;
-	let inputDateMs = new Date(inputDate);
-	let currentDateMs = new Date();
-	console.log(inputDateMs.getTime(), currentDateMs.getTime());
-	if (inputDateMs.getTime() < currentDateMs.getTime()) {
-		document.getElementById('dateReq').style = 'opacity: 1';
-	}
 }
