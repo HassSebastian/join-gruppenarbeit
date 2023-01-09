@@ -378,10 +378,6 @@ async function loadExitingCategories() {
  * This function load the data(key:joinTaskArray) from local storage.
  */
 async function loadTask() {
-	// if (joinTaskArrayExistInStorage()) {
-	// 	let joinTaskArrayString = localStorage.getItem('joinTaskArray');
-	// 	joinTaskArray = JSON.parse(joinTaskArrayString);
-	// }
 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	await downloadFromServer();
 	joinTaskArray = JSON.parse(backend.getItem('joinTaskArray')) || [];
