@@ -37,7 +37,7 @@ async function initBoard() {
     loadTask();
     await createWorkStatusArrays();
     renderAllCards();
-    
+
 }
 
 
@@ -175,7 +175,7 @@ async function createWorkStatusArrays() {
  * @param index - the index of the array that the json will be pushed to
  * @param taskIndex - the index of the task in the joinTaskArray
  */
-function createWorkStatusArrayData(index, taskIndex){
+function createWorkStatusArrayData(index, taskIndex) {
     let cardTitle = joinTaskArray[taskIndex]['title'];
     let cardDescription = joinTaskArray[taskIndex]['descripten'];
     let cardCatColor = joinTaskArray[taskIndex]['catColor'];
@@ -285,21 +285,40 @@ function renderAssignToHtml(taskIndex) {
     let divId = 'contributorsList' + taskIndex;
     document.getElementById(divId).innerHTML = '';
     if (assignedList.length > 0) {
-        for (let i = 0; i < assignedList.length; i++) {
-            let firstName = assignedList[i]['firstName'];
-            let lastName = assignedList[i]['lastName'];
-            let nameLetters = firstName[0] + lastName[0];
-            chooseColorForTaskForceBadge(firstName[0], lastName[0]);
-            let assignToColor = backgroundColorForBadges[badgesIndex];
-            let assignToTitle = firstName + ' ' + lastName;
-            document.getElementById(divId).innerHTML += /*html*/`
+        if (assignedList.length <= 3) {
+            for (let i = 0; i < assignedList.length; i++) {
+                let firstName = assignedList[i]['firstName'];
+                let lastName = assignedList[i]['lastName'];
+                let nameLetters = firstName[0] + lastName[0];
+                chooseColorForTaskForceBadge(firstName[0], lastName[0]);
+                let assignToColor = backgroundColorForBadges[badgesIndex];
+                let assignToTitle = firstName + ' ' + lastName;
+                document.getElementById(divId).innerHTML += /*html*/`
                 <div class='contributorsLogo' title='${assignToTitle}' style='background-color: ${assignToColor}'>
                     <span>${nameLetters}</span>
                 </div>`;
+            }
+        } else {
+            for (let i = 0; i < 2; i++) {
+                let firstName = assignedList[i]['firstName'];
+                let lastName = assignedList[i]['lastName'];
+                let nameLetters = firstName[0] + lastName[0];
+                chooseColorForTaskForceBadge(firstName[0], lastName[0]);
+                let assignToColor = backgroundColorForBadges[badgesIndex];
+                let assignToTitle = firstName + ' ' + lastName;
+                document.getElementById(divId).innerHTML += /*html*/`
+                <div class='contributorsLogo' title='${assignToTitle}' style='background-color: ${assignToColor}'>
+                    <span>${nameLetters}</span>
+                </div>`;
+            }
+            let assignedListLength = assignedList.length - 3;
+            document.getElementById(divId).innerHTML += /*html*/`
+            <div class='contributorsLogo' style='background-color:#000000; color:white'>
+                <span>+${assignedListLength}</span>
+            </div>`;
         }
     }
 }
-
 
 /**
  * this function returns the html code for each todo task card.
@@ -792,7 +811,7 @@ function renderAssignToHtml2(taskIndex) {
  * @param assignedList - [{id: 1, name: 'John'}, {id: 2, name: 'Jane'}]
  * @returns true if the assignedList length is greater than 0.
  */
-function assignedToDataExists(assignedList){
+function assignedToDataExists(assignedList) {
     return assignedList.length > 0;
 }
 
@@ -834,7 +853,7 @@ async function renderSubtaskHtml(taskIndex) {
  * @param subtaskArray - an array of subtasks
  * @returns true if the subtaskArray length is greater than 0.
  */
-function subtaskExist(subtaskArray){
+function subtaskExist(subtaskArray) {
     return subtaskArray.length > 0;
 }
 
@@ -861,7 +880,7 @@ function setSubTaskStatus(taskIndex) {
  * @returns the value of the subtaskStatus property of the object at the index of subtaskIndex in the
  * array subtaskArray.
  */
-function subtaskStatusIsTrue(subtaskIndex, subtaskArray){
+function subtaskStatusIsTrue(subtaskIndex, subtaskArray) {
     return subtaskArray[subtaskIndex]['subtaskStatus'];
 }
 
@@ -1143,7 +1162,7 @@ function prioStatusChange(index) {
  * @returns the value of the expression:
  * statusNames[index] == boardEditedPrio
  */
-function actualClickedPrioBtnIsSet(index, statusNames){
+function actualClickedPrioBtnIsSet(index, statusNames) {
     return statusNames[index] == boardEditedPrio;
 }
 
@@ -1372,7 +1391,7 @@ function showDeleteButton(taskIndex) {
  * joinTaskArray at the taskIndex position. Then it saves the task and initializes the board.
  * @param taskIndex - The index of the task in the array.
  */
-function deleteButton(taskIndex){
+function deleteButton(taskIndex) {
     joinTaskArray.splice(taskIndex, 1);
     saveTask();
     initBoard();
