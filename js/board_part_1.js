@@ -347,24 +347,6 @@ function allowDrop(ev) {
 }
 
 
-/**
- * this function set a new workstatus in the main task array 'joinTaskArray' as number.
- * @param {number} area - is related to the droparea, example: area=0, droparea is 0, this is equal to workstatus0 equal
- * to todo tasks.
- */
-// async function moveTo(area) {
-    // toDo if abfrage ob es verschoben werden darf !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    // if (joinTaskArray[currentDraggedElement]['workFlowStatus'] == 2){
-
-    // }
-    // checkToMove(area);
-    // joinTaskArray[currentDraggedElement]['workFlowStatus'] = area;
-    // await saveTask();
-    // await createWorkStatusArrays();
-    // renderAllCards();
-// }
-
-
 function moveTo(area){
     let doneBarDraggedElement = document.getElementById(`doneBar${currentDraggedElement}`);
     let doneBarOuterDraggedElement = document.getElementById(`doneBarOuter${currentDraggedElement}`);
