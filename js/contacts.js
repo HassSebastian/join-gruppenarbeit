@@ -2,6 +2,7 @@ let alphabetOrd = { A: [], B: [], C: [], D: [], E: [], F: [], G: [], H: [], I: [
 
 async function initContacts() {
     await includeHTML();
+	await loadTask();
     selectedMenuButton(2);
     renderContent();
     user();
@@ -9,7 +10,7 @@ async function initContacts() {
 }
 
 function user() {
-    alphabetOrd = { A: [], B: [], C: [], D: [], E: [], F: [], G: [], H: [], I: [], J: [], K: [], L: [], M: [], N: [], O: [], P: [], Q: [], R: [], S: [], T: [], U: [], V: [], W: [], X: [], Y: [], Z: [] };
+    // alphabetOrd = { A: [], B: [], C: [], D: [], E: [], F: [], G: [], H: [], I: [], J: [], K: [], L: [], M: [], N: [], O: [], P: [], Q: [], R: [], S: [], T: [], U: [], V: [], W: [], X: [], Y: [], Z: [] };
     for (let i = 0; i < contacts.length; i++) {
         // ab hier wird der jeweils erste Buchstabe des Vor und Nachnamen separiert 
         let vorUndZuName = contacts[i].name;
