@@ -116,6 +116,7 @@ async function initAddTask() {
 	selectedMenuButton(3);
 	renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
 	setFutureDatesOnlyForInputDueDate();
+	loadContributorsLetter();
 }
 
 function generateAddTaskHtml() {

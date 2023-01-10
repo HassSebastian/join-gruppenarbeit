@@ -5,6 +5,7 @@ async function initContacts() {
     selectedMenuButton(2);
     renderContent();
     user();
+    loadContributorsLetter();
 }
 
 function user() {
