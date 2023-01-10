@@ -172,5 +172,5 @@ function logOut(){
 }
 function loadContributorsLetter(){
     document.getElementById('contributorsLogoHeadder').style=`background:${backgroundColorForBadges[loggedUser[0]]}`;
-    document.getElementById('contributorsLogoHeadderLetters').innerHTML = `${allUsers[loggedUser].firstSecondLetter}`;
+    document.getElementById('contributorsLogoHeadderLetters').innerHTML = `<b>${allUsers[loggedUser].firstSecondLetter}</b>`;
 }
