@@ -321,8 +321,11 @@ function showDeleteButton(taskIndex) {
  * joinTaskArray at the taskIndex position. Then it saves the task and initializes the board.
  * @param taskIndex - The index of the task in the array.
  */
-function deleteButton(taskIndex){
+async function deleteButton(taskIndex){
     joinTaskArray.splice(taskIndex, 1);
-    saveTask();
-    initBoard();
+    await saveTask();
+    // initBoard();
+    await renderBoard();
+    await createWorkStatusArrays();
+    renderAllCards();
 }
