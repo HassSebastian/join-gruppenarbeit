@@ -153,3 +153,14 @@ function passwordShowIcon() {
 		document.getElementById('inputPasswordLogin').type = "password";
 	}
 }
+
+function logInAtLocalstorage(){
+	let rememberUserString = localStorage.getItem('rememberUser');
+	if(rememberUserString){
+	rememberUser = JSON.parse(rememberUserString);
+	rememberUser.push(rememberUser);
+
+	document.getElementById('inputEmailLogin').value=`${rememberUser[0].email}`;
+	document.getElementById('inputPasswordLogin').value=`${rememberUser[0].password}`;
+	}
+}
