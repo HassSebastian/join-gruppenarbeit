@@ -116,7 +116,7 @@ setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 // save and load function for Join Arrays add by Stefan Boskamp at 10.01.2023
 
 // let joinTaskArray = [];
-// let allUsersArray = [];
+// let allUsers = [];
 
 let database = [];
 
@@ -126,13 +126,13 @@ async function fillDatabaseData(){
 	database = [
 		{
 			'joinTaskArray': joinTaskArray,
-			'allUsersArray': allUsersArray,
+			'allUsers': allUsers,
 	
 		}]
 }
 
 function testSetUser(){
-	allUsersArray = [{ 'name': 'Stefan', 'lastname': 'Boskamp'}];
+	allUsers = [{ 'name': 'Rosa Lilie', 'email': 'rosalie@testSetUser.de', 'password': 'rosi', 'colorIndex': '9', 'firstSecondLetter': 'RL'}];
 }
 
 
@@ -150,7 +150,7 @@ async function loadTask() {
 	await downloadFromServer();
 	database = JSON.parse(backend.getItem('database')) || [];
 	joinTaskArray = database[0]['joinTaskArray'];
-	allUsersArray = database[0]['allUsersArray'];
+	allUsers = database[0]['allUsers'];
 }
 
 

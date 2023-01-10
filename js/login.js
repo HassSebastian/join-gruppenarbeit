@@ -1,5 +1,6 @@
 let rememberUser = [];
 let loggedUser = [];
+let allUsers = [];
 
 function initSignIn() {
 	window.location.href = './signUp.html';
@@ -52,20 +53,21 @@ function checkCorrectInput() {
 
 // user login
 
-function userLogin(email, password) {
+async function userLogin(email, password) {
+	await loadTask();
 	let requiredEmailLogin = document.getElementById('requiredEmailLogin');
 	let requiredPasswordLogin = document.getElementById('requiredPasswordLogin');
-	if (users.length == null) {
+	if (allUsers.length == null) {
 		requiredEmailLogin.classList.add('requiredOn');
 		requiredEmailLogin.innerHTML = `No user available. please  <b>Sign up!!</b>`;
 		requiredPasswordLogin.classList.add('requiredOn');
 		requiredPasswordLogin.innerHTML = `No user available. please  <b>Sign up!!</b>`;
 	} else {
 		let loginStatus;
-		for (let i = 0; i < users.length; i++) {
-			let emailData = users[i]['email'];
+		for (let i = 0; i < allUsers.length; i++) {
+			let emailData = allUsers[i]['email'];
 			if (emailData == email) {
-				if (users[i]['password'] == password) {
+				if (allUsers[i]['password'] == password) {
 					loginStatus = i;
 					break;
 				}

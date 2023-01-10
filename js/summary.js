@@ -10,7 +10,7 @@ let allYourTasks = []; // Bossis Idee, für workflow 0-3
 
 async function initSummary() {
 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-	loadTask();
+	await loadTask();
 	resetCounters();
 	await loadAmountsForSummary(); // await später für server wichtig
 	await includeHTML();
@@ -54,7 +54,7 @@ function generateSummaryHtml(
         </div>
         <div class='welcome'>
             <h4 id='greetUser'></h4>
-            <h3>${users[loggedUser[0]].name}</h3>
+            <h3>${allUsers[loggedUser[0]].name}</h3>
         </div>
         <div class="overview">
             <div class='taskOverview'>
@@ -231,7 +231,7 @@ function getLoggedUserIndex() {
  * @param loggedInUserIndex - The index of the user in the users array.
  */
 function getEmailAdrressOfLoggedUser() {
-	emailAddress = users[loggedInUserIndex].email;
+	emailAddress = allUsers[loggedInUserIndex].email;
 	console.log(emailAddress);
 }
 

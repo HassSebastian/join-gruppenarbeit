@@ -45,13 +45,14 @@ function inputValueTest() {
 }
 
 // check email existing
-function emailToCheck(name, email, password) {
-    let allUsersAtString = localStorage.getItem('allUsers');
+async function emailToCheck(name, email, password) {
+    // let allUsersAtString = localStorage.getItem('allUsers');
+    await loadTask();
     let requiredEmail = document.getElementById('requiredEmail');
-    if (allUsersAtString === null) {
+    if (!allUsers) {
         firstAndSecondLetter(name, email, password); 
     } else {
-        let allUsers = JSON.parse(allUsersAtString);
+        //let allUsers = JSON.parse(allUsersAtString);
         let valueToCheck = email;
         let check = 0;
         for (let i = 0; i < allUsers.length; i++) {
@@ -77,12 +78,6 @@ function firstAndSecondLetter(name, email, password){
     let secondName = name.substring(spaceIndex + 1);
     let secondLetter = secondName[0];
 
-
-    console.log('N',vorUndZuName);
-    console.log('FL',firstLetter);
-    console.log('SL',secondLetter);
-    console.log(firstLetter+secondLetter);
-
     nameColorCalc(firstLetter, secondLetter, name, email, password);
 }
 function nameColorCalc(firstLetter, secondLetter, name, email, password){
@@ -91,20 +86,18 @@ function nameColorCalc(firstLetter, secondLetter, name, email, password){
     let sum = asciiFirstLetter + asciiSecondLetter;
     let colorIndex = sum % 10; 	// rersult ist dann die Farbe aus dem colors Array in Zeile 3
 
-    console.log('colorIndex:',colorIndex);
     userSignIn(firstLetter, secondLetter, name, email, password, colorIndex)
 }
 
 
 
 // save user data and forward to login site
-function userSignIn(firstLetter, secondLetter, name, email, password, colorIndex) {
-    let keyQuery = localStorage.getItem('allUsers');
-    if (keyQuery === null) {
-        keyQueryNull(firstLetter, secondLetter, name, email, password, colorIndex);
-    } else {
-        keyQueryOne(firstLetter, secondLetter, name, email, password, colorIndex);
-    }
+async function userSignIn(firstLetter, secondLetter, name, email, password, colorIndex) {
+    await loadTask();
+    allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter});
+    await saveTask();
+
+
     signUpDone();
     setTimeout(() => {
         window.location.href = './login.html';
@@ -117,28 +110,26 @@ function signUpDone(){
 }
 
 // save user data help fuction -null-
-function keyQueryNull(firstLetter, secondLetter, name, email, password, colorIndex) {
-    allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter});
+//async function keyQueryNull(firstLetter, secondLetter, name, email, password, colorIndex) {
+    //allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter});
     // let allUsersAtString = JSON.stringify(allUsers);
     // localStorage.setItem('allUsers', allUsersAtString);
-	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-	backend.setItem('users', JSON.stringify(allUsers));
-
-
-}
+	//setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+	//backend.setItem('users', JSON.stringify(allUsers));
+//}
 
 // save user data help function -one-
-function keyQueryOne(firstLetter, secondLetter, name, email, password, colorIndex) {
+//async function keyQueryOne(firstLetter, secondLetter, name, email, password, colorIndex) {
+    //await loadTask();
     // let allUsersString = localStorage.getItem('allUsers');
     // allUsers = JSON.parse(allUsersString);
-    allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter});
+    //allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter});
     // let allUsersAtString = JSON.stringify(allUsers);
     // localStorage.setItem('allUsers', allUsersAtString);
-	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-	backend.setItem('users', JSON.stringify(allUsers));
-
-
-}
+	//setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+	//backend.setItem('users', JSON.stringify(allUsers));
+    //await saveTask();
+//}
 
 function passwordShowIcon(){
 	document.getElementById('passwordLogo').classList.toggle('d-none');
