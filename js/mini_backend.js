@@ -110,3 +110,47 @@ function determineProxySettings() {
     }
 }
 
+setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+
+
+// save and load function for Join Arrays add by Stefan Boskamp at 10.01.2023
+
+// let joinTaskArray = [];
+// let allUsersArray = [];
+
+let database = [];
+
+
+
+async function fillDatabaseData(){
+	database = [
+		{
+			'joinTaskArray': joinTaskArray,
+			'allUsersArray': allUsersArray,
+	
+		}]
+}
+
+function testSetUser(){
+	allUsersArray = [{ 'name': 'Stefan', 'lastname': 'Boskamp'}];
+}
+
+
+
+async function saveTask() {
+	await fillDatabaseData();
+	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+	// localStorage.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
+	backend.setItem('database', JSON.stringify(database));
+}
+
+
+async function loadTask() {
+	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+	await downloadFromServer();
+	database = JSON.parse(backend.getItem('database')) || [];
+	joinTaskArray = database[0]['joinTaskArray'];
+	allUsersArray = database[0]['allUsersArray'];
+}
+
+

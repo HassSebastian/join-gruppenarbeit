@@ -377,11 +377,11 @@ async function loadExitingCategories() {
 /**
  * This function load the data(key:joinTaskArray) from local storage.
  */
-async function loadTask() {
-	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-	await downloadFromServer();
-	joinTaskArray = JSON.parse(backend.getItem('joinTaskArray')) || [];
-}
+// async function loadTask() {
+// 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+// 	await downloadFromServer();
+// 	joinTaskArray = JSON.parse(backend.getItem('joinTaskArray')) || [];
+// }
 
 /**
  * This function determind data(key:joinTaskArray) available in local storage.
@@ -872,11 +872,11 @@ function pushTaskData() {
 /**
  * this function save the main array to the local storage.
  */
-async function saveTask() {
-	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-	// localStorage.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
-	backend.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
-}
+// async function saveTask() {
+// 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+// 	// localStorage.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
+// 	backend.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
+// }
 
 // deleteJoinTaskArrayFromServer() is not used in this code, it is only to remove the Array from Server!!!!!!!!!!!
 async function deleteJoinTaskArrayFromServer() {

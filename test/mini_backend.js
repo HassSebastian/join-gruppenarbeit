@@ -1,8 +1,5 @@
 let jsonFromServer = {};
 let BASE_SERVER_URL;
-let nocorsString = '/nocors.php?json=database&noache=';
-let jsonFileName = 'join_task_array';
-let nocorsNewString = '/nocors.php?json=' + jsonFileName + '&noache=';
 
 const backend = {
     setItem: function(key, item) {
@@ -27,7 +24,7 @@ window.onload = async function() {
 async function downloadFromServer() {
     let result = await loadJSONFromServer();
     jsonFromServer = JSON.parse(result);
-    console.log('Loaded', result);
+    // console.log('Loaded', result);
 }
 
 function setURL(url) {
@@ -49,7 +46,6 @@ function loadJSONFromServerOld() {
     return new Promise(function(resolve, reject) {
         let xhttp = new XMLHttpRequest();
         let proxy = determineProxySettings();
-
         let serverURL = proxy + BASE_SERVER_URL + '/nocors.php?json=database&noache=' + (new Date().getTime());
 
 
@@ -113,4 +109,48 @@ function determineProxySettings() {
         return 'https://cors-anywhere.herokuapp.com/';
     }
 }
+
+setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+
+
+// save and load function for Join Arrays add by Stefan Boskamp at 10.01.2023
+
+let joinTaskArray = [];
+let allUsersArray = [];
+
+let database = [];
+
+
+
+async function fillDatabaseData(){
+	database = [
+		{
+			'joinTaskArray': joinTaskArray,
+			'allUsersArray': allUsersArray,
+	
+		}]
+}
+
+function testSetUser(){
+	allUsersArray = [{ 'name': 'Stefan', 'lastname': 'Boskamp'}];
+}
+
+
+
+async function saveTask() {
+	await fillDatabaseData();
+	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+	// localStorage.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
+	backend.setItem('database', JSON.stringify(database));
+}
+
+
+async function loadTask() {
+	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+	await downloadFromServer();
+	database = JSON.parse(backend.getItem('database')) || [];
+	joinTaskArray = database[0]['joinTaskArray'];
+	allUsersArray = database[0]['allUsersArray'];
+}
+
 
