@@ -37,6 +37,7 @@ async function initBoard() {
     await loadTask();
     await createWorkStatusArrays();
     renderAllCards();
+    loadContributorsLetter();
 }
 
 

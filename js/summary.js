@@ -26,6 +26,7 @@ async function initSummary() {
 	selectedMenuButton(1);
 	showDate();
 	showTime();
+	loadContributorsLetter();
 }
 
 function resetCounters() {

@@ -170,3 +170,7 @@ function logOut(){
     window.location.href = './index.html';
     localStorage.removeItem('loggedUser');
 }
+function loadContributorsLetter(){
+    document.getElementById('contributorsLogoHeadder').style=`background:${backgroundColorForBadges[loggedUser[0]]}`;
+    document.getElementById('contributorsLogoHeadderLetters').innerHTML = `${allUsers[loggedUser].firstSecondLetter}`;
+}

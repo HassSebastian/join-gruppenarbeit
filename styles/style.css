@@ -216,17 +216,17 @@ tr td:nth-child(3) {
     cursor: pointer;
 }
 
-#memberInfo img:last-child {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-    gap: 16px;
-    width: 49px;
-    height: 49px;
-    border: 3px solid #2A3647;
-    border-radius: 100%;
-}
+/* #memberInfo img:last-child { */
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* align-items: center; */
+    /* padding: 0px; */
+    /* gap: 16px; */
+    /* width: 49px; */
+    /* height: 49px; */
+    /* border: 3px solid #2A3647; */
+    /* border-radius: 100%; */
+/* } */
 
 .logOut{
     position: absolute;
@@ -237,4 +237,18 @@ tr td:nth-child(3) {
 }
 .logOutOn{
     display: block;
+}
+
+
+/* von Basti hinzugefügt*/
+#contributorsLogoHeadder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    width: 39px;
+    height: 39px;
+    border: 3px solid #2A3647;
+    border-radius: 100%;
 }
