@@ -93,17 +93,37 @@ function renderAssignToHtml(taskIndex) {
     let divId = 'contributorsList' + taskIndex;
     document.getElementById(divId).innerHTML = '';
     if (assignedList.length > 0) {
-        for (let i = 0; i < assignedList.length; i++) {
-            let firstName = assignedList[i]['firstName'];
-            let lastName = assignedList[i]['lastName'];
-            let nameLetters = firstName[0] + lastName[0];
-            chooseColorForTaskForceBadge(firstName[0], lastName[0]);
-            let assignToColor = backgroundColorForBadges[badgesIndex];
-            let assignToTitle = firstName + ' ' + lastName;
-            document.getElementById(divId).innerHTML += /*html*/`
+        if (assignedList.length <= 3) {
+            for (let i = 0; i < assignedList.length; i++) {
+                let firstName = assignedList[i]['firstName'];
+                let lastName = assignedList[i]['lastName'];
+                let nameLetters = firstName[0] + lastName[0];
+                chooseColorForTaskForceBadge(firstName[0], lastName[0]);
+                let assignToColor = backgroundColorForBadges[badgesIndex];
+                let assignToTitle = firstName + ' ' + lastName;
+                document.getElementById(divId).innerHTML += /*html*/`
                 <div class='contributorsLogo' title='${assignToTitle}' style='background-color: ${assignToColor}'>
                     <span>${nameLetters}</span>
                 </div>`;
+            }
+        } else {
+            for (let i = 0; i < 3; i++) {
+                let firstName = assignedList[i]['firstName'];
+                let lastName = assignedList[i]['lastName'];
+                let nameLetters = firstName[0] + lastName[0];
+                chooseColorForTaskForceBadge(firstName[0], lastName[0]);
+                let assignToColor = backgroundColorForBadges[badgesIndex];
+                let assignToTitle = firstName + ' ' + lastName;
+                document.getElementById(divId).innerHTML += /*html*/`
+                <div class='contributorsLogo' title='${assignToTitle}' style='background-color: ${assignToColor}'>
+                    <span>${nameLetters}</span>
+                </div>`;
+            }
+            let assignedListLength = assignedList.length - 3;
+            document.getElementById(divId).innerHTML += /*html*/`
+            <div class='contributorsLogo' style='background-color:#000000; color:white'>
+                <span>+${assignedListLength}</span>
+            </div>`;
         }
     }
 }
@@ -134,7 +154,7 @@ function toDoCardHtml(arrayIndex) {
                     <span class='taskContent'>${cardDescription}</span>
                 </div>
                 <div class='doneBar'>
-                    <div class='doneBarOuter'>
+                    <div class='doneBarOuter' id='doneBarOuter${taskIndex}'>
                         <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;' id='doneBar${taskIndex}'></div>
                     </div>
                     <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
@@ -177,7 +197,7 @@ function inProgressHtml(arrayIndex) {
                         <span class='taskContent'>${cardDescription}</span>
                     </div>
                     <div class='doneBar'>
-                        <div class='doneBarOuter'>
+                        <div class='doneBarOuter' id='doneBarOuter${taskIndex}'>
                             <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;' id='doneBar${taskIndex}'></div>
                         </div>
                         <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
@@ -220,7 +240,7 @@ function awaitingFeedbackHtml(arrayIndex) {
                     <span class='taskContent'>${cardDescription}</span>
                 </div>
                 <div class='doneBar'>
-                    <div class='doneBarOuter'>
+                    <div class='doneBarOuter' id='doneBarOuter${taskIndex}'>
                         <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;' id='doneBar${taskIndex}'></div>
                     </div>
                     <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
@@ -263,7 +283,7 @@ function doneHtml(arrayIndex) {
                     <span class='taskContent'>${cardDescription}</span>
                 </div>
                 <div class='doneBar'>
-                    <div class='doneBarOuter'>
+                    <div class='doneBarOuter' id='doneBarOuter${taskIndex}'>
                         <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;' id='doneBar${taskIndex}'></div>
                     </div>
                     <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>

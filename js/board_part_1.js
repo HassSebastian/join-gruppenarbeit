@@ -37,7 +37,6 @@ async function initBoard() {
     await loadTask();
     await createWorkStatusArrays();
     renderAllCards();
-    
 }
 
 
@@ -348,35 +347,26 @@ function allowDrop(ev) {
 }
 
 
-/**
- * this function set a new workstatus in the main task array 'joinTaskArray' as number.
- * @param {number} area - is related to the droparea, example: area=0, droparea is 0, this is equal to workstatus0 equal
- * to todo tasks.
- */
-async function moveTo(area) {
-    // toDo if abfrage ob es verschoben werden darf !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    // if (joinTaskArray[currentDraggedElement]['workFlowStatus'] == 2){
+function moveTo(area){
+    let doneBarDraggedElement = document.getElementById(`doneBar${currentDraggedElement}`);
+    let doneBarOuterDraggedElement = document.getElementById(`doneBarOuter${currentDraggedElement}`);
+    let doneBarWidth = doneBarDraggedElement.offsetWidth;
+    let doneBarOuterWidth = doneBarOuterDraggedElement.offsetWidth;
+    let workFlowStatusDraggedElement = joinTaskArray[currentDraggedElement]['workFlowStatus'];
+    if ((doneBarWidth == doneBarOuterWidth && workFlowStatusDraggedElement >= 1) || (workFlowStatusDraggedElement < 1 && area < 2)){
+        moveToNewArea(area);
+    }
+    if(area < workFlowStatusDraggedElement){
+        moveToNewArea(area);
+    }
+}
 
-    // }
-    checkToMove(area);
+
+async function moveToNewArea(area){
     joinTaskArray[currentDraggedElement]['workFlowStatus'] = area;
     await saveTask();
     await createWorkStatusArrays();
     renderAllCards();
-}
-
-
-async function checkToMove(area){
-    let doneBarDraggedElement = document.getElementById(`doneBar${currentDraggedElement}`);
-    let doneBarWidth = doneBarDraggedElement.offsetWidth;
-    let workFlowStatusDraggedElement = joinTaskArray[currentDraggedElement]['workFlowStatus'];
-    console.log(doneBarWidth);
-    if ((doneBarWidth == 138 && workFlowStatusDraggedElement >= 1) || (workFlowStatusDraggedElement < 1 && area < 2)){
-        console.log('True');
-    }
-    if(area < workFlowStatusDraggedElement){
-        console.log('back True');
-    }
 }
 
 
@@ -396,5 +386,4 @@ function highlight(id) {
 function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
 }
-
 

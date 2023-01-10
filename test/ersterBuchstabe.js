@@ -13,15 +13,18 @@ let colors = [
 
 let alphabetOrd = { A: [], B: [], C: [], D: [], E: [], F: [], G: [], H: [], I: [], J: [], K: [], L: [], M: [], N: [], O: [], P: [], Q: [], R: [], S: [], T: [], U: [], V: [], W: [], X: [], Y: [], Z: [] };
 
+function test(i){
+	let vorUndZuName = users[i].name;
+	let firstLetter = vorUndZuName[0];
+	let spaceIndex = users[i].name.indexOf(' ');
+	let secondName = users[i].name.substring(spaceIndex + 1);
+	let secondLetter = secondName[0];
+}
 
 function user() {
 	for (let i = 0; i < users.length; i++) {
 		// ab hier wird der jeweils erste Buchstabe des Vor und Nachnamen separiert 
-		let vorUndZuName = users[i].name;
-		let firstLetter = vorUndZuName[0];
-		let spaceIndex = users[i].name.indexOf(' ');
-		let secondName = users[i].name.substring(spaceIndex + 1);
-		let secondLetter = secondName[0];
+		test(i);
 
 		// ab hier wird die Farbe bestimmt. Buchstaben in asci umgewandelt. 
 		// addiert und durch 7 Farben geteilt.

@@ -230,7 +230,7 @@ function resetAssignToList() {
  * </code>
  * @param taskIndex - the index of the task in the array
  */
-function getTaskChanges(taskIndex) {
+async function getTaskChanges(taskIndex) {
     let boardEditedTitle = document.getElementById('boardEditTitle').value;
     let boardEditedDescripten = document.getElementById('boardEditDecription').value;
     let boardEditedDueDate = document.getElementById('boardEditDueDate').value;
@@ -239,8 +239,9 @@ function getTaskChanges(taskIndex) {
     joinTaskArray[taskIndex]['descripten'] = boardEditedDescripten;
     joinTaskArray[taskIndex]['dueDate'] = boardEditedDueDate;
     joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
-    saveTask();
-    initBoard();
+    await saveTask();
+    // initBoard();
+    renderAllCards();
     disablePopupWindow();
 }
 
@@ -288,7 +289,7 @@ function actualClickedPrioBtnIsSet(index, statusNames){
 async function showAddTaskPopupWindow() {
     enablePopupWindow();
     await renderAddTaskPopup();
-    loadExitingCategories();
+    await loadExitingCategories();
     renderCategoryList();
     newCatInputActive = false;
     renderContactsInAssignDropDownMenu();
@@ -320,8 +321,11 @@ function showDeleteButton(taskIndex) {
  * joinTaskArray at the taskIndex position. Then it saves the task and initializes the board.
  * @param taskIndex - The index of the task in the array.
  */
-function deleteButton(taskIndex){
+async function deleteButton(taskIndex){
     joinTaskArray.splice(taskIndex, 1);
-    saveTask();
-    initBoard();
+    await saveTask();
+    // initBoard();
+    await renderBoard();
+    await createWorkStatusArrays();
+    renderAllCards();
 }
