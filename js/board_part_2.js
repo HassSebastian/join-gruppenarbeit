@@ -288,7 +288,7 @@ function actualClickedPrioBtnIsSet(index, statusNames){
 async function showAddTaskPopupWindow() {
     enablePopupWindow();
     await renderAddTaskPopup();
-    loadExitingCategories();
+    await loadExitingCategories();
     renderCategoryList();
     newCatInputActive = false;
     renderContactsInAssignDropDownMenu();

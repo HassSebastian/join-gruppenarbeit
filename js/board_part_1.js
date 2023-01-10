@@ -37,10 +37,6 @@ async function initBoard() {
     await loadTask();
     await createWorkStatusArrays();
     renderAllCards();
-
-    await loadExitingCategories();
-	renderCategoryList();
-    
 }
 
 
