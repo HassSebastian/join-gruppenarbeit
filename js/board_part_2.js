@@ -230,7 +230,7 @@ function resetAssignToList() {
  * </code>
  * @param taskIndex - the index of the task in the array
  */
-function getTaskChanges(taskIndex) {
+async function getTaskChanges(taskIndex) {
     let boardEditedTitle = document.getElementById('boardEditTitle').value;
     let boardEditedDescripten = document.getElementById('boardEditDecription').value;
     let boardEditedDueDate = document.getElementById('boardEditDueDate').value;
@@ -239,8 +239,9 @@ function getTaskChanges(taskIndex) {
     joinTaskArray[taskIndex]['descripten'] = boardEditedDescripten;
     joinTaskArray[taskIndex]['dueDate'] = boardEditedDueDate;
     joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
-    saveTask();
-    initBoard();
+    await saveTask();
+    // initBoard();
+    renderAllCards();
     disablePopupWindow();
 }
 
