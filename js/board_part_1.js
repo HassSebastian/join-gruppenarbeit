@@ -367,7 +367,8 @@ async function moveToNewArea(area){
     joinTaskArray[currentDraggedElement]['workFlowStatus'] = area;
     await saveTask();
     await createWorkStatusArrays();
-    renderAllCards();
+    await renderAllCards();
+    searchAfterPopup();
 }
 
 
