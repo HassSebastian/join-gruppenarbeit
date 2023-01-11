@@ -33,13 +33,15 @@ function startSearch() {
  */
 function searchAfterPopup(){
     let cards = document.querySelectorAll('.taskBackground');
-    cards.forEach(function (card) {
-        let cardTitle = card.querySelector('.taskHeadlineContent').textContent.toLowerCase();
-        let cardDescription = card.querySelector('.taskContent').textContent.toLowerCase();
-        if (cardTitle.indexOf(searchTerm) !== -1 || cardDescription.indexOf(searchTerm) !== -1) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
+    if (searchTerm.trim()){
+        cards.forEach(function (card) {
+            let cardTitle = card.querySelector('.taskHeadlineContent').textContent.toLowerCase();
+            let cardDescription = card.querySelector('.taskContent').textContent.toLowerCase();
+            if (cardTitle.indexOf(searchTerm) !== -1 || cardDescription.indexOf(searchTerm) !== -1) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    } 
 }
