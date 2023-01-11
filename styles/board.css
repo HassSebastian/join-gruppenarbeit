@@ -133,7 +133,8 @@
     line-height: 120%;
     display: flex;
     align-items: center;
-    color: #D1D1D1;
+    /* color: #D1D1D1; */
+    color: #2A3647;
     flex: none;
     order: 0;
     flex-grow: 0;
