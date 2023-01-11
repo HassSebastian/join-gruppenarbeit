@@ -179,11 +179,13 @@ function showContact(i) {
     // let phone = allUsers[i].phone;
     let letter = allUsers[i].firstSecondLetter;
     let id = allUsers[i];
+    let color = allUsers[i].colorIndex;
+
     document.getElementById('showContact').classList.remove('d-none')
     document.getElementById('showContact').innerHTML = '';
     document.getElementById('showContact').innerHTML = /*html*/ `
         <div>
-            <div class="show_contact_ellipse_5">
+            <div class="show_contact_ellipse_5" style='background:${colorIndex[color]}'>
                 <span>${letter}</span>
             </div>
             <div class="showContact_Name_addTask">
