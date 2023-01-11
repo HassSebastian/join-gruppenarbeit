@@ -12,7 +12,7 @@ function boardHtml() {
                 <div class='inputContainer'>
                     <div class='inputInContainer'>
                         <div class='inputFontContainer'>
-                            <span>Find Task</span>
+                            <input type="text" id="search-field" required placeholder='Find Task' onfocus='startSearch()'>
                         </div>
                         <div class='vector'></div>
                         <img src='./assets/img/search_logo.png'>
