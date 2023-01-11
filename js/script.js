@@ -36,7 +36,7 @@ let menuSelectorStyles = [
     }
 ];
 
-let colorIndex = [
+let colorUserIndex = [
     '#02CF2F',
     '#EE00D6',
     '#0190E0',
@@ -186,6 +186,6 @@ function logOut(){
     localStorage.removeItem('loggedUser');
 }
 function loadContributorsLetter(){
-    document.getElementById('contributorsLogoHeadder').style=`background:${colorIndex[loggedUser[0]]}`;
+    document.getElementById('contributorsLogoHeadder').style=`background:${colorUserIndex[loggedUser[0]]}`;
     document.getElementById('contributorsLogoHeadderLetters').innerHTML = `<p style='color:white'>${allUsers[loggedUser].firstSecondLetter}</p>`;
 }
