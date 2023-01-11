@@ -16,7 +16,7 @@ function enablePopupWindow() {
 async function disablePopupWindow() {
     document.getElementById('boardPopup').classList.add('d-none');
     await renderAllCards();
-    searchAfter();
+    searchAfterPopup();
 }
 
 

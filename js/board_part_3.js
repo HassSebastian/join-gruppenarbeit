@@ -26,7 +26,12 @@ function startSearch() {
 }
 
 
-function searchAfter(){
+/**
+ * It searches for the search term in the title and description of the cards and displays the cards
+ * that contain the search term.
+ * </code>
+ */
+function searchAfterPopup(){
     let cards = document.querySelectorAll('.taskBackground');
     cards.forEach(function (card) {
         let cardTitle = card.querySelector('.taskHeadlineContent').textContent.toLowerCase();
