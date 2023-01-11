@@ -47,8 +47,7 @@ function alphabet() {
         if (alphabetOrd[wertNachDemArray].length > 0) {
             document.getElementById('Contact_list').innerHTML += /*html*/ `
         <div class="letters">
-                <span>${wertNachDemArray}</span>
-                <div class="Vector_10"></div>
+                <span><b>${wertNachDemArray}</b></span>
         </div>
         <div id='${wertNachDemArray}'></div> 
         `;
@@ -175,20 +174,17 @@ function closeEditContact() {
 }
 
 function showContact(i) {
-    const name = contacts[i].name;
-    const email = contacts[i].email;
-    const phone = contacts[i].phone;
-    const nameLetter = contacts[i].name.charAt(0);
-    const id = contacts[i].id;
-    let spaceIndex = contacts[i].name.indexOf(' ');
-    const surname = contacts[i].name.substring(spaceIndex + 1);
-    let surnameLetter = surname[0];
+    let name = allUsers[i].name;
+    let email = allUsers[i].email;
+    // let phone = allUsers[i].phone;
+    let letter = allUsers[i].firstSecondLetter;
+    let id = allUsers[i];
     document.getElementById('showContact').classList.remove('d-none')
     document.getElementById('showContact').innerHTML = '';
     document.getElementById('showContact').innerHTML = /*html*/ `
-      <div>
+        <div>
             <div class="show_contact_ellipse_5">
-                <span>${nameLetter}${surnameLetter}</span>
+                <span>${letter}</span>
             </div>
             <div class="showContact_Name_addTask">
                 <h1>${name}</h1>
@@ -204,11 +200,10 @@ function showContact(i) {
                         <span>Edit Contact</span>
                     </div>
                 </div>
-               
                 <h3>Email</h3>
                 <span>${email}</span>
                 <h3>Phone</h3>
-                <p>${phone}</p>
+                <p>Telefonnummer</p>
             </div>
         </div>
     `;
