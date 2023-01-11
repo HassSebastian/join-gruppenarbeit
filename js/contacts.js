@@ -146,9 +146,9 @@ function openNewContact() {
         <div class="add_contact_right">
             <img src="assets/img/empty_profile_picture.png" alt="">
             <div class="add_contact_inputs">
-                <input type="text" placeholder="Name" id="contactName" required="required" pattern="^\S+\s\S+$">
-                <input type="text" placeholder="Email" id="contactEmail" required="required" pattern="^\S+\s\S+$">
-                <input type="text" placeholder="Phone" id="contactPhone" required="required" pattern="^\S+\s\S+$">
+                <input type="text" placeholder="Name" id="contactName" required="required">
+                <input type="text" placeholder="Email" id="contactEmail" required="required">
+                <input type="text" placeholder="Phone" id="contactPhone" required="required">
                 <div class="add_contact_right_buttons">
                     <div class="contact_cancel" onclick="closeNewContact()">
                         <span>Cancel</span>
@@ -179,7 +179,7 @@ function showContact(i) {
     let email = allUsers[i].email;
     // let phone = allUsers[i].phone;
     let letter = allUsers[i].firstSecondLetter;
-    let id = allUsers[i];
+
     let color = allUsers[i].colorIndex;
 
     document.getElementById('showContact').classList.remove('d-none')
