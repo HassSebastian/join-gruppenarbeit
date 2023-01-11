@@ -16,7 +16,7 @@ body {
     display: flex;
     justify-content: flex-start;
     height: 1024px;
-    width: 1440px;
+    max-width: 1440px;
     position: absolute;
 }
 
@@ -40,7 +40,7 @@ nav {
     align-items: center;
     flex-direction: column;
     height: 229px;
-    width: 232px;
+    /* width: 232px; */
     margin-bottom: 346px;
 }
 
@@ -216,18 +216,6 @@ tr td:nth-child(3) {
     cursor: pointer;
 }
 
-/* #memberInfo img:last-child { */
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* align-items: center; */
-    /* padding: 0px; */
-    /* gap: 16px; */
-    /* width: 49px; */
-    /* height: 49px; */
-    /* border: 3px solid #2A3647; */
-    /* border-radius: 100%; */
-/* } */
-
 .logOut{
     position: absolute;
     top: 89px;
@@ -235,10 +223,10 @@ tr td:nth-child(3) {
     cursor: pointer;
     display: none;
 }
+
 .logOutOn{
     display: block;
 }
-
 
 /* von Basti hinzugefügt*/
 #contributorsLogoHeadder{
@@ -249,6 +237,78 @@ tr td:nth-child(3) {
     gap: 16px;
     width: 49px;
     height: 49px;
-    border: 3px solid #2A3647;
     border-radius: 100%;
+}
+
+@media screen and (max-width: 1500px) {
+    .rightContainer, .content{
+        width: 1108px;
+    }
+    .memberMenu {
+        /* width: 100px; */
+        width: 956px;
+        left: 50px;
+    }
+    .mainContainer{
+        justify-content: center;
+    }
+    
+}
+
+@media screen and (max-width: 1400px) {
+    .rightContainer, .content{
+        width: 1008px;
+    }
+    .memberMenu {
+        /* width: 100px; */
+        width: 856px;
+        left: 100px;
+    }
+    .mainContainer{
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .rightContainer, .content{
+        width: 908px;
+    }
+    .memberMenu {
+        /* width: 100px; */
+        width: 756px;
+        left: 150px;
+    }
+    .mainContainer{
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .rightContainer, .content{
+        width: 808px;
+    }
+    .memberMenu {
+        /* width: 100px; */
+        width: 656px;
+        left: 200px;
+    }
+    .mainContainer{
+        justify-content: center;
+    }
+    .sideMenu{
+        width: 180px;
+    }
+    .logo{
+        margin-top: 66px;
+        margin-left: 39px;
+        margin-right: 39px;
+        margin-bottom: 103px;
+    }
+    .nav{
+        max-width: 180px;
+    }
+    .table tr td:first-child {
+        width: 65.5px !important;
+        text-align: right;
+    }
 }
