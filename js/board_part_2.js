@@ -13,9 +13,10 @@ function enablePopupWindow() {
 /**
  * this function add the d-none class to the popup window. The result is that the Popup Window not shown.
  */
-function disablePopupWindow() {
+async function disablePopupWindow() {
     document.getElementById('boardPopup').classList.add('d-none');
-    renderAllCards();
+    await renderAllCards();
+    searchAfter();
 }
 
 
