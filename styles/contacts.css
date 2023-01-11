@@ -294,10 +294,9 @@
 }
 
 .add_contact_vector_5 {
-    width: 0px;
-    height: 90px;
+    width: 90px;
+    height: 0;
     border: 3px solid #29ABE2;
-    transform: rotate(90deg);
     flex: none;
     order: 2;
     flex-grow: 0;

@@ -1,17 +1,17 @@
 let alphabetOrd = { A: [], B: [], C: [], D: [], E: [], F: [], G: [], H: [], I: [], J: [], K: [], L: [], M: [], N: [], O: [], P: [], Q: [], R: [], S: [], T: [], U: [], V: [], W: [], X: [], Y: [], Z: [] };
 
 let colorIndex = [
-	'#02CF2F',
-	'#EE00D6',
-	'#0190E0',
-	'#FF7200',
-	'#FF2500',
-	'#AF1616',
-	'#FFC700',
-	'#3E0099',
-	'#462F8A',
-	'#FF7A00',
-	'#000000',
+    '#02CF2F',
+    '#EE00D6',
+    '#0190E0',
+    '#FF7200',
+    '#FF2500',
+    '#AF1616',
+    '#FFC700',
+    '#3E0099',
+    '#462F8A',
+    '#FF7A00',
+    '#000000',
 ];
 
 
@@ -36,7 +36,7 @@ function userInAlphabetArray() {
         let email = allUsers[i].email;
         let letter = allUsers[i].firstSecondLetter;
         let firstLetter = allUsers[i].firstSecondLetter[0];
-        alphabetOrd[firstLetter].push({ 'name': name, 'email': email, 'id': id, 'letter': letter, 'colorIndex': colorIndex});
+        alphabetOrd[firstLetter].push({ 'name': name, 'email': email, 'id': id, 'letter': letter, 'colorIndex': colorIndex });
     }
     alphabet();
 }
@@ -102,7 +102,7 @@ async function renderContent() {
 function openEditContact(i) {
     document.getElementById('edit_contact').classList.remove('d-none')
     document.getElementById('edit_contact').innerHTML /*html*/ = '';
-    document.getElementById('edit_contact').innerHTML = /*html*/ `
+    document.getElementById('edit_contact').innerHTML = /*html*/ `   
         <div class="add_contact_left">
             <img src="assets/img/join_logo.png" alt="">
             <h1>Add contact</h1>
@@ -112,22 +112,23 @@ function openEditContact(i) {
         <div class="add_contact_right">
             <img src="assets/img/empty_profile_picture.png" alt="">
             <div class="add_contact_inputs">
-            <input type="text" placeholder="Name" id="editContactName" required="required" pattern="^\S+\s\S+$">
-            <input type="text" placeholder="Email" id="editContactEmail" required="required" pattern="^\S+\s\S+$">
-            <input type="text" placeholder="Phone" id="editContactPhone" required="required" pattern="^\S+\s\S+$">
-            <div class="add_contact_right_buttons">
-                <div class="contact_cancel" onclick="closeEditContact()">
-                    <span>Cancel</span>
-                    <img src="assets/img/new_cat_cancel.png" alt="">
+
+                <input type="text" placeholder="${allUsers[i].name}" id="editContactName" required="required">
+                <input type="email" placeholder="${allUsers[i].email}" id="editContactEmail" required="required">
+                <input type="text" placeholder="Phone" id="editContactPhone" required="required">
+                <div class="add_contact_right_buttons">
+                    <div class="contact_cancel" onclick="closeEditContact()">
+                        <span>Cancel</span>
+                        <img src="assets/img/new_cat_cancel.png" alt="">
+                    </div>
+                    <div class="contact_create" onclick="editContact(${i})">
+                        <span>Update contact</span>
+                        <img src="assets/img/akar-icons_check_white.png" alt="">
+                    </div>
                 </div>
-                <div class="contact_create" onclick="editContact(${i})">
-                    <span>Update contact</span>
-                    <img src="assets/img/akar-icons_check_white.png" alt="">
-                </div>
-            </div>
-            <div class="contact_delete" onclick="deleteContact(${i})">
-                <span>Delete contact</span>
-                <img src="assets/img/bin.png" alt="">
+                <div class="contact_delete" onclick="deleteContact(${i})">
+                    <span>Delete contact</span>
+                    <img src="assets/img/bin.png" alt="">
             </div>
         </div>
     `;
@@ -197,7 +198,7 @@ function showContact(i) {
             <div class="contact_information">
                 <div class="contact_information_edit">
                     <h2>Contact Information</h2>
-                    <div class="edit_contact" onclick="openEditContact(${id})">
+                    <div class="edit_contact" onclick="openEditContact(${i})">
                         <img src="assets/img/edit_button_black.png" alt="">
                         <span>Edit Contact</span>
                     </div>
