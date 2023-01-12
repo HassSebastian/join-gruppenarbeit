@@ -775,7 +775,8 @@
     align-items: center;
     padding: 18px 10px;
     gap: 10px;
-    width: 143px;
+    min-width: 143px;
+    width: max-content;
     height: 61px;
     background: #2A3647;
     border-radius: 10px;
@@ -792,7 +793,7 @@
 }
 
 .save span {
-    width: 123px;
+    /* width: min-content; */
     height: 25px;
     font-family: 'Inter';
     font-style: normal;

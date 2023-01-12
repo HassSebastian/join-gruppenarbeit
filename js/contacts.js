@@ -14,9 +14,9 @@ let colorIndex = [
     '#000000',
 ];
 
+let newContactUser = [];
 
 async function initContacts() {
-
     await includeHTML();
     await loadTask();
     selectedMenuButton(4);
@@ -28,7 +28,6 @@ async function initContacts() {
 
 function userInAlphabetArray() {
     alphabetOrd = { A: [], B: [], C: [], D: [], E: [], F: [], G: [], H: [], I: [], J: [], K: [], L: [], M: [], N: [], O: [], P: [], Q: [], R: [], S: [], T: [], U: [], V: [], W: [], X: [], Y: [], Z: [] };
-
     for (let i = 0; i < allUsers.length; i++) {
         let id = i;
         let colorIndex = allUsers[i].colorIndex;
@@ -43,21 +42,21 @@ function userInAlphabetArray() {
 
 function alphabet() {
     document.getElementById('Contact_list').innerHTML = '';
-    for (let wertNachDemArray in alphabetOrd) {
-        if (alphabetOrd[wertNachDemArray].length > 0) {
+    for (let alphabetLetter in alphabetOrd) {
+        if (alphabetOrd[alphabetLetter].length > 0) {
             document.getElementById('Contact_list').innerHTML += /*html*/ `
         <div class="letters">
-                <span><b>${wertNachDemArray}</b></span>
+                <span><b>${alphabetLetter}</b></span>
         </div>
-        <div id='${wertNachDemArray}'></div> 
+        <div id='${alphabetLetter}'></div> 
         `;
-            for (i = 0; i < alphabetOrd[wertNachDemArray].length; i++) {
-                let name = alphabetOrd[wertNachDemArray][i].name;
-                let color = alphabetOrd[wertNachDemArray][i].colorIndex;
-                let email = alphabetOrd[wertNachDemArray][i].email;
-                let id = alphabetOrd[wertNachDemArray][i].id;
-                let letter = alphabetOrd[wertNachDemArray][i].letter;
-                document.getElementById(wertNachDemArray).innerHTML += /*html*/`
+            for (i = 0; i < alphabetOrd[alphabetLetter].length; i++) {
+                let name = alphabetOrd[alphabetLetter][i].name;
+                let color = alphabetOrd[alphabetLetter][i].colorIndex;
+                let email = alphabetOrd[alphabetLetter][i].email;
+                let id = alphabetOrd[alphabetLetter][i].id;
+                let letter = alphabetOrd[alphabetLetter][i].letter;
+                document.getElementById(alphabetLetter).innerHTML += /*html*/`
                 <div class="contact" id="contact${i}" onclick="showContact(${id})">
                     <div class="ellipse" style='background:${colorIndex[color]}'>
                         <span>${letter}</span>
@@ -109,7 +108,6 @@ function openEditContact(i) {
     document.getElementById('edit_contact').innerHTML /*html*/ = '';
     document.getElementById('edit_contact').innerHTML = /*html*/ `   
         <div class="overlayAdd">
-
             <div class="blackSite">
                 <div class="blackSiteContainer">
                     <span class="fontAddContact">Edit contact</span>
@@ -127,8 +125,8 @@ function openEditContact(i) {
             </div>
             <div class="buttonOutContainer">
                 <div class="buttonInContainer">
-                    <button onclick="contacts()" class="save">
-                        <span>Save</span>
+                    <button onclick="saveEditContact(${i})" class="save">
+                        <span id="saveEditButton">Save</span>
                     </button>
                 </div>
             </div>
@@ -136,14 +134,14 @@ function openEditContact(i) {
                 <div class="nameOutContainer">
                     <div class="nameContainer">
                         <div class="inputEditContainer">
-                            <input class="inputName" type="text" placeholder="${name}">
+                            <input class="inputName" type="text" value="${name}">
                             <img src="./assets/img/name_logo.png" alt="">
                         </div>
                         <span class="required">This field is required</span>
                     </div>
                     <div class="nameContainer">
                         <div class="inputEditContainer">
-                            <input class="inputName" type="email" placeholder="${email}">
+                            <input class="inputName" type="email" value="${email}">
                             <img src="./assets/img/email_Logo.png" alt="">
                         </div>
                         <span class="required">This field is required</span>
@@ -187,7 +185,7 @@ function openNewContact() {
                         <span>Cancel</span>
                         <img id="cancelImg" width="13px" height="13px" src="./assets/img/close_logo.png">
                     </button>
-                    <button onclick="contacts()" class="createContact">
+                    <button onclick="addContact()" class="createContact">
                         <span>Create contact</span>
                         <img src="./assets/img/okHaeckchen.png">
                     </button>
@@ -197,21 +195,21 @@ function openNewContact() {
                 <div class="nameOutContainer">
                     <div class="nameContainer">
                         <div class="inputEditContainer">
-                            <input class="inputName" type="text" placeholder="Name">
+                            <input class="inputName" id="contactName" type="text" placeholder="Name">
                             <img src="./assets/img/name_logo.png" alt="">
                         </div>
                         <span class="required">This field is required</span>
                     </div>
                     <div class="nameContainer">
                         <div class="inputEditContainer">
-                            <input class="inputName" type="email" placeholder="Email">
+                            <input class="inputName" id="contactEmail" type="email" placeholder="Email">
                             <img src="./assets/img/email_Logo.png" alt="">
                         </div>
                         <span class="required">This field is required</span>
                     </div>
                     <div class="nameContainer">
                         <div class="inputEditContainer">
-                            <input class="inputName" type="number" placeholder="Phone">
+                            <input class="inputName" id="contactPhone" type="number" placeholder="Phone">
                             <img src="./assets/img/phoneLogo.png" alt="">
                         </div>
                         <span class="required">This field is required</span>
@@ -277,12 +275,11 @@ function addContact() {
     contact.name = inputName.charAt(0).toUpperCase() + inputName.slice(1);
     contact.email = document.getElementById('contactEmail').value;
     contact.phone = document.getElementById('contactPhone').value;
-    contact.id = contacts.length;
+    contact.id = newContactUser.length;
 
 
-    contacts.push(contact);
+    newContactUser.push(contact);
     closeNewContact();
-    user();
 }
 
 function editContact(i) {
@@ -314,6 +311,18 @@ function contacts() {
 function cancelOn() {
     document.getElementById('cancelImg').src = "././assets/img/close_logo_blue.png";
 }
-function cancelOff(){
+
+function cancelOff() {
     document.getElementById('cancelImg').src = "./assets/img/close_logo.png";
+}
+
+function saveEditContact(i) {
+    let nameId = i;
+    let logUserId = loggedUser[0];
+        // jeder darf nur seine eigenen Daten ändern
+    if (nameId == logUserId) {
+        alert('muss noch mit dem backend verbunden werden');
+    } else {
+        document.getElementById('saveEditButton').innerHTML = `No Authorization`;
+    }
 }
