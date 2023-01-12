@@ -100,35 +100,62 @@ async function renderContent() {
 
 
 function openEditContact(i) {
+    let color = allUsers[i].colorIndex;
+    let letter = allUsers[i].firstSecondLetter;
+    let name = allUsers[i].name;
+    let email = allUsers[i].email;
+
     document.getElementById('edit_contact').classList.remove('d-none')
     document.getElementById('edit_contact').innerHTML /*html*/ = '';
     document.getElementById('edit_contact').innerHTML = /*html*/ `   
-        <div class="add_contact_left">
-            <img src="assets/img/join_logo.png" alt="">
-            <h1>Add contact</h1>
-            <span>Tasks are better with a team!</span>
-            <div class="add_contact_vector_5 "></div>
-        </div>
-        <div class="add_contact_right">
-            <img src="assets/img/empty_profile_picture.png" alt="">
-            <div class="add_contact_inputs">
+        <div class="overlayAdd">
 
-                <input type="text" placeholder="${allUsers[i].name}" id="editContactName" required="required">
-                <input type="email" placeholder="${allUsers[i].email}" id="editContactEmail" required="required">
-                <input type="text" placeholder="Phone" id="editContactPhone" required="required">
-                <div class="add_contact_right_buttons">
-                    <div class="contact_cancel" onclick="closeEditContact()">
-                        <span>Cancel</span>
-                        <img src="assets/img/new_cat_cancel.png" alt="">
-                    </div>
-                    <div class="contact_create" onclick="editContact(${i})">
-                        <span>Update contact</span>
-                        <img src="assets/img/akar-icons_check_white.png" alt="">
+            <div class="blackSite">
+                <div class="blackSiteContainer">
+                    <span class="fontAddContact">Edit contact</span>
+                    <div class="editContactVector"></div>
+                    <div class="logoContainer">
+                        <img class="editContactLogo" src="./assets/img/join_logo.png">
                     </div>
                 </div>
-                <div class="contact_delete" onclick="deleteContact(${i})">
-                    <span>Delete contact</span>
-                    <img src="assets/img/bin.png" alt="">
+            </div>
+            <img onclick="closeEditContact()" class="close_logo" src="./assets/img/close_logo.png">
+            <div class="name_logo_inContainer">
+                <div class="elypse" style='background:${colorIndex[color]}'>
+                    <span>${letter}</span>
+                </div>
+            </div>
+            <div class="buttonOutContainer">
+                <div class="buttonInContainer">
+                    <button onclick="contacts()" class="save">
+                        <span>Save</span>
+                    </button>
+                </div>
+            </div>
+            <div class="contactContainer">
+                <div class="nameOutContainer">
+                    <div class="nameContainer">
+                        <div class="inputEditContainer">
+                            <input class="inputName" type="text" placeholder="${name}">
+                            <img src="./assets/img/name_logo.png" alt="">
+                        </div>
+                        <span class="required">This field is required</span>
+                    </div>
+                    <div class="nameContainer">
+                        <div class="inputEditContainer">
+                            <input class="inputName" type="email" placeholder="${email}">
+                            <img src="./assets/img/email_Logo.png" alt="">
+                        </div>
+                        <span class="required">This field is required</span>
+                    </div>
+                    <div class="nameContainer">
+                        <div class="inputEditContainer">
+                            <input class="inputName" type="number" placeholder="+49 2222 222 22 2">
+                            <img src="./assets/img/phoneLogo.png" alt="">
+                        </div>
+                        <span class="required">This field is required</span>
+                    </div>
+                </div>
             </div>
         </div>
     `;
@@ -137,26 +164,57 @@ function openEditContact(i) {
 function openNewContact() {
     document.getElementById('new_contact').innerHTML = '';
     document.getElementById('new_contact').innerHTML = /*html*/`
-        <div class="add_contact_left">
-            <img src="assets/img/join_logo.png" alt="">
-            <h1>Add contact</h1>
-            <span>Tasks are better with a team!</span>
-            <div class="add_contact_vector_5 "></div>
-        </div>
-        <div class="add_contact_right">
-            <img src="assets/img/empty_profile_picture.png" alt="">
-            <div class="add_contact_inputs">
-                <input type="text" placeholder="Name" id="contactName" required="required">
-                <input type="text" placeholder="Email" id="contactEmail" required="required">
-                <input type="text" placeholder="Phone" id="contactPhone" required="required">
-                <div class="add_contact_right_buttons">
-                    <div class="contact_cancel" onclick="closeNewContact()">
-                        <span>Cancel</span>
-                        <img src="assets/img/new_cat_cancel.png" alt="">
+        <div class="overlayAdd">
+            <div class="blackSite">
+                <div class="blackSiteContainer">
+                    <span class="fontAddContact">Add contact</span>
+                    <span class="fontTaskArBetter">Tasks are better with a team!</span>
+                    <div class="editContactVector"></div>
+                    <div class="logoContainer">
+                        <img class="editContactLogo" src="./assets/img/join_logo.png">
                     </div>
-                    <div class="contact_create" onclick="addContact()">
+                </div>
+            </div>
+            <img onclick="closeNewContact()" class="close_logo" src="./assets/img/close_logo.png">
+            <div class="name_logo_inContainer">
+                <div class="elypse">
+                    <img src="./assets/img/nameLogoOverlay.png">
+                </div>
+            </div>
+            <div class="buttonNewOutContainer">
+                <div class="buttonInContainer">
+                    <button onclick="closeNewContact()" class="cancel" onmouseover="cancelOn()" onmouseout="cancelOff()">
+                        <span>Cancel</span>
+                        <img id="cancelImg" width="13px" height="13px" src="./assets/img/close_logo.png">
+                    </button>
+                    <button onclick="contacts()" class="createContact">
                         <span>Create contact</span>
-                        <img src="assets/img/akar-icons_check_white.png" alt="">
+                        <img src="./assets/img/okHaeckchen.png">
+                    </button>
+                </div>
+            </div>
+            <div class="contactContainer">
+                <div class="nameOutContainer">
+                    <div class="nameContainer">
+                        <div class="inputEditContainer">
+                            <input class="inputName" type="text" placeholder="Name">
+                            <img src="./assets/img/name_logo.png" alt="">
+                        </div>
+                        <span class="required">This field is required</span>
+                    </div>
+                    <div class="nameContainer">
+                        <div class="inputEditContainer">
+                            <input class="inputName" type="email" placeholder="Email">
+                            <img src="./assets/img/email_Logo.png" alt="">
+                        </div>
+                        <span class="required">This field is required</span>
+                    </div>
+                    <div class="nameContainer">
+                        <div class="inputEditContainer">
+                            <input class="inputName" type="number" placeholder="Phone">
+                            <img src="./assets/img/phoneLogo.png" alt="">
+                        </div>
+                        <span class="required">This field is required</span>
                     </div>
                 </div>
             </div>
@@ -247,4 +305,15 @@ function deleteContact(i) {
     user();
     closeEditContact();
     document.getElementById('showContact').classList.add('d-none')
+}
+
+function contacts() {
+    alert('Verbindung zu contacts herstellen!!!');
+}
+
+function cancelOn() {
+    document.getElementById('cancelImg').src = "././assets/img/close_logo_blue.png";
+}
+function cancelOff(){
+    document.getElementById('cancelImg').src = "./assets/img/close_logo.png";
 }

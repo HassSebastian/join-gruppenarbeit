@@ -11,6 +11,7 @@ let descripten = '';
 let category = '';
 let catColor = '';
 let assigndTo = '';
+let taskForce = []; // team that will be working on the current task
 let assignToArray = [];
 let dueDate = '';
 let prio = '';
@@ -101,8 +102,6 @@ let coworkersToAssignTo = [
 		check: false,
 	},
 ];
-
-let taskForce = []; // team that will be working on the current task
 
 async function initAddTask() {
 	// setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
@@ -370,10 +369,7 @@ function renderCategoryList() {
 				i
 			);
 		} else {
-			document.getElementById('CatListDropdown').innerHTML += dropdownCategoryListHtml1(
-				categoryName,
-				i
-			);
+			document.getElementById('CatListDropdown').innerHTML += dropdownCategoryListHtml1(categoryName, i);
 		}
 	}
 }
@@ -858,18 +854,14 @@ function btnNotSelected(cListLength) {
 function selectPrioBtn(selectedId, btnName) {
 	document.getElementById(selectedId).classList.add(`${btnName.toLowerCase()}-color`);
 	document.getElementById(`addTask${btnName}Span`).classList.add('color-white');
-	document.getElementById(
-		`addTask${btnName}Img`
-	).src = `./assets/img/${btnName.toLowerCase()}_white.png`;
+	document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}_white.png`;
 	prio = btnName;
 }
 
 function removeBtnSelection(btnName) {
 	document.getElementById(`addTask${btnName}`).classList.remove(`${btnName.toLowerCase()}-color`);
 	document.getElementById(`addTask${btnName}Span`).classList.remove('color-white');
-	document.getElementById(
-		`addTask${btnName}Img`
-	).src = `./assets/img/${btnName.toLowerCase()}.png`;
+	document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}.png`;
 }
 
 function unselectOtherBtn(idList) {
@@ -878,13 +870,9 @@ function unselectOtherBtn(idList) {
 		let cListLength = document.getElementById(selectedId).classList.length;
 		let btnName = selectedId.replace('addTask', '');
 		if (btnIsSelected(cListLength)) {
-			document
-				.getElementById(`addTask${btnName}`)
-				.classList.remove(`${btnName.toLowerCase()}-color`);
+			document.getElementById(`addTask${btnName}`).classList.remove(`${btnName.toLowerCase()}-color`);
 			document.getElementById(`addTask${btnName}Span`).classList.remove('color-white');
-			document.getElementById(
-				`addTask${btnName}Img`
-			).src = `./assets/img/${btnName.toLowerCase()}.png`;
+			document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}.png`;
 		}
 	}
 }
@@ -1203,11 +1191,7 @@ async function renderContactsInAssignDropDownMenu() {
 		let firstName = coworkersToAssignTo[contact].firstName;
 		let lastName = coworkersToAssignTo[contact].lastName;
 		let assignedContactList = document.getElementById('dropdown2');
-		assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(
-			firstName,
-			lastName,
-			contact
-		);
+		assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(firstName, lastName, contact);
 	}
 }
 
