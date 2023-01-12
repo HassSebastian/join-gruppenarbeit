@@ -36,6 +36,21 @@ let menuSelectorStyles = [
     }
 ];
 
+let colorUserIndex = [
+    '#02CF2F',
+    '#EE00D6',
+    '#0190E0',
+    '#FF7200',
+    '#FF2500',
+    '#AF1616',
+    '#FFC700',
+    '#3E0099',
+    '#462F8A',
+    '#FF7A00',
+    '#000000',
+];
+
+
 let selectedMenuBtnId;
 let includeAttribute = 'w3-include-html';
 
@@ -171,8 +186,25 @@ function logOut(){
     localStorage.removeItem('loggedUser');
 }
 function loadContributorsLetter(){
-    document.getElementById('contributorsLogoHeadder').style=`background:${backgroundColorForBadges[loggedUser[0]]}`;
-    document.getElementById('contributorsLogoHeadderLetters').innerHTML = `<b>${allUsers[loggedUser].firstSecondLetter}</b>`;
+    document.getElementById('contributorsLogoHeadder').style=`background:${colorUserIndex[loggedUser[0]]}`;
+    document.getElementById('contributorsLogoHeadderLetters').innerHTML = `<p style='color:white'>${allUsers[loggedUser].firstSecondLetter}</p>`;
+}
+
+
+// responsiv Slider menu functions
+
+let sliderMenuOpen = false;
+
+function enableDisableSliderMenu(){
+    let sliderMenu = document.querySelector('.sliderMenu');
+    if (!sliderMenuOpen){
+        sliderMenu.classList.add('showSliderMenu');
+    }else{
+        sliderMenu.classList.remove('showSliderMenu');
+    }
+    
+    
+    sliderMenuOpen = !sliderMenuOpen;
 }
 
 
