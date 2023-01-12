@@ -207,19 +207,3 @@ function enableDisableSliderMenu(){
     sliderMenuOpen = !sliderMenuOpen;
 }
 
-
-// responsiv Slider menu functions
-
-let sliderMenuOpen = false;
-
-function enableDisableSliderMenu(){
-    let sliderMenu = document.querySelector('.sliderMenu');
-    if (!sliderMenuOpen){
-        sliderMenu.classList.add('showSliderMenu');
-    }else{
-        sliderMenu.classList.remove('showSliderMenu');
-    }
-    
-    
-    sliderMenuOpen = !sliderMenuOpen;
-}
