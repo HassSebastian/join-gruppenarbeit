@@ -183,7 +183,7 @@ function openNewContact() {
             </div>
             <div class="buttonNewOutContainer">
                 <div class="buttonInContainer">
-                    <button onclick="closeOverlay()" class="cancel" onmouseover="cancelOn()" onmouseout="cancelOff()">
+                    <button onclick="closeNewContact()" class="cancel" onmouseover="cancelOn()" onmouseout="cancelOff()">
                         <span>Cancel</span>
                         <img id="cancelImg" width="13px" height="13px" src="./assets/img/close_logo.png">
                     </button>
@@ -218,11 +218,6 @@ function openNewContact() {
                     </div>
                 </div>
             </div>
-
-
-
-
-
         </div>
     `;
     document.getElementById('new_contact').classList.remove('d-none');
