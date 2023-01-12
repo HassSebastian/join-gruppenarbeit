@@ -255,7 +255,7 @@ function showContact(i) {
                 <div class="contact_information_edit">
                     <h2>Contact Information</h2>
                     <div class="edit_contact" onclick="openEditContact(${i})">
-                        <img src="assets/img/edit_button_black.png" alt="">
+                        <img src="./assets/img/edit_button_black.png" alt="">
                         <span>Edit Contact</span>
                     </div>
                 </div>
@@ -280,6 +280,7 @@ function addContact() {
 
     newContactUser.push(contact);
     closeNewContact();
+
 }
 
 function editContact(i) {
@@ -294,12 +295,10 @@ function editContact(i) {
     contacts.splice(i, 1, contact);
     showContact(i)
     closeEditContact();
-    user();
 }
 
 function deleteContact(i) {
     contacts.splice(i, 1);
-    user();
     closeEditContact();
     document.getElementById('showContact').classList.add('d-none')
 }
