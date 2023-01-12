@@ -17,8 +17,8 @@
 	position: absolute;
 	width: 466px;
 	height: 78px;
-	left: 355px;
-	top: 171px;
+	left: 123px;
+    top: 82px;
 }
 
 .addTHeadline {
@@ -47,10 +47,8 @@
 	position: absolute;
 	width: 338px;
 	height: 61px;
-	left: 984px;
-	top: 889px;
-
-
+	left: 752px;
+    top: 800px;
 }
 
 .addTaskBtnInnerContainer {
@@ -192,13 +190,13 @@
 	padding: 0px;
 	gap: 14px;
 
-	/* position: absolute; */
-	position: relative;
+	position: absolute;
+	/* position: relative; */
 	width: 422px;
 	height: 506px;
 	/* left: 355px; */
 	left: 123px;
-	top: 290px;
+	top: 201px;
 }
 
 .addTaskAddTitleBox {
@@ -848,13 +846,13 @@
 }
 
 .addTaskDivider {
-	/* position: absolute; */
-	position: relative;
+	position: absolute;
+	/* position: relative; */
 	width: 0px;
 	height: 551px;
 	/* left: 836px; */
 	left: 604px;
-	top: 290px;
+	top: 201px;
 	border: 1px solid #d1d1d1;
 }
 
@@ -864,13 +862,13 @@
 	align-items: flex-end;
 	padding: 0px;
 	gap: 14px;
-	/* position: absolute; */
-	position: relative;
+	position: absolute;
+	/* position: relative; */
 	width: 422px;
 	height: 356px;
 	/* left: 895px; */
 	left: 663px;
-	top: 290px;
+	top: 201px;
 }
 
 .addTaskDate {
@@ -1372,7 +1370,11 @@
 .testResponsiv{
 	display: flex;
     justify-content: space-between;
-    position: absolute;
+    position: relative;
     width: 100%;
-    height: 1024px;
+    height: 935px;
+	margin-top: 89px;
+
+	margin-left: 232px;
+    left: -232px;
 }

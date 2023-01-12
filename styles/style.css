@@ -322,25 +322,9 @@ tr td:nth-child(3) {
     }
 
     /* addTask */
-    .addTaskHeadlineDiv,
-    .addTaskAddTitleContainer {
-        left: 22% !important;
-    }
 
-    .addTaskDivider {
-        /* left: calc(835px - 4%) !important; */
-        left: 58.1% !important;
-        /* left: 55.45% !important; */
-    }
-
-    .addTaskRightContainer {
-        /* left: calc(895px - 4%) !important; */
-        left: 62.15% !important;
-        /* left: 59.5% !important; */
-        /* left: 78% !important; */
-    }
-    .addTaskBtnOuterContainer{
-        left: 68% !important;
+    .testResponsiv{
+        left: calc(-4% - 232px) !important;
     }
 }
 
@@ -370,25 +354,11 @@ tr td:nth-child(3) {
     }
 
     /* addTask */
-    .addTaskHeadlineDiv,
-    .addTaskAddTitleContainer {
-        left: 8% !important;
+    
+    .testResponsiv{
+        width: calc(100% - 232px) !important;
     }
-
-    .addTaskDivider {
-        /* left: calc(835px - 4%) !important; */
-        left: 47.1% !important;
-        /* left: 55.45% !important; */
-    }
-
-    .addTaskRightContainer {
-        /* left: calc(895px - 4%) !important; */
-        right: 8% !important;
-        /* left: 59.5% !important; */
-    }
-    .addTaskBtnOuterContainer{
-        left: 54% !important;
-    }
+    
 }
 
 @media screen and (max-width: 1200px) {
