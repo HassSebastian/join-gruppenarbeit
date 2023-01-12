@@ -174,3 +174,20 @@ function loadContributorsLetter(){
     document.getElementById('contributorsLogoHeadder').style=`background:${backgroundColorForBadges[loggedUser[0]]}`;
     document.getElementById('contributorsLogoHeadderLetters').innerHTML = `<b>${allUsers[loggedUser].firstSecondLetter}</b>`;
 }
+
+
+// responsiv Slider menu functions
+
+let sliderMenuOpen = false;
+
+function enableDisableSliderMenu(){
+    let sliderMenu = document.querySelector('.sliderMenu');
+    if (!sliderMenuOpen){
+        sliderMenu.classList.add('showSliderMenu');
+    }else{
+        sliderMenu.classList.remove('showSliderMenu');
+    }
+    
+    
+    sliderMenuOpen = !sliderMenuOpen;
+}
