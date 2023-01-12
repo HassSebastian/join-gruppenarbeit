@@ -186,7 +186,8 @@ function logOut(){
     localStorage.removeItem('loggedUser');
 }
 function loadContributorsLetter(){
-    document.getElementById('contributorsLogoHeadder').style=`background:${colorUserIndex[loggedUser[0]]}`;
+    let colorIndex = allUsers[loggedUser[0]].colorIndex
+    document.getElementById('contributorsLogoHeadder').style=`background:${colorUserIndex[colorIndex]}`;
     document.getElementById('contributorsLogoHeadderLetters').innerHTML = `<p style='color:white'>${allUsers[loggedUser].firstSecondLetter}</p>`;
 }
 
