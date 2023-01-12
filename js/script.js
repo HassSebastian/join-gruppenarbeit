@@ -189,3 +189,21 @@ function loadContributorsLetter(){
     document.getElementById('contributorsLogoHeadder').style=`background:${colorUserIndex[loggedUser[0]]}`;
     document.getElementById('contributorsLogoHeadderLetters').innerHTML = `<p style='color:white'>${allUsers[loggedUser].firstSecondLetter}</p>`;
 }
+
+
+// responsiv Slider menu functions
+
+let sliderMenuOpen = false;
+
+function enableDisableSliderMenu(){
+    let sliderMenu = document.querySelector('.sliderMenu');
+    if (!sliderMenuOpen){
+        sliderMenu.classList.add('showSliderMenu');
+    }else{
+        sliderMenu.classList.remove('showSliderMenu');
+    }
+    
+    
+    sliderMenuOpen = !sliderMenuOpen;
+}
+

@@ -216,7 +216,7 @@ tr td:nth-child(3) {
     cursor: pointer;
 }
 
-.logOut{
+.logOut {
     position: absolute;
     top: 89px;
     right: 25px;
@@ -224,12 +224,12 @@ tr td:nth-child(3) {
     display: none;
 }
 
-.logOutOn{
+.logOutOn {
     display: block;
 }
 
 /* von Basti hinzugefügt*/
-#contributorsLogoHeadder{
+#contributorsLogoHeadder {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -241,60 +241,164 @@ tr td:nth-child(3) {
 }
 
 @media screen and (max-width: 1500px) {
-    .rightContainer, .content{
-        width: 1108px;
+    .outerContainer {
+        width: 100%;
     }
-    .memberMenu {
-        /* width: 100px; */
-        width: 956px;
-        left: 50px;
-    }
-    .mainContainer{
+
+    .mainContainer {
         justify-content: center;
+        overflow: hidden;
+        width: 100%;
     }
-    
+
+
+
+
 }
 
-@media screen and (max-width: 1400px) {
-    .rightContainer, .content{
-        width: 1008px;
+@media screen and (max-width: 1440px) {
+    .rightContainer {
+        width: calc(100% - 232px);
     }
+
     .memberMenu {
         /* width: 100px; */
-        width: 856px;
-        left: 100px;
+        width: 100%;
+        padding: 0px 0px 0px 0px;
+        /* padding-left: 24.17% !important;
+        padding-right: 36px !important; */
     }
-    .mainContainer{
-        justify-content: center;
+
+    #memberInfo {
+        margin-right: 36px;
+    }
+
+    .memberMenu h1 {
+        margin-left: 22%;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .welcome {
+        left: calc(99% - 385px) !important;
+    }
+
+    .title {
+        left: 22% !important;
+    }
+
+    .overview {
+        left: 22% !important;
+    }
+
+    /* board */
+    .boardOverlay {
+        left: 22% !important;
+        width: 75% !important;
+        justify-content: space-between;
+        gap: unset !important;
+    }
+
+    .boardSubheaders {
+        left: calc(22% - 45px) !important;
+        width: 76.78% !important;
+    }
+
+    .boardSubtitleContainer {
+        width: 100% !important;
+    }
+
+    .toDoAreaHeader,
+    .inProgressAreaHeader,
+    .awaitingFeedbackAreaHeader,
+    .doneAreaHeader {
+        width: 21.74% !important;
+    }
+
+    .canbanBoard {
+        left: 22% !important;
+    }
+
+    /* addTask */
+    .addTaskHeadlineDiv,
+    .addTaskAddTitleContainer {
+        left: 22% !important;
+    }
+
+    .addTaskDivider {
+        /* left: calc(835px - 4%) !important; */
+        left: 58.1% !important;
+        /* left: 55.45% !important; */
+    }
+
+    .addTaskRightContainer {
+        /* left: calc(895px - 4%) !important; */
+        left: 62.15% !important;
+        /* left: 59.5% !important; */
+        /* left: 78% !important; */
+    }
+    .addTaskBtnOuterContainer{
+        left: 68% !important;
     }
 }
 
 @media screen and (max-width: 1300px) {
-    .rightContainer, .content{
-        width: 908px;
+    .rightContainer {
+        width: 100%;
     }
-    .memberMenu {
-        /* width: 100px; */
-        width: 756px;
-        left: 150px;
+
+    .sideMenu {
+        display: none !important;
     }
-    .mainContainer{
-        justify-content: center;
+
+    .sliderMenu {
+        display: flex !important;
+    }
+
+    .title {
+        left: 8% !important;
+    }
+
+    .overview {
+        left: 8% !important;
+    }
+
+    .memberMenu h1 {
+        margin-left: 8%;
+    }
+
+    /* addTask */
+    .addTaskHeadlineDiv,
+    .addTaskAddTitleContainer {
+        left: 8% !important;
+    }
+
+    .addTaskDivider {
+        /* left: calc(835px - 4%) !important; */
+        left: 47.1% !important;
+        /* left: 55.45% !important; */
+    }
+
+    .addTaskRightContainer {
+        /* left: calc(895px - 4%) !important; */
+        right: 8% !important;
+        /* left: 59.5% !important; */
+    }
+    .addTaskBtnOuterContainer{
+        left: 54% !important;
     }
 }
 
 @media screen and (max-width: 1200px) {
-    .rightContainer, .content{
+    /* .rightContainer, .content{
         width: 808px;
     }
     .memberMenu {
-        /* width: 100px; */
-        width: 656px;
-        left: 200px;
+        width: 604px;
     }
-    .mainContainer{
-        justify-content: center;
-    }
+    
     .sideMenu{
         width: 180px;
     }
@@ -310,5 +414,83 @@ tr td:nth-child(3) {
     .table tr td:first-child {
         width: 65.5px !important;
         text-align: right;
+    } */
+}
+
+/* @media screen and (max-width: 1100px) {
+    .rightContainer, .content{
+        width: 708px;
     }
+    .memberMenu {
+        width: 504px;
+    }
+} */
+
+@media screen and (max-width: 1000px) {
+
+    /* .rightContainer,
+    .content {
+        width: calc(100% - 140px);
+    }
+
+    .memberMenu {
+        width: 404px;
+    }
+
+    .sideMenu {
+        display: none !important;
+    }
+
+    .sliderMenu {
+        display: flex !important;
+    }
+
+    .mainContainer {
+        width: 100%;
+    } */
+}
+
+
+
+/* slider menu */
+
+.sliderMenu {
+    display: none;
+    height: 1024px;
+    width: 302px;
+    color: #CDCDCD;
+    z-index: 1;
+    position: absolute;
+    left: -232px;
+
+    /* justify-content: flex-start; */
+    align-items: center;
+    transition: 100ms ease-in-out;
+}
+
+.showSliderMenu {
+    transition: 100ms ease-in-out;
+    transform: translateX(232px);
+}
+
+.menuContainer {
+    height: 1024px;
+    width: 232px;
+    background-color: #2A3647;
+    color: #CDCDCD;
+    z-index: 1;
+}
+
+.menuButton img {
+    height: 50px;
+    background: #2A3647;
+    border-radius: 0% 50% 50% 0%;
+    padding: 10px;
+}
+
+.menuButton img:hover {
+    cursor: pointer;
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: 100ms ease-in-out;
 }
