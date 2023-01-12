@@ -216,7 +216,7 @@ tr td:nth-child(3) {
     cursor: pointer;
 }
 
-.logOut{
+.logOut {
     position: absolute;
     top: 89px;
     right: 25px;
@@ -224,12 +224,12 @@ tr td:nth-child(3) {
     display: none;
 }
 
-.logOutOn{
+.logOutOn {
     display: block;
 }
 
 /* von Basti hinzugefügt*/
-#contributorsLogoHeadder{
+#contributorsLogoHeadder {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -241,24 +241,26 @@ tr td:nth-child(3) {
 }
 
 @media screen and (max-width: 1500px) {
-    .outerContainer{
+    .outerContainer {
         width: 100%;
     }
-    .mainContainer{
+
+    .mainContainer {
         justify-content: center;
         overflow: hidden;
         width: 100%;
     }
 
-    
-    
-    
+
+
+
 }
 
 @media screen and (max-width: 1440px) {
-    .rightContainer{
+    .rightContainer {
         width: calc(100% - 232px);
     }
+
     .memberMenu {
         /* width: 100px; */
         width: 100%;
@@ -267,45 +269,99 @@ tr td:nth-child(3) {
         padding-right: 36px !important; */
     }
 
-    #memberInfo{
+    #memberInfo {
         margin-right: 36px;
     }
 
-    .memberMenu h1{
+    .memberMenu h1 {
         margin-left: 22%;
     }
-    .content{
+
+    .content {
         width: 100%;
     }
-    .welcome{
+
+    .welcome {
         left: calc(99% - 385px) !important;
     }
-    .title{
+
+    .title {
         left: 22% !important;
     }
-    .overview{
+
+    .overview {
         left: 22% !important;
+    }
+
+    /* board */
+    .boardOverlay {
+        left: 22% !important;
+        width: 75% !important;
+        justify-content: space-between;
+        gap: unset !important;
+    }
+
+    .boardSubheaders {
+        left: calc(22% - 45px) !important;
+        width: 76.78% !important;
+    }
+
+    .boardSubtitleContainer {
+        width: 100% !important;
+    }
+
+    .toDoAreaHeader,
+    .inProgressAreaHeader,
+    .awaitingFeedbackAreaHeader,
+    .doneAreaHeader {
+        width: 21.74% !important;
+    }
+
+    .canbanBoard {
+        left: 22% !important;
+    }
+
+    /* addTask */
+    .addTaskHeadlineDiv,
+    .addTaskAddTitleContainer {
+        left: 22% !important;
+    }
+
+    .addTaskDivider {
+        /* left: calc(835px - 4%) !important; */
+        left: 58.1% !important;
+        /* left: 55.45% !important; */
+    }
+
+    .addTaskRightContainer {
+        /* left: calc(895px - 4%) !important; */
+        left: 62.15% !important;
+        /* left: 59.5% !important; */
     }
 }
 
 @media screen and (max-width: 1300px) {
-    .rightContainer{
+    .rightContainer {
         width: 100%;
     }
 
-    .sideMenu{
+    .sideMenu {
         display: none !important;
     }
-    .sliderMenu{
+
+    .sliderMenu {
         display: flex !important;
     }
-    .title{
+
+    .title {
         left: 8% !important;
     }
-    .overview{
+
+    .overview {
         left: 8% !important;
     }
-    .memberMenu h1{
+
+    .memberMenu h1 {
         margin-left: 8%;
     }
 }
@@ -346,29 +402,38 @@ tr td:nth-child(3) {
 } */
 
 @media screen and (max-width: 1000px) {
-    .rightContainer, .content{
+
+    .rightContainer,
+    .content {
         width: calc(100% - 140px);
         /* padding: 0px 70px; */
     }
+
     .memberMenu {
         /* width: 100px; */
         width: 404px;
     }
-    .sideMenu{
+
+    .sideMenu {
         display: none !important;
     }
-    .sliderMenu{
+
+    .sliderMenu {
         display: flex !important;
     }
-    .mainContainer{
+
+    .mainContainer {
         width: 100%;
     }
 }
 
 @media screen and (max-width: 800px) {
-    .rightContainer, .content{
+
+    .rightContainer,
+    .content {
         width: 508px;
     }
+
     .memberMenu {
         /* width: 100px; */
         width: 304px;
@@ -378,7 +443,7 @@ tr td:nth-child(3) {
 
 /* slider menu */
 
-.sliderMenu{
+.sliderMenu {
     display: none;
     height: 1024px;
     width: 302px;
@@ -386,18 +451,18 @@ tr td:nth-child(3) {
     z-index: 1;
     position: absolute;
     left: -232px;
-    
+
     /* justify-content: flex-start; */
     align-items: center;
     transition: 100ms ease-in-out;
 }
 
-.showSliderMenu{
+.showSliderMenu {
     transition: 100ms ease-in-out;
     transform: translateX(232px);
 }
 
-.menuContainer{
+.menuContainer {
     height: 1024px;
     width: 232px;
     background-color: #2A3647;
@@ -405,17 +470,16 @@ tr td:nth-child(3) {
     z-index: 1;
 }
 
-.menuButton img{
+.menuButton img {
     height: 50px;
     background: #2A3647;
     border-radius: 0% 50% 50% 0%;
     padding: 10px;
 }
 
-.menuButton img:hover{
+.menuButton img:hover {
     cursor: pointer;
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     transition: 100ms ease-in-out;
 }
-
