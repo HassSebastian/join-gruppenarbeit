@@ -1,0 +1,194 @@
+body {
+    margin: 0;
+}
+
+.d-none {
+    display: none;
+}
+
+.mobilMasterContainer {
+    position: relative;
+    width: 428px;
+    height: 926px;
+    background: #F6F7F8;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 282px;
+    position: absolute;
+    width: 428px;
+    height: 79.02px;
+    left: 0px;
+    top: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.headerJoinLogoMob {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 32px;
+    height: 39.02px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.headerJoinLogoMob img {
+    width: 32px;
+    height: 39.02px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+#contributorsLogoHeadderMob {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    width: 39px;
+    height: 39px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    border-radius: 100%;
+    background-color: aquamarine;
+}
+
+.greetContainerMob {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 3px;
+    position: absolute;
+    width: 274px;
+    height: 102px;
+    left: 78px;
+    top: 412px;
+}
+
+#greetUser {
+    width: 252px;
+    height: 43px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 120%;
+    color: #2A3647;
+    text-align: center;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.greetUserName {
+    width: 274px;
+    height: 56px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 47px;
+    line-height: 120%;
+    color: #29ABE2;
+    text-align: center;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+nav {
+    position: absolute;
+    width: 428px;
+    height: 80px;
+    left: 0px;
+    top: 846px;
+}
+
+.navMasterContainerMob{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    width: 428px;
+    height: 80px;
+    left: 0px;
+    top: 0px;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0px; 
+}
+
+.navContainerMob{
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+width: 75px;
+height: 80px;
+/* border-radius: 8px; */
+flex: none;
+order: 0;
+flex-grow: 0;
+cursor: pointer;
+}
+
+.navContainerMob:hover{
+    background: #091931;
+}
+
+.navInnerContainerMob{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    width: max-content;
+    height: 59px;
+    flex: none;
+    order: 0;
+    flex-grow: 0; 
+}
+
+.navInnerContainerMob img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    width: 30px;
+    height: 30px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.navInnerContainerMob span{
+    width: fit-content;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #CDCDCD;
+    flex: none;
+    order: 1;
+    flex-grow: 0; 
+}
