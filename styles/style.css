@@ -324,7 +324,8 @@ tr td:nth-child(3) {
     /* addTask */
 
     .testResponsiv{
-        left: calc(-4% - 232px) !important;
+        /* left: calc(-4%) !important; */
+        left: calc((100% - 1208px) / 2);
     }
 }
 
@@ -356,46 +357,42 @@ tr td:nth-child(3) {
     /* addTask */
     
     .testResponsiv{
-        width: calc(100% - 232px) !important;
+        /* width: calc(100% - 232px) !important; */
     }
     
 }
 
-@media screen and (max-width: 1200px) {
-    /* .rightContainer, .content{
-        width: 808px;
-    }
-    .memberMenu {
-        width: 604px;
-    }
+@media screen and (max-width: 1100px) {
+   /*addTask  */
+   .addTaskDivider{
+        rotate: 90deg !important;
+        left: 332px !important;
+        top: 599px !important;
+        height: 422px !important;
+   }
+   .testResponsiv{
+        height: 1643px !important;
+        left: 0px;
+        margin-bottom: 82px;
+        margin-left: -53px;
+   }
+   .addTaskRightContainer{
+        left: 123px !important;
+        top: 832px !important;
+   }
+   .addTaskBtnOuterContainer{
+        left: 205px !important;
+        top: 1582px !important;
+   }
+   .contentHeigth, .outerContainer, .mainContainer, .rightContainer{
+        height: auto !important;
+   }
+
+   .addTaskAddTitleBox input{
     
-    .sideMenu{
-        width: 180px;
-    }
-    .logo{
-        margin-top: 66px;
-        margin-left: 39px;
-        margin-right: 39px;
-        margin-bottom: 103px;
-    }
-    .nav{
-        max-width: 180px;
-    }
-    .table tr td:first-child {
-        width: 65.5px !important;
-        text-align: right;
-    } */
+   }
+
 }
-
-/* @media screen and (max-width: 1100px) {
-    .rightContainer, .content{
-        width: 708px;
-    }
-    .memberMenu {
-        width: 504px;
-    }
-} */
-
 @media screen and (max-width: 1000px) {
 
     /* .rightContainer,
