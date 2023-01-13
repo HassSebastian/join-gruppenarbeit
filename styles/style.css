@@ -356,9 +356,6 @@ tr td:nth-child(3) {
 
     /* addTask */
     
-    .testResponsiv{
-        /* width: calc(100% - 232px) !important; */
-    }
     
 }
 
@@ -391,31 +388,16 @@ tr td:nth-child(3) {
    .addTaskResponsiv  {
         width: calc(100vw - 140px) !important;
    }
+   .dropdownImg{
+        /* left: 392px; */
+        /* left: calc(100vw - 170px ) !important; */
+   }
 
 
 }
+
 @media screen and (max-width: 1000px) {
 
-    /* .rightContainer,
-    .content {
-        width: calc(100% - 140px);
-    }
-
-    .memberMenu {
-        width: 404px;
-    }
-
-    .sideMenu {
-        display: none !important;
-    }
-
-    .sliderMenu {
-        display: flex !important;
-    }
-
-    .mainContainer {
-        width: 100%;
-    } */
 }
 
 

@@ -192,7 +192,7 @@ function generateAddTaskHtml() {
 							<img onclick="frontEndDeveloper()" class="assignToCheckIcon"
 								src="assets/img/akar-icons_check.png" alt="confirm" />
 						</div>
-						<img id="assignDropDownImg" src="assets/img/Vector 2.png" class="dropdownImg" />
+						<img id="assignDropDownImg" src="assets/img/Vector 2.png" class="dropdownImg"/>
 					</button>
 					<span id="assignReq">This field is required</span>
 					<div id="badgesTaskForce" class="badgesTaskForce"></div>
@@ -223,7 +223,7 @@ function generateAddTaskHtml() {
 				</div>
 			<div class='addTaskPrio'>
 				<h3>Prio</h3>
-				<div class='addTaskPrioIcons'>
+				<div class='addTaskPrioIcons' id='addTaskPrioIcons'>
 					<div class='addTaskUrgent' id='addTaskUrgent' onclick='addPrio(0)'>
 						<span id='addTaskUrgentSpan'>Urgent</span>
 						<img id='addTaskUrgentImg' src="../assets/img/urgent_arrows.png">
@@ -463,6 +463,7 @@ function resetCatSelection() {
 	catListStatus = !catListStatus;
 	document.getElementById('colorSelection').classList.add('listD-none');
 	document.getElementById('selectedCat').innerHTML = resetCatSelectionHtml();
+	getInnerWidth();
 }
 
 /**
@@ -491,6 +492,7 @@ function selectCategory(catId) {
 	} else {
 		setSettingsForExistingCategory(catId);
 	}
+	getInnerWidth();
 }
 
 /**

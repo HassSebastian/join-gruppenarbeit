@@ -233,10 +233,27 @@ function myFunction(tabWidth) {
     let contentH = document.getElementById('contentHeight');
     let content = document.getElementById('content');
     
-    if (contentH && tabWidth <= 1100) {
+    if (contentH && window.innerWidth >= 500 && tabWidth <= 1100) {
         content.style = 'height: auto;';
+        document.getElementById('dropdownImg').style = 'left: calc(100vw - 170px ) !important;';
+        document.getElementById('assignDropDownImg').style = 'left: calc(100vw - 170px ) !important;';
+        document.getElementById('addTaskNewCatBtn').style = 'left: calc(100vw - 221px ) !important;';
+        document.getElementById('CatListDropdown').style = 'width: calc(100vw - 142px) !important;';
+        document.getElementById('dropdown2').style = 'width: calc(100vw - 142px) !important;';
+        document.getElementById('assignToCancelConfirmImgContainer').style = 'left: calc(100vw - 221px ) !important;';
+        
+        document.getElementById('addTaskPrioIcons').style = 'width: calc(100vw - 142px) !important; justify-content: space-between;';
+
     } else {
         content.style = 'height: 1024px';
+        document.getElementById('dropdownImg').style = 'left: 392px !important;';
+        document.getElementById('assignDropDownImg').style = 'left: 392px !important;';
+        document.getElementById('addTaskNewCatBtn').style = 'left: 341px !important;';
+        document.getElementById('CatListDropdown').style = 'width: 424px !important;';
+        document.getElementById('dropdown2').style = 'width: 424px !important;';
+        document.getElementById('assignToCancelConfirmImgContainer').style = 'left: 341px !important;';
+        
+        document.getElementById('addTaskPrioIcons').style = 'width: 424px !important; justify-content: center;';
     }
 
 }
