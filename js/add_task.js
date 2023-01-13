@@ -116,6 +116,7 @@ async function initAddTask() {
 	renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
 	setFutureDatesOnlyForInputDueDate();
 	loadContributorsLetter();
+	getInnerWidth();
 }
 
 function generateAddTaskHtml() {
@@ -142,7 +143,7 @@ function generateAddTaskHtml() {
 				<div class="addTaskAddTitleBox">
 					<h3>Title</h3>
 					<form onsubmit="goToDescripten(); return false">
-						<input class='addTaskTitleResponsiv' required type="text" placeholder="Enter a title" id="addTaskTitle" autocomplete="off"
+						<input class='addTaskResponsiv' required type="text" placeholder="Enter a title" id="addTaskTitle" autocomplete="off"
 							minlength="3" />
 					</form>
 					<span class="requiredText" id="titleReq">This field is required</span>
@@ -150,14 +151,14 @@ function generateAddTaskHtml() {
 				<div class="addTaskAddDescriptenBox">
 					<h3>Descripten</h3>
 					<!-- <form onblur='goToCategorySelection(); return false' id='formDesc' action='action.asp'> -->
-					<textarea class='addTaskDescResponsiv' form="formDesc" type="text" placeholder="Enter Descripten" id="addTaskDescripten" required
+					<textarea class='addTaskResponsiv' form="formDesc" type="text" placeholder="Enter Descripten" id="addTaskDescripten" required
 						minlength="5"></textarea>
 					<!-- </form> -->
 					<span class="requiredText" id="descReq">This field is required</span>
 				</div>
 				<div class="addTaskAddCategoryBox">
 					<h3>Category</h3>
-					<button onclick="enableDisableCatList()" id="selectedCat" class='addTaskCatBtnResponsiv'>
+					<button onclick="enableDisableCatList()" id="selectedCat" class='addTaskResponsiv'>
 						<input disabled id="selectedCatInput" placeholder="Select task category" autocomplete="off" />
 						<span id="sColor"></span>
 						<div class="newCategoryImgDiv d-none" id="addTaskNewCatBtn">
@@ -180,7 +181,7 @@ function generateAddTaskHtml() {
 				</div>
 				<div class="addTaskAssignedBox" id="addTaskAssignedBox">
 					<h3>Assigned to</h3>
-					<button id="addTaskAssignedButton" onclick="enableDisableAssignList()" class='addTaskAssignBtnResponsiv'>
+					<button id="addTaskAssignedButton" onclick="enableDisableAssignList()" class='addTaskResponsiv'>
 						<input disabled onclick="doNotCloseOnClick(event)" id="selectedAssign" name="selectedAssign"
 							class="inputselectedAssign" placeholder="Select contacts to assign" autocomplete="off" />
 
@@ -217,7 +218,7 @@ function generateAddTaskHtml() {
 			<div class='addTaskRightContainer'>
 				<div class='addTaskDate'>
 					<h3>Due date</h3>
-					<input required type="date" id='dueDate' min="2023-01-01">
+					<input required type="date" id='dueDate' min="2023-01-01" class='addTaskResponsiv'>
 					<span class='requiredText' id='dateReq'>This field is required</span>
 				</div>
 			<div class='addTaskPrio'>
@@ -239,7 +240,7 @@ function generateAddTaskHtml() {
 			</div>
 			<div class='subtask'>
 				<h3>Subtask</h3>
-				<div class='inputDiv'>
+				<div class='inputDiv addTaskResponsiv'>
 					<form onsubmit='addSubtask(); return false'>
 						<input type="text" placeholder="Add new subtask" id="subTask" autocomplete="off"
 							onfocus="subTaskInputentered()" onblur="subTaskInputLeave()" minlength="3" />
