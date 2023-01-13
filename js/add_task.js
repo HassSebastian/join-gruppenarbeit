@@ -212,7 +212,7 @@ function generateAddTaskHtml() {
 				</div>
 			</div>
 			
-			<div class="addTaskDivider">
+			<div class="addTaskDivider" id= 'addTaskDiverder'>
 
 			</div>
 			<div class='addTaskRightContainer'>

@@ -241,9 +241,9 @@ function myFunction(tabWidth) {
         document.getElementById('CatListDropdown').style = 'width: calc(100vw - 142px) !important;';
         document.getElementById('dropdown2').style = 'width: calc(100vw - 142px) !important;';
         document.getElementById('assignToCancelConfirmImgContainer').style = 'left: calc(100vw - 221px ) !important;';
-        
         document.getElementById('addTaskPrioIcons').style = 'width: calc(100vw - 142px) !important; justify-content: space-between;';
-
+        document.getElementById('subtaskCross').style = 'left: calc(100vw - 170px ) !important;';
+        document.getElementById('addTaskDiverder').style = 'display: none;';
     } else {
         content.style = 'height: 1024px';
         document.getElementById('dropdownImg').style = 'left: 392px !important;';
@@ -254,6 +254,8 @@ function myFunction(tabWidth) {
         document.getElementById('assignToCancelConfirmImgContainer').style = 'left: 341px !important;';
         
         document.getElementById('addTaskPrioIcons').style = 'width: 424px !important; justify-content: center;';
+        document.getElementById('subtaskCross').style = 'left: 392px !important;';
+        document.getElementById('addTaskDiverder').style = 'display: flex;';
     }
 
 }
