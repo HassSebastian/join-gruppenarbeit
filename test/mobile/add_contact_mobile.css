@@ -1,0 +1,259 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.overlayMasterContainerMob {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 0px 35px;
+    gap: 49px;
+    isolation: isolate;
+    position: relative;
+    width: 381px;
+    height: 761px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+}
+
+.blackContainerMob {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 66px 46px;
+    gap: 12px;
+    isolation: isolate;
+    width: 381px;
+    height: 351px;
+    background: #2A3647;
+    flex: none;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    order: 0;
+    flex-grow: 0;
+    z-index: 0;
+}
+
+.addContactMob {
+    width: 282px;
+    height: 56px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 47px;
+    line-height: 120%;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    z-index: 0;
+}
+
+.addContactDiscrMob {
+    width: 289px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #FFFFFF;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    z-index: 1;
+}
+
+.addContactVectorMob {
+    width: 90px;
+    height: 0;
+    border: 3px solid #29ABE2;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    z-index: 2;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    z-index: 2;
+}
+
+.closeButtonMob {
+    position: absolute;
+    width: 21.65px;
+    height: 21.65px;
+    left: 350.31px;
+    top: 26px;
+    transform: rotate(45deg);
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+    z-index: 3;
+}
+
+.addNewContactLogoElypseContainer {
+    position: absolute;
+    top: 460px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.addNewContactLogoElypse {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 100%;
+}
+
+.addNewContactLogoLogo {
+    position: absolute;
+    width: 47px;
+    height: 62px;
+}
+
+.contactImputMasterContainerMob {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 15px;
+    width: 327px;
+    height: 213px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    z-index: 1;
+}
+
+.outerInputContainerMob {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 327px;
+    height: 61px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.inputContainerMob {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 327px;
+    height: 41px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.innerInputContainerMob {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    width: 285px;
+    height: 25px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.imputFieldMob {
+    width: max-content;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #D1D1D1;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    border: 0;
+    outline: none;
+}
+
+.innerInputContainerMob img {
+    width: 24px;
+    height: 24px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.required {
+    width: 119px;
+    height: 12px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.createContactButtonMob {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    width: 212px;
+    height: 51px;
+    background: #2A3647;
+    border-radius: 10px;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    z-index: 2;
+    border: 0;
+}
+
+.createContactButtonMob:hover{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #29ABE2;    
+}
+
+.createContactButtonMob span {
+    width: 158px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.createContactButtonMob img {
+    width: 20px;
+    height: 20px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
