@@ -216,7 +216,6 @@ window.onresize = function () {
 };
 
 window.onload = function () {
-    console.log('innerWidth: ', window.innerWidth);
     let tabWidth = window.innerWidth;
     if (tabWidth <= 1100) {
         myFunction(tabWidth);
@@ -231,9 +230,9 @@ function getInnerWidth() {
 }
 
 function myFunction(tabWidth) {
-    console.log("my Function Started");
     let contentH = document.getElementById('contentHeight');
     let content = document.getElementById('content');
+    
     if (contentH && tabWidth <= 1100) {
         content.style = 'height: auto;';
     } else {
