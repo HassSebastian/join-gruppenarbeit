@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./signIn_mobile.css">
+</head>
+
+<body>
+    <div class="mobilMasterContainer">
+        <div class="signInLogoMob">
+            <img class="signInLogoImgMob" src="../assets/img/join_logo_black.png" alt="">
+        </div>
+        <div class="signInMasterContainerMob">
+            <div class="signInContainerMob">
+                <span class="signInHeadlineMob">Sign in</span>
+                <div class="signInVectorMob"></div>
+
+                <div class="signInInputMasterContainerMob">
+                    <div class="signInOutInputContainerMob">
+                        <div class="signInInputContainerMob">
+                            <div class="signInInnerInputContainerMob">
+                                <input class="inputSignUpMob" type="text" placeholder="Name" id="inputNameSignUp">
+                                <img src="../assets/img/name_logo.png">
+                            </div>
+                        </div>
+                        <span class="required" id="requiredName">This field is required</span>
+                    </div>
+                    <div class="signInOutInputContainerMob">
+                        <div class="signInInputContainerMob">
+                            <div class="signInInnerInputContainerMob">
+                                <input class="inputSignUpMob" type="text" placeholder="Email" id="inputEmailSignUp">
+                                <img src="../assets/img/email_Logo.png">
+                            </div>
+                        </div>
+                        <span class="required" id="requiredEmail">This field is required</span>
+                    </div>
+                    <div class="signInOutInputContainerMob">
+                        <div class="signInInputContainerMob">
+                            <div class="signInInnerInputContainerMob">
+                                <input class="inputSignUpMob" type="password" placeholder="Password" id="inputPasswordSignUp">
+                                <div onclick="passwordShowIcon()">
+                                    <img src="../assets/img/password_logo.png" id="passwordLogo">
+                                    <img src="../assets/img/pwShowButton.png" id="pwShowButton" class="d-none">
+                                </div>
+                            </div>
+                        </div>
+                        <span class="required" id="requiredPassword">This field is required</span>
+                    </div>
+                </div>
+    
+            </div>
+            <button class="signInButtonContainerMob">
+                <span id="signUpButton">Sign up</span>
+                <span id="signUpButtonDone" class="d-none">Sign up Done</span>
+            </button>
+            <div class="arrowContainerMob" onclick="backToLogIn()">
+                <img src="../assets/img/back_logo.png">
+            </div>
+    
+        </div>
+
+    </div>
+</body>
+
+</html>
