@@ -1,0 +1,417 @@
+.d-none {
+    display: none;
+}
+
+.pageOneMob {
+    position: relative;
+    width: 428px;
+    height: 926px;
+    background: #2A3647;
+}
+
+.pageOneMob img {
+    position: absolute;
+    left: 38.32%;
+    right: 38.31%;
+    top: 43.41%;
+    bottom: 43.42%;
+}
+
+.logInContainerMob {
+    position: relative;
+    width: 428px;
+    height: 926px;
+    background: #F6F7F8;
+}
+
+.notAJoinUserContainerMob {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 35px;
+    position: absolute;
+    width: 287px;
+    height: 51px;
+    left: 70px;
+    top: 816px;
+}
+
+.notAJoinUserContainerMob span {
+    width: 161px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.notAJoinUserButtonMob {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 16px;
+    gap: 10px;
+    width: 91px;
+    height: 51px;
+    background: #2A3647;
+    border-radius: 8px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.notAJoinUserButtonMob span {
+    width: 59px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 120%;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.logInLogoMob {
+    position: absolute;
+    width: 64px;
+    height: 78.03px;
+    left: 64px;
+    top: 64px;
+}
+
+.logInLogoImgMob {
+    width: 64px;
+    height: 78.03px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.logInMasterContainerMob {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px 0px;
+    gap: 35px;
+    position: absolute;
+    width: 372px;
+    height: 573px;
+    left: 28px;
+    top: 194px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+}
+
+.logInHeadlineMob {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 24px;
+    width: 315px;
+    height: 80px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.logInHeadlineMob span {
+    width: 315px;
+    height: 56px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 47px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.logInHeadlineMob div {
+    width: 88px;
+    height: 0;
+    border: 3px solid #29ABE2;
+}
+
+.logInInputMasterContainerMob {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+    width: 327px;
+    height: 230px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.logInInputContainerMob {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 29px;
+    width: 327px;
+    height: 151px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.logInFieldContainerMob {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 327px;
+    height: 61px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.logInContainerMob {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 327px;
+    height: 41px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.logInInnerFieldContainerMob {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    width: 285px;
+    height: 25px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.inputLogInMob {
+    width: min-content;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #D1D1D1;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    border: 0;
+    outline: none;
+}
+
+.inputLogInImgMob {
+    width: 20px;
+    height: 18px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.required {
+    width: 119px;
+    height: 12px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.logInPWForgotContainerMob {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 31px;
+    width: 327px;
+    height: 69px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.logInPWForgotContainerMob span {
+    width: 154px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #29ABE2;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    cursor: pointer;
+}
+
+.rememberMeContainerMob {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 20px;
+    width: 146px;
+    height: 19px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.rememberMeContainerMob div {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    display: flex;
+    align-items: center;
+}
+
+.rememberMeContainerMob span {
+    width: 110px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.logInButtonContainerMob{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 21px;
+width: 180px;
+height: 123px;
+flex: none;
+order: 2;
+flex-grow: 0;
+}
+
+.logInButtonMob{
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 0px;
+gap: 10px;
+width: 180px;
+height: 51px;
+background: #2A3647;
+border-radius: 8px;
+flex: none;
+order: 0;
+flex-grow: 0;
+border: 0;
+}
+
+.logInButtonMob span{
+    width: 48px;
+height: 19px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 120%;
+color: #FFFFFF;
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.logInButtonMob:hover{
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    transition: 100ms ease-in-out;
+    cursor: pointer;
+}
+
+.guestButtonMob{
+    box-sizing: border-box;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 0px;
+gap: 10px;
+width: 180px;
+height: 51px;
+border: 1px solid #2A3647;
+border-radius: 8px;
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+
+.guestButtonMob span{
+    width: 98px;
+height: 19px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 120%;
+color: #2A3647;
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.guestButtonMob:hover{
+    border: 1px solid #29ABE2;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    transition: 100ms ease-in-out;
+    cursor: pointer;
+}
+
+.guestButtonMob:hover * {
+    color: #29ABE2;
+    transition: 100ms ease-in-out;
+}

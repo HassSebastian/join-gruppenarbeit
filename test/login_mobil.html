@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./login_mobil.css">
+
+</head>
+
+<body>
+    <div class="pageOneMob d-none">
+        <img src="../assets/img/join_logo.png" alt="">
+    </div>
+
+    <div class="logInContainerMob">
+        <div class="notAJoinUserContainerMob">
+            <span>Not a Join user?</span>
+            <button class="notAJoinUserButtonMob">
+                <span>Sign up</span>
+            </button>
+        </div>
+    </div>
+    <div class="logInLogoMob">
+        <img class="logInLogoImgMob" src="../assets/img/join_logo_black.png" alt="">
+    </div>
+    <div class="logInMasterContainerMob">
+        <div class="logInHeadlineMob">
+            <span>Log in</span>
+            <div></div>
+        </div>
+        <div class="logInInputMasterContainerMob">
+            <div class="logInInputContainerMob">
+                <div class="logInFieldContainerMob">
+                    <div class="logInContainerMob">
+                        <div class="logInInnerFieldContainerMob">
+                            <!-- add input field  id -->
+                            <input class="inputLogInMob" type="text" placeholder="Email" id="inputEmailLogin"
+                                onclick="logInAtLocalstorage()">
+                            <img src="../assets/img/email_Logo.png">
+                        </div>
+                    </div>
+                    <span class="required" id="requiredEmailLogin">This field is required</span>
+                </div>
+                <div class="logInFieldContainerMob">
+                    <div class="logInContainerMob">
+                        <div class="logInInnerFieldContainerMob">
+                            <!-- add input field  id -->
+                            <input class="inputLogInMob" type="password" placeholder="Password" id="inputPasswordLogin">
+                            <div onclick="passwordShowIcon()">
+                                <img src="../assets/img/password_logo.png" id="passwordLogo">
+                                <img src="../assets/img/pwShowButton.png" id="pwShowButton" class="d-none">
+                            </div>
+                        </div>
+                    </div>
+                    <span class="required" id="requiredPasswordLogin">This field is required</span>
+                </div>
+            </div>
+            <div class="logInPWForgotContainerMob">
+                <span class="forgotPassword" onclick="forgotPassword()">Forgot my password</span>
+                <div class="rememberMeContainerMob">
+                    <div>
+                        <input type="checkbox" id="checkbox" name="checkbox">
+                    </div>
+                    <span>Remember me</span>
+                </div>
+            </div>
+        </div>
+        <div class="logInButtonContainerMob">
+            <!-- onclick function userLogin() add to button -->
+            <button class="logInButtonMob">
+                <span>Log in</span>
+            </button>
+            <button class="guestButtonMob" onclick="guestLogIn()">
+                <span>Guest Log in</span>
+            </button>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
