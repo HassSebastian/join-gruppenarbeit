@@ -135,21 +135,21 @@ function openEditContact(i) {
                 <div class="nameOutContainer">
                     <div class="nameContainer">
                         <div class="inputEditContainer">
-                            <input class="inputName" type="text" value="${name}">
+                            <input class="inputName" id="editUserName" type="text" value="${name}">
                             <img src="./assets/img/name_logo.png" alt="">
                         </div>
                         <span class="required">This field is required</span>
                     </div>
                     <div class="nameContainer">
                         <div class="inputEditContainer">
-                            <input class="inputName" type="email" value="${email}">
+                            <input class="inputName" id="editUserEmail" type="email" value="${email}">
                             <img src="./assets/img/email_Logo.png" alt="">
                         </div>
                         <span class="required">This field is required</span>
                     </div>
                     <div class="nameContainer">
                         <div class="inputEditContainer">
-                            <input class="inputName" type="number" value="${phone}">
+                            <input class="inputName" id="editUserPhone" type="number" value="${phone}">
                             <img src="./assets/img/phoneLogo.png" alt="">
                         </div>
                         <span class="required">This field is required</span>
@@ -196,21 +196,21 @@ function openNewContact() {
                 <div class="nameOutContainer">
                     <div class="nameContainer">
                         <div class="inputEditContainer">
-                            <input class="inputName" id="contactName" type="text" placeholder="Name">
+                            <input class="inputName" id="newUserName" type="text" placeholder="Name">
                             <img src="./assets/img/name_logo.png" alt="">
                         </div>
                         <span class="required">This field is required</span>
                     </div>
                     <div class="nameContainer">
                         <div class="inputEditContainer">
-                            <input class="inputName" id="contactEmail" type="email" placeholder="Email">
+                            <input class="inputName" id="newUserEmail" type="email" placeholder="Email">
                             <img src="./assets/img/email_Logo.png" alt="">
                         </div>
                         <span class="required">This field is required</span>
                     </div>
                     <div class="nameContainer">
                         <div class="inputEditContainer">
-                            <input class="inputName" id="contactPhone" type="number" placeholder="Phone">
+                            <input class="inputName" id="newUserPhone" type="number" placeholder="Phone">
                             <img src="./assets/img/phoneLogo.png" alt="">
                         </div>
                         <span class="required">This field is required</span>
@@ -269,16 +269,19 @@ function showContact(i) {
     `;
 }
 
-function addContact() {
+async function addContact() {
+    let name = document.getElementById('newUserName').value;
+    let email = document.getElementById('newUserEmail').value;
+    let phone = document.getElementById('newUserPhone').value;
+    let firstLetter = name[0];
+    let secondLetter = await calcSecondLetter(name);
+    let colorIndex = await calcColorIndex(firstLetter, secondLetter);
+    allUsers.push({'name': name, 'email': email, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter, 'phone': phone});
+    await saveTask();
+    closeNewContact();
+    userInAlphabetArray();
 }
 
-
-function deleteContact(i) {
-}
-
-function contacts() {
-    alert('Verbindung zu contacts herstellen!!!');
-}
 
 function cancelOn() {
     document.getElementById('cancelImg').src = "././assets/img/close_logo_blue.png";
@@ -299,12 +302,33 @@ function saveEditContact(i) {
     }
 }
 
-function editContact(i) {
- 
+async function editContact(i) {
+    let name = document.getElementById('editUserName').value;
+    let email = document.getElementById('editUserEmail').value;
+    let phone = document.getElementById('editUserPhone').value;
+    let password = allUsers[i].password;
+    let firstLetter = name[0];
+    let secondLetter = await calcSecondLetter(name);
+    let colorIndex = await calcColorIndex(firstLetter, secondLetter);
+    allUsers[i] = {'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter, 'phone': phone};
+    await saveTask();
+    closeEditContact();
+    document.getElementById('showContact').classList.add('d-none')
+    userInAlphabetArray();
+}
 
 
-    allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter});
+function calcSecondLetter(name){
+    let spaceIndex = name.indexOf(' ');
+    let secondName = name.substring(spaceIndex + 1);
+    let secondLetter = secondName[0];
+    return secondLetter;
+}
 
-
-
+function calcColorIndex(firstLetter, secondLetter){
+    let asciiFirstLetter = firstLetter.charCodeAt(0);
+    let asciiSecondLetter = secondLetter.charCodeAt(0);
+    let sum = asciiFirstLetter + asciiSecondLetter;
+    let colorIndex = sum % 10;
+    return colorIndex;
 }
