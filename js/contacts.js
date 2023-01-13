@@ -103,6 +103,7 @@ function openEditContact(i) {
     let letter = allUsers[i].firstSecondLetter;
     let name = allUsers[i].name;
     let email = allUsers[i].email;
+    let phone = allUsers[i].phone;
 
     document.getElementById('edit_contact').classList.remove('d-none')
     document.getElementById('edit_contact').innerHTML /*html*/ = '';
@@ -148,7 +149,7 @@ function openEditContact(i) {
                     </div>
                     <div class="nameContainer">
                         <div class="inputEditContainer">
-                            <input class="inputName" type="number" placeholder="+49 2222 222 22 2">
+                            <input class="inputName" type="number" value="${phone}">
                             <img src="./assets/img/phoneLogo.png" alt="">
                         </div>
                         <span class="required">This field is required</span>
@@ -233,7 +234,7 @@ function closeEditContact() {
 function showContact(i) {
     let name = allUsers[i].name;
     let email = allUsers[i].email;
-    // let phone = allUsers[i].phone;
+    let phone = allUsers[i].phone;
     let letter = allUsers[i].firstSecondLetter;
 
     let color = allUsers[i].colorIndex;
@@ -262,45 +263,17 @@ function showContact(i) {
                 <h3>Email</h3>
                 <span>${email}</span>
                 <h3>Phone</h3>
-                <p>Telefonnummer</p>
+                <p>${phone}</p>
             </div>
         </div>
     `;
 }
 
 function addContact() {
-    var contact = {};
-
-    inputName = document.getElementById('contactName').value;
-    contact.name = inputName.charAt(0).toUpperCase() + inputName.slice(1);
-    contact.email = document.getElementById('contactEmail').value;
-    contact.phone = document.getElementById('contactPhone').value;
-    contact.id = newContactUser.length;
-
-
-    newContactUser.push(contact);
-    closeNewContact();
-
 }
 
-function editContact(i) {
-    var contact = {};
-
-    inputName = document.getElementById('editContactName').value;
-    contact.name = inputName.charAt(0).toUpperCase() + inputName.slice(1);
-    contact.email = document.getElementById('editContactEmail').value;
-    contact.phone = document.getElementById('editContactPhone').value;
-    contact.id = contacts.length;
-
-    contacts.splice(i, 1, contact);
-    showContact(i)
-    closeEditContact();
-}
 
 function deleteContact(i) {
-    contacts.splice(i, 1);
-    closeEditContact();
-    document.getElementById('showContact').classList.add('d-none')
 }
 
 function contacts() {
@@ -320,8 +293,18 @@ function saveEditContact(i) {
     let logUserId = loggedUser[0];
         // jeder darf nur seine eigenen Daten ändern
     if (nameId == logUserId) {
-        alert('muss noch mit dem backend verbunden werden');
+        editContact(i);
     } else {
         document.getElementById('saveEditButton').innerHTML = `No Authorization`;
     }
+}
+
+function editContact(i) {
+ 
+
+
+    allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter});
+
+
+
 }

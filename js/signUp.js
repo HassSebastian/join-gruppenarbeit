@@ -66,38 +66,40 @@ async function emailToCheck(name, email, password) {
             requiredEmail.classList.add('requiredOn');
             requiredEmail.innerHTML = `This email address is already available!!`;
         } else {
-            firstAndSecondLetter(name, email, password);
+            // firstAndSecondLetter(name, email, password);
+            calculateAllUserArray(name, email, password);
         }
     }
 }
 
-function firstAndSecondLetter(name, email, password){
-    let vorUndZuName = name;
+
+async function calculateAllUserArray(name, email, password){
     let firstLetter = name[0];
+    let secondLetter = await calcSecondLetter(name);
+    let colorIndex = await calcColorIndex(firstLetter, secondLetter);
+    userSignIn(firstLetter, secondLetter, name, email, password, colorIndex);
+}
+
+function calcSecondLetter(name){
     let spaceIndex = name.indexOf(' ');
     let secondName = name.substring(spaceIndex + 1);
     let secondLetter = secondName[0];
-
-    nameColorCalc(firstLetter, secondLetter, name, email, password);
+    return secondLetter;
 }
-function nameColorCalc(firstLetter, secondLetter, name, email, password){
+
+function calcColorIndex(firstLetter, secondLetter){
     let asciiFirstLetter = firstLetter.charCodeAt(0);
     let asciiSecondLetter = secondLetter.charCodeAt(0);
     let sum = asciiFirstLetter + asciiSecondLetter;
-    let colorIndex = sum % 10; 	// rersult ist dann die Farbe aus dem colors Array in Zeile 3
-
-    userSignIn(firstLetter, secondLetter, name, email, password, colorIndex)
+    let colorIndex = sum % 10;
+    return colorIndex;
 }
-
-
 
 // save user data and forward to login site
 async function userSignIn(firstLetter, secondLetter, name, email, password, colorIndex) {
     await loadTask();
     allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter});
     await saveTask();
-
-
     signUpDone();
     setTimeout(() => {
         window.location.href = './login.html';
@@ -108,28 +110,6 @@ function signUpDone(){
     document.getElementById('signUpButton').classList.add('d-none');
     document.getElementById('signUpButtonDone').classList.remove('d-none');
 }
-
-// save user data help fuction -null-
-//async function keyQueryNull(firstLetter, secondLetter, name, email, password, colorIndex) {
-    //allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter});
-    // let allUsersAtString = JSON.stringify(allUsers);
-    // localStorage.setItem('allUsers', allUsersAtString);
-	//setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-	//backend.setItem('users', JSON.stringify(allUsers));
-//}
-
-// save user data help function -one-
-//async function keyQueryOne(firstLetter, secondLetter, name, email, password, colorIndex) {
-    //await loadTask();
-    // let allUsersString = localStorage.getItem('allUsers');
-    // allUsers = JSON.parse(allUsersString);
-    //allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter});
-    // let allUsersAtString = JSON.stringify(allUsers);
-    // localStorage.setItem('allUsers', allUsersAtString);
-	//setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-	//backend.setItem('users', JSON.stringify(allUsers));
-    //await saveTask();
-//}
 
 function passwordShowIcon(){
 	document.getElementById('passwordLogo').classList.toggle('d-none');
