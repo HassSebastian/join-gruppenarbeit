@@ -120,7 +120,7 @@ async function initAddTask() {
 
 function generateAddTaskHtml() {
 	return /*html*/ `
-	<div class='contentHeight'>
+	<div class='contentHeight' id='contentHeight'>
 		<div class='testResponsiv'>
 			<div class="addTaskHeadlineDiv">
 				<h2 class="addTHeadline">Add Task</h2>
@@ -142,7 +142,7 @@ function generateAddTaskHtml() {
 				<div class="addTaskAddTitleBox">
 					<h3>Title</h3>
 					<form onsubmit="goToDescripten(); return false">
-						<input required type="text" placeholder="Enter a title" id="addTaskTitle" autocomplete="off"
+						<input class='addTaskTitleResponsiv' required type="text" placeholder="Enter a title" id="addTaskTitle" autocomplete="off"
 							minlength="3" />
 					</form>
 					<span class="requiredText" id="titleReq">This field is required</span>
@@ -150,14 +150,14 @@ function generateAddTaskHtml() {
 				<div class="addTaskAddDescriptenBox">
 					<h3>Descripten</h3>
 					<!-- <form onblur='goToCategorySelection(); return false' id='formDesc' action='action.asp'> -->
-					<textarea form="formDesc" type="text" placeholder="Enter Descripten" id="addTaskDescripten" required
+					<textarea class='addTaskDescResponsiv' form="formDesc" type="text" placeholder="Enter Descripten" id="addTaskDescripten" required
 						minlength="5"></textarea>
 					<!-- </form> -->
 					<span class="requiredText" id="descReq">This field is required</span>
 				</div>
 				<div class="addTaskAddCategoryBox">
 					<h3>Category</h3>
-					<button onclick="enableDisableCatList()" id="selectedCat">
+					<button onclick="enableDisableCatList()" id="selectedCat" class='addTaskCatBtnResponsiv'>
 						<input disabled id="selectedCatInput" placeholder="Select task category" autocomplete="off" />
 						<span id="sColor"></span>
 						<div class="newCategoryImgDiv d-none" id="addTaskNewCatBtn">
@@ -180,7 +180,7 @@ function generateAddTaskHtml() {
 				</div>
 				<div class="addTaskAssignedBox" id="addTaskAssignedBox">
 					<h3>Assigned to</h3>
-					<button id="addTaskAssignedButton" onclick="enableDisableAssignList()">
+					<button id="addTaskAssignedButton" onclick="enableDisableAssignList()" class='addTaskAssignBtnResponsiv'>
 						<input disabled onclick="doNotCloseOnClick(event)" id="selectedAssign" name="selectedAssign"
 							class="inputselectedAssign" placeholder="Select contacts to assign" autocomplete="off" />
 

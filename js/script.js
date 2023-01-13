@@ -208,3 +208,39 @@ function enableDisableSliderMenu(){
     sliderMenuOpen = !sliderMenuOpen;
 }
 
+
+window.onresize = function() {
+    if (window.innerWidth >= 500 && window.innerWidth <= 1110) {
+      myFunction(window.innerWidth);
+    }
+  };
+
+window.onload = function () {
+    console.log('innerWidth: ', window.innerWidth);
+    let tabWidth = window.innerWidth;
+    if (tabWidth <= 1100){
+        myFunction(tabWidth);
+    }
+}
+
+function getInnerWidth(){
+    let tabWidth = window.innerWidth;
+    if (tabWidth <= 1100){
+        myFunction(tabWidth);
+    }
+}
+  
+  function myFunction(tabWidth) {
+    console.log("my Function Started");
+    let contentH = document.getElementById('contentHeight');
+    let content = document.getElementById('content');
+    if(contentH && tabWidth <= 1100){
+        content.style = 'height: auto;';
+    }else{
+        content.style = 'height: 1024px';
+    }
+
+  }
+
+
+
