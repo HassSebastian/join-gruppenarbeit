@@ -1,13 +1,16 @@
-body{
+body {
     margin: 0px;
+
 }
 
 .addTaskMobil {
     position: relative;
     width: 428px;
     height: 926px;
+    overflow: hidden;
     overflow-y: scroll;
     background: #F6F7F8;
+    /* overflow: hidden; */
 }
 
 /* header */
@@ -81,13 +84,7 @@ body{
 
 
 /* bottom menu bar */
-.mobilMenu {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 15px;
+nav {
     position: absolute;
     width: 428px;
     height: 80px;
@@ -95,129 +92,62 @@ body{
     top: 846px;
 }
 
-.frame162 {
+.navMasterContainerMob {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 12px;
     gap: 10px;
-    /* width: 428px; */
-    width: 404px;
+    position: absolute;
+    width: 428px;
     height: 80px;
+    left: 0px;
+    top: 0px;
     background: #2A3647;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 0px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 }
 
-.frame162Summary {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 53px;
-    gap: 10px;
-    width: 75px;
-    height: 32px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
-.ut-web-grid {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1px;
-    gap: 10px;
-    width: 30px;
-    height: 30px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
-.menutitleSummary {
-    width: 72px;
-    height: 19px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
-    color: #CDCDCD;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-}
-
-.ut-web-grid img {
+.navContainerMob {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0px;
     gap: 10px;
-    width: 30px;
-    height: 30px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
-.ut-web-grid span {
-    width: 72px;
-    height: 19px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
-    color: #CDCDCD;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-}
-
-
-.boardBottomIcon {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 53px;
-    gap: 20px;
     width: 75px;
     height: 80px;
+    /* border-radius: 8px; */
     flex: none;
-    order: 1;
+    order: 0;
     flex-grow: 0;
+    cursor: pointer;
 }
 
-.frame7 {
+.navContainerMob:hover {
+    background: #091931;
+}
+
+.navInnerContainerMob {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0px;
     gap: 10px;
-    width: 45px;
+    width: max-content;
     height: 59px;
     flex: none;
     order: 0;
     flex-grow: 0;
 }
 
-.frame7 img {
+.navInnerContainerMob img {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0px;
-    gap: 10px;
     width: 30px;
     height: 30px;
     flex: none;
@@ -225,8 +155,8 @@ body{
     flex-grow: 0;
 }
 
-.frame7 span {
-    width: 45px;
+.navInnerContainerMob span {
+    width: fit-content;
     height: 19px;
     font-family: 'Inter';
     font-style: normal;
@@ -236,73 +166,6 @@ body{
     color: #CDCDCD;
     flex: none;
     order: 1;
-    flex-grow: 0;
-}
-
-.backing
-
-.addTaskBottomIcon {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    gap: 10px;
-    width: 80px;
-    height: 80px;
-    background: #091931;
-    flex: none;
-    order: 3;
-    flex-grow: 0;
-}
-
-.writeTaskIcon {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    width: 30px;
-    height: 30px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    gap: 10px;
-}
-
-.writeTaskIcon img {
-    width: 30px;
-    height: 30px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
-.writeTaskIcon span {
-    width: 71px;
-    height: 19px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
-    color: #FFFFFF;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-}
-
-.contactsMobil {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    gap: 10px;
-    width: 75px;
-    height: 80px;
-    flex: none;
-    order: 4;
     flex-grow: 0;
 }
 
@@ -383,3 +246,182 @@ body{
     margin-block-start: 0px;
     margin-block-end: 0px;
 }
+
+/* add Task fomular */
+
+.addTaskFomularMobil {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 9px;
+    position: absolute;
+    width: 363px;
+    height: 700px;
+    left: 31px;
+    top: 231px;
+}
+
+.addTaskTitleMobil {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 9px;
+    position: absolute;
+    width: 363px;
+    height: 700px;
+    left: 31px;
+    top: 231px;
+}
+
+.addTaskTitleMobil h3 {
+    width: 65px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+.addTaskTitleMobil input {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 11px 21px;
+    gap: 10px;
+    width: 363px;
+    height: 41px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #D1D1D1;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.addTaskDescriptionMobil {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 363px;
+    height: 120px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    position: absolute;
+    left: 31px;
+    top: 308px;
+}
+
+.addTaskDescriptionMobil h3 {
+    width: 154px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+.addTaskDescriptionMobil textarea {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 18px 21px;
+    gap: 10px;
+    width: 363px;
+    height: 93px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #D1D1D1;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+
+.addTaskPrioMobil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    width: 363px;
+    height: 78px;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+
+    position: absolute;
+    top: 437px;
+    left: 31px;
+}
+
+.frame28 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 353px;
+    height: 78px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.frame28 h3 {
+    width: 30px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+

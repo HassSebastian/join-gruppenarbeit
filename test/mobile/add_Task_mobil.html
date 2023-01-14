@@ -35,38 +35,6 @@
         <button><span>Create</span><img src='../../assets/img/akar-icons_check_white.png'> </button>
 
     </header>
-    <div class='mobilMenu'>
-        <div class='frame163'>
-            <div class='frame162'>
-                <div class='frame162Summary'>
-                    <div class='ut-web-grid'>
-                        <img src="../../assets/img/summary_mobil_symbol.png" >
-                        <span class='menutitleSummary'>Summary</span>
-                    </div>
-                </div>
-                <div class='boardBottomIcon'>
-                    <div class='frame7'>
-                        <img src="../../assets/img/board_mobil_symbol.png">
-                        <span>Board</span>
-                    </div>
-                    
-                </div>
-                <div class='addTaskBottomIcon'>
-                    <div class='writeTaskIcon'>
-                        <img src="../../assets/img/add_task_mobil_symbol.png">
-                        <span>addTask</span>
-                    </div>
-                </div>
-                <div class='contactsMobil'>
-                    <div class='frame7'>
-                        <img src="../../assets/img/contacts_mobil_symbol.png">
-                        <span>Contacts</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
     <div class = 'frame164'>
         <h3>Kanban Project Management Tool</h3>
     </div>
@@ -75,6 +43,67 @@
             <h2>Add Task</h2>
         </div>
     </div>
+
+    <div class='addTaskTitleMobil'>
+        <h3>Title</h3>
+        <input type="text" placeholder='Enter a title'>
+    </div>
+
+    <div class='addTaskDescriptionMobil'>
+        <h3>Descripten</h3>
+        <textarea type="text" placeholder='Enter a descripten'></textarea>
+    </div>
+
+    <div class='addTaskPrioMobil'>
+        <div class='frame28'>
+            <h3>Prio</h3>
+            <div class='addTaskPrioIcons' id='addTaskPrioIcons'>
+                <div class='addTaskUrgent' id='addTaskUrgent' onclick='addPrio(0)'>
+                    <span id='addTaskUrgentSpan'>Urgent</span>
+                    <img id='addTaskUrgentImg' src="../assets/img/urgent_arrows.png">
+                </div>
+                <div class='addTaskMedium' id='addTaskMedium' onclick='addPrio(1)'>
+                    <span id='addTaskMediumSpan'>Medium</span>
+                    <img id='addTaskMediumImg' src="../assets/img/prio_medium.png">
+                </div>
+                <div class='addTaskLow' id='addTaskLow' onclick='addPrio(2)'>
+                    <span id='addTaskLowSpan'>Low</span>
+                    <img id='addTaskLowImg' src="../assets/img/prio_low.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <nav>
+        <div class="navMasterContainerMob">
+            <div class="navContainerMob">
+                <div class="navInnerContainerMob">
+                    <img src="../assets/img/img_summary_w.png" alt="">
+                    <span>Summary</span>
+                </div>
+            </div>
+            <div class="navContainerMob">
+                <div class="navInnerContainerMob">
+                    <img src="../assets/img/img_board_w.png" alt="">
+                    <span>Board</span>
+                </div>
+            </div>
+            <div class="navContainerMob">
+                <div class="navInnerContainerMob">
+                    <img src="../assets/img/img_add_task_w.png" alt="">
+                    <span>Add Task</span>
+                </div>
+            </div>
+            <div class="navContainerMob">
+                <div class="navInnerContainerMob">
+                    <img src="../assets/img/img_contacts_w.png" alt="">
+                    <span>Contacts</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
 
 </div>
     
