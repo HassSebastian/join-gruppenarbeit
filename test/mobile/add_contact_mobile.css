@@ -24,18 +24,16 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 66px 46px;
     gap: 12px;
-    isolation: isolate;
     width: 381px;
     height: 351px;
     background: #2A3647;
     flex: none;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
     order: 0;
     flex-grow: 0;
     z-index: 0;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
 }
 
 .addContactMob {
@@ -47,6 +45,8 @@ body {
     font-size: 47px;
     line-height: 120%;
     color: #FFFFFF;
+    margin-left: 66px;
+
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -62,6 +62,7 @@ body {
     font-size: 21px;
     line-height: 120%;
     color: #FFFFFF;
+    margin-left: 66px;
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -71,7 +72,8 @@ body {
 .addContactVectorMob {
     width: 90px;
     height: 0;
-    border: 3px solid #29ABE2;
+    border: 2px solid #29ABE2;
+    margin-left: 66px;
     flex: none;
     order: 2;
     flex-grow: 0;
@@ -95,26 +97,40 @@ body {
     z-index: 3;
 }
 
-.addNewContactLogoElypseContainer {
-    position: absolute;
-    top: 460px;
+.addNewBatchContainerMob {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-
-}
-
-.addNewContactLogoElypse {
+    padding: 0px;
+    gap: 10px;
     position: absolute;
     width: 120px;
     height: 120px;
+    left: 131px;
+    top: 267px;
+    background: #FFFFFF;
     border: 3px solid #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 100%;
+    border-radius: 70px;
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+    z-index: 1;
+}
+
+.userColorBatchMob {
+    width: 120px;
+    height: 120px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
 .addNewContactLogoLogo {
     position: absolute;
+    left: 37px;
+    top: 25.71px;
     width: 47px;
     height: 62px;
 }
@@ -231,9 +247,9 @@ body {
     border: 0;
 }
 
-.createContactButtonMob:hover{
+.createContactButtonMob:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background: #29ABE2;    
+    background: #29ABE2;
 }
 
 .createContactButtonMob span {
