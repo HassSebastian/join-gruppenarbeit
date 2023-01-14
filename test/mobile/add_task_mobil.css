@@ -1,3 +1,7 @@
+body{
+    margin: 0px;
+}
+
 .addTaskMobil {
     position: relative;
     width: 428px;
@@ -5,6 +9,76 @@
     overflow-y: scroll;
     background: #F6F7F8;
 }
+
+/* header */
+.mobilHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    gap: 232px;
+    position: absolute;
+    width: 378px;
+    height: 39.02px;
+    left: 0px;
+    top: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mobilHeader img {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    width: 32px;
+    height: 39.02px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.mobilHeader button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    width: 124px;
+    height: 51px;
+    background: #2A3647;
+    border-radius: 10px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.mobilHeader button span {
+    width: 70px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.mobilHeader button img {
+    width: 24px;
+    height: 24px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
 
 /* bottom menu bar */
 .mobilMenu {
@@ -28,7 +102,8 @@
     align-items: center;
     padding: 0px 12px;
     gap: 10px;
-    width: 428px;
+    /* width: 428px; */
+    width: 404px;
     height: 80px;
     background: #2A3647;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
@@ -164,6 +239,8 @@
     flex-grow: 0;
 }
 
+.backing
+
 .addTaskBottomIcon {
     display: flex;
     flex-direction: column;
@@ -190,6 +267,7 @@
     flex: none;
     order: 0;
     flex-grow: 0;
+    gap: 10px;
 }
 
 .writeTaskIcon img {
@@ -231,9 +309,7 @@
 
 
 
-
-
-.frame163 {
+.frame164 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -247,7 +323,7 @@
     top: 114px;
 }
 
-.frame163 h3 {
+.frame164 h3 {
     width: 255px;
     height: 19px;
     font-family: 'Inter';
@@ -289,7 +365,7 @@
     flex: none;
     order: 0;
     flex-grow: 0;
-    
+
 }
 
 .frame40 h2 {
