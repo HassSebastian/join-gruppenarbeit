@@ -116,7 +116,7 @@ nav {
     top: 846px;
 }
 
-.navMasterContainerMob{
+.navMasterContainerMob {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -129,30 +129,29 @@ nav {
     top: 0px;
     background: #2A3647;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 0px; 
+    border-radius: 0px;
 }
 
-.navContainerMob{
+.navContainerMob {
     display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 0px;
-gap: 10px;
-width: 75px;
-height: 80px;
-/* border-radius: 8px; */
-flex: none;
-order: 0;
-flex-grow: 0;
-cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    width: 75px;
+    height: 80px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    cursor: pointer;
 }
 
-.navContainerMob:hover{
+.navContainerMob:hover {
     background: #091931;
 }
 
-.navInnerContainerMob{
+.navInnerContainerMob {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -163,10 +162,10 @@ cursor: pointer;
     height: 59px;
     flex: none;
     order: 0;
-    flex-grow: 0; 
+    flex-grow: 0;
 }
 
-.navInnerContainerMob img{
+.navInnerContainerMob img {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -179,7 +178,7 @@ cursor: pointer;
     flex-grow: 0;
 }
 
-.navInnerContainerMob span{
+.navInnerContainerMob span {
     width: fit-content;
     height: 19px;
     font-family: 'Inter';
@@ -190,5 +189,5 @@ cursor: pointer;
     color: #CDCDCD;
     flex: none;
     order: 1;
-    flex-grow: 0; 
+    flex-grow: 0;
 }
