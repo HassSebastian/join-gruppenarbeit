@@ -1,4 +1,4 @@
-body{
+body {
     margin: 0;
 }
 
@@ -34,7 +34,7 @@ body{
     flex-grow: 0;
 }
 
-.forgotPWMasterContainerMob{
+.forgotPWMasterContainerMob {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,39 +51,40 @@ body{
     border-radius: 30px;
 }
 
-headline{
+headline {
     width: 315px;
-height: 96px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 40px;
-line-height: 120%;
-text-align: center;
-color: #000000;
-flex: none;
-order: 0;
-flex-grow: 0;
-}
-vector{
-    width: 88px;
-height: 0;
-border: 3px solid #29ABE2;
+    height: 96px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
-description{
+vector {
+    width: 88px;
+    height: 0;
+    border: 3px solid #29ABE2;
+}
+
+description {
     width: 322px;
-height: 75px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 21px;
-line-height: 120%;
-text-align: center;
-color: #000000;
-flex: none;
-order: 2;
-flex-grow: 0;
+    height: 75px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
 }
 
 .forgoPWFieldContainerMob {
@@ -99,38 +100,38 @@ flex-grow: 0;
     flex-grow: 0;
 }
 
-.forgoPWInputFieldContainerMob{
+.forgoPWInputFieldContainerMob {
     display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding: 0px;
-gap: 8px;
-width: 327px;
-height: 61px;
-flex: none;
-order: 1;
-flex-grow: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 327px;
+    height: 61px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
 }
 
-.container{
+.container {
     box-sizing: border-box;
-display: flex;
-flex-direction: row;
-align-items: center;
-padding: 13px 21px;
-gap: 10px;
-width: 327px;
-height: 41px;
-background: #FFFFFF;
-border: 1px solid #D1D1D1;
-border-radius: 10px;
-flex: none;
-order: 0;
-flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 327px;
+    height: 41px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
 
-.forgoPWInnerFieldContainerMob{
+.forgoPWInnerFieldContainerMob {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -144,7 +145,7 @@ flex-grow: 0;
     flex-grow: 0;
 }
 
-.inputForgot{
+.inputForgot {
     width: 53px;
     height: 25px;
     font-family: 'Inter';
@@ -160,76 +161,76 @@ flex-grow: 0;
     outline: none;
 }
 
-.forgoPWInnerFieldContainerMob img{
+.forgoPWInnerFieldContainerMob img {
     width: 20px;
-height: 18px;
-flex: none;
-order: 1;
-flex-grow: 0;
+    height: 18px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
 }
 
-.inputforgoPWMob{
+.inputforgoPWMob {
     display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-padding: 0px;
-gap: 10px;
-width: 285px;
-height: 25px;
-flex: none;
-order: 0;
-flex-grow: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    width: 285px;
+    height: 25px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
-button{
+button {
     display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 4px 0px;
-gap: 10px;
-width: 180px;
-height: 51px;
-background: #2A3647;
-border-radius: 8px;
-flex: none;
-order: 3;
-flex-grow: 0;
-z-index: 1;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 0px;
+    gap: 10px;
+    width: 180px;
+    height: 51px;
+    background: #2A3647;
+    border-radius: 8px;
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+    z-index: 1;
 }
 
-button span{
+button span {
     width: 144px;
-height: 19px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 16px;
-line-height: 120%;
-color: #FFFFFF;
-flex: none;
-order: 0;
-flex-grow: 0;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 120%;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
-.arrowContainerMob{
+.arrowContainerMob {
     position: absolute;
-width: 24px;
-height: 24px;
-left: 29px;
-top: 23px;
-flex: none;
-order: 2;
-flex-grow: 0;
-z-index: 2;
+    width: 24px;
+    height: 24px;
+    left: 29px;
+    top: 23px;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    z-index: 2;
 }
 
-.arrowContainerMob img{
+.arrowContainerMob img {
     position: absolute;
-left: 16.67%;
-right: 16.67%;
-top: 17.59%;
-bottom: 17.59%;
-cursor: pointer;
+    left: 16.67%;
+    right: 16.67%;
+    top: 17.59%;
+    bottom: 17.59%;
+    cursor: pointer;
 }
