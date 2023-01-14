@@ -93,11 +93,16 @@ body{
 }
 
 .logInLogoMob {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
     position: absolute;
     width: 64px;
     height: 78.03px;
-    left: 64px;
-    top: 64px;
+    left: calc(50% - 64px/2 - 144px);
+    top: calc(50% - 78.03px/2 - 386.98px);
 }
 
 .logInLogoImgMob {
