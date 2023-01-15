@@ -414,10 +414,6 @@ nav {
     margin-block-end: 0px;
 }
 
-<<<<<<< HEAD
-
-
-=======
 .addTaskPrioIconsMob {
     display: flex;
     flex-direction: row;
@@ -556,94 +552,96 @@ nav {
     z-index: 1;
 }
 
-.addTaskAddCategoryBoxMob{
+.addTaskAddCategoryBoxMob {
     display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding: 0px;
-gap: 8px;
-width: 363px;
-height: 68px;
-flex: none;
-order: 4;
-flex-grow: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 363px;
+    height: 68px;
+    flex: none;
+    order: 4;
+    flex-grow: 0;
 }
 
-.addTaskAddCategoryBoxMob h3{
+.addTaskAddCategoryBoxMob h3 {
     width: 71px;
-height: 19px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 120%;
-color: #000000;
-flex: none;
-margin: 0;
-order: 0;
-flex-grow: 0;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    margin: 0;
+    order: 0;
+    flex-grow: 0;
 }
+
 /*ab hier komme ich in "Category" nicht mehr weiter. Ich weiß nicht wo ich ansetzen soll :-( */
 
 
 
 
-.addTaskAssignedBoxMob{
+.addTaskAssignedBoxMob {
     display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding: 0px;
-width: 363px;
-height: 68px;
-flex: none;
-order: 5;
-flex-grow: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    width: 363px;
+    height: 68px;
+    flex: none;
+    order: 5;
+    flex-grow: 0;
 }
 
-.addTaskAssignedBoxMob h3{
+.addTaskAssignedBoxMob h3 {
     width: 90px;
-height: 19px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 120%;
-color: #000000;
-margin: 0;
-flex: none;
-order: 0;
-flex-grow: 0;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    margin: 0;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
+
 /*ab hier komme ich in "Assigned to" nicht mehr weiter. Ich weiß nicht wo ich ansetzen soll :-( */
 
 
 
 
-.subtaskMob{
+.subtaskMob {
     display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding: 0px;
-width: 363px;
-height: 95px;
-flex: none;
-order: 6;
-flex-grow: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    width: 363px;
+    height: 95px;
+    flex: none;
+    order: 6;
+    flex-grow: 0;
 }
 
-.subtaskMob h3{
+.subtaskMob h3 {
     width: 70px;
-height: 19px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 120%;
-color: #000000;
-margin: 0;
-flex: none;
-order: 0;
-flex-grow: 0;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    margin: 0;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
+
 /*ab hier komme ich in "Subtask" nicht mehr weiter. Ich weiß nicht wo ich ansetzen soll :-( */
->>>>>>> 3bc52417f54d47a615406e5c8380b18bb780f23d
