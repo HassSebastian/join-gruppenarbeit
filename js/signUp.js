@@ -5,6 +5,10 @@ function backToLogIn() {
     window.location.href = './logIn.html';
 }
 
+
+/**
+ * It checks the input formatting of the sign up form.
+ */
 // check input formatting
 function inputValueTest() {
     let name = document.getElementById('inputNameSignUp');
@@ -15,86 +19,38 @@ function inputValueTest() {
     let requiredPassword = document.getElementById('requiredPassword');
     requiredEmail.classList.remove('requiredOn');
     requiredEmail.innerHTML = `This field is required`;
-    if (name.value.length || email.value.length || password.value.length) {
-        if (name.value.length == 0 ||
-            name.value[0] === ' ') {
-            requiredName.classList.add('requiredOn');
-        } else {
-            requiredName.classList.remove('requiredOn');
-        };
-        if (email.value.length < 8 ||
-            !email.value.includes('@') ||
-            !email.value.includes('.') ||
-            email.value[0] === ' ') {
-            requiredEmail.classList.add('requiredOn');
-        } else {
-            requiredEmail.classList.remove('requiredOn');
-        };
-        if (password.value.length == 0 ||
-            password.value[0] === ' ') {
-            requiredPassword.classList.add('requiredOn');
-        } else {
-            requiredPassword.classList.remove('requiredOn');
-        };
-        if (!requiredName.classList.contains('requiredOn') &&
-            !requiredEmail.classList.contains('requiredOn') &&
-            !requiredPassword.classList.contains('requiredOn')) {
-            emailToCheck(name.value, email.value, password.value);
-        }
-    }
+    calculateinputValueTest(name, email, password, requiredName, requiredEmail, requiredPassword);
 }
 
+
+/**
+ * If there are no users, then call the firstAndSecondLetter function, otherwise call the
+ * comparisonEmail function.
+ * @param name - the name of the user
+ * @param email - the email that the user entered
+ * @param password - the password the user entered
+ */
 // check email existing
 async function emailToCheck(name, email, password) {
-    // let allUsersAtString = localStorage.getItem('allUsers');
     await loadTask();
     let requiredEmail = document.getElementById('requiredEmail');
     if (!allUsers) {
         firstAndSecondLetter(name, email, password); 
     } else {
-        //let allUsers = JSON.parse(allUsersAtString);
-        let valueToCheck = email;
-        let check = 0;
-        for (let i = 0; i < allUsers.length; i++) {
-            let testValue = allUsers[i].email;
-            if (testValue === valueToCheck) {
-                check = 1;
-                break;
-            }
-        }
-        if (check == 1) {
-            requiredEmail.classList.add('requiredOn');
-            requiredEmail.innerHTML = `This email address is already available!!`;
-        } else {
-            // firstAndSecondLetter(name, email, password);
-            calculateAllUserArray(name, email, password);
-        }
+        comparisonEmail(requiredEmail, name, email, password);
     }
 }
 
 
-async function calculateAllUserArray(name, email, password){
-    let firstLetter = name[0];
-    let secondLetter = await calcSecondLetter(name);
-    let colorIndex = await calcColorIndex(firstLetter, secondLetter);
-    userSignIn(firstLetter, secondLetter, name, email, password, colorIndex);
-}
-
-function calcSecondLetter(name){
-    let spaceIndex = name.indexOf(' ');
-    let secondName = name.substring(spaceIndex + 1);
-    let secondLetter = secondName[0];
-    return secondLetter;
-}
-
-function calcColorIndex(firstLetter, secondLetter){
-    let asciiFirstLetter = firstLetter.charCodeAt(0);
-    let asciiSecondLetter = secondLetter.charCodeAt(0);
-    let sum = asciiFirstLetter + asciiSecondLetter;
-    let colorIndex = sum % 10;
-    return colorIndex;
-}
-
+/**
+ * It takes in 6 parameters, pushes them into an array, and then saves the array to local storage.
+ * @param firstLetter - The first letter of the user's name
+ * @param secondLetter - the second letter of the user's name
+ * @param name - the name of the user
+ * @param email - user's email
+ * @param password - the password the user entered
+ * @param colorIndex - the index of the color in the color array
+ */
 // save user data and forward to login site
 async function userSignIn(firstLetter, secondLetter, name, email, password, colorIndex) {
     await loadTask();
@@ -106,11 +62,21 @@ async function userSignIn(firstLetter, secondLetter, name, email, password, colo
     }, 2000);
 }
 
+
+/**
+ * When the signUpDone() function is called, the signUpButton element is hidden and the
+ * signUpButtonDone element is shown.
+ */
 function signUpDone(){
     document.getElementById('signUpButton').classList.add('d-none');
     document.getElementById('signUpButtonDone').classList.remove('d-none');
 }
 
+
+/**
+ * It toggles the visibility of the password icon and the show button, and if the password icon is
+ * hidden, it changes the type of the password input to text, otherwise it changes it back to password.
+ */
 function passwordShowIcon(){
 	document.getElementById('passwordLogo').classList.toggle('d-none');
 	document.getElementById('pwShowButton').classList.toggle('d-none');
