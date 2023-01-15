@@ -1,29 +1,26 @@
 body {
-    margin: 0px;
-
+    display: flex;
+    justify-content: center;
 }
 
 .addTaskMobil {
     position: relative;
     width: 428px;
     height: 926px;
-    overflow: hidden;
-    overflow-y: scroll;
     background: #F6F7F8;
-    /* overflow: hidden; */
 }
+
 
 /* header */
 .mobilHeader {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 20px 25px;
-    gap: 232px;
+    gap: 182px;
     position: absolute;
-    width: 378px;
-    height: 39.02px;
+    width: 428px;
+    height: 79.02px;
     left: 0px;
     top: 0px;
     background: #FFFFFF;
@@ -35,7 +32,6 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 0px;
     gap: 10px;
     width: 32px;
     height: 39.02px;
@@ -49,8 +45,6 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 18px 10px;
-    gap: 10px;
     width: 124px;
     height: 51px;
     background: #2A3647;
@@ -83,7 +77,9 @@ body {
 }
 
 
-/* bottom menu bar */
+/*********/
+/*NAV-BAR*/
+/*********/
 nav {
     position: absolute;
     width: 428px;
@@ -95,7 +91,7 @@ nav {
 .navMasterContainerMob {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     gap: 10px;
     position: absolute;
@@ -117,7 +113,6 @@ nav {
     gap: 10px;
     width: 75px;
     height: 80px;
-    /* border-radius: 8px; */
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -169,6 +164,7 @@ nav {
     flex-grow: 0;
 }
 
+/**********************************/
 
 
 
@@ -247,9 +243,9 @@ nav {
     margin-block-end: 0px;
 }
 
-/* add Task fomular */
-
-.addTaskFomularMobil {
+.scroll {
+    overflow: hidden;
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -262,17 +258,18 @@ nav {
     top: 231px;
 }
 
+
 .addTaskTitleMobil {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 9px;
-    position: absolute;
+    gap: 8px;
     width: 363px;
-    height: 700px;
-    left: 31px;
-    top: 231px;
+    height: 68px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
 .addTaskTitleMobil h3 {
@@ -306,7 +303,6 @@ nav {
     flex: none;
     order: 1;
     flex-grow: 0;
-
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -329,9 +325,6 @@ nav {
     flex: none;
     order: 1;
     flex-grow: 0;
-    position: absolute;
-    left: 31px;
-    top: 308px;
 }
 
 .addTaskDescriptionMobil h3 {
@@ -390,10 +383,6 @@ nav {
     flex: none;
     order: 2;
     flex-grow: 0;
-
-    position: absolute;
-    top: 437px;
-    left: 31px;
 }
 
 .frame28 {
@@ -425,5 +414,236 @@ nav {
     margin-block-end: 0px;
 }
 
+<<<<<<< HEAD
 
 
+=======
+.addTaskPrioIconsMob {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    width: 353px;
+    height: 51px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.addTaskUrgentMob,
+.addTaskMediumMob,
+.addTaskLowMob {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 111px;
+    height: 41px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+#addTaskUrgentSpan,
+#addTaskMediumSpan,
+#addTaskLowSpan {
+    width: 52px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+#addTaskUrgentImg,
+#addTaskMediumImg,
+#addTaskLowImg {
+    width: 20px;
+    height: 14.51px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.addTaskDateMob {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 363px;
+    height: 68px;
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+}
+
+.addTaskDateMob h3 {
+    width: 69px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    margin: 0;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.addTaskDateMob div {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 18px 21px;
+    gap: 10px;
+    isolation: isolate;
+    width: 363px;
+    height: 41px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+#dueDate {
+    width: -webkit-fill-available;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #D1D1D1;
+    flex: none;
+    flex-grow: 0;
+    z-index: 0;
+    border: 0;
+    outline: none;
+}
+
+#dateReq {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    right: 0px;
+    top: calc(50% - 56px/2 + 0.5px);
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    z-index: 1;
+}
+
+.addTaskAddCategoryBoxMob{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 8px;
+width: 363px;
+height: 68px;
+flex: none;
+order: 4;
+flex-grow: 0;
+}
+
+.addTaskAddCategoryBoxMob h3{
+    width: 71px;
+height: 19px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 120%;
+color: #000000;
+flex: none;
+margin: 0;
+order: 0;
+flex-grow: 0;
+}
+/*ab hier komme ich in "Category" nicht mehr weiter. Ich weiß nicht wo ich ansetzen soll :-( */
+
+
+
+
+.addTaskAssignedBoxMob{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+width: 363px;
+height: 68px;
+flex: none;
+order: 5;
+flex-grow: 0;
+}
+
+.addTaskAssignedBoxMob h3{
+    width: 90px;
+height: 19px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 120%;
+color: #000000;
+margin: 0;
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+/*ab hier komme ich in "Assigned to" nicht mehr weiter. Ich weiß nicht wo ich ansetzen soll :-( */
+
+
+
+
+.subtaskMob{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+width: 363px;
+height: 95px;
+flex: none;
+order: 6;
+flex-grow: 0;
+}
+
+.subtaskMob h3{
+    width: 70px;
+height: 19px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 120%;
+color: #000000;
+margin: 0;
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+/*ab hier komme ich in "Subtask" nicht mehr weiter. Ich weiß nicht wo ich ansetzen soll :-( */
+>>>>>>> 3bc52417f54d47a615406e5c8380b18bb780f23d

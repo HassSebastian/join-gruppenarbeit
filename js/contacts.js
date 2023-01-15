@@ -242,7 +242,7 @@ function showContact(i) {
     document.getElementById('showContact').classList.remove('d-none')
     document.getElementById('showContact').innerHTML = '';
     document.getElementById('showContact').innerHTML = /*html*/ `
-        <div>
+        <div>                       
             <div class="show_contact_ellipse_5" style='background:${colorIndex[color]}'>
                 <span>${letter}</span>
             </div>
