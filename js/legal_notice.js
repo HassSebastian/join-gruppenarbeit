@@ -16,10 +16,10 @@ async function renderLegalNotice() {
 
             <h3>Angaben gemäß 5 TMG</h3>
             <p>
-                Join-Gruppe 347<br />
+                Join-Gruppe 407<br />
                 Projekt im Auftrag der Developer Akademie<br />
-                Lessingstraße 64<br />
-                20144 Hamburg
+                Westendstrasse 195<br />
+                80686 München
             </p>
 
             <h3>Kontakt</h3>
@@ -90,9 +90,9 @@ async function renderLegalNotice() {
             <h4>Hinweis zur verantwortlichen Stelle</h4>
             <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
             <p>
-                Join-Gruppe 347<br />
-                Lessingstraße 64<br />
-                20144 Hamburg<br />
+                Join-Gruppe 407<br />
+                Westendstrasse 195<br />
+                80686 München<br />
                 <br />
                 Telefon: +49 (0) 123 44 55 66<br />
                 E-Mail: admin@join.de<br />
