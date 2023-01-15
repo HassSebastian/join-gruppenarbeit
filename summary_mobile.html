@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./styles/mobil_template.css">
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/fonts.css" />
 
@@ -12,8 +15,9 @@
     <link rel="stylesheet" href="./styles/board.css" />
     <link rel="stylesheet" href="./styles/contacts.css" />
     <link rel="stylesheet" href="./styles/legal_notice.css" />
-    <link rel="stylesheet" href="./styles/summary.css" />
+    <link rel="stylesheet" href="./styles/summary_mobile.css" />
 
+    <script src='./js/mobile_summary.js'></script>
     <script src="./js/mini_backend.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/add_task.js"></script>
@@ -25,17 +29,14 @@
     <script src="./js/contacts.js"></script>
     <script src="./js/legal_notice.js"></script>
     <script src="./js/summary.js"></script>
+
     
-  
+</head>
 
-    <link rel="icon" type="image/x-icon" href="./join_logo_black.png" />
-
-    <title>Join 407</title>
-  </head>
-
-  <body onload="init()">
-    <div class="outerContainer" w3-include-html="./assets/templates/destop_template.html">
+<body onload="initMobilSummary()">
+    <div class="outerContainer" w3-include-html="./assets/templates/mobil_template.html">
       
     </div>
-  </body>
+</body>
+
 </html>
