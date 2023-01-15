@@ -271,7 +271,7 @@ vector {
 #taskInBoardAmount,
 #taskInProgressAmount,
 #awaitingFeedbackAmount {
-    width: 30px;
+    width: 100%;
     height: 56px;
     font-family: 'Inter';
     font-style: normal;
@@ -284,6 +284,20 @@ vector {
     order: 0;
     flex-grow: 0;
 }
+
+#taskInBoard:hover,
+#taskInProgress:hover,
+#awaitingFeedback:hover {
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	background: #2a3647;
+}
+
+#taskInBoard:hover *,
+#taskInProgress:hover *,
+#awaitingFeedback:hover * {
+	color: white;
+}
+
 
 p {
     width: 54px;
@@ -316,6 +330,12 @@ p {
     order: 1;
     flex-grow: 0;
 }
+
+.ugencySummaryMob:hover {
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	background: #2a3647;
+}
+
 
 .ugentMob {
     display: flex;
