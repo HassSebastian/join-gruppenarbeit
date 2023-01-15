@@ -3,6 +3,7 @@ async function initLegalNotice() {
     await renderLegalNotice();
     selectedMenuBtnId = 0;
     selectedMenuButton(5);
+    loadContributorsLetter();
 }
 
 
