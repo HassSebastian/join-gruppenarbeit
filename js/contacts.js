@@ -1,21 +1,12 @@
 let alphabetOrd = { A: [], B: [], C: [], D: [], E: [], F: [], G: [], H: [], I: [], J: [], K: [], L: [], M: [], N: [], O: [], P: [], Q: [], R: [], S: [], T: [], U: [], V: [], W: [], X: [], Y: [], Z: [] };
-
-let colorIndex = [
-    '#02CF2F',
-    '#EE00D6',
-    '#0190E0',
-    '#FF7200',
-    '#FF2500',
-    '#AF1616',
-    '#FFC700',
-    '#3E0099',
-    '#462F8A',
-    '#FF7A00',
-    '#000000',
-];
-
 let newContactUser = [];
+let colorIndex = ['#02CF2F', '#EE00D6', '#0190E0', '#FF7200', '#FF2500', '#AF1616', '#FFC700', '#3E0099', '#462F8A', '#FF7A00', '#000000'];
 
+
+/**
+ * This function is called when the user clicks on the contacts button in the menu. It loads the
+ * contacts page and renders the content.
+ */
 async function initContacts() {
     await includeHTML();
     await loadTask();
@@ -23,252 +14,108 @@ async function initContacts() {
     renderContent();
     userInAlphabetArray();
     loadContributorsLetter();
-
 }
 
+
+/**
+ * It takes the HTML from the renderContentHTML() function and puts it into the content div.
+ */
+function renderContent() {
+    document.getElementById('content').innerHTML = '';
+    document.getElementById('content').innerHTML = renderContentHTML();
+}
+
+
+/**
+ * This function is called when the user clicks the "Submit" button. It calls the
+ * calculateUserInAlphabetArray() function, which calculates the number of times each letter in the
+ * alphabet appears in the user's input, and then it calls the alphabet() function, which displays the
+ * results.
+ */
 function userInAlphabetArray() {
     alphabetOrd = { A: [], B: [], C: [], D: [], E: [], F: [], G: [], H: [], I: [], J: [], K: [], L: [], M: [], N: [], O: [], P: [], Q: [], R: [], S: [], T: [], U: [], V: [], W: [], X: [], Y: [], Z: [] };
-    for (let i = 0; i < allUsers.length; i++) {
-        let id = i;
-        let colorIndex = allUsers[i].colorIndex;
-        let name = allUsers[i].name;
-        let email = allUsers[i].email;
-        let letter = allUsers[i].firstSecondLetter;
-        let firstLetter = allUsers[i].firstSecondLetter[0];
-        alphabetOrd[firstLetter].push({ 'name': name, 'email': email, 'id': id, 'letter': letter, 'colorIndex': colorIndex });
-    }
+    calculateUserInAlphabetArray();
     alphabet();
 }
 
+
+/**
+ * It clears the contact list and then calls the calculateAndShowAlphabet function.
+ */
 function alphabet() {
     document.getElementById('Contact_list').innerHTML = '';
-    for (let alphabetLetter in alphabetOrd) {
-        if (alphabetOrd[alphabetLetter].length > 0) {
-            document.getElementById('Contact_list').innerHTML += /*html*/ `
-        <div class="letters">
-                <span><b>${alphabetLetter}</b></span>
-        </div>
-        <div id='${alphabetLetter}'></div> 
-        `;
-            for (i = 0; i < alphabetOrd[alphabetLetter].length; i++) {
-                let name = alphabetOrd[alphabetLetter][i].name;
-                let color = alphabetOrd[alphabetLetter][i].colorIndex;
-                let email = alphabetOrd[alphabetLetter][i].email;
-                let id = alphabetOrd[alphabetLetter][i].id;
-                let letter = alphabetOrd[alphabetLetter][i].letter;
-                document.getElementById(alphabetLetter).innerHTML += /*html*/`
-                <div class="contact" id="contact${i}" onclick="showContact(${id})">
-                    <div class="ellipse" style='background:${colorIndex[color]}'>
-                        <span>${letter}</span>
-                    </div>
-                    <div class="name_and_email">
-                        <div class="name">
-                            <span>${name}</span>
-                        </div>
-                        <div class="email">${email}</div>
-                    </div>
-                </div>
-			    `;
-            }
-        }
-    }
-}
-
-async function renderContent() {
-    document.getElementById('content').innerHTML = '';
-    document.getElementById('content').innerHTML = /*html*/`
-        <div>
-            <div class="Frame_97">
-                <div class="Contact_list" id="Contact_list"></div>
-            </div>
-            <div class="showContact" id="showContact"></div>
-            <div class="better_with_a_team">
-                <h1>Contacts</h1>
-                <div class="vector_5"></div>
-                <span>Better with a team</span>
-            </div>
-            <div class="new_contact" onclick="openNewContact()">
-                <span>New contact</span>
-                <img src="assets/img/add_contact_icon.png" alt="">
-            </div>
-            <div class="add_contact d-none" id="new_contact"></div>
-            <div class="add_contact d-none" id="edit_contact"></div>
-        </div>
-    `;
+    calculateAndShowAlphabet();
 }
 
 
+/**
+ * It removes the class 'd-none' from the element with the id 'edit_contact', then it sets the
+ * innerHTML of that element to the return value of the function openEditContactHTML(color, letter,
+ * name, email, phone).
+ * @param i - the index of the user in the array
+ */
 function openEditContact(i) {
     let color = allUsers[i].colorIndex;
     let letter = allUsers[i].firstSecondLetter;
     let name = allUsers[i].name;
     let email = allUsers[i].email;
     let phone = allUsers[i].phone;
-
     document.getElementById('edit_contact').classList.remove('d-none')
-    document.getElementById('edit_contact').innerHTML /*html*/ = '';
-    document.getElementById('edit_contact').innerHTML = /*html*/ `   
-        <div class="overlayAdd">
-            <div class="blackSite">
-                <div class="blackSiteContainer">
-                    <span class="fontAddContact">Edit contact</span>
-                    <div class="editContactVector"></div>
-                    <div class="logoContainer">
-                        <img class="editContactLogo" src="./assets/img/join_logo.png">
-                    </div>
-                </div>
-            </div>
-            <img onclick="closeEditContact()" class="close_logo" src="./assets/img/close_logo.png">
-            <div class="name_logo_inContainer">
-                <div class="elypse" style='background:${colorIndex[color]}'>
-                    <span>${letter}</span>
-                </div>
-            </div>
-            <div class="buttonOutContainer">
-                <div class="buttonInContainer">
-                    <button onclick="saveEditContact(${i})" class="save">
-                        <span id="saveEditButton">Save</span>
-                    </button>
-                </div>
-            </div>
-            <div class="contactContainer">
-                <div class="nameOutContainer">
-                    <div class="nameContainer">
-                        <div class="inputEditContainer">
-                            <input class="inputName" id="editUserName" type="text" value="${name}">
-                            <img src="./assets/img/name_logo.png" alt="">
-                        </div>
-                        <span class="required">This field is required</span>
-                    </div>
-                    <div class="nameContainer">
-                        <div class="inputEditContainer">
-                            <input class="inputName" id="editUserEmail" type="email" value="${email}">
-                            <img src="./assets/img/email_Logo.png" alt="">
-                        </div>
-                        <span class="required">This field is required</span>
-                    </div>
-                    <div class="nameContainer">
-                        <div class="inputEditContainer">
-                            <input class="inputName" id="editUserPhone" type="number" value="${phone}">
-                            <img src="./assets/img/phoneLogo.png" alt="">
-                        </div>
-                        <span class="required">This field is required</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
+    document.getElementById('edit_contact').innerHTML = '';
+    document.getElementById('edit_contact').innerHTML = openEditContactHTML(color, letter, name, email, phone);
 }
 
+
+/**
+ * It opens a new contact form.
+ */
 function openNewContact() {
     document.getElementById('new_contact').innerHTML = '';
-    document.getElementById('new_contact').innerHTML = /*html*/`
-        <div class="overlayAdd">
-            <div class="blackSite">
-                <div class="blackSiteContainer">
-                    <span class="fontAddContact">Add contact</span>
-                    <span class="fontTaskArBetter">Tasks are better with a team!</span>
-                    <div class="editContactVector"></div>
-                    <div class="logoContainer">
-                        <img class="editContactLogo" src="./assets/img/join_logo.png">
-                    </div>
-                </div>
-            </div>
-            <img onclick="closeNewContact()" class="close_logo" src="./assets/img/close_logo.png">
-            <div class="name_logo_inContainer">
-                <div class="elypse">
-                    <img src="./assets/img/nameLogoOverlay.png">
-                </div>
-            </div>
-            <div class="buttonNewOutContainer">
-                <div class="buttonInContainer">
-                    <button onclick="closeNewContact()" class="cancel" onmouseover="cancelOn()" onmouseout="cancelOff()">
-                        <span>Cancel</span>
-                        <img id="cancelImg" width="13px" height="13px" src="./assets/img/close_logo.png">
-                    </button>
-                    <button onclick="addContact()" class="createContact">
-                        <span>Create contact</span>
-                        <img src="./assets/img/okHaeckchen.png">
-                    </button>
-                </div>
-            </div>
-            <div class="contactContainer">
-                <div class="nameOutContainer">
-                    <div class="nameContainer">
-                        <div class="inputEditContainer">
-                            <input class="inputName" id="newUserName" type="text" placeholder="Name">
-                            <img src="./assets/img/name_logo.png" alt="">
-                        </div>
-                        <span class="required">This field is required</span>
-                    </div>
-                    <div class="nameContainer">
-                        <div class="inputEditContainer">
-                            <input class="inputName" id="newUserEmail" type="email" placeholder="Email">
-                            <img src="./assets/img/email_Logo.png" alt="">
-                        </div>
-                        <span class="required">This field is required</span>
-                    </div>
-                    <div class="nameContainer">
-                        <div class="inputEditContainer">
-                            <input class="inputName" id="newUserPhone" type="number" placeholder="Phone">
-                            <img src="./assets/img/phoneLogo.png" alt="">
-                        </div>
-                        <span class="required">This field is required</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
+    document.getElementById('new_contact').innerHTML = openNewContactHTML();
     document.getElementById('new_contact').classList.remove('d-none');
     closeEditContact();
 }
 
+
+/**
+ * It adds the class 'd-none' to the element with the id 'new_contact'.
+ */
 function closeNewContact() {
     document.getElementById('new_contact').classList.add('d-none');
 }
 
+
+/**
+ * It adds the class 'd-none' to the element with the id 'edit_contact'.
+ */
 function closeEditContact() {
     document.getElementById('edit_contact').classList.add('d-none');
 }
 
+
+/**
+ * It takes the index of the user in the array, and then it gets the name, email, phone, letter, and
+ * color of that user, and then it removes the class 'd-none' from the div with the id 'showContact',
+ * and then it sets the innerHTML of that div to the HTML returned by the function showContactHTML.
+ * @param i - the index of the user in the allUsers array
+ */
 function showContact(i) {
     let name = allUsers[i].name;
     let email = allUsers[i].email;
     let phone = allUsers[i].phone;
     let letter = allUsers[i].firstSecondLetter;
-
     let color = allUsers[i].colorIndex;
-
     document.getElementById('showContact').classList.remove('d-none')
     document.getElementById('showContact').innerHTML = '';
-    document.getElementById('showContact').innerHTML = /*html*/ `
-        <div>                       
-            <div class="show_contact_ellipse_5" style='background:${colorIndex[color]}'>
-                <span>${letter}</span>
-            </div>
-            <div class="showContact_Name_addTask">
-                <h1>${name}</h1>
-                <span>+ Add Task</span>
-            </div>
-        </div>
-        <div class="showContact_information_edit">
-            <div class="contact_information">
-                <div class="contact_information_edit">
-                    <h2>Contact Information</h2>
-                    <div class="edit_contact" onclick="openEditContact(${i})">
-                        <img src="./assets/img/edit_button_black.png" alt="">
-                        <span>Edit Contact</span>
-                    </div>
-                </div>
-                <h3>Email</h3>
-                <span>${email}</span>
-                <h3>Phone</h3>
-                <p>${phone}</p>
-            </div>
-        </div>
-    `;
+    document.getElementById('showContact').innerHTML = showContactHTML(name, email, phone, letter, color); 
 }
 
+
+/**
+ * AddContact() is an async function that takes the values of the input fields, calculates the first
+ * and second letters of the name, and then calculates the color index, and then calls the
+ * addContactSave() function.
+ */
 async function addContact() {
     let name = document.getElementById('newUserName').value;
     let email = document.getElementById('newUserEmail').value;
@@ -276,25 +123,18 @@ async function addContact() {
     let firstLetter = name[0];
     let secondLetter = await calcSecondLetter(name);
     let colorIndex = await calcColorIndex(firstLetter, secondLetter);
-    allUsers.push({'name': name, 'email': email, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter, 'phone': phone});
-    await saveTask();
-    closeNewContact();
-    userInAlphabetArray();
+    addContactSave(name, email, phone, firstLetter, secondLetter, colorIndex);
 }
 
 
-function cancelOn() {
-    document.getElementById('cancelImg').src = "././assets/img/close_logo_blue.png";
-}
-
-function cancelOff() {
-    document.getElementById('cancelImg').src = "./assets/img/close_logo.png";
-}
-
+/**
+ * If the user is logged in, then the user can edit his/her own data.
+ * @param i - the id of the contact
+ */
 function saveEditContact(i) {
     let nameId = i;
     let logUserId = loggedUser[0];
-        // jeder darf nur seine eigenen Daten ändern
+    // jeder darf nur seine eigenen Daten ändern
     if (nameId == logUserId) {
         editContact(i);
     } else {
@@ -302,6 +142,12 @@ function saveEditContact(i) {
     }
 }
 
+
+/**
+ * It takes the values from the input fields, and then calls the function editContactSave() with the
+ * values and the index of the user to be edited.
+ * @param i - the index of the user in the array
+ */
 async function editContact(i) {
     let name = document.getElementById('editUserName').value;
     let email = document.getElementById('editUserEmail').value;
@@ -310,25 +156,5 @@ async function editContact(i) {
     let firstLetter = name[0];
     let secondLetter = await calcSecondLetter(name);
     let colorIndex = await calcColorIndex(firstLetter, secondLetter);
-    allUsers[i] = {'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter, 'phone': phone};
-    await saveTask();
-    closeEditContact();
-    document.getElementById('showContact').classList.add('d-none')
-    userInAlphabetArray();
-}
-
-
-function calcSecondLetter(name){
-    let spaceIndex = name.indexOf(' ');
-    let secondName = name.substring(spaceIndex + 1);
-    let secondLetter = secondName[0];
-    return secondLetter;
-}
-
-function calcColorIndex(firstLetter, secondLetter){
-    let asciiFirstLetter = firstLetter.charCodeAt(0);
-    let asciiSecondLetter = secondLetter.charCodeAt(0);
-    let sum = asciiFirstLetter + asciiSecondLetter;
-    let colorIndex = sum % 10;
-    return colorIndex;
+    editContactSave(name, email, password, phone, firstLetter, secondLetter, colorIndex, i);
 }
