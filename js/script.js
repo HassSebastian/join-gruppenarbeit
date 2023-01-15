@@ -171,12 +171,6 @@ function help() {
     window.location.href = './help.html';
 }
 
-
-function dataPrivacy() {
-    window.location.href = './dataPrivacy.html';
-}
-
-
 function logOutBtn() {
     document.getElementById("logOut").classList.toggle('logOutOn');
 }
