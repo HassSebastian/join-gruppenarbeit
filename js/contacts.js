@@ -93,9 +93,12 @@ function closeNewContact() {
  * It adds the class 'd-none' to the element with the id 'edit_contact'.
  */
 function closeEditContact() {
-    document.getElementById('edit_contact').classList.add('d-none');
+    if (document.getElementById('mobilContent')) {
+        renderContentMobile();
+    } else {
+        document.getElementById('edit_contact').classList.add('d-none');
+    }
 }
-
 
 /**
  * It takes the index of the user in the array, and then it gets the name, email, phone, letter, and
