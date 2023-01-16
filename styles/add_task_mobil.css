@@ -308,7 +308,7 @@ nav {
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
-    color: #D1D1D1;
+    color: #000000;
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -364,10 +364,13 @@ nav {
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
-    color: #D1D1D1;
+    color: #000000;
     flex: none;
     order: 0;
     flex-grow: 0;
+}
+::placeholder{
+    color: #D1D1D1;
 }
 
 
@@ -445,6 +448,42 @@ nav {
     order: 0;
     flex-grow: 0;
 }
+
+/*********************************************************************************/
+/*********************************************************************************/
+.addTaskUrgentMob:hover {
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.addTaskMediumMob:hover {
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.addTaskLowMob:hover {
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.color-white {
+	color: white !important;
+}
+
+.urgent-color {
+	background: #ff3d00;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.medium-color {
+	background: #ffa800;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.low-color {
+	background: #7ae229;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/*********************************************************************************/
+/*********************************************************************************
 
 #addTaskUrgentSpan,
 #addTaskMediumSpan,

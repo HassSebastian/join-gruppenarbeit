@@ -254,6 +254,10 @@
 	color: #000000;
 }
 
+::placeholder{
+    color: #D1D1D1;
+}
+
 .requiredText {
 	height: 12px;
 	font-family: 'Poppins';
