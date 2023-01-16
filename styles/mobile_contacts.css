@@ -65,13 +65,19 @@
     width: 193px;
     height: 53px;
     background: #2A3647;
-    border: 1px solid #2A3647;
+    /* border: 1px solid #2A3647; */
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     flex: none;
     order: 0;
     flex-grow: 0;
     margin-right: 10px;
+    cursor: pointer;
+}
+
+.new_contact_buttonMob:hover{
+    background: #29ABE2;
+
 }
 
 .new_contact_buttonMob span {
