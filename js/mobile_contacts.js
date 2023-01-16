@@ -4,7 +4,7 @@ async function initMobilContacts() {
     selectedMenuButton(4);
     renderContentMobile();
     userInAlphabetArray();
-    loadContributorsLetter();
+    loadContributorsLetterMob();
 }
 
 

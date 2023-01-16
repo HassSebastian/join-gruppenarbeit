@@ -16,8 +16,16 @@ async function initMobilSummary(){
 	selectedMenuButton(1);
 	showDate();
 	// showTime();
-	// loadContributorsLetter();
+	loadContributorsLetterMob();
 }
+
+
+function loadContributorsLetterMob() {
+    let colorIndex = allUsers[loggedUser[0]].colorIndex
+    document.getElementById('contributorsLogoHeadderMob').style = `background:${colorUserIndex[colorIndex]}`;
+    document.getElementById('contributorsLogoHeadderLettersMob').innerHTML = `<p style='color:white'>${allUsers[loggedUser].firstSecondLetter}</p>`;
+}
+
 
 
 async function renderMobilSummary( allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount,yourUrgentTasksAmount) {
