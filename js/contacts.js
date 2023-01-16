@@ -81,7 +81,11 @@ function openNewContact() {
  * It adds the class 'd-none' to the element with the id 'new_contact'.
  */
 function closeNewContact() {
-    document.getElementById('new_contact').classList.add('d-none');
+    if (document.getElementById('mobilContent')) {
+        renderContentMobile();
+    } else {
+        document.getElementById('new_contact').classList.add('d-none');
+    }
 }
 
 

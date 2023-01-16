@@ -103,3 +103,7 @@ function generateMobilSummaryHtml(){
             </div>
         </div>`;
 }
+
+function logOutBtnMob(){
+    document.getElementById('logOutMasterContainer').classList.toggle('d-none');
+}
