@@ -8,8 +8,6 @@ async function initMobilContacts() {
 }
 
 
-
-
 async function renderContentMobile() {
     document.getElementById('mobilContent').innerHTML = '';
     document.getElementById('mobilContent').innerHTML += renderContentMobileHTML();
@@ -84,5 +82,4 @@ function openNewContactMob(){
 
 function closeNewContactMob(){
     document.getElementById('overlayMasterContainerMob').classList.remove('overlayMasterContainerMobSlide');
-
 }
