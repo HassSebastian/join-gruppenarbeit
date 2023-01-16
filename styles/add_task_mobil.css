@@ -714,6 +714,7 @@ button input {
     border-top: 0px;
     border-radius: 0 0 10px 10px;
     width: 321px;
+    padding-inline-start: 3px;
 }
 
 .addTaskCatList li {
@@ -836,7 +837,7 @@ button input {
     width: 66px;
     height: 31px;
     left: 290px;
-    /* top: 644px; */
+    top: 403px;
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -859,6 +860,7 @@ button input {
     flex: none;
     order: 5;
     flex-grow: 0;
+    margin-top: 15px;
 }
 
 .addTaskAssignedBoxMob h3 {
