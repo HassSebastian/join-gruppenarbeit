@@ -397,8 +397,8 @@ function categoryColorAvailable(categoryColor) {
 function dropdownCategoryListHtml(categoryName, categoryColor, i) {
 	return /*html*/ `
         <li onclick='selectCategory(${i})'>
-            ${categoryName}
-            <div  class='color${categoryColor} addTaskColorDiv'></div>
+			${categoryName}
+			<div  class='color${categoryColor} addTaskColorDiv'></div>
         </li>`;
 }
 
@@ -557,8 +557,8 @@ function setSettingsForExistingCategory(catId) {
  */
 function existingCategoryHtml(newCat, categoryColor) {
 	return /*html*/ `
-        <p id='selectedCatInput'>${newCat}</p>
-        <span id='sColor'><div class='color${categoryColor} addTaskColorDiv'></div></span>
+		<p id='selectedCatInput'>${newCat}</p>
+		<span id='sColor'><div class='color${categoryColor} addTaskColorDiv'></div></span>
         <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
 }
 

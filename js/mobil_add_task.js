@@ -98,10 +98,10 @@ async function renderMobilAddTask(){
             </div>
 
 
-            <!-- <div class="addTaskAssignedBoxMob" id="addTaskAssignedBox">
-                <h3>Assigned to</h3> -->
+            <div class="addTaskAssignedBoxMob" id="addTaskAssignedBox">
+                <h3>Assigned to</h3>
         <!--ab hier komme ich in "Assigned to" nicht mehr weiter. Ich weiß nicht wo ich ansetzen soll :-( -->
-                <!-- <button id="addTaskAssignedButton" onclick="enableDisableAssignList()" class='addTaskResponsiv'>
+                <button id="addTaskAssignedButton" onclick="enableDisableAssignList()">
                     <input disabled onclick="doNotCloseOnClick(event)" id="selectedAssign" name="selectedAssign"
                         class="inputselectedAssign" placeholder="Select contacts to assign" autocomplete="off" />
                     <div id="assignToCancelConfirmImgContainer" class="assignToCancelConfirmImgContainer d-none">
@@ -128,7 +128,7 @@ async function renderMobilAddTask(){
                         </div>
                     </li>
                 </ul>
-            </div> -->
+            </div>
 
 
             <!-- <div class='subtaskMob'>

@@ -369,7 +369,8 @@ nav {
     order: 0;
     flex-grow: 0;
 }
-::placeholder{
+
+::placeholder {
     color: #D1D1D1;
 }
 
@@ -452,34 +453,34 @@ nav {
 /*********************************************************************************/
 /*********************************************************************************/
 .addTaskUrgentMob:hover {
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .addTaskMediumMob:hover {
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .addTaskLowMob:hover {
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .color-white {
-	color: white !important;
+    color: white !important;
 }
 
 .urgent-color {
-	background: #ff3d00;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #ff3d00;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .medium-color {
-	background: #ffa800;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #ffa800;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .low-color {
-	background: #7ae229;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #7ae229;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -620,7 +621,232 @@ nav {
 
 /*ab hier komme ich in "Category" nicht mehr weiter. Ich weiß nicht wo ich ansetzen soll :-( */
 
+.addTaskAddCategoryBoxMob button {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: flex-start;
+    /* justify-content: center; */
+    padding: 0px;
+    width: 363px;
+    height: 41px;
+    border-radius: 10px;
+    flex: none;
+    /* order: 1;
+    flex-grow: 0; */
+    cursor: pointer;
+    background: white;
+    border: 1px solid #D1D1D1;
+    gap: 10px;
+    
 
+}
+
+.addTaskAddCategoryBoxMob button p {
+    max-width: 258px;
+    width: auto;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    order: 0;
+    margin-top: 11px;
+    margin-left: 21px;
+}
+
+.addTaskAddCategoryBoxMob button span {
+    order: 1;
+    margin-top: 11px;
+}
+
+button input {
+    width: 258px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    z-index: 0;
+
+    margin-left: 21px;
+    cursor: pointer;
+    border: 0;
+    margin-top: 11px;
+}
+
+.dropdownImg {
+    position: absolute;
+    width: 16px;
+    height: 8px;
+    left: 336px;
+    top: 414px;
+    /* top: calc(50% - 8px/2 - 0.5px);
+    background: #000000; */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    z-index: 1;
+}
+
+.addMarginTop {
+    margin-top: 75.57px !important;
+}
+
+.listD-none {
+    display: none !important;
+}
+
+.addTaskCatList {
+    min-height: 78px;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    background: white;
+    border: 1px solid #D1D1D1;
+    margin-top: -14px;
+    border-top: 0px;
+    border-radius: 0 0 10px 10px;
+    width: 321px;
+}
+
+.addTaskCatList li {
+    padding-left: 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    z-index: 0;
+
+    display: flex;
+    /* justify-content: space-between; */
+    padding-right: 150px;
+    align-items: center;
+    gap: 10px;
+}
+
+.addTaskCatList li:hover {
+    background-color: #d1d1d1;
+    background-size: 100%;
+    cursor: pointer;
+}
+
+.addTaskAddCategoryColor {
+    width: 402px;
+    height: 20px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    padding-left: 20px;
+    display: flex;
+    gap: 24px;
+}
+
+.addTaskAddCategoryColor div {
+    height: 12px;
+    width: 12px;
+    border-radius: 100%;
+    border: 1px solid #d1d1d1;
+    cursor: pointer;
+}
+
+.addTaskColorDiv {
+    height: 12px;
+    width: 12px;
+    border-radius: 100%;
+    border: 1px solid #d1d1d1;
+}
+
+.colorDivSelected {
+    border: 2px solid #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#catReq {
+    opacity: 0;
+}
+
+.color0 {
+    background-color: #8aa4ff;
+}
+
+.color1 {
+    background-color: #ff0000;
+}
+
+.color2 {
+    background-color: #2ad300;
+}
+
+.color3 {
+    background-color: #ff8a00;
+}
+
+.color4 {
+    background-color: #e200be;
+}
+
+.color5 {
+    background-color: #0038ff;
+}
+
+
+.addTaskAddCategoryBox button p {
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    z-index: 0;
+    text-align: left;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+.newCategoryImgDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 9px;
+    position: absolute;
+    width: 66px;
+    height: 31px;
+    left: 290px;
+    /* top: 644px; */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
 
 
 .addTaskAssignedBoxMob {
