@@ -17,6 +17,7 @@ async function initMobilSummary(){
 	showDate();
 	// showTime();
 	loadContributorsLetterMob();
+    logOutMasterContainerMob();
 }
 
 
@@ -102,6 +103,20 @@ function generateMobilSummaryHtml(){
                 </div>
             </div>
         </div>`;
+}
+
+function logOutMasterContainerMob(){
+    document.getElementById('logOutMasterContainer').innerHTML = `
+    <div class="logOutNav" onclick="helpMob()">
+            <span>Help</span>
+        </div>
+        <div class="logOutNav" onclick="dataPrivacyMob()">
+            <span>Legal notice</span>
+        </div>
+        <div class="logOutNav" onclick="logOutMob()">
+            <span>Log out</span>
+        </div>
+    `;
 }
 
 function logOutBtnMob(){

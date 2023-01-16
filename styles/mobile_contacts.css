@@ -673,7 +673,7 @@ vectorEdit {
     position: absolute;
     width: 80px;
     height: 28.57px;
-    left: 36px;
+    left: 32px;
     top: 45.71px;
     font-family: 'Inter';
     font-style: normal;
@@ -799,7 +799,7 @@ vectorEdit {
     align-items: center;
     padding: 18px 10px;
     gap: 10px;
-    width: 71px;
+    width: fit-content;
     height: 51px;
     background: #2A3647;
     border-radius: 10px;
@@ -810,7 +810,7 @@ vectorEdit {
 }
 
 .editButtonMob span {
-    width: 51px;
+    width: fit-content;
     height: 25px;
     font-family: 'Inter';
     font-style: normal;
@@ -822,3 +822,7 @@ vectorEdit {
     order: 0;
     flex-grow: 0;
 }
+
+
+
+

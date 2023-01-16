@@ -5,6 +5,8 @@ async function initMobilContacts() {
     renderContentMobile();
     userInAlphabetArray();
     loadContributorsLetterMob();
+    logOutMasterContainerMob();
+
 }
 
 
