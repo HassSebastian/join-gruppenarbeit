@@ -838,7 +838,7 @@ function addTaskClearOff() {
 	document.getElementById('addTaskClear').src = './assets/img/close_logo.png';
 }
 
-function addPrio(prioIdIndex) {
+async function addPrio(prioIdIndex) {
 	let idList = ['addTaskUrgent', 'addTaskMedium', 'addTaskLow'];
 	let selectedId = idList[+prioIdIndex];
 	let cListLength = document.getElementById(selectedId).classList.length;
@@ -857,11 +857,11 @@ function btnNotSelected(cListLength) {
 }
 
 function selectPrioBtn(selectedId, btnName) {
-	document.getElementById(selectedId).classList.add(`${btnName.toLowerCase()}-color`);
-	document.getElementById(`addTask${btnName}Span`).classList.add('color-white');
-	document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}_white.png`;
-	prio = btnName;
-	// Funktion für die Mobil schreiben ! ToDo Bossi
+		document.getElementById(selectedId).classList.add(`${btnName.toLowerCase()}-color`);
+
+		document.getElementById(`addTask${btnName}Span`).classList.add('color-white');
+		document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}_white.png`;
+		prio = btnName;
 }
 
 function removeBtnSelection(btnName) {

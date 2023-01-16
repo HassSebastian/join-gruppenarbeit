@@ -4,13 +4,13 @@ async function initMobilAddTask(){
 	await loadExitingCategories();
 	renderCategoryList();
 	newCatInputActive = false;
-	renderSubtasks();
+	// renderSubtasks();
 	selectedMenuBtnId = 0;
 	selectedMenuButton(3);
-	renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
+	// renderContactsInAssignDropDownMenu();
 	setFutureDatesOnlyForInputDueDate();
-	loadContributorsLetter();
-	getInnerWidth();
+	// loadContributorsLetter();
+	// getInnerWidth();
 }
 
 
@@ -66,16 +66,16 @@ async function renderMobilAddTask(){
             <div class='addTaskDateMob'>
                 <h3>Due date</h3>
                 <div>
-                    <input required type="date" id='dueDate' min="2023-01-01" class='addTaskResponsiv'>
+                    <input required type="date" id='dueDate' min="2023-01-01">
                     <!-- <span class='requiredText' id='dateReq'>This field is required</span> -->
                 </div>
             </div>
 
 
-            <!-- <div class="addTaskAddCategoryBoxMob">
-                <h3>Category</h3> -->
+            <div class="addTaskAddCategoryBoxMob">
+                <h3>Category</h3>
         <!--ab hier komme ich in "Category" nicht mehr weiter. Ich weiß nicht wo ich ansetzen soll :-( -->
-                <!-- <button onclick="enableDisableCatList()" id="selectedCat" class='addTaskResponsiv'>
+                <button onclick="enableDisableCatList()" id="selectedCat">
                     <input disabled id="selectedCatInput" placeholder="Select task category" autocomplete="off" />
                     <span id="sColor"></span>
                     <div class="newCategoryImgDiv d-none" id="addTaskNewCatBtn">
@@ -95,7 +95,7 @@ async function renderMobilAddTask(){
                     <div class="color4" id="color4Div" onclick="addColorToCat(4)"></div>
                     <div class="color5" id="color5Div" onclick="addColorToCat(5)"></div>
                 </div>
-            </div> -->
+            </div>
 
 
             <!-- <div class="addTaskAssignedBoxMob" id="addTaskAssignedBox">

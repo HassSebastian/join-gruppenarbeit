@@ -15,8 +15,8 @@ async function initMobilSummary(){
 	selectedMenuBtnId = 0;
 	selectedMenuButton(1);
 	showDate();
-	showTime();
-	loadContributorsLetter();
+	// showTime();
+	// loadContributorsLetter();
 }
 
 
