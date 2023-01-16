@@ -1,4 +1,5 @@
-.Frame_97Mob{
+
+.Frame_97Mob {
     position: absolute;
     width: 428px;
     height: 767px;
@@ -7,24 +8,24 @@
     background: #FFFFFF;
     box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
     overflow: hidden;
-    overflow-y: scroll ;
+    overflow-y: scroll;
 }
 
-.Frame_97Mob::webkit-scrollbar{
+.Frame_97Mob::webkit-scrollbar {
     width: 0;
 }
 
-.Contact_listMob{
+.Contact_listMob {
     display: flex;
-flex-direction: column;
-align-items: center;
-padding: 0px;
-position: absolute;
-width: 357px;
-height: 1083px;
-left: 36px;
-top: 81px;
-background: #FFFFFF;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    position: absolute;
+    width: 357px;
+    height: 1083px;
+    left: 36px;
+    top: 81px;
+    background: #FFFFFF;
 }
 
 .letters {
@@ -38,4 +39,66 @@ background: #FFFFFF;
     margin-bottom: 0;
     font-size: 21px;
     padding-left: 10px;
+}
+
+.new_contactMob {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 17px 0;
+    gap: 10px;
+    position: absolute;
+    width: 428px;
+    height: 60px;
+    left: 0;
+    top: 79px;
+    background: #FFFFFF;
+}
+
+.new_contact_buttonMob {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    width: 193px;
+    height: 53px;
+    background: #2A3647;
+    /* border: 1px solid #2A3647; */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.new_contact_buttonMob:hover{
+    background: #29ABE2;
+
+}
+
+.new_contact_buttonMob span {
+    width: 130px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.new_contact_buttonMob img {
+    width: 33px;
+    height: 29.71px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
 }
