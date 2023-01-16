@@ -48,7 +48,7 @@
     gap: 10px;
     position: absolute;
     width: 428px;
-    height: 87px;
+    height: 60px;
     left: 0;
     top: 79px;
     background: #FFFFFF;
@@ -71,6 +71,7 @@
     flex: none;
     order: 0;
     flex-grow: 0;
+    margin-right: 10px;
 }
 
 .new_contact_buttonMob span {
