@@ -126,7 +126,7 @@ function openEditContactHTML(color, letter, name, email, phone, i){
                     </div>
                 </div>
             </div>
-            <img onclick="closeEditContact()" class="close_logo" src="./assets/img/close_logo.png">
+            <img onclick="closeEditContact()" class="closeLogo" src="./assets/img/close_logo.png">
             <div class="name_logo_inContainer">
                 <div class="elypse" style='background:${colorIndex[color]}'>
                     <span>${letter}</span>
@@ -186,7 +186,7 @@ function openNewContactHTML(){
                     </div>
                 </div>
             </div>
-            <img onclick="closeNewContact()" class="close_logo" src="./assets/img/close_logo.png">
+            <img onclick="closeNewContact()" class="closeLogo" src="./assets/img/close_logo.png">
             <div class="name_logo_inContainer">
                 <div class="elypse">
                     <img src="./assets/img/nameLogoOverlay.png">
