@@ -2,7 +2,9 @@ body {
     margin: 0;
     display: flex;
     justify-content: center;
+    overflow: hidden;
 }
+
 
 .overlayMasterContainerMob {
     display: flex;
@@ -14,7 +16,7 @@ body {
     left: 24px;
     top: 940px;
     width: 381px;
-    height: 716px;    
+    height: 760px;    
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
@@ -22,7 +24,7 @@ body {
 }
 
 .overlayMasterContainerMobSlide{
-    transition:500ms ease-in-out; transform: translateY(-840px);
+    transition:500ms ease-in-out; transform: translateY(-860px);
     /* left: 24px;
     top: 86px; */
 }
