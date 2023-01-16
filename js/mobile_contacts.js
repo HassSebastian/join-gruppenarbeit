@@ -30,9 +30,9 @@ function renderContentMobileHTML() {
 }
 
 function openNewContactMob(){
-    document.getElementById('mobilContent').innerHTML = ``;
+    // document.getElementById('overlayMasterContainerMob').classList.add('overlayMasterContainerMobSlide');
     document.getElementById('mobilContent').innerHTML = /*html*/`
-    <div class="overlayMasterContainerMob">
+    <div class="overlayMasterContainerMob overlayMasterContainerMobSlide" id="overlayMasterContainerMob">
     <div class="blackContainerMob">
         <span class="addContactMob">Add contact</span>
         <span class="addContactDiscrMob">Tasks are better with a team!</span>
@@ -82,3 +82,4 @@ function openNewContactMob(){
     </div>
     `;
 }
+
