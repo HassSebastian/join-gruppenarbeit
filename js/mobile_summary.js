@@ -95,4 +95,3 @@ function generateMobilSummaryHtml(){
             </div>
         </div>`;
 }
-
