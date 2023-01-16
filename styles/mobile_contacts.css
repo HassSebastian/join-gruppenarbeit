@@ -1,0 +1,41 @@
+.Frame_97Mob{
+    position: absolute;
+    width: 428px;
+    height: 767px;
+    left: 0px;
+    top: 79px;
+    background: #FFFFFF;
+    box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    overflow-y: scroll ;
+}
+
+.Frame_97Mob::webkit-scrollbar{
+    width: 0;
+}
+
+.Contact_listMob{
+    display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+position: absolute;
+width: 357px;
+height: 1083px;
+left: 36px;
+top: 81px;
+background: #FFFFFF;
+}
+
+.letters {
+    width: 100%;
+    padding: 15px 0;
+    color: black;
+    border-bottom: 1px solid #D1D1D1;
+}
+
+.letters span {
+    margin-bottom: 0;
+    font-size: 21px;
+    padding-left: 10px;
+}
