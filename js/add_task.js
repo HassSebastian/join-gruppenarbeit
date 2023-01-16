@@ -861,6 +861,7 @@ function selectPrioBtn(selectedId, btnName) {
 	document.getElementById(`addTask${btnName}Span`).classList.add('color-white');
 	document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}_white.png`;
 	prio = btnName;
+	// Funktion für die Mobil schreiben ! ToDo Bossi
 }
 
 function removeBtnSelection(btnName) {
