@@ -18,7 +18,8 @@ function renderContentMobileHTML() {
         <div id="Frame_97Mob" class="Frame_97Mob">
             <div class="Contact_listMob" id="Contact_list"></div>
         </div>
-        <div class="new_contactMob" onclick="openNewContactMob()">
+        <div class="showContact" id="showContact"></div>
+        <div class="new_contactMob" onclick="openOverlayMob()">
             <div class="new_contact_buttonMob">
                 <span>New contact</span>
                 <img src="assets/img/add_contact_icon.png" alt="">
@@ -31,7 +32,7 @@ function renderContentMobileHTML() {
                 <span class="addContactMob">Add contact</span>
                 <span class="addContactDiscrMob">Tasks are better with a team!</span>
                 <div class="addContactVectorMob"></div>
-                <img class="closeButtonMob" onclick="closeNewContactMob()" src="../../assets/img/plus_logo_white.png" alt="">
+                <img class="closeButtonMob" onclick="closeOverlayMob()" src="../../assets/img/plus_logo_white.png" alt="">
             </div>
             <div class="addNewBatchContainerMob">
                 <div class="addNewContactLogoElypseContainer">
@@ -76,10 +77,106 @@ function renderContentMobileHTML() {
     `;
 }
 
-function openNewContactMob(){
+function openOverlayMob(){
     document.getElementById('overlayMasterContainerMob').classList.add('overlayMasterContainerMobSlide');
 }
 
-function closeNewContactMob(){
+function closeOverlayMob(){
     document.getElementById('overlayMasterContainerMob').classList.remove('overlayMasterContainerMobSlide');
 }
+
+function showContactHTMLMob(name, email, phone, letter, color, i){
+    return /*html*/`
+        <div class="arrowContainerMob" onclick="initMobilContacts()">
+            <img src="../../assets/img/back_logo_black.png">
+        </div>
+
+        <div class="editButtonContainerMob" onclick="openOverlayMob()">
+            <img src="../../assets/img/edit_button.png" alt="">
+        </div>
+        <vectorContact></vectorContact>
+        <div class="contactsMasterContainerMob">
+            <contacts>Contacts</contacts>
+            <betterWithATeam>Better with a team</betterWithATeam>
+        </div>
+        <span class="kanbanProjectManagementTool">Kanban Project Management Tool</span>
+
+        <div class="floatingContactsMasterContainer">
+            <div class="batchPlusNameContainer">
+                <div class="batchMasterContainer">
+                    <div class="batchContainer">
+                        <div style="background:${colorIndex[color]}"></div>
+                        <span>${letter}</span>
+                    </div>
+                </div>
+                <div class="nameMasterContainer">
+                    <span>${name}</span>
+                    <div class="linkMasterContainer">
+                        <img src="../../assets/img/plus_logo_blue.png" alt="">
+                        <span>Add Task</span>
+                    </div>
+                </div>
+            </div>
+            <contactInformation>Contact Information</contactInformation>
+            <div class="emailAndPhoneContainer">
+                <div class="emailContainerMob">
+                    <email>Email</email>
+                    <span>${email}</span>
+                </div>
+                <div class="phoneContainerMob">
+                    <phone>Phone</phone>
+                    <span>${phone}</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="overlayMasterContainerMob" id="overlayMasterContainerMob">
+            <div class="overlayBlackContainerMob">
+                <span>Edit contact</span>
+                <vectorEdit></vectorEdit>
+                <img onclick="closeOverlayMob()" src="../../assets/img/plus_logo_white.png">
+            </div>
+            <div class="userColorBatchContainerMob">
+                <div class="userColorBatchMob">
+                    <span>${letter}</span>
+                    <div style='background:${colorIndex[color]}'></div>
+                </div>
+            </div>
+            <div class="editContactContainerMob">
+                <div class="editnameOutContainerMob">
+                    <div class="editNameContainerMob">
+                        <div class="editInputEditContainerMob">
+                            <input class="inputName" id="editUserName" type="text" value="${name}">
+                            <img src="../../assets/img/name_logo.png" alt="">
+                        </div>
+                    </div>
+                    <span class="required">This field is required</span>
+                </div>
+                <div class="editnameOutContainerMob">
+                    <div class="editNameContainerMob">
+                        <div class="editInputEditContainerMob">
+                            <input class="inputName" id="editUserEmail" type="email" value="${email}">
+                            <img src="../../assets/img/email_Logo.png" alt="">
+                        </div>
+                    </div>
+                    <span class="required">This field is required</span>
+                </div>
+                <div class="editnameOutContainerMob">
+                    <div class="editNameContainerMob">
+                        <div class="editInputEditContainerMob">
+                            <input class="inputName" id="editUserPhone" type="number" value="${phone}">
+                            <img src="../../assets/img/phoneLogo.png" alt="">
+                        </div>
+                    </div>
+                    <span class="required">This field is required</span>
+                </div>
+            </div>
+            <button class="editButtonMob" onclick="saveEditContact(${i})" class="save">
+                <span id="saveEditButton">Save</span>
+            </button>
+        </div>
+
+    `;
+}
+

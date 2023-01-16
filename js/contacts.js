@@ -105,9 +105,14 @@ function showContact(i) {
     let phone = allUsers[i].phone;
     let letter = allUsers[i].firstSecondLetter;
     let color = allUsers[i].colorIndex;
-    document.getElementById('showContact').classList.remove('d-none')
-    document.getElementById('showContact').innerHTML = '';
-    document.getElementById('showContact').innerHTML = showContactHTML(name, email, phone, letter, color, i); 
+    if (document.getElementById('mobilContent')) {
+        document.getElementById('mobilContent').innerHTML = '';
+        document.getElementById('mobilContent').innerHTML = showContactHTMLMob(name, email, phone, letter, color, i);
+    } else {
+        document.getElementById('showContact').classList.remove('d-none')
+        document.getElementById('showContact').innerHTML = '';
+        document.getElementById('showContact').innerHTML = showContactHTML(name, email, phone, letter, color, i);
+    }
 }
 
 
