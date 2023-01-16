@@ -62,7 +62,7 @@ function openEditContact(i) {
     let phone = allUsers[i].phone;
     document.getElementById('edit_contact').classList.remove('d-none')
     document.getElementById('edit_contact').innerHTML = '';
-    document.getElementById('edit_contact').innerHTML = openEditContactHTML(color, letter, name, email, phone);
+    document.getElementById('edit_contact').innerHTML = openEditContactHTML(color, letter, name, email, phone, i);
 }
 
 
@@ -107,7 +107,7 @@ function showContact(i) {
     let color = allUsers[i].colorIndex;
     document.getElementById('showContact').classList.remove('d-none')
     document.getElementById('showContact').innerHTML = '';
-    document.getElementById('showContact').innerHTML = showContactHTML(name, email, phone, letter, color); 
+    document.getElementById('showContact').innerHTML = showContactHTML(name, email, phone, letter, color, i); 
 }
 
 

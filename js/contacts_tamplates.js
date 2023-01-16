@@ -114,7 +114,7 @@ function showAlphabetNames(name, color, email, id, letter){
  * @param phone - "123456789"
  * @returns A string of HTML.
  */
-function openEditContactHTML(color, letter, name, email, phone){
+function openEditContactHTML(color, letter, name, email, phone, i){
     return /*html*/`   
         <div class="overlayAdd">
             <div class="blackSite">
@@ -243,7 +243,7 @@ function openNewContactHTML(){
  * @param color - is a number from 0 to 5
  * @returns A string of HTML.
  */
-function showContactHTML(name, email, phone, letter, color){
+function showContactHTML(name, email, phone, letter, color, i){
     return /*html*/`
         <div>                       
             <div class="show_contact_ellipse_5" style='background:${colorIndex[color]}'>
