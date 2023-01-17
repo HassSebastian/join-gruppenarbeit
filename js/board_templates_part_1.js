@@ -99,7 +99,7 @@ function renderAssignToHtml(taskIndex) {
                 let lastName = assignedList[i]['lastName'];
                 let nameLetters = firstName[0] + lastName[0];
                 chooseColorForTaskForceBadge(firstName[0], lastName[0]);
-                let assignToColor = backgroundColorForBadges[badgesIndex];
+                let assignToColor = colorIndex[badgesIndex];
                 let assignToTitle = firstName + ' ' + lastName;
                 document.getElementById(divId).innerHTML += /*html*/`
                 <div class='contributorsLogo' title='${assignToTitle}' style='background-color: ${assignToColor}'>
@@ -112,7 +112,7 @@ function renderAssignToHtml(taskIndex) {
                 let lastName = assignedList[i]['lastName'];
                 let nameLetters = firstName[0] + lastName[0];
                 chooseColorForTaskForceBadge(firstName[0], lastName[0]);
-                let assignToColor = backgroundColorForBadges[badgesIndex];
+                let assignToColor = colorIndex[badgesIndex];
                 let assignToTitle = firstName + ' ' + lastName;
                 document.getElementById(divId).innerHTML += /*html*/`
                 <div class='contributorsLogo' title='${assignToTitle}' style='background-color: ${assignToColor}'>
