@@ -37,8 +37,7 @@ async function initAddTask() {
 	renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
 	setFutureDatesOnlyForInputDueDate();
 	loadContributorsLetter();
-
-	// getInnerWidth();
+	getInnerWidth();
 }
 
 function generateAddTaskHtml() {
@@ -397,7 +396,7 @@ function resetCatSelection() {
 	catListStatus = !catListStatus;
 	document.getElementById('colorSelection').classList.add('listD-none');
 	document.getElementById('selectedCat').innerHTML = resetCatSelectionHtml();
-	// getInnerWidth();
+	getInnerWidth();
 }
 
 /**
@@ -426,7 +425,7 @@ function selectCategory(catId) {
 	} else {
 		setSettingsForExistingCategory(catId);
 	}
-	// getInnerWidth();
+	getInnerWidth();
 }
 
 /**
