@@ -1309,15 +1309,15 @@ function closeDropDownAssignTo() {
 	enableDisableAssignList();
 }
 
-// function clearTaskForce() {
-// 	checkStatusToFalse();
-// 	taskForce = [];
-// 	enableDisableAssignList();
-// 	console.table('Length tskforce', taskForce.length);
-// 	renderBadgesMemberOfTaskForce();
-// 	closeDropDownAssignTo();
-// 	console.table('content', taskForce);
-// }
+function clearTaskForce() {
+	checkStatusToFalse();
+	taskForce = [];
+	enableDisableAssignList();
+	console.table('Length tskforce', taskForce.length);
+	renderBadgesMemberOfTaskForce();
+	closeDropDownAssignTo();
+	console.table('content', taskForce);
+}
 
 function frontEndDeveloper() {
 	/* document.getElementById('selectedAssign').value = `Just frontend. Sorry! ;)`; */
