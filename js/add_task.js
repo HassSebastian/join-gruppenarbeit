@@ -22,86 +22,7 @@ let selectedSubtasks = [];
 let badgesIndex;
 /* 
 !TEST ARRAY for renderFunciont (assignedContact list in dropdown menu) */
-let coworkersToAssignTo = [
-	{
-		firstName: 'Basti',
-		email: 'bastih@test.de',
-		lastName: 'H',
-		check: false,
-	},
-	{
-		firstName: 'Stefan',
-		lastName: 'B',
-		email: 'stefanb@test.de',
-		check: false,
-	},
-	{
-		firstName: 'Christian',
-		lastName: 'G',
-		email: 'christiang@test.de',
-		check: false,
-	},
-	{
-		firstName: 'Dorian',
-		lastName: 'J',
-		email: 'dorianj@web.de',
-		check: false,
-	},
-	{
-		firstName: 'Frank',
-		lastName: 'Jens',
-		email: 'frankjens@test.de',
-		check: false,
-	},
-	{
-		firstName: 'Sigmunde ',
-		lastName: 'Arafad',
-		email: 'sigmundekoehler@test.de',
-		check: false,
-	},
-	{
-		firstName: 'Gertraut ',
-		lastName: 'Harald',
-		email: 'gertrautharald@test.de',
-		check: false,
-	},
-	{
-		firstName: 'Frieda',
-		lastName: 'April',
-		email: 'aPril_frieda@shite.sa',
-		check: false,
-	},
-	{
-		firstName: 'Helmut',
-		lastName: 'Müller',
-		email: 'sindSaödf@hurz.de',
-		check: false,
-	},
-	{
-		firstName: 'Bichtig',
-		lastName: 'Tuer',
-		email: 'sisdfsadfz.de',
-		check: false,
-	},
-	{
-		firstName: 'Smelly',
-		lastName: 'Arter',
-		email: 'hurz@de',
-		check: false,
-	},
-	{
-		firstName: 'Claudia',
-		lastName: 'Schiffer',
-		email: 'warmaljung@web.de',
-		check: false,
-	},
-	{
-		firstName: 'Wans',
-		lastName: 'Hurst',
-		email: 'wdg@web.de',
-		check: false,
-	},
-];
+let coworkersToAssignTo = [];
 
 async function initAddTask() {
 	// setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
@@ -116,6 +37,7 @@ async function initAddTask() {
 	renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
 	setFutureDatesOnlyForInputDueDate();
 	loadContributorsLetter();
+
 	// getInnerWidth();
 }
 
@@ -192,7 +114,7 @@ function generateAddTaskHtml() {
 							<img onclick="frontEndDeveloper()" class="assignToCheckIcon"
 								src="assets/img/akar-icons_check.png" alt="confirm" />
 						</div>
-						<img id="assignDropDownImg" src="assets/img/Vector 2.png" class="dropdownImg2"/>
+						<img id="assignDropDownImg" src="assets/img/Vector 2.png" class="dropdownImg"/>
 					</button>
 					<span id="assignReq">This field is required</span>
 					<div id="badgesTaskForce" class="badgesTaskForce"></div>
@@ -273,8 +195,20 @@ function generateAddTaskHtml() {
  *
  */
 async function renderAddTask() {
+	coworkersToAssignTo = allUsers;
+	addCheckAttributeToCoworkersToAssignTo();
 	document.getElementById('content').innerHTML = '';
 	document.getElementById('content').innerHTML += generateAddTaskHtml();
+}
+
+/* 
+!!
+!!!
+!!!!!!!!!!!!!!!!!! */
+function addCheckAttributeToCoworkersToAssignTo() {
+	coworkersToAssignTo.forEach((contact) => {
+		contact.check = false;
+	});
 }
 
 // this are test function for the HTML 5 Form validation !
@@ -749,6 +683,7 @@ function clearFormularData() {
 	document.getElementById('catReq').classList.add('listD-none');
 	resetAssignToList(); // edited by Bossi 04.01.2022, the function is in the board.js
 	subTaskArray = [];
+	clearTaskForce();
 }
 
 // save data to local storage/server!
@@ -857,11 +792,11 @@ function btnNotSelected(cListLength) {
 }
 
 function selectPrioBtn(selectedId, btnName) {
-		document.getElementById(selectedId).classList.add(`${btnName.toLowerCase()}-color`);
+	document.getElementById(selectedId).classList.add(`${btnName.toLowerCase()}-color`);
 
-		document.getElementById(`addTask${btnName}Span`).classList.add('color-white');
-		document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}_white.png`;
-		prio = btnName;
+	document.getElementById(`addTask${btnName}Span`).classList.add('color-white');
+	document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}_white.png`;
+	prio = btnName;
 }
 
 function removeBtnSelection(btnName) {
@@ -986,11 +921,8 @@ function resetSubtaskSelections() {
 	}
 }
 
-/* 
-!Christian working here 
-*/
 /*=======================
-   ASSIGN TO FUNCTIONS (start: 24.12.2022)
+   ASSIGN TO FUNCTIONS 
 =======================*/
 
 /**
@@ -1149,6 +1081,7 @@ function removeSelectedContactFromTaskForce(index) {
  */
 function addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberInTaskForce) {
 	if (!addedToTaskForce) {
+		// ! oder ohne !???
 		addCheckMarkToCheckBox(contact);
 		addSelectedContactToTaskForce(contact);
 		renderBadgesMemberOfTaskForce();
@@ -1157,6 +1090,7 @@ function addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberInT
 		removeSelectedContactFromTaskForce(indexOfMemberInTaskForce);
 		renderBadgesMemberOfTaskForce();
 	}
+	/* console.table(taskForce); */
 }
 
 /**
@@ -1171,14 +1105,13 @@ function addContactToTaskForceWithCheckBox(contact) {
 	addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberOfTaskForce);
 	addedToTaskForce = !addedToTaskForce;
 	coworkersToAssignTo[contact].check = addedToTaskForce;
-	// console.log(taskForce.length);
-	// console.table(taskForce);
+	console.table(taskForce);
 }
 
-function generateAssignContactListForDropDownMenu(firstName, lastName, contact) {
+function generateAssignContactListForDropDownMenu(name, contact) {
 	return /*html*/ `
 	<li onclick="addContactToTaskForceWithCheckBox(${contact})">
-		${firstName} ${lastName}
+		${name}
 		<div  class="assignCheckboxContainer">
 			<img class="checkBox" src="assets/img/check_box.png" alt="checkbox" />
 			<img id="checkMark${contact}" class="checkMark d-none" src="assets/img/check_mark.png" />
@@ -1194,10 +1127,9 @@ function generateAssignContactListForDropDownMenu(firstName, lastName, contact) 
  */
 async function renderContactsInAssignDropDownMenu() {
 	for (let contact = 0; contact < coworkersToAssignTo.length; contact++) {
-		let firstName = coworkersToAssignTo[contact].firstName;
-		let lastName = coworkersToAssignTo[contact].lastName;
+		let name = coworkersToAssignTo[contact].name;
 		let assignedContactList = document.getElementById('dropdown2');
-		assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(firstName, lastName, contact);
+		assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(name, contact);
 	}
 }
 
@@ -1215,7 +1147,7 @@ function checkStatusToFalse() {
 	}
 }
 
-let backgroundColorForBadges = [
+/* let backgroundColorForBadges = [
 	'#02CF2F',
 	'#EE00D6',
 	'#0190E0',
@@ -1227,7 +1159,7 @@ let backgroundColorForBadges = [
 	'#462F8A',
 	'#FF7A00',
 	'#000000',
-];
+]; */
 
 /**
  * Given a first name and a last name, return the index of the color to use for the task force badge.
@@ -1251,22 +1183,15 @@ function chooseColorForTaskForceBadge(initialFirstName, initialLastName) {
  * @param badgesIndex - the index of the current member in the array of members
  * @returns A string of HTML.
  */
-function generateBadgesTaskForceHtml(
-	memberOfTaskForce,
-	firstName,
-	lastName,
-	initialFirstName,
-	initialLastName,
-	badgesIndex
-) {
+function generateBadgesTaskForceHtml(memberOfTaskForce, name, initials, badgesIndex) {
 	return /*html*/ `
 		<div
 			id="${memberOfTaskForce}"
 			class="badgeTaskForce"
-			title="${firstName} ${lastName}"
-			style="background-color:${backgroundColorForBadges[badgesIndex]}"
+			title="${name}"
+			style="background-color:${colorIndex[badgesIndex]}"
 		>
-			${initialFirstName}${initialLastName}
+			${initials}
 		</div>
 		`;
 }
@@ -1279,19 +1204,12 @@ function renderBadgesMemberOfTaskForce() {
 	let badgeContainer = document.getElementById('badgesTaskForce');
 	badgeContainer.innerHTML = '';
 	for (let memberOfTaskForce = 0; memberOfTaskForce < taskForce.length; memberOfTaskForce++) {
-		const initialFirstName = taskForce[memberOfTaskForce].firstName.charAt(0);
-		const initialLastName = taskForce[memberOfTaskForce].lastName.charAt(0);
-		const firstName = taskForce[memberOfTaskForce].firstName;
-		const lastName = taskForce[memberOfTaskForce].lastName;
-		chooseColorForTaskForceBadge(initialFirstName, initialLastName);
-		badgeContainer.innerHTML += generateBadgesTaskForceHtml(
-			memberOfTaskForce,
-			firstName,
-			lastName,
-			initialFirstName,
-			initialLastName,
-			badgesIndex
-		);
+		const initials = taskForce[memberOfTaskForce].firstSecondLetter;
+		const name = taskForce[memberOfTaskForce].name;
+		const badgesIndex = taskForce[memberOfTaskForce].colorIndex;
+
+		/* chooseColorForTaskForceBadge(initialFirstName, initialLastName); */
+		badgeContainer.innerHTML += generateBadgesTaskForceHtml(memberOfTaskForce, name, initials, badgesIndex);
 	}
 }
 
@@ -1308,15 +1226,15 @@ function closeDropDownAssignTo() {
 	enableDisableAssignList();
 }
 
-// function clearTaskForce() {
-// 	checkStatusToFalse();
-// 	taskForce = [];
-// 	enableDisableAssignList();
-// 	console.table('Length tskforce', taskForce.length);
-// 	renderBadgesMemberOfTaskForce();
-// 	closeDropDownAssignTo();
-// 	console.table('content', taskForce);
-// }
+function clearTaskForce() {
+	checkStatusToFalse();
+	taskForce = [];
+	enableDisableAssignList();
+	console.table('Length tskforce', taskForce.length);
+	renderBadgesMemberOfTaskForce();
+	closeDropDownAssignTo();
+	console.table('content', taskForce);
+}
 
 function frontEndDeveloper() {
 	/* document.getElementById('selectedAssign').value = `Just frontend. Sorry! ;)`; */
