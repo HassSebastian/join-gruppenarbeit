@@ -460,6 +460,7 @@ nav {
     flex: none;
     order: 0;
     flex-grow: 0;
+    cursor: pointer;
 }
 
 /*********************************************************************************/
@@ -583,7 +584,14 @@ nav {
     z-index: 0;
     border: 0;
     outline: none;
+    cursor: pointer;
 }
+
+/* .addTaskDateMob div input:hover {
+    cursor: pointer;
+} */
+
+
 
 /* #dateReq {
     display: flex;
