@@ -206,21 +206,21 @@ function enableDisableSliderMenu() {
 
 window.onresize = function () {
     if (window.innerWidth >= 500 && window.innerWidth <= 1110) {
-        // myFunction(window.innerWidth);
+        myFunction(window.innerWidth);
     }
 };
 
 window.onload = function () {
     let tabWidth = window.innerWidth;
     if (tabWidth >= 500 && tabWidth <= 1100) {
-        // myFunction(tabWidth);
+        myFunction(tabWidth);
     }
 }
 
 function getInnerWidth() {
     let tabWidth = window.innerWidth;
     if (tabWidth >= 500 && tabWidth <= 1100) {
-        // myFunction(tabWidth);
+        myFunction(tabWidth);
     }
 }
 
