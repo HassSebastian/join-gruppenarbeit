@@ -131,10 +131,10 @@ async function renderMobilAddTask(){
             </div>
 
 
-            <!-- <div class='subtaskMob'>
-				<h3>Subtask</h3> -->
+            <div class='subtaskMob'>
+				<h3>Subtask</h3>
         <!--ab hier komme ich in "Subtask" nicht mehr weiter. Ich weiß nicht wo ich ansetzen soll :-( -->
-				<!-- <div class='inputDiv addTaskResponsiv'>
+				<div class='inputDiv'>
 					<form onsubmit='addSubtask(); return false'>
 						<input type="text" placeholder="Add new subtask" id="subTask" autocomplete="off"
 							onfocus="subTaskInputentered()" onblur="subTaskInputLeave()" minlength="3" />
@@ -148,7 +148,7 @@ async function renderMobilAddTask(){
 					</div>
 				</div>
 				<div class='addTaskCheckbox' id='subtaskCheckboxes'></div>
-			</div> -->
+			</div>
 
 
 

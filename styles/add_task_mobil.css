@@ -629,19 +629,16 @@ nav {
     display: flex;
     /* flex-direction: column; */
     align-items: flex-start;
-    /* justify-content: center; */
+    justify-content: space-between;
     padding: 0px;
     width: 363px;
     height: 41px;
     border-radius: 10px;
     flex: none;
-    /* order: 1;
-    flex-grow: 0; */
     cursor: pointer;
     background: white;
     border: 1px solid #D1D1D1;
     gap: 10px;
-    
 
 }
 
@@ -883,7 +880,7 @@ button input {
     display: flex;
     /* flex-direction: column; */
     align-items: flex-start;
-    /* justify-content: center; */
+    justify-content: space-between;
     padding: 0px;
     width: 363px;
     height: 41px;
@@ -896,7 +893,6 @@ button input {
 }
 
 .dropdownImg2{
-    position: absolute;
     width: 16px;
     height: 8px;
     left: 336px;
@@ -905,6 +901,8 @@ button input {
     order: 1;
     flex-grow: 0;
     z-index: 1;
+    margin-top: 16px;
+    margin-right: 11px;
 }
 
 .badgesTaskForce{
@@ -928,7 +926,7 @@ button input {
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 	margin-top: -21px;
-	z-index: 2;
+	z-index: 102;
 	list-style-type: none;
 	padding: 0;
 	cursor: pointer;
@@ -1033,4 +1031,139 @@ button input {
     flex-grow: 0;
 }
 
+
+.inputDiv {
+	position: relative;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 18px 21px;
+	gap: 10px;
+	isolation: isolate;
+	width: 363px;
+	height: 51px;
+	background: #ffffff;
+	border: 1px solid #d1d1d1;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+}
+
+.subtaskMob input {
+	width: 178px;
+	height: 25px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	z-index: 0;
+	border: 0;
+	outline: none;
+}
+
+.subtaskCross {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 0px;
+	gap: 9px;
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 331px;
+	top: 14px;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.subTaskImgDiv {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 0px;
+	gap: 9px;
+
+	position: absolute;
+	width: 66px;
+	height: 31px;
+	left: 287px;
+	top: 11px;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	z-index: 1;
+}
+
+.subTaskImgDiv img {
+	/* width: 24px; */
+	height: 24px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	cursor: pointer;
+}
+
+.addTaskCheckbox {
+	/* display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 20px;
+    width: 110px;
+    height: 19px;
+    flex: none;
+    order: 2;
+    flex-grow: 0; */
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	/* align-items: center; */
+	padding: 0px;
+	gap: 8px;
+	width: 300px;
+	height: 220px;
+	flex: none;
+	order: 2;
+	flex-grow: 0;
+	overflow: hidden;
+	/* overflow-y: scroll; */
+	margin-top: 10px;
+}
+
+.addTaskCheckbox input {
+	width: 16px;
+	height: 16px;
+	border-radius: 3px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+}
+
+.addTaskCheckbox span {
+	width: 74px;
+	height: 19px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+}
 /*ab hier komme ich in "Subtask" nicht mehr weiter. Ich weiß nicht wo ich ansetzen soll :-( */
