@@ -9,12 +9,11 @@ function renderAssignToHtml2(taskIndex) {
     document.getElementById(divId).innerHTML = '';
     if (assignedToDataExists(assignedList)) {
         for (let i = 0; i < assignedList.length; i++) {
-            let firstName = assignedList[i]['firstName'];
-            let lastName = assignedList[i]['lastName'];
-            let nameLetters = firstName[0] + lastName[0];
-            chooseColorForTaskForceBadge(firstName[0], lastName[0]);
-            let assignToColor = colorIndex[badgesIndex];
-            let assignToTitle = firstName + ' ' + lastName;
+            let name = assignedList[i]['name'];
+            let nameLetters = assignedList[i].firstSecondLetter;
+            // chooseColorForTaskForceBadge(firstName[0], lastName[0]);
+            let assignToColor = assignedList[i].colorIndex;
+            let assignToTitle = name;
             document.getElementById(divId).innerHTML += /*html*/`
                 <div  title='${assignToTitle}' style='background-color: ${assignToColor}'>
                     <span class='shortcut'>${nameLetters}</span>

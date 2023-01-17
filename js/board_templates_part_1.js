@@ -94,12 +94,11 @@ function renderAssignToHtml(taskIndex) {
 	if (assignedList.length > 0) {
 		if (assignedList.length <= 3) {
 			for (let i = 0; i < assignedList.length; i++) {
-				let firstName = assignedList[i]['firstName'];
-				let lastName = assignedList[i]['lastName'];
-				let nameLetters = firstName[0] + lastName[0];
-				chooseColorForTaskForceBadge(firstName[0], lastName[0]);
-				let assignToColor = colorIndex[badgesIndex];
-				let assignToTitle = firstName + ' ' + lastName;
+				let name = assignedList[i].name;
+				let nameLetters = assignedList[i].firstSecondLetter;
+				// chooseColorForTaskForceBadge(nameLetters);
+				let assignToColor = colorIndex[assignedList[i].colorIndex];
+				let assignToTitle = name;
 				document.getElementById(divId).innerHTML += /*html*/ `
                 <div class='contributorsLogo' title='${assignToTitle}' style='background-color: ${assignToColor}'>
                     <span>${nameLetters}</span>
@@ -107,12 +106,11 @@ function renderAssignToHtml(taskIndex) {
 			}
 		} else {
 			for (let i = 0; i < 3; i++) {
-				let firstName = assignedList[i]['firstName'];
-				let lastName = assignedList[i]['lastName'];
-				let nameLetters = firstName[0] + lastName[0];
-				chooseColorForTaskForceBadge(firstName[0], lastName[0]);
-				let assignToColor = colorIndex[badgesIndex];
-				let assignToTitle = firstName + ' ' + lastName;
+				let name = assignedList[i].name;
+				let nameLetters = assignedList[i].firstSecondLetter;
+				// chooseColorForTaskForceBadge(nameLetters);
+				let assignToColor = colorIndex[assignedList[i].colorIndex];
+				let assignToTitle = name;
 				document.getElementById(divId).innerHTML += /*html*/ `
                 <div class='contributorsLogo' title='${assignToTitle}' style='background-color: ${assignToColor}'>
                     <span>${nameLetters}</span>
