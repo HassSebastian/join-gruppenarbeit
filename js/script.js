@@ -204,56 +204,56 @@ function enableDisableSliderMenu() {
 
 // responsiv AddTask Functions
 
-// window.onresize = function () {
-//     if (window.innerWidth >= 500 && window.innerWidth <= 1110) {
-//         myFunction(window.innerWidth);
-//     }
-// };
+window.onresize = function () {
+    if (window.innerWidth >= 500 && window.innerWidth <= 1110) {
+        myFunction(window.innerWidth);
+    }
+};
 
-// window.onload = function () {
-//     let tabWidth = window.innerWidth;
-//     if (tabWidth <= 1100) {
-//         myFunction(tabWidth);
-//     }
-// }
+window.onload = function () {
+    let tabWidth = window.innerWidth;
+    if (tabWidth >= 500 && tabWidth <= 1100) {
+        myFunction(tabWidth);
+    }
+}
 
-// function getInnerWidth() {
-//     let tabWidth = window.innerWidth;
-//     if (tabWidth <= 1100) {
-//         myFunction(tabWidth);
-//     }
-// }
+function getInnerWidth() {
+    let tabWidth = window.innerWidth;
+    if (tabWidth >= 500 && tabWidth <= 1100) {
+        myFunction(tabWidth);
+    }
+}
 
-// function myFunction(tabWidth) {
-//     let contentH = document.getElementById('contentHeight');
-//     let content = document.getElementById('content');
+function myFunction(tabWidth) {
+    let contentH = document.getElementById('contentHeight');
+    let content = document.getElementById('content');
     
-//     if (contentH && window.innerWidth >= 500 && tabWidth <= 1100) {
-//         content.style = 'height: auto;';
-//         document.getElementById('dropdownImg').style = 'left: calc(100vw - 170px ) !important;';
-//         document.getElementById('assignDropDownImg').style = 'left: calc(100vw - 170px ) !important;';
-//         document.getElementById('addTaskNewCatBtn').style = 'left: calc(100vw - 221px ) !important;';
-//         document.getElementById('CatListDropdown').style = 'width: calc(100vw - 142px) !important;';
-//         document.getElementById('dropdown2').style = 'width: calc(100vw - 142px) !important;';
-//         document.getElementById('assignToCancelConfirmImgContainer').style = 'left: calc(100vw - 221px ) !important;';
-//         document.getElementById('addTaskPrioIcons').style = 'width: calc(100vw - 142px) !important; justify-content: space-between;';
-//         document.getElementById('subtaskCross').style = 'left: calc(100vw - 170px ) !important;';
-//         document.getElementById('addTaskDiverder').style = 'display: none;';
-//     } else {
-//         content.style = 'height: 1024px';
-//         document.getElementById('dropdownImg').style = 'left: 392px !important;';
-//         document.getElementById('assignDropDownImg').style = 'left: 392px !important;';
-//         document.getElementById('addTaskNewCatBtn').style = 'left: 341px !important;';
-//         document.getElementById('CatListDropdown').style = 'width: 424px !important;';
-//         document.getElementById('dropdown2').style = 'width: 424px !important;';
-//         document.getElementById('assignToCancelConfirmImgContainer').style = 'left: 341px !important;';
+    if (contentH && window.innerWidth >= 500 && tabWidth <= 1100) {
+        content.style = 'height: auto;';
+        document.getElementById('dropdownImg').style = 'left: calc(100vw - 170px ) !important;';
+        document.getElementById('assignDropDownImg').style = 'left: calc(100vw - 170px ) !important;';
+        document.getElementById('addTaskNewCatBtn').style = 'left: calc(100vw - 221px ) !important;';
+        document.getElementById('CatListDropdown').style = 'width: calc(100vw - 142px) !important;';
+        document.getElementById('dropdown2').style = 'width: calc(100vw - 142px) !important;';
+        document.getElementById('assignToCancelConfirmImgContainer').style = 'left: calc(100vw - 221px ) !important;';
+        document.getElementById('addTaskPrioIcons').style = 'width: calc(100vw - 142px) !important; justify-content: space-between;';
+        document.getElementById('subtaskCross').style = 'left: calc(100vw - 170px ) !important;';
+        document.getElementById('addTaskDiverder').style = 'display: none;';
+    } else {
+        content.style = 'height: 1024px';
+        document.getElementById('dropdownImg').style = 'left: 392px !important;';
+        document.getElementById('assignDropDownImg').style = 'left: 392px !important;';
+        document.getElementById('addTaskNewCatBtn').style = 'left: 341px !important;';
+        document.getElementById('CatListDropdown').style = 'width: 424px !important;';
+        document.getElementById('dropdown2').style = 'width: 424px !important;';
+        document.getElementById('assignToCancelConfirmImgContainer').style = 'left: 341px !important;';
         
-//         document.getElementById('addTaskPrioIcons').style = 'width: 424px !important; justify-content: center;';
-//         document.getElementById('subtaskCross').style = 'left: 392px !important;';
-//         document.getElementById('addTaskDiverder').style = 'display: flex;';
-//     }
+        document.getElementById('addTaskPrioIcons').style = 'width: 424px !important; justify-content: center;';
+        document.getElementById('subtaskCross').style = 'left: 392px !important;';
+        document.getElementById('addTaskDiverder').style = 'display: flex;';
+    }
 
-// }
+}
 
 
 
