@@ -682,17 +682,27 @@ button input {
 }
 
 .dropdownImg {
-    position: absolute;
+    /* position: absolute;
     width: 16px;
     height: 8px;
     left: 336px;
     top: 414px;
-    /* top: calc(50% - 8px/2 - 0.5px);
-    background: #000000; */
+    top: calc(50% - 8px/2 - 0.5px);
+    background: #000000;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    z-index: 1; */
+    width: 16px;
+    height: 8px;
+    left: 336px;
+    top: 499px;
     flex: none;
     order: 1;
     flex-grow: 0;
     z-index: 1;
+    margin-top: 16px;
+    margin-right: 23px;
 }
 
 .addMarginTop {
@@ -892,7 +902,7 @@ button input {
     gap: 10px;
 }
 
-.dropdownImg2{
+/* .dropdownImg2{
     width: 16px;
     height: 8px;
     left: 336px;
@@ -903,7 +913,7 @@ button input {
     z-index: 1;
     margin-top: 16px;
     margin-right: 11px;
-}
+} */
 
 .badgesTaskForce{
     display: flex;
@@ -1079,7 +1089,7 @@ button input {
 	position: absolute;
 	width: 24px;
 	height: 24px;
-	left: 331px;
+	left: 317px;
 	top: 14px;
 	flex: none;
 	order: 1;
