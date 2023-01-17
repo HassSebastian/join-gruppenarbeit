@@ -329,7 +329,7 @@
 }
 
 .deadlineText {
-	width: 148px;
+	width: 170px;
 	height: 19px;
 	font-family: 'Inter';
 	font-style: normal;
@@ -340,6 +340,7 @@
 	flex: none;
 	order: 1;
 	flex-grow: 0;
+	color: red;
 }
 
 .toDoData {

@@ -76,7 +76,7 @@ function generateSummaryHtml(
                 </div>
                 <div class='deadlineData'>
                     <p id='deadlineDate'>October 16, 2022</p> 
-                    <p class='deadlineText' id='deadlineText'>Upcoming Deadline</p> 
+                    <p class='deadlineText' id='deadlineText'><b>31.01.2023 Deadline</b></p> 
                 </div>
             </div>
             <div class='toDoData'>
