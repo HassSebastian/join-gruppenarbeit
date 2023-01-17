@@ -1129,7 +1129,7 @@ button input {
 }
 
 .addTaskCheckbox {
-	display: flex;
+	/* display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	padding: 0px;
@@ -1139,10 +1139,27 @@ button input {
 	flex: none;
 	order: 2;
 	flex-grow: 0;
-	overflow: hidden;
+	overflow: hidden; */
 	/* overflow-y: scroll; */
-	margin-top: 10px;
+	/* margin-top: 10px; */
+
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: flex-start;
+    padding: 0px;
+    gap: 8px;
+    /* width: 300px; */
+    /* height: 200px; */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    overflow: hidden;
+    /* overflow-y: scroll; */
+    margin-top: 10px;
+    flex-wrap: wrap;
+    padding-bottom: 100px;
 }
+
 
 .addTaskCheckbox input {
 	width: 16px;
