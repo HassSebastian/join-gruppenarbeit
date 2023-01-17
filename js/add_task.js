@@ -1083,7 +1083,8 @@ function addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberInT
 		removeSelectedContactFromTaskForce(indexOfMemberInTaskForce);
 		renderBadgesMemberOfTaskForce();
 	}
-	console.table(taskForce);
+	setTimeout(()=>console.table(taskForce),1);
+	;
 }
 
 /**
