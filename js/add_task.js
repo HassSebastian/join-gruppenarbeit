@@ -34,6 +34,7 @@ async function initAddTask() {
 	renderSubtasks();
 	selectedMenuBtnId = 0;
 	selectedMenuButton(3);
+	renderLoggedUserInAssignDrobDownMenuIntoYou(); // Das habe ich für das You eingefügt!
 	renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
 	setFutureDatesOnlyForInputDueDate();
 	loadContributorsLetter();
@@ -121,13 +122,6 @@ function generateAddTaskHtml() {
 						<li onclick="assigendContactEmail()" class="inviteNewContacts">
 							Invite new contacts<img class="assignInviteNewContactImage"
 								src="assets/img/assigned_inviteNewContact.png" alt="" />
-						</li>
-						<li>
-							You
-							<div class="assignCheckboxContainer">
-								<img class="checkBox" src="assets/img/check_box.png" alt="checkbox" />
-								<img class="checkMark" src="assets/img/check_mark.png" />
-							</div>
 						</li>
 					</ul>
 				</div>
@@ -1080,7 +1074,6 @@ function removeSelectedContactFromTaskForce(index) {
  */
 function addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberInTaskForce) {
 	if (!addedToTaskForce) {
-		// ! oder ohne !???
 		addCheckMarkToCheckBox(contact);
 		addSelectedContactToTaskForce(contact);
 		renderBadgesMemberOfTaskForce();
@@ -1089,6 +1082,7 @@ function addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberInT
 		removeSelectedContactFromTaskForce(indexOfMemberInTaskForce);
 		renderBadgesMemberOfTaskForce();
 	}
+	console.table(taskForce);
 }
 
 /**
@@ -1124,17 +1118,32 @@ function generateAssignContactListForDropDownMenu(name, contact) {
  */
 async function renderContactsInAssignDropDownMenu() {
 	for (let contact = 0; contact < coworkersToAssignTo.length; contact++) {
-		let name = coworkersToAssignTo[contact].name;
-		let assignedContactList = document.getElementById('dropdown2');
-		assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(name, contact);
+		if (contact != loggedInUserIndex) {
+			let name = coworkersToAssignTo[contact].name;
+			let assignedContactList = document.getElementById('dropdown2');
+			assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(name, contact);
+		}
 	}
 }
 
-/* async function renderLoggedUserInAssignDrobDownMenuIntoYou() {
+async function renderLoggedUserInAssignDrobDownMenuIntoYou() {
+	let contact = loggedInUserIndex;
 	let name = coworkersToAssignTo[loggedInUserIndex].name;
 	let assignedContactList = document.getElementById('dropdown2');
-	assignedContactList.innerHTML +=
-} */
+	assignedContactList.innerHTML += generateLoggedUserHtml(name, contact);
+}
+
+function generateLoggedUserHtml(name, contact) {
+	return /*html*/ `
+	<li onclick="addContactToTaskForceWithCheckBox(${contact})" title="${name}">
+		You
+		<div  class="assignCheckboxContainer">
+			<img class="checkBox" src="assets/img/check_box.png" alt="checkbox" />
+			<img id="checkMark${contact}" class="checkMark d-none" src="assets/img/check_mark.png" />
+		</div>
+	</li>
+	`;
+}
 
 function setCheckStatusToFalse() {
 	taskForce.forEach((member) => {
@@ -1150,31 +1159,17 @@ function checkStatusToFalse() {
 	}
 }
 
-/* let backgroundColorForBadges = [
-	'#02CF2F',
-	'#EE00D6',
-	'#0190E0',
-	'#FF7200',
-	'#FF2500',
-	'#AF1616',
-	'#FFC700',
-	'#3E0099',
-	'#462F8A',
-	'#FF7A00',
-	'#000000',
-]; */
-
 /**
  * Given a first name and a last name, return the index of the color to use for the task force badge.
  * @param initialFirstName - The first letter of the first name of the user.
  * @param initialLastName - The last name of the user.
  */
-/* function chooseColorForTaskForceBadge(initialFirstName, initialLastName) {
+function chooseColorForTaskForceBadge(initialFirstName, initialLastName) {
 	let asciInintalFirstName = initialFirstName.charCodeAt(0);
 	let asciInintalLastName = initialLastName.charCodeAt(0);
 	let sum = asciInintalFirstName + asciInintalLastName;
 	badgesIndex = sum % 10;
-} */
+}
 
 /**
  * It takes in a bunch of parameters and returns a string of HTML.

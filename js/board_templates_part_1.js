@@ -3,7 +3,7 @@
  * @returns - basic board html string
  */
 function boardHtml() {
-    return /*html*/`
+	return /*html*/ `
         <div class='boardOverlay'>
             <div class='boardHeadline'>
                 <span>Board</span>
@@ -82,52 +82,50 @@ function boardHtml() {
         </div>`;
 }
 
-
 /**
  * It takes the index of a task in the joinTaskArray, and then it renders the assignedTo property of
  * that task as HTML.
  * @param taskIndex - the index of the task in the joinTaskArray
  */
 function renderAssignToHtml(taskIndex) {
-    let assignedList = joinTaskArray[taskIndex]['assignedTo'];
-    let divId = 'contributorsList' + taskIndex;
-    document.getElementById(divId).innerHTML = '';
-    if (assignedList.length > 0) {
-        if (assignedList.length <= 3) {
-            for (let i = 0; i < assignedList.length; i++) {
-                let firstName = assignedList[i]['firstName'];
-                let lastName = assignedList[i]['lastName'];
-                let nameLetters = firstName[0] + lastName[0];
-                chooseColorForTaskForceBadge(firstName[0], lastName[0]);
-                let assignToColor = colorIndex[badgesIndex];
-                let assignToTitle = firstName + ' ' + lastName;
-                document.getElementById(divId).innerHTML += /*html*/`
+	let assignedList = joinTaskArray[taskIndex]['assignedTo'];
+	let divId = 'contributorsList' + taskIndex;
+	document.getElementById(divId).innerHTML = '';
+	if (assignedList.length > 0) {
+		if (assignedList.length <= 3) {
+			for (let i = 0; i < assignedList.length; i++) {
+				let firstName = assignedList[i]['firstName'];
+				let lastName = assignedList[i]['lastName'];
+				let nameLetters = firstName[0] + lastName[0];
+				chooseColorForTaskForceBadge(firstName[0], lastName[0]);
+				let assignToColor = colorIndex[badgesIndex];
+				let assignToTitle = firstName + ' ' + lastName;
+				document.getElementById(divId).innerHTML += /*html*/ `
                 <div class='contributorsLogo' title='${assignToTitle}' style='background-color: ${assignToColor}'>
                     <span>${nameLetters}</span>
                 </div>`;
-            }
-        } else {
-            for (let i = 0; i < 3; i++) {
-                let firstName = assignedList[i]['firstName'];
-                let lastName = assignedList[i]['lastName'];
-                let nameLetters = firstName[0] + lastName[0];
-                chooseColorForTaskForceBadge(firstName[0], lastName[0]);
-                let assignToColor = colorIndex[badgesIndex];
-                let assignToTitle = firstName + ' ' + lastName;
-                document.getElementById(divId).innerHTML += /*html*/`
+			}
+		} else {
+			for (let i = 0; i < 3; i++) {
+				let firstName = assignedList[i]['firstName'];
+				let lastName = assignedList[i]['lastName'];
+				let nameLetters = firstName[0] + lastName[0];
+				chooseColorForTaskForceBadge(firstName[0], lastName[0]);
+				let assignToColor = colorIndex[badgesIndex];
+				let assignToTitle = firstName + ' ' + lastName;
+				document.getElementById(divId).innerHTML += /*html*/ `
                 <div class='contributorsLogo' title='${assignToTitle}' style='background-color: ${assignToColor}'>
                     <span>${nameLetters}</span>
                 </div>`;
-            }
-            let assignedListLength = assignedList.length - 3;
-            document.getElementById(divId).innerHTML += /*html*/`
+			}
+			let assignedListLength = assignedList.length - 3;
+			document.getElementById(divId).innerHTML += /*html*/ `
             <div class='contributorsLogo' style='background-color:#000000; color:white'>
                 <span>+${assignedListLength}</span>
             </div>`;
-        }
-    }
+		}
+	}
 }
-
 
 /**
  * this function returns the html code for each todo task card.
@@ -135,15 +133,15 @@ function renderAssignToHtml(taskIndex) {
  * @returns - the html string for each todo task card.
  */
 function toDoCardHtml(arrayIndex) {
-    let cardTitle = workStatus0Array[arrayIndex]['cardTitle'];
-    let cardDescription = workStatus0Array[arrayIndex]['cardDescription'];
-    let cardCategory = workStatus0Array[arrayIndex]['cardCategory'];
-    let taskIndex = workStatus0Array[arrayIndex]['taskIndex'];
-    let workStatusArrayNo = 0;
-    let subTasksAmount = workStatus0Array[arrayIndex]['subTasks'].length;
-    let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
-    let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
-    return /*html*/`
+	let cardTitle = workStatus0Array[arrayIndex]['cardTitle'];
+	let cardDescription = workStatus0Array[arrayIndex]['cardDescription'];
+	let cardCategory = workStatus0Array[arrayIndex]['cardCategory'];
+	let taskIndex = workStatus0Array[arrayIndex]['taskIndex'];
+	let workStatusArrayNo = 0;
+	let subTasksAmount = workStatus0Array[arrayIndex]['subTasks'].length;
+	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
+	return /*html*/ `
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})'>
             <div class='taskContainer'>
                 <div class='boardTaskCategory' id='toDoCardCat${arrayIndex}'>
@@ -171,22 +169,21 @@ function toDoCardHtml(arrayIndex) {
         </div>`;
 }
 
-
 /**
  * this function returns the html code for each in progress task card.
  * @param {number} arrayIndex - is the index number of the workStatus1Array.
  * @returns - the html string for each in progress task card
  */
 function inProgressHtml(arrayIndex) {
-    let cardTitle = workStatus1Array[arrayIndex]['cardTitle'];
-    let cardDescription = workStatus1Array[arrayIndex]['cardDescription'];
-    let cardCategory = workStatus1Array[arrayIndex]['cardCategory'];
-    let taskIndex = workStatus1Array[arrayIndex]['taskIndex'];
-    let workStatusArrayNo = 1;
-    let subTasksAmount = workStatus1Array[arrayIndex]['subTasks'].length;
-    let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
-    let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
-    return /*html*/`
+	let cardTitle = workStatus1Array[arrayIndex]['cardTitle'];
+	let cardDescription = workStatus1Array[arrayIndex]['cardDescription'];
+	let cardCategory = workStatus1Array[arrayIndex]['cardCategory'];
+	let taskIndex = workStatus1Array[arrayIndex]['taskIndex'];
+	let workStatusArrayNo = 1;
+	let subTasksAmount = workStatus1Array[arrayIndex]['subTasks'].length;
+	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
+	return /*html*/ `
             <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})'>
                 <div class='taskContainer'>
                     <div class='boardTaskCategory' id='progressCard${arrayIndex}'>
@@ -214,22 +211,21 @@ function inProgressHtml(arrayIndex) {
             </div>`;
 }
 
-
 /**
  * this function returns the html code for each awaitingFeedback task card.
  * @param {number} arrayIndex - is the index number of the workStatus2Array.
  * @returns - the html string for each awaitingFeedback task card
  */
 function awaitingFeedbackHtml(arrayIndex) {
-    let cardTitle = workStatus2Array[arrayIndex]['cardTitle'];
-    let cardDescription = workStatus2Array[arrayIndex]['cardDescription'];
-    let cardCategory = workStatus2Array[arrayIndex]['cardCategory'];
-    let taskIndex = workStatus2Array[arrayIndex]['taskIndex'];
-    let workStatusArrayNo = 2;
-    let subTasksAmount = workStatus2Array[arrayIndex]['subTasks'].length;
-    let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
-    let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
-    return /*html*/`
+	let cardTitle = workStatus2Array[arrayIndex]['cardTitle'];
+	let cardDescription = workStatus2Array[arrayIndex]['cardDescription'];
+	let cardCategory = workStatus2Array[arrayIndex]['cardCategory'];
+	let taskIndex = workStatus2Array[arrayIndex]['taskIndex'];
+	let workStatusArrayNo = 2;
+	let subTasksAmount = workStatus2Array[arrayIndex]['subTasks'].length;
+	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
+	return /*html*/ `
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})'>
             <div class='taskContainer'>
                 <div class='boardTaskCategory' id='feedbackCard${arrayIndex}'>
@@ -257,22 +253,21 @@ function awaitingFeedbackHtml(arrayIndex) {
         </div>`;
 }
 
-
 /**
  * this function returns the html code for each done task card.
  * @param {number} arrayIndex - is the index number of the workStatus3Array.
  * @returns - the html string for each done task card
  */
 function doneHtml(arrayIndex) {
-    let cardTitle = workStatus3Array[arrayIndex]['cardTitle'];
-    let cardDescription = workStatus3Array[arrayIndex]['cardDescription'];
-    let cardCategory = workStatus3Array[arrayIndex]['cardCategory'];
-    let taskIndex = workStatus3Array[arrayIndex]['taskIndex'];
-    let workStatusArrayNo = 3;
-    let subTasksAmount = workStatus3Array[arrayIndex]['subTasks'].length;
-    let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
-    let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
-    return /*html*/`
+	let cardTitle = workStatus3Array[arrayIndex]['cardTitle'];
+	let cardDescription = workStatus3Array[arrayIndex]['cardDescription'];
+	let cardCategory = workStatus3Array[arrayIndex]['cardCategory'];
+	let taskIndex = workStatus3Array[arrayIndex]['taskIndex'];
+	let workStatusArrayNo = 3;
+	let subTasksAmount = workStatus3Array[arrayIndex]['subTasks'].length;
+	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
+	return /*html*/ `
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})'>
             <div class='taskContainer'>
                 <div class='boardTaskCategory' id='doneCard${arrayIndex}'>
