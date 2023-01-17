@@ -17,9 +17,9 @@ async function initMobilAddTask(){
 async function renderMobilAddTask(){
     document.getElementById('mobilContent').innerHTML = '';
     document.getElementById('mobilContent').innerHTML = /*html*/`
-    <header class='mobilHeader'>
+        <header class='mobilHeader'>
             <img src='../../assets/img/mobil_header_logo.png'>
-            <button><span>Create</span><img src='../assets/img/akar-icons_check_white.png'> </button>
+            <button onclick='checkInputs()'><span>Create</span><img src='../assets/img/akar-icons_check_white.png'> </button>
         </header>
 
             <div class='frame164'>
@@ -35,12 +35,14 @@ async function renderMobilAddTask(){
 
             <div class='addTaskTitleMobil'>
                 <h3>Title</h3>
-                <input type="text" placeholder='Enter a title'>
+                <input type="text" placeholder='Enter a title' id="addTaskTitle" autocomplete='off'>
+                <span class="requiredText" id="titleReq">This field is required</span>
             </div>
 
             <div class='addTaskDescriptionMobil'>
                 <h3>Descripten</h3>
-                <textarea type="text" placeholder='Enter a descripten'></textarea>
+                <textarea type="text" placeholder='Enter a descripten' id="addTaskDescripten"></textarea>
+                <span class="requiredText" id="descReq">This field is required</span>
             </div>
 
             <div class='addTaskPrioMobil'>
@@ -67,14 +69,14 @@ async function renderMobilAddTask(){
                 <h3>Due date</h3>
                 <div>
                     <input required type="date" id='dueDate' min="2023-01-01">
-                    <!-- <span class='requiredText' id='dateReq'>This field is required</span> -->
+                    
                 </div>
+                <span class='requiredText' id='dateReq'>This field is required</span>
             </div>
 
 
             <div class="addTaskAddCategoryBoxMob">
                 <h3>Category</h3>
-        <!--ab hier komme ich in "Category" nicht mehr weiter. Ich weiß nicht wo ich ansetzen soll :-( -->
                 <button onclick="enableDisableCatList()" id="selectedCat">
                     <input disabled id="selectedCatInput" placeholder="Select task category" autocomplete="off" />
                     <span id="sColor"></span>
@@ -149,8 +151,11 @@ async function renderMobilAddTask(){
 				</div>
 				<div class='addTaskCheckbox' id='subtaskCheckboxes'></div>
 			</div>
-
-
-
+        </div>
+        <div class="taskAddedToBoard" id="taskCreatedIndication">
+            <div class="taskAddedToBoardContainer">
+                <span>Task added to board</span>
+                <img src="./assets/img/img_board_w.png" />
+            </div>
         </div>`;
 }
