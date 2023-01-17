@@ -933,11 +933,12 @@ button input {
 	border-style: solid;
 	width: 361px;
 	min-height: 144px;
+    max-height: 200px;
 	overflow-y: scroll;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 	margin-top: -21px;
-	z-index: 102;
+	z-index: 2;
 	list-style-type: none;
 	padding: 0;
 	cursor: pointer;
@@ -976,6 +977,7 @@ button input {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+    margin-right: 13px;
 }
 
 /* 
@@ -1007,7 +1009,7 @@ button input {
 
 .assignInviteNewContactImage {
 	position: absolute;
-	right: 11px;
+	right: 23px;
 }
 
 /*ab hier komme ich in "Assigned to" nicht mehr weiter. Ich weiß nicht wo ich ansetzen soll :-( */
@@ -1026,6 +1028,7 @@ button input {
     order: 6;
     flex-grow: 0;
     /* margin-top: 34px; */
+    margin-bottom: 80px;
 }
 
 .subtaskMob h3 {
