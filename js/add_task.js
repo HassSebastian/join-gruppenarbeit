@@ -1130,6 +1130,12 @@ async function renderContactsInAssignDropDownMenu() {
 	}
 }
 
+/* async function renderLoggedUserInAssignDrobDownMenuIntoYou() {
+	let name = coworkersToAssignTo[loggedInUserIndex].name;
+	let assignedContactList = document.getElementById('dropdown2');
+	assignedContactList.innerHTML +=
+} */
+
 function setCheckStatusToFalse() {
 	taskForce.forEach((member) => {
 		member.check = false;
@@ -1163,12 +1169,12 @@ function checkStatusToFalse() {
  * @param initialFirstName - The first letter of the first name of the user.
  * @param initialLastName - The last name of the user.
  */
-function chooseColorForTaskForceBadge(initialFirstName, initialLastName) {
+/* function chooseColorForTaskForceBadge(initialFirstName, initialLastName) {
 	let asciInintalFirstName = initialFirstName.charCodeAt(0);
 	let asciInintalLastName = initialLastName.charCodeAt(0);
 	let sum = asciInintalFirstName + asciInintalLastName;
 	badgesIndex = sum % 10;
-}
+} */
 
 /**
  * It takes in a bunch of parameters and returns a string of HTML.

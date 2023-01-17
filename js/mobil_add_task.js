@@ -1,5 +1,5 @@
-async function initMobilAddTask(){
-    await includeHTML();
+async function initMobilAddTask() {
+	await includeHTML();
 	await renderMobilAddTask();
 	await loadExitingCategories();
 	renderCategoryList();
@@ -13,10 +13,9 @@ async function initMobilAddTask(){
 	// getInnerWidth();
 }
 
-
-async function renderMobilAddTask(){
-    document.getElementById('mobilContent').innerHTML = '';
-    document.getElementById('mobilContent').innerHTML = /*html*/`
+async function renderMobilAddTask() {
+	document.getElementById('mobilContent').innerHTML = '';
+	document.getElementById('mobilContent').innerHTML = /*html*/ `
         <header class='mobilHeader'>
             <img src='../../assets/img/mobil_header_logo.png'>
             <button onclick='checkInputs()'><span>Create</span><img src='../assets/img/akar-icons_check_white.png'> </button>
@@ -159,5 +158,3 @@ async function renderMobilAddTask(){
             </div>
         </div>`;
 }
-
-
