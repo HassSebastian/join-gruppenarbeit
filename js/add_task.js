@@ -192,7 +192,7 @@ function generateAddTaskHtml() {
 							<img onclick="frontEndDeveloper()" class="assignToCheckIcon"
 								src="assets/img/akar-icons_check.png" alt="confirm" />
 						</div>
-						<img id="assignDropDownImg" src="assets/img/Vector 2.png" class="dropdownImg"/>
+						<img id="assignDropDownImg" src="assets/img/Vector 2.png" class="dropdownImg2"/>
 					</button>
 					<span id="assignReq">This field is required</span>
 					<div id="badgesTaskForce" class="badgesTaskForce"></div>
