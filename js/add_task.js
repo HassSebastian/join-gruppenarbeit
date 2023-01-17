@@ -119,6 +119,7 @@ async function initAddTask() {
 	getInnerWidth();
 }
 
+
 function generateAddTaskHtml() {
 	return /*html*/ `
 	<div class='contentHeight' id='contentHeight'>
