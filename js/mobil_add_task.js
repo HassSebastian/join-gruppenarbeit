@@ -4,13 +4,13 @@ async function initMobilAddTask() {
 	await loadExitingCategories();
 	renderCategoryList();
 	newCatInputActive = false;
-	// renderSubtasks();
+	renderSubtasks();
 	selectedMenuBtnId = 0;
 	selectedMenuButton(3);
 	await renderContactsInAssignDropDownMenu();
 	setFutureDatesOnlyForInputDueDate();
 	loadContributorsLetter();
-	// getInnerWidth();
+	getInnerWidth();
 }
 
 async function renderMobilAddTask() {
