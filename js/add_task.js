@@ -1089,7 +1089,6 @@ function addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberInT
 		removeSelectedContactFromTaskForce(indexOfMemberInTaskForce);
 		renderBadgesMemberOfTaskForce();
 	}
-	/* console.table(taskForce); */
 }
 
 /**
@@ -1104,7 +1103,6 @@ function addContactToTaskForceWithCheckBox(contact) {
 	addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberOfTaskForce);
 	addedToTaskForce = !addedToTaskForce;
 	coworkersToAssignTo[contact].check = addedToTaskForce;
-	console.table(taskForce);
 }
 
 function generateAssignContactListForDropDownMenu(name, contact) {
@@ -1229,10 +1227,8 @@ function clearTaskForce() {
 	checkStatusToFalse();
 	taskForce = [];
 	enableDisableAssignList();
-	console.table('Length tskforce', taskForce.length);
 	renderBadgesMemberOfTaskForce();
 	closeDropDownAssignTo();
-	console.table('content', taskForce);
 }
 
 function frontEndDeveloper() {
