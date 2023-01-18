@@ -71,12 +71,30 @@ function renderContentMobileHTML() {
                     <span class="required">This field is required</span>
                 </div>
             </div>
-            <button onclick="addContact()" class="createContactButtonMob">
+            <button onclick="addContactMob()" class="createContactButtonMob">
                 <span>Create contact</span>
                 <img src="../../assets/img/okHaeckchen.png">
             </button>
         </div>
+
+        <!--contactSucc-->
+
+        <div class="contactSucc" id="contactSucc">
+            <div class="contactSuccContainer">
+                <span>Contact succesfully created</span>
+            </div>
+        </div>
+
     `;
+}
+
+function addContactMob(){
+    document.getElementById('contactSucc').classList.add('contactSuccSlide');
+    setTimeout(addContact,2000);
+}
+
+function test(){
+    console.log('ok');
 }
 
 function openOverlayMob(){
