@@ -26,13 +26,13 @@ let coworkersToAssignTo = [];
 
 async function initAddTask() {
   // setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-  await includeHTML();
+  // await includeHTML();
   await renderAddTask();
   await loadExitingCategories();
   renderCategoryList();
   newCatInputActive = false;
   renderSubtasks();
-  selectedMenuBtnId = 0;
+  // selectedMenuBtnId = 0;
   selectedMenuButton(3);
   renderLoggedUserInAssignDrobDownMenuIntoYou(); // Das habe ich für das You eingefügt!
   renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo

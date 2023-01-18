@@ -8,8 +8,9 @@ let colorIndex = ['#02CF2F', '#EE00D6', '#0190E0', '#FF7200', '#FF2500', '#AF161
  * contacts page and renders the content.
  */
 async function initContacts() {
-    await includeHTML();
+    // await includeHTML();
     await loadTask();
+    
     selectedMenuButton(4);
     renderContent();
     userInAlphabetArray();
