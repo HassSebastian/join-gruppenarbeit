@@ -239,11 +239,17 @@
 }
 
 .showContact {
-    position: absolute;
+    position: relative;
     width: 461px;
-    height: 364px;
-    left: 750px;
+    height: 390px;
+    left: 1210px;
     top: 326px;
+    transition: 500ms ease-in-out;
+}
+
+.showContactSlide{
+    transition: 500ms ease-in-out;
+    transform: translateX(-680px);
 }
 
 .show_contact_ellipse_5 {

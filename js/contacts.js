@@ -113,16 +113,25 @@ function showContact(i) {
     let phone = allUsers[i].phone;
     let letter = allUsers[i].firstSecondLetter;
     let color = allUsers[i].colorIndex;
+    let showContact = document.getElementById('showContact');
     if (document.getElementById('mobilContent')) {
         document.getElementById('mobilContent').innerHTML = '';
         document.getElementById('mobilContent').innerHTML = showContactHTMLMob(name, email, phone, letter, color, i);
     } else {
-        document.getElementById('showContact').classList.remove('d-none')
-        document.getElementById('showContact').innerHTML = '';
-        document.getElementById('showContact').innerHTML = showContactHTML(name, email, phone, letter, color, i);
+        showContact.classList.remove('d-none')
+        if(showContact.classList.contains('showContactSlide')){
+            showContact.classList.remove('showContactSlide');
+            setTimeout(showContactHelp,700,name, email, phone, letter, color, i, showContact);
+        }else{
+            showContactHelp(name, email, phone, letter, color, i, showContact);
+        }
     }
 }
-
+function showContactHelp(name, email, phone, letter, color, i, showContact){
+    showContact.innerHTML = '';
+    showContact.innerHTML = showContactHTML(name, email, phone, letter, color, i);
+    showContact.classList.add('showContactSlide');
+}
 
 /**
  * AddContact() is an async function that takes the values of the input fields, calculates the first
