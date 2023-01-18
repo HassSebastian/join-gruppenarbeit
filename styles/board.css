@@ -1186,7 +1186,13 @@
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgb(0 0 0 / 10%);
     border-radius: 30px;
-    left: 0px;
+    left: 1290px;
+    transition: 500ms ease-in-out;
+}
+
+.boardAddTaskPopupOverlay{
+transition: 500ms ease-in-out;
+transform: translateX(-1290px);
 }
 
 .boardAddTaskHeadlineDiv {

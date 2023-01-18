@@ -7,6 +7,7 @@
  */
 function enablePopupWindow() {
     document.getElementById('boardPopup').classList.remove('d-none');
+    setTimeout(()=>{document.getElementById('boardAddTaskPopup').classList.add('boardAddTaskPopupOverlay')},1);
 }
 
 
@@ -14,7 +15,8 @@ function enablePopupWindow() {
  * this function add the d-none class to the popup window. The result is that the Popup Window not shown.
  */
 async function disablePopupWindow() {
-    document.getElementById('boardPopup').classList.add('d-none');
+    document.getElementById('boardAddTaskPopup').classList.remove('boardAddTaskPopupOverlay');
+    setTimeout(()=>{document.getElementById('boardPopup').classList.add('d-none')},500);
     await renderAllCards();
     searchAfterPopup();
 }
