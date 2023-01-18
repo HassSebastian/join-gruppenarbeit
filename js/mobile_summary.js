@@ -106,8 +106,8 @@ function generateMobilSummaryHtml(){
 }
 
 function logOutMasterContainerMob(){
-    document.getElementById('logOutMasterContainer').innerHTML = `
-    <div class="logOutNav" onclick="helpMob()">
+    document.getElementById('logOutMasterContainer').innerHTML = /*html*/`
+    <div class="logOutNav" onclick="renderHelpMob()">
             <span>Help</span>
         </div>
         <div class="logOutNav" onclick="dataPrivacyMob()">

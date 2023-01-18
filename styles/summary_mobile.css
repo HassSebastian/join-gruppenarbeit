@@ -575,12 +575,11 @@ p {
 .logOutMasterContainer {
     position: absolute;
     top: 85px;
-    left: 278px;
+    left: 268px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 10px;
-    position: relative;
     width: 130px;
     height: 119px;
     background: #2A3647;
