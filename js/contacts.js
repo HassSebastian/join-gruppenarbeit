@@ -10,7 +10,7 @@ let colorIndex = ['#02CF2F', '#EE00D6', '#0190E0', '#FF7200', '#FF2500', '#AF161
 async function initContacts() {
     // await includeHTML();
     await loadTask();
-    
+
     selectedMenuButton(4);
     renderContent();
     userInAlphabetArray();
@@ -64,6 +64,7 @@ function openEditContact(i) {
     document.getElementById('edit_contact').classList.remove('d-none')
     document.getElementById('edit_contact').innerHTML = '';
     document.getElementById('edit_contact').innerHTML = openEditContactHTML(color, letter, name, email, phone, i);
+    setTimeout(() => { document.getElementById('edit_contact').classList.add('add_contact_slide') }, 1);
 }
 
 
@@ -71,10 +72,10 @@ function openEditContact(i) {
  * It opens a new contact form.
  */
 function openNewContact() {
+    document.getElementById('new_contact').classList.remove('d-none')
     document.getElementById('new_contact').innerHTML = '';
     document.getElementById('new_contact').innerHTML = openNewContactHTML();
-    document.getElementById('new_contact').classList.remove('d-none');
-    closeEditContact();
+    setTimeout(() => { document.getElementById('new_contact').classList.add('add_contact_slide') }, 1);
 }
 
 
@@ -85,7 +86,8 @@ function closeNewContact() {
     if (document.getElementById('mobilContent')) {
         renderContentMobile();
     } else {
-        document.getElementById('new_contact').classList.add('d-none');
+        document.getElementById('new_contact').classList.remove('add_contact_slide');
+        setTimeout(() => { document.getElementById('new_contact').classList.add('d-none') }, 500);
     }
 }
 
@@ -97,9 +99,11 @@ function closeEditContact() {
     if (document.getElementById('mobilContent')) {
         renderContentMobile();
     } else {
-        document.getElementById('edit_contact').classList.add('d-none');
+        document.getElementById('edit_contact').classList.remove('add_contact_slide');
+        setTimeout(() => { document.getElementById('edit_contact').classList.add('d-none') }, 500);
     }
 }
+
 
 /**
  * It takes the index of the user in the array, and then it gets the name, email, phone, letter, and
@@ -119,15 +123,15 @@ function showContact(i) {
         document.getElementById('mobilContent').innerHTML = showContactHTMLMob(name, email, phone, letter, color, i);
     } else {
         showContact.classList.remove('d-none')
-        if(showContact.classList.contains('showContactSlide')){
+        if (showContact.classList.contains('showContactSlide')) {
             showContact.classList.remove('showContactSlide');
-            setTimeout(showContactHelp,700,name, email, phone, letter, color, i, showContact);
-        }else{
+            setTimeout(showContactHelp, 700, name, email, phone, letter, color, i, showContact);
+        } else {
             showContactHelp(name, email, phone, letter, color, i, showContact);
         }
     }
 }
-function showContactHelp(name, email, phone, letter, color, i, showContact){
+function showContactHelp(name, email, phone, letter, color, i, showContact) {
     showContact.innerHTML = '';
     showContact.innerHTML = showContactHTML(name, email, phone, letter, color, i);
     showContact.classList.add('showContactSlide');
