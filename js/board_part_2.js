@@ -5,18 +5,26 @@
 /**
  * this function remove the d-none class from the popup window. The result is that the Popup Window is shown.
  */
-function enablePopupWindow() {
-    document.getElementById('boardPopup').classList.remove('d-none');
-    setTimeout(()=>{document.getElementById('boardAddTaskPopup').classList.add('boardAddTaskPopupOverlay')},1);
+function enablePopupWindow(taskIndex) {
+    if (document.getElementById(`taskCard${taskIndex}`)) {
+        document.getElementById('boardPopup').classList.remove('d-none');
+    } else {
+        document.getElementById('boardPopup').classList.remove('d-none');
+        setTimeout(() => { document.getElementById('boardAddTaskPopup').classList.add('boardAddTaskPopupOverlay') }, 1);
+    }
 }
-
 
 /**
  * this function add the d-none class to the popup window. The result is that the Popup Window not shown.
  */
 async function disablePopupWindow() {
-    document.getElementById('boardAddTaskPopup').classList.remove('boardAddTaskPopupOverlay');
-    setTimeout(()=>{document.getElementById('boardPopup').classList.add('d-none')},500);
+    if (document.getElementById('boardAddTaskPopup')) {
+        document.getElementById('boardAddTaskPopup').classList.remove('boardAddTaskPopupOverlay');
+        setTimeout(() => { document.getElementById('boardPopup').classList.add('d-none') }, 500);
+    } else {
+        document.getElementById('boardPopup').classList.add('d-none');
+
+    }
     await renderAllCards();
     searchAfterPopup();
 }
@@ -43,7 +51,7 @@ function stopClose(event) {
  * @param assignedList - [{id: 1, name: 'John'}, {id: 2, name: 'Jane'}]
  * @returns true if the assignedList length is greater than 0.
  */
-function assignedToDataExists(assignedList){
+function assignedToDataExists(assignedList) {
     return assignedList.length > 0;
 }
 
@@ -64,7 +72,7 @@ async function renderSubtask(taskIndex) {
  * @param subtaskArray - an array of subtasks
  * @returns true if the subtaskArray length is greater than 0.
  */
-function subtaskExist(subtaskArray){
+function subtaskExist(subtaskArray) {
     return subtaskArray.length > 0;
 }
 
@@ -91,7 +99,7 @@ function setSubTaskStatus(taskIndex) {
  * @returns the value of the subtaskStatus property of the object at the index of subtaskIndex in the
  * array subtaskArray.
  */
-function subtaskStatusIsTrue(subtaskIndex, subtaskArray){
+function subtaskStatusIsTrue(subtaskIndex, subtaskArray) {
     return subtaskArray[subtaskIndex]['subtaskStatus'];
 }
 
@@ -272,7 +280,7 @@ function prioStatusChange(index) {
  * @returns the value of the expression:
  * statusNames[index] == boardEditedPrio
  */
-function actualClickedPrioBtnIsSet(index, statusNames){
+function actualClickedPrioBtnIsSet(index, statusNames) {
     return statusNames[index] == boardEditedPrio;
 }
 
@@ -324,7 +332,7 @@ function showDeleteButton(taskIndex) {
  * joinTaskArray at the taskIndex position. Then it saves the task and initializes the board.
  * @param taskIndex - The index of the task in the array.
  */
-async function deleteButton(taskIndex){
+async function deleteButton(taskIndex) {
     joinTaskArray.splice(taskIndex, 1);
     await saveTask();
     // initBoard();
