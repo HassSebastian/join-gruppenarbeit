@@ -3,8 +3,16 @@
     
 }
 
-h2 {
+h2, h3, h4, h5 {
     word-break: break-all;
+    margin: 0;
+}
+
+p{
+    width: 100%;
+    height: 55px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .legal-wrapper a {

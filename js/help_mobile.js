@@ -1,13 +1,16 @@
-function back() {
-    history.back();
+function backFromHelpMob() {
+    let backIndex = menuSelectorStyles[selectedMenuBtnId].url;
+    // window.location.href = backIndex;
+    console.log(backIndex);
 }
 
 
-async function renderHelp() {
+async function renderHelpMob() {
+    document.getElementById('logOutMasterContainer').classList.toggle('d-none');
     document.getElementById('mobilContent').innerHTML = '';
     document.getElementById('mobilContent').innerHTML += /*html*/ `
         <div class="backArrowMob">
-            <img src="../../assets/img/back_logo_black.png" onclick="back()">
+            <img src="../../assets/img/back_logo_black.png" onclick="backFromHelpMob()">
         </div>
         <div class="helpOverlayMob">
             <span>Help</span>
