@@ -4,7 +4,7 @@ async function initMobilBoard() {
     await loadTask();
     await createWorkStatusArrays();
     await renderAllCardsMobil();
-    // loadContributorsLetter();
+    loadContributorsLetter();
 }
 
 
@@ -59,7 +59,7 @@ async function renderAllCardsMobil() {
     // renderInProgressCards();
     // renderAwaitingFeedbackCards();
     // renderDoneCards();
-    // renderAssignTo();
+    renderAssignTo();
 }
 
 async function renderToDoCardsMobil() {
@@ -84,26 +84,26 @@ function toDoCardMobilHtml(arrayIndex) {
 	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 	return /*html*/ `
         <!-- später wieder einfügen: onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})' -->
-        <div class='taskBackground' id='taskCard${taskIndex}' >
-            <div class='taskContainer'>
-                <div class='boardTaskCategory' id='toDoCardCat${arrayIndex}'>
+        <div class='taskBackgroundMobil' id='taskCard${taskIndex}' >
+            <div class='taskContainerMobil'>
+                <div class='boardTaskCategoryMobil' id='toDoCardCat${arrayIndex}'>
                     <span>${cardCategory}</span>
                 </div>
-                <div class='taskHeadline'>
-                    <span class='taskHeadlineContent'>${cardTitle}</span>
-                    <span class='taskContent'>${cardDescription}</span>
+                <div class='taskHeadlineMobil'>
+                    <span class='taskHeadlineContentMobil'>${cardTitle}</span>
+                    <span class='taskContentMobil'>${cardDescription}</span>
                 </div>
-                <div class='doneBar'>
-                    <div class='doneBarOuter' id='doneBarOuter${taskIndex}'>
+                <div class='doneBarMobil'>
+                    <div class='doneBarOuterMobil' id='doneBarOuter${taskIndex}'>
                         <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;' id='doneBar${taskIndex}'></div>
                     </div>
                     <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
                 </div>
-                <div class='contributorsPrio'>
-                    <div class='contributorsLogoContainer' id='contributorsList${taskIndex}'>
+                <div class='contributorsPrioMobil'>
+                    <div class='contributorsLogoContainerMobil' id='contributorsList${taskIndex}'>
                        
                     </div>
-                    <div class='prio'>
+                    <div class='prioMobil'>
                         <img src='./assets/img/low.png' id='contributorsPrioIcon${taskIndex}'>
                     </div>
                 </div>
