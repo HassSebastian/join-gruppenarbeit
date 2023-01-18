@@ -56,10 +56,15 @@ async function userSignIn(firstLetter, secondLetter, name, email, password, colo
     await loadTask();
     allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter});
     await saveTask();
-    signUpDone();
+    contactSucc();
     setTimeout(() => {
         window.location.href = './login.html';
     }, 2000);
+}
+
+
+function contactSucc(){
+    document.getElementById('contactSucc').classList.add('contactSuccSlide');
 }
 
 
@@ -67,10 +72,6 @@ async function userSignIn(firstLetter, secondLetter, name, email, password, colo
  * When the signUpDone() function is called, the signUpButton element is hidden and the
  * signUpButtonDone element is shown.
  */
-function signUpDone(){
-    document.getElementById('signUpButton').classList.add('d-none');
-    document.getElementById('signUpButtonDone').classList.remove('d-none');
-}
 
 
 /**
