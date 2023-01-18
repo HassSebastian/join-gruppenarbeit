@@ -1,17 +1,14 @@
 async function initMobilBoard() {
-    // await includeHTML();
-    await renderMobileBoard();
-    // selectedMenuBtnId = 0;
+    await renderMobileBoardHtml();
     selectedMenuButton(2);
     await loadTask();
     await createWorkStatusArrays();
-    // renderAllCards();
+    await renderAllCardsMobil();
     // loadContributorsLetter();
-    await renderToDoCards();
 }
 
 
-async function renderMobileBoard(){
+async function renderMobileBoardHtml(){
     document.getElementById('mobilContent').innerHTML = '';
 	document.getElementById('mobilContent').innerHTML = /*html*/ `
         <span class="kanbanProjectManagementTool">
@@ -56,9 +53,38 @@ async function renderMobileBoard(){
         `;
 }
 
-function infoContainer(){
-    return /*html*/ `
-        <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})'>
+
+async function renderAllCardsMobil() {
+    renderToDoCardsMobil();
+    // renderInProgressCards();
+    // renderAwaitingFeedbackCards();
+    // renderDoneCards();
+    // renderAssignTo();
+}
+
+async function renderToDoCardsMobil() {
+    document.getElementById('toDoDiv').innerHTML = '';
+    for (let i = 0; i < workStatus0Array.length; i++) {
+        document.getElementById('toDoDiv').innerHTML += toDoCardMobilHtml(i);
+        let taskIndex = workStatus0Array[i]['taskIndex'];
+        showContributorsPrioIcon(taskIndex);
+    }
+    setCategoryBackgroundColorForWorkStatus0();
+}
+
+
+function toDoCardMobilHtml(arrayIndex) {
+	let cardTitle = workStatus0Array[arrayIndex]['cardTitle'];
+	let cardDescription = workStatus0Array[arrayIndex]['cardDescription'];
+	let cardCategory = workStatus0Array[arrayIndex]['cardCategory'];
+	let taskIndex = workStatus0Array[arrayIndex]['taskIndex'];
+	let workStatusArrayNo = 0;
+	let subTasksAmount = workStatus0Array[arrayIndex]['subTasks'].length;
+	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
+	return /*html*/ `
+        <!-- später wieder einfügen: onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})' -->
+        <div class='taskBackground' id='taskCard${taskIndex}' >
             <div class='taskContainer'>
                 <div class='boardTaskCategory' id='toDoCardCat${arrayIndex}'>
                     <span>${cardCategory}</span>
