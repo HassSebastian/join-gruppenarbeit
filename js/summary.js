@@ -8,45 +8,50 @@ let allYourDoneTasksAmount = 0;
 let yourUrgentTasksAmount = 0;
 let allYourTasks = []; // Bossis Idee, für workflow 0-3
 
+/* BRAUCHEN WIR DAS NOCH? 
+! */
+let amountTasksLoggedUser = 0;
+
 async function initSummary() {
-	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-	await loadTask();
-	resetCounters();
-	await loadAmountsForSummary(); // await später für server wichtig
-	await includeHTML();
-	await renderSummary(
-		allYourTasksAmount,
-		allYourToDoTasksAmount,
-		allYourInProgressTasksAmount,
-		allYourAwaitingFeedbackTasksAmount,
-		allYourDoneTasksAmount,
-		yourUrgentTasksAmount
-	);
-	selectedMenuBtnId = 0;
-	selectedMenuButton(1);
-	showDate();
-	showTime();
-	loadContributorsLetter();
+  setURL("https://gruppe-407.developerakademie.net/smallest_backend_ever");
+  await loadTask();
+  resetCounters();
+  await loadAmountsForSummary(); // await später für server wichtig
+  await includeHTML();
+  await renderSummary(
+    allYourTasksAmount,
+    allYourToDoTasksAmount,
+    allYourInProgressTasksAmount,
+    allYourAwaitingFeedbackTasksAmount,
+    allYourDoneTasksAmount,
+    yourUrgentTasksAmount
+  );
+  selectedMenuBtnId = 0;
+  selectedMenuButton(1);
+  showDate();
+  showTime();
+  loadContributorsLetter();
+  countingOwnTasks();
 }
 
 function resetCounters() {
-	allYourTasksAmount = 0;
-	allYourToDoTasksAmount = 0;
-	allYourInProgressTasksAmount = 0;
-	allYourAwaitingFeedbackTasksAmount = 0;
-	allYourDoneTasksAmount = 0;
-	yourUrgentTasksAmount = 0;
+  allYourTasksAmount = 0;
+  allYourToDoTasksAmount = 0;
+  allYourInProgressTasksAmount = 0;
+  allYourAwaitingFeedbackTasksAmount = 0;
+  allYourDoneTasksAmount = 0;
+  yourUrgentTasksAmount = 0;
 }
 
 function generateSummaryHtml(
-	allYourTasksAmount,
-	allYourToDoTasksAmount,
-	allYourInProgressTasksAmount,
-	allYourAwaitingFeedbackTasksAmount,
-	allYourDoneTasksAmount,
-	yourUrgentTasksAmount
+  allYourTasksAmount,
+  allYourToDoTasksAmount,
+  allYourInProgressTasksAmount,
+  allYourAwaitingFeedbackTasksAmount,
+  allYourDoneTasksAmount,
+  yourUrgentTasksAmount
 ) {
-	return /*html*/ `
+  return /*html*/ `
     <!-- <div class='summary_content'> -->
         <div class='title'>
             <h3>Summary</h3>
@@ -100,58 +105,66 @@ function generateSummaryHtml(
 }
 
 async function renderSummary(
-	allYourTasksAmount,
-	allYourToDoTasksAmount,
-	allYourInProgressTasksAmount,
-	allYourAwaitingFeedbackTasksAmount,
-	allYourDoneTasksAmount,
-	yourUrgentTasksAmount
+  allYourTasksAmount,
+  allYourToDoTasksAmount,
+  allYourInProgressTasksAmount,
+  allYourAwaitingFeedbackTasksAmount,
+  allYourDoneTasksAmount,
+  yourUrgentTasksAmount
 ) {
-	document.getElementById('content').innerHTML = '';
-	document.getElementById('content').innerHTML += generateSummaryHtml(
-		allYourTasksAmount,
-		allYourToDoTasksAmount,
-		allYourInProgressTasksAmount,
-		allYourAwaitingFeedbackTasksAmount,
-		allYourDoneTasksAmount,
-		yourUrgentTasksAmount
-	);
+  document.getElementById("content").innerHTML = "";
+  document.getElementById("content").innerHTML += generateSummaryHtml(
+    allYourTasksAmount,
+    allYourToDoTasksAmount,
+    allYourInProgressTasksAmount,
+    allYourAwaitingFeedbackTasksAmount,
+    allYourDoneTasksAmount,
+    yourUrgentTasksAmount
+  );
 }
 
 // Hover Summary help-function
 function toDoHoverOn() {
-	document.getElementById('toDoImg').src = './assets/img/to_do_pen_black.png';
-	document.getElementById('toDo').classList.add('toDoHover');
-	document.getElementById('toDoAmountTasks').classList.add('toDoHoverSpanP');
-	document.getElementById('toDoAmountP').classList.add('toDoHoverSpanP');
+  document.getElementById("toDoImg").src = "./assets/img/to_do_pen_black.png";
+  document.getElementById("toDo").classList.add("toDoHover");
+  document.getElementById("toDoAmountTasks").classList.add("toDoHoverSpanP");
+  document.getElementById("toDoAmountP").classList.add("toDoHoverSpanP");
 }
 
 function toDoHoverOff() {
-	document.getElementById('toDoImg').src = './assets/img/to_do_pen.png';
-	document.getElementById('toDo').classList.remove('toDoHover');
-	document.getElementById('toDoAmountTasks').classList.remove('toDoHoverSpanP');
-	document.getElementById('toDoAmountP').classList.remove('toDoHoverSpanP');
+  document.getElementById("toDoImg").src = "./assets/img/to_do_pen.png";
+  document.getElementById("toDo").classList.remove("toDoHover");
+  document.getElementById("toDoAmountTasks").classList.remove("toDoHoverSpanP");
+  document.getElementById("toDoAmountP").classList.remove("toDoHoverSpanP");
 }
 
 function toDoDoneHoverOn() {
-	document.getElementById('toDoDoneImg').src = './assets/img/done_black.png';
-	document.getElementById('toDoDone').classList.add('toDoHover');
-	document.getElementById('toDoDoneAmountTasks').classList.add('toDoHoverSpanP');
-	document.getElementById('toDoDoneAmountP').classList.add('toDoHoverSpanP');
+  document.getElementById("toDoDoneImg").src = "./assets/img/done_black.png";
+  document.getElementById("toDoDone").classList.add("toDoHover");
+  document
+    .getElementById("toDoDoneAmountTasks")
+    .classList.add("toDoHoverSpanP");
+  document.getElementById("toDoDoneAmountP").classList.add("toDoHoverSpanP");
 }
 
 function toDoDoneHoverOff() {
-	document.getElementById('toDoDoneImg').src = './assets/img/done.png';
-	document.getElementById('toDoDone').classList.remove('toDoHover');
-	document.getElementById('toDoDoneAmountTasks').classList.remove('toDoHoverSpanP');
-	document.getElementById('toDoDoneAmountP').classList.remove('toDoHoverSpanP');
+  document.getElementById("toDoDoneImg").src = "./assets/img/done.png";
+  document.getElementById("toDoDone").classList.remove("toDoHover");
+  document
+    .getElementById("toDoDoneAmountTasks")
+    .classList.remove("toDoHoverSpanP");
+  document.getElementById("toDoDoneAmountP").classList.remove("toDoHoverSpanP");
 }
 
 function ugencySummaryHoverOn() {
-	document.getElementById('ugencySummaryAmount').classList.add('toDoHoverSpanP');
-	document.getElementById('deadlineDate').classList.add('toDoHoverSpanP');
-	document.getElementById('deadlineText').classList.add('toDoHoverSpanP');
-	document.getElementById('ugencySummaryurgent').classList.add('toDoHoverSpanP');
+  document
+    .getElementById("ugencySummaryAmount")
+    .classList.add("toDoHoverSpanP");
+  document.getElementById("deadlineDate").classList.add("toDoHoverSpanP");
+  document.getElementById("deadlineText").classList.add("toDoHoverSpanP");
+  document
+    .getElementById("ugencySummaryurgent")
+    .classList.add("toDoHoverSpanP");
 }
 
 /**
@@ -159,41 +172,45 @@ function ugencySummaryHoverOn() {
  * 'deadlineDate', 'deadlineText', and 'ugencySummaryurgent'.
  */
 function ugencySummaryHoverOff() {
-	document.getElementById('ugencySummaryAmount').classList.remove('toDoHoverSpanP');
-	document.getElementById('deadlineDate').classList.remove('toDoHoverSpanP');
-	document.getElementById('deadlineText').classList.remove('toDoHoverSpanP');
-	document.getElementById('ugencySummaryurgent').classList.remove('toDoHoverSpanP');
+  document
+    .getElementById("ugencySummaryAmount")
+    .classList.remove("toDoHoverSpanP");
+  document.getElementById("deadlineDate").classList.remove("toDoHoverSpanP");
+  document.getElementById("deadlineText").classList.remove("toDoHoverSpanP");
+  document
+    .getElementById("ugencySummaryurgent")
+    .classList.remove("toDoHoverSpanP");
 }
 
 // show date in Summary
 function showDate() {
-	let currentDate = new Date();
-	let day = currentDate.getDate();
-	if (day < 10) {
-		day = '0' + day;
-	}
-	let dateString = currentDate.toLocaleDateString('en-US', {
-		month: 'long',
-		day: 'numeric',
-		year: 'numeric',
-	});
-	document.getElementById('deadlineDate').innerHTML = dateString;
+  let currentDate = new Date();
+  let day = currentDate.getDate();
+  if (day < 10) {
+    day = "0" + day;
+  }
+  let dateString = currentDate.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+  document.getElementById("deadlineDate").innerHTML = dateString;
 }
 
 // greet User
 function showTime() {
-	let currentTime = new Date();
-	let hours = currentTime.getHours();
-	let timeString = hours;
-	if (timeString >= 6) {
-		document.getElementById('greetUser').innerHTML = `Good Morning,`;
-	}
-	if (timeString >= 12) {
-		document.getElementById('greetUser').innerHTML = `Good Day,`;
-	}
-	if (timeString >= 18) {
-		document.getElementById('greetUser').innerHTML = `Good Evening,`;
-	}
+  let currentTime = new Date();
+  let hours = currentTime.getHours();
+  let timeString = hours;
+  if (timeString >= 6) {
+    document.getElementById("greetUser").innerHTML = `Good Morning,`;
+  }
+  if (timeString >= 12) {
+    document.getElementById("greetUser").innerHTML = `Good Day,`;
+  }
+  if (timeString >= 18) {
+    document.getElementById("greetUser").innerHTML = `Good Evening,`;
+  }
 }
 
 /**
@@ -212,9 +229,9 @@ Kann loggedUser auch ein String sein, statt ein Arry? Einfacher!
  * and then logs the id of the object to the console.
  */
 function loadLoggedInUserArray() {
-	let loggedUserAtString = localStorage.getItem('loggedUser');
-	loggedUser = JSON.parse(loggedUserAtString);
-	console.log(loggedUser);
+  let loggedUserAtString = localStorage.getItem("loggedUser");
+  loggedUser = JSON.parse(loggedUserAtString);
+  console.log(loggedUser);
 }
 
 /**
@@ -222,8 +239,8 @@ function loadLoggedInUserArray() {
  * and assigns it to a variable.
  */
 function getLoggedUserIndex() {
-	loggedInUserIndex = loggedUser[0];
-	console.log(loggedInUserIndex);
+  loggedInUserIndex = loggedUser[0];
+  console.log(loggedInUserIndex);
 }
 
 /**
@@ -232,8 +249,8 @@ function getLoggedUserIndex() {
  * @param loggedInUserIndex - The index of the user in the users array.
  */
 function getEmailAdrressOfLoggedUser() {
-	emailAddress = allUsers[loggedInUserIndex].email;
-	console.log(emailAddress);
+  emailAddress = allUsers[loggedInUserIndex].email;
+  console.log(emailAddress);
 }
 
 /**
@@ -244,12 +261,14 @@ function getEmailAdrressOfLoggedUser() {
  * @param priority - 0 = Low, 1 = Medium, 2 = High, 3 = Urgent
  */
 function itemsToUpdate(email, workflowStatus, priority) {
-	if (email == emailAddress) allYourTasksAmount++;
-	if (email == emailAddress && workflowStatus === 0) allYourToDoTasksAmount++;
-	if (email == emailAddress && workflowStatus === 1) allYourInProgressTasksAmount++;
-	if (email == emailAddress && workflowStatus === 2) allYourAwaitingFeedbackTasksAmount++;
-	if (email == emailAddress && workflowStatus === 3) allYourDoneTasksAmount++;
-	if (email == emailAddress && priority === 'Urgent') yourUrgentTasksAmount++;
+  if (email == emailAddress) allYourTasksAmount++;
+  if (email == emailAddress && workflowStatus === 0) allYourToDoTasksAmount++;
+  if (email == emailAddress && workflowStatus === 1)
+    allYourInProgressTasksAmount++;
+  if (email == emailAddress && workflowStatus === 2)
+    allYourAwaitingFeedbackTasksAmount++;
+  if (email == emailAddress && workflowStatus === 3) allYourDoneTasksAmount++;
+  if (email == emailAddress && priority === "Urgent") yourUrgentTasksAmount++;
 }
 
 /**
@@ -258,15 +277,19 @@ function itemsToUpdate(email, workflowStatus, priority) {
  * for each member of the assignedTo array, it calls the itemsToUpdate function.
  */
 function updatingSummary() {
-	for (let task = 0; task < joinTaskArray.length; task++) {
-		const assignedTo = joinTaskArray[task].assignedTo;
-		const workflowStatus = joinTaskArray[task].workFlowStatus;
-		const priority = joinTaskArray[task].prio;
-		for (let memberOfTaskForce = 0; memberOfTaskForce < assignedTo.length; memberOfTaskForce++) {
-			const email = assignedTo[memberOfTaskForce].email;
-			itemsToUpdate(email, workflowStatus, priority);
-		}
-	}
+  for (let task = 0; task < joinTaskArray.length; task++) {
+    const assignedTo = joinTaskArray[task].assignedTo;
+    const workflowStatus = joinTaskArray[task].workFlowStatus;
+    const priority = joinTaskArray[task].prio;
+    for (
+      let memberOfTaskForce = 0;
+      memberOfTaskForce < assignedTo.length;
+      memberOfTaskForce++
+    ) {
+      const email = assignedTo[memberOfTaskForce].email;
+      itemsToUpdate(email, workflowStatus, priority);
+    }
+  }
 }
 
 /**
@@ -275,8 +298,23 @@ function updatingSummary() {
  * address of the logged in user, and updates the summary.
  */
 async function loadAmountsForSummary() {
-	loadLoggedInUserArray();
-	getLoggedUserIndex();
-	getEmailAdrressOfLoggedUser();
-	updatingSummary();
+  loadLoggedInUserArray();
+  getLoggedUserIndex();
+  getEmailAdrressOfLoggedUser();
+  updatingSummary();
+}
+
+/* 
+!Kann man das irgendwie kürzer schreiben. Das ist umständlich!!1
+ */
+
+async function countingOwnTasks() {
+  let emailAddress = allUsers[loggedInUserIndex].email;
+  joinTaskArray.forEach((tasks) => {
+    let taskForces = tasks.assignedTo;
+    taskForces.forEach((contact) => {
+      if (contact.email == emailAddress) amountTasksLoggedUser++;
+      console.log(amountTasksLoggedUser);
+    });
+  });
 }
