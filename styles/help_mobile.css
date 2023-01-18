@@ -244,6 +244,7 @@ nav {
     height: 600px;
     left: 33px;
     top: 235px;
+    color: black;
     overflow: hidden;
     overflow: scroll;
 }

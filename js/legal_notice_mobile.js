@@ -3,7 +3,8 @@ function back() {
 }
 
 
-async function renderLegalNoticeMob() {
+async function dataPrivacyMob() {
+    document.getElementById('logOutMasterContainer').classList.toggle('d-none');
     document.getElementById('mobilContent').innerHTML = '';
     document.getElementById('mobilContent').innerHTML += /*html*/ `
         <div class="backArrowMob">
