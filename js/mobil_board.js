@@ -22,7 +22,7 @@ async function renderMobileBoardHtml(){
         <div class='boardSearchMobilOuterContainer'>
             <div class='boardsearchmobilmidcontainer'>
                 <div class='boardsearchmobilinnerContainer'>
-                    <input type="text" class='boardSearchMobilInput' placeholder='Find task' autocomplete='none'>
+                    <input type="text" class='boardSearchMobilInput' id="searchField" required placeholder='Find Task' onfocus='startSearchMobil(event)' autocomplete='off'>
                     <div class='lupeContainer'>
                         <img src='../assets/img/board_mobil_lupe.png'>
                     </div>
@@ -110,3 +110,21 @@ function toDoCardMobilHtml(arrayIndex) {
             </div>
         </div>`;
 }
+
+function startSearchMobil() {
+    let cards = document.querySelectorAll('.taskBackgroundMobil'); // Select all elements with class "taskBackground"
+    document.getElementById('searchField').addEventListener('input', function () {
+        searchTerm = this.value.toLowerCase(); // Get the search term and convert to lowercase
+        searchTerm = this.value.trim();
+        cards.forEach(function (card) {
+            let cardTitle = card.querySelector('.taskHeadlineContentMobil').textContent.toLowerCase();
+            let cardDescription = card.querySelector('.taskContentMobil').textContent.toLowerCase();
+            if (cardTitle.indexOf(searchTerm) !== -1 || cardDescription.indexOf(searchTerm) !== -1) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+}
+
