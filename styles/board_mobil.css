@@ -462,3 +462,64 @@
     order: 0;
     flex-grow: 0;
 }
+
+/* Add Task Overlay */
+
+.boardAddTask{
+    display: flex;
+    position: absolute;
+    background-color: #F6F7F8;
+    z-index: 2;
+    min-height: 100vh;
+    width: 100%;
+
+}
+
+.frame154Over{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+
+    position: absolute;
+    width: 214px;
+    height: 56px;
+    left: 34px;
+    top: 118px;
+}
+
+.scrollOver{
+    overflow: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 9px;
+    position: absolute;
+    width: 363px;
+    height: 700px;
+    left: 32px;
+    top: 197px;
+}
+
+.closeAddTask{
+    background-image: url(../assets/img/close_board_add_task.png);
+    background-position: center;
+    background-size: cover;
+    /* z-index: 3; */
+    position: absolute;
+    width: 21.65px;
+    height: 21.65px;
+    left: 380px;
+    top: 118px;
+    /* transform: rotate(45deg); */
+    cursor: pointer;
+}
+
+.closeAddTask:hover{
+    background-image: url(../assets/img/close_logo_blue.png);
+    transition: 100ms ease-in-out;
+}
