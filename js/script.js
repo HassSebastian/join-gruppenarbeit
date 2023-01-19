@@ -246,7 +246,7 @@ function myFunction(tabWidth) {
     } else {
         if (!mobilView){
             content.style = 'height: 1024px';
-            document.getElementById('dropdownImg').style = 'left: 392px !important;';
+            // document.getElementById('dropdownImg').style = 'left: 392px !important;';
             document.getElementById('assignDropDownImg').style = 'left: 392px !important; display: flex !important; position: absolute !important;';
             document.getElementById('addTaskNewCatBtn').style = 'left: 341px !important;';
             document.getElementById('CatListDropdown').style = 'width: 424px !important;';

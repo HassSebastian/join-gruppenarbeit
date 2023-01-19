@@ -8,20 +8,22 @@ let colorIndex = ['#02CF2F', '#EE00D6', '#0190E0', '#FF7200', '#FF2500', '#AF161
  * contacts page and renders the content.
  */
 async function initContacts() {
-    // await includeHTML();
+    await includeHTML();
     await loadTask();
 
     selectedMenuButton(4);
-    renderContent();
-    userInAlphabetArray();
+    await userInAlphabetArray();
+    await renderContent();
+    
     loadContributorsLetter();
+
 }
 
 
 /**
  * It takes the HTML from the renderContentHTML() function and puts it into the content div.
  */
-function renderContent() {
+async function renderContent() {
     document.getElementById('content').innerHTML = '';
     document.getElementById('content').innerHTML = renderContentHTML();
 }
@@ -33,9 +35,9 @@ function renderContent() {
  * alphabet appears in the user's input, and then it calls the alphabet() function, which displays the
  * results.
  */
-function userInAlphabetArray() {
+async function userInAlphabetArray() {
     alphabetOrd = { A: [], B: [], C: [], D: [], E: [], F: [], G: [], H: [], I: [], J: [], K: [], L: [], M: [], N: [], O: [], P: [], Q: [], R: [], S: [], T: [], U: [], V: [], W: [], X: [], Y: [], Z: [] };
-    calculateUserInAlphabetArray();
+    // calculateUserInAlphabetArray();
     alphabet();
 }
 
