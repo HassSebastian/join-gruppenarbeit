@@ -62,8 +62,11 @@ function generateMobilSummaryHtml() {
         </div>
         <div class="summaryFloatingMasterContainer">
             <div class='taskOverviewMob'>
-                <div id='taskInBoard'><span id='taskInBoardAmount'>${allYourTasksAmount}</span>
+                <div id='taskInBoard'>
+                <div class="containerBox" >
+                    <span id='taskInBoardAmount'>${allYourTasksAmount}</span>
                     <p>Task in Board</p>
+                    </div>
                 </div>
                 <div id='taskInProgress'><span id='taskInProgressAmount'>${allYourInProgressTasksAmount}</span>
                     <p>Task in Progress</p>
