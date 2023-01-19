@@ -1,349 +1,186 @@
-body {
-    display: flex;
-    justify-content: center;
-}
-
-.d-none {
-    display: none;
-}
-
-.mobilMasterContainer {
-    position: relative;
-    width: 428px;
-    height: 926px;
-    background: #F6F7F8;
-}
-
-
-/*die hier enthaltenen Tamplates-CSS-Eigenschaften können natürlich zum einbinden gelöscht werden. War nur zum Testen!*/
-
-
-/********/
-/*HEADER*/
-/********/
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    gap: 282px;
-    position: absolute;
-    width: 428px;
-    height: 79.02px;
-    left: 0px;
-    top: 0px;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
-}
-
-.headerJoinLogoMob {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    width: 32px;
-    height: 39.02px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
-.headerJoinLogoMob img {
-    width: 32px;
-    height: 39.02px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
-#contributorsLogoHeadderMob {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    width: 39px;
-    height: 39px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    border-radius: 100%;
-    background-color: aquamarine;
-}
-
-/*********/
-/*NAV-BAR*/
-/*********/
-nav {
-    position: absolute;
-    width: 428px;
-    height: 80px;
-    left: 0px;
-    top: 846px;
-}
-
-.navMasterContainerMob {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 10px;
-    position: absolute;
-    width: 428px;
-    height: 80px;
-    left: 0px;
-    top: 0px;
-    background: #2A3647;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 0px;
-}
-
-.navContainerMob {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    gap: 10px;
-    width: 75px;
-    height: 80px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    cursor: pointer;
-}
-
-.navContainerMob:hover {
-    background: #091931;
-}
-
-.navInnerContainerMob {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    gap: 10px;
-    width: max-content;
-    height: 59px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
-.navInnerContainerMob img {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    width: 30px;
-    height: 30px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
-.navInnerContainerMob span {
-    width: fit-content;
-    height: 19px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
-    color: #CDCDCD;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-}
-/**************************************/
-
-
 .kanbanProjectManagementToolMob {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 20px;
-    position: absolute;
-    width: 255px;
-    height: 19px;
-    left: 33px;
-    top: 114px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 20px;
+	position: absolute;
+	width: 255px;
+	height: 19px;
+	left: 33px;
+	top: 114px;
 }
 
 .kanbanProjectManagementToolMob span {
-    width: 255px;
-    height: 19px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
-    color: #000000;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: 255px;
+	height: 19px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .backArrowMob {
-    position: absolute;
-    width: 37px;
-    height: 37px;
-    left: 362px;
-    top: 105px;
-    cursor: pointer;
+	position: absolute;
+	width: 37px;
+	height: 37px;
+	left: 362px;
+	top: 105px;
+	cursor: pointer;
 }
 
 .backArrowMob img {
-    position: absolute;
-    left: 16.66%;
-    right: 16.67%;
-    top: 17.59%;
-    bottom: 17.59%;
+	position: absolute;
+	left: 16.66%;
+	right: 16.67%;
+	top: 17.59%;
+	bottom: 17.59%;
 }
 
 .helpOverlayMob {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 20px;
-    position: absolute;
-    width: 106px;
-    height: 56px;
-    left: 33px;
-    top: 152px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 20px;
+	position: absolute;
+	width: 106px;
+	height: 56px;
+	left: 33px;
+	top: 152px;
 }
 
 .helpOverlayMob span {
-    width: 106px;
-    height: 56px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 47px;
-    line-height: 120%;
-    color: #000000;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: 106px;
+	height: 56px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 47px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .textFieldContainerMob {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 35px;
-    position: absolute;
-    width: 363px;
-    height: 600px;
-    left: 33px;
-    top: 235px;
-    color: black;
-    overflow: hidden;
-    overflow: scroll;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 35px;
+	position: absolute;
+	width: 363px;
+	height: 600px;
+	left: 33px;
+	top: 235px;
+	color: black;
+	overflow: hidden;
+	overflow: scroll;
 }
 
-.textFieldContainerMob::-webkit-scrollbar{
-    width: 0;
+.textFieldContainerMob::-webkit-scrollbar {
+	width: 0;
 }
 
 .whatIsJoinContainerMob {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 50px;
-    width: 363px;
-    height: fit-content;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 50px;
+	width: 363px;
+	height: fit-content;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .whatIsJoinFieldMob {
-    width: 163px;
-    height: 32px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 27px;
-    line-height: 120%;
-    color: #000000;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: 163px;
+	height: 32px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 27px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .whatIsJoinIllustrationMob {
-    width: 363px;
-    height: fit-content;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
-    color: #000000;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+	width: 363px;
+	height: fit-content;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
 }
 
 .listBigContainerMob {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 20px;
-    width: 363px;
-    height: fit-content;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 20px;
+	width: 363px;
+	height: fit-content;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
 }
 
 .listContainerMob {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 35px;
-    width: 363px;
-    height: fit-content;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 35px;
+	width: 363px;
+	height: fit-content;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .listNumberMob {
-    width: 21px;
-    height: 32px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 27px;
-    line-height: 120%;
-    color: #000000;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: 21px;
+	height: 32px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 27px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .listContentMob {
-    width: 305px;
-    height: fit-content;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
-    color: #000000;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+	width: 305px;
+	height: fit-content;
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
 }
