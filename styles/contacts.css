@@ -715,9 +715,12 @@
     font-size: 12px;
     line-height: 120%;
     flex: none;
-    color: red;
     order: 1;
     flex-grow: 0;
+}
+
+.requiredOn {
+    color: red;
 }
 
 ::placeholder {
