@@ -37,7 +37,7 @@ async function renderContent() {
  */
 async function userInAlphabetArray() {
     alphabetOrd = { A: [], B: [], C: [], D: [], E: [], F: [], G: [], H: [], I: [], J: [], K: [], L: [], M: [], N: [], O: [], P: [], Q: [], R: [], S: [], T: [], U: [], V: [], W: [], X: [], Y: [], Z: [] };
-    // calculateUserInAlphabetArray();
+    calculateUserInAlphabetArray();
     alphabet();
 }
 
@@ -148,7 +148,7 @@ async function addContact() {
     let name = document.getElementById('newUserName').value;
     let email = document.getElementById('newUserEmail').value;
     let phone = document.getElementById('newUserPhone').value;
-    let firstLetter = name[0];
+    let firstLetter = name[0].toUpperCase();
     let secondLetter = await calcSecondLetter(name);
     let colorIndex = await calcColorIndex(firstLetter, secondLetter);
     addContactSave(name, email, phone, firstLetter, secondLetter, colorIndex);

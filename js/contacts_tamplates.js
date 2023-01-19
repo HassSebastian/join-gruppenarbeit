@@ -300,7 +300,7 @@ async function addContactSave(name, email, phone, firstLetter, secondLetter, col
 function calcSecondLetter(name) {
     let spaceIndex = name.indexOf(' ');
     let secondName = name.substring(spaceIndex + 1);
-    let secondLetter = secondName[0];
+    let secondLetter = secondName[0].toUpperCase();
     return secondLetter;
 }
 
