@@ -146,21 +146,21 @@ function openEditContactHTML(color, letter, name, email, phone, i){
                             <input class="inputName" id="editUserName" type="text" value="${name}">
                             <img src="./assets/img/name_logo.png" alt="">
                         </div>
-                        <span class="required">This field is required</span>
+                        <span class="required d-none">This field is required</span>
                     </div>
                     <div class="nameContainer">
                         <div class="inputEditContainer">
                             <input class="inputName" id="editUserEmail" type="email" value="${email}">
                             <img src="./assets/img/email_Logo.png" alt="">
                         </div>
-                        <span class="required">This field is required</span>
+                        <span class="required d-none">This field is required</span>
                     </div>
                     <div class="nameContainer">
                         <div class="inputEditContainer">
                             <input class="inputName" id="editUserPhone" type="number" value="${phone}">
                             <img src="./assets/img/phoneLogo.png" alt="">
                         </div>
-                        <span class="required">This field is required</span>
+                        <span class="required d-none">This field is required</span>
                     </div>
                 </div>
             </div>
@@ -211,21 +211,21 @@ function openNewContactHTML(){
                             <input class="inputName" id="newUserName" type="text" placeholder="Name">
                             <img src="./assets/img/name_logo.png" alt="">
                         </div>
-                        <span class="required">This field is required</span>
+                        <span class="required d-none" id="newContentNameRequired">This field is required</span>
                     </div>
                     <div class="nameContainer">
                         <div class="inputEditContainer">
                             <input class="inputName" id="newUserEmail" type="email" placeholder="Email">
                             <img src="./assets/img/email_Logo.png" alt="">
                         </div>
-                        <span class="required">This field is required</span>
+                        <span class="required d-none" id="newContentEmailRequired">This field is required</span>
                     </div>
                     <div class="nameContainer">
                         <div class="inputEditContainer">
                             <input class="inputName" id="newUserPhone" type="number" placeholder="Phone">
                             <img src="./assets/img/phoneLogo.png" alt="">
                         </div>
-                        <span class="required">This field is required</span>
+                        <span class="required d-none" id="newContentPhoneRequired">This field is required</span>
                     </div>
                 </div>
             </div>
@@ -297,12 +297,12 @@ async function addContactSave(name, email, phone, firstLetter, secondLetter, col
  * @param name - the name of the person
  * @returns The second letter of the second name.
  */
-function calcSecondLetter(name) {
-    let spaceIndex = name.indexOf(' ');
-    let secondName = name.substring(spaceIndex + 1);
-    let secondLetter = secondName[0].toUpperCase();
-    return secondLetter;
-}
+// function calcSecondLetter(name) {
+//     let spaceIndex = name.indexOf(' ');
+//     let secondName = name.substring(spaceIndex + 1);
+//     let secondLetter = secondName[0].toUpperCase();
+//     return secondLetter;
+// }
 
 
 /**
@@ -312,13 +312,13 @@ function calcSecondLetter(name) {
  * @param secondLetter - "a"
  * @returns The colorIndex
  */
-function calcColorIndex(firstLetter, secondLetter) {
-    let asciiFirstLetter = firstLetter.charCodeAt(0);
-    let asciiSecondLetter = secondLetter.charCodeAt(0);
-    let sum = asciiFirstLetter + asciiSecondLetter;
-    let colorIndex = sum % 10;
-    return colorIndex;
-}
+// function calcColorIndex(firstLetter, secondLetter) {
+//     let asciiFirstLetter = firstLetter.charCodeAt(0);
+//     let asciiSecondLetter = secondLetter.charCodeAt(0);
+//     let sum = asciiFirstLetter + asciiSecondLetter;
+//     let colorIndex = sum % 10;
+//     return colorIndex;
+// }
 
 
 /**
