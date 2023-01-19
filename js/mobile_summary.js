@@ -1,5 +1,5 @@
-async function initMobilSummary(){
-    setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+async function initMobilSummary() {
+	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	await loadTask();
 	resetCounters();
 	await loadAmountsForSummary(); // await später für server wichtig
@@ -17,19 +17,25 @@ async function initMobilSummary(){
 	showDate();
 	// showTime();
 	loadContributorsLetterMob();
-    logOutMasterContainerMob();
+	logOutMasterContainerMob();
 }
-
 
 function loadContributorsLetterMob() {
-    let colorIndex = allUsers[loggedUser[0]].colorIndex
-    document.getElementById('contributorsLogoHeadderMob').style = `background:${colorUserIndex[colorIndex]}`;
-    document.getElementById('contributorsLogoHeadderLettersMob').innerHTML = `<p style='color:white'>${allUsers[loggedUser].firstSecondLetter}</p>`;
+	let colorIndex = allUsers[loggedUser[0]].colorIndex;
+	document.getElementById('contributorsLogoHeadderMob').style = `background:${colorUserIndex[colorIndex]}`;
+	document.getElementById(
+		'contributorsLogoHeadderLettersMob'
+	).innerHTML = `<p style='color:white'>${allUsers[loggedUser].firstSecondLetter}</p>`;
 }
 
-
-
-async function renderMobilSummary( allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount,yourUrgentTasksAmount) {
+async function renderMobilSummary(
+	allYourTasksAmount,
+	allYourToDoTasksAmount,
+	allYourInProgressTasksAmount,
+	allYourAwaitingFeedbackTasksAmount,
+	allYourDoneTasksAmount,
+	yourUrgentTasksAmount
+) {
 	document.getElementById('mobilContent').innerHTML = '';
 	document.getElementById('mobilContent').innerHTML += generateMobilSummaryHtml(
 		allYourTasksAmount,
@@ -41,9 +47,8 @@ async function renderMobilSummary( allYourTasksAmount, allYourToDoTasksAmount, a
 	);
 }
 
-
-function generateMobilSummaryHtml(){
-    return /*html*/`
+function generateMobilSummaryHtml() {
+	return /*html*/ `
         <span class="kanbanProjectManagementTool">
             Kanban Project Management Tool
         </span>
@@ -105,8 +110,8 @@ function generateMobilSummaryHtml(){
         </div>`;
 }
 
-function logOutMasterContainerMob(){
-    document.getElementById('logOutMasterContainer').innerHTML = /*html*/`
+function logOutMasterContainerMob() {
+	document.getElementById('logOutMasterContainer').innerHTML = /*html*/ `
     <div class="logOutNav" onclick="renderHelpMob()">
             <span>Help</span>
         </div>
@@ -119,16 +124,14 @@ function logOutMasterContainerMob(){
     `;
 }
 
-function logOutBtnMob(){
-    document.getElementById('logOutMasterContainer').classList.toggle('d-none');
+function logOutBtnMob() {
+	document.getElementById('logOutMasterContainer').classList.toggle('d-none');
 }
-
 
 let backButtonMobArray = ['0', 'initMobilSummary', 'Board', 'AddTask', 'Contacts'];
 
-function backButtonMob(){
-    let index = backButtonMobArray[selectedMenuBtnId];
-    console.log(index);
-    setTimeout(index,1);
+function backButtonMob() {
+	let index = backButtonMobArray[selectedMenuBtnId];
+	console.log(index);
+	setTimeout(index, 1);
 }
-
