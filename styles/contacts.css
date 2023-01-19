@@ -296,8 +296,8 @@
 
 .showContact_Name_addTask span {
     margin-left: 239px;
-    width: 100px;
-    height: 19px;
+    width: 120px;
+    height: 27px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -305,15 +305,19 @@
     line-height: 120%;
     display: flex;
     align-items: center;
+    justify-content: center;
     color: #29ABE2;
+    border-radius: 10px;
     flex: none;
     order: 1;
     flex-grow: 0;
-}
-
-.showContact_Name_addTask span {
     cursor: pointer;
 }
+
+.showContact_Name_addTask span:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
 
 .showContact_information_edit {
     display: flex;
@@ -386,11 +390,17 @@
 
 .edit_contact {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    gap: 8px;
 }
 
 .edit_contact:hover {
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.08);
 }
 
 .edit_contact span {
