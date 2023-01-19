@@ -2,7 +2,7 @@
  * It returns a string of HTML code.
  * @returns A string of HTML.
  */
-async function renderContentHTML(){
+function renderContentHTML(){
     return /*html*/ `
         <div>
             <div class="Frame_97">
