@@ -1,11 +1,11 @@
 async function initMobilAddTask() {
-	await includeHTML();
+	// await includeHTML();
 	await renderMobilAddTask();
 	await loadExitingCategories();
 	renderCategoryList();
 	newCatInputActive = false;
 	renderSubtasks();
-	selectedMenuBtnId = 0;
+	// selectedMenuBtnId = 0;
 	selectedMenuButton(3);
 	await renderContactsInAssignDropDownMenu();
 	setFutureDatesOnlyForInputDueDate();
