@@ -80,7 +80,7 @@ function comparisonEmail(requiredEmail, name, email, password){
  * @param password - string
  */
 async function calculateAllUserArray(name, email, password){
-    let firstLetter = name[0];
+    let firstLetter = name[0].toUpperCase();
     let secondLetter = await calcSecondLetter(name);
     let colorIndex = await calcColorIndex(firstLetter, secondLetter);
     userSignIn(firstLetter, secondLetter, name, email, password, colorIndex);
@@ -96,7 +96,7 @@ async function calculateAllUserArray(name, email, password){
 function calcSecondLetter(name){
     let spaceIndex = name.indexOf(' ');
     let secondName = name.substring(spaceIndex + 1);
-    let secondLetter = secondName[0];
+    let secondLetter = secondName[0].toUpperCase();
     return secondLetter;
 }
 
