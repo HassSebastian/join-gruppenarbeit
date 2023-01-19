@@ -13,8 +13,8 @@ async function initContacts() {
     await renderContent();
     selectedMenuButton(4);
     await userInAlphabetArray();
-   
-    
+
+
     loadContributorsLetter();
 
 }
@@ -145,9 +145,68 @@ function showContactHelp(name, email, phone, letter, color, i, showContact) {
  * addContactSave() function.
  */
 async function addContact() {
-    let name = document.getElementById('newUserName').value;
-    let email = document.getElementById('newUserEmail').value;
-    let phone = document.getElementById('newUserPhone').value;
+    let name = document.getElementById('newUserName');
+    let email = document.getElementById('newUserEmail');
+    let phone = document.getElementById('newUserPhone');
+    let newNameRequired = document.getElementById('newContentNameRequired');
+    let newEmailRequired = document.getElementById('newContentEmailRequired');
+    let newPhoneRequired = document.getElementById('newContentPhoneRequired');
+    if (name.value.length || email.value.length || phone.value.length) {
+        if (name.value.length == 0 ||
+            name.value[0] === ' ') {
+            newNameRequired.classList.remove('d-none');
+            newNameRequired.classList.add('requiredOn');
+        } else {
+            newNameRequired.classList.remove('requiredOn');
+            newNameRequired.classList.add('d-none');
+        };
+        if (email.value.length < 8 ||
+            !email.value.includes('@') ||
+            !email.value.includes('.') ||
+            email.value[0] === ' ') {
+            newEmailRequired.classList.remove('d-none');
+            newEmailRequired.classList.add('requiredOn');
+        } else {
+            newEmailRequired.classList.remove('requiredOn');
+            newEmailRequired.classList.add('d-none');
+        };
+        if (phone.value.length < 8 ||
+            phone.value[0] === ' ') {
+            newPhoneRequired.classList.remove('d-none');
+            newPhoneRequired.classList.add('requiredOn');
+        } else {
+            newPhoneRequired.classList.remove('requiredOn');
+            newPhoneRequired.classList.add('d-none');
+        };
+        if (!newNameRequired.classList.contains('requiredOn') &&
+            !newEmailRequired.classList.contains('requiredOn') &&
+            !newPhoneRequired.classList.contains('requiredOn')) {
+            NewEmailToCheck(newEmailRequired, name.value, email.value, phone.value);
+        }
+    }
+}
+
+
+function comparisonEmail(newEmailRequired, name, email, phone){
+    let valueToCheck = email;
+    let check = 0;
+    for (let i = 0; i < allUsers.length; i++) {
+        let testValue = allUsers[i].email;
+        if (testValue === valueToCheck) {
+            check = 1;
+            break;
+        }
+    }
+    if (check == 1) {
+        newEmailRequired.classList.add('requiredOn');
+        newEmailRequired.innerHTML = `This email address is already available!!`;
+    } else {
+        calculateNewAllUserArray(name, email, phone);
+    }
+}
+
+
+async function calculateNewAllUserArray(name, email, phone){
     let firstLetter = name[0].toUpperCase();
     let secondLetter = await calcSecondLetter(name);
     let colorIndex = await calcColorIndex(firstLetter, secondLetter);
