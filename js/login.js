@@ -1,22 +1,18 @@
 let rememberUser = [];
-let loggedUser = [];
+let loggedUser = []; //test
 let allUsers = [];
-
 
 function initSignIn() {
 	window.location.href = './signUp.html';
 }
 
-
 function forgotPassword() {
 	window.location.href = './forgotMyP_sendMail.html';
 }
 
-
 function guestLogIn() {
 	alert('muss noch mit Gast Log in verbunden werden!');
 }
-
 
 /**
  * If the input is correct, then do nothing, otherwise, show the error message.
@@ -30,7 +26,6 @@ function checkCorrectInput() {
 	resetRequiredLine(email, password, requiredEmail, requiredPassword);
 	calculateCheckCorrectInput(email, password, requiredEmail, requiredPassword);
 }
-
 
 /**
  * If the allUsers array is empty, then display a message to the user to register, otherwise, check the
@@ -49,7 +44,6 @@ async function userLogin(email, password) {
 		statusOK(email, password, requiredEmailLogin, requiredPasswordLogin);
 	}
 }
-
 
 /**
  * If the checkbox is checked, then the user's email and password are saved to local storage, and the
@@ -70,7 +64,6 @@ function rememberMe(email, password, loginStatus) {
 	window.location.href = './summary.html';
 }
 
-
 /**
  * If the localStorage key 'rememberUser' is null, then call the function keyQueryNull, otherwise call
  * the function rememberDoubleUserCheck.
@@ -87,7 +80,6 @@ function rememberUserExisting(email, password) {
 	}
 }
 
-
 /**
  * It checks if the email address is already in localStorage.
  * @param email - the email address of the user
@@ -102,7 +94,6 @@ function rememberDoubleUserCheck(email, password) {
 	calculateRememberDoubleUserCheck(email, password, rememberUser, valueToCheck, check);
 }
 
-
 /**
  * If the password icon is hidden, show it and change the password input type to "password". If the
  * password icon is not hidden, hide it and change the password input type to "text".
@@ -111,24 +102,23 @@ function passwordShowIcon() {
 	document.getElementById('passwordLogo').classList.toggle('d-none');
 	document.getElementById('pwShowButton').classList.toggle('d-none');
 	if (document.getElementById('passwordLogo').classList.contains('d-none')) {
-		document.getElementById('inputPasswordLogin').type = "text";
+		document.getElementById('inputPasswordLogin').type = 'text';
 	} else {
-		document.getElementById('inputPasswordLogin').type = "password";
+		document.getElementById('inputPasswordLogin').type = 'password';
 	}
 }
-
 
 /**
  * If there is a string in localStorage with the key 'rememberUser', then parse the string into an
  * object, push the object into an array, and then set the value of the email and password inputs to
  * the email and password of the object.
  */
-function logInAtLocalstorage(){
+function logInAtLocalstorage() {
 	let rememberUserString = localStorage.getItem('rememberUser');
-	if(rememberUserString){
-	rememberUser = JSON.parse(rememberUserString);
-	rememberUser.push(rememberUser);
-	document.getElementById('inputEmailLogin').value=`${rememberUser[0].email}`;
-	document.getElementById('inputPasswordLogin').value=`${rememberUser[0].password}`;
+	if (rememberUserString) {
+		rememberUser = JSON.parse(rememberUserString);
+		rememberUser.push(rememberUser);
+		document.getElementById('inputEmailLogin').value = `${rememberUser[0].email}`;
+		document.getElementById('inputPasswordLogin').value = `${rememberUser[0].password}`;
 	}
 }
