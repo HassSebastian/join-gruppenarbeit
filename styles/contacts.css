@@ -335,8 +335,8 @@
     flex-grow: 0;
 }
 
-.contact_information h3 {
-    width: 43px;
+.contactEmailAndPhone {
+    width: fit-content;
     height: 19px;
     font-family: 'Inter';
     font-style: normal;
@@ -351,7 +351,7 @@
     flex-grow: 0;
 }
 
-.contact_information span {
+.contactEmail {
     width: 140px;
     height: 19px;
     font-family: 'Inter';
@@ -365,9 +365,10 @@
     flex: none;
     order: 1;
     flex-grow: 0;
+    padding-bottom: 8px;
 }
 
-.contact_information p {
+.contactPhone {
     width: fit-content;
     height: 19px;
     font-family: 'Inter';

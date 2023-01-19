@@ -263,10 +263,10 @@ function showContactHTML(name, email, phone, letter, color, i){
                         <span>Edit Contact</span>
                     </div>
                 </div>
-                <h3>Email</h3>
-                <span>${email}</span>
-                <h3>Phone</h3>
-                <p>${phone}</p>
+                <div class="contactEmailAndPhone">Email</div>
+                <div class="contactEmail">${email}</div>
+                <div class="contactEmailAndPhone">Phone</div>
+                <div class="contactPhone">${phone}</div>
             </div>
         </div>
     `;
