@@ -20,7 +20,7 @@ body {
 header {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 	position: absolute;
 	width: 428px;
@@ -40,6 +40,7 @@ header {
 	width: 32px;
 	height: 39.02px;
 	flex: none;
+    margin-left: 16px;
 	order: 0;
 	flex-grow: 0;
 }
@@ -61,6 +62,7 @@ header {
 	width: 39px;
 	height: 39px;
 	flex: none;
+    margin-right: 16px;
 	order: 1;
 	flex-grow: 0;
 	border-radius: 100%;
