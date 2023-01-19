@@ -1,108 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./show_contacts_mobile.css" />
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./show_contacts_mobile.css">
-</head>
+	<body>
+		<div class="mobilMasterContainer">
+			<!----------->
+			<!--HEADDER-->
+			<!----------->
+			<header>
+				<div class="headerJoinLogoMob">
+					<img src="../assets/img/join_logo_black.png" alt="" />
+				</div>
+				<div id="contributorsLogoHeadderMob" onclick="logOutBtn()">
+					<span id="contributorsLogoHeadderLetters">VB</span>
+				</div>
+			</header>
 
-<body>
-    <div class="mobilMasterContainer">
-        <!----------->
-        <!--HEADDER-->
-        <!----------->
-        <header>
-            <div class="headerJoinLogoMob">
-                <img src="../assets/img/join_logo_black.png" alt="">
-            </div>
-            <div id='contributorsLogoHeadderMob' onclick="logOutBtn()">
-                <span id="contributorsLogoHeadderLetters">VB</span>
-            </div>
-        </header>
+			<!----------->
+			<!--NAV-BAR-->
+			<!----------->
+			<nav>
+				<div class="navMasterContainerMob">
+					<div class="navContainerMob" onclick="initSummary()">
+						<div class="navInnerContainerMob">
+							<img src="../assets/img/img_summary_w.png" alt="" />
+							<span>Summary</span>
+						</div>
+					</div>
+					<div class="navContainerMob" onclick="initBoard()">
+						<div class="navInnerContainerMob">
+							<img src="../assets/img/img_board_w.png" alt="" />
+							<span>Board</span>
+						</div>
+					</div>
+					<div class="navContainerMob" onclick="initAddTask()">
+						<div class="navInnerContainerMob">
+							<img src="../assets/img/img_add_task_w.png" alt="" />
+							<span>Add Task</span>
+						</div>
+					</div>
+					<div class="navContainerMob" onclick="initContacts()">
+						<div class="navInnerContainerMob">
+							<img src="../assets/img/img_contacts_w.png" alt="" />
+							<span>Contacts</span>
+						</div>
+					</div>
+				</div>
+			</nav>
+			<!----------------------------------------------------------------->
 
+			<div class="arrowContainerMob" onclick="backToLogIn()">
+				<img src="../../assets/img/back_logo_black.png" />
+			</div>
 
-        <!----------->
-        <!--NAV-BAR-->
-        <!----------->
-        <nav>
-            <div class="navMasterContainerMob">
-                <div class="navContainerMob" onclick="initSummary()">
-                    <div class="navInnerContainerMob">
-                        <img src="../assets/img/img_summary_w.png" alt="">
-                        <span>Summary</span>
-                    </div>
-                </div>
-                <div class="navContainerMob" onclick="initBoard()">
-                    <div class="navInnerContainerMob">
-                        <img src="../assets/img/img_board_w.png" alt="">
-                        <span>Board</span>
-                    </div>
-                </div>
-                <div class="navContainerMob" onclick="initAddTask()">
-                    <div class="navInnerContainerMob">
-                        <img src="../assets/img/img_add_task_w.png" alt="">
-                        <span>Add Task</span>
-                    </div>
-                </div>
-                <div class="navContainerMob" onclick="initContacts()">
-                    <div class="navInnerContainerMob">
-                        <img src="../assets/img/img_contacts_w.png" alt="">
-                        <span>Contacts</span>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <!----------------------------------------------------------------->
+			<div class="editButtonContainerMob" onclick="openEditContact(${i})">
+				<!--  -->
+				<img src="../../assets/img/edit_button.png" alt="" />
+			</div>
 
-        <div class="arrowContainerMob" onclick="backToLogIn()">
-            <img src="../../assets/img/back_logo_black.png">
-        </div>
+			<vector></vector>
 
-        <div class="editButtonContainerMob" onclick="openEditContact(${i})">
-            <img src="../../assets/img/edit_button.png" alt="">
-        </div>
+			<div class="contactsMasterContainerMob">
+				<contacts>Contacts</contacts>
+				<betterWithATeam>Better with a team</betterWithATeam>
+			</div>
+			<span class="kanbanProjectManagementTool">Kanban Project Management Tool</span>
 
-        <vector></vector>
-
-        <div class="contactsMasterContainerMob">
-            <contacts>Contacts</contacts>
-            <betterWithATeam>Better with a team</betterWithATeam>
-        </div>
-        <span class="kanbanProjectManagementTool">Kanban Project Management Tool</span>
-
-        <div class="floatingContactsMasterContainer">
-            <div class="batchPlusNameContainer">
-                <div class="batchMasterContainer">
-                    <div class="batchContainer">
-                        <div><!--in div als style einfügen! style="background:${colorIndex[color]}"--></div>
-                        <span><!--${letter}-->AM</span>
-                    </div>
-                </div>
-                <div class="nameMasterContainer">
-                    <span><!--${name}-->Anton Petermann</span>
-                    <div class="linkMasterContainer">
-                        <img src="../../assets/img/plus_logo_blue.png" alt="">
-                        <span>Add Task</span>
-                    </div>
-                </div>
-            </div>
-            <contactInformation>Contact Information</contactInformation>
-            <div class="emailAndPhoneContainer">
-                <div class="emailContainerMob">
-                    <email>Email</email>
-                    <span><!--${email}-->perterklausen@test.de</span>
-                </div>
-                <div class="phoneContainerMob">
-                    <phone>Phone</phone>
-                    <span><!--${phone}-->254725875242587</span>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</body>
-
+			<div class="floatingContactsMasterContainer">
+				<div class="batchPlusNameContainer">
+					<div class="batchMasterContainer">
+						<div class="batchContainer">
+							<div><!--in div als style einfügen! style="background:${colorIndex[color]}"--></div>
+							<span><!--${letter}-->AM</span>
+						</div>
+					</div>
+					<div class="nameMasterContainer">
+						<span><!--${name}-->Anton Petermann</span>
+						<div class="linkMasterContainer">
+							<img src="../../assets/img/plus_logo_blue.png" alt="" />
+							<span>Add Task</span>
+						</div>
+					</div>
+				</div>
+				<contactInformation>Contact Information</contactInformation>
+				<div class="emailAndPhoneContainer">
+					<div class="emailContainerMob">
+						<email>Email</email>
+						<span><!--${email}-->perterklausen@test.de</span>
+					</div>
+					<div class="phoneContainerMob">
+						<phone>Phone</phone>
+						<span><!--${phone}-->254725875242587</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
