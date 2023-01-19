@@ -6,11 +6,7 @@ let allYourInProgressTasksAmount = 0;
 let allYourAwaitingFeedbackTasksAmount = 0;
 let allYourDoneTasksAmount = 0;
 let yourUrgentTasksAmount = 0;
-let allYourTasks = []; // Bossis Idee, für workflow 0-3
-
-/* BRAUCHEN WIR DAS NOCH? 
-! */
-let amountTasksLoggedUser = 0;
+/* let allYourTasks = []; */ // Bossis Idee, für workflow 0-3
 
 async function initSummary() {
   setURL("https://gruppe-407.developerakademie.net/smallest_backend_ever");
@@ -31,7 +27,6 @@ async function initSummary() {
   showDate();
   showTime();
   loadContributorsLetter();
-  countingOwnTasks();
 }
 
 function resetCounters() {
@@ -302,19 +297,4 @@ async function loadAmountsForSummary() {
   getLoggedUserIndex();
   getEmailAdrressOfLoggedUser();
   updatingSummary();
-}
-
-/* 
-!Kann man das irgendwie kürzer schreiben. Das ist umständlich!!1
- */
-
-async function countingOwnTasks() {
-  let emailAddress = allUsers[loggedInUserIndex].email;
-  joinTaskArray.forEach((tasks) => {
-    let taskForces = tasks.assignedTo;
-    taskForces.forEach((contact) => {
-      if (contact.email == emailAddress) amountTasksLoggedUser++;
-      console.log(amountTasksLoggedUser);
-    });
-  });
 }
