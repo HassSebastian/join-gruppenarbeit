@@ -9,7 +9,7 @@ async function initMobilAddTask() {
 	selectedMenuButton(3);
 	await renderContactsInAssignDropDownMenu();
 	setFutureDatesOnlyForInputDueDate();
-	loadContributorsLetter();
+	// loadContributorsLetter();
 	getInnerWidth();
 }
 
