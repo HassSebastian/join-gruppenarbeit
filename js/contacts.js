@@ -248,12 +248,7 @@ async function editContact(i) {
 
 function deleteContactQuestion() {
     let deleteQuestion = document.getElementById('deleteContactQuestion');
-    if (deleteQuestion.value.includes('?')) {
-        console.log('zum löschen bereit');
-    } else {
-        console.log('löschen?');
+    deleteQuestion.innerHTML = `Delete?`;
+    deleteQuestion.style = "font-size: 30px";
 
-        deleteQuestion.innerHTML = `Delete?`;
-        deleteQuestion.style = "font-size: 30px";
-    }
 }
