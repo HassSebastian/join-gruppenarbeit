@@ -184,7 +184,7 @@ async function addContact() {
 }
 
 
-function comparisonEmail(newEmailRequired, name, email, phone){
+function comparisonEmail(newEmailRequired, name, email, phone) {
     let valueToCheck = email;
     let check = 0;
     for (let i = 0; i < allUsers.length; i++) {
@@ -203,7 +203,7 @@ function comparisonEmail(newEmailRequired, name, email, phone){
 }
 
 
-async function calculateNewAllUserArray(name, email, phone){
+async function calculateNewAllUserArray(name, email, phone) {
     let firstLetter = name[0].toUpperCase();
     let secondLetter = await calcSecondLetter(name);
     let colorIndex = await calcColorIndex(firstLetter, secondLetter);
@@ -243,4 +243,17 @@ async function editContact(i) {
     let secondLetter = await calcSecondLetter(name);
     let colorIndex = await calcColorIndex(firstLetter, secondLetter);
     editContactSave(name, email, password, phone, firstLetter, secondLetter, colorIndex, i);
+}
+
+
+function deleteContactQuestion() {
+    let deleteQuestion = document.getElementById('deleteContactQuestion');
+    if (deleteQuestion.value.includes('?')) {
+        console.log('zum löschen bereit');
+    } else {
+        console.log('löschen?');
+
+        deleteQuestion.innerHTML = `Delete?`;
+        deleteQuestion.style = "font-size: 30px";
+    }
 }
