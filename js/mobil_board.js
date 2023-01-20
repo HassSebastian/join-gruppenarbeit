@@ -325,13 +325,16 @@ async function startAddTaskOverlay() {
     // loadContributorsLetter();
     getInnerWidth();
     document.getElementById('boardAddTask').classList.remove('d-none');
-    document.getElementById('navMasterContainerMob').classList.add('d-none');
+    document.getElementById('bottomMenu').classList.add('d-none');
+    
 }
+
 
 function closeAddTaskOverlay() {
     document.getElementById('boardAddTask').classList.add('d-none');
-    document.getElementById('navMasterContainerMob').classList.remove('d-none');
+    document.getElementById('bottomMenu').classList.remove('d-none');
 }
+
 
 async function overlayHtml() {
     coworkersToAssignTo = allUsers;
