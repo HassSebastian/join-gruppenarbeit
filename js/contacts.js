@@ -250,5 +250,4 @@ function deleteContactQuestion() {
     let deleteQuestion = document.getElementById('deleteContactQuestion');
     deleteQuestion.innerHTML = `Delete?`;
     deleteQuestion.style = "font-size: 30px";
-
 }
