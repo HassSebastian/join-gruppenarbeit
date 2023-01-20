@@ -2,15 +2,15 @@
   padding: 148px 48px 48px 48px;
 }
 
-h2,
-h3,
-h4,
-h5 {
+.legal-wrapper h2,
+.legal-wrapperh3,
+.legal-wrapper h4,
+.legal-wrapper h5 {
   word-break: break-all;
   margin: 0;
 }
 
-p {
+.legal-wrapper p {
   width: 100%;
   height: 55px;
   display: flex;

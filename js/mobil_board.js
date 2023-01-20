@@ -9,9 +9,9 @@ async function initMobilBoard() {
 }
 
 
-async function renderMobileBoardHtml(){
+async function renderMobileBoardHtml() {
     document.getElementById('mobilContent').innerHTML = '';
-	document.getElementById('mobilContent').innerHTML = /*html*/ `
+    document.getElementById('mobilContent').innerHTML = /*html*/ `
         <span class="kanbanProjectManagementTool">
             Kanban Project Management Tool
         </span>
@@ -75,15 +75,15 @@ async function renderToDoCardsMobil() {
 
 
 function toDoCardMobilHtml(arrayIndex) {
-	let cardTitle = workStatus0Array[arrayIndex]['cardTitle'];
-	let cardDescription = workStatus0Array[arrayIndex]['cardDescription'];
-	let cardCategory = workStatus0Array[arrayIndex]['cardCategory'];
-	let taskIndex = workStatus0Array[arrayIndex]['taskIndex'];
-	let workStatusArrayNo = 0;
-	let subTasksAmount = workStatus0Array[arrayIndex]['subTasks'].length;
-	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
-	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
-	return /*html*/ `
+    let cardTitle = workStatus0Array[arrayIndex]['cardTitle'];
+    let cardDescription = workStatus0Array[arrayIndex]['cardDescription'];
+    let cardCategory = workStatus0Array[arrayIndex]['cardCategory'];
+    let taskIndex = workStatus0Array[arrayIndex]['taskIndex'];
+    let workStatusArrayNo = 0;
+    let subTasksAmount = workStatus0Array[arrayIndex]['subTasks'].length;
+    let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+    let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
+    return /*html*/ `
         <!-- später wieder einfügen: onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})' -->
         <div class='taskBackgroundMobil' id='taskCard${taskIndex}' >
             <div class='taskContainerMobil'>
@@ -130,35 +130,35 @@ function startSearchMobil() {
 }
 
 
-async function startAddTaskOverlay(){
+async function startAddTaskOverlay() {
     await overlayHtml()
     await loadExitingCategories();
-	renderCategoryList();
-	newCatInputActive = false;
-	renderSubtasks();
-	// selectedMenuBtnId = 0;
-	selectedMenuButton(3);
-	await renderContactsInAssignDropDownMenu();
-	setFutureDatesOnlyForInputDueDate();
-	// loadContributorsLetter();
-	getInnerWidth();
+    renderCategoryList();
+    newCatInputActive = false;
+    renderSubtasks();
+    // selectedMenuBtnId = 0;
+    selectedMenuButton(3);
+    await renderContactsInAssignDropDownMenu();
+    setFutureDatesOnlyForInputDueDate();
+    // loadContributorsLetter();
+    getInnerWidth();
     document.getElementById('boardAddTask').classList.remove('d-none');
     document.getElementById('navMasterContainerMob').classList.add('d-none');
 }
 
-function closeAddTaskOverlay(){
+function closeAddTaskOverlay() {
     document.getElementById('boardAddTask').classList.add('d-none');
     document.getElementById('navMasterContainerMob').classList.remove('d-none');
 }
 
-async function overlayHtml(){
+async function overlayHtml() {
     coworkersToAssignTo = allUsers;
-	addCheckAttributeToCoworkersToAssignTo();
-	document.getElementById('boardAddTask').innerHTML = '';
-	document.getElementById('boardAddTask').innerHTML = /*html*/ `
+    addCheckAttributeToCoworkersToAssignTo();
+    document.getElementById('boardAddTask').innerHTML = '';
+    document.getElementById('boardAddTask').innerHTML = /*html*/ `
         <header class='mobilHeader'>
             <img src='../../assets/img/mobil_header_logo.png'>
-            <button onclick='checkInputs()'><span>Create</span><img src='../assets/img/akar-icons_check_white.png'> </button>
+            <button onclick='checkInputsMobil()'><span>Create</span><img src='../assets/img/akar-icons_check_white.png'> </button>
         </header>
 
             <!-- <div class='frame164'>
@@ -301,3 +301,82 @@ async function overlayHtml(){
             </div>
         </div>`;
 }
+
+
+async function checkInputsMobil() {
+    getReqiredFieldValues();
+    resetRequiredWarnings();
+    if (requiredFieldAreNotValid()) {
+        setRequiredTextWarnings();
+    } else {
+        await createTaskDataMobil();
+    }
+}
+
+async function createTaskDataMobil() {
+    await loadTask();
+    getDataFromFomular();
+    await createAssignToListForSave();
+    fillTaskData();
+    pushTaskData();
+    saveTask();
+    showAddDiv();
+    setTimeout(initMobilBoard, 1200);
+    resetAssignToList();
+    clearFormularData();
+    renderMobileBoardHtml();
+    closeAddTaskOverlay();
+  }
+
+//   function getDataFromFomular() {
+//     descripten = document.getElementById("addTaskDescripten").value;
+//     subTask = document.getElementById("subTask").value;
+//   }
+
+// function renderAssignToMobil() {
+//     for (let i = 0; i < workStatusArray.length; i++) {
+//         for (let index = 0; index < workStatusArray[i].length; index++) {
+//             let taskIndex = workStatusArray[i][index]['taskIndex'];
+//             renderAssignToHtml(taskIndex);
+//         }
+//     }
+// }
+
+
+// function renderAssignToHtml(taskIndex) {
+// 	let assignedList = joinTaskArray[taskIndex]['assignedTo'];
+// 	let divId = 'contributorsList' + taskIndex;
+// 	document.getElementById(divId).innerHTML = '';
+// 	if (assignedList.length > 0) {
+// 		if (assignedList.length <= 3) {
+// 			for (let i = 0; i < assignedList.length; i++) {
+// 				let name = assignedList[i].name;
+// 				let nameLetters = assignedList[i].firstSecondLetter;
+// 				// chooseColorForTaskForceBadge(nameLetters);
+// 				let assignToColor = colorIndex[assignedList[i].colorIndex];
+// 				let assignToTitle = name;
+// 				document.getElementById(divId).innerHTML += /*html*/ `
+//                 <div class='contributorsLogo' title='${assignToTitle}' style='background-color: ${assignToColor}'>
+//                     <span>${nameLetters}</span>
+//                 </div>`;
+// 			}
+// 		} else {
+// 			for (let i = 0; i < 3; i++) {
+// 				let name = assignedList[i].name;
+// 				let nameLetters = assignedList[i].firstSecondLetter;
+// 				// chooseColorForTaskForceBadge(nameLetters);
+// 				let assignToColor = colorIndex[assignedList[i].colorIndex];
+// 				let assignToTitle = name;
+// 				document.getElementById(divId).innerHTML += /*html*/ `
+//                 <div class='contributorsLogo' title='${assignToTitle}' style='background-color: ${assignToColor}'>
+//                     <span>${nameLetters}</span>
+//                 </div>`;
+// 			}
+// 			let assignedListLength = assignedList.length - 3;
+// 			document.getElementById(divId).innerHTML += /*html*/ `
+//             <div class='contributorsLogo' style='background-color:#000000; color:white'>
+//                 <span>+${assignedListLength}</span>
+//             </div>`;
+// 		}
+// 	}
+// }
