@@ -504,61 +504,6 @@ async function createTaskDataMobil() {
     saveTask();
     showAddDiv();
     setTimeout(initMobilBoard, 1200);
-    resetAssignToList();
-    clearFormularData();
-    renderMobileBoardHtml();
     closeAddTaskOverlay();
   }
 
-//   function getDataFromFomular() {
-//     descripten = document.getElementById("addTaskDescripten").value;
-//     subTask = document.getElementById("subTask").value;
-//   }
-
-// function renderAssignToMobil() {
-//     for (let i = 0; i < workStatusArray.length; i++) {
-//         for (let index = 0; index < workStatusArray[i].length; index++) {
-//             let taskIndex = workStatusArray[i][index]['taskIndex'];
-//             renderAssignToHtml(taskIndex);
-//         }
-//     }
-// }
-
-
-// function renderAssignToHtml(taskIndex) {
-// 	let assignedList = joinTaskArray[taskIndex]['assignedTo'];
-// 	let divId = 'contributorsList' + taskIndex;
-// 	document.getElementById(divId).innerHTML = '';
-// 	if (assignedList.length > 0) {
-// 		if (assignedList.length <= 3) {
-// 			for (let i = 0; i < assignedList.length; i++) {
-// 				let name = assignedList[i].name;
-// 				let nameLetters = assignedList[i].firstSecondLetter;
-// 				// chooseColorForTaskForceBadge(nameLetters);
-// 				let assignToColor = colorIndex[assignedList[i].colorIndex];
-// 				let assignToTitle = name;
-// 				document.getElementById(divId).innerHTML += /*html*/ `
-//                 <div class='contributorsLogo' title='${assignToTitle}' style='background-color: ${assignToColor}'>
-//                     <span>${nameLetters}</span>
-//                 </div>`;
-// 			}
-// 		} else {
-// 			for (let i = 0; i < 3; i++) {
-// 				let name = assignedList[i].name;
-// 				let nameLetters = assignedList[i].firstSecondLetter;
-// 				// chooseColorForTaskForceBadge(nameLetters);
-// 				let assignToColor = colorIndex[assignedList[i].colorIndex];
-// 				let assignToTitle = name;
-// 				document.getElementById(divId).innerHTML += /*html*/ `
-//                 <div class='contributorsLogo' title='${assignToTitle}' style='background-color: ${assignToColor}'>
-//                     <span>${nameLetters}</span>
-//                 </div>`;
-// 			}
-// 			let assignedListLength = assignedList.length - 3;
-// 			document.getElementById(divId).innerHTML += /*html*/ `
-//             <div class='contributorsLogo' style='background-color:#000000; color:white'>
-//                 <span>+${assignedListLength}</span>
-//             </div>`;
-// 		}
-// 	}
-// }
