@@ -12,7 +12,8 @@ function renderAssignToHtml2(taskIndex) {
             let name = assignedList[i]['name'];
             let nameLetters = assignedList[i].firstSecondLetter;
             // chooseColorForTaskForceBadge(firstName[0], lastName[0]);
-            let assignToColor = assignedList[i].colorIndex;
+            // let assignToColor = assignedList[i].colorIndex;
+            let assignToColor = colorIndex[assignedList[i].colorIndex];
             let assignToTitle = name;
             document.getElementById(divId).innerHTML += /*html*/`
                 <div  title='${assignToTitle}' style='background-color: ${assignToColor}'>
