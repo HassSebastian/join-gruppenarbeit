@@ -4,7 +4,7 @@ async function initMobilBoard() {
     await loadTask();
     await createWorkStatusArrays();
     await renderAllCardsMobil();
-    loadContributorsLetter();
+    // loadContributorsLetter();
     logOutMasterContainerMob();
 }
 
