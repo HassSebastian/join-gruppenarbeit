@@ -35,18 +35,52 @@ async function renderMobileBoardHtml() {
         </div>
         <div class='boardTaskCardOuterContainer'>
             <div class='toDoOuterContainer'>
+                <!-- toDo TaskCards -->
                 <div class='toDoHeadline'>
                     <span>To do</span>
                     <div class='headlinePlusBtn' onclick='startAddTaskOverlay()'>
 
                     </div>
                 </div>
-                <!-- toDo TaskCards -->
+                
                 <div id='toDoDiv'>
 
                 </div>
+                <!-- In progress TaskCards-->
+                <div class='toDoHeadline'>
+                    <span>In progress</span>
+                    <div class='headlinePlusBtn' onclick='startAddTaskOverlay()'>
+
+                    </div>
+                </div>
+                <div id='progressDiv'>
+
+                </div>
+                <!-- Awaiting Feedback TaskCards-->
+                <div class='toDoHeadline'>
+                    <span>Awaiting Feedback</span>
+                    <div class='headlinePlusBtn' onclick='startAddTaskOverlay()'>
+
+                    </div>
+                </div>
+                <div id='awaitingDiv'>
+
+                </div>
+                <!-- Done TaskCards-->
+                <div class='toDoHeadline'>
+                    <span>Done</span>
+                    <div class='headlinePlusBtn' onclick='startAddTaskOverlay()'>
+
+                    </div>
+                </div>
+                <div id='doneDiv'>
+
+                </div>
+
             </div>
         </div>
+
+        
         <!-- Add Task Overlay -->
         <div id='boardAddTask' class='boardAddTask d-none'>
 
@@ -57,11 +91,12 @@ async function renderMobileBoardHtml() {
 
 async function renderAllCardsMobil() {
     renderToDoCardsMobil();
-    // renderInProgressCards();
-    // renderAwaitingFeedbackCards();
-    // renderDoneCards();
+    renderInProgressCardsMobil();
+    renderAwaitingFeedbackCardsMobil();
+    renderDoneCardsMobil();
     renderAssignTo();
 }
+
 
 async function renderToDoCardsMobil() {
     document.getElementById('toDoDiv').innerHTML = '';
@@ -71,6 +106,38 @@ async function renderToDoCardsMobil() {
         showContributorsPrioIcon(taskIndex);
     }
     setCategoryBackgroundColorForWorkStatus0();
+}
+
+
+function renderInProgressCardsMobil() {
+    document.getElementById('progressDiv').innerHTML = '';
+    for (let i = 0; i < workStatus1Array.length; i++) {
+        document.getElementById('progressDiv').innerHTML += inProgressMobilHtml(i);
+        let taskIndex = workStatus1Array[i]['taskIndex'];
+        showContributorsPrioIcon(taskIndex);
+    }
+    setCategoryBackgroundColorForWorkStatus1();
+}
+
+
+function renderAwaitingFeedbackCardsMobil() {
+    document.getElementById('awaitingDiv').innerHTML = '';
+    for (let i = 0; i < workStatus2Array.length; i++) {
+        document.getElementById('awaitingDiv').innerHTML += awaitingFeedbackMobilHtml(i);
+        let taskIndex = workStatus2Array[i]['taskIndex'];
+        showContributorsPrioIcon(taskIndex);
+    }
+    setCategoryBackgroundColorForWorkStatus2();
+}
+
+function renderDoneCardsMobil() {
+    document.getElementById('doneDiv').innerHTML = '';
+    for (let i = 0; i < workStatus3Array.length; i++) {
+        document.getElementById('doneDiv').innerHTML += doneMobilHtml(i);
+        let taskIndex = workStatus3Array[i]['taskIndex'];
+        showContributorsPrioIcon(taskIndex);
+    }
+    setCategoryBackgroundColorForWorkStatus3();
 }
 
 
@@ -111,6 +178,121 @@ function toDoCardMobilHtml(arrayIndex) {
             </div>
         </div>`;
 }
+
+
+function inProgressMobilHtml(arrayIndex) {
+	let cardTitle = workStatus1Array[arrayIndex]['cardTitle'];
+	let cardDescription = workStatus1Array[arrayIndex]['cardDescription'];
+	let cardCategory = workStatus1Array[arrayIndex]['cardCategory'];
+	let taskIndex = workStatus1Array[arrayIndex]['taskIndex'];
+	let workStatusArrayNo = 1;
+	let subTasksAmount = workStatus1Array[arrayIndex]['subTasks'].length;
+	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
+	return /*html*/ `
+            <div class='taskBackgroundMobil' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})'>
+                <div class='taskContainerMobil'>
+                    <div class='boardTaskCategoryMobil' id='progressCard${arrayIndex}'>
+                        <span>${cardCategory}</span>
+                    </div>
+                    <div class='taskHeadlineMobil'>
+                        <span class='taskHeadlineContentMobil'>${cardTitle}</span>
+                        <span class='taskContentMobil'>${cardDescription}</span>
+                    </div>
+                    <div class='doneBarMobil'>
+                        <div class='doneBarOuterMobil' id='doneBarOuter${taskIndex}'>
+                            <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;' id='doneBar${taskIndex}'></div>
+                        </div>
+                        <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
+                    </div>
+                    <div class='contributorsPrioMobil'>
+                        <div class='contributorsLogoContainerMobil' id='contributorsList${taskIndex}'>
+                           
+                        </div>
+                        <div class='prioMobil'>
+                            <img src='./assets/img/low.png' id='contributorsPrioIcon${taskIndex}'>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+}
+
+
+function awaitingFeedbackMobilHtml(arrayIndex) {
+	let cardTitle = workStatus2Array[arrayIndex]['cardTitle'];
+	let cardDescription = workStatus2Array[arrayIndex]['cardDescription'];
+	let cardCategory = workStatus2Array[arrayIndex]['cardCategory'];
+	let taskIndex = workStatus2Array[arrayIndex]['taskIndex'];
+	let workStatusArrayNo = 2;
+	let subTasksAmount = workStatus2Array[arrayIndex]['subTasks'].length;
+	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
+	return /*html*/ `
+        <div class='taskBackgroundMobil' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})'>
+            <div class='taskContainerMobil'>
+                <div class='boardTaskCategoryMobil' id='feedbackCard${arrayIndex}'>
+                    <span>${cardCategory}</span>
+                </div>
+                <div class='taskHeadlineMobil'>
+                    <span class='taskHeadlineContentMobil'>${cardTitle}</span>
+                    <span class='taskContentMobil'>${cardDescription}</span>
+                </div>
+                <div class='doneBarMobil'>
+                    <div class='doneBarOuterMobil' id='doneBarOuter${taskIndex}'>
+                        <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;' id='doneBar${taskIndex}'></div>
+                    </div>
+                    <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
+                </div>
+                <div class='contributorsPrioMobil'>
+                    <div class='contributorsLogoContainerMobil' id='contributorsList${taskIndex}'>
+                        
+                    </div>
+                    <div class='prioMobil'>
+                        <img src='./assets/img/low.png' id='contributorsPrioIcon${taskIndex}'>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+}
+
+
+function doneMobilHtml(arrayIndex) {
+	let cardTitle = workStatus3Array[arrayIndex]['cardTitle'];
+	let cardDescription = workStatus3Array[arrayIndex]['cardDescription'];
+	let cardCategory = workStatus3Array[arrayIndex]['cardCategory'];
+	let taskIndex = workStatus3Array[arrayIndex]['taskIndex'];
+	let workStatusArrayNo = 3;
+	let subTasksAmount = workStatus3Array[arrayIndex]['subTasks'].length;
+	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
+	return /*html*/ `
+        <div class='taskBackgroundMobil' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})'>
+            <div class='taskContainerMobil'>
+                <div class='boardTaskCategoryMobil' id='doneCard${arrayIndex}'>
+                    <span>${cardCategory}</span>
+                </div>
+                <div class='taskHeadlineMobil'>
+                    <span class='taskHeadlineContentMobil'>${cardTitle}</span>
+                    <span class='taskContentMobil'>${cardDescription}</span>
+                </div>
+                <div class='doneBarMobil'>
+                    <div class='doneBarOuterMobil' id='doneBarOuter${taskIndex}'>
+                        <div style='background-color: #29ABE2; height: 8px; width: ${percentDone}%;' id='doneBar${taskIndex}'></div>
+                    </div>
+                    <span>${subTaskDoneAmount}/${subTasksAmount} Done</span>
+                </div>
+                <div class='contributorsPrioMobil'>
+                    <div class='contributorsLogoContainerMobil' id='contributorsList${taskIndex}'>
+                        
+                    </div>
+                    <div class='prioMobil'>
+                        <img src='./assets/img/low.png' id='contributorsPrioIcon${taskIndex}'>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+}
+
 
 function startSearchMobil() {
     let cards = document.querySelectorAll('.taskBackgroundMobil'); // Select all elements with class "taskBackground"

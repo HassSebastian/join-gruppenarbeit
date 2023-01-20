@@ -140,6 +140,7 @@
     flex: none;
     order: 0;
     flex-grow: 0;
+    margin-bottom: 400px;
 }
 
 .toDoHeadline {
@@ -157,7 +158,7 @@
 }
 
 .toDoHeadline span {
-    width: 57px;
+    /* width: 57px; */
     height: 25px;
     font-family: 'Inter';
     font-style: normal;
