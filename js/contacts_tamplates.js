@@ -4,6 +4,8 @@
  */
 function renderContentHTML(){
     return /*html*/ `
+        <div class='shadowOverlay d-none' id='boardPopup' onclick='disablePopupWindow()'></div>
+
         <div>
             <div class="Frame_97">
                 <div class="Contact_list" id="Contact_list"></div>
@@ -251,7 +253,7 @@ function showContactHTML(name, email, phone, letter, color, i){
             </div>
             <div class="showContact_Name_addTask">
                 <h1>${name}</h1>
-                <span>+ Add Task</span>
+                <span onclick="showAddTaskPopupWindow()">+ Add Task</span>
             </div>
         </div>
         <div class="showContact_information_edit">
@@ -289,36 +291,6 @@ async function addContactSave(name, email, phone, firstLetter, secondLetter, col
     closeNewContact();
     userInAlphabetArray();
 }
-
-
-/**
- * This function takes a string as an argument, finds the index of the space, then returns the first
- * letter of the second word.
- * @param name - the name of the person
- * @returns The second letter of the second name.
- */
-// function calcSecondLetter(name) {
-//     let spaceIndex = name.indexOf(' ');
-//     let secondName = name.substring(spaceIndex + 1);
-//     let secondLetter = secondName[0].toUpperCase();
-//     return secondLetter;
-// }
-
-
-/**
- * The function calcColorIndex takes two strings as arguments, and returns a number between 0 and 9,
- * inclusive.
- * @param firstLetter - The first letter of the name of the person you want to get the color for.
- * @param secondLetter - "a"
- * @returns The colorIndex
- */
-// function calcColorIndex(firstLetter, secondLetter) {
-//     let asciiFirstLetter = firstLetter.charCodeAt(0);
-//     let asciiSecondLetter = secondLetter.charCodeAt(0);
-//     let sum = asciiFirstLetter + asciiSecondLetter;
-//     let colorIndex = sum % 10;
-//     return colorIndex;
-// }
 
 
 /**

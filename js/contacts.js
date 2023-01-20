@@ -13,10 +13,7 @@ async function initContacts() {
     await renderContent();
     selectedMenuButton(4);
     await userInAlphabetArray();
-
-
     loadContributorsLetter();
-
 }
 
 
@@ -219,14 +216,16 @@ async function calculateNewAllUserArray(name, email, phone){
  * @param i - the id of the contact
  */
 function saveEditContact(i) {
-    let nameId = i;
-    let logUserId = loggedUser[0];
-    // jeder darf nur seine eigenen Daten ändern
-    if (nameId == logUserId) {
-        editContact(i);
-    } else {
-        document.getElementById('saveEditButton').innerHTML = `No Authorization`;
-    }
+    editContact(i);
+
+    // let nameId = i;
+    // let logUserId = loggedUser[0];
+    // // jeder darf nur seine eigenen Daten ändern
+    // if (nameId == logUserId) {
+    //     editContact(i);
+    // } else {
+    //     document.getElementById('saveEditButton').innerHTML = `No Authorization`;
+    // }
 }
 
 
