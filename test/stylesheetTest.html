@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="./stylesheetTest.js"></script>
+
+    <!--die stylesheets müssen eine id haben-->
+    <link rel="stylesheet" href="./stylesheetBlue.css" id="stylesheetBlue">
+    <link rel="stylesheet" href="./stylesheetGreen.css" id="stylesheetGreen">
+    <link rel="stylesheet" href="./stylesheetRed.css" id="stylesheetRed">
+</head>
+
+<style>
+    button{
+        height: 30px;
+        width: 100px;
+        margin: 16px;
+    }
+
+    div{
+        height: 200px;
+        width: 200px;
+        border: 1px solid black;
+    }
+    span{
+        font-size: 25px;
+    }
+</style>
+
+<body onload="disableStylesheets()">
+    <button onclick="blue()">Blue</button>
+    <button onclick="green()">Green</button>
+    <button onclick="red()">Red</button>
+    <button onclick="off()">Off</button>
+    <div></div>
+    <span><br>onload werden alle stylesheets deaktiviert<br></span>
+    <span>click auf den blue button aktiviert den blauen stylesheet usw</span>
+
+</body>
+</html>
