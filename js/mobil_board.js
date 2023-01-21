@@ -85,6 +85,10 @@ async function renderMobileBoardHtml() {
         <div id='boardAddTask' class='boardAddTask d-none'>
 
         </div>
+        <!-- Detail View Overlay -->
+        <div id='boardTaskDetail' class='boardTaskDetail d-none'>
+
+        </div>
         `;
 }
 
@@ -151,8 +155,8 @@ function toDoCardMobilHtml(arrayIndex) {
     let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
     let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
     return /*html*/ `
-        <!-- später wieder einfügen: onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})' -->
-        <div class='taskBackgroundMobil' id='taskCard${taskIndex}' >
+        <!-- später wieder einfügen: onclick='startDetailViewOverlay(); renderPopupTaskCardHtmlMobil(${taskIndex})' -->
+        <div class='taskBackgroundMobil' id='taskCard${taskIndex}' onclick='startDetailViewOverlay(); renderPopupTaskCardHtmlMobil(${taskIndex})'>
             <div class='taskContainerMobil'>
                 <div class='boardTaskCategoryMobil' id='toDoCardCat${arrayIndex}'>
                     <span>${cardCategory}</span>
@@ -190,7 +194,7 @@ function inProgressMobilHtml(arrayIndex) {
 	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
 	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 	return /*html*/ `
-            <div class='taskBackgroundMobil' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})'>
+            <div class='taskBackgroundMobil' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='startDetailViewOverlay(); renderPopupTaskCardHtmlMobil(${taskIndex})'>
                 <div class='taskContainerMobil'>
                     <div class='boardTaskCategoryMobil' id='progressCard${arrayIndex}'>
                         <span>${cardCategory}</span>
@@ -228,7 +232,7 @@ function awaitingFeedbackMobilHtml(arrayIndex) {
 	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
 	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 	return /*html*/ `
-        <div class='taskBackgroundMobil' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})'>
+        <div class='taskBackgroundMobil' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='startDetailViewOverlay(); renderPopupTaskCardHtmlMobil(${taskIndex})'>
             <div class='taskContainerMobil'>
                 <div class='boardTaskCategoryMobil' id='feedbackCard${arrayIndex}'>
                     <span>${cardCategory}</span>
@@ -266,7 +270,7 @@ function doneMobilHtml(arrayIndex) {
 	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
 	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 	return /*html*/ `
-        <div class='taskBackgroundMobil' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})'>
+        <div class='taskBackgroundMobil' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='startDetailViewOverlay(); renderPopupTaskCardHtmlMobil(${taskIndex})'>
             <div class='taskContainerMobil'>
                 <div class='boardTaskCategoryMobil' id='doneCard${arrayIndex}'>
                     <span>${cardCategory}</span>
@@ -312,8 +316,11 @@ function startSearchMobil() {
 }
 
 
+// Add Task Overlay functions
+
+
 async function startAddTaskOverlay() {
-    await overlayHtml()
+    await boardMobilAddTaskHtml();
     await loadExitingCategories();
     renderCategoryList();
     newCatInputActive = false;
@@ -336,7 +343,7 @@ function closeAddTaskOverlay() {
 }
 
 
-async function overlayHtml() {
+async function boardMobilAddTaskHtml() {
     coworkersToAssignTo = allUsers;
     addCheckAttributeToCoworkersToAssignTo();
     document.getElementById('boardAddTask').innerHTML = '';
@@ -510,3 +517,81 @@ async function createTaskDataMobil() {
     closeAddTaskOverlay();
   }
 
+
+//   Task Card detail View
+
+async function startDetailViewOverlay(){
+    
+    document.getElementById('boardTaskDetail').classList.remove('d-none');
+}
+
+
+// async function boardMobilDetailViewHtml(){
+//     document.getElementById('boardTaskDetail').innerHTML = '';
+//     document.getElementById('boardTaskDetail').innerHTML = /*html*/ ``;
+// }
+
+
+function closeBoardMobilDetailOverlay() {
+    document.getElementById('boardTaskDetail').classList.add('d-none');
+}
+
+function renderPopupTaskCardHtmlMobil(taskIndex) {
+    let cardTitle = joinTaskArray[taskIndex]['title'];
+    let cardDescription = joinTaskArray[taskIndex]['descripten'];
+    let cardCategory = joinTaskArray[taskIndex]['category'];
+    let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
+    let taskPrio = joinTaskArray[taskIndex]['prio'];
+    document.getElementById('boardTaskDetail').innerHTML = '';
+    document.getElementById('boardTaskDetail').innerHTML = /*html*/`
+        <div class='boardTaskCardPopup' onclick='stopClose(event)'>
+            <div class='taskCardPopupCategory' id='taskCardPopupCategory'>
+                <span>${cardCategory}</span>
+            </div>
+            <img src="./assets/img/arrow-left-line.png" class='backArrow' onclick='closeBoardMobilDetailOverlay()'>
+            <div class='taskCardPopupTask'>
+                <span>${cardTitle}</span>
+            </div>
+            <span class='taskCardPopupDescription'>${cardDescription}</span>
+            <div class='taskCardPopupDateContainer'>
+                <span class='taskCardPopupDateText'>Due date:</span>
+                <span class='taskCardPopupDueDate'>${cardDueDate}</span>
+            </div>
+            <div class='taskCardPopupPriorityContainer'>
+                <span>Priority:</span>
+                <div class='urgency' id='prioContainer'>
+                    <span>${taskPrio}</span>
+                    <img src='./assets/img/urgent_white.png' id='cardPrioImg'>
+                </div>
+            </div>
+            <span class='assigned'>Assigned To:</span>
+            <div class='members' id='members'>
+            
+            </div>
+            <div class='editButton' onclick='openEditTaskCard(${taskIndex})'>
+                <img src='./assets/img/edit_button.png'>
+            </div>
+
+            <div class='boardSubtasksTitleDiv'>
+                <span class='boardSubtaskTitle'>Subtasks:</span>
+            
+            </div >
+            <div class='boardSubtasksDiv' id='subtaskListTaskCard'>
+                
+            </div>
+            
+
+
+        </div>
+        
+        
+
+        <!-- 
+         -->
+        `;
+
+    setTaskCardPopupCatColor(taskIndex);
+    setTaskCardPopupPrioBackground(taskIndex);
+    renderSubtask(taskIndex);
+    renderAssignToHtml2(taskIndex);
+}
