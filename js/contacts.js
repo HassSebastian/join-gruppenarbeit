@@ -14,6 +14,7 @@ async function initContacts() {
     selectedMenuButton(4);
     await userInAlphabetArray();
     loadContributorsLetter();
+    coworkersToAssignTo = allUsers;
 }
 
 

@@ -30,6 +30,7 @@ async function initBoard() {
 	await createWorkStatusArrays();
 	renderAllCards();
 	loadContributorsLetter();
+	coworkersToAssignTo = allUsers;
 }
 
 /**
