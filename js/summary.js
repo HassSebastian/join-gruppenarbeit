@@ -6,22 +6,21 @@ let allYourInProgressTasksAmount = 0;
 let allYourAwaitingFeedbackTasksAmount = 0;
 let allYourDoneTasksAmount = 0;
 let yourUrgentTasksAmount = 0;
-/* let allYourTasks = []; */ // Bossis Idee, für workflow 0-3
+
+/* sollten die besser im board sein? */
+let allYourToDoTasks = []; // Bossis Idee, für workflow 0-3
+let allYourInProgressTasks = [];
+let allYourAwaitingFeedbackTasks = [];
+let allYourDoneTasks = [];
 
 async function initSummary() {
 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	await loadTask();
 	resetCounters();
+	resetYourTasksArrays(); // sonst addieren sich die tasks bei jedem Aufrufen
 	await loadAmountsForSummary(); // await später für server wichtig
 	await includeHTML();
-	await renderSummary(
-		allYourTasksAmount,
-		allYourToDoTasksAmount,
-		allYourInProgressTasksAmount,
-		allYourAwaitingFeedbackTasksAmount,
-		allYourDoneTasksAmount,
-		yourUrgentTasksAmount
-	);
+	await renderSummary(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount);
 	selectedMenuBtnId = 0;
 	selectedMenuButton(1);
 	showDate();
@@ -38,14 +37,14 @@ function resetCounters() {
 	yourUrgentTasksAmount = 0;
 }
 
-function generateSummaryHtml(
-	allYourTasksAmount,
-	allYourToDoTasksAmount,
-	allYourInProgressTasksAmount,
-	allYourAwaitingFeedbackTasksAmount,
-	allYourDoneTasksAmount,
-	yourUrgentTasksAmount
-) {
+function resetYourTasksArrays() {
+	allYourToDoTasks = []; // Bossis Idee, für workflow 0-3
+	allYourInProgressTasks = [];
+	allYourAwaitingFeedbackTasks = [];
+	allYourDoneTasks = [];
+}
+
+function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount) {
 	return /*html*/ `
     <!-- <div class='summary_content'> -->
         <div class='title'>
@@ -99,14 +98,7 @@ function generateSummaryHtml(
     `;
 }
 
-async function renderSummary(
-	allYourTasksAmount,
-	allYourToDoTasksAmount,
-	allYourInProgressTasksAmount,
-	allYourAwaitingFeedbackTasksAmount,
-	allYourDoneTasksAmount,
-	yourUrgentTasksAmount
-) {
+async function renderSummary(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount) {
 	document.getElementById('content').innerHTML = '';
 	document.getElementById('content').innerHTML += generateSummaryHtml(
 		allYourTasksAmount,
@@ -237,36 +229,48 @@ function getEmailAdrressOfLoggedUser() {
 }
 
 /**
+ * It loops through the joinTaskArray, and for each task,
+ * it loops through the assignedTo array, and
+ * for each member of the assignedTo array, it calls the itemsToUpdate function.
+ */
+function updatingSummary() {
+	joinTaskArray.forEach((task) => {
+		const assignedTo = task.assignedTo;
+		const workflowStatus = task.workFlowStatus;
+		const priority = task.prio;
+		assignedTo.forEach((member) => {
+			const email = member.email;
+			itemsToUpdate(email, workflowStatus, priority, task);
+		});
+	});
+}
+
+/**
  * If the email address is the same as the email address of the user, then add one to the amount of
  * tasks that the user has.
  * @param email - the email address of the person who is assigned to the task
  * @param workflowStatus - 0 = To Do, 1 = In Progress, 2 = Awaiting Feedback, 3 = Done
  * @param priority - 0 = Low, 1 = Medium, 2 = High, 3 = Urgent
  */
-function itemsToUpdate(email, workflowStatus, priority) {
+function itemsToUpdate(email, workflowStatus, priority, task) {
 	if (email == emailAddress) allYourTasksAmount++;
-	if (email == emailAddress && workflowStatus === 0) allYourToDoTasksAmount++;
-	if (email == emailAddress && workflowStatus === 1) allYourInProgressTasksAmount++;
-	if (email == emailAddress && workflowStatus === 2) allYourAwaitingFeedbackTasksAmount++;
-	if (email == emailAddress && workflowStatus === 3) allYourDoneTasksAmount++;
-	if (email == emailAddress && priority === 'Urgent') yourUrgentTasksAmount++;
-}
-
-/**
- * It loops through the joinTaskArray, and for each task,
- * it loops through the assignedTo array, and
- * for each member of the assignedTo array, it calls the itemsToUpdate function.
- */
-function updatingSummary() {
-	for (let task = 0; task < joinTaskArray.length; task++) {
-		const assignedTo = joinTaskArray[task].assignedTo;
-		const workflowStatus = joinTaskArray[task].workFlowStatus;
-		const priority = joinTaskArray[task].prio;
-		for (let memberOfTaskForce = 0; memberOfTaskForce < assignedTo.length; memberOfTaskForce++) {
-			const email = assignedTo[memberOfTaskForce].email;
-			itemsToUpdate(email, workflowStatus, priority);
-		}
+	if (email == emailAddress && workflowStatus === 0) {
+		allYourToDoTasksAmount++;
+		allYourToDoTasks.push(task);
 	}
+	if (email == emailAddress && workflowStatus === 1) {
+		allYourInProgressTasksAmount++;
+		allYourInProgressTasks.push(task);
+	}
+	if (email == emailAddress && workflowStatus === 2) {
+		allYourAwaitingFeedbackTasksAmount++;
+		allYourAwaitingFeedbackTasks.push(task);
+	}
+	if (email == emailAddress && workflowStatus === 3) {
+		allYourDoneTasksAmount++;
+		allYourDoneTasks.push(task);
+	}
+	if (email == emailAddress && priority === 'Urgent') yourUrgentTasksAmount++;
 }
 
 /**
