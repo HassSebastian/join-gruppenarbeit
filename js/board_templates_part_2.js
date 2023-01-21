@@ -128,12 +128,12 @@ async function renderEditTaskCardHtml(taskIndex) {
                             alt=''
                         />
                     </li>
-                    <li>
-                    You
+                    <!-- <li> -->
+                    <!-- You
                     <div  class='assignCheckboxContainer'>
                         <img class='checkBox' src='assets/img/check_box.png' alt='checkbox' />
                         <img class='checkMark' src='assets/img/check_mark.png' />
-                    </div>
+                    </div> -->
                 </div>
 
             <button class='editTaskOkBtn' onclick='getTaskChanges(${taskIndex})'>Ok <img src='../assets/img/akar-icons_check_white.png' ></button>
@@ -255,12 +255,12 @@ function renderAddTaskPopupHtml() {
                             alt=''
                         />
                     </li>
-                    <li>
-                    You
-                    <div  class='assignCheckboxContainer'>
-                        <img class='checkBox' src='assets/img/check_box.png' alt='checkbox' />
-                        <img class='checkMark' src='assets/img/check_mark.png' />
-                    </div>
+                    <!-- <li>
+                    You -->
+                    <!-- <div  class='assignCheckboxContainer'>
+                        <img class='checkBox' src='assets/img/check_box.png' alt='checkbox' /> -->
+                        <!-- <img class='checkMark' src='assets/img/check_mark.png' /> -->
+                    <!-- </div> -->
                 </div>
 
 

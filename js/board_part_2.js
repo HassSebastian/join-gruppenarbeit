@@ -158,6 +158,9 @@ async function openEditTaskCard(taskIndex) {
     await renderEditTaskCardHtml(taskIndex);
     showDeleteButton(taskIndex);
     renderEditTaskCardInputFields(taskIndex);
+
+    renderLoggedUserInAssignDrobDownMenuIntoYou();
+    
     await renderContactsInAssignDropDownMenu();
     renderEditTaskCardInputFields(taskIndex);
     boardEditTaskCardAssignPreseselction(taskIndex);
@@ -303,7 +306,12 @@ async function showAddTaskPopupWindow() {
     await loadExitingCategories();
     renderCategoryList();
     newCatInputActive = false;
-    renderContactsInAssignDropDownMenu();
+
+    renderLoggedUserInAssignDrobDownMenuIntoYou(); // Das habe ich für das You eingefügt!
+    renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
+    setFutureDatesOnlyForInputDueDate();
+    loadContributorsLetter();
+    // renderContactsInAssignDropDownMenu();
 }
 
 
