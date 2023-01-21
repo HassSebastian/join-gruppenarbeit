@@ -52,17 +52,45 @@ function resetWorkStatusArrays() {
 	workStatusArray = [workStatus0Array, workStatus1Array, workStatus2Array, workStatus3Array];
 }
 
+
+let filteredTaskList = [];
+
+async function startFilter() {
+    for (let i = 0; i < joinTaskArray.length; i++) {
+        let assignedList = joinTaskArray[i].assignedTo;
+        for (let index = 0; index < assignedList.length; index++) {
+            let assignedEmail = assignedList[index].email;
+            if(assignedEmail == emailAddress){
+                filteredTaskList.push(joinTaskArray[i]);
+				filteredTaskList[filteredTaskList.length - 1].taskIndex = i;
+            }
+        }
+    } 
+}
+
+
 /**
  * For each element in the joinTaskArray, if the element's workFlowStatus is equal to the index, then
  * createWorkStatusArrayData(index, i)
  */
 async function createWorkStatusArrays() {
 	resetWorkStatusArrays();
+	filteredTaskList = [];
+	await startFilter();
+	// for (let index = 0; index < 4; index++) {
+	// 	for (let i = 0; i < joinTaskArray.length; i++) {
+	// 		let taskWorkStatus = joinTaskArray[i]['workFlowStatus'];
+	// 		if (taskWorkStatus == index) {
+	// 			createWorkStatusArrayData(index, i);
+	// 		}
+	// 	}
+	// }
 	for (let index = 0; index < 4; index++) {
-		for (let i = 0; i < joinTaskArray.length; i++) {
-			let taskWorkStatus = joinTaskArray[i]['workFlowStatus'];
+		for (let i = 0; i < filteredTaskList.length; i++) {
+			let taskWorkStatus = filteredTaskList[i]['workFlowStatus'];
+			let taskIndex = filteredTaskList[i].taskIndex;
 			if (taskWorkStatus == index) {
-				createWorkStatusArrayData(index, i);
+				createWorkStatusArrayData(index, taskIndex);
 			}
 		}
 	}
