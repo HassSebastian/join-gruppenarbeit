@@ -7,6 +7,7 @@ async function initMobilAddTask() {
 	renderSubtasks();
 	// selectedMenuBtnId = 0;
 	selectedMenuButton(3);
+    renderLoggedUserInAssignDrobDownMenuIntoYou();
 	await renderContactsInAssignDropDownMenu();
 	setFutureDatesOnlyForInputDueDate();
 	// loadContributorsLetter();
@@ -123,13 +124,13 @@ async function renderMobilAddTask() {
                         Invite new contacts<img class="assignInviteNewContactImage"
                             src="assets/img/assigned_inviteNewContact.png" alt="" />
                     </li>
-                    <li>
+                    <!-- <li>
                         You
                         <div class="assignCheckboxContainer">
                             <img class="checkBox" src="assets/img/check_box.png" alt="checkbox" />
                             <img class="checkMark" src="assets/img/check_mark.png" />
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
 
