@@ -813,7 +813,7 @@
     align-items: center;
     padding: 0px;
     gap: 25px;
-    width: 460px;
+    width: 362px;
     height: 45px;
     flex: none;
     order: 6;
@@ -828,8 +828,9 @@
 .boardSubtasksDiv div span{
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 21px;
+    color: #000000;
 }
 
 .boardSubtaskTitle{
