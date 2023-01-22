@@ -535,7 +535,7 @@
     width: 428px;
     height: 766px;
     overflow-y: scroll;
-
+    overflow: hidden;
     background: #F6F7F8;
     margin-top: 80px;
     margin-bottom: 80px;
@@ -905,8 +905,10 @@
     position: absolute;
     width: 83px;
     height: 61px;
-    left: 282px;
-    top: 678px;
+    /* left: 282px;
+    top: 678px; */
+    left: 280px;
+    top: 560px;
 
     background: #2A3647;
     border-radius: 10px;
@@ -919,6 +921,7 @@
     /* or 25px */
     color: #FFFFFF;
     border: 0;
+    cursor: pointer;
 }
 
 .editTaskOkBtn:hover{
@@ -939,8 +942,9 @@
     gap: 10px;
     position: absolute;
     height: 61px;
-    left: 244px;
-    top: 746px;
+    left: 242px;
+    /* top: 746px; */
+    top: 629px;
     background: #2A3647;
     border-radius: 10px;
     font-family: 'Inter';
@@ -951,6 +955,7 @@
     /* or 25px */
     color: #FFFFFF;
     border: 0;
+    cursor: pointer;
 }
 /* deleteButton:hover edit by Basti*/
 .deleteButton:hover{

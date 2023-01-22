@@ -585,7 +585,7 @@ async function openEditTaskCardMobil(taskIndex) {
     // await renderEditTaskCardHtml(taskIndex);
     await renderPopupEditTaskCardHtmlMobil(taskIndex);
     showDeleteButton(taskIndex);
-    renderEditTaskCardInputFields(taskIndex);
+    renderEditTaskCardInputFieldsMobil(taskIndex);
 
     renderLoggedUserInAssignDrobDownMenuIntoYou();
     
@@ -603,6 +603,7 @@ async function renderEditTaskCardInputFieldsMobil(taskIndex) {
     let prioArray = { 'Urgent': 0, 'Medium': 1, 'Low': 2 };
     let taskPrioNumber = prioArray[taskPrio];
     await addPrio(taskPrioNumber);
+    boardEditedPrio = taskPrio;
     document.getElementById('boardEditTitle').value = cardTitle;
     document.getElementById('boardEditDecription').value = cardDescription;
     document.getElementById('boardEditDueDate').value = cardDueDate;
@@ -710,9 +711,9 @@ async function renderPopupEditTaskCardHtmlMobil(taskIndex) {
                     </ul>
                 </div>
 
-                <button class='editTaskOkBtn' onclick='getTaskChanges(${taskIndex})'>Ok <img src='../assets/img/akar-icons_check_white.png' ></button>
+                <button class='editTaskOkBtn' onclick='getTaskChangesMobil(${taskIndex})'>Ok <img src='../assets/img/akar-icons_check_white.png' ></button>
             <!-- Delete Button edited by Bossi  -->
-                <button class='deleteButton d-none' id='deleteButton' onclick='deleteButton(${taskIndex})'> <!--edit by Basti-->
+                <button class='deleteButton d-none' id='deleteButton' onclick='deleteButtonMobil(${taskIndex})'> <!--edit by Basti-->
                     Delete <img src='../assets/img/akar-icons_check_white.png' >
                 </button>
 
@@ -736,11 +737,12 @@ async function renderPopupEditTaskCardHtmlMobil(taskIndex) {
                 </div> -->
 
             </div>
-            <div class="taskAddedToBoard" id="taskCreatedIndication">
-                <div class="taskAddedToBoardContainer">
-                    <span>Task added to board</span>
-                    <img src="./assets/img/img_board_w.png" />
-                </div>
+            
+        </div>
+        <div class="taskAddedToBoard" id="taskCreatedIndication">
+            <div class="taskAddedToBoardContainer">
+                <span>Task added to board</span>
+                <img src="./assets/img/img_board_w.png" />
             </div>
         </div>`;
 
@@ -748,4 +750,33 @@ async function renderPopupEditTaskCardHtmlMobil(taskIndex) {
     // setTaskCardPopupPrioBackground(taskIndex);
     // renderSubtask(taskIndex);
     // renderAssignToHtml2(taskIndex);
+}
+
+async function getTaskChangesMobil(taskIndex) {
+    let boardEditedTitle = document.getElementById('boardEditTitle').value;
+    let boardEditedDescripten = document.getElementById('boardEditDecription').value;
+    let boardEditedDueDate = document.getElementById('boardEditDueDate').value;
+    joinTaskArray[taskIndex]['assignedTo'] = taskForce;
+    joinTaskArray[taskIndex]['title'] = boardEditedTitle;
+    joinTaskArray[taskIndex]['descripten'] = boardEditedDescripten;
+    joinTaskArray[taskIndex]['dueDate'] = boardEditedDueDate;
+    boardEditedPrio = prio;
+    joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
+
+    await saveTask();
+    // initBoard();
+    showAddDiv();
+    setTimeout(closeBoardMobilDetailOverlay, 1200);
+    renderAllCardsMobil();
+    // closeBoardMobilDetailOverlay();
+
+}
+
+
+async function deleteButtonMobil(taskIndex) {
+    joinTaskArray.splice(taskIndex, 1);
+    await saveTask();
+    await renderMobileBoardHtml();
+    await createWorkStatusArrays();
+    renderAllCardsMobil();
 }
