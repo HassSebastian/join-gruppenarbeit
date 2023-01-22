@@ -247,7 +247,7 @@ async function editContact(i) {
 }
 
 
-function deleteContactQuestion(i) {
+async function deleteContactQuestion(i) {
     let letter = allUsers[i].firstSecondLetter;
     let deleteQuestion = document.getElementById('deleteContactQuestion');
     let deleteQuestionInner = document.getElementById('deleteContactQuestion').innerHTML;
@@ -255,6 +255,8 @@ function deleteContactQuestion(i) {
         deleteQuestion.innerHTML = `Delete?`;
         deleteQuestion.style = "font-size: 30px";
     }else{
-    console.log('wird später gelöscht :-)');
+    allUsers.splice(i, 1);
+    await saveTask();
+    initContacts();
 }
 }
