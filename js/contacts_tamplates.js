@@ -248,7 +248,7 @@ function openNewContactHTML(){
 function showContactHTML(name, email, phone, letter, color, i){
     return /*html*/`
         <div>                       
-            <div class="show_contact_ellipse_5" style='background:${colorIndex[color]}' onclick="deleteContactQuestion()">
+            <div class="show_contact_ellipse_5" style='background:${colorIndex[color]}' onclick="deleteContactQuestion(${i})">
                 <span id="deleteContactQuestion">${letter}</span>
             </div>
             <div class="showContact_Name_addTask">
