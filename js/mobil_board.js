@@ -582,18 +582,20 @@ function renderPopupTaskCardHtmlMobil(taskIndex) {
 async function openEditTaskCardMobil(taskIndex) {
     resetAssignToList();
     coworkersToAssignTo = allUsers;
-    // await renderEditTaskCardHtml(taskIndex);
     await renderPopupEditTaskCardHtmlMobil(taskIndex);
     showDeleteButton(taskIndex);
-    renderEditTaskCardInputFieldsMobil(taskIndex);
-
     renderLoggedUserInAssignDrobDownMenuIntoYou();
-    
     await renderContactsInAssignDropDownMenu();
-    // renderEditTaskCardInputFields(taskIndex);
+    renderEditTaskCardInputFieldsMobil(taskIndex);
     boardEditTaskCardAssignPreseselction(taskIndex);
+    
+    
+    
+    // renderEditTaskCardInputFields(taskIndex);
+    
     // setPrioPreselection(taskIndex);
 }
+
 
 async function renderEditTaskCardInputFieldsMobil(taskIndex) {
     let cardTitle = joinTaskArray[taskIndex]['title'];
