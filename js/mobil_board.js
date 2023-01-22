@@ -588,12 +588,6 @@ async function openEditTaskCardMobil(taskIndex) {
     await renderContactsInAssignDropDownMenu();
     renderEditTaskCardInputFieldsMobil(taskIndex);
     boardEditTaskCardAssignPreseselction(taskIndex);
-    
-    
-    
-    // renderEditTaskCardInputFields(taskIndex);
-    
-    // setPrioPreselection(taskIndex);
 }
 
 
@@ -612,11 +606,6 @@ async function renderEditTaskCardInputFieldsMobil(taskIndex) {
 }
 
 async function renderPopupEditTaskCardHtmlMobil(taskIndex) {
-    // let cardTitle = joinTaskArray[taskIndex]['title'];
-    // let cardDescription = joinTaskArray[taskIndex]['descripten'];
-    // let cardCategory = joinTaskArray[taskIndex]['category'];
-    // let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
-    // let taskPrio = joinTaskArray[taskIndex]['prio'];
     document.getElementById('boardTaskDetail').innerHTML = '';
     document.getElementById('boardTaskDetail').innerHTML = /*html*/`
         <div class='boardTaskCardPopup'>
@@ -747,11 +736,6 @@ async function renderPopupEditTaskCardHtmlMobil(taskIndex) {
                 <img src="./assets/img/img_board_w.png" />
             </div>
         </div>`;
-
-    // setTaskCardPopupCatColor(taskIndex);
-    // setTaskCardPopupPrioBackground(taskIndex);
-    // renderSubtask(taskIndex);
-    // renderAssignToHtml2(taskIndex);
 }
 
 async function getTaskChangesMobil(taskIndex) {
@@ -764,14 +748,10 @@ async function getTaskChangesMobil(taskIndex) {
     joinTaskArray[taskIndex]['dueDate'] = boardEditedDueDate;
     boardEditedPrio = prio;
     joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
-
     await saveTask();
-    // initBoard();
     showAddDiv();
     setTimeout(closeBoardMobilDetailOverlay, 1200);
     renderAllCardsMobil();
-    // closeBoardMobilDetailOverlay();
-
 }
 
 
