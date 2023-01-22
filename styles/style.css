@@ -208,6 +208,7 @@ tr td:nth-child(3) {
     width: 106px;
     height: 49px;
     cursor: pointer;
+    font-family: 'Inter';
 }
 
 #memberInfo img:first-child {
