@@ -131,11 +131,14 @@ function showContact(i) {
         }
     }
 }
+
+
 function showContactHelp(name, email, phone, letter, color, i, showContact) {
     showContact.innerHTML = '';
     showContact.innerHTML = showContactHTML(name, email, phone, letter, color, i);
     showContact.classList.add('showContactSlide');
 }
+
 
 /**
  * AddContact() is an async function that takes the values of the input fields, calculates the first
@@ -179,7 +182,7 @@ async function addContact() {
         if (!newNameRequired.classList.contains('requiredOn') &&
             !newEmailRequired.classList.contains('requiredOn') &&
             !newPhoneRequired.classList.contains('requiredOn')) {
-                comparisonEmail(newEmailRequired, name.value, email.value, phone.value);
+            comparisonEmail(newEmailRequired, name.value, email.value, phone.value);
         }
     }
 }
@@ -251,12 +254,13 @@ async function deleteContactQuestion(i) {
     let letter = allUsers[i].firstSecondLetter;
     let deleteQuestion = document.getElementById('deleteContactQuestion');
     let deleteQuestionInner = document.getElementById('deleteContactQuestion').innerHTML;
-    if(letter === deleteQuestionInner){
+    if (letter === deleteQuestionInner) {
         deleteQuestion.innerHTML = `Delete?`;
         deleteQuestion.style = "font-size: 30px";
-    }else{
-    allUsers.splice(i, 1);
-    await saveTask();
-    initContacts();
-}
+    } else {
+        allUsers.splice(i, 1);
+        await saveTask();
+        await renderContent();
+        await userInAlphabetArray();
+    }
 }
