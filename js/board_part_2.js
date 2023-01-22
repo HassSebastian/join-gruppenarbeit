@@ -157,11 +157,12 @@ async function openEditTaskCard(taskIndex) {
     resetAssignToList();
     await renderEditTaskCardHtml(taskIndex);
     showDeleteButton(taskIndex);
-    renderEditTaskCardInputFields(taskIndex);
+    // renderEditTaskCardInputFields(taskIndex);
 
     renderLoggedUserInAssignDrobDownMenuIntoYou();
     
     await renderContactsInAssignDropDownMenu();
+    
     renderEditTaskCardInputFields(taskIndex);
     boardEditTaskCardAssignPreseselction(taskIndex);
     setPrioPreselection(taskIndex);

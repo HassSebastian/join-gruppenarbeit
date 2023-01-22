@@ -788,6 +788,7 @@
     top: 685px;
     background: #2A3647;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .boardSubtasksTitleDiv{
@@ -857,3 +858,191 @@
     order: 0;
     flex-grow: 0;
 }
+
+/* Edit Function */
+
+.scrollOverEdit{
+    overflow: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 9px;
+    position: absolute;
+    width: 363px;
+    height: 700px;
+    left: 32px;
+    top: 55px;
+}
+
+
+#boardEditDueDate {
+    width: -webkit-fill-available;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #D1D1D1;
+    flex: none;
+    flex-grow: 0;
+    z-index: 0;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+.editTaskOkBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+
+    position: absolute;
+    width: 83px;
+    height: 61px;
+    left: 282px;
+    top: 678px;
+
+    background: #2A3647;
+    border-radius: 10px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
+    color: #FFFFFF;
+    border: 0;
+}
+
+.editTaskOkBtn:hover{
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    /* border-color: #29ABE2; */
+    border-width: 0px;
+}
+
+/* Delete Button edited by Bossi  */
+.deleteButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    position: absolute;
+    height: 61px;
+    left: 244px;
+    top: 746px;
+    background: #2A3647;
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
+    color: #FFFFFF;
+    border: 0;
+}
+/* deleteButton:hover edit by Basti*/
+.deleteButton:hover{
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;  
+    border-width: 0px;
+}
+
+
+.boardMobilDateSetting{
+    order: 2 !important;
+}
+
+.boardMobilPrioSetting{
+    order: 3 !important;
+}
+
+/* .boardAddTaskPrioMobil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    width: 363px;
+    height: 78px;
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+}
+
+.boardAddTaskDateMob {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 363px;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+
+
+.boardAddTaskDateMob h3 {
+    width: 69px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    margin: 0;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.boardAddTaskDateMob div {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 18px 21px;
+    gap: 10px;
+    isolation: isolate;
+    width: 363px;
+    height: 41px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.boardFrame28 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 353px;
+    height: 78px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.frame28 h3 {
+    font-size: 21px;
+} */
