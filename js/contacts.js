@@ -179,7 +179,7 @@ async function addContact() {
         if (!newNameRequired.classList.contains('requiredOn') &&
             !newEmailRequired.classList.contains('requiredOn') &&
             !newPhoneRequired.classList.contains('requiredOn')) {
-            NewEmailToCheck(newEmailRequired, name.value, email.value, phone.value);
+                comparisonEmail(newEmailRequired, name.value, email.value, phone.value);
         }
     }
 }
