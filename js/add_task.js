@@ -1127,7 +1127,7 @@ function addRemoveToggleForTaskForce(
     removeSelectedContactFromTaskForce(indexOfMemberInTaskForce);
     renderBadgesMemberOfTaskForce();
   }
-  setTimeout(() => console.table(taskForce), 1);
+  // setTimeout(() => console.table(taskForce), 1);
 }
 
 /**
