@@ -184,6 +184,7 @@ function showTime() {
 		document.getElementById('greetUser').innerHTML = `Good Day,`;
 	}
 	if (timeString >= 18) {
+		
 		document.getElementById('greetUser').innerHTML = `Good Evening,`;
 	}
 }

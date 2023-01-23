@@ -463,4 +463,71 @@ vector {
 	order: 0;
 	flex-grow: 0;
 }
+
 /*  */
+
+
+.greetingMasterContainer {
+	position: relative;
+	width: 428px;
+	height: 926px;
+	background: #F6F7F8;
+	top: 90px;
+	animation:greetMove 3s;
+	animation-delay: 3s;
+
+}
+
+@keyframes greetMove{
+	for{
+		opacity: 1;
+	}
+	to{
+		opacity: 0;
+		display: none;
+	}
+}
+
+.greetContainerMob {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0px;
+	gap: 3px;
+	position: absolute;
+	width: 274px;
+	height: 102px;
+	left: 78px;
+	top: 300px;
+}
+
+#greetUser {
+	width: 252px;
+	height: 43px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 36px;
+	line-height: 120%;
+	color: #2A3647;
+	text-align: center;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+}
+
+.greetUserName {
+	width: 274px;
+	height: 56px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 47px;
+	line-height: 120%;
+	color: #29ABE2;
+	text-align: center;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+}

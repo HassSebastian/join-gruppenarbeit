@@ -15,9 +15,11 @@ async function initMobilSummary() {
     selectedMenuBtnId = 0;
     selectedMenuButton(1);
     showDate();
-    // showTime();
+    helloPageMob();
+    showTime();
     loadContributorsLetterMob();
     logOutMasterContainerMob();
+    greetingMasterContainerHide();
 }
 
 function loadContributorsLetterMob() {
@@ -148,3 +150,17 @@ function backButtonMob() {
     index.func();
 }
 ///////////////////////////////////////////////////
+
+function helloPageMob(){
+    document.getElementById('greetingMasterContainer').innerHTML = ``;
+    document.getElementById('greetingMasterContainer').innerHTML = /*html*/ `
+        <div class='greetContainerMob'>
+            <span id='greetUser'></span>
+            <span class="greetUserName">${allUsers[loggedUser[0]].name}</span>
+        </div>
+    `;
+}
+
+function greetingMasterContainerHide(){
+    setTimeout(()=>{document.getElementById('greetingMasterContainer').classList.add('d-none')},6000);
+}

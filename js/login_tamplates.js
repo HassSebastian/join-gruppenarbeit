@@ -6,8 +6,8 @@
  * @param requiredEmail - The element that will display the error message for the email field.
  * @param requiredPassword - The element that will display the error message for the password field.
  */
-function resetRequiredLine(email, password, requiredEmail, requiredPassword){
-    requiredEmail.classList.remove('requiredOn');
+function resetRequiredLine(email, password, requiredEmail, requiredPassword) {
+	requiredEmail.classList.remove('requiredOn');
 	requiredPassword.classList.remove('requiredOn');
 	requiredEmail.innerHTML = `This field is required`;
 	requiredPassword.innerHTML = `This field is required`;
@@ -24,8 +24,8 @@ function resetRequiredLine(email, password, requiredEmail, requiredPassword){
  * @param requiredEmail - the element that will be shown if the email is not valid
  * @param requiredPassword - the password input field
  */
-function calculateCheckCorrectInput(email, password, requiredEmail, requiredPassword){
-    if (email.value.length || password.value.length) {
+function calculateCheckCorrectInput(email, password, requiredEmail, requiredPassword) {
+	if (email.value.length || password.value.length) {
 		if (
 			email.value.length < 8 ||
 			!email.value.includes('@') ||
@@ -57,11 +57,11 @@ function calculateCheckCorrectInput(email, password, requiredEmail, requiredPass
  * @param requiredEmailLogin - the element that will display the error message
  * @param requiredPasswordLogin - the password input field
  */
-function pleaseRegister(requiredEmailLogin, requiredPasswordLogin){
-    requiredEmailLogin.classList.add('requiredOn');
-    requiredEmailLogin.innerHTML = `No user available. please  <b>Sign up!!</b>`;
-    requiredPasswordLogin.classList.add('requiredOn');
-    requiredPasswordLogin.innerHTML = `No user available. please  <b>Sign up!!</b>`;
+function pleaseRegister(requiredEmailLogin, requiredPasswordLogin) {
+	requiredEmailLogin.classList.add('requiredOn');
+	requiredEmailLogin.innerHTML = `No user available. please  <b>Sign up!!</b>`;
+	requiredPasswordLogin.classList.add('requiredOn');
+	requiredPasswordLogin.innerHTML = `No user available. please  <b>Sign up!!</b>`;
 }
 
 
@@ -74,25 +74,25 @@ function pleaseRegister(requiredEmailLogin, requiredPasswordLogin){
  * @param requiredPasswordLogin - is the element that will display the error message if the password is
  * incorrect.
  */
-function statusOK(email, password, requiredEmailLogin, requiredPasswordLogin){
-    let loginStatus;
-    for (let i = 0; i < allUsers.length; i++) {
-        let emailData = allUsers[i]['email'];
-        if (emailData == email) {
-            if (allUsers[i]['password'] == password) {
-                loginStatus = i;
-                break;
-            }
-        }
-    }
-    if (loginStatus) {
-        rememberMe(email, password, loginStatus);
-    } else {
-        requiredEmailLogin.classList.add('requiredOn');
-        requiredEmailLogin.innerHTML = `Email or Password do not match!!`;
-        requiredPasswordLogin.classList.add('requiredOn');
-        requiredPasswordLogin.innerHTML = `Email or Password do not match!!`;
-    }
+function statusOK(email, password, requiredEmailLogin, requiredPasswordLogin) {
+	let loginStatus;
+	for (let i = 0; i < allUsers.length; i++) {
+		let emailData = allUsers[i]['email'];
+		if (emailData == email) {
+			if (allUsers[i]['password'] == password) {
+				loginStatus = i;
+				break;
+			}
+		}
+	}
+	if (loginStatus) {
+		rememberMe(email, password, loginStatus);
+	} else {
+		requiredEmailLogin.classList.add('requiredOn');
+		requiredEmailLogin.innerHTML = `Email or Password do not match!!`;
+		requiredPasswordLogin.classList.add('requiredOn');
+		requiredPasswordLogin.innerHTML = `Email or Password do not match!!`;
+	}
 }
 
 
@@ -105,8 +105,8 @@ function statusOK(email, password, requiredEmailLogin, requiredPasswordLogin){
  * @param valueToCheck - email
  * @param check - 0
  */
-function calculateRememberDoubleUserCheck(email, password, rememberUser, valueToCheck, check){
-    for (let i = 0; i < rememberUser.length; i++) {
+function calculateRememberDoubleUserCheck(email, password, rememberUser, valueToCheck, check) {
+	for (let i = 0; i < rememberUser.length; i++) {
 		let testValue = rememberUser[i].email;
 		if (testValue === valueToCheck) {
 			check = 1;
@@ -114,7 +114,11 @@ function calculateRememberDoubleUserCheck(email, password, rememberUser, valueTo
 		}
 	}
 	if (check == 1) {
-		window.location.href = './summary.html';
+		if (window.innerWidth < 768) {
+			window.location.href = './summary_mobile.html';
+		} else {
+			window.location.href = './summary.html';
+		}
 	} else {
 		keyQueryOne(email, password);
 	}
