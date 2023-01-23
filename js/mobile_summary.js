@@ -14,8 +14,8 @@ async function initMobilSummary() {
     );
     selectedMenuBtnId = 0;
     selectedMenuButton(1);
-    showDate();
     helloPageMob();
+    showDate();
     showTime();
     loadContributorsLetterMob();
     logOutMasterContainerMob();
@@ -115,6 +115,9 @@ function generateMobilSummaryHtml() {
         </div>`;
 }
 
+
+// LogOut Overlay //
+////////////////////
 function logOutMasterContainerMob() {
     document.getElementById('logOutMasterContainer').innerHTML = /*html*/ `
     <div class="logOutNav" onclick="renderHelpMob()">
@@ -132,6 +135,7 @@ function logOutMasterContainerMob() {
 function logOutBtnMob() {
     document.getElementById('logOutMasterContainer').classList.toggle('d-none');
 }
+////////////////////
 
 
 

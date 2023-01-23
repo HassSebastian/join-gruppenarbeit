@@ -64,7 +64,11 @@ function rememberMe(email, password, loginStatus) {
 	loggedUser.push(loginStatus);
 	let loggedUserAsString = JSON.stringify(loggedUser);
 	localStorage.setItem('loggedUser', loggedUserAsString);
-	window.location.href = './summary.html';
+	if (window.innerWidth < 768) {
+		window.location.href = './summary_mobile.html';
+	} else {
+		window.location.href = './summary.html';
+	}
 }
 
 /**

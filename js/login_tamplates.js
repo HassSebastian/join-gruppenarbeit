@@ -114,11 +114,7 @@ function calculateRememberDoubleUserCheck(email, password, rememberUser, valueTo
 		}
 	}
 	if (check == 1) {
-		if (window.innerWidth < 768) {
-			window.location.href = './summary_mobile.html';
-		} else {
-			window.location.href = './summary.html';
-		}
+		window.location.href = './summary.html';
 	} else {
 		keyQueryOne(email, password);
 	}

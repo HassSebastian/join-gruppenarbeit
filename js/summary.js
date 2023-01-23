@@ -177,14 +177,13 @@ function showTime() {
 	let currentTime = new Date();
 	let hours = currentTime.getHours();
 	let timeString = hours;
-	if (timeString >= 6) {
+	if (timeString >= 0) {
 		document.getElementById('greetUser').innerHTML = `Good Morning,`;
 	}
 	if (timeString >= 12) {
 		document.getElementById('greetUser').innerHTML = `Good Day,`;
 	}
 	if (timeString >= 18) {
-		
 		document.getElementById('greetUser').innerHTML = `Good Evening,`;
 	}
 }
