@@ -99,7 +99,6 @@ body {
     flex-grow: 0;
 }
 
-
 .logInLogoImgMobBlack {
     position: absolute;
     left: calc(50% - 64px/2 - 144px);
@@ -159,16 +158,6 @@ body {
 
     }
 }
-
-/* .pageOneMob img {
-    position: absolute;
-    left: 38.32%;
-    right: 38.31%;
-    top: 43.41%;
-    bottom: 43.42%;
-} */
-
-
 
 .logInMasterContainerMob {
     display: flex;
