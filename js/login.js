@@ -11,7 +11,10 @@ function forgotPassword() {
 }
 
 function guestLogIn() {
-	alert('muss noch mit Gast Log in verbunden werden!');
+	document.getElementById('inputEmailLogin').value = '';
+	document.getElementById('inputPasswordLogin').value = '';
+	localStorage.clear();
+	window.location.href = 'summary.html';
 }
 
 /**
