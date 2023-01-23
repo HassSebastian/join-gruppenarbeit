@@ -165,7 +165,7 @@ async function openEditTaskCard(taskIndex) {
     
     renderEditTaskCardInputFields(taskIndex);
     await boardEditTaskCardAssignPreseselction(taskIndex);
-    setPrioPreselection(taskIndex);
+    // setPrioPreselection(taskIndex);
 }
 
 
@@ -175,14 +175,14 @@ async function openEditTaskCard(taskIndex) {
  * </code>
  * @param taskIndex - the index of the task in the array
  */
-function renderEditTaskCardInputFields(taskIndex) {
+async function renderEditTaskCardInputFields(taskIndex) {
     let cardTitle = joinTaskArray[taskIndex]['title'];
     let cardDescription = joinTaskArray[taskIndex]['descripten'];
     let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
     let taskPrio = joinTaskArray[taskIndex]['prio'];
     let prioArray = { 'Urgent': 0, 'Medium': 1, 'Low': 2 };
     let taskPrioNumber = prioArray[taskPrio];
-    addPrio(taskPrioNumber);
+    await addPrio(taskPrioNumber);
     document.getElementById('boardEditTitle').value = cardTitle;
     document.getElementById('boardEditDecription').value = cardDescription;
     document.getElementById('boardEditDueDate').value = cardDueDate;
