@@ -789,7 +789,57 @@
     background: #2A3647;
     border-radius: 10px;
     cursor: pointer;
+    z-index: 1;
 }
+
+.navArrows{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 40px;
+    position: absolute;
+    width: 351px;
+    height: 40px;
+    left: 33px;
+    top: 685px;
+    /* background: #2A3647; */
+    border-radius: 10px;
+    /* cursor: pointer; */
+    z-index: 0;
+}
+
+.previousWorkstatusImg{
+    transform: rotate(90deg);
+    background-image: url('../assets/img/back_logo_black.png');
+    background-position: center;
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+}
+
+.nextWorkstatusImg{
+    transform: rotate(-90deg);
+    background-image: url('../assets/img/back_logo_black.png');
+    background-position: center;
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+}
+
+.previousWorkstatusImg:hover{
+    background-image: url('../assets/img/back_logo.png');
+    transition: 100ms ease-in-out;
+    cursor: pointer;
+}
+
+.nextWorkstatusImg:hover{
+    background-image: url('../assets/img/back_logo.png');
+    transition: 100ms ease-in-out;
+    cursor: pointer;
+}
+
 
 .boardSubtasksTitleDiv{
     display: flex;

@@ -560,6 +560,17 @@ function renderPopupTaskCardHtmlMobil(taskIndex) {
                 <img src='./assets/img/edit_button.png'>
             </div>
 
+            <div class='navArrows'>
+                <div class='previousWorkstatusImg' title='Move this task to previous Workstatus'>
+
+                </div>
+                <div title='Move this task to next Workstatus' class='nextWorkstatusImg'>
+
+                </div>
+                <!-- <img src='./assets/img/back_logo_black.png' title='Move this task to previous Workstatus' class='previousWorkstatusImg'> -->
+                <!-- <img src='./assets/img/back_logo_black.png' title='Move this task to next Workstatus' class='nextWorkstatusImg'> -->
+            </div>
+
             <div class='boardSubtasksTitleDiv'>
                 <span class='boardSubtaskTitle'>Subtasks:</span>
             
