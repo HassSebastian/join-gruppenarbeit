@@ -40,6 +40,7 @@ async function initAddTask() {
   loadContributorsLetter();
   getInnerWidth();
   taskForce = []; // Das muss noch hier rein oder in einer andere Datei!
+  addSubtaskMain();
 }
 
 function generateAddTaskHtml() {
@@ -880,6 +881,15 @@ function addSubtask() {
     // document.getElementById(`subtask${subTaskArray.length - 1}`).checked = true;
     createSubtaskListToSave();
   }
+}
+
+function addSubtaskMain(){
+  let subTaskText = 'Maintask';
+  subTaskInputLeave();
+  pushNewSubtaskDatatoArray(subTaskText);
+  renderSubtasks();
+  resetSubtaskInput();
+  createSubtaskListToSave();
 }
 
 // new Array function here

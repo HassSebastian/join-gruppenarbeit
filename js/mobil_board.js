@@ -1,3 +1,23 @@
+let arrayMoveBtnText = [
+    {'workStatus': 0, 
+     'btn': ['Task to "In progress"'],
+     'newStatus':[1]
+    },
+    {'workStatus': 1, 
+     'btn': ['Task to "To do"', 'Task to "Awaiting Feedback"'],
+     'newStatus':[0, 2]
+    },
+    {'workStatus': 2, 
+     'btn': ['Task to "In progress"', 'Task to "Done"'],
+     'newStatus':[1, 3]
+    },
+    {'workStatus': 3, 
+     'btn': ['Task to "Awaiting Feedback"'],
+     'newStatus':[2]
+    }
+];
+
+
 async function initMobilBoard() {
     await renderMobileBoardHtml();
     selectedMenuButton(2);
@@ -524,6 +544,7 @@ function closeBoardMobilDetailOverlay() {
     document.getElementById('boardTaskDetail').classList.add('d-none');
 }
 
+
 function renderPopupTaskCardHtmlMobil(taskIndex) {
     let cardTitle = joinTaskArray[taskIndex]['title'];
     let cardDescription = joinTaskArray[taskIndex]['descripten'];
@@ -588,15 +609,18 @@ function renderPopupTaskCardHtmlMobil(taskIndex) {
     renderMoveBtnMobil(taskIndex);
 }
 
+
 async function renderBtnBySubtaskChange(taskIndex){
     await saveChangesDetailView();
     renderMoveBtnMobil(taskIndex);
 }
 
+
 async function renderSubtaskMobil(taskIndex) {
     await renderSubtaskMobilHtml(taskIndex);
     setSubTaskStatus(taskIndex);
 }
+
 
 async function renderSubtaskMobilHtml(taskIndex) {
     document.getElementById('subtaskListTaskCard').innerHTML = '';
@@ -619,27 +643,6 @@ async function saveChangesDetailView(){
     await createWorkStatusArrays();
     renderAllCardsMobil();
 }
-
-
-let arrayMoveBtnText = [
-    {'workStatus': 0, 
-     'btn': ['Task to "In progress"'],
-     'newStatus':[1]
-    },
-    {'workStatus': 1, 
-     'btn': ['Task to "To do"', 'Task to "Awaiting Feedback"'],
-     'newStatus':[0, 2]
-    },
-    {'workStatus': 2, 
-     'btn': ['Task to "In progress"', 'Task to "Done"'],
-     'newStatus':[1, 3]
-    },
-    {'workStatus': 3, 
-     'btn': ['Task to "Awaiting Feedback"'],
-     'newStatus':[2]
-    }
-
-];
 
 
 async function renderMoveBtnMobil(taskIndex){
@@ -675,9 +678,10 @@ async function moveMobilTaskTo(taskIndex, newTaskStatus){
     closeBoardMobilDetailOverlay();
 }
 
+
 function testAllowMove(taskIndex){
     let endValue;
-    let workStatus = joinTaskArray[taskIndex]['workFlowStatus'];
+    // let workStatus = joinTaskArray[taskIndex]['workFlowStatus'];
     let doneBarDraggedElement = document.getElementById(`doneBar${taskIndex}`);
 	let doneBarOuterDraggedElement = document.getElementById(`doneBarOuter${taskIndex}`);
     let doneBarWidth = doneBarDraggedElement.offsetWidth;
@@ -720,6 +724,7 @@ async function renderEditTaskCardInputFieldsMobil(taskIndex) {
     document.getElementById('boardEditDecription').value = cardDescription;
     document.getElementById('boardEditDueDate').value = cardDueDate;
 }
+
 
 async function renderPopupEditTaskCardHtmlMobil(taskIndex) {
     document.getElementById('boardTaskDetail').innerHTML = '';
