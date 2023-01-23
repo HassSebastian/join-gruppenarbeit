@@ -117,25 +117,17 @@ body{
     flex: none;
     order: 0;
     flex-grow: 0;
-    z-index: 1;
-    animation: showBlackLogo 2s ease-in-out;
 }
 
-@keyframes showBlackLogo{
-    from{
-        top: 43.41%;
-        left: 38.32%;        
-        width: 102px;
-        height: 122px;
-        opacity: 1;
-    }
-    to{
-        left: calc(50% - 64px/2 - 144px);
-        top: calc(50% - 78.03px/2 - 386.98px);
-        width: 64px;
-        height: 78.03px;    
-        opacity: 0;
-    }
+.logInLogoImgMobWhite {
+    position: absolute;
+    left: calc(50% - 64px/2 - 144px);
+    top: calc(50% - 78.03px/2 - 386.98px);
+    width: 64px;
+    height: 78.03px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
 .logInMasterContainerMob {
