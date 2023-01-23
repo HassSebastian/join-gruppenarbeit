@@ -159,12 +159,12 @@ async function openEditTaskCard(taskIndex) {
     showDeleteButton(taskIndex);
     // renderEditTaskCardInputFields(taskIndex);
 
-    renderLoggedUserInAssignDrobDownMenuIntoYou();
+    await renderLoggedUserInAssignDrobDownMenuIntoYou();
     
     await renderContactsInAssignDropDownMenu();
     
     renderEditTaskCardInputFields(taskIndex);
-    boardEditTaskCardAssignPreseselction(taskIndex);
+    await boardEditTaskCardAssignPreseselction(taskIndex);
     setPrioPreselection(taskIndex);
 }
 
@@ -200,7 +200,7 @@ function renderEditTaskCardInputFields(taskIndex) {
  * Here's what I've tried:
  * @param taskIndex - the index of the task in the joinTaskArray
  */
-function boardEditTaskCardAssignPreseselction(taskIndex) {
+async function boardEditTaskCardAssignPreseselction(taskIndex) {
     let assignToArray = joinTaskArray[taskIndex]['assignedTo'];
     for (let i = 0; i < assignToArray.length; i++) {
         let refEmail = assignToArray[i]['email'];

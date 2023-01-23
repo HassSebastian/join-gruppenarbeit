@@ -346,7 +346,7 @@ async function startAddTaskOverlay() {
     newCatInputActive = false;
     renderSubtasks();
     // selectedMenuBtnId = 0;
-    selectedMenuButton(3);
+    // selectedMenuButton(3);
     renderLoggedUserInAssignDrobDownMenuIntoYou()
     await renderContactsInAssignDropDownMenu();
     setFutureDatesOnlyForInputDueDate();
@@ -354,14 +354,14 @@ async function startAddTaskOverlay() {
     addSubtaskMain();
     getInnerWidth();
     document.getElementById('boardAddTask').classList.remove('d-none');
-    document.getElementById('bottomMenu').classList.add('d-none');
+    // document.getElementById('bottomMenu').classList.add('d-none');
     
 }
 
 
 function closeAddTaskOverlay() {
     document.getElementById('boardAddTask').classList.add('d-none');
-    document.getElementById('bottomMenu').classList.remove('d-none');
+    // document.getElementById('bottomMenu').classList.remove('d-none');
 }
 
 
