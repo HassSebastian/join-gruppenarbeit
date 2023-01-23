@@ -1,4 +1,4 @@
-body{
+body {
     margin-top: 16px;
     display: flex;
     justify-content: center;
@@ -12,8 +12,19 @@ body{
     position: absolute;
     width: 428px;
     height: 926px;
-    background: #2A3647;
-    z-index: 1;
+    background: transparent;
+    animation: backgrount 2s;
+}
+
+@keyframes backgrount{
+    from{
+        background: #2A3647;
+        z-index: 998;
+    }
+    to{
+        background: transparent;
+        z-index: 0;
+    }
 }
 
 .mobilMasterContainer {
@@ -21,14 +32,6 @@ body{
     width: 428px;
     height: 926px;
     background: #F6F7F8;
-}
-
-.pageOneMob img {
-    position: absolute;
-    left: 38.32%;
-    right: 38.31%;
-    top: 43.41%;
-    bottom: 43.42%;
 }
 
 .logInContainerMob {
@@ -95,18 +98,6 @@ body{
     flex-grow: 0;
 }
 
-.logInLogoMob {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 10px;
-    /* position: absolute; */
-    width: 64px;
-    height: 78.03px;
-    /* left: calc(50% - 64px/2 - 144px);
-    top: calc(50% - 78.03px/2 - 386.98px); */
-}
 
 .logInLogoImgMobBlack {
     position: absolute;
@@ -114,9 +105,8 @@ body{
     top: calc(50% - 78.03px/2 - 386.98px);
     width: 64px;
     height: 78.03px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+    animation: logoBlack 2s ease-in-out;
+
 }
 
 .logInLogoImgMobWhite {
@@ -125,10 +115,59 @@ body{
     top: calc(50% - 78.03px/2 - 386.98px);
     width: 64px;
     height: 78.03px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+    animation: logoWhite 2s ease-in-out;
 }
+
+@keyframes logoWhite {
+    from {
+        left: 38.32%;
+        top: 43.41%;
+        width: 100.03px;
+        height: 121.97px;
+        opacity: 1;
+        z-index: 1000;
+    }
+
+    to {
+        left: calc(50% - 64px/2 - 144px);
+        top: calc(50% - 78.03px/2 - 386.98px);
+        width: 64px;
+        height: 78.03px;
+        opacity: 0;
+        z-index: 0;
+    }
+}
+
+@keyframes logoBlack {
+    from {
+        left: 38.32%;
+        top: 43.41%;
+        width: 100.03px;
+        height: 121.97px;
+        opacity: 0;
+        z-index: 0;
+    }
+
+    to {
+        left: calc(50% - 64px/2 - 144px);
+        top: calc(50% - 78.03px/2 - 386.98px);
+        width: 64px;
+        height: 78.03px;
+        opacity: 1;
+        z-index: 1000;
+
+    }
+}
+
+/* .pageOneMob img {
+    position: absolute;
+    left: 38.32%;
+    right: 38.31%;
+    top: 43.41%;
+    bottom: 43.42%;
+} */
+
+
 
 .logInMasterContainerMob {
     display: flex;
