@@ -214,7 +214,7 @@ function inProgressMobilHtml(arrayIndex) {
 	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
 	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 	return /*html*/ `
-            <div class='taskBackgroundMobil' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='startDetailViewOverlay(); renderPopupTaskCardHtmlMobil(${taskIndex})'>
+            <div class='taskBackgroundMobil' id='taskCard${taskIndex}' onclick='startDetailViewOverlay(); renderPopupTaskCardHtmlMobil(${taskIndex})'>
                 <div class='taskContainerMobil'>
                     <div class='boardTaskCategoryMobil' id='progressCard${arrayIndex}'>
                         <span>${cardCategory}</span>
@@ -252,7 +252,7 @@ function awaitingFeedbackMobilHtml(arrayIndex) {
 	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
 	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 	return /*html*/ `
-        <div class='taskBackgroundMobil' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='startDetailViewOverlay(); renderPopupTaskCardHtmlMobil(${taskIndex})'>
+        <div class='taskBackgroundMobil' id='taskCard${taskIndex}' onclick='startDetailViewOverlay(); renderPopupTaskCardHtmlMobil(${taskIndex})'>
             <div class='taskContainerMobil'>
                 <div class='boardTaskCategoryMobil' id='feedbackCard${arrayIndex}'>
                     <span>${cardCategory}</span>
@@ -290,7 +290,7 @@ function doneMobilHtml(arrayIndex) {
 	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
 	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 	return /*html*/ `
-        <div class='taskBackgroundMobil' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='startDetailViewOverlay(); renderPopupTaskCardHtmlMobil(${taskIndex})'>
+        <div class='taskBackgroundMobil' id='taskCard${taskIndex}' onclick='startDetailViewOverlay(); renderPopupTaskCardHtmlMobil(${taskIndex})'>
             <div class='taskContainerMobil'>
                 <div class='boardTaskCategoryMobil' id='doneCard${arrayIndex}'>
                     <span>${cardCategory}</span>
@@ -702,60 +702,25 @@ function testAllowMove(taskIndex){
 
 async function openEditTaskCardMobil(taskIndex) {
     resetAssignToList();
+    resetCheckValueAllUsers();
     coworkersToAssignTo = allUsers;
     await renderPopupEditTaskCardHtmlMobil(taskIndex);
     showDeleteButton(taskIndex);
     renderLoggedUserInAssignDrobDownMenuIntoYou();
     await renderContactsInAssignDropDownMenu();
-    renderEditTaskCardInputFieldsMobil(taskIndex);
+    await renderEditTaskCardInputFieldsMobil(taskIndex);
+    debugger;
     boardEditTaskCardAssignPreseselction(taskIndex);
+    debugger;
+    console.log(taskIndex);
 }
 
 
-async function boardEditTaskCardAssignPreseselctionMobil(taskIndex) {
-    let assignToArray = joinTaskArray[taskIndex]['assignedTo'];
-    for (let i = 0; i < assignToArray.length; i++) {
-        let refEmail = assignToArray[i]['email'];
-        for (let index = 0; index < coworkersToAssignTo.length; index++) {
-            let email = coworkersToAssignTo[index]['email'];
-            if (refEmail == email) {
-                addContactToTaskForceWithCheckBoxMobil(index);
-            }
-        }
+function resetCheckValueAllUsers(){
+    for (let i = 0; i < allUsers.length; i++) {
+        allUsers[i].check = false;
     }
 }
-
-
-function addContactToTaskForceWithCheckBoxMobil(contact) {
-    let addedToTaskForce = coworkersToAssignTo[contact].check;
-    let emailAddress = coworkersToAssignTo[contact].email;
-    let indexOfMemberOfTaskForce = findIndexOfMemberOfTaskForce(emailAddress);
-    addRemoveToggleForTaskForceMobil(
-      addedToTaskForce,
-      contact,
-      indexOfMemberOfTaskForce
-    );
-    addedToTaskForce = !addedToTaskForce;
-    coworkersToAssignTo[contact].check = addedToTaskForce;
-  }
-
-
-  function addRemoveToggleForTaskForceMobil(
-    addedToTaskForce,
-    contact,
-    indexOfMemberInTaskForce
-  ) {
-    if (!addedToTaskForce) {
-      addCheckMarkToCheckBox(contact);
-      addSelectedContactToTaskForce(contact);
-      renderBadgesMemberOfTaskForce();
-    } else {
-      removeCheckMarkFromCheckBox(contact);
-      removeSelectedContactFromTaskForce(indexOfMemberInTaskForce);
-      renderBadgesMemberOfTaskForce();
-    }
-    // setTimeout(() => console.table(taskForce), 1);
-  }
 
 
 
