@@ -1,4 +1,4 @@
-body{
+body {
     margin-top: 16px;
     display: flex;
     justify-content: center;
@@ -8,29 +8,89 @@ body{
     display: none;
 }
 
+
+body {
+    margin: 0;
+    user-select: none;
+}
+
+.d-none {
+    display: none !important;
+}
+
 .pageOneMob {
     position: relative;
     width: 428px;
     height: 926px;
-    background: #2A3647;
+    animation: moveBackground 2s ease-in-out;
 }
 
-.mobilMasterContainer {
+@keyframes moveBackground{
+    from{
+        background: #2A3647;
+    }
+    to {
+        background: transparent;
+    }
+}
+
+#pageOneMobImg {
+    position: absolute;
+    animation: move 2s ease-in-out;
+}
+
+@keyframes move {
+    from {
+        width: 100px;
+        height: 122px;
+        left: 38.32%;
+        top: 43.41%;
+        opacity: 1;
+    }
+
+    to {
+        width: 64px;
+        height: 78.03px;
+        left: calc(50% - 64px/2 - 144px);
+        top: calc(50% - 78.03px/2 - 386.98px);
+        opacity: 0;
+    }
+}
+
+#pageOneMobImgBlack {
+    position: absolute;
+    animation: moveBlack 2s ease-in-out;
+}
+
+@keyframes moveBlack {
+    from {
+        width: 100px;
+        height: 122px;
+        left: 38.32%;
+        top: 43.41%;
+        opacity: 0;
+    }
+
+    to {
+        width: 64px;
+        height: 78.03px;
+        left: calc(50% - 64px/2 - 144px);
+        top: calc(50% - 78.03px/2 - 386.98px);
+        opacity: 1;
+    }
+}
+
+
+
+
+.logInContainerMob {
     position: relative;
     width: 428px;
     height: 926px;
     background: #F6F7F8;
 }
 
-.pageOneMob img {
-    position: absolute;
-    left: 38.32%;
-    right: 38.31%;
-    top: 43.41%;
-    bottom: 43.42%;
-}
-
-.logInContainerMob {
+.mobilMasterContainer {
     position: relative;
     width: 428px;
     height: 926px;
