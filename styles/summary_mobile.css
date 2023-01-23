@@ -147,9 +147,11 @@ vector {
 	align-items: center;
 }
 
-p {
+
+#taskInBoardAmount p,
+#taskInProgressAmount p,
+#awaitingFeedbackAmount p {
 	width: 347px;
-	/* height: 34px; */
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 400;
