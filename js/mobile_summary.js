@@ -139,7 +139,7 @@ let backButtonMobArray = [
     { name: '0' },
     { func: () => { initMobilSummary() } },
     { func: () => { initMobilBoard() } },
-    { func: () => { initMobilAddTask() } },
+    { name: '0' },
     { func: () => { initMobilContacts() } },
 ];
 
