@@ -560,17 +560,14 @@ function renderPopupTaskCardHtmlMobil(taskIndex) {
                 <img src='./assets/img/edit_button.png'>
             </div>
 
-            <div class='navArrows'>
-                <button>
-                    
-                    <!-- <div class='previousWorkstatusImg' title='Move this task to previous Workstatus'></div> -->
+            <div class='moveBtnMobil' id='moveBtnMobil'>
+                <!-- <button>
                     Task to 'To do'
                 </button>
 
                 <button>
                     Task to 'In progress'
-                    <!-- <div title='Move this task to next Workstatus' class='nextWorkstatusImg'></div> -->
-                </button>
+                </button> -->
         
             </div>
 
@@ -588,6 +585,60 @@ function renderPopupTaskCardHtmlMobil(taskIndex) {
     setTaskCardPopupPrioBackground(taskIndex);
     renderSubtask(taskIndex);
     renderAssignToHtml2(taskIndex);
+    renderMoveBtnMobil(taskIndex);
+}
+
+
+let arrayMoveBtnText = [
+    {'workStatus': 0, 
+     'btn': ['Task to "In progress"'],
+     'newStatus':[1]
+    },
+    {'workStatus': 1, 
+     'btn': ['Task to "To do"', 'Task to "Awaiting Feedback"'],
+     'newStatus':[0, 2]
+    },
+    {'workStatus': 2, 
+     'btn': ['Task to "In progress"', 'Task to "Done"'],
+     'newStatus':[1, 3]
+    },
+    {'workStatus': 3, 
+     'btn': ['Task to "Awaiting Feedback"'],
+     'newStatus':[2]
+    }
+
+];
+
+
+async function renderMoveBtnMobil(taskIndex){
+    let workStatus = joinTaskArray[taskIndex]['workFlowStatus'];
+    
+    document.getElementById('moveBtnMobil').innerHTML = '';
+    let buttonArray = arrayMoveBtnText[workStatus]['btn'];
+    let newStatusArray = arrayMoveBtnText[workStatus]['newStatus'];
+    for (let i = 0; i < buttonArray.length; i++) {
+        let buttonText = buttonArray[i];
+        let newTaskStatus = newStatusArray[i];
+        renderMoveBtnMobilHtml(buttonText, newTaskStatus, taskIndex);
+    }
+    
+}
+
+
+function renderMoveBtnMobilHtml(buttonText, newTaskStatus, taskIndex) {
+    document.getElementById('moveBtnMobil').innerHTML += /*html*/`
+    <button onclick='moveMobilTaskTo(${taskIndex}, ${newTaskStatus})'>
+        ${buttonText}
+    </button>`;
+}
+
+
+async function moveMobilTaskTo(taskIndex, newTaskStatus){
+    joinTaskArray[taskIndex]['workFlowStatus'] = newTaskStatus;
+    await saveTask();
+    await createWorkStatusArrays();
+    renderAllCardsMobil();
+    closeBoardMobilDetailOverlay();
 }
 
 

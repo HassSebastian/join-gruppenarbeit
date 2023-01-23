@@ -792,7 +792,7 @@
     z-index: 1;
 }
 
-.navArrows{
+.moveBtnMobil{
     display: flex;
     flex-direction: row;
     /* justify-content: center; */
@@ -815,7 +815,7 @@
     /* color: white; */
 }
 
-.navArrows button{
+.moveBtnMobil button{
     border-radius: 10px;
     /* display: flex;
     align-items: center; */
@@ -828,7 +828,7 @@
     cursor: pointer;
 }
 
-.navArrows button:hover{
+.moveBtnMobil button:hover{
     color:#0190E0;
     /* opacity: 0.8; */
 }
