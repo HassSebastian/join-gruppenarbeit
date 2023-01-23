@@ -19,7 +19,7 @@ body {
 }
 
 .pageOneMob {
-    position: relative;
+    position: absolute;
     width: 428px;
     height: 926px;
     animation: moveBackground 2s ease-in-out;
@@ -28,9 +28,11 @@ body {
 @keyframes moveBackground{
     from{
         background: #2A3647;
+        z-index: 500;
     }
     to {
         background: transparent;
+        z-index: 0;
     }
 }
 
@@ -91,7 +93,7 @@ body {
 }
 
 .mobilMasterContainer {
-    position: relative;
+    position: absolute;
     width: 428px;
     height: 926px;
     background: #F6F7F8;
