@@ -131,6 +131,10 @@ function logOutBtnMob() {
     document.getElementById('logOutMasterContainer').classList.toggle('d-none');
 }
 
+
+
+// BackArrow from Help and Legal notice Function //
+///////////////////////////////////////////////////
 let backButtonMobArray = [
     { name: '0' },
     { func: () => { initMobilSummary() } },
@@ -143,3 +147,4 @@ function backButtonMob() {
     let index = backButtonMobArray[selectedMenuBtnId];
     index.func();
 }
+///////////////////////////////////////////////////
