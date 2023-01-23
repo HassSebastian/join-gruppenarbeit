@@ -648,7 +648,7 @@ async function renderMoveBtnMobil(taskIndex){
     let buttonArray = arrayMoveBtnText[workStatus]['btn'];
     let forLoppEndValue = buttonArray.length;
     let newStatusArray = arrayMoveBtnText[workStatus]['newStatus'];
-    if (workStatus >= 1 && workStatus < 2){
+    if (workStatus >= 1 && workStatus < 3){
         forLoppEndValue = testAllowMove(taskIndex);
     }
     for (let i = 0; i < forLoppEndValue; i++) {
@@ -689,9 +689,6 @@ function testAllowMove(taskIndex){
         endValue = 1
         console.log('move not allowed');
     }
-    // if (doneBarWidth != doneBarOuterWidth && workStatus > 1){
-    //     endValue = 1;
-    // }
     return endValue;
 }
 
