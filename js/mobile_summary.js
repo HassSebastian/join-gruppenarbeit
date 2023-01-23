@@ -151,6 +151,9 @@ function backButtonMob() {
 }
 ///////////////////////////////////////////////////
 
+
+// UserGreeting in Mobil //
+///////////////////////////
 function helloPageMob(){
     document.getElementById('greetingMasterContainer').innerHTML = ``;
     document.getElementById('greetingMasterContainer').innerHTML = /*html*/ `
@@ -164,3 +167,4 @@ function helloPageMob(){
 function greetingMasterContainerHide(){
     setTimeout(()=>{document.getElementById('greetingMasterContainer').classList.add('d-none')},6000);
 }
+///////////////////////////
