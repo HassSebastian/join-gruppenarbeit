@@ -18,7 +18,7 @@
 	width: 466px;
 	height: 78px;
 	left: 123px;
-    top: 82px;
+	top: 82px;
 }
 
 .addTHeadline {
@@ -48,7 +48,7 @@
 	width: 338px;
 	height: 61px;
 	left: 752px;
-    top: 800px;
+	top: 800px;
 }
 
 .addTaskBtnInnerContainer {
@@ -254,8 +254,8 @@
 	color: #000000;
 }
 
-::placeholder{
-    color: #D1D1D1;
+::placeholder {
+	color: #d1d1d1;
 }
 
 .requiredText {
@@ -415,6 +415,7 @@
 	border: 0;
 	outline: none;
 	cursor: pointer;
+	background-color: transparent;
 }
 
 .addTaskAddCategoryBox button p {
@@ -503,14 +504,13 @@
 }
 
 .addTaskCatList {
-	min-height: 78px;
+	min-height: 103px;
 	width: 100%;
 	overflow: hidden;
 	overflow-y: scroll;
 }
 
 .addTaskCatList li {
-	padding-left: 20px;
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 400;
@@ -523,8 +523,8 @@
 	z-index: 0;
 
 	display: flex;
-	/* justify-content: space-between; */
-	padding-right: 150px;
+	justify-content: flex-start;
+	padding: 13px 21px;
 	align-items: center;
 	gap: 10px;
 }
@@ -651,7 +651,7 @@
 
 .addTaskAssignedBox input {
 	border: 0;
-	background-color: unset;
+	background-color: transparent;
 	outline: none;
 	font-family: 'Inter';
 	font-style: normal;
@@ -1372,12 +1372,12 @@
 /*********************************************************************************/
 /*********************************************************************************/
 
-.testResponsiv{
+.testResponsiv {
 	display: flex;
-    justify-content: space-between;
-    position: relative;
-    width: 100%;
-    height: 935px;
+	justify-content: space-between;
+	position: relative;
+	width: 100%;
+	height: 935px;
 	margin-top: 89px;
 
 	/* margin-left: 232px;
