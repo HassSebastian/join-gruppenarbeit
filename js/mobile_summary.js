@@ -131,10 +131,11 @@ function logOutBtnMob() {
 	document.getElementById('logOutMasterContainer').classList.toggle('d-none');
 }
 
-let backButtonMobArray = ['0', 'initMobilSummary', 'Board', 'AddTask', 'Contacts'];
+let backButtonMobArray = ['0', 'Summary', 'Board', 'AddTask', 'Contacts'];
 
 function backButtonMob() {
 	let index = backButtonMobArray[selectedMenuBtnId];
-	console.log(index);
-	setTimeout(index, 1);
+	console.log('initMobil'+index);
+    'initMobil'+index();
+	
 }
