@@ -77,7 +77,7 @@ async function startFilter() {
 async function createWorkStatusArrays() {
 	resetWorkStatusArrays();
 	filteredTaskList = [];
-	await startFilter();
+	// await startFilter();
 	for (let index = 0; index < 4; index++) {
 		for (let i = 0; i < joinTaskArray.length; i++) {
 			let taskWorkStatus = joinTaskArray[i]['workFlowStatus'];
