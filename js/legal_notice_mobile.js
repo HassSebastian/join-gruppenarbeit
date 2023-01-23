@@ -8,7 +8,7 @@ async function dataPrivacyMob() {
     document.getElementById('mobilContent').innerHTML = '';
     document.getElementById('mobilContent').innerHTML += /*html*/ `
         <div class="backArrowMob">
-            <img src="../../assets/img/back_logo_black.png" onclick="back()">
+            <img src="../../assets/img/back_logo_black.png" onclick="backButtonMob()">
         </div>
         <div class="OverlayMob">
             <span>Legal Notice</span>

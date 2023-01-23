@@ -1,54 +1,54 @@
 async function initMobilSummary() {
-	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-	await loadTask();
-	resetCounters();
-	await loadAmountsForSummary(); // await später für server wichtig
-	await includeHTML();
-	await renderMobilSummary(
-		allYourTasksAmount,
-		allYourToDoTasksAmount,
-		allYourInProgressTasksAmount,
-		allYourAwaitingFeedbackTasksAmount,
-		allYourDoneTasksAmount,
-		yourUrgentTasksAmount
-	);
-	selectedMenuBtnId = 0;
-	selectedMenuButton(1);
-	showDate();
-	// showTime();
-	loadContributorsLetterMob();
-	logOutMasterContainerMob();
+    setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+    await loadTask();
+    resetCounters();
+    await loadAmountsForSummary(); // await später für server wichtig
+    await includeHTML();
+    await renderMobilSummary(
+        allYourTasksAmount,
+        allYourToDoTasksAmount,
+        allYourInProgressTasksAmount,
+        allYourAwaitingFeedbackTasksAmount,
+        allYourDoneTasksAmount,
+        yourUrgentTasksAmount
+    );
+    selectedMenuBtnId = 0;
+    selectedMenuButton(1);
+    showDate();
+    // showTime();
+    loadContributorsLetterMob();
+    logOutMasterContainerMob();
 }
 
 function loadContributorsLetterMob() {
-	let colorIndex = allUsers[loggedUser[0]].colorIndex;
-	document.getElementById('contributorsLogoHeadderMob').style = `background:${colorUserIndex[colorIndex]}`;
-	document.getElementById(
-		'contributorsLogoHeadderLettersMob'
-	).innerHTML = `<p style='color:white'>${allUsers[loggedUser].firstSecondLetter}</p>`;
+    let colorIndex = allUsers[loggedUser[0]].colorIndex;
+    document.getElementById('contributorsLogoHeadderMob').style = `background:${colorUserIndex[colorIndex]}`;
+    document.getElementById(
+        'contributorsLogoHeadderLettersMob'
+    ).innerHTML = `<p style='color:white'>${allUsers[loggedUser].firstSecondLetter}</p>`;
 }
 
 async function renderMobilSummary(
-	allYourTasksAmount,
-	allYourToDoTasksAmount,
-	allYourInProgressTasksAmount,
-	allYourAwaitingFeedbackTasksAmount,
-	allYourDoneTasksAmount,
-	yourUrgentTasksAmount
+    allYourTasksAmount,
+    allYourToDoTasksAmount,
+    allYourInProgressTasksAmount,
+    allYourAwaitingFeedbackTasksAmount,
+    allYourDoneTasksAmount,
+    yourUrgentTasksAmount
 ) {
-	document.getElementById('mobilContent').innerHTML = '';
-	document.getElementById('mobilContent').innerHTML += generateMobilSummaryHtml(
-		allYourTasksAmount,
-		allYourToDoTasksAmount,
-		allYourInProgressTasksAmount,
-		allYourAwaitingFeedbackTasksAmount,
-		allYourDoneTasksAmount,
-		yourUrgentTasksAmount
-	);
+    document.getElementById('mobilContent').innerHTML = '';
+    document.getElementById('mobilContent').innerHTML += generateMobilSummaryHtml(
+        allYourTasksAmount,
+        allYourToDoTasksAmount,
+        allYourInProgressTasksAmount,
+        allYourAwaitingFeedbackTasksAmount,
+        allYourDoneTasksAmount,
+        yourUrgentTasksAmount
+    );
 }
 
 function generateMobilSummaryHtml() {
-	return /*html*/ `
+    return /*html*/ `
         <span class="kanbanProjectManagementTool">
             Kanban Project Management Tool
         </span>
@@ -114,7 +114,7 @@ function generateMobilSummaryHtml() {
 }
 
 function logOutMasterContainerMob() {
-	document.getElementById('logOutMasterContainer').innerHTML = /*html*/ `
+    document.getElementById('logOutMasterContainer').innerHTML = /*html*/ `
     <div class="logOutNav" onclick="renderHelpMob()">
             <span>Help</span>
         </div>
@@ -128,14 +128,18 @@ function logOutMasterContainerMob() {
 }
 
 function logOutBtnMob() {
-	document.getElementById('logOutMasterContainer').classList.toggle('d-none');
+    document.getElementById('logOutMasterContainer').classList.toggle('d-none');
 }
 
-let backButtonMobArray = ['0', 'Summary', 'Board', 'AddTask', 'Contacts'];
+let backButtonMobArray = [
+    { name: '0' },
+    { func: () => { initMobilSummary() } },
+    { func: () => { initMobilBoard() } },
+    { func: () => { initMobilAddTask() } },
+    { func: () => { initMobilContacts() } },
+];
 
 function backButtonMob() {
-	let index = backButtonMobArray[selectedMenuBtnId];
-	console.log('initMobil'+index);
-    'initMobil'+index();
-	
+    let index = backButtonMobArray[selectedMenuBtnId];
+    index.func();
 }
