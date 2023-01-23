@@ -536,7 +536,7 @@ function renderPopupTaskCardHtmlMobil(taskIndex) {
             <div class='taskCardPopupCategory' id='taskCardPopupCategory'>
                 <span>${cardCategory}</span>
             </div>
-            <img src="./assets/img/arrow-left-line.png" class='backArrow' onclick='closeBoardMobilDetailOverlay()'>
+            <img src="./assets/img/arrow-left-line.png" class='backArrow' onclick='closeBoardMobilDetailOverlay(); saveChangesDetailView()'>
             <div class='taskCardPopupTask'>
                 <span>${cardTitle}</span>
             </div>
@@ -589,6 +589,13 @@ function renderPopupTaskCardHtmlMobil(taskIndex) {
 }
 
 
+async function saveChangesDetailView(){
+    await saveTask();
+    await createWorkStatusArrays();
+    renderAllCardsMobil();
+}
+
+
 let arrayMoveBtnText = [
     {'workStatus': 0, 
      'btn': ['Task to "In progress"'],
@@ -611,17 +618,19 @@ let arrayMoveBtnText = [
 
 
 async function renderMoveBtnMobil(taskIndex){
-    let workStatus = joinTaskArray[taskIndex]['workFlowStatus'];
-    
     document.getElementById('moveBtnMobil').innerHTML = '';
+    let workStatus = joinTaskArray[taskIndex]['workFlowStatus'];
     let buttonArray = arrayMoveBtnText[workStatus]['btn'];
+    let forLoppEndValue = buttonArray.length;
     let newStatusArray = arrayMoveBtnText[workStatus]['newStatus'];
-    for (let i = 0; i < buttonArray.length; i++) {
+    if (workStatus >= 1 && workStatus < 2){
+        forLoppEndValue = testAllowMove(taskIndex);
+    }
+    for (let i = 0; i < forLoppEndValue; i++) {
         let buttonText = buttonArray[i];
         let newTaskStatus = newStatusArray[i];
         renderMoveBtnMobilHtml(buttonText, newTaskStatus, taskIndex);
-    }
-    
+    }   
 }
 
 
@@ -639,6 +648,22 @@ async function moveMobilTaskTo(taskIndex, newTaskStatus){
     await createWorkStatusArrays();
     renderAllCardsMobil();
     closeBoardMobilDetailOverlay();
+}
+
+function testAllowMove(taskIndex){
+    let endValue;
+    let doneBarDraggedElement = document.getElementById(`doneBar${taskIndex}`);
+	let doneBarOuterDraggedElement = document.getElementById(`doneBarOuter${taskIndex}`);
+    let doneBarWidth = doneBarDraggedElement.offsetWidth;
+	let doneBarOuterWidth = doneBarOuterDraggedElement.offsetWidth;
+    if (doneBarWidth == doneBarOuterWidth){
+        endValue = 2;
+        console.log('Move allowed');
+    }else{
+        endValue = 1
+        console.log('move not allowed');
+    }
+    return endValue;
 }
 
 
