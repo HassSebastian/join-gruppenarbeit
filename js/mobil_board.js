@@ -583,9 +583,34 @@ function renderPopupTaskCardHtmlMobil(taskIndex) {
 
     setTaskCardPopupCatColor(taskIndex);
     setTaskCardPopupPrioBackground(taskIndex);
-    renderSubtask(taskIndex);
+    renderSubtaskMobil(taskIndex);
     renderAssignToHtml2(taskIndex);
     renderMoveBtnMobil(taskIndex);
+}
+
+async function renderBtnBySubtaskChange(taskIndex){
+    await saveChangesDetailView();
+    renderMoveBtnMobil(taskIndex);
+}
+
+async function renderSubtaskMobil(taskIndex) {
+    await renderSubtaskMobilHtml(taskIndex);
+    setSubTaskStatus(taskIndex);
+}
+
+async function renderSubtaskMobilHtml(taskIndex) {
+    document.getElementById('subtaskListTaskCard').innerHTML = '';
+    let subtaskArray = joinTaskArray[taskIndex]['subTasks'];
+    if (subtaskExist(subtaskArray)) {
+        for (let i = 0; i < subtaskArray.length; i++) {
+            let subtaskText = subtaskArray[i]['subtaskText'];
+            document.getElementById('subtaskListTaskCard').innerHTML += /*html*/`
+                <div>
+                    <input type='checkbox' id='subtask${i}' onclick='checkboxSubtaskSelected(${i}, ${taskIndex}); renderBtnBySubtaskChange(${taskIndex})'>
+                    <span>${subtaskText}</span>
+                </div>`;
+        }
+    }
 }
 
 
@@ -652,6 +677,7 @@ async function moveMobilTaskTo(taskIndex, newTaskStatus){
 
 function testAllowMove(taskIndex){
     let endValue;
+    let workStatus = joinTaskArray[taskIndex]['workFlowStatus'];
     let doneBarDraggedElement = document.getElementById(`doneBar${taskIndex}`);
 	let doneBarOuterDraggedElement = document.getElementById(`doneBarOuter${taskIndex}`);
     let doneBarWidth = doneBarDraggedElement.offsetWidth;
@@ -663,6 +689,9 @@ function testAllowMove(taskIndex){
         endValue = 1
         console.log('move not allowed');
     }
+    // if (doneBarWidth != doneBarOuterWidth && workStatus > 1){
+    //     endValue = 1;
+    // }
     return endValue;
 }
 
