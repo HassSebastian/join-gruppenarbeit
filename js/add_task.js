@@ -1129,7 +1129,7 @@ function addRemoveToggleForTaskForce(
   contact,
   indexOfMemberInTaskForce
 ) {
-  if (addedToTaskForce) {
+  if (!addedToTaskForce) {
     addCheckMarkToCheckBox(contact);
     addSelectedContactToTaskForce(contact);
     renderBadgesMemberOfTaskForce();
