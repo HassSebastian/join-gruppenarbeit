@@ -9,13 +9,12 @@
 
     <link rel="stylesheet" href="../styles/indexMob.css">
 
+    <script src="./js/mobile_login.js"></script>
+
 </head>
 
-<body>
-    <div class="pageOneMob">
-        <img id="pageOneMobImg" src="./assets/img/join_logo.png" alt="">
-        <img id="pageOneMobImgBlack" src="./assets/img/join_logo_black.png" alt="">
-    </div>
+<body onload="initLoginMob()">
+    <div class="pageOneMob"></div>
 
     <div class="mobilMasterContainer">
         <div class="logInContainerMob">
@@ -27,7 +26,8 @@
             </div>
         </div>
         <div class="logInLogoMob">
-            <img class="logInLogoImgMob" src="../../assets/img/join_logo_black.png" alt="">
+            <img class="logInLogoImgMobBlack" id="pageOneMobImgBlack" src="./assets/img/join_logo_black.png" alt="">
+            <img class="logInLogoImgMob d-none" id="pageOneMobImg" src="./assets/img/join_logo.png" alt="">
         </div>
         <div class="logInMasterContainerMob">
             <div class="logInHeadlineMob">
