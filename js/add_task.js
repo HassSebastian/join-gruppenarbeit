@@ -885,6 +885,7 @@ function addSubtask() {
 
 function addSubtaskMain(){
   let subTaskText = 'Maintask';
+  subTaskArray = [];
   subTaskInputLeave();
   pushNewSubtaskDatatoArray(subTaskText);
   renderSubtasks();

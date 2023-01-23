@@ -313,7 +313,7 @@ async function showAddTaskPopupWindow() {
     setFutureDatesOnlyForInputDueDate();
     loadContributorsLetter();
     // renderContactsInAssignDropDownMenu();
-    // addSubtaskMain();
+    addSubtaskMain();
 }
 
 

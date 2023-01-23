@@ -351,6 +351,7 @@ async function startAddTaskOverlay() {
     await renderContactsInAssignDropDownMenu();
     setFutureDatesOnlyForInputDueDate();
     // loadContributorsLetter();
+    addSubtaskMain();
     getInnerWidth();
     document.getElementById('boardAddTask').classList.remove('d-none');
     document.getElementById('bottomMenu').classList.add('d-none');

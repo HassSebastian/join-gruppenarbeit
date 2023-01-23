@@ -11,6 +11,7 @@ async function initMobilAddTask() {
 	await renderContactsInAssignDropDownMenu();
 	setFutureDatesOnlyForInputDueDate();
 	// loadContributorsLetter();
+    addSubtaskMain();
 	getInnerWidth();
 }
 
