@@ -703,7 +703,7 @@ function testAllowMove(taskIndex){
 
 async function openEditTaskCardMobil(taskIndex) {
     resetAssignToList();
-    resetCheckValueAllUsers();
+    // resetCheckValueAllUsers();
     coworkersToAssignTo = transferallUserData();
     await renderPopupEditTaskCardHtmlMobil(taskIndex);
     showDeleteButton(taskIndex);
@@ -717,11 +717,11 @@ async function openEditTaskCardMobil(taskIndex) {
 }
 
 
-function resetCheckValueAllUsers(){
-    for (let i = 0; i < allUsers.length; i++) {
-        allUsers[i].check = false;
-    }
-}
+// function resetCheckValueAllUsers(){
+//     for (let i = 0; i < allUsers.length; i++) {
+//         allUsers[i].check = false;
+//     }
+// }
 
 
 
