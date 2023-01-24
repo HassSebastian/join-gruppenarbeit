@@ -174,7 +174,6 @@ function showDate() {
 
 // greet User
 function showTime() {
-	if (!document.getElementById('greetingMasterContainer').classList.contains('d-none')) {
 		let currentTime = new Date();
 		let hours = currentTime.getHours();
 		let timeString = hours;
@@ -188,7 +187,6 @@ function showTime() {
 			document.getElementById('greetUser').innerHTML = `Good Evening,`;
 		}
 	}
-}
 
 /**
  * !NOCH ERLEDIGEN:
