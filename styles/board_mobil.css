@@ -887,20 +887,19 @@
 
 .boardSubtasksDiv{
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
     padding: 0px;
     gap: 25px;
     width: 362px;
-    height: 45px;
-    flex: none;
+    height: 115px;
     order: 6;
     flex-grow: 0;
     z-index: 6;
-    flex-wrap: wrap;
     position: absolute;
     left: 33px;
     top: 560px;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .boardSubtasksDiv div span{
