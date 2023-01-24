@@ -654,7 +654,7 @@ async function renderMoveBtnMobil(taskIndex){
     let forLoppEndValue = buttonArray.length;
     let newStatusArray = arrayMoveBtnText[workStatus]['newStatus'];
     if (workStatus >= 1 && workStatus < 3){
-        forLoppEndValue = testAllowMove(taskIndex);
+        forLoppEndValue = taskCardAllowMove(taskIndex);
     }
     for (let i = 0; i < forLoppEndValue; i++) {
         let buttonText = buttonArray[i];
@@ -681,7 +681,7 @@ async function moveMobilTaskTo(taskIndex, newTaskStatus){
 }
 
 
-function testAllowMove(taskIndex){
+function taskCardAllowMove(taskIndex){
     let endValue;
     // let workStatus = joinTaskArray[taskIndex]['workFlowStatus'];
     let doneBarDraggedElement = document.getElementById(`doneBar${taskIndex}`);
@@ -690,10 +690,8 @@ function testAllowMove(taskIndex){
 	let doneBarOuterWidth = doneBarOuterDraggedElement.offsetWidth;
     if (doneBarWidth == doneBarOuterWidth){
         endValue = 2;
-        console.log('Move allowed');
     }else{
         endValue = 1
-        console.log('move not allowed');
     }
     return endValue;
 }
@@ -710,10 +708,7 @@ async function openEditTaskCardMobil(taskIndex) {
     renderLoggedUserInAssignDrobDownMenuIntoYou();
     await renderContactsInAssignDropDownMenu();
     await renderEditTaskCardInputFieldsMobil(taskIndex);
-    debugger;
     boardEditTaskCardAssignPreseselction(taskIndex);
-    debugger;
-    console.log(taskIndex);
 }
 
 
@@ -886,6 +881,9 @@ async function getTaskChangesMobil(taskIndex) {
     await saveTask();
     showAddDiv();
     setTimeout(closeBoardMobilDetailOverlay, 1200);
+    
+    await renderMobileBoardHtml();
+    await createWorkStatusArrays();
     renderAllCardsMobil();
 }
 
