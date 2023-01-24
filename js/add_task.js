@@ -730,6 +730,7 @@ async function createTaskData() {
   clearFormularData();
 }
 
+
 // toDo this is a transition function that to have reworked after all data for task card avalable.
 function getDataFromFomular() {
   descripten = document.getElementById("addTaskDescripten").value;

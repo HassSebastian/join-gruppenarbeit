@@ -26,7 +26,7 @@ async function renderMobilAddTask() {
 	document.getElementById('mobilContent').innerHTML = /*html*/ `
         <header class='mobilHeader'>
             <img src='../../assets/img/mobil_header_logo.png'>
-            <button onclick='checkInputs()'><span>Create</span><img src='../assets/img/akar-icons_check_white.png'> </button>
+            <button onclick='checkInputsMobil()'><span>Create</span><img src='../assets/img/akar-icons_check_white.png'> </button>
         </header>
 
             <div class='frame164'>
@@ -166,5 +166,8 @@ async function renderMobilAddTask() {
             </div>
         </div>`;
 }
+
+
+
 
 

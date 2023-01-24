@@ -528,6 +528,7 @@ async function createTaskDataMobil() {
   }
 
 
+
 //   Task Card detail View
 
 async function startDetailViewOverlay(){
