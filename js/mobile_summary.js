@@ -181,7 +181,7 @@ function helloPageMob() {
 
 
 function greetingMasterContainerHide() {
-    setTimeout(() => { document.getElementById('greetingMasterContainer').classList.add('d-none') }, 6000);
+    setTimeout(() => { document.getElementById('greetingMasterContainer').classList.add('d-none') }, 4000);
 }
 ///////////////////////////
 

@@ -468,13 +468,13 @@ vector {
 
 
 .greetingMasterContainer {
-	position: relative;
+	position: absolute;
 	width: 428px;
 	height: 760px;
 	background: #F6F7F8;
-	top: 86px;
-	animation:greetMove 3s;
-	animation-delay: 3s;
+	top: 85px;
+	animation:greetMove 2s;
+	animation-delay: 2s;
 
 }
 
