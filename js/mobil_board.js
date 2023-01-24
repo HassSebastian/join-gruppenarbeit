@@ -879,7 +879,7 @@ async function getTaskChangesMobil(taskIndex) {
     boardEditedPrio = prio;
     joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
     await saveTask();
-    showAddDiv();
+    await showAddDiv();
     setTimeout(closeBoardMobilDetailOverlay, 1200);
     
     await renderMobileBoardHtml();
