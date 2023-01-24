@@ -182,7 +182,7 @@ function inProgressHtml(arrayIndex) {
 	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
 	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 	return /*html*/ `
-            <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})'>
+            <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(${taskIndex}); renderPopupTaskCardHtml(${taskIndex})'>
                 <div class='taskContainer'>
                     <div class='boardTaskCategory' id='progressCard${arrayIndex}'>
                         <span>${cardCategory}</span>
@@ -224,7 +224,7 @@ function awaitingFeedbackHtml(arrayIndex) {
 	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
 	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 	return /*html*/ `
-        <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})'>
+        <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(${taskIndex}); renderPopupTaskCardHtml(${taskIndex})'>
             <div class='taskContainer'>
                 <div class='boardTaskCategory' id='feedbackCard${arrayIndex}'>
                     <span>${cardCategory}</span>
@@ -266,7 +266,7 @@ function doneHtml(arrayIndex) {
 	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
 	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 	return /*html*/ `
-        <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(); renderPopupTaskCardHtml(${taskIndex})'>
+        <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(${taskIndex}); renderPopupTaskCardHtml(${taskIndex})'>
             <div class='taskContainer'>
                 <div class='boardTaskCategory' id='doneCard${arrayIndex}'>
                     <span>${cardCategory}</span>
