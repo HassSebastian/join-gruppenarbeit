@@ -1147,11 +1147,7 @@ function removeSelectedContactFromTaskForce(index) {
  * @param contact - the contact that was selected
  * @param indexOfMemberInTaskForce - The index of the contact in the task force array.
  */
-function addRemoveToggleForTaskForce(
-  addedToTaskForce,
-  contact,
-  indexOfMemberInTaskForce
-) {
+function addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberInTaskForce) {
   if (!addedToTaskForce) {
     addCheckMarkToCheckBox(contact);
     addSelectedContactToTaskForce(contact);
