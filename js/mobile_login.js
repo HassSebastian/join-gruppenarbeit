@@ -25,3 +25,7 @@ document.getElementById('logInMasterContainerMob').classList.add('d-none');
 document.getElementById('notAJoinUserContainerMob').classList.add('d-none');
 document.getElementById('forgotPWMasterContainerMob').classList.remove('d-none');
 }
+
+function sendMailButton(){
+document.getElementById('sentMassageDoneMaserContainerMob').classList.add('sentMassageDoneMaserContainerMobSlide');
+}

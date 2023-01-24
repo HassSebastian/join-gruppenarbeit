@@ -952,6 +952,11 @@ description {
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
     left: 53px;
     top: -60px;
+    transition: 500 ease-in-out;
+}
+
+.sentMassageDoneMaserContainerMobSlide{
+    translate: translateY(-400px);
 }
 
 .sentMassageDoneContainerMob {
