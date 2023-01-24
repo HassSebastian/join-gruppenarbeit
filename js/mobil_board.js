@@ -868,6 +868,7 @@ async function renderPopupEditTaskCardHtmlMobil(taskIndex) {
         </div>`;
 }
 
+
 async function getTaskChangesMobil(taskIndex) {
     let boardEditedTitle = document.getElementById('boardEditTitle').value;
     let boardEditedDescripten = document.getElementById('boardEditDecription').value;
@@ -880,8 +881,12 @@ async function getTaskChangesMobil(taskIndex) {
     joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
     await saveTask();
     await showAddDiv();
-    setTimeout(closeBoardMobilDetailOverlay, 1200);
-    
+    setTimeout(closeSequenceEditTaskCard, 1200);  
+}
+
+
+async function closeSequenceEditTaskCard(){
+    closeBoardMobilDetailOverlay();
     await renderMobileBoardHtml();
     await createWorkStatusArrays();
     renderAllCardsMobil();
