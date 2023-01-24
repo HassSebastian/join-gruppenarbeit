@@ -4,18 +4,24 @@ async function initLoginMob(){
 }
 
 
-
-
-
 function notAJoinUserButtonMob(){
     document.getElementById('logInMasterContainerMob').classList.add('d-none');
     document.getElementById('signInMasterContainerMob').classList.remove('d-none');
     document.getElementById('notAJoinUserContainerMob').classList.add('d-none');
 }
 
+
 function backToLogInMob(){
     document.getElementById('logInMasterContainerMob').classList.remove('d-none');
     document.getElementById('signInMasterContainerMob').classList.add('d-none');
     document.getElementById('notAJoinUserContainerMob').classList.remove('d-none');
     document.getElementById('contactSucc').classList.add('d-none');
+    document.getElementById('forgotPWMasterContainerMob').classList.add('d-none');
+}
+
+
+function showForgotPasswordMob(){
+document.getElementById('logInMasterContainerMob').classList.add('d-none');
+document.getElementById('notAJoinUserContainerMob').classList.add('d-none');
+document.getElementById('forgotPWMasterContainerMob').classList.remove('d-none');
 }

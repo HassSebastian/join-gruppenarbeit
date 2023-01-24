@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <div class="logInPWForgotContainerMob">
-                        <span class="forgotPassword" onclick="forgotPassword()">Forgot my password</span>
+                        <span class="forgotPassword" onclick="showForgotPasswordMob()">Forgot my password</span>
                         <div class="rememberMeContainerMob">
                             <div>
                                 <input type="checkbox" id="checkbox" name="checkbox">
@@ -141,7 +141,38 @@
                 <span>Contact succesfully created</span>
             </div>
         </div>
-    
+
+        <div class="forgotPWMasterContainerMob d-none" id="forgotPWMasterContainerMob">
+            <headline>I forgot my password</headline>
+            <vector></vector>
+            <description>Don't worry! We will send you an email with the instructions to reset your password.
+            </description>
+            <div class="forgoPWFieldContainerMob">
+                <div class="forgoPWInputFieldContainerMob">
+                    <div class="container">
+                        <div class="forgoPWInnerFieldContainerMob">
+                            <input class="inputForgot" type="email" placeholder="Email" id="inputForgot">
+                            <img src="../../assets/img/email_Logo.png">
+                        </div>
+                    </div>
+                    <span class="required" id="requiredEmailForgot">This field is required</span>
+                </div>
+            </div>
+            <div class="sendMailButton">
+                <span>Send me the email</span>
+            </div>
+            <div class="arrowContainerMob" onclick="backToLogInMob()">
+                <img src="../../assets/img/back_logo_black.png">
+            </div>
+        </div>
+
+        <div class="sentMassageDoneMaserContainerMob">
+            <div class="sentMassageDoneContainerMob">
+                <img src="../../assets/img/sendCheck_logo.png">
+                <span>An E-Mail has been sent to you</span>
+            </div>
+        </div>
+
     </div>
 </body>
 

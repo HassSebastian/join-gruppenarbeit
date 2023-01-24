@@ -733,3 +733,262 @@ body {
     order: 0;
     flex-grow: 0;
 }
+
+
+/*forgot password*/
+
+.forgotPWMasterContainerMob {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 56px 0px;
+    gap: 35px;
+    isolation: isolate;
+    position: absolute;
+    width: 372px;
+    height: 502px;
+    left: 28px;
+    top: 212px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+}
+
+headline {
+    width: 315px;
+    height: 96px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+vector {
+    width: 88px;
+    height: 0;
+    border: 3px solid #29ABE2;
+}
+
+description {
+    width: 322px;
+    height: 75px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.forgoPWFieldContainerMob {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 29px;
+    width: 327px;
+    height: 61px;
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+}
+
+.forgoPWInputFieldContainerMob {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 327px;
+    height: 61px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 327px;
+    height: 41px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+
+.forgoPWInnerFieldContainerMob {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    width: 285px;
+    height: 25px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.inputForgot {
+    width: 240px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: black;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    border: 0;
+    outline: none;
+}
+
+.forgoPWInnerFieldContainerMob img {
+    width: 20px;
+    height: 18px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.inputforgoPWMob {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    width: 285px;
+    height: 25px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.sendMailButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 0px;
+    gap: 10px;
+    width: 180px;
+    height: 51px;
+    background: #2A3647;
+    border-radius: 8px;
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.sendMailButton span {
+    width: 144px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 120%;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.arrowContainerMob {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 29px;
+    top: 23px;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    z-index: 2;
+}
+
+.arrowContainerMob img {
+    position: absolute;
+    left: 16.67%;
+    right: 16.67%;
+    top: 17.59%;
+    bottom: 17.59%;
+    cursor: pointer;
+}
+
+/*send Massage Done*/
+
+.sentMassageDoneMaserContainerMob {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    position: relative;
+    width: 326px;
+    height: 74px;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
+    left: 53px;
+    top: -60px;
+}
+
+.sentMassageDoneContainerMob {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 17px;
+    gap: 10px;
+    width: 326px;
+    height: 74px;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.sentMassageDoneContainerMob img {
+    width: 41px;
+    height: 41px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.sentMassageDoneContainerMob span {
+    width: 270px;
+    height: 28px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    color: #FFFFFF;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
