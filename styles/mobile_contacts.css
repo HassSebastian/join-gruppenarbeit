@@ -199,6 +199,7 @@
     height: 24px;
     left: 374px;
     top: 161px;
+    cursor: pointer;
 }
 
 .arrowContainerMob img {
@@ -223,6 +224,12 @@
     top: 765px;
     background: #2A3647;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.editButtonContainerMob:hover{
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 vectorContact {
@@ -412,6 +419,12 @@ betterWithATeam {
     flex: none;
     order: 1;
     flex-grow: 0;
+    cursor: pointer;
+}
+
+.linkMasterContainer:hover{
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
 }
 
 .linkMasterContainer img {

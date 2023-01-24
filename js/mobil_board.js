@@ -26,6 +26,7 @@ async function initMobilBoard() {
     await renderAllCardsMobil();
     // loadContributorsLetter();
     logOutMasterContainerMob();
+    document.getElementById('greetingMasterContainer').classList.add('d-none');
 }
 
 

@@ -13,6 +13,8 @@ async function initMobilAddTask() {
 	// loadContributorsLetter();
     addSubtaskMain();
 	getInnerWidth();
+    document.getElementById('greetingMasterContainer').classList.add('d-none');
+
 }
 
 async function renderMobilAddTask() {

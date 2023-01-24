@@ -13,13 +13,12 @@ async function initMobilSummary() {
         yourUrgentTasksAmount
     );
     selectedMenuBtnId = 0;
-    selectedMenuButton(1);
     helloPageMob();
     showDate();
     showTime();
     loadContributorsLetterMob();
     logOutMasterContainerMob();
-    greetingMasterContainerHide();
+    selectedMenuButton(1);
 }
 
 function loadContributorsLetterMob() {
@@ -135,8 +134,11 @@ function logOutMasterContainerMob() {
 function logOutBtnMob() {
     document.getElementById('logOutMasterContainer').classList.toggle('d-none');
 }
-////////////////////
 
+function logOutMob() {
+    window.location.href = './indexMob.html';
+}
+////////////////////
 
 
 // BackArrow from Help and Legal notice Function //
@@ -158,17 +160,27 @@ function backButtonMob() {
 
 // UserGreeting in Mobil //
 ///////////////////////////
-function helloPageMob(){
-    document.getElementById('greetingMasterContainer').innerHTML = ``;
-    document.getElementById('greetingMasterContainer').innerHTML = /*html*/ `
-        <div class='greetContainerMob'>
-            <span id='greetUser'></span>
-            <span class="greetUserName">${allUsers[loggedUser[0]].name}</span>
-        </div>
-    `;
+let helloCheck;
+function helloPageMob() {
+    if (helloCheck === 1) {
+        document.getElementById('greetingMasterContainer').classList.add('d-none');
+    } else {
+        document.getElementById('greetingMasterContainer').innerHTML = ``;
+        document.getElementById('greetingMasterContainer').innerHTML = /*html*/ `
+            <div class='greetContainerMob'>
+                <span id='greetUser'></span>
+                <span class="greetUserName">${allUsers[loggedUser[0]].name}</span>
+            </div>
+        `;
+        greetingMasterContainerHide();
+        helloCheck = 1;
+    }
 }
 
-function greetingMasterContainerHide(){
-    setTimeout(()=>{document.getElementById('greetingMasterContainer').classList.add('d-none')},6000);
+
+
+function greetingMasterContainerHide() {
+    setTimeout(() => { document.getElementById('greetingMasterContainer').classList.add('d-none') }, 6000);
 }
 ///////////////////////////
+

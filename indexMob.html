@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="./js/mini_backend.js"></script>
+    <link rel="stylesheet" href="./styles/fonts.css">
 
     <link rel="stylesheet" href="../styles/indexMob.css">
     <script src="./js/mini_backend.js"></script>
@@ -13,17 +15,19 @@
     <script src="./js/mobile_login.js"></script>
     <script src="./js/login.js"></script>
     <script src="./js/login_tamplates.js"></script>
+    <script src="./js/signUp.js"></script>
+    <script src="./js/signUpTamplates.js"></script>
 
 </head>
 
-<body>
+<body onload="initLoginMob()">
     <div class="pageOneMob" id="pageOneMob"></div>
 
     <div class="mobilMasterContainer">
         <div class="logInContainerMob">
-            <div class="notAJoinUserContainerMob">
+            <div class="notAJoinUserContainerMob" id="notAJoinUserContainerMob">
                 <span>Not a Join user?</span>
-                <button class="notAJoinUserButtonMob">
+                <button class="notAJoinUserButtonMob" onclick="notAJoinUserButtonMob()">
                     <span>Sign up</span>
                 </button>
             </div>
@@ -31,8 +35,7 @@
         <img class="logInLogoImgMobWhite" id="pageOneMobImgWhite" src="./assets/img/join_logo.png" alt="">
         <img class="logInLogoImgMobBlack" id="pageOneMobImgBlack" src="./assets/img/join_logo_black.png" alt="">
         <form action="" onsubmit="checkCorrectInput() ;return false">
-            <div class="logInMasterContainerMob">
-
+            <div class="logInMasterContainerMob" id="logInMasterContainerMob">
                 <div class="logInHeadlineMob">
                     <span>Log in</span>
                     <div></div>
@@ -42,7 +45,8 @@
                         <div class="logInFieldContainerMob">
                             <div class="logInInputFieldContainerMob">
                                 <div class="logInInnerFieldContainerMob">
-                                    <input class="inputLogInMob" type="text" placeholder="Email" id="inputEmailLogin" onclick="logInAtLocalstorage()">
+                                    <input class="inputLogInMob" type="text" placeholder="Email" id="inputEmailLogin"
+                                        onclick="logInAtLocalstorage()">
                                     <img src="../../assets/img/email_Logo.png">
                                 </div>
                             </div>
@@ -51,7 +55,8 @@
                         <div class="logInFieldContainerMob">
                             <div class="logInInputFieldContainerMob">
                                 <div class="logInInnerFieldContainerMob">
-                                    <input class="inputLogInMob" type="password" placeholder="Password" id="inputPasswordLogin">
+                                    <input class="inputLogInMob" type="password" placeholder="Password"
+                                        id="inputPasswordLogin">
                                     <div onclick="passwordShowIcon()">
                                         <img src="../../assets/img/password_logo.png" id="passwordLogo">
                                         <img src="../../assets/img/pwShowButton.png" id="pwShowButton" class="d-none">
@@ -81,8 +86,56 @@
                 </div>
             </div>
         </form>
-    </div>
 
+        <form action="" onsubmit="inputValueTest() ;return false">
+            <div class="signInMasterContainerMob d-none" id="signInMasterContainerMob">
+                <div class="signInContainerMob">
+                    <span class="signInHeadlineMob">Sign in</span>
+                    <div class="signInVectorMob"></div>
+                    <div class="signInInputMasterContainerMob">
+                        <div class="signInOutInputContainerMob">
+                            <div class="signInInputContainerMob">
+                                <div class="signInInnerInputContainerMob">
+                                    <input class="inputSignUpMob" type="text" placeholder="Name" id="inputNameSignUp">
+                                    <img src="../assets/img/name_logo.png">
+                                </div>
+                            </div>
+                            <span class="required" id="requiredName">This field is required</span>
+                        </div>
+                        <div class="signInOutInputContainerMob">
+                            <div class="signInInputContainerMob">
+                                <div class="signInInnerInputContainerMob">
+                                    <input class="inputSignUpMob" type="text" placeholder="Email" id="inputEmailSignUp">
+                                    <img src="../assets/img/email_Logo.png">
+                                </div>
+                            </div>
+                            <span class="required" id="requiredEmail">This field is required</span>
+                        </div>
+                        <div class="signInOutInputContainerMob">
+                            <div class="signInInputContainerMob">
+                                <div class="signInInnerInputContainerMob">
+                                    <input class="inputSignUpMob" type="password" placeholder="Password"
+                                        id="inputPasswordSignUp">
+                                    <div onclick="passwordShowIcon()">
+                                        <img src="../assets/img/password_logo.png" id="passwordLogo">
+                                        <img src="../assets/img/pwShowButton.png" id="pwShowButton" class="d-none">
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="required" id="requiredPassword">This field is required</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="signInButtonContainerMob">
+                    <span id="signUpButton">Sign up</span>
+                    <span id="signUpButtonDone" class="d-none">Sign up Done</span>
+                </button>
+                <div class="arrowContainerMob" onclick="backToLogInMob()">
+                    <img src="../assets/img/back_logo.png">
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>

@@ -35,7 +35,7 @@ async function emailToCheck(name, email, password) {
     await loadTask();
     let requiredEmail = document.getElementById('requiredEmail');
     if (!allUsers) {
-        firstAndSecondLetter(name, email, password); 
+        firstAndSecondLetter(name, email, password);
     } else {
         comparisonEmail(requiredEmail, name, email, password);
     }
@@ -54,16 +54,23 @@ async function emailToCheck(name, email, password) {
 // save user data and forward to login site
 async function userSignIn(firstLetter, secondLetter, name, email, password, colorIndex) {
     await loadTask();
-    allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter+secondLetter});
+    allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter + secondLetter });
     await saveTask();
     contactSucc();
-    setTimeout(() => {
+    setTimeout(forwardScript, 2000);
+}
+
+function forwardScript(){
+    if (window.innerWidth < 768) {
+        backToLogInMob();
+    } else {
         window.location.href = './login.html';
-    }, 2000);
+    };
 }
 
 
-function contactSucc(){
+
+function contactSucc() {
     document.getElementById('contactSucc').classList.add('contactSuccSlide');
 }
 
@@ -78,12 +85,12 @@ function contactSucc(){
  * It toggles the visibility of the password icon and the show button, and if the password icon is
  * hidden, it changes the type of the password input to text, otherwise it changes it back to password.
  */
-function passwordShowIcon(){
-	document.getElementById('passwordLogo').classList.toggle('d-none');
-	document.getElementById('pwShowButton').classList.toggle('d-none');
-	if(document.getElementById('passwordLogo').classList.contains('d-none')){
-	document.getElementById('inputPasswordSignUp').type="text";
-	}else{
-		document.getElementById('inputPasswordSignUp').type="password";
-	}
+function passwordShowIcon() {
+    document.getElementById('passwordLogo').classList.toggle('d-none');
+    document.getElementById('pwShowButton').classList.toggle('d-none');
+    if (document.getElementById('passwordLogo').classList.contains('d-none')) {
+        document.getElementById('inputPasswordSignUp').type = "text";
+    } else {
+        document.getElementById('inputPasswordSignUp').type = "password";
+    }
 }

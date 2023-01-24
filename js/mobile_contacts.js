@@ -6,6 +6,7 @@ async function initMobilContacts() {
     userInAlphabetArray();
     loadContributorsLetterMob();
     logOutMasterContainerMob();
+    document.getElementById('greetingMasterContainer').classList.add('d-none');
 
 }
 
@@ -131,7 +132,7 @@ function showContactHTMLMob(name, email, phone, letter, color, i){
                 </div>
                 <div class="nameMasterContainer">
                     <span>${name}</span>
-                    <div class="linkMasterContainer">
+                    <div class="linkMasterContainer" onclick="initMobilAddTask()">
                         <img src="../../assets/img/plus_logo_blue.png" alt="">
                         <span>Add Task</span>
                     </div>
