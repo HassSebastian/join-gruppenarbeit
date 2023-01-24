@@ -10,7 +10,7 @@ function enablePopupWindow(taskIndex) {
         document.getElementById('boardPopup').classList.remove('d-none');
     } else {
         document.getElementById('boardPopup').classList.remove('d-none');
-        setTimeout(() => { document.getElementById('boardAddTaskPopup').classList.add('boardAddTaskPopupOverlay') }, 1000);
+        setTimeout(() => { document.getElementById('boardAddTaskPopup').classList.add('boardAddTaskPopupOverlay') }, 1);
     }
 }
 

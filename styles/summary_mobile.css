@@ -470,9 +470,9 @@ vector {
 .greetingMasterContainer {
 	position: relative;
 	width: 428px;
-	height: 926px;
+	height: 760px;
 	background: #F6F7F8;
-	top: 90px;
+	top: 86px;
 	animation:greetMove 3s;
 	animation-delay: 3s;
 

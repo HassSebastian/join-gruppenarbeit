@@ -14,11 +14,12 @@ async function initMobilSummary() {
     );
     selectedMenuBtnId = 0;
     helloPageMob();
+    selectedMenuButton(1);
+
     showDate();
     showTime();
     loadContributorsLetterMob();
     logOutMasterContainerMob();
-    selectedMenuButton(1);
 }
 
 function loadContributorsLetterMob() {
