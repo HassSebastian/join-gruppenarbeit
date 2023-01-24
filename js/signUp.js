@@ -53,9 +53,9 @@ async function emailToCheck(name, email, password) {
  */
 // save user data and forward to login site
 async function userSignIn(firstLetter, secondLetter, name, email, password, colorIndex) {
-    // await loadTask();
-    // allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter + secondLetter });
-    // await saveTask();
+    await loadTask();
+    allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter + secondLetter });
+    await saveTask();
     contactSucc();
     setTimeout(forwardScript, 2000);
 }
