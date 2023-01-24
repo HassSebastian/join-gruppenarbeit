@@ -880,8 +880,9 @@ async function getTaskChangesMobil(taskIndex) {
     boardEditedPrio = prio;
     joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
     await saveTask();
-    await showAddDiv();
-    setTimeout(closeSequenceEditTaskCard, 1200);  
+    showAddDiv();
+    setTimeout(closeSequenceEditTaskCard, 1200); 
+    checkStatusToFalse();  
 }
 
 

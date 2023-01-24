@@ -1173,11 +1173,7 @@ function addContactToTaskForceWithCheckBox(contact) {
   let addedToTaskForce = coworkersToAssignTo[contact].check;
   let emailAddress = coworkersToAssignTo[contact].email;
   let indexOfMemberOfTaskForce = findIndexOfMemberOfTaskForce(emailAddress);
-  addRemoveToggleForTaskForce(
-    addedToTaskForce,
-    contact,
-    indexOfMemberOfTaskForce
-  );
+  addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberOfTaskForce);
   addedToTaskForce = !addedToTaskForce;
   coworkersToAssignTo[contact].check = addedToTaskForce;
 }

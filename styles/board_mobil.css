@@ -1174,3 +1174,20 @@
 	order: 1;
 	flex-grow: 0;
 }
+
+#boardEditDueDate{
+    width: -webkit-fill-available;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    flex-grow: 0;
+    z-index: 0;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}

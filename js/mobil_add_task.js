@@ -1,5 +1,7 @@
 async function initMobilAddTask() {
 	// await includeHTML();
+    // checkStatusToFalse();
+    taskForce = [];
 	await renderMobilAddTask();
 	await loadExitingCategories();
 	renderCategoryList();
