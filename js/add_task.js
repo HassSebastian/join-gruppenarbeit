@@ -196,7 +196,9 @@ async function renderAddTask() {
   document.getElementById("content").innerHTML = "";
   document.getElementById("content").innerHTML += generateAddTaskHtml();
 }
+
 let transferArray =[];
+
 function transferallUserData(){
   transferArray = [];
   for (let i = 0; i < allUsers.length; i++) {
@@ -216,7 +218,6 @@ function transferallUserData(){
   transferArray.push(transferJson)
   }
   return transferArray;
- 
 }
 /* 
 !!

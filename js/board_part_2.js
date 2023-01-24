@@ -5,14 +5,25 @@
 /**
  * this function remove the d-none class from the popup window. The result is that the Popup Window is shown.
  */
-function enablePopupWindow(taskIndex) {
+async function enablePopupWindow(taskIndex) {
     if (document.getElementById(`taskCard${taskIndex}`)) {
         document.getElementById('boardPopup').classList.remove('d-none');
+        // await enableBoardPopup();
     } else {
         document.getElementById('boardPopup').classList.remove('d-none');
-        setTimeout(() => { document.getElementById('boardAddTaskPopup').classList.add('boardAddTaskPopupOverlay') }, 1000);
+        // await enableBoardPopup();
+        setTimeout(() => { document.getElementById('boardAddTaskPopup').classList.add('boardAddTaskPopupOverlay') }, 1);
+        // document.getElementById('boardAddTaskPopup').classList.add('boardAddTaskPopupOverlay');
     }
 }
+
+// async function enableBoardPopup(){
+//     document.getElementById('boardPopup').classList.remove('d-none');
+// }
+
+// async function disableBoardPopup(){
+//     document.getElementById('boardPopup').classList.add('d-none');
+// }
 
 /**
  * this function add the d-none class to the popup window. The result is that the Popup Window not shown.
@@ -21,9 +32,11 @@ async function disablePopupWindow() {
     if (document.getElementById('boardAddTaskPopup')) {
         document.getElementById('boardAddTaskPopup').classList.remove('boardAddTaskPopupOverlay');
         setTimeout(() => { document.getElementById('boardPopup').classList.add('d-none') }, 500);
+        // document.getElementById('boardPopup').classList.add('d-none');
+        // await disableBoardPopup();
     } else {
         document.getElementById('boardPopup').classList.add('d-none');
-
+        // await disableBoardPopup();
     }
     await renderAllCards();
     searchAfterPopup();
@@ -251,7 +264,8 @@ async function getTaskChanges(taskIndex) {
     joinTaskArray[taskIndex]['dueDate'] = boardEditedDueDate;
     joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
     await saveTask();
-    // initBoard();
+    await renderBoard();
+    await createWorkStatusArrays();
     renderAllCards();
     disablePopupWindow();
 }
