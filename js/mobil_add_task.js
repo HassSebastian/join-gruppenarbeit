@@ -18,7 +18,7 @@ async function initMobilAddTask() {
 }
 
 async function renderMobilAddTask() {
-	coworkersToAssignTo = allUsers;
+	coworkersToAssignTo = transferallUserData();
 	addCheckAttributeToCoworkersToAssignTo();
 	document.getElementById('mobilContent').innerHTML = '';
 	document.getElementById('mobilContent').innerHTML = /*html*/ `

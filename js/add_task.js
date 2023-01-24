@@ -190,12 +190,34 @@ function generateAddTaskHtml() {
  *
  */
 async function renderAddTask() {
-  coworkersToAssignTo = allUsers;
+  // coworkersToAssignTo = allUsers;
+  coworkersToAssignTo = transferallUserData();
   addCheckAttributeToCoworkersToAssignTo();
   document.getElementById("content").innerHTML = "";
   document.getElementById("content").innerHTML += generateAddTaskHtml();
 }
-
+let transferArray =[];
+function transferallUserData(){
+  transferArray = [];
+  for (let i = 0; i < allUsers.length; i++) {
+    let transferColorIndex = allUsers[i].colorIndex;
+    let transferEmail = allUsers[i].email;
+    let transferFirstSecondLetter = allUsers[i].firstSecondLetter;
+    let transferName = allUsers[i].name;
+    let transferPW = allUsers[i].password;
+    let transferPhone = allUsers[i].phone;
+    let transferJson = {
+    'colorIndex': transferColorIndex,
+    'email': transferEmail,
+    'firstSecondLetter': transferFirstSecondLetter,
+    'name': transferName,
+    'phone': transferPhone
+  }
+  transferArray.push(transferJson)
+  }
+  return transferArray;
+ 
+}
 /* 
 !!
 !!!

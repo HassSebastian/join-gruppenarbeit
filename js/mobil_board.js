@@ -367,7 +367,7 @@ function closeAddTaskOverlay() {
 
 
 async function boardMobilAddTaskHtml() {
-    coworkersToAssignTo = allUsers;
+    coworkersToAssignTo = transferallUserData();
     addCheckAttributeToCoworkersToAssignTo();
     document.getElementById('boardAddTask').innerHTML = '';
     document.getElementById('boardAddTask').innerHTML = /*html*/ `
@@ -704,7 +704,7 @@ function testAllowMove(taskIndex){
 async function openEditTaskCardMobil(taskIndex) {
     resetAssignToList();
     resetCheckValueAllUsers();
-    coworkersToAssignTo = allUsers;
+    coworkersToAssignTo = transferallUserData();
     await renderPopupEditTaskCardHtmlMobil(taskIndex);
     showDeleteButton(taskIndex);
     renderLoggedUserInAssignDrobDownMenuIntoYou();
