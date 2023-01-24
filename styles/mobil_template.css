@@ -162,6 +162,11 @@ nav {
 	flex-grow: 0;
 }
 
+.mobileContent{
+	overflow: hidden;
+	height: 845px;
+}
+
 /******************************************/
 
 .kanbanProjectManagementTool {
