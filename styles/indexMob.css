@@ -178,7 +178,7 @@ body {
     width: 372px;
     height: 500px;
     left: 28px;
-    top: 194px;
+    top: 184px;
     background: #FFFFFF;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
@@ -508,7 +508,7 @@ body {
     width: 372px;
     height: 501px;
     left: 28px;
-    top: 194px;
+    top: 184px;
     background: #FFFFFF;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
@@ -748,7 +748,7 @@ body {
     width: 372px;
     height: 502px;
     left: 28px;
-    top: 212px;
+    top: 184px;
     background: #FFFFFF;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
@@ -904,6 +904,11 @@ description {
     cursor: pointer;
 }
 
+.sendMailButton:hover{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #29ABE2;
+}
+
 .sendMailButton span {
     width: 144px;
     height: 19px;
@@ -918,26 +923,7 @@ description {
     flex-grow: 0;
 }
 
-.arrowContainerMob {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    left: 29px;
-    top: 23px;
-    flex: none;
-    order: 2;
-    flex-grow: 0;
-    z-index: 2;
-}
 
-.arrowContainerMob img {
-    position: absolute;
-    left: 16.67%;
-    right: 16.67%;
-    top: 17.59%;
-    bottom: 17.59%;
-    cursor: pointer;
-}
 
 /*send Massage Done*/
 
@@ -952,11 +938,11 @@ description {
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
     left: 53px;
     top: -60px;
-    transition: 500 ease-in-out;
+    transition: 500ms ease-in-out;
 }
 
 .sentMassageDoneMaserContainerMobSlide{
-    translate: translateY(-400px);
+    transform: translateY(-410px);
 }
 
 .sentMassageDoneContainerMob {
@@ -995,5 +981,239 @@ description {
     color: #FFFFFF;
     flex: none;
     order: 1;
+    flex-grow: 0;
+}
+
+
+
+/*Password reset*/
+
+.resetPWMasterContainerMob {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 56px 0px;
+    gap: 35px;
+    isolation: isolate;
+    position: absolute;
+    width: 372px;
+    height: 502px;
+    left: 28px;
+    top: 184px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+}
+
+headline {
+    width: 315px;
+    height: 96px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+vector {
+    width: 88px;
+    height: 0;
+    border: 3px solid #29ABE2;
+}
+
+description {
+    width: 322px;
+    height: 75px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.resetinputContainerMob {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 29px;
+    width: 327px;
+    height: 151px;
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+}
+
+.resetoutContainerMob {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 327px;
+    height: 61px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.resetcontainerMob {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 327px;
+    height: 41px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.resetinnerContainerMob {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    width: 380px;
+    height: 19px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.resetinputPasswordMob {
+    width: max-content;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #D1D1D1;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    border: 0;
+    outline: none;
+}
+
+.required {
+    width: 119px;
+    height: 12px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.resetbuttonContainerMob {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 0px;
+    gap: 10px;
+    width: 180px;
+    height: 51px;
+    background: #2A3647;
+    border-radius: 8px;
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+    z-index: 1;
+    border: 0;
+}
+
+.resetbuttonContainerMob:hover{
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+
+}
+
+.resetbuttonContainerMob span {
+    width: 72px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 120%;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+
+
+
+/*Password reset done*/
+
+
+.pwResetContainerMob {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    position: relative;
+    width: 326px;
+    height: 74px;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
+    left: 53px;
+    top: -60px;
+    transition: 500ms ease-in-out;
+}
+
+.pwResetContainerMobSlide{
+    transform: translateY(-410px);
+}
+
+.pwResetHeadlineContainerMob {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 326px;
+    height: 74px;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.pwResetHeadlineContainerMob span {
+    width: 266px;
+    height: 28px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 120%;
+    color: #FFFFFF;
+    text-align: center;
+    flex: none;
+    order: 0;
     flex-grow: 0;
 }

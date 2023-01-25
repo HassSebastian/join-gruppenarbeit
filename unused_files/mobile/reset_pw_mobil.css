@@ -1,0 +1,225 @@
+body {
+    margin: 0;
+}
+
+.d-none {
+    display: none;
+}
+
+.mobilMasterContainer {
+    position: relative;
+    width: 428px;
+    height: 926px;
+    background: #F6F7F8;
+}
+
+.logInLogoMob {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+    position: absolute;
+    width: 64px;
+    height: 78.03px;
+    left: calc(50% - 64px/2 - 144px);
+    top: calc(50% - 78.03px/2 - 386.98px);
+}
+
+.logInLogoImgMob {
+    width: 64px;
+    height: 78.03px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.resetPWMasterContainerMob {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 56px 0px;
+    gap: 35px;
+    isolation: isolate;
+    position: absolute;
+    width: 372px;
+    height: 502px;
+    left: 28px;
+    top: 212px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+}
+
+headline {
+    width: 315px;
+    height: 96px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+vector {
+    width: 88px;
+    height: 0;
+    border: 3px solid #29ABE2;
+}
+
+description {
+    width: 322px;
+    height: 75px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.resetinputContainerMob {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 29px;
+    width: 327px;
+    height: 151px;
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+}
+
+.resetoutContainerMob {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 327px;
+    height: 61px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.resetcontainerMob {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 327px;
+    height: 41px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.resetinnerContainerMob {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    width: 380px;
+    height: 19px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.resetinputPasswordMob {
+    width: max-content;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #D1D1D1;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    border: 0;
+    outline: none;
+}
+
+.required {
+    width: 119px;
+    height: 12px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.resetbuttonContainerMob {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 0px;
+    gap: 10px;
+    width: 180px;
+    height: 51px;
+    background: #2A3647;
+    border-radius: 8px;
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+    z-index: 1;
+}
+
+.resetbuttonContainerMob span {
+    width: 72px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 120%;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.arrowContainerMob {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 29px;
+    top: 23px;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    z-index: 2;
+}
+
+.arrowContainerMob img {
+    position: absolute;
+    left: 16.67%;
+    right: 16.67%;
+    top: 17.59%;
+    bottom: 17.59%;
+    cursor: pointer;
+}

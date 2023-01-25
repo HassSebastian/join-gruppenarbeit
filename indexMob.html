@@ -24,8 +24,9 @@
 <body onload="initLoginMob()">
     <div class="pageOneMob" id="pageOneMob"></div>
 
+
     <div class="mobilMasterContainer">
-        <div class="logInContainerMob">
+        <div class="logInContainerMob">     
             <div class="notAJoinUserContainerMob" id="notAJoinUserContainerMob">
                 <span>Not a Join user?</span>
                 <button class="notAJoinUserButtonMob" onclick="notAJoinUserButtonMob()">
@@ -33,7 +34,7 @@
                 </button>
             </div>
         </div>
-        <img class="logInLogoImgMobWhite" id="pageOneMobImgWhite" src="./assets/img/join_logo.png" alt="">
+        <img class="logInLogoImgMobWhite" id="pageOneMobImgWhite" src="./assets/img/join_logo.png" alt="">   
         <img class="logInLogoImgMobBlack" id="pageOneMobImgBlack" src="./assets/img/join_logo_black.png" alt="">
         <form action="" onsubmit="checkCorrectInput() ;return false">
             <div class="logInMasterContainerMob" id="logInMasterContainerMob">
@@ -87,6 +88,7 @@
                 </div>
             </div>
         </form>
+
 
         <form action="" onsubmit="inputValueTest() ;return false">
             <div class="signInMasterContainerMob d-none" id="signInMasterContainerMob">
@@ -142,6 +144,7 @@
             </div>
         </div>
 
+
         <div class="forgotPWMasterContainerMob d-none" id="forgotPWMasterContainerMob">
             <headline>I forgot my password</headline>
             <vector></vector>
@@ -166,6 +169,7 @@
             </div>
         </div>
 
+
         <div class="sentMassageDoneMaserContainerMob" id="sentMassageDoneMaserContainerMob">
             <div class="sentMassageDoneContainerMob">
                 <img src="../../assets/img/sendCheck_logo.png">
@@ -173,6 +177,47 @@
             </div>
         </div>
 
+
+        <div class="resetPWMasterContainerMob d-none" id="resetPWMasterContainerMob">
+            <headline>Reset your password</headline>
+            <vector></vector>
+            <description>Change your account password here.</description>
+            <div class="resetinputContainerMob">
+                <div class="resetoutContainerMob">
+                    <div class="resetcontainerMob">
+                        <div class="resetinnerContainerMob">
+                            <input class="resetinputPasswordMob" type="password" placeholder="New password"
+                                id="inputNewPassword">
+                        </div>
+                    </div>
+                    <span class="required" id="requiredNewPassword">This field is required</span>
+                </div>
+                <div class="resetoutContainerMob">
+                    <div class="resetcontainerMob">
+                        <div class="resetinnerContainerMob">
+                            <input class="resetinputPasswordMob" type="password" placeholder="Confirm password"
+                                id="inputConfirmPassword">
+                        </div>
+                    </div>
+                    <span class="required" id="requiredConfirmPassword">This field is required</span>
+                </div>
+            </div>
+            <button class="resetbuttonContainerMob" onclick="resetbuttonContainerMob()">
+                <span>Continue</span>
+            </button>
+            <div class="arrowContainerMob" onclick="backToSignInMob()">
+                <img src="../../assets/img/back_logo_black.png">
+            </div>
+        </div>
+
+
+
+        <div class="pwResetContainerMob" id="pwResetContainerMob">
+            <div class="pwResetHeadlineContainerMob">
+                <span>You reset your password</span>
+            </div>
+        </div>
+    
     </div>
 </body>
 
