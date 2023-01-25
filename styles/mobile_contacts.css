@@ -283,19 +283,6 @@ betterWithATeam {
     flex-grow: 0;
 }
 
-.kanbanProjectManagementTool {
-    position: absolute;
-    width: 255px;
-    height: 19px;
-    left: 33px;
-    top: 114px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
-    color: #000000;
-}
 
 .floatingContactsMasterContainer {
     display: flex;
@@ -382,8 +369,8 @@ betterWithATeam {
     align-items: flex-start;
     padding: 0px;
     gap: 13px;
-    width: 217px;
-    height: 75px;
+    width: 190px;
+    height: 130px;
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -395,8 +382,7 @@ betterWithATeam {
     align-items: flex-start;
     padding: 0px;
     gap: 5px;
-    width: max-content;
-    height: 43px;
+    height: 80px;
     flex: none;
     order: 0;
     flex-grow: 0;
