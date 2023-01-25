@@ -137,6 +137,7 @@ function logOutBtnMob() {
 }
 
 function logOutMob() {
+    helloCheck = 0;
     window.location.href = './indexMob.html';
 }
 ////////////////////
@@ -161,9 +162,8 @@ function backButtonMob() {
 
 // UserGreeting in Mobil //
 ///////////////////////////
-let helloCheck;
 function helloPageMob() {
-    if (helloCheck === 1) {
+    if (helloCheck == 1) {
         document.getElementById('greetingMasterContainer').classList.add('d-none');
     } else {
         document.getElementById('greetingMasterContainer').innerHTML = ``;
@@ -174,7 +174,6 @@ function helloPageMob() {
             </div>
         `;
         greetingMasterContainerHide();
-        helloCheck = 1;
     }
 }
 

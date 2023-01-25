@@ -7,6 +7,7 @@ let allYourAwaitingFeedbackTasksAmount = 0;
 let allYourDoneTasksAmount = 0;
 let yourUrgentTasksAmount = 0;
 
+
 /* sollten die besser im board sein? */
 let allYourToDoTasks = []; // Bossis Idee, für workflow 0-3
 let allYourInProgressTasks = [];
@@ -173,7 +174,10 @@ function showDate() {
 }
 
 // greet User
+let helloCheck = 0;
+
 function showTime() {
+	if (helloCheck == 0) {
 		let currentTime = new Date();
 		let hours = currentTime.getHours();
 		let timeString = hours;
@@ -187,7 +191,10 @@ function showTime() {
 			document.getElementById('greetUser').innerHTML = `Good Evening,`;
 		}
 	}
-
+	if (window.innerWidth < 768) {
+		helloCheck = 1;
+	}
+}
 /**
  * !NOCH ERLEDIGEN:
 FUnktion: Der, der die Task anlegt, erscheint automatisch in der Taksforce!!!!!!!
