@@ -187,6 +187,7 @@ async function renderEditTaskCardInputFields(taskIndex) {
     let cardDescription = joinTaskArray[taskIndex]['descripten'];
     let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
     let taskPrio = joinTaskArray[taskIndex]['prio'];
+    boardEditedPrio = taskPrio;
     let prioArray = { 'Urgent': 0, 'Medium': 1, 'Low': 2 };
     let taskPrioNumber = prioArray[taskPrio];
     await addPrio(taskPrioNumber);

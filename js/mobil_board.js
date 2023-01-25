@@ -356,6 +356,7 @@ async function startAddTaskOverlay() {
     getInnerWidth();
     document.getElementById('boardAddTask').classList.remove('d-none');
     // document.getElementById('bottomMenu').classList.add('d-none');
+    taskForce = [];
     
 }
 
@@ -523,10 +524,16 @@ async function createTaskDataMobil() {
     pushTaskData();
     saveTask();
     showAddDiv();
-    setTimeout(initMobilBoard, 1200);
-    closeAddTaskOverlay();
+    setTimeout(closeBoardAddTask, 1200);
+    // closeAddTaskOverlay();
+    // clearTaskForce();
   }
 
+async function closeBoardAddTask(){
+    initMobilBoard();
+    closeAddTaskOverlay();
+    taskForce = [];
+}
 
 
 //   Task Card detail View
