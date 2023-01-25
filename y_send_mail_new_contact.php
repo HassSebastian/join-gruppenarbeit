@@ -3,7 +3,7 @@
 ########### CONFIG ###############
 
 $recipient = 'developertest@devtest.de';
-$redirect = 'success.html'; ### hier muss die bestätigungs- Weiterleitung.html eingefügt werden
+$redirect = 'y_send_mail_new_contact.html'; ### hier muss die bestätigungs- Weiterleitung.html eingefügt werden
 
 ########### CONFIG END ###########
 
@@ -39,10 +39,10 @@ switch ($_SERVER['REQUEST_METHOD']) {
     case ("POST"): //Send the email;
         header("Access-Control-Allow-Origin: *");
 
-        $subject = "Contact From " . $_POST['name'];
+        $subject = "Email sent to " . $_POST['email'];
         $headers = "From:  noreply@developerakademie.com";
 
-        mail($recipient, $subject, $_POST['message'], $headers);
+        mail($recipient, $subject, $_POST['email'], $headers);
         header("Location: " . $redirect); 
 
         break;
