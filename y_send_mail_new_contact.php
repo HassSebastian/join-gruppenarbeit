@@ -3,7 +3,7 @@
 ########### CONFIG ###############
 
 $recipient = 'developertest@devtest.de';
-$redirect = 'y_send_mail_new_contact.html'; ### hier muss die bestätigungs- Weiterleitung.html eingefügt werden
+$redirect = 'y_send_mail_new_contact.html';
 
 ########### CONFIG END ###########
 
