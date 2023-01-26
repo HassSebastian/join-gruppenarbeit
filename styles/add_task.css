@@ -873,6 +873,7 @@
 	/* left: 895px; */
 	left: 663px;
 	top: 201px;
+	/* overflow:hidden; */
 }
 
 .addTaskDate {
@@ -1379,7 +1380,7 @@
 	width: 100%;
 	height: 935px;
 	margin-top: 89px;
-
+	overflow: hidden;
 	/* margin-left: 232px;
     left: -232px; */
 }

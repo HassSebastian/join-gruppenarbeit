@@ -175,13 +175,23 @@ function generateAddTaskHtml() {
 
 				</div>
 			</div>
+
 			<div class="taskAddedToBoard" id="taskCreatedIndication">
 				<div class="taskAddedToBoardContainer">
 					<span>Task added to board</span>
 					<img src="./assets/img/img_board_w.png" />
 				</div>
 			</div>
+
 		</div>
+
+  <!-- <div class="taskAddedToBoard" id="taskCreatedIndication">
+    <div class="taskAddedToBoardContainer">
+      <span>Task added to board</span>
+      <img src="./assets/img/img_board_w.png" />
+    </div>
+  </div> -->
+
 	</div>`;
 }
 
