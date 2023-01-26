@@ -131,7 +131,7 @@
     }
 
     .testResponsiv {
-        height: 1508px !important;
+        height: 1413px !important;
         left: 0px;
         margin-bottom: 82px;
         margin-left: -53px;
@@ -144,7 +144,7 @@
 
     .addTaskBtnOuterContainer {
         left: 0px !important;
-        top: 1440px !important;
+        top: 1345px !important;
         justify-content: center !important;
         width: 100% !important;
     }
@@ -182,8 +182,8 @@
     }
 
     .taskAddedToBoard{
-        left: -68px !important;
-        top: 770px !important;
+        left: 0px !important;
+        top: 531px !important;
     }
 
     #dropdownImg{
@@ -231,6 +231,13 @@
     #subTaskImgDiv{
         left: calc(100vw - 220px ) !important;
     }
+
+    .addTaskPrio,
+    .subtask{
+        order: 0;
+    }
+
+
 }
 
 @media screen and (max-width: 1000px) {}
