@@ -48,8 +48,6 @@ function myFunction(tabWidth) {
 
 
 function addMargin(){
-    debugger;
     document.getElementById('addTaskRightContainer').style = 'margin-top = 40px !important;';
-    debugger;
 }
 
