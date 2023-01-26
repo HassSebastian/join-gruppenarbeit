@@ -313,7 +313,7 @@ body {
 }
 
 .required {
-    width: 119px;
+    width: 160px;
     height: 12px;
     font-family: 'Poppins';
     font-style: normal;
@@ -902,6 +902,7 @@ description {
     flex-grow: 0;
     z-index: 1;
     cursor: pointer;
+    border: 0;
 }
 
 .sendMailButton:hover{
@@ -1105,7 +1106,7 @@ description {
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
-    color: #D1D1D1;
+    color: black;
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -1113,18 +1114,6 @@ description {
     outline: none;
 }
 
-.required {
-    width: 119px;
-    height: 12px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 120%;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-}
 
 .resetbuttonContainerMob {
     display: flex;

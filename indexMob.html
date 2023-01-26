@@ -144,7 +144,7 @@
             </div>
         </div>
 
-        <form action="http://students.developerakademie.com/send_mail/z_send_mail_forgot_pw.php" method="POST">
+        <form action="" onsubmit="sendMailButton() ;return false">
             <div class="forgotPWMasterContainerMob d-none" id="forgotPWMasterContainerMob">
                 <headline>I forgot my password</headline>
                 <vector></vector>
@@ -161,9 +161,9 @@
                         <span class="required" id="requiredEmailForgot">This field is required</span>
                     </div>
                 </div>
-                <div class="sendMailButton">
+                <button class="sendMailButton">
                     <span>Send me the email</span>
-                </div>
+                </button>
                 <div class="arrowContainerMob" onclick="backToLogInMob()">
                     <img src="../../assets/img/back_logo_black.png">
                 </div>
