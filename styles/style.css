@@ -223,6 +223,7 @@ tr td:nth-child(3) {
     right: 25px;
     cursor: pointer;
     display: none;
+    z-index: 2;
 }
 
 .logOutOn {
