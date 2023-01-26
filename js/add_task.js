@@ -132,7 +132,7 @@ function generateAddTaskHtml() {
 			<div class="addTaskDivider" id= 'addTaskDiverder'>
 
 			</div>
-			<div class='addTaskRightContainer'>
+			<div class='addTaskRightContainer' id='addTaskRightContainer'>
 				<div class='addTaskDate'>
 					<h3>Due date</h3>
 					<input required type="date" id='dueDate' min="2023-01-01" class='addTaskResponsiv'>
