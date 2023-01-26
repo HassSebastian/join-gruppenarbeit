@@ -162,8 +162,9 @@ function backButtonMob() {
 
 // UserGreeting in Mobil //
 ///////////////////////////
+let helloCheckMob = 0;
 function helloPageMob() {
-    if (helloCheck == 1) {
+    if (helloCheckMob == 1) {
         document.getElementById('greetingMasterContainer').classList.add('d-none');
     } else {
         document.getElementById('greetingMasterContainer').innerHTML = ``;
@@ -173,10 +174,10 @@ function helloPageMob() {
                 <span class="greetUserName">${allUsers[loggedUser[0]].name}</span>
             </div>
         `;
+        helloCheckMob = 1;
         greetingMasterContainerHide();
     }
 }
-
 
 
 function greetingMasterContainerHide() {
