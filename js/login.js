@@ -63,6 +63,7 @@ function rememberMe(email, password, loginStatus) {
 	if (checkbox.checked) {
 		rememberUserExisting(email, password);
 	}
+	loggedUser = [];
 	loggedUser.push(loginStatus);
 	let loggedUserAsString = JSON.stringify(loggedUser);
 	localStorage.setItem('loggedUser', loggedUserAsString);
