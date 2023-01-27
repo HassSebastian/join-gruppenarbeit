@@ -7,12 +7,13 @@ let allYourAwaitingFeedbackTasksAmount = 0;
 let allYourDoneTasksAmount = 0;
 let yourUrgentTasksAmount = 0;
 
-
 /* sollten die besser im board sein? */
 let allYourToDoTasks = []; // Bossis Idee, für workflow 0-3
 let allYourInProgressTasks = [];
 let allYourAwaitingFeedbackTasks = [];
 let allYourDoneTasks = [];
+
+let guestLoggedIn = false;
 
 async function initSummary() {
 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
@@ -211,8 +212,8 @@ Kann loggedUser auch ein String sein, statt ein Arry? Einfacher!
  * and then logs the id of the object to the console.
  */
 function loadLoggedInUserArray() {
-	let loggedUserAtString = localStorage.getItem('loggedUser');
-	loggedUser = JSON.parse(loggedUserAtString);
+	let loggedUserAsString = localStorage.getItem('loggedUser');
+	loggedUser = JSON.parse(loggedUserAsString);
 	console.log(loggedUser);
 }
 
@@ -222,7 +223,7 @@ function loadLoggedInUserArray() {
  */
 function getLoggedUserIndex() {
 	loggedInUserIndex = loggedUser[0];
-	console.log(loggedInUserIndex);
+	console.log('IDGuest', loggedInUserIndex);
 }
 
 /**
@@ -232,7 +233,8 @@ function getLoggedUserIndex() {
  */
 function getEmailAdrressOfLoggedUser() {
 	emailAddress = allUsers[loggedInUserIndex].email;
-	console.log(emailAddress);
+	console.log('guestemail', emailAddress);
+	emailAddress == 'guest@web.de' ? (guestLoggedIn = true) : null;
 }
 
 /**
