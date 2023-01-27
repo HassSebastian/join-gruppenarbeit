@@ -38,19 +38,20 @@ async function initAddTask() {
   renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
   setFutureDatesOnlyForInputDueDate();
   loadContributorsLetter();
-  getInnerWidth();
+  // getInnerWidth();
   taskForce = []; // Das muss noch hier rein oder in einer andere Datei!
   addSubtaskMain();
+  addContactToTaskForceWithCheckBox(loggedInUserIndex);
 }
 
 function generateAddTaskHtml() {
   return /*html*/ `
 	<div class='contentHeight' id='contentHeight'>
-		<div class='testResponsiv'>
+		<div class='testResponsiv' id='testResponsiv'>
 			<div class="addTaskHeadlineDiv">
 				<h2 class="addTHeadline">Add Task</h2>
 			</div>
-			<div class="addTaskBtnOuterContainer">
+			<div class="addTaskBtnOuterContainer" id='addTaskBtnOuterContainer'>
 				<div class="addTaskBtnInnerContainer">
 					<button class="addTaskClear" onmouseover="addTaskClearOn()" onmouseout="addTaskClearOff()"
 						onclick="clearFormularData()">
@@ -310,6 +311,7 @@ function enableDisableCatList() {
       .classList.remove("addMarginTop");
   }
   catListStatus = !catListStatus;
+  tabletViewAddMarginTopCatList();// edit by Bossi for responsivness 27.01
 }
 
 /**
@@ -425,7 +427,7 @@ function resetCatSelection() {
   catListStatus = !catListStatus;
   document.getElementById("colorSelection").classList.add("listD-none");
   document.getElementById("selectedCat").innerHTML = resetCatSelectionHtml();
-  getInnerWidth();
+  // getInnerWidth();
 }
 
 /**
@@ -454,7 +456,7 @@ function selectCategory(catId) {
   } else {
     setSettingsForExistingCategory(catId);
   }
-  getInnerWidth();
+  // getInnerWidth();
 }
 
 /**
@@ -1018,6 +1020,7 @@ function enableDisableAssignList() {
     hideBadgesTaskForce();
   }
   assignListStatus = !assignListStatus;
+  tabletViewAddMarginTopAssignList(); // edit by Bossi for responsivness 27.01
 }
 
 function enableAssignList() {

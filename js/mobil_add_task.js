@@ -14,9 +14,9 @@ async function initMobilAddTask() {
 	setFutureDatesOnlyForInputDueDate();
 	// loadContributorsLetter();
     addSubtaskMain();
-	getInnerWidth();
+	// getInnerWidth();
     document.getElementById('greetingMasterContainer').classList.add('d-none');
-
+    addContactToTaskForceWithCheckBox(loggedInUserIndex);
 }
 
 async function renderMobilAddTask() {

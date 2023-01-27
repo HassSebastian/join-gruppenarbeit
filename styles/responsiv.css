@@ -1,3 +1,19 @@
+.addTaskRightContainerAddMarginTop{
+    margin-top: 75px;
+}
+
+.addTaskRightContainerAddMarginTop1{
+    margin-top: 150px;
+}
+
+.testResponsivNewHeight{
+    height: 1488px !important;
+}
+
+.testResponsivNewHeight1{
+    height: 1563px !important;
+}
+
 
 @media screen and (max-width: 1500px) {
     .outerContainer {
@@ -123,6 +139,14 @@
         z-index: 1;
     }
 
+    .addTaskAssignList{
+        z-index: 0 !important;
+    }
+
+    .addTaskCatList{
+        z-index: 0 !important;
+    }
+
     .addTaskDivider {
         rotate: 90deg !important;
         left: 332px !important;
@@ -131,11 +155,28 @@
     }
 
     .testResponsiv {
-        height: 1413px !important;
+        height: 1413px;
         left: 0px;
         margin-bottom: 82px;
         margin-left: -53px;
     }
+
+    .addTaskBtnOuterContainerNewTopValue{
+        top: 1345px !important;
+    }
+
+    .addTaskBtnOuterContainerNewTopValue1{
+        top: 1420px !important;
+    }
+
+    .addTaskBtnOuterContainerNewTopValue2{
+        top: 1495px !important;
+    }
+
+
+
+
+
 
     .addTaskRightContainer {
         left: 123px !important;
@@ -144,7 +185,7 @@
 
     .addTaskBtnOuterContainer {
         left: 0px !important;
-        top: 1345px !important;
+        top: 1345px;
         justify-content: center !important;
         width: 100% !important;
     }
