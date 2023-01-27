@@ -19,35 +19,33 @@
 <body>
 
     <div id="logIn">
-        <div class="notAJoinUser">
+        <div class="notAJoinUser d-none">
             <span>Not a Join user?</span>
-            <button onclick="initSignIn()">Sign up</button>
+            <div onclick="initSignIn()">Sign up</div>
         </div>
         <img src="../assets/img/join_logo_black.png" class="joinLogo">
-
         <form action="" onsubmit="checkCorrectInput() ;return false">
-
-            <div class="innerContainer">
-
-                <div class="logInContainer">
+            <div class="loginMasterContainer d-none">
+                <div class="logInHeadlineContainer">
                     <span>Log in</span>
                     <div></div>
                 </div>
-
-                <div class="inputContainer">
-                    <div class="outEmailContainer">
-                        <div class="container">
-                            <div class="innerEmailContainer">
-                                <input class="inputLogIn" type="email" placeholder="Email" id="inputEmailLogin" onclick="logInAtLocalstorage()">
+                <div class="loginInputContainer">
+                    <div class="loginoOutEmailContainer">
+                        <div class="loginContainer">
+                            <div class="loginInnerEmailContainer">
+                                <input class="inputLogIn" type="email" placeholder="Email" id="inputEmailLogin"
+                                    onclick="logInAtLocalstorage()">
                                 <img src="./assets/img/email_Logo.png">
                             </div>
                         </div>
                         <span class="required" id="requiredEmailLogin">This field is required</span>
                     </div>
-                    <div class="outPasswordContainer">
-                        <div class="container">
-                            <div class="innerPasswordContainer">
-                                <input class="inputLogIn" type="password" placeholder="Password" id="inputPasswordLogin">
+                    <div class="loginOutPasswordContainer">
+                        <div class="loginContainer">
+                            <div class="loginInnerPasswordContainer">
+                                <input class="inputLogIn" type="password" placeholder="Password"
+                                    id="inputPasswordLogin">
                                 <div onclick="passwordShowIcon()">
                                     <img src="./assets/img/password_logo.png" id="passwordLogo">
                                     <img src="./assets/img/pwShowButton.png" id="pwShowButton" class="d-none">
@@ -57,7 +55,6 @@
                         <span class="required" id="requiredPasswordLogin">This field is required</span>
                     </div>
                 </div>
-
                 <div class="rememberMeContainer">
                     <div class="rememberMeBox">
                         <div>
@@ -65,9 +62,8 @@
                         </div>
                         <span>Remember me</span>
                     </div>
-                    <span class="forgotPassword" onclick="forgotPassword()">Forgot my password</span>
+                    <span class="loginForgotPassword" onclick="forgotPassword()">Forgot my password</span>
                 </div>
-
                 <div class="logInButtonContainer">
                     <!-- onclick function userLogin() add to button -->
                     <button class="logInButton">
@@ -77,12 +73,149 @@
                         <span>Guest Log in</span>
                     </button>
                 </div>
+            </div>
+        </form>
 
+        <!--signup-->
+        <form action="" onsubmit="inputValueTest() ;return false">
+            <div class="signUpMasterContainer d-none">
+                <div class="signUpHeadline">
+                    <span>Sign up</span>
+                    <div></div>
+                </div>
+                <div class="signupInputContainer">
+                    <div class="signupOutContainer">
+                        <div class="signupaContainer">
+                            <div class="signupInnerContainer">
+                                <input class="signupInputSignUp" type="text" placeholder="Name" id="inputNameSignUp">
+                                <img src="./assets/img/name_logo.png">
+                            </div>
+                        </div>
+                        <span class="required" id="requiredName">This field is required</span>
+                    </div>
+                    <div class="signupOutContainer">
+                        <div class="signupaContainer">
+                            <div class="signupInnerContainer">
+                                <input class="signupInputSignUp" type="email" placeholder="Email" id="inputEmailSignUp">
+                                <img src="./assets/img/email_Logo.png">
+                            </div>
+                        </div>
+                        <span class="required" id="requiredEmail">This field is required</span>
+                    </div>
+                    <div class="signupOutContainer">
+                        <div class="signupaContainer">
+                            <div class="signupInnerContainer">
+                                <input class="signupInputSignUp" type="password" placeholder="Password"
+                                    id="inputPasswordSignUp">
+                                <div onclick="passwordShowIcon()">
+                                    <img src="./assets/img/password_logo.png" id="passwordLogo">
+                                    <img src="./assets/img/pwShowButton.png" id="pwShowButton" class="d-none">
+                                </div>
+                            </div>
+                        </div>
+                        <span class="required" id="requiredPassword">This field is required</span>
+                    </div>
+                </div>
+                <button class="signupButtonContainer">
+                    <span id="signUpButton">Sign up</span>
+                </button>
+                <div class="arrowContainer" onclick="backToLogIn()">
+                    <img src="./assets/img/back_logo.png">
+                </div>
+            </div>
+        </form>
+        <div class="contactSucc d-none" id="contactSucc">
+            <div class="contactSuccContainer">
+                <span>Contact succesfully created</span>
+            </div>
+        </div>
+
+        <!--forgotPW-->
+        <form action="" onsubmit="sendMailButton() ;return false">
+            <div class="forgotMasterContainer d-none">
+                <div class="forgotPasswordHeadline">
+                    <span>I forgot my password</span>
+                    <div></div>
+                </div>
+                <span class="forgotPasswordContent">Don't worry! We will send you an email with the instructions to
+                    reset
+                    your password.</span>
+                <div class="forgotInputContainer">
+                    <div class="forgotOutContainer">
+                        <div class="forgotaContainer">
+                            <div class="forgotInnerContainer">
+                                <input class="inputForgot" type="email" placeholder="Email" id="inputForgot">
+                                <img src="./assets/img/email_Logo.png">
+                            </div>
+                        </div>
+                        <span class="required" id="requiredEmailForgot">This field is required</span>
+                    </div>
+                </div>
+                <div class="forgotButtonContainer">
+                    <button class="forgotButton">
+                        <span>Send me the email</span>
+                    </button>
+                </div>
+                <div class="arrowContainer" onclick="back()">
+                    <img src="./assets/img/back_logo.png">
+                </div>
+
+                <div class="sentMassageDoneMaserContainerMob" id="sentMassageDoneMaserContainerMob">
+                    <div class="sentMassageDoneContainerMob">
+                        <img src="../../assets/img/sendCheck_logo.png">
+                        <span>An E-Mail has been sent to you</span>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <!--forgotReset-->
+        <form action="" onsubmit="inputForgotEmaiCheck() ;return false">
+            <div class="forgotResetMasterContainer">
+                <div class="forgotResetResetHeadline">
+                    <span>Reset your password</span>
+                    <div></div>
+                </div>
+                <span class="forgotResetContent">Change your account password</span>
+                <div class="forgotResetInputContainer">
+                    <div class="forgotResetOutContainer">
+                        <div class="forgotResetaContainer">
+                            <div class="forgotResetInnerContainer">
+                                <input class="forgotResetInputPassword" type="password" placeholder="New password"
+                                    id="inputNewPassword">
+                            </div>
+                        </div>
+                        <span class="required" id="requiredNewPassword">This field is required</span>
+                    </div>
+                    <div class="forgotResetOutContainer">
+                        <div class="forgotResetaContainer">
+                            <div class="forgotResetInnerContainer">
+                                <input class="forgotResetInputPassword" type="password" placeholder="Confirm password"
+                                    id="inputConfirmPassword">
+                            </div>
+                        </div>
+                        <span class="required" id="requiredConfirmPassword">This field is required</span>
+                    </div>
+                </div>
+                <div class="forgotResetButtonContainer">
+                    <button class="forgotResetResetButton">
+                        <span>Continue</span>
+                    </button>
+                </div>
+                <div class="arrowContainer" onclick="back()">
+                    <img src="./assets/img/back_logo.png">
+                </div>
+
+                <div class="pwResetContainerMob" id="pwResetContainerMob">
+                    <div class="pwResetHeadlineContainerMob">
+                        <span>You reset your password</span>
+                    </div>
+                </div>
             </div>
         </form>
 
     </div>
-
 </body>
 
 </html>

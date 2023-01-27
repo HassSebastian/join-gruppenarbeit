@@ -3,14 +3,14 @@ body {
     user-select: none;
 }
 
-.forgotMyP_sendMail {
+.forgotReset {
     position: relative;
     width: 1440px;
     height: 1024px;
     background: #F6F7F8;
 }
 
-.forgotPasswordContainer {
+.forgotResetMasterContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,23 +18,22 @@ body {
     gap: 35px;
     isolation: isolate;
     position: absolute;
-    width: 826px;
-    height: 462px;
-    left: calc(50% - 826px/2);
-    top: calc(50% - 462px/2 - 0.5px);
+    height: 537px;
+    left: 21.32%;
+    right: 21.32%;
+    top: calc(50% - 537px/2 - 0.5px);
     background: #FFFFFF;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
-    overflow: hidden;
 }
 
-.forgotPasswordHeadline {
+.forgotResetHeadline {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0px;
     gap: 24px;
-    width: 626px;
+    width: 627px;
     height: 97px;
     flex: none;
     order: 0;
@@ -42,8 +41,8 @@ body {
     z-index: 0;
 }
 
-.forgotPasswordHeadline span {
-    width: 626px;
+.forgotResetHeadline span {
+    width: 627px;
     height: 73px;
     font-family: 'Inter';
     font-style: normal;
@@ -57,7 +56,7 @@ body {
     flex-grow: 0;
 }
 
-.forgotPasswordHeadline div {
+.forgotResetHeadline div {
     width: 150px;
     height: 0;
     border: 3px solid #29ABE2;
@@ -90,11 +89,11 @@ body {
     padding: 0px;
     gap: 29px;
     width: 422px;
-    height: 71px;
+    height: 171px;
     flex: none;
-    order: 1;
+    order: 2;
     flex-grow: 0;
-    z-index: 1;
+    z-index: 2;
 }
 
 .outContainer {
@@ -108,24 +107,6 @@ body {
     flex: none;
     order: 0;
     flex-grow: 0;
-}
-
-.required {
-    width: 160px;
-    height: 12px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 120%;
-    flex: none;
-    color: transparent;
-    order: 1;
-    flex-grow: 0;
-}
-
-.requiredOn{
-    color: red;
 }
 
 .container {
@@ -148,7 +129,6 @@ body {
 .innerContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     padding: 0px;
     gap: 10px;
@@ -159,7 +139,8 @@ body {
     flex-grow: 0;
 }
 
-.inputForgot {
+
+.inputPassword {
     width: max-content;
     height: 25px;
     font-family: 'Inter';
@@ -174,25 +155,6 @@ body {
     border: 0;
     outline: 0;
     color: black;
-}
-
-::placeholder{
-    width: max-content;
-    height: 25px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
-    color: #D1D1D1;
-}
-
-.innerContainer img {
-    width: 24px;
-    height: 24px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
 }
 
 .buttonContainer {
@@ -225,6 +187,7 @@ button {
     order: 0;
     flex-grow: 0;
     border: 0;
+    cursor: pointer;
 }
 
 button:hover{
@@ -233,7 +196,7 @@ button:hover{
 }
 
 button span {
-    width: 189px;
+    width: 95px;
     height: 25px;
     font-family: 'Inter';
     font-style: normal;
@@ -283,47 +246,31 @@ button span {
     bottom: 80.28%;
 }
 
-
-
-
-.sentMassageDoneMaserContainerMob {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    position: relative;
-    width: 326px;
-    height: 74px;
-    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
-    left: 0;
-    top: 390px;
-    z-index: 3;
-    overflow: hidden;
-    transition: 500ms ease-in-out;
-    border-radius: 10px;
-}
-
-.sentMassageDoneMaserContainerMobSlide{
-    transform: translateY(-300px);
-}
-
-.sentMassageDoneMaserContainerMob span{
-    color: white;
-}
-
-.sentMassageDoneContainerMob {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0px 17px;
-    gap: 10px;
-    width: 326px;
-    height: 74px;
-    background: #2A3647;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 20px;
+.required {
+    width: max-content;
+    height: 12px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
     flex: none;
-    order: 0;
+    color: transparent;
+    order: 1;
     flex-grow: 0;
+}
+
+.requiredOn{
+    color: red;
+}
+
+::placeholder{
+    width: max-content;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #D1D1D1;
 }

@@ -1,4 +1,4 @@
-let allUsers = [];
+//let allUsers = [];
 
 
 function backToLogIn() {
