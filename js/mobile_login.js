@@ -27,6 +27,8 @@ function showForgotPasswordMob() {
     document.getElementById('notAJoinUserContainerMob').classList.add('d-none');
     document.getElementById('forgotPWMasterContainerMob').classList.remove('d-none');
 }
+
+
 let forgotEmailIndex;
 function sendMailButton() {
     document.getElementById('requiredEmailForgot').classList.remove('requiredOn');
@@ -37,17 +39,20 @@ function sendMailButton() {
     } else {
         for (i = 0; i < allUsers.length; i++) {
             let inputComparison = allUsers[i].email;
-            if (!inputForgotValue == inputComparison) {
-                document.getElementById('requiredEmailForgot').classList.add('requiredOn');
-                document.getElementById('requiredEmailForgot').innerHTML = `email is not available`;
-            } else {
+            if (inputForgotValue == inputComparison) {
+                document.getElementById('requiredEmailForgot').style="color:transparent";
                 document.getElementById('sentMassageDoneMaserContainerMob').classList.add('sentMassageDoneMaserContainerMobSlide');
                 forgotEmailIndex = i;
                 setTimeout(showPasswordResetCard, 3000);
+            } else {
+                document.getElementById('requiredEmailForgot').classList.add('requiredOn');
+                document.getElementById('requiredEmailForgot').innerHTML = `email is not available`;
             }
+
         }
     }
 }
+
 
 
 function showPasswordResetCard() {

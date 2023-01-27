@@ -25,6 +25,7 @@ body {
     background: #FFFFFF;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
+    overflow: hidden;
 }
 
 .forgotPasswordHeadline {
@@ -110,7 +111,7 @@ body {
 }
 
 .required {
-    width: 119px;
+    width: 160px;
     height: 12px;
     font-family: 'Poppins';
     font-style: normal;
@@ -280,4 +281,49 @@ button span {
     right: 87.71%;
     top: 7.81%;
     bottom: 80.28%;
+}
+
+
+
+
+.sentMassageDoneMaserContainerMob {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    position: relative;
+    width: 326px;
+    height: 74px;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
+    left: 0;
+    top: 390px;
+    z-index: 3;
+    overflow: hidden;
+    transition: 500ms ease-in-out;
+    border-radius: 10px;
+}
+
+.sentMassageDoneMaserContainerMobSlide{
+    transform: translateY(-300px);
+}
+
+.sentMassageDoneMaserContainerMob span{
+    color: white;
+}
+
+.sentMassageDoneContainerMob {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 17px;
+    gap: 10px;
+    width: 326px;
+    height: 74px;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }

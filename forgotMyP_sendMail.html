@@ -6,18 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="./js/mini_backend.js"></script>
+
     <link rel="stylesheet" href="./styles/forgotMyP_sendMail.css">
     <link rel="stylesheet" href="./styles/fonts.css">
+    <script src="./js/login.js"></script>
+
     <script src="./js/script.js"></script>
     <script src="./js/forgotMyP_sendMail.js"></script>
+    <script src="./js/mobile_login.js"></script>
 
 
 </head>
 
-<body>
+<body onload="initForgotMyPassword()">
 
     <div class="forgotMyP_sendMail">
-        <form action="" onsubmit="inputForgotEmaiCheck() ;return false">
+        <form action="" onsubmit="sendMailButton() ;return false">
 
             <div class="forgotPasswordContainer">
 
@@ -30,14 +35,11 @@
                 <span class="forgotPasswordContent">Don't worry! We will send you an email with the instructions to
                     reset
                     your password.</span>
-
-
-
                 <div class="inputContainer">
                     <div class="outContainer">
                         <div class="container">
                             <div class="innerContainer">
-                                <input class="inputForgot" type="text" placeholder="Email" id="inputForgot">
+                                <input class="inputForgot" type="email" placeholder="Email" id="inputForgot">
                                 <img src="./assets/img/email_Logo.png">
                             </div>
                         </div>
@@ -54,14 +56,23 @@
                     <img src="./assets/img/back_logo.png">
                 </div>
 
+
+                <div class="sentMassageDoneMaserContainerMob" id="sentMassageDoneMaserContainerMob">
+                    <div class="sentMassageDoneContainerMob">
+                        <img src="../../assets/img/sendCheck_logo.png">
+                        <span>An E-Mail has been sent to you</span>
+                    </div>
+                </div>
+        
             </div>
 
             <div class="joinLogo">
                 <img src="./assets/img/join_logo_black.png">
             </div>
         </form>
-
+    
     </div>
+
 
 </body>
 
