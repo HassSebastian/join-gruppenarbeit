@@ -323,6 +323,7 @@ async function showAddTaskPopupWindow() {
     loadContributorsLetter();
     // renderContactsInAssignDropDownMenu();
     addSubtaskMain();
+    addContactToTaskForceWithCheckBox(loggedInUserIndex);
 }
 
 
