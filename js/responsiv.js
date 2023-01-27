@@ -63,8 +63,11 @@ function tabletViewAddMarginTopCatList() {
 		resizePageAndChangeBtnPosition();
 	}
 	if (!catListStatus || window.innerWidth < 762 || window.innerWidth > 1100) {
-		document.getElementById('addTaskRightContainer').classList.remove('addMarginTop');
-		resetResizePageAndChangeBtnPosition();
+		checkIdAndRemoveMargin();
+		// if (document.querySelector('#addTaskRightContainer')){
+		// 	document.getElementById('addTaskRightContainer').classList.remove('addMarginTop');
+		// 	resetResizePageAndChangeBtnPosition();
+		// }	
 	}
 	if (!catListStatus && assignListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100) {
 		resizePageAndChangeBtnPosition1();
@@ -73,14 +76,36 @@ function tabletViewAddMarginTopCatList() {
 }
 
 
+function checkIdAndRemoveMargin(){
+	if (document.querySelector('#addTaskRightContainer')){
+		document.getElementById('addTaskRightContainer').classList.remove('addMarginTop');
+		resetResizePageAndChangeBtnPosition();
+	}	
+}
+
+
+function checkIdAndRemoveMargin2(){
+	if (document.querySelector('#addTaskRightContainer')){
+		document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop');
+		resetResizePageAndChangeBtnPosition();
+	}
+}
+
+
+
+
+
 function tabletViewAddMarginTopAssignList() {
 	if (assignListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100) {
 		document.getElementById('addTaskRightContainer').classList.add('addTaskRightContainerAddMarginTop');
 		resizePageAndChangeBtnPosition();
 	}
 	if (!assignListStatus || window.innerWidth < 762 || window.innerWidth > 1100) {
-		document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop');
-		resetResizePageAndChangeBtnPosition();
+		checkIdAndRemoveMargin2();
+		// if (document.querySelector('#addTaskRightContainer')){
+		// 	document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop');
+		// 	resetResizePageAndChangeBtnPosition();
+		// }
 	}
 	if (catListStatus && !assignListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100) {
 		resizePageAndChangeBtnPosition1();
@@ -156,8 +181,10 @@ function tabletViewAddTaskResize() {
 		btnPosition3();
 	}
 	if ((!assignListStatus && !catListStatus) || window.innerWidth < 762 || window.innerWidth > 1100) {
-		document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop1');
-		testResponsivNewHeight2();
+		if (document.querySelector('#addTaskRightContainer')){
+			document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop1');
+			testResponsivNewHeight2();
+		}
 	}
 }
 
