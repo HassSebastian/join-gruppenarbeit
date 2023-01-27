@@ -277,6 +277,10 @@
         order: 0;
     }
 
+    /* summary */
+    .welcome{
+        display: none;
+    }
 
 }
 
