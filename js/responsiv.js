@@ -12,13 +12,13 @@ window.onresize = function () {
 		// console.log('resize ', window.innerWidth);
 
 	}
-	if (window.innerWidth < 762 || window.innerWidth > 1100){
+	if (window.innerWidth < 762 || window.innerWidth > 1100) {
 		resetResponsivContainerHeight();
 	}
-	if(catListStatus && selectedMenuBtnId == 3){
+	if (catListStatus && selectedMenuBtnId == 3) {
 		enableDisableCatList();
 	}
-	if(assignListStatus && selectedMenuBtnId == 3){
+	if (assignListStatus && selectedMenuBtnId == 3) {
 		enableDisableAssignList();
 	}
 };
@@ -46,130 +46,157 @@ function myFunction(tabWidth) {
 
 	if (contentH && window.innerWidth >= 763 && tabWidth <= 1100) {
 		if (!mobilView) {
-            // enableDisableAssignList();
-			
+			// enableDisableAssignList();
+
 		}
 	} else {
 		if (!mobilView) {
-			
+
 		}
 	}
 }
 
 
-function tabletViewAddMarginTopCatList(){
-	if (catListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100){
+function tabletViewAddMarginTopCatList() {
+	if (catListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100) {
 		document.getElementById('addTaskRightContainer').classList.add('addMarginTop');
-		document.getElementById('testResponsiv').classList.add('testResponsivNewHeight');
-		// document.getElementById('addTaskBtnOuterContainer').style = 'top: 1420px !important;';
-		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue2');
-		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue');
-		document.getElementById('addTaskBtnOuterContainer').classList.add('addTaskBtnOuterContainerNewTopValue1');
+		resizePageAndChangeBtnPosition();
 	}
-	if (!catListStatus || window.innerWidth < 762 || window.innerWidth > 1100){
+	if (!catListStatus || window.innerWidth < 762 || window.innerWidth > 1100) {
 		document.getElementById('addTaskRightContainer').classList.remove('addMarginTop');
-		document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight');
-		document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight1');
-		// document.getElementById('addTaskBtnOuterContainer').style = 'top: 1345px !important;';
-		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue2');
-		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue1');
-		document.getElementById('addTaskBtnOuterContainer').classList.add('addTaskBtnOuterContainerNewTopValue');
+		resetResizePageAndChangeBtnPosition();
 	}
-	// if (window.innerWidth > 1100){
-	// 	document.getElementById('testResponsiv').style = 'height: 935px !important;';
-	// 	document.getElementById('addTaskBtnOuterContainer').style = 'top: 800px !important;';
-	// }
-	if (!catListStatus && assignListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100){
-		document.getElementById('addTaskRightContainer').classList.add('addMarginTop');
-		document.getElementById('testResponsiv').classList.add('testResponsivNewHeight');
-		// document.getElementById('addTaskBtnOuterContainer').style = 'top: 1420px !important;';
-		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue2');
-		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue');
-		document.getElementById('addTaskBtnOuterContainer').classList.add('addTaskBtnOuterContainerNewTopValue1');
+	if (!catListStatus && assignListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100) {
+		resizePageAndChangeBtnPosition1();
 	}
-
 	tabletViewAddTaskResize();
 }
 
 
-function tabletViewAddMarginTopAssignList(){
-	if (assignListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100){
+function tabletViewAddMarginTopAssignList() {
+	if (assignListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100) {
 		document.getElementById('addTaskRightContainer').classList.add('addTaskRightContainerAddMarginTop');
-		document.getElementById('testResponsiv').classList.add('testResponsivNewHeight');
-		// document.getElementById('addTaskBtnOuterContainer').style = 'top: 1420px !important;';
-		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue2');
-		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue');
-		document.getElementById('addTaskBtnOuterContainer').classList.add('addTaskBtnOuterContainerNewTopValue1');
+		resizePageAndChangeBtnPosition();
 	}
-	if (!assignListStatus || window.innerWidth < 762 || window.innerWidth > 1100){
+	if (!assignListStatus || window.innerWidth < 762 || window.innerWidth > 1100) {
 		document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop');
-		document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight');
-		document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight1');
-		// document.getElementById('addTaskBtnOuterContainer').style = 'top: 1345px !important;';
-		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue2');
-		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue1');
-		document.getElementById('addTaskBtnOuterContainer').classList.add('addTaskBtnOuterContainerNewTopValue');
+		resetResizePageAndChangeBtnPosition();
 	}
-	// if (window.innerWidth > 1100){
-	// 	document.getElementById('testResponsiv').style = 'height: 935px !important;';
-	// 	document.getElementById('addTaskBtnOuterContainer').style = 'top: 800px !important;';
-	// }
-	if (catListStatus && !assignListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100){
-		document.getElementById('addTaskRightContainer').classList.add('addMarginTop');
-		document.getElementById('testResponsiv').classList.add('testResponsivNewHeight');
-		// document.getElementById('addTaskBtnOuterContainer').style = 'top: 1420px !important;';
-		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue2');
-		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue');
-		document.getElementById('addTaskBtnOuterContainer').classList.add('addTaskBtnOuterContainerNewTopValue1');
+	if (catListStatus && !assignListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100) {
+		resizePageAndChangeBtnPosition1();
 	}
 	tabletViewAddMarginTopCatList();
 }
 
 
+function resizePageAndChangeBtnPosition() {
+	document.getElementById('testResponsiv').classList.add('testResponsivNewHeight');
+	btnPosition1();
+}
 
-function tabletViewAddTaskResize(){
-	if (assignListStatus && catListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100){
-		document.getElementById('addTaskRightContainer').classList.remove('addMarginTop');
-		document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop')
-		document.getElementById('addTaskRightContainer').classList.add('addTaskRightContainerAddMarginTop1');
-		document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight');
-		document.getElementById('testResponsiv').classList.add('testResponsivNewHeight1');
 
-		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue');
-		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue1');
-		// document.getElementById('addTaskBtnOuterContainer').style = 'top: 1495px !important;';
-		document.getElementById('addTaskBtnOuterContainer').classList.add('addTaskBtnOuterContainerNewTopValue2');
+function resetResizePageAndChangeBtnPosition() {
+	document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight');
+	document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight1');
+	btnPosition2();
+}
+
+
+function resizePageAndChangeBtnPosition1() {
+	document.getElementById('addTaskRightContainer').classList.add('addMarginTop');
+	document.getElementById('testResponsiv').classList.add('testResponsivNewHeight');
+	btnPosition1();
+}
+
+
+function btnPosition1() {
+	document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue2');
+	document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue');
+	document.getElementById('addTaskBtnOuterContainer').classList.add('addTaskBtnOuterContainerNewTopValue1');
+}
+
+
+function btnPosition2() {
+	document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue2');
+	document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue1');
+	document.getElementById('addTaskBtnOuterContainer').classList.add('addTaskBtnOuterContainerNewTopValue');
+}
+
+
+function btnPosition3() {
+	document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue');
+	document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue1');
+	document.getElementById('addTaskBtnOuterContainer').classList.add('addTaskBtnOuterContainerNewTopValue2');
+}
+
+
+function addTaskRightContainerNewHeight1() {
+	document.getElementById('addTaskRightContainer').classList.remove('addMarginTop');
+	document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop');
+	document.getElementById('addTaskRightContainer').classList.add('addTaskRightContainerAddMarginTop1');
+}
+
+
+function testResponsivNewHeight1(){
+	document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight');
+	document.getElementById('testResponsiv').classList.add('testResponsivNewHeight1');
+}
+
+
+function testResponsivNewHeight2(){
+	document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight');
+	document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight1');
+}
+
+
+function tabletViewAddTaskResize() {
+	if (assignListStatus && catListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100) {
+		addTaskRightContainerNewHeight1();
+		testResponsivNewHeight1();
+		btnPosition3();
 	}
-	if ((!assignListStatus && !catListStatus) ||  window.innerWidth < 762 || window.innerWidth > 1100){
+	if ((!assignListStatus && !catListStatus) || window.innerWidth < 762 || window.innerWidth > 1100) {
 		document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop1');
+		testResponsivNewHeight2();
+	}
+}
+
+
+function resetResponsivContainerHeight() {
+	resetResponsivContainerHeightPart1();
+	resetResponsivContainerHeightPart2();
+	resetResponsivContainerHeightPart3();
+}
+
+
+function resetResponsivContainerHeightPart1(){
+	if (document.querySelector('.addTaskRightContainerAddMarginTop1')) {
+		document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop1');
+	}
+	if (document.querySelector('.addMarginTop')) {
+		document.getElementById('addTaskRightContainer').classList.remove('addMarginTop');
+	}
+}
+
+
+function resetResponsivContainerHeightPart2(){
+	if (document.querySelector('.testResponsivNewHeight')) {
 		document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight');
+	}
+	if (document.querySelector('.testResponsivNewHeight1')) {
 		document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight1');
 	}
 }
 
 
-function resetResponsivContainerHeight(){
-	if(document.querySelector('.addTaskRightContainerAddMarginTop1')){
-		document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop1');
-	}
-	if(document.querySelector('.addMarginTop')){
-		document.getElementById('addTaskRightContainer').classList.remove('addMarginTop');
-	}
-
-	if(document.querySelector('.testResponsivNewHeight')){
-		document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight');
-	}
-	if(document.querySelector('.testResponsivNewHeight1')){
-		document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight1');
-	}
-	if(document.querySelector('.addTaskBtnOuterContainerNewTopValue')){
+function resetResponsivContainerHeightPart3(){
+	if (document.querySelector('.addTaskBtnOuterContainerNewTopValue')) {
 		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue');
 	}
-	if(document.querySelector('.addTaskBtnOuterContainerNewTopValue1')){
+	if (document.querySelector('.addTaskBtnOuterContainerNewTopValue1')) {
 		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue1');
 	}
-	if(document.querySelector('.addTaskBtnOuterContainerNewTopValue2')){
+	if (document.querySelector('.addTaskBtnOuterContainerNewTopValue2')) {
 		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue2');
 	}
-	
 }
