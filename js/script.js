@@ -158,7 +158,7 @@ function logOut() {
 function loadContributorsLetter() {
 	let colorIndex = allUsers[loggedUser[0]].colorIndex;
 	document.getElementById('contributorsLogoHeadder').style = `background:${colorUserIndex[colorIndex]}`;
-	document.getElementById('contributorsLogoHeadderLetters').innerHTML = `<p style='color:white'>${allUsers[loggedUser].firstSecondLetter}</p>`;
+	document.getElementById('contributorsLogoHeadderLetters').innerHTML = `<p style='color:white'>${allUsers[loggedUser[0]].firstSecondLetter}</p>`;
 }
 
 
