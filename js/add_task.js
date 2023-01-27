@@ -41,6 +41,7 @@ async function initAddTask() {
 	getInnerWidth();
 	taskForce = []; // Das muss noch hier rein oder in einer andere Datei!
 	addSubtaskMain();
+  addContactToTaskForceWithCheckBox(loggedInUserIndex);
 }
 
 function generateAddTaskHtml() {
