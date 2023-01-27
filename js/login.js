@@ -11,10 +11,12 @@ function forgotPassword() {
 }
 
 function guestLogIn() {
-	document.getElementById('inputEmailLogin').value = '';
-	document.getElementById('inputPasswordLogin').value = '';
+	const email = 'guest@web.de';
+	const password = '123456';
+	document.getElementById('inputEmailLogin').value = email;
+	document.getElementById('inputPasswordLogin').value = password;
 	localStorage.clear();
-	window.location.href = 'summary.html';
+	userLogin(email, password);
 }
 
 /**
