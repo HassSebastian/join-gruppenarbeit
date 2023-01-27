@@ -10,22 +10,25 @@
     <link rel="stylesheet" href="./styles/fonts.css">
     <script src="./js/mini_backend.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/mobile_login.js"></script>
     <script src="./js/login.js"></script>
     <script src="./js/login_tamplates.js"></script>
+    <script src="./js/signUp.js"></script>
+    <script src="./js/signUpTamplates.js"></script>
 
 
 </head>
 
-<body>
+<body onload="initLoginMob()">
 
     <div id="logIn">
-        <div class="notAJoinUser d-none">
+        <div class="notAJoinUser" id="notAJoinUserContainerMob">
             <span>Not a Join user?</span>
-            <div onclick="initSignIn()">Sign up</div>
+            <div onclick="notAJoinUserButtonMob()">Sign up</div>
         </div>
         <img src="../assets/img/join_logo_black.png" class="joinLogo">
         <form action="" onsubmit="checkCorrectInput() ;return false">
-            <div class="loginMasterContainer d-none">
+            <div class="loginMasterContainer" id="logInMasterContainerMob">
                 <div class="logInHeadlineContainer">
                     <span>Log in</span>
                     <div></div>
@@ -62,10 +65,9 @@
                         </div>
                         <span>Remember me</span>
                     </div>
-                    <span class="loginForgotPassword" onclick="forgotPassword()">Forgot my password</span>
+                    <span class="loginForgotPassword" onclick="showForgotPasswordMob()">Forgot my password</span>
                 </div>
                 <div class="logInButtonContainer">
-                    <!-- onclick function userLogin() add to button -->
                     <button class="logInButton">
                         <span>Log in</span>
                     </button>
@@ -78,7 +80,7 @@
 
         <!--signup-->
         <form action="" onsubmit="inputValueTest() ;return false">
-            <div class="signUpMasterContainer d-none">
+            <div class="signUpMasterContainer d-none" id="signInMasterContainerMob">
                 <div class="signUpHeadline">
                     <span>Sign up</span>
                     <div></div>
@@ -119,12 +121,12 @@
                 <button class="signupButtonContainer">
                     <span id="signUpButton">Sign up</span>
                 </button>
-                <div class="arrowContainer" onclick="backToLogIn()">
+                <div class="arrowContainer" onclick="backToLogInMob()">
                     <img src="./assets/img/back_logo.png">
                 </div>
             </div>
         </form>
-        <div class="contactSucc d-none" id="contactSucc">
+        <div class="contactSucc" id="contactSucc">
             <div class="contactSuccContainer">
                 <span>Contact succesfully created</span>
             </div>
@@ -132,7 +134,7 @@
 
         <!--forgotPW-->
         <form action="" onsubmit="sendMailButton() ;return false">
-            <div class="forgotMasterContainer d-none">
+            <div class="forgotMasterContainer d-none" id="forgotPWMasterContainerMob">
                 <div class="forgotPasswordHeadline">
                     <span>I forgot my password</span>
                     <div></div>
@@ -156,7 +158,7 @@
                         <span>Send me the email</span>
                     </button>
                 </div>
-                <div class="arrowContainer" onclick="back()">
+                <div class="arrowContainer" onclick="backToLogInMob()">
                     <img src="./assets/img/back_logo.png">
                 </div>
 
@@ -171,8 +173,8 @@
 
 
         <!--forgotReset-->
-        <form action="" onsubmit="inputForgotEmaiCheck() ;return false">
-            <div class="forgotResetMasterContainer">
+        <form action="" onsubmit="resetbuttonContainerMob() ;return false">
+            <div class="forgotResetMasterContainer d-none" id="resetPWMasterContainerMob">
                 <div class="forgotResetResetHeadline">
                     <span>Reset your password</span>
                     <div></div>
@@ -203,7 +205,7 @@
                         <span>Continue</span>
                     </button>
                 </div>
-                <div class="arrowContainer" onclick="back()">
+                <div class="arrowContainer" onclick="backToSignInMob()">
                     <img src="./assets/img/back_logo.png">
                 </div>
 

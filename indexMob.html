@@ -6,15 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./js/mini_backend.js"></script>
     <link rel="stylesheet" href="./styles/fonts.css">
-
-    <link rel="stylesheet" href="../styles/indexMob.css">
+    <link rel="stylesheet" href="./styles/indexMob.css">
+    <script src="./js/mini_backend.js"></script>
     <script src="./js/script.js"></script>
-
     <script src="./js/mobile_login.js"></script>
     <script src="./js/login.js"></script>
-    <script src="./js/login_tamplates.js"></script>
     <script src="./js/login_tamplates.js"></script>
     <script src="./js/signUp.js"></script>
     <script src="./js/signUpTamplates.js"></script>
@@ -131,7 +128,6 @@
                 </div>
                 <button class="signInButtonContainerMob">
                     <span id="signUpButton">Sign up</span>
-                    <span id="signUpButtonDone" class="d-none">Sign up Done</span>
                 </button>
                 <div class="arrowContainerMob" onclick="backToLogInMob()">
                     <img src="../assets/img/back_logo.png">
@@ -179,8 +175,8 @@
             </div>
         </div>
 
-
-        <div class="resetPWMasterContainerMob d-none" id="resetPWMasterContainerMob">
+        <form action="" onsubmit="resetbuttonContainerMob() ;return false">
+            <div class="resetPWMasterContainerMob d-none" id="resetPWMasterContainerMob">
             <headline>Reset your password</headline>
             <vector></vector>
             <description>Change your account password here.</description>
@@ -204,7 +200,7 @@
                     <span class="required" id="requiredConfirmPassword">This field is required</span>
                 </div>
             </div>
-            <button class="resetbuttonContainerMob" onclick="resetbuttonContainerMob()">
+            <button class="resetbuttonContainerMob">
                 <span>Continue</span>
             </button>
             <div class="arrowContainerMob" onclick="backToSignInMob()">
