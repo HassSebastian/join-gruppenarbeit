@@ -47,7 +47,19 @@ function myFunction(tabWidth) {
 }
 
 
-function addMargin(){
-    document.getElementById('addTaskRightContainer').style = 'margin-top = 40px !important;';
+function tabletViewAddMarginTop(){
+	let tabWidth = window.innerWidth;
+    document.getElementById('addTaskRightContainer').classList.add('addMarginTop');
+	if (catListStatus && tabWidth >= 762 && tabWidth <= 1100){
+		document.getElementById('addTaskRightContainer').classList.add('addMarginTop');
+	}else{
+		document.getElementById('addTaskRightContainer').classList.remove('addMarginTop');
+	}
+	if (assignListStatus && tabWidth >= 762 && tabWidth <= 1100){
+		document.getElementById('addTaskRightContainer').classList.add('addMarginTop');
+	}else{
+		document.getElementById('addTaskRightContainer').classList.remove('addMarginTop');
+	}
+
 }
 
