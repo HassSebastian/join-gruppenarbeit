@@ -3,10 +3,11 @@
 }
 
 .Frame_97 {
-    position: absolute;
-    width: 453px;
+    position: relative;
+    max-width: 453px;
     height: 935px;
-    left: 232px;
+    left: 0;
+    /* left: calc(32% - (453px / 2)); */
     top: 89px;
     background: #FFFFFF;
     box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
@@ -129,9 +130,10 @@
 }
 
 .better_with_a_team {
-    position: absolute;
-    top: 171px;
-    left: 743px;
+    position: relative;
+    top: -1170px;
+    left: 450px;
+    width: fit-content;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -193,7 +195,8 @@
     position: absolute;
     width: 193px;
     height: 53px;
-    left: 1195px;
+    /* left: 1195px; */
+    left: calc(90% - (193px / 2) - 40px);
     top: 904px;
     background: #2A3647;
     border: 1px solid #2A3647;
@@ -223,7 +226,7 @@
 
 .add_contact {
     position: relative;
-    top: -120px;
+    top: -1200px;
     left: 1210px;
     right: 0px;
     margin-left: auto;
@@ -247,9 +250,9 @@
 .showContact {
     position: relative;
     width: 461px;
-    height: 390px;
+    height: 370px;
     left: 1210px;
-    top: 326px;
+    top: -600px;
     transition: 500ms ease-in-out;
 }
 
@@ -869,4 +872,13 @@
     height: 61px;
     left: 737px;
     top: 470px;
+}
+
+@media(max-width: 1300px){
+    .Frame_97{
+        left: 0;
+    }
+    .better_with_a_team{
+        left: 453px;
+    }
 }
