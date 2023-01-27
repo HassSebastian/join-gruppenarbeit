@@ -82,12 +82,12 @@
         width: 100% !important;
     }
 
-    .toDoAreaHeader,
+    /* .toDoAreaHeader,
     .inProgressAreaHeader,
     .awaitingFeedbackAreaHeader,
     .doneAreaHeader {
         width: 21.74% !important;
-    }
+    } */
 
     .canbanBoard {
         left: 22% !important;
@@ -99,6 +99,29 @@
         /* left: calc(-4%) !important; */
         left: calc((100% - 1208px) / 2);
     }
+}
+
+@media screen and (max-width: 1400px) {
+    /* board */
+    .boardTaskCardOuterContainer{
+        left: 22px !important;
+    }
+
+    .boardTaskCardOuterContainer{
+        height: 640px !important;
+    }
+
+    .boardTaskCardOuterContainer{
+        width: 100% !important;
+    }
+
+    .toDoOuterContainer{
+        flex-direction: unset !important;
+        align-items: unset !important;
+        width: 86% !important;
+        flex-wrap: wrap;
+    }
+
 }
 
 @media screen and (max-width: 1300px) {
@@ -284,7 +307,26 @@
 
 }
 
-@media screen and (max-width: 1000px) {}
+@media screen and (max-width: 768px) {
+    /* board reset*/
+    .boardTaskCardOuterContainer{
+        left: 33px !important;
+    }
+
+    .boardTaskCardOuterContainer{
+        height: 550px !important;
+    }
+
+    .boardTaskCardOuterContainer{
+        width: 363px !important;
+    }
+
+    .toDoOuterContainer{
+        flex-direction: column !important;
+        width: 363px;
+        align-items: center;
+    }
+}
 
 
 

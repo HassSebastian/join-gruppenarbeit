@@ -5,13 +5,26 @@ function enableDisableSliderMenu() {
 }
 
 // responsiv AddTask Functions
-
+let boardResponsivView = false;
 window.onresize = function () {
-	if (window.innerWidth >= 768 && window.innerWidth <= 1110) {
-		// myFunction(window.innerWidth);
-		// console.log('resize ', window.innerWidth);
-
+	// responsiv Board Functions
+	if (window.innerWidth >= 768 && window.innerWidth <= 1400 && selectedMenuBtnId == 2) {
+		if (!boardResponsivView){
+			initBoardResponsivTablet();
+			boardResponsivView = true;
+		}
 	}
+
+	if (window.innerWidth <= 767 || window.innerWidth >= 1401 && selectedMenuBtnId == 2) {
+		if (boardResponsivView){
+			initBoard();
+			boardResponsivView = false;
+		}
+	}
+
+
+
+	// responsiv AddTask Functions
 	if (window.innerWidth < 768 || window.innerWidth > 1100) {
 		resetResponsivContainerHeight();
 	}
@@ -223,4 +236,113 @@ function resetResponsivContainerHeightPart3(){
 	if (document.querySelector('.addTaskBtnOuterContainerNewTopValue2')) {
 		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue2');
 	}
+}
+
+
+// Board
+
+async function initBoardResponsivTablet(){
+	// document.getElementById('stylesheetBoard').disabled = true;
+	await renderBoardResponsivTabletHtml()
+	await loadTask();
+    await createWorkStatusArrays();
+    await renderAllCardsMobil();
+}
+
+
+async function renderBoardResponsivTabletHtml(){
+	document.getElementById('content').innerHTML = '';
+	document.getElementById('content').innerHTML = /*html*/`
+		<div class='boardOverlay'>
+            <div class='boardHeadline'>
+                <span>Board</span>
+            </div>
+            <div class='inputOutContainer'>
+                <div class='inputContainer'>
+                    <div class='inputInContainer'>
+                        <div class='inputFontContainer'>
+                            <input type="text" id="searchField" required placeholder='Find Task' onfocus='startSearch(event)' autocomplete='off'>
+                        </div>
+                        <div class='vector'></div>
+                        <img src='./assets/img/search_logo.png'>
+                    </div>
+                </div>
+                <button class='addTaskButton' onclick='showAddTaskPopupWindow()'>
+                    <span>Add task</span>
+                    <div class='plusOutContainer'>
+                        <img src='./assets/img/plus_logo_white.png'>
+                    </div>
+                </button>
+            </div>
+        </div>
+		<!--  -->
+
+		<div class='boardTaskCardOuterContainer'>
+            <div class='toDoOuterContainer'>
+
+				<div>
+					<!-- toDo TaskCards -->
+					<div class='toDoHeadline'>
+						<span>To do</span>
+						<div class='headlinePlusBtn' onclick='startAddTaskOverlay()'>
+
+						</div>
+					</div>
+					
+					<div id='toDoDiv'>
+
+					</div>
+				</div>
+
+				<div>
+					<!-- In progress TaskCards-->
+					<div class='toDoHeadline'>
+						<span>In progress</span>
+						<div class='headlinePlusBtn' onclick='startAddTaskOverlay()'>
+
+						</div>
+					</div>
+					<div id='progressDiv'>
+
+					</div>
+				</div>
+
+				<div>
+					<!-- Awaiting Feedback TaskCards-->
+					<div class='toDoHeadline'>
+						<span>Awaiting Feedback</span>
+						<div class='headlinePlusBtn' onclick='startAddTaskOverlay()'>
+
+						</div>
+					</div>
+					<div id='awaitingDiv'>
+
+					</div>
+				</div>
+
+				<div>
+					<!-- Done TaskCards-->
+					<div class='toDoHeadline'>
+						<span>Done</span>
+						<div class='headlinePlusBtn' onclick='startAddTaskOverlay()'>
+
+						</div>
+					</div>
+					<div id='doneDiv'>
+
+					</div>
+				</div>
+
+            </div>
+        </div>
+
+        
+        <!-- Add Task Overlay -->
+        <div id='boardAddTask' class='boardAddTask d-none'>
+
+        </div>
+        <!-- Detail View Overlay -->
+        <div id='boardTaskDetail' class='boardTaskDetail d-none'>
+
+        </div>`;
 }

@@ -353,7 +353,7 @@ async function startAddTaskOverlay() {
     setFutureDatesOnlyForInputDueDate();
     // loadContributorsLetter();
     addSubtaskMain();
-    getInnerWidth();
+    // getInnerWidth();
     document.getElementById('boardAddTask').classList.remove('d-none');
     // document.getElementById('bottomMenu').classList.add('d-none');
     taskForce = [];
