@@ -75,10 +75,10 @@ function tabletViewAddMarginTopCatList(){
 		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue1');
 		document.getElementById('addTaskBtnOuterContainer').classList.add('addTaskBtnOuterContainerNewTopValue');
 	}
-	if (window.innerWidth > 1100){
-		document.getElementById('testResponsiv').style = 'height: 935px !important;';
-		document.getElementById('addTaskBtnOuterContainer').style = 'top: 800px !important;';
-	}
+	// if (window.innerWidth > 1100){
+	// 	document.getElementById('testResponsiv').style = 'height: 935px !important;';
+	// 	document.getElementById('addTaskBtnOuterContainer').style = 'top: 800px !important;';
+	// }
 	if (!catListStatus && assignListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100){
 		document.getElementById('addTaskRightContainer').classList.add('addMarginTop');
 		document.getElementById('testResponsiv').classList.add('testResponsivNewHeight');
@@ -110,10 +110,10 @@ function tabletViewAddMarginTopAssignList(){
 		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue1');
 		document.getElementById('addTaskBtnOuterContainer').classList.add('addTaskBtnOuterContainerNewTopValue');
 	}
-	if (window.innerWidth > 1100){
-		document.getElementById('testResponsiv').style = 'height: 935px !important;';
-		document.getElementById('addTaskBtnOuterContainer').style = 'top: 800px !important;';
-	}
+	// if (window.innerWidth > 1100){
+	// 	document.getElementById('testResponsiv').style = 'height: 935px !important;';
+	// 	document.getElementById('addTaskBtnOuterContainer').style = 'top: 800px !important;';
+	// }
 	if (catListStatus && !assignListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100){
 		document.getElementById('addTaskRightContainer').classList.add('addMarginTop');
 		document.getElementById('testResponsiv').classList.add('testResponsivNewHeight');
