@@ -38,7 +38,7 @@ async function initAddTask() {
 	renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
 	setFutureDatesOnlyForInputDueDate();
 	loadContributorsLetter();
-	getInnerWidth();
+	// getInnerWidth();
 	taskForce = []; // Das muss noch hier rein oder in einer andere Datei!
 	addSubtaskMain();
   addContactToTaskForceWithCheckBox(loggedInUserIndex);
