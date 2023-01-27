@@ -92,9 +92,6 @@ function checkIdAndRemoveMargin2(){
 }
 
 
-
-
-
 function tabletViewAddMarginTopAssignList() {
 	if (assignListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100) {
 		document.getElementById('addTaskRightContainer').classList.add('addTaskRightContainerAddMarginTop');
