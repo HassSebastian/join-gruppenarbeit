@@ -382,17 +382,18 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 35px 0px;
-    gap: 35px;
+    gap: 5px;
     isolation: isolate;
     position: absolute;
     width: 652px;
-    height: 559px;
+    height: 510px;
     /* left: 394px; */
     left: calc(50% - (652px / 2));
     top: 274px;
     background: #FFFFFF;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
+    overflow: hidden;
 }
 
 .signUpHeadline {
@@ -436,6 +437,8 @@ body {
     order: 1;
     flex-grow: 0;
     z-index: 1;
+    top: -30px;
+    position: relative;
 }
 
 .signupOutContainer {
@@ -580,17 +583,17 @@ body {
     align-items: center;
     padding: 0px;
     position: relative;
-    top: 1030px;
-    /* left: 558px; */
-    left: calc(50% - (326px / 2));
+    top: 460px;
+    left: calc(50% - (647px / 2));
     width: 326px;
     height: 74px;
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
     transition: 500ms ease-in-out;
+    z-index: 2;
 }
 
 .contactSuccSlide {
-    transform: translateY(-497px);
+    transform: translateY(-355px);
 }
 
 .contactSuccContainer {
@@ -636,7 +639,8 @@ body {
     width: 652px;
     height: 462px;
     left: calc(50% - (652px/2) - 30px);
-    top: calc(50% - 462px/2 - 0.5px);
+    top: 274px;
+    /* top: calc(50% - 462px/2 - 0.5px); */
     background: #FFFFFF;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
