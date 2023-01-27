@@ -7,12 +7,12 @@ function enableDisableSliderMenu() {
 // responsiv AddTask Functions
 
 window.onresize = function () {
-	if (window.innerWidth >= 762 && window.innerWidth <= 1110) {
+	if (window.innerWidth >= 768 && window.innerWidth <= 1110) {
 		// myFunction(window.innerWidth);
 		// console.log('resize ', window.innerWidth);
 
 	}
-	if (window.innerWidth < 762 || window.innerWidth > 1100) {
+	if (window.innerWidth < 768 || window.innerWidth > 1100) {
 		resetResponsivContainerHeight();
 	}
 	if (catListStatus && selectedMenuBtnId == 3) {
@@ -33,7 +33,7 @@ window.onresize = function () {
 
 // function getInnerWidth() {
 // 	let tabWidth = window.innerWidth;
-// 	if (tabWidth >= 762 && tabWidth <= 1100) {
+// 	if (tabWidth >= 768 && tabWidth <= 1100) {
 // 		myFunction(tabWidth);
 // 		console.log('get Inner Width', window.innerWidth);
 // 	}
@@ -58,18 +58,18 @@ function myFunction(tabWidth) {
 
 
 function tabletViewAddMarginTopCatList() {
-	if (catListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100) {
+	if (catListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100) {
 		document.getElementById('addTaskRightContainer').classList.add('addMarginTop');
 		resizePageAndChangeBtnPosition();
 	}
-	if (!catListStatus || window.innerWidth < 762 || window.innerWidth > 1100) {
+	if (!catListStatus || window.innerWidth < 768 || window.innerWidth > 1100) {
 		checkIdAndRemoveMargin();
 		// if (document.querySelector('#addTaskRightContainer')){
 		// 	document.getElementById('addTaskRightContainer').classList.remove('addMarginTop');
 		// 	resetResizePageAndChangeBtnPosition();
 		// }	
 	}
-	if (!catListStatus && assignListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100) {
+	if (!catListStatus && assignListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100) {
 		resizePageAndChangeBtnPosition1();
 	}
 	tabletViewAddTaskResize();
@@ -93,18 +93,18 @@ function checkIdAndRemoveMargin2(){
 
 
 function tabletViewAddMarginTopAssignList() {
-	if (assignListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100) {
+	if (assignListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100) {
 		document.getElementById('addTaskRightContainer').classList.add('addTaskRightContainerAddMarginTop');
 		resizePageAndChangeBtnPosition();
 	}
-	if (!assignListStatus || window.innerWidth < 762 || window.innerWidth > 1100) {
+	if (!assignListStatus || window.innerWidth < 768 || window.innerWidth > 1100) {
 		checkIdAndRemoveMargin2();
 		// if (document.querySelector('#addTaskRightContainer')){
 		// 	document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop');
 		// 	resetResizePageAndChangeBtnPosition();
 		// }
 	}
-	if (catListStatus && !assignListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100) {
+	if (catListStatus && !assignListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100) {
 		resizePageAndChangeBtnPosition1();
 	}
 	tabletViewAddMarginTopCatList();
@@ -172,12 +172,12 @@ function testResponsivNewHeight2(){
 
 
 function tabletViewAddTaskResize() {
-	if (assignListStatus && catListStatus && window.innerWidth >= 762 && window.innerWidth <= 1100) {
+	if (assignListStatus && catListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100) {
 		addTaskRightContainerNewHeight1();
 		testResponsivNewHeight1();
 		btnPosition3();
 	}
-	if ((!assignListStatus && !catListStatus) || window.innerWidth < 762 || window.innerWidth > 1100) {
+	if ((!assignListStatus && !catListStatus) || window.innerWidth < 768 || window.innerWidth > 1100) {
 		if (document.querySelector('#addTaskRightContainer')){
 			document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop1');
 			testResponsivNewHeight2();

@@ -143,6 +143,10 @@
         z-index: 0 !important;
     }
 
+    .addTaskAssignList li{
+        width: 100% !important;
+    }
+
     .addTaskCatList{
         z-index: 0 !important;
     }
@@ -172,11 +176,6 @@
     .addTaskBtnOuterContainerNewTopValue2{
         top: 1495px !important;
     }
-
-
-
-
-
 
     .addTaskRightContainer {
         left: 123px !important;
