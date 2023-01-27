@@ -47,7 +47,7 @@ async function initAddTask() {
 function generateAddTaskHtml() {
 	return /*html*/ `
 	<div onclick="fillInGuestTask()" class='contentHeight' id='contentHeight'>
-		<div class='testResponsiv'>
+		<div class='testResponsiv' id='testResponsiv'>
 			<div class="addTaskHeadlineDiv">
 				<h2 class="addTHeadline">Add Task</h2>
 			</div>
