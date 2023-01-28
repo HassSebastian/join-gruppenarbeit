@@ -10,12 +10,12 @@ function renderContentHTML(){
             <div class="Frame_97">
                 <div class="Contact_list" id="Contact_list"></div>
             </div>
-            <div class="showContact" id="showContact"></div>
-            <div class="better_with_a_team">
-                <h1>Contacts</h1>
-                <div class="vector_5"></div>
-                <span>Better with a team</span>
-            </div>
+                <div class="showContact" id="showContact"></div>
+                <div class="better_with_a_team">
+                    <h1>Contacts</h1>
+                    <div class="vector_5"></div>
+                    <span>Better with a team</span>
+                </div>
             <div class="new_contact" onclick="openNewContact()">
                 <span>New contact</span>
                 <img src="assets/img/add_contact_icon.png" alt="">
@@ -247,7 +247,7 @@ function openNewContactHTML(){
  */
 function showContactHTML(name, email, phone, letter, color, i){
     return /*html*/`
-        <div>                       
+        <div class="showContactDetail">                       
             <div class="show_contact_ellipse_5" style='background:${colorIndex[color]}' onclick="deleteContactQuestion(${i})">
                 <span id="deleteContactQuestion">${letter}</span>
             </div>

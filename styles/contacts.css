@@ -247,6 +247,7 @@
     transform: translateX(-1210px);
 }
 
+
 .showContact {
     position: relative;
     width: 461px;
@@ -879,6 +880,72 @@
         left: 0;
     }
     .better_with_a_team{
-        left: 453px;
+        left: 500px;
+    }
+}
+
+@media(max-width: 1100px){
+    .showContact{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        left: 1111px;
+    }
+    .better_with_a_team{
+       flex-direction: column;
+    }
+    .vector_5{
+        height: 0;
+        width: 150px;
+    }
+    .showContactDetail{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .show_contact_ellipse_5{
+        position: relative;
+    }
+    .showContact_Name_addTask{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .showContact_Name_addTask h1{
+        margin-left: 0;
+        text-align: center;
+        justify-content: center;
+    } 
+    .showContact_Name_addTask span{
+        margin-left: 0;
+    }
+    .contact_information_edit{
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+    .contact_information{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding-bottom: 32px;
+    }
+    .contact_information_edit h2{
+        margin: 0;
+    }
+    .contact_information{
+        width: 40px;
+    }
+    .contactEmailAndPhone{
+        width: 40px;
+        height: 50px;
+    }
+    .contactEmail{
+        justify-content: center;
+        order: 0;
+    }
+    .contactPhone{
+        width: auto;
     }
 }
