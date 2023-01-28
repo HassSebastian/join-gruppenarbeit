@@ -875,6 +875,63 @@
     top: 470px;
 }
 
+@media(max-width: 1440px){
+    .add_contact{
+        width: 1000px;
+    }
+    .closeLogo{
+        left: 950px;
+    }
+    .name_logo_inContainer{
+        left: 430px;
+    }
+    .buttonOutContainer{
+        left: 820px;
+    }
+    .contactContainer{
+        left: 560px;
+    }
+    .buttonNewOutContainer{
+        left: 610px;
+    }
+}
+
+@media(max-width: 1100px){
+    .blackSite{
+        height: 350px;
+        top: -156px;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 30px;
+    }
+    .add_contact{
+        width: 463px;
+    }
+    .closeLogo{
+        left: 420px;
+        top: 210px;
+    }
+    .name_logo_inContainer{
+        left: 160px;
+        top: 150px;
+    }
+    .buttonOutContainer{
+        left: 290px;
+        top: 500px;
+    }
+    .contactContainer{
+        left: 20px;
+        top: 290px;
+    }
+    .nameOutContainer{
+        gap: 20px;
+    }
+    .buttonNewOutContainer{
+        left: 70px;
+        top: 510px;
+    }
+}
+
+
 @media(max-width: 1300px){
     .Frame_97{
         left: 0;

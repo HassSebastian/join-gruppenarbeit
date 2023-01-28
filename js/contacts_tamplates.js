@@ -188,46 +188,48 @@ function openNewContactHTML(){
                     </div>
                 </div>
             </div>
-            <img onclick="closeNewContact()" class="closeLogo" src="./assets/img/close_logo.png">
-            <div class="name_logo_inContainer">
-                <div class="elypse">
-                    <img src="./assets/img/nameLogoOverlay.png">
-                </div>
-            </div>
-            <div class="buttonNewOutContainer">
-                <div class="buttonInContainer">
-                    <button onclick="closeNewContact()" class="cancel" onmouseover="cancelOn()" onmouseout="cancelOff()">
-                        <span>Cancel</span>
-                        <img id="cancelImg" width="13px" height="13px" src="./assets/img/close_logo.png">
-                    </button>
-                    <button onclick="addContact()" class="createContact">
-                        <span>Create contact</span>
-                        <img src="./assets/img/okHaeckchen.png">
-                    </button>
-                </div>
-            </div>
-            <div class="contactContainer">
-                <div class="nameOutContainer">
-                    <div class="nameContainer">
-                        <div class="inputEditContainer">
-                            <input class="inputName" id="newUserName" type="text" placeholder="Name">
-                            <img src="./assets/img/name_logo.png" alt="">
-                        </div>
-                        <span class="required d-none" id="newContentNameRequired">This field is required</span>
+            <div class="whiteSite">
+                <img onclick="closeNewContact()" class="closeLogo" src="./assets/img/close_logo.png">
+                <div class="name_logo_inContainer">
+                    <div class="elypse">
+                        <img src="./assets/img/nameLogoOverlay.png">
                     </div>
-                    <div class="nameContainer">
-                        <div class="inputEditContainer">
-                            <input class="inputName" id="newUserEmail" type="email" placeholder="Email">
-                            <img src="./assets/img/email_Logo.png" alt="">
-                        </div>
-                        <span class="required d-none" id="newContentEmailRequired">This field is required</span>
+                </div>
+                <div class="buttonNewOutContainer">
+                    <div class="buttonInContainer">
+                        <button onclick="closeNewContact()" class="cancel" onmouseover="cancelOn()" onmouseout="cancelOff()">
+                            <span>Cancel</span>
+                            <img id="cancelImg" width="13px" height="13px" src="./assets/img/close_logo.png">
+                        </button>
+                        <button onclick="addContact()" class="createContact">
+                            <span>Create contact</span>
+                            <img src="./assets/img/okHaeckchen.png">
+                        </button>
                     </div>
-                    <div class="nameContainer">
-                        <div class="inputEditContainer">
-                            <input class="inputName" id="newUserPhone" type="number" placeholder="Phone">
-                            <img src="./assets/img/phoneLogo.png" alt="">
+                </div>
+                <div class="contactContainer">
+                    <div class="nameOutContainer">
+                        <div class="nameContainer">
+                            <div class="inputEditContainer">
+                                <input class="inputName" id="newUserName" type="text" placeholder="Name">
+                                <img src="./assets/img/name_logo.png" alt="">
+                            </div>
+                            <span class="required d-none" id="newContentNameRequired">This field is required</span>
                         </div>
-                        <span class="required d-none" id="newContentPhoneRequired">This field is required</span>
+                        <div class="nameContainer">
+                            <div class="inputEditContainer">
+                                <input class="inputName" id="newUserEmail" type="email" placeholder="Email">
+                                <img src="./assets/img/email_Logo.png" alt="">
+                            </div>
+                            <span class="required d-none" id="newContentEmailRequired">This field is required</span>
+                        </div>
+                        <div class="nameContainer">
+                            <div class="inputEditContainer">
+                                <input class="inputName" id="newUserPhone" type="number" placeholder="Phone">
+                                <img src="./assets/img/phoneLogo.png" alt="">
+                            </div>
+                            <span class="required d-none" id="newContentPhoneRequired">This field is required</span>
+                        </div>
                     </div>
                 </div>
             </div>
