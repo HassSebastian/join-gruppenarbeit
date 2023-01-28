@@ -1,50 +1,28 @@
+let boardResponsivView = false;
+
+
 // responsiv Slider menu functions
 function enableDisableSliderMenu() {
 	let sliderMenu = document.querySelector('.sliderMenu');
 	sliderMenu.classList.toggle('showSliderMenu');
 }
 
-// responsiv AddTask Functions
-let boardResponsivView = false;
+
+// general Functions
 window.onresize = function () {
-	// responsiv Board Functions
-	if (window.innerWidth >= 768 && window.innerWidth <= 1400 && selectedMenuBtnId == 2) {
-		if (!boardResponsivView){
-			document.getElementById('stylesheetBoardMobil').disabled = false;
-			// document.getElementById('stylsheetAddTaskMobil').disabled = false;
-			// document.getElementById('stylesheetAddTask').disabled = true;
-			initBoardResponsivTablet();
-			boardResponsivView = true;
-		}
-	}
-
-	if (window.innerWidth <= 767 || window.innerWidth >= 1401 && selectedMenuBtnId == 2) {
-		if (boardResponsivView && selectedMenuBtnId == 2){
-			// document.getElementById('stylesheetBoardMobil').disabled = true;
-			
-			initBoard();
-			boardResponsivView = false;
-		}
-		if (!boardResponsivView){
-			document.getElementById('stylesheetBoardMobil').disabled = true;
-			document.getElementById('stylesheetAddTask').disabled = false;
-			// document.getElementById('stylsheetAddTaskMobil').disabled = true;
-		}
-	}
-
-
-
-	// responsiv AddTask Functions
-	if (window.innerWidth < 768 || window.innerWidth > 1100) {
-		resetResponsivContainerHeight();
-	}
-	if (catListStatus && selectedMenuBtnId == 3) {
-		enableDisableCatList();
-	}
-	if (assignListStatus && selectedMenuBtnId == 3) {
-		enableDisableAssignList();
-	}
+	rezizeCallRelatedBoardFunctions();
+	resizeCallRelatedAddTaskFunctions();
 };
+
+
+function getInnerWidth() {
+	let tabWidth = window.innerWidth;
+	getInnerWidthBoardRelatedFunctions(tabWidth);
+}
+
+
+
+
 
 // window.onload = function () {
 // 	let tabWidth = window.innerWidth;
@@ -54,22 +32,7 @@ window.onresize = function () {
 // 	}
 // };
 
-function getInnerWidth() {
-	let tabWidth = window.innerWidth;
-	if (tabWidth >= 1401 || tabWidth < 769) {
-		document.getElementById('stylesheetBoardMobil').disabled = true;
-		// document.getElementById('stylesheetAddTask').disabled = false;
-		// document.getElementById('stylsheetAddTaskMobil').disabled = true;
-		// document.getElementById('stylsheetAddTaskMobil').disabled = true;
-	}
-	if (selectedMenuBtnId == 2 && tabWidth > 768 && tabWidth < 1401){
-		boardResponsivView = true;
-		document.getElementById('stylesheetBoardMobil').disabled = false;
-		// document.getElementById('stylesheetAddTask').disabled = true;
-		// document.getElementById('stylsheetAddTaskMobil').disabled = false;
-		initBoardResponsivTablet();
-	}
-}
+
 
 // function myFunction(tabWidth) {
 // 	let contentH = document.getElementById('contentHeight');
@@ -89,6 +52,20 @@ function getInnerWidth() {
 // }
 
 
+// Add Task Responsiv Functions
+function resizeCallRelatedAddTaskFunctions(){
+	if (window.innerWidth < 768 || window.innerWidth > 1100) {
+		resetResponsivContainerHeight();
+	}
+	if (catListStatus && selectedMenuBtnId == 3) {
+		enableDisableCatList();
+	}
+	if (assignListStatus && selectedMenuBtnId == 3) {
+		enableDisableAssignList();
+	}	
+}
+
+
 function tabletViewAddMarginTopCatList() {
 	if (catListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100) {
 		document.getElementById('addTaskRightContainer').classList.add('addMarginTop');
@@ -96,10 +73,6 @@ function tabletViewAddMarginTopCatList() {
 	}
 	if (!catListStatus || window.innerWidth < 768 || window.innerWidth > 1100) {
 		checkIdAndRemoveMargin();
-		// if (document.querySelector('#addTaskRightContainer')){
-		// 	document.getElementById('addTaskRightContainer').classList.remove('addMarginTop');
-		// 	resetResizePageAndChangeBtnPosition();
-		// }	
 	}
 	if (!catListStatus && assignListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100) {
 		resizePageAndChangeBtnPosition1();
@@ -131,10 +104,6 @@ function tabletViewAddMarginTopAssignList() {
 	}
 	if (!assignListStatus || window.innerWidth < 768 || window.innerWidth > 1100) {
 		checkIdAndRemoveMargin2();
-		// if (document.querySelector('#addTaskRightContainer')){
-		// 	document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop');
-		// 	resetResizePageAndChangeBtnPosition();
-		// }
 	}
 	if (catListStatus && !assignListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100) {
 		resizePageAndChangeBtnPosition1();
@@ -259,6 +228,51 @@ function resetResponsivContainerHeightPart3(){
 
 
 // Board
+
+function rezizeCallRelatedBoardFunctions(){
+	// responsiv Board Functions
+	if (window.innerWidth >= 768 && window.innerWidth <= 1400 && selectedMenuBtnId == 2) {
+		if (!boardResponsivView){
+			document.getElementById('stylesheetBoardMobil').disabled = false;
+			// document.getElementById('stylsheetAddTaskMobil').disabled = false;
+			// document.getElementById('stylesheetAddTask').disabled = true;
+			initBoardResponsivTablet();
+			boardResponsivView = true;
+		}
+	}
+
+	if (window.innerWidth <= 767 || window.innerWidth >= 1401 && selectedMenuBtnId == 2) {
+		if (boardResponsivView && selectedMenuBtnId == 2){
+			// document.getElementById('stylesheetBoardMobil').disabled = true;
+			
+			initBoard();
+			boardResponsivView = false;
+		}
+		if (!boardResponsivView){
+			document.getElementById('stylesheetBoardMobil').disabled = true;
+			document.getElementById('stylesheetAddTask').disabled = false;
+			// document.getElementById('stylsheetAddTaskMobil').disabled = true;
+		}
+	}
+}
+
+
+function getInnerWidthBoardRelatedFunctions(tabWidth){
+	if (tabWidth >= 1401 || tabWidth < 769) {
+		document.getElementById('stylesheetBoardMobil').disabled = true;
+		// document.getElementById('stylesheetAddTask').disabled = false;
+		// document.getElementById('stylsheetAddTaskMobil').disabled = true;
+		// document.getElementById('stylsheetAddTaskMobil').disabled = true;
+	}
+	if (selectedMenuBtnId == 2 && tabWidth > 768 && tabWidth < 1401){
+		boardResponsivView = true;
+		document.getElementById('stylesheetBoardMobil').disabled = false;
+		// document.getElementById('stylesheetAddTask').disabled = true;
+		// document.getElementById('stylsheetAddTaskMobil').disabled = false;
+		initBoardResponsivTablet();
+	}
+}
+
 
 async function initBoardResponsivTablet(){
 	// document.getElementById('stylesheetBoard').disabled = true;
