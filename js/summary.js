@@ -28,6 +28,7 @@ async function initSummary() {
 	showDate();
 	showTime();
 	loadContributorsLetter();
+	// getInnerWidth();
 }
 
 function resetCounters() {

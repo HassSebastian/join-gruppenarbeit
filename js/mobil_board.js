@@ -716,7 +716,7 @@ async function openEditTaskCardMobil(taskIndex) {
     renderLoggedUserInAssignDrobDownMenuIntoYou();
     await renderContactsInAssignDropDownMenu();
     await renderEditTaskCardInputFieldsMobil(taskIndex);
-    boardEditTaskCardAssignPreseselction(taskIndex);
+    boardEditTaskCardAssignPreseselction(taskIndex);   
 }
 
 
