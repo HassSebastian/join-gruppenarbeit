@@ -24,6 +24,7 @@ async function initBoard() {
 	// setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	// await includeHTML();
 	document.getElementById('stylsheetAddTaskMobil').disabled = true;
+	document.getElementById('stylesheetAddTask').disabled = false;
 	await renderBoard();
 	// selectedMenuBtnId = 0;
 	selectedMenuButton(2);

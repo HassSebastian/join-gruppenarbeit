@@ -710,6 +710,7 @@ function taskCardAllowMove(taskIndex){
 async function openEditTaskCardMobil(taskIndex) {
     if (boardResponsivView){
         document.getElementById('stylsheetAddTaskMobil').disabled = false;
+        document.getElementById('stylesheetAddTask').disabled = true;
     }
     resetAssignToList();
     // resetCheckValueAllUsers();
@@ -899,9 +900,9 @@ async function getTaskChangesMobil(taskIndex) {
 
 async function closeSequenceEditTaskCard(){
     closeBoardMobilDetailOverlay();
-    
     if (boardResponsivView){
         document.getElementById('stylsheetAddTaskMobil').disabled = true;
+        document.getElementById('stylesheetAddTask').disabled = false;
         initBoardResponsivTablet()
     }else{
         await renderMobileBoardHtml();

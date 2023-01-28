@@ -92,13 +92,13 @@ body {
 /*********/
 /*NAV-BAR*/
 /*********/
-nav {
+/* nav {
     position: absolute;
     width: 428px;
     height: 80px;
     left: 0px;
     top: 846px;
-}
+} */
 
 /* .navMasterContainerMob {
     display: flex;

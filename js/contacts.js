@@ -10,6 +10,7 @@ let colorIndex = ['#02CF2F', '#EE00D6', '#0190E0', '#FF7200', '#FF2500', '#AF161
 async function initContacts() {
     // await includeHTML();
     document.getElementById('stylsheetAddTaskMobil').disabled = true;
+    document.getElementById('stylesheetAddTask').disabled = false;
     await loadTask();
     await renderContent();
     selectedMenuButton(4);
