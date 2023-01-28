@@ -12,6 +12,7 @@ function enableDisableSliderMenu() {
 window.onresize = function () {
 	rezizeCallRelatedBoardFunctions();
 	resizeCallRelatedAddTaskFunctions();
+	switchOverToMobilPhoneView();
 };
 
 
@@ -22,7 +23,12 @@ function getInnerWidth() {
 
 
 function switchOverToMobilPhoneView(){
-	window.location.replace("./summary_mobile.html");
+	if (window.innerWidth <= 768){
+		window.location.replace("./summary_mobile.html");
+	}
+	if (!document.querySelector('.content') && window.innerWidth >768){
+		window.location.replace("./summary.html");
+	}
 }
 
 
