@@ -1616,3 +1616,31 @@ transform: translateX(-1290px);
     top: 578px;
     left: 101px;
 }
+
+
+
+@media(max-width: 1300px){
+    .boardAddTaskPopupOverlay{
+        width: 560px !important;
+        overflow: hidden;
+        overflow: scroll;
+    }
+    .close_logo_edit_task{
+        left: 500px;
+    }
+    .boardAddTaskDividerBoard{
+        display: none;
+    }
+    .boardAddTaskRightContainer{
+        left: 0;
+        top: 560px;
+    }
+    .boardAddTaskBtnOuterContainer{
+        left: 158px;
+        top: 1160px;
+    }
+    .boardtaskAddedToBoard{
+        left: 130px;
+        top: 1270px
+    }
+}
