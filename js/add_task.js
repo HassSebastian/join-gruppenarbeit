@@ -27,6 +27,7 @@ let coworkersToAssignTo = [];
 async function initAddTask() {
 	// setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	// await includeHTML();
+	document.getElementById('stylsheetAddTaskMobil').disabled = true;
 	await renderAddTask();
 	await loadExitingCategories();
 	renderCategoryList();

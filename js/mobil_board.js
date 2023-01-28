@@ -708,6 +708,9 @@ function taskCardAllowMove(taskIndex){
 // edit function
 
 async function openEditTaskCardMobil(taskIndex) {
+    if (boardResponsivView){
+        document.getElementById('stylsheetAddTaskMobil').disabled = false;
+    }
     resetAssignToList();
     // resetCheckValueAllUsers();
     coworkersToAssignTo = transferallUserData();
@@ -890,15 +893,21 @@ async function getTaskChangesMobil(taskIndex) {
     await saveTask();
     showAddDiv();
     setTimeout(closeSequenceEditTaskCard, 1200); 
-    checkStatusToFalse();  
+    checkStatusToFalse(); 
 }
 
 
 async function closeSequenceEditTaskCard(){
     closeBoardMobilDetailOverlay();
-    await renderMobileBoardHtml();
-    await createWorkStatusArrays();
-    renderAllCardsMobil();
+    
+    if (boardResponsivView){
+        document.getElementById('stylsheetAddTaskMobil').disabled = true;
+        initBoardResponsivTablet()
+    }else{
+        await renderMobileBoardHtml();
+        await createWorkStatusArrays();
+        renderAllCardsMobil();
+    }
 }
 
 

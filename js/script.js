@@ -45,6 +45,7 @@ let includeAttribute = 'w3-include-html';
 
 async function init() {
 	await includeHTML();
+	document.getElementById('stylesheetBoardMobil').disabled = true;
 	// setURL('https://developerakademie.net/smallest_backend_ever');
 	// selectedMenuButton(1);
 	initSummary();

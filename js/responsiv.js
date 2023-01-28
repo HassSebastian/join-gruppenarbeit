@@ -22,8 +22,10 @@ function getInnerWidth() {
 }
 
 
+
 function switchOverToMobilPhoneView(){
 	if (window.innerWidth <= 768){
+		let setMenu = selectedMenuBtnId;
 		window.location.replace("./summary_mobile.html");
 	}
 	if (!document.querySelector('.content') && window.innerWidth >768){

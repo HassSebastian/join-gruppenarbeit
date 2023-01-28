@@ -16,6 +16,7 @@ let allYourDoneTasks = [];
 let guestLoggedIn = false;
 
 async function initSummary() {
+	document.getElementById('stylsheetAddTaskMobil').disabled = true;
 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	await loadTask();
 	resetCounters();
