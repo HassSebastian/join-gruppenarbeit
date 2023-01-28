@@ -1,4 +1,4 @@
-.addTaskRightContainerAddMarginTop{
+/* .addTaskRightContainerAddMarginTop{
     margin-top: 75px;
 }
 
@@ -12,7 +12,49 @@
 
 .testResponsivNewHeight1{
     height: 1563px !important;
+} */
+
+/* slider menu */
+.sliderMenu {
+    display: none;
+    height: 1024px;
+    width: 302px;
+    color: #CDCDCD;
+    z-index: 1;
+    position: fixed;
+    left: -232px;
+    align-items: center;
+    transition: 100ms ease-in-out;
 }
+
+.showSliderMenu {
+    transition: 100ms ease-in-out;
+    transform: translateX(232px);
+}
+
+.menuContainer {
+    height: 935px;
+    width: 232px;
+    background-color: #2A3647;
+    color: #CDCDCD;
+    margin-top: 89px;
+}
+
+.menuButton img {
+    height: 50px;
+    background: #2A3647;
+    border-radius: 0% 50% 50% 0%;
+    padding: 10px;
+}
+
+.menuButton img:hover {
+    cursor: pointer;
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: 100ms ease-in-out;
+}
+
+/* slider menu end */
 
 
 @media screen and (max-width: 1500px) {
@@ -111,23 +153,23 @@
         gap: 202px !important;
     }
 
-    .toDoHeadline{
+    .toDoHeadline {
         width: 401px !important;
     }
-    
-    .boardTaskCardOuterContainer{
+
+    .boardTaskCardOuterContainer {
         left: 22px !important;
     }
 
-    .boardTaskCardOuterContainer{
+    .boardTaskCardOuterContainer {
         height: 640px !important;
     }
 
-    .boardTaskCardOuterContainer{
+    .boardTaskCardOuterContainer {
         width: 100% !important;
     }
 
-    .toDoOuterContainer{
+    .toDoOuterContainer {
         flex-direction: unset !important;
         align-items: unset !important;
         width: 86% !important;
@@ -152,7 +194,7 @@
         align-items: center;
     }
 
-    .moveBtnMobil{
+    .moveBtnMobil {
         left: -18px !important;
         top: 635px !important;
     }
@@ -185,27 +227,42 @@
     }
 
     /* addTask */
-
-
+    
 }
 
 @media screen and (max-width: 1100px) {
 
     /*addTask  */
 
-    .memberMenu{
+    .addTaskRightContainerAddMarginTop {
+        margin-top: 75px;
+    }
+
+    .addTaskRightContainerAddMarginTop1 {
+        margin-top: 150px;
+    }
+
+    .testResponsivNewHeight {
+        height: 1488px !important;
+    }
+
+    .testResponsivNewHeight1 {
+        height: 1563px !important;
+    }
+
+    .memberMenu {
         z-index: 1;
     }
 
-    .addTaskAssignList{
+    .addTaskAssignList {
         z-index: 0 !important;
     }
 
-    .addTaskAssignList li{
+    .addTaskAssignList li {
         width: 100% !important;
     }
 
-    .addTaskCatList{
+    .addTaskCatList {
         z-index: 0 !important;
     }
 
@@ -223,15 +280,15 @@
         margin-left: -53px;
     }
 
-    .addTaskBtnOuterContainerNewTopValue{
+    .addTaskBtnOuterContainerNewTopValue {
         top: 1345px !important;
     }
 
-    .addTaskBtnOuterContainerNewTopValue1{
+    .addTaskBtnOuterContainerNewTopValue1 {
         top: 1420px !important;
     }
 
-    .addTaskBtnOuterContainerNewTopValue2{
+    .addTaskBtnOuterContainerNewTopValue2 {
         top: 1495px !important;
     }
 
@@ -275,21 +332,21 @@
         flex: 1 !important;
     }
 
-    .addTaskPrioIcons{
+    .addTaskPrioIcons {
         gap: 35px !important;
     }
 
-    .taskAddedToBoard{
+    .taskAddedToBoard {
         left: 0px !important;
         top: 531px !important;
     }
 
-    #dropdownImg{
-        left: calc(100vw - 170px ) !important;  
+    #dropdownImg {
+        left: calc(100vw - 170px) !important;
     }
 
-    #assignDropDownImg{
-        left: calc(100vw - 170px ) !important; 
+    #assignDropDownImg {
+        left: calc(100vw - 170px) !important;
         display: flex !important;
     }
 
@@ -297,46 +354,46 @@
         height: auto;
     } */
 
-    #addTaskNewCatBtn{
-        left: calc(100vw - 221px ) !important;  
+    #addTaskNewCatBtn {
+        left: calc(100vw - 221px) !important;
     }
 
-    #CatListDropdown{
-        width: calc(100vw - 142px) !important; 
+    #CatListDropdown {
+        width: calc(100vw - 142px) !important;
     }
 
-    #dropdown2{
-        width: calc(100vw - 142px) !important; 
+    #dropdown2 {
+        width: calc(100vw - 142px) !important;
     }
 
-    #assignToCancelConfirmImgContainer{
-        left: calc(100vw - 221px ) !important;
+    #assignToCancelConfirmImgContainer {
+        left: calc(100vw - 221px) !important;
     }
 
-    #addTaskPrioIcons{
+    #addTaskPrioIcons {
         width: calc(100vw - 142px) !important;
         justify-content: space-between;
     }
 
-    #subtaskCross{
-        left: calc(100vw - 184px ) !important;
+    #subtaskCross {
+        left: calc(100vw - 184px) !important;
     }
 
-    #addTaskDiverder{
+    #addTaskDiverder {
         display: none !important;
     }
 
-    #subTaskImgDiv{
-        left: calc(100vw - 220px ) !important;
+    #subTaskImgDiv {
+        left: calc(100vw - 220px) !important;
     }
 
     .addTaskPrio,
-    .subtask{
+    .subtask {
         order: 0;
     }
 
     /* summary */
-    .welcome{
+    .welcome {
         display: none;
     }
 
@@ -350,30 +407,31 @@
         justify-content: center;
         gap: 102px !important;
     }
-    
+
 }
 
 @media screen and (max-width: 768px) {
+
     /* board reset*/
-    .boardTaskCardOuterContainer{
+    .boardTaskCardOuterContainer {
         left: 33px !important;
     }
 
-    .boardTaskCardOuterContainer{
+    .boardTaskCardOuterContainer {
         height: 550px !important;
     }
 
-    .boardTaskCardOuterContainer{
+    .boardTaskCardOuterContainer {
         width: 363px !important;
     }
 
-    .toDoOuterContainer{
+    .toDoOuterContainer {
         flex-direction: column !important;
         width: 363px;
         align-items: center;
     }
 
-    .toDoHeadline{
+    .toDoHeadline {
         width: 363px !important;
     }
 
@@ -394,7 +452,7 @@
         align-items: unset !important;
     }
 
-    .moveBtnMobil{
+    .moveBtnMobil {
         left: 33px !important;
         top: 685px !important;
     }
@@ -402,49 +460,6 @@
 
 
 
-/* slider menu */
 
-.sliderMenu {
-    display: none;
-    height: 1024px;
-    width: 302px;
-    color: #CDCDCD;
-    z-index: 1;
-    position: fixed;
-    left: -232px;
-
-    /* justify-content: flex-start; */
-    align-items: center;
-    transition: 100ms ease-in-out;
-}
-
-.showSliderMenu {
-    transition: 100ms ease-in-out;
-    transform: translateX(232px);
-}
-
-.menuContainer {
-    height: 935px;
-    width: 232px;
-    background-color: #2A3647;
-    color: #CDCDCD;
-    margin-top: 89px;
-}
-
-.menuButton img {
-    height: 50px;
-    background: #2A3647;
-    border-radius: 0% 50% 50% 0%;
-    padding: 10px;
-}
-
-.menuButton img:hover {
-    cursor: pointer;
-    background: #29ABE2;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    transition: 100ms ease-in-out;
-}
 
 /* new Main Classes for AddTask due to responsivness */
-
-

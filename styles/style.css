@@ -102,6 +102,38 @@ tr td:nth-child(3) {
     display: none;
 }
 
+#imgSummary11 {
+    display: inline-table;
+}
+
+#imgSummary21 {
+    display: none;
+}
+
+#imgBoard11 {
+    display: inline-table;
+}
+
+#imgBoard21 {
+    display: none;
+}
+
+#imgAddTask11 {
+    display: inline-table;
+}
+
+#imgAddTask21 {
+    display: none;
+}
+
+#imgContacts11 {
+    display: inline-table;
+}
+
+#imgContacts21 {
+    display: none;
+}
+
 .trHover:hover {
     background-color: #091931;
     cursor: pointer;
