@@ -21,6 +21,9 @@ function getInnerWidth() {
 }
 
 
+function switchOverToMobilPhoneView(){
+	window.location.replace("./summary_mobile.html");
+}
 
 
 
@@ -227,7 +230,7 @@ function resetResponsivContainerHeightPart3(){
 }
 
 
-// Board
+// Board Responsiv Functions
 
 function rezizeCallRelatedBoardFunctions(){
 	// responsiv Board Functions

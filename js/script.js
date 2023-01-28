@@ -93,7 +93,9 @@ function setMenuBtnStyle(menuId) {
 	if (otherMenuBtnPreSelected()) {
 		deselectMenuButton(selectedMenuBtnId);
 	}
-	setMenuBtnStyleSlider(menuId);
+	if (!document.querySelector('.mobileContent')){
+		setMenuBtnStyleSlider(menuId);
+	}
 }
 
 function setMenuBtnStyleSlider(menuId) {
@@ -153,7 +155,9 @@ function deselectMenuButton(menuId) {
 	if (legalNoticeSelected()) {
 		document.getElementById(menuBtnId).style = menuSelectorStyles[0]['disabledBackground'];
 	}
-	deselectMenuButtonSlider(menuId);
+	if (!document.querySelector('.mobileContent')){
+		deselectMenuButtonSlider(menuId);
+	}
 }
 
 function legalNoticeNotSelected() {
