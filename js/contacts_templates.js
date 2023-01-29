@@ -2,10 +2,9 @@
  * It returns a string of HTML code.
  * @returns A string of HTML.
  */
-function renderContentHTML(){
+function renderContentHTML() {
     return /*html*/ `
         <div class='shadowOverlay d-none' id='boardPopup' onclick='disablePopupWindow()'></div>
-
         <div>
             <div class="Frame_97">
                 <div class="Contact_list" id="Contact_list"></div>
@@ -31,7 +30,7 @@ function renderContentHTML(){
  * It takes the users from the allUsers array and pushes them into the alphabetOrd array based on the
  * first letter of their name.
  */
-function calculateUserInAlphabetArray(){
+function calculateUserInAlphabetArray() {
     for (let i = 0; i < allUsers.length; i++) {
         let id = i;
         let colorIndex = allUsers[i].colorIndex;
@@ -44,11 +43,12 @@ function calculateUserInAlphabetArray(){
 }
 
 
+
 /**
  * It loops through the alphabetOrd object, and if the length of the array is greater than 0, it will
  * add the letter to the HTML, and then loop through the array and add the names to the HTML.
  */
-function calculateAndShowAlphabet(){
+function calculateAndShowAlphabet() {
     for (let alphabetLetter in alphabetOrd) {
         if (alphabetOrd[alphabetLetter].length > 0) {
             document.getElementById('Contact_list').innerHTML += showLettersHTML(alphabetLetter);
@@ -71,13 +71,92 @@ function calculateAndShowAlphabet(){
  * @param alphabetLetter - the letter of the alphabet
  * @returns the HTML code for the letters of the alphabet.
  */
-function showLettersHTML(alphabetLetter){
+function showLettersHTML(alphabetLetter) {
     return /*html*/`
         <div class="letters">
             <span><b>${alphabetLetter}</b></span>
         </div>
         <div id='${alphabetLetter}'></div> 
     `;
+}
+
+
+function showContactQuerry(name, email, phone, letter, color, i, showContact) {
+    if (document.getElementById('mobilContent')) {
+        document.getElementById('mobilContent').innerHTML = '';
+        document.getElementById('mobilContent').innerHTML = showContactHTMLMob(name, email, phone, letter, color, i);
+    } else {
+        showContact.classList.remove('d-none')
+        if (showContact.classList.contains('showContactSlide')) {
+            showContact.classList.remove('showContactSlide');
+            setTimeout(showContactHelp, 700, name, email, phone, letter, color, i, showContact);
+        } else {
+            showContactHelp(name, email, phone, letter, color, i, showContact);
+        }
+    }
+}
+
+
+function showContactHelp(name, email, phone, letter, color, i, showContact) {
+    showContact.innerHTML = '';
+    showContact.innerHTML = showContactHTML(name, email, phone, letter, color, i);
+    showContact.classList.add('showContactSlide');
+}
+
+
+function addContactHelp(name, email, phone, newNameRequired, newEmailRequired, newPhoneRequired) {
+    if (name.value.length || email.value.length || phone.value.length) {
+        if (name.value.length == 0 ||
+            name.value[0] === ' ') {
+            newNameRequired.classList.remove('d-none');
+            newNameRequired.classList.add('requiredOn');
+        } else {
+            newNameRequired.classList.remove('requiredOn');
+            newNameRequired.classList.add('d-none');
+        };
+        if (email.value.length < 8 ||
+            !email.value.includes('@') ||
+            !email.value.includes('.') ||
+            email.value[0] === ' ') {
+            newEmailRequired.classList.remove('d-none');
+            newEmailRequired.classList.add('requiredOn');
+        } else {
+            newEmailRequired.classList.remove('requiredOn');
+            newEmailRequired.classList.add('d-none');
+        };
+        if (phone.value.length < 8 ||
+            phone.value[0] === ' ') {
+            newPhoneRequired.classList.remove('d-none');
+            newPhoneRequired.classList.add('requiredOn');
+        } else {
+            newPhoneRequired.classList.remove('requiredOn');
+            newPhoneRequired.classList.add('d-none');
+        };
+        if (!newNameRequired.classList.contains('requiredOn') &&
+            !newEmailRequired.classList.contains('requiredOn') &&
+            !newPhoneRequired.classList.contains('requiredOn')) {
+            comparisonEmail(newEmailRequired, name.value, email.value, phone.value);
+        }
+    }
+}
+
+
+function comparisonEmailHelp(newEmailRequired, name, email, phone, valueToCheck){
+    check = 0;
+    for (let i = 0; i < allUsers.length; i++) {
+        let testValue = allUsers[i].email;
+        if (testValue === valueToCheck) {
+            check = 1;
+            break;
+        }
+    }
+    if (check == 1) {
+        newEmailRequired.classList.remove('d-none');
+        newEmailRequired.classList.add('requiredOn');
+        newEmailRequired.innerHTML = `This email address is already available!!`;
+    } else {
+        calculateNewAllUserArray(name, email, phone);
+    }
 }
 
 
@@ -90,7 +169,7 @@ function showLettersHTML(alphabetLetter){
  * @param letter - The first letter of the name
  * @returns A string of HTML code.
  */
-function showAlphabetNames(name, color, email, id, letter){
+function showAlphabetNames(name, color, email, id, letter) {
     return /*html*/`
         <div class="contact" id="contact${i}" onclick="showContact(${id})">
             <div class="ellipse" style='background:${colorIndex[color]}'>
@@ -116,7 +195,7 @@ function showAlphabetNames(name, color, email, id, letter){
  * @param phone - "123456789"
  * @returns A string of HTML.
  */
-function openEditContactHTML(color, letter, name, email, phone, i){
+function openEditContactHTML(color, letter, name, email, phone, i) {
     return /*html*/`   
         <div class="overlayAdd">
             <div class="blackSite">
@@ -175,7 +254,7 @@ function openEditContactHTML(color, letter, name, email, phone, i){
  * It returns a string of HTML code.
  * @returns A string of HTML.
  */
-function openNewContactHTML(){
+function openNewContactHTML() {
     return /*html*/`
         <div class="overlayAdd">
             <div class="blackSite">
@@ -247,7 +326,7 @@ function openNewContactHTML(){
  * @param color - is a number from 0 to 5
  * @returns A string of HTML.
  */
-function showContactHTML(name, email, phone, letter, color, i){
+function showContactHTML(name, email, phone, letter, color, i) {
     return /*html*/`
         <div class="showContactDetail">                       
             <div class="show_contact_ellipse_5" style='background:${colorIndex[color]}' onclick="deleteContactQuestion(${i})">
@@ -287,7 +366,7 @@ function showContactHTML(name, email, phone, letter, color, i){
  * @param secondLetter - the second letter of the user's name
  * @param colorIndex - 0-5
  */
-async function addContactSave(name, email, phone, firstLetter, secondLetter, colorIndex){
+async function addContactSave(name, email, phone, firstLetter, secondLetter, colorIndex) {
     allUsers.push({ 'name': name, 'email': email, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter + secondLetter, 'phone': phone });
     await saveTask();
     closeNewContact();
@@ -306,7 +385,7 @@ async function addContactSave(name, email, phone, firstLetter, secondLetter, col
  * @param colorIndex - the index of the color in the array of colors
  * @param i - the index of the user in the allUsers array
  */
-async function editContactSave(name, email, password, phone, firstLetter, secondLetter, colorIndex, i){
+async function editContactSave(name, email, password, phone, firstLetter, secondLetter, colorIndex, i) {
     allUsers[i] = { 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter + secondLetter, 'phone': phone };
     await saveTask();
     closeEditContact();
