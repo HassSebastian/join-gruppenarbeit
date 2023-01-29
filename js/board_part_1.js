@@ -21,7 +21,7 @@ let prioColorAndUrlArray = [
  * renderAllCards().
  */
 async function initBoard() {
-	enableBoardStyles();
+	await enableBoardStyles();
 	// setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	// await includeHTML();
 	// document.getElementById('stylsheetAddTaskMobil').disabled = true;

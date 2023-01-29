@@ -9,7 +9,7 @@ let check = 0;
  * contacts page and renders the content.
  */
 async function initContacts() {
-    enableContactsStyles();
+    await enableContactsStyles();
     document.getElementById('stylsheetAddTaskMobil').disabled = true;
     document.getElementById('stylesheetAddTask').disabled = false;
     document.querySelector('.sliderMenu').classList.remove('showSliderMenu');

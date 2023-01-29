@@ -204,7 +204,7 @@ function loadContributorsLetter() {
 // Load only applicable js and css. Edit by Bossi 29.01
 
 let stylesheetDesktopList = [
-	'stylesheetStyle',
+	// 'stylesheetStyle',
 	'stylesheetAddTask',
 	'stylesheetBoard',
 	'stylesheetContacts',
@@ -261,7 +261,7 @@ function enableAllStyles(){
 
 async function enableSummaryStyles(){
 	await disableAllStyles();
-	document.getElementById('stylesheetStyle').disabled = false;
+	// document.getElementById('stylesheetStyle').disabled = false;
 	document.getElementById('stylesheetsummary').disabled = false;
 	document.getElementById('stylesheetResponsiv').disabled = false;
 }
@@ -269,7 +269,7 @@ async function enableSummaryStyles(){
 
 async function enableBoardStyles(){
 	await disableAllStyles();
-	document.getElementById('stylesheetStyle').disabled = false;
+	// document.getElementById('stylesheetStyle').disabled = false;
 	document.getElementById('stylesheetBoard').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;
 	document.getElementById('stylesheetResponsiv').disabled = false;
@@ -287,7 +287,7 @@ async function enableAddTaskStyles(){
 
 async function enableContactsStyles(){
 	await disableAllStyles();
-	document.getElementById('stylesheetStyle').disabled = false;
+	// document.getElementById('stylesheetStyle').disabled = false;
 	document.getElementById('stylesheetContacts').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;
 	document.getElementById('stylesheetResponsiv').disabled = false;
