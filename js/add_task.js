@@ -316,6 +316,7 @@ function enableDisableCatList() {
   }
   catListStatus = !catListStatus;
   tabletViewAddMarginTopCatList();// edit by Bossi for responsivness 27.01
+  boardAddTaskMarginSettings();
 }
 
 /**
@@ -993,6 +994,7 @@ function enableDisableAssignList() {
   }
   assignListStatus = !assignListStatus;
   tabletViewAddMarginTopAssignList(); // edit by Bossi for responsivness 27.01
+  boardAddTaskMarginSettings();
 }
 
 function enableAssignList() {

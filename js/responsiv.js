@@ -404,22 +404,33 @@ async function renderBoardResponsivTabletHtml(){
 
 function boardAddTaskMarginSettings(){
 	let screenWidth = window.innerWidth;
-	document.querySelector('.boardAddTaskHeadline');
-	if (document.querySelector('.boardAddTaskHeadline') && screenWidth < 1300){
+	document.querySelector('.boardAddTaskHeadlineDiv');
+	
+	if (document.querySelector('.boardAddTaskHeadlineDiv') && screenWidth < 1300){
 		if (catListStatus){
 			document.getElementById('boardAddTaskRightContainer').classList.add('addMarginCatList');
+			document.getElementById('boardAddTaskBtnContainer').classList.add('addMarginCatList');
+			document.getElementById('boardAddTaskRightContainer').classList.remove('addMarginBothList');
 		}else{
 			document.getElementById('boardAddTaskRightContainer').classList.remove('addMarginCatList');
+			document.getElementById('boardAddTaskBtnContainer').classList.remove('addMarginCatList');
+			document.getElementById('boardAddTaskRightContainer').classList.remove('addMarginBothList');
 		}
 		if (assignListStatus){
 			document.getElementById('boardAddTaskRightContainer').classList.add('addMarginAssignList');
+			document.getElementById('boardAddTaskBtnContainer').classList.add('addMarginBothList');
+			document.getElementById('boardAddTaskRightContainer').classList.remove('addMarginBothList');
 		}else{
 			document.getElementById('boardAddTaskRightContainer').classList.remove('addMarginAssignList');
+			document.getElementById('boardAddTaskBtnContainer').classList.remove('addMarginBothList');
+			document.getElementById('boardAddTaskRightContainer').classList.remove('addMarginBothList');
+
 		}
 		if (catListStatus && assignListStatus){
 			document.getElementById('boardAddTaskRightContainer').classList.remove('addMarginCatList');
 			document.getElementById('boardAddTaskRightContainer').classList.remove('addMarginAssignList');
-			document.getElementById('boardAddTaskRightContainer').classList.add('.addMarginBothList');
+			document.getElementById('boardAddTaskRightContainer').classList.add('addMarginBothList');
+			document.getElementById('boardAddTaskBtnContainer').classList.add('addMarginBothList');
 		}
 	}
 

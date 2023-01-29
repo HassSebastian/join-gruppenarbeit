@@ -214,20 +214,9 @@ function renderAddTaskPopupHtml() {
                 <div class='addTaskAssignedBox' id='addTaskAssignedBox'>
 			        <h3>Assigned to</h3>
 			        <button id='addTaskAssignedButton' onclick='enableDisableAssignList()'>
-                    <input
-                            disabled
-                            onclick='doNotCloseOnClick(event)'
-                            id='selectedAssign'
-                            name='selectedAssign'
-                            class='inputselectedAssign'
-                            placeholder='Select contacts to assign'
-                            autocomplete='off'
-                        />
+                    <input disabled onclick='doNotCloseOnClick(event)' id='selectedAssign' name='selectedAssign' class='inputselectedAssign' placeholder='Select contacts to assign' autocomplete='off'/>
 				
-                    <div
-                    id='assignToCancelConfirmImgContainer'
-                    class='assignToCancelConfirmImgContainer d-none'
-                    >
+                    <div id='assignToCancelConfirmImgContainer' class='assignToCancelConfirmImgContainer d-none'>
                         <img
                         onclick='assignBoxBackToDefaultMode(), enableAssignList()'
                         class='assignToCancelIcon'
@@ -262,8 +251,9 @@ function renderAddTaskPopupHtml() {
                         <!-- <img class='checkMark' src='assets/img/check_mark.png' /> -->
                     <!-- </div> -->
                 </div>
+            
 
-
+            </div>
             <div class='boardAddTaskDividerBoard'>
 
             </div>
@@ -308,8 +298,11 @@ function renderAddTaskPopupHtml() {
                     
                     <div class='addTaskCheckbox' id='subtaskCheckboxes'>
         
-                    </div>
+                    </div>   
                 </div>
+
+                
+    
             </div>
         </div>
         <!-- </form>  -->
@@ -318,7 +311,8 @@ function renderAddTaskPopupHtml() {
                 <span>Task added to board</span>
                 <img src='./assets/img/img_board_w.png'>
             </div>
-        </div>`;
+        </div>
+        `;
 }
 
 

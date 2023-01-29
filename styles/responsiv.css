@@ -58,15 +58,15 @@
 
 /* Board Add Task Marginsets */
 .addMarginCatList{
-    margin-top: 104px;
+    margin-top: 89px;
 }
 
 .addMarginAssignList{
-    margin-top: 145px;
+    margin-top: 43px;
 }
 
 .addMarginBothList{
-    margin-top: 249px;
+    margin-top: 103px;
 }
 
 
@@ -225,7 +225,7 @@
     .boardAddTaskPopupOverlay{
         width: 560px !important;
         overflow: hidden;
-        overflow: scroll;
+        overflow-y: scroll;
     }
 
     .close_logo_edit_task{
@@ -238,19 +238,19 @@
     }
 
     .boardAddTaskRightContainer{
-        left: 0;
-        top: 636px;
+        left: 73px;
+        top: 814px;
     }
 
     .boardAddTaskBtnOuterContainer{
         left: 158px;
-        top: 1160px;
+        top: 1360px;
     }
 
     .boardtaskAddedToBoard{
         left: 130px;
         top: 1270px;
-        top: calc(100% + 300px);
+        top: calc(100% + 500px);
     }
 
     .rightContainer {
