@@ -156,7 +156,7 @@ function renderAddTaskPopupHtml() {
             <div class='boardAddTaskHeadlineDiv'>
                 <h2 class='addTHeadline'>Add Task</h2>
             </div>
-            <div class='boardAddTaskBtnOuterContainer'>
+            <div class='boardAddTaskBtnOuterContainer' id='boardAddTaskBtnContainer'>
                 <div class='boardAddTaskBtnInnerContainer'>
                     <button class='addTaskClear' onmouseover='addTaskClearOn()' onmouseout='addTaskClearOff()' onclick='clearFormularData()'>
                         <span>Clear</span> 
@@ -268,7 +268,7 @@ function renderAddTaskPopupHtml() {
 
             </div>
 
-            <div class='boardAddTaskRightContainer alignToBoard'>
+            <div class='boardAddTaskRightContainer alignToBoard' id='boardAddTaskRightContainer'>
                 <div class='addTaskDate'>
                     <h3>Due date</h3>
                     <input required type='date' id='dueDate'>

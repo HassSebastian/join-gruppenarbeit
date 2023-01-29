@@ -396,3 +396,27 @@ async function renderBoardResponsivTabletHtml(){
         </div>
 		`;
 }
+
+
+// Board AddTask
+
+
+
+function boardAddTaskMarginSettings(){
+	catListStatus 
+	// 104px
+	assignListStatus
+	//  145px
+	let screenWidth = window.innerWidth;
+	document.querySelector('.boardAddTaskHeadline');
+	if (document.querySelector('.boardAddTaskHeadline') && screenWidth < 1300){
+		if (catListStatus){
+			document.getElementById('boardAddTaskRightContainer')
+			document.getElementById('boardAddTaskBtnContainer')
+		}
+		if (assignListStatus){
+
+		}
+	}
+
+}

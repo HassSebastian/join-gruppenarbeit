@@ -216,7 +216,8 @@
     }
 
     .close_logo_edit_task{
-        left: 500px;
+        left: 510px;
+        position: sticky;
     }
 
     .boardAddTaskDividerBoard{
