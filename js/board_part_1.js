@@ -21,10 +21,11 @@ let prioColorAndUrlArray = [
  * renderAllCards().
  */
 async function initBoard() {
+	enableBoardStyles();
 	// setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	// await includeHTML();
-	document.getElementById('stylsheetAddTaskMobil').disabled = true;
-	document.getElementById('stylesheetAddTask').disabled = false;
+	// document.getElementById('stylsheetAddTaskMobil').disabled = true;
+	// document.getElementById('stylesheetAddTask').disabled = false;
 	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 	await renderBoard();
 	// selectedMenuBtnId = 0;

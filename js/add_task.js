@@ -27,8 +27,9 @@ let coworkersToAssignTo = [];
 async function initAddTask() {
 	// setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	// await includeHTML();
-	document.getElementById('stylsheetAddTaskMobil').disabled = true;
-	document.getElementById('stylesheetAddTask').disabled = false;
+	enableAddTaskStyles();
+	// document.getElementById('stylsheetAddTaskMobil').disabled = true;
+	// document.getElementById('stylesheetAddTask').disabled = false;
     document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 	await renderAddTask();
 	await loadExitingCategories();

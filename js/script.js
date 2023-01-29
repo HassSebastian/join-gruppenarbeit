@@ -201,3 +201,95 @@ function loadContributorsLetter() {
 }
 
 
+// Load only applicable js and css. Edit by Bossi 29.01
+
+let stylesheetDesktopList = [
+	'stylesheetStyle',
+	'stylesheetAddTask',
+	'stylesheetBoard',
+	'stylesheetContacts',
+	'stylesheetLegalNotice',
+	'stylesheetsummary',
+	'stylesheetResponsiv',
+	'stylesheetBoardMobil',
+	'stylsheetAddTaskMobil',
+];
+
+let scriptDesktopList = [
+	'jsMiniBackend',
+	'jsResponsiv',
+	'jsScript',
+	'jsAddTask',
+	'jsBoardPart1',
+	'jsBoardPart2',
+	'jsBoardPart3',
+	'jsBoardTemplatesPart1',
+	'jsBoardTemplatesPart2',
+	'jsSignUp',
+	'jsSignUpTemplates',
+	'jsContactsTemplates',
+	'jsContacts',
+	'jslegalNotice',
+	'jslegalNotice'
+];
+
+let stylesheetMobilList =[
+	'stylesheetBoardMobil',
+	'stylsheetAddTaskMobil'
+];
+
+
+async function disableAllStyles(){
+	stylesheetDesktopList.forEach(stylesheet => {
+		document.getElementById(stylesheet).disabled = true;
+	});
+	stylesheetMobilList.forEach(stylesheet => {
+		document.getElementById(stylesheet).disabled = true;
+	});
+}
+
+
+function enableAllStyles(){
+	stylesheetDesktopList.forEach(stylesheet => {
+		document.getElementById(stylesheet).disabled = false;
+	});
+	stylesheetMobilList.forEach(stylesheet => {
+		document.getElementById(stylesheet).disabled = false;
+	});
+}
+
+
+async function enableSummaryStyles(){
+	await disableAllStyles();
+	document.getElementById('stylesheetStyle').disabled = false;
+	document.getElementById('stylesheetsummary').disabled = false;
+	document.getElementById('stylesheetResponsiv').disabled = false;
+}
+
+
+async function enableBoardStyles(){
+	await disableAllStyles();
+	document.getElementById('stylesheetStyle').disabled = false;
+	document.getElementById('stylesheetBoard').disabled = false;
+	document.getElementById('stylesheetAddTask').disabled = false;
+	document.getElementById('stylesheetResponsiv').disabled = false;
+}
+
+
+async function enableAddTaskStyles(){
+	await disableAllStyles();
+	document.getElementById('stylesheetStyle').disabled = false;
+	// document.getElementById('stylesheetBoard').disabled = false;
+	document.getElementById('stylesheetAddTask').disabled = false;
+	document.getElementById('stylesheetResponsiv').disabled = false;
+}
+
+
+async function enableContactsStyles(){
+	await disableAllStyles();
+	document.getElementById('stylesheetStyle').disabled = false;
+	document.getElementById('stylesheetContacts').disabled = false;
+	document.getElementById('stylesheetAddTask').disabled = false;
+	document.getElementById('stylesheetResponsiv').disabled = false;
+}
+
