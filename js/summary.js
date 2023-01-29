@@ -218,7 +218,6 @@ Kann loggedUser auch ein String sein, statt ein Arry? Einfacher!
 function loadLoggedInUserArray() {
 	let loggedUserAsString = localStorage.getItem('loggedUser');
 	loggedUser = JSON.parse(loggedUserAsString);
-	console.log(loggedUser);
 }
 
 /**

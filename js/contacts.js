@@ -224,15 +224,6 @@ async function calculateNewAllUserArray(name, email, phone) {
  */
 function saveEditContact(i) {
     editContact(i);
-
-    // let nameId = i;
-    // let logUserId = loggedUser[0];
-    // // jeder darf nur seine eigenen Daten ändern
-    // if (nameId == logUserId) {
-    //     editContact(i);
-    // } else {
-    //     document.getElementById('saveEditButton').innerHTML = `No Authorization`;
-    // }
 }
 
 
