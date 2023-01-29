@@ -763,6 +763,7 @@ function fillTaskData() {
 		prio: prio,
 		subTasks: selectedSubtasks,
 		workFlowStatus: 0,
+		creator: allUsers[loggedInUserIndex]['name'],
 	};
 	catColor = '';
 }

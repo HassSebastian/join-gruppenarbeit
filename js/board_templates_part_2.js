@@ -332,10 +332,11 @@ function renderPopupTaskCardHtml(taskIndex) {
     let cardCategory = joinTaskArray[taskIndex]['category'];
     let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
     let taskPrio = joinTaskArray[taskIndex]['prio'];
+    let creator = joinTaskArray[taskIndex]['creator']
     document.getElementById('boardPopup').innerHTML = '';
     document.getElementById('boardPopup').innerHTML = /*html*/`
         <div class='boardTaskCardPopup' onclick='stopClose(event)'>
-            <div class='taskCardPopupCategory' id='taskCardPopupCategory'>
+            <div class='taskCardPopupCategory' id='taskCardPopupCategory' title= ${creator}>
                 <span>${cardCategory}</span>
             </div>
             <div class='taskCardPopupTask'>
