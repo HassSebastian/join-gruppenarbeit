@@ -329,7 +329,7 @@ async function renderBoardResponsivTabletHtml(){
 					<!-- toDo TaskCards -->
 					<div class='toDoHeadline'>
 						<span>To do</span>
-						<div class='headlinePlusBtn' onclick='startAddTaskOverlay()'>
+						<div class='headlinePlusBtn' onclick='showAddTaskPopupWindow()'>
 
 						</div>
 					</div>
@@ -343,7 +343,7 @@ async function renderBoardResponsivTabletHtml(){
 					<!-- In progress TaskCards-->
 					<div class='toDoHeadline'>
 						<span>In progress</span>
-						<div class='headlinePlusBtn' onclick='startAddTaskOverlay()'>
+						<div class='headlinePlusBtn' onclick='showAddTaskPopupWindow()'>
 
 						</div>
 					</div>
@@ -356,7 +356,7 @@ async function renderBoardResponsivTabletHtml(){
 					<!-- Awaiting Feedback TaskCards-->
 					<div class='toDoHeadline'>
 						<span>Awaiting Feedback</span>
-						<div class='headlinePlusBtn' onclick='startAddTaskOverlay()'>
+						<div class='headlinePlusBtn' onclick='showAddTaskPopupWindow()'>
 
 						</div>
 					</div>
@@ -369,7 +369,7 @@ async function renderBoardResponsivTabletHtml(){
 					<!-- Done TaskCards-->
 					<div class='toDoHeadline'>
 						<span>Done</span>
-						<div class='headlinePlusBtn' onclick='startAddTaskOverlay()'>
+						<div class='headlinePlusBtn' onclick='showAddTaskPopupWindow()'>
 
 						</div>
 					</div>
