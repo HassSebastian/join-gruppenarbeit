@@ -1263,10 +1263,10 @@
 }
 
 /* add to Board animation */
-.content {
+/* .content {
 	overflow: hidden;
 	overflow: scroll;
-}
+} */
 
 .taskAddedToBoard {
 	display: flex;
