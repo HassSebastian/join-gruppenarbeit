@@ -4,6 +4,7 @@ async function initLegalNotice() {
     selectedMenuBtnId = 0;
     selectedMenuButton(5);
     loadContributorsLetter();
+    document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 }
 
 
