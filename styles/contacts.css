@@ -482,7 +482,7 @@
     position: absolute;
     left: 9.04%;
     right: 78.05%;
-    top: 20%;
+    top: 14%;
     bottom: 62.88%;
     flex: none;
     order: 3;
@@ -1011,9 +1011,12 @@
     }
 }
 
-@media (max-width: 950px){
+@media (max-width: 870px){
     .showContact{
-        left: calc(50% - (461px / 2));
+        left: 1050px;
+    }
+    .better_with_a_team{
+        left: 450px;
     }
 }
 /****************/
