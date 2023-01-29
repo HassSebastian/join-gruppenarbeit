@@ -56,6 +56,19 @@
 
 /* slider menu end */
 
+/* Board Add Task Marginsets */
+.addMarginCatList{
+    margin-top: 104px;
+}
+
+.addMarginAssignList{
+    margin-top: 145px;
+}
+
+.addMarginBothList{
+    margin-top: 249px;
+}
+
 
 @media screen and (max-width: 1500px) {
     .outerContainer {
