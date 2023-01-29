@@ -247,6 +247,18 @@
         top: 1360px;
     }
 
+    .boardAddTaskBtnInnerContainer{
+        margin-bottom: 100px;
+    }
+
+    .addTaskCheckBox{
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 100%;
+        max-height: 90px;
+        overflow: scroll;
+    }
+
     .boardtaskAddedToBoard{
         left: 130px;
         top: 1270px;
