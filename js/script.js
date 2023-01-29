@@ -261,6 +261,7 @@ function enableAllStyles(){
 
 async function enableSummaryStyles(){
 	await disableAllStyles();
+	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 	// document.getElementById('stylesheetStyle').disabled = false;
 	document.getElementById('stylesheetsummary').disabled = false;
 	document.getElementById('stylesheetResponsiv').disabled = false;
@@ -269,6 +270,7 @@ async function enableSummaryStyles(){
 
 async function enableBoardStyles(){
 	await disableAllStyles();
+	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 	// document.getElementById('stylesheetStyle').disabled = false;
 	document.getElementById('stylesheetBoard').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;
@@ -278,6 +280,7 @@ async function enableBoardStyles(){
 
 async function enableAddTaskStyles(){
 	await disableAllStyles();
+	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 	document.getElementById('stylesheetStyle').disabled = false;
 	// document.getElementById('stylesheetBoard').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;
@@ -287,6 +290,7 @@ async function enableAddTaskStyles(){
 
 async function enableContactsStyles(){
 	await disableAllStyles();
+	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 	// document.getElementById('stylesheetStyle').disabled = false;
 	document.getElementById('stylesheetContacts').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;

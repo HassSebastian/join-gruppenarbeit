@@ -30,7 +30,7 @@ async function initAddTask() {
 	await enableAddTaskStyles();
 	// document.getElementById('stylsheetAddTaskMobil').disabled = true;
 	// document.getElementById('stylesheetAddTask').disabled = false;
-    document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
+    // document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 	await renderAddTask();
 	await loadExitingCategories();
 	renderCategoryList();

@@ -10,9 +10,9 @@ let check = 0;
  */
 async function initContacts() {
     await enableContactsStyles();
-    document.getElementById('stylsheetAddTaskMobil').disabled = true;
-    document.getElementById('stylesheetAddTask').disabled = false;
-    document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
+    // document.getElementById('stylsheetAddTaskMobil').disabled = true;
+    // document.getElementById('stylesheetAddTask').disabled = false;
+    // document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
     await loadTask();
     await renderContent();
     selectedMenuButton(4);
