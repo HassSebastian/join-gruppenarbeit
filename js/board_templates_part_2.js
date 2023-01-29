@@ -336,7 +336,7 @@ function renderPopupTaskCardHtml(taskIndex) {
     document.getElementById('boardPopup').innerHTML = '';
     document.getElementById('boardPopup').innerHTML = /*html*/`
         <div class='boardTaskCardPopup' onclick='stopClose(event)'>
-            <div class='taskCardPopupCategory' id='taskCardPopupCategory' title= ${creator}>
+            <div class='taskCardPopupCategory' id='taskCardPopupCategory' title= 'Created by: ${creator}'>
                 <span>${cardCategory}</span>
             </div>
             <div class='taskCardPopupTask'>
