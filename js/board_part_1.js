@@ -25,6 +25,7 @@ async function initBoard() {
 	// await includeHTML();
 	document.getElementById('stylsheetAddTaskMobil').disabled = true;
 	document.getElementById('stylesheetAddTask').disabled = false;
+	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 	await renderBoard();
 	// selectedMenuBtnId = 0;
 	selectedMenuButton(2);

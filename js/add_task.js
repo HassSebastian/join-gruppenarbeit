@@ -29,6 +29,7 @@ async function initAddTask() {
 	// await includeHTML();
 	document.getElementById('stylsheetAddTaskMobil').disabled = true;
 	document.getElementById('stylesheetAddTask').disabled = false;
+    document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 	await renderAddTask();
 	await loadExitingCategories();
 	renderCategoryList();

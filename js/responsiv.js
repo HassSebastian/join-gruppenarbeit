@@ -4,7 +4,7 @@ let boardResponsivView = false;
 // responsiv Slider menu functions
 function enableDisableSliderMenu() {
 	let sliderMenu = document.querySelector('.sliderMenu');
-	sliderMenu.classList.toggle('showSliderMenu');
+	sliderMenu.classList.add('showSliderMenu');
 }
 
 

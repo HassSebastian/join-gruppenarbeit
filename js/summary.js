@@ -18,6 +18,7 @@ let guestLoggedIn = false;
 async function initSummary() {
 	document.getElementById('stylsheetAddTaskMobil').disabled = true;
 	document.getElementById('stylesheetAddTask').disabled = false;
+	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	await loadTask();
 	resetCounters();

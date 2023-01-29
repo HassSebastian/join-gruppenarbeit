@@ -11,6 +11,7 @@ async function initContacts() {
     // await includeHTML();
     document.getElementById('stylsheetAddTaskMobil').disabled = true;
     document.getElementById('stylesheetAddTask').disabled = false;
+    document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
     await loadTask();
     await renderContent();
     selectedMenuButton(4);
