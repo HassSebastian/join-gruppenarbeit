@@ -202,9 +202,48 @@
 }
 
 @media screen and (max-width: 1300px) {
+    /* Board Add Task */
+    .shadowOverlay{
+        width: 100%;
+    }
+
+
+
+    .boardAddTaskPopupOverlay{
+        width: 560px !important;
+        overflow: hidden;
+        overflow: scroll;
+    }
+
+    .close_logo_edit_task{
+        left: 500px;
+    }
+
+    .boardAddTaskDividerBoard{
+        display: none;
+    }
+
+    .boardAddTaskRightContainer{
+        left: 0;
+        top: 560px;
+    }
+
+    .boardAddTaskBtnOuterContainer{
+        left: 158px;
+        top: 1160px;
+    }
+
+    .boardtaskAddedToBoard{
+        left: 130px;
+        top: 1270px;
+        top: calc(100% + 300px);
+    }
+
     .rightContainer {
         width: 100%;
     }
+
+    /* Side Menu and Slider */
 
     .sideMenu {
         display: none !important;

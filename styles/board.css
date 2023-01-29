@@ -1620,7 +1620,7 @@ transform: translateX(-1290px);
 
 
 @media(max-width: 1300px){
-    .boardAddTaskPopupOverlay{
+    /* .boardAddTaskPopupOverlay{
         width: 560px !important;
         overflow: hidden;
         overflow: scroll;
@@ -1642,5 +1642,5 @@ transform: translateX(-1290px);
     .boardtaskAddedToBoard{
         left: 130px;
         top: 1270px
-    }
+    } */
 }

@@ -311,21 +311,21 @@ function actualClickedPrioBtnIsSet(index, statusNames) {
  * and rendering the contacts in the assign drop down menu.
  */
 async function showAddTaskPopupWindow() {
+    taskForce = [];
+    coworkersToAssignTo[loggedInUserIndex].check = false;
     enablePopupWindow();
     await renderAddTaskPopup();
     await loadExitingCategories();
     renderCategoryList();
     newCatInputActive = false;
-
+    
     renderLoggedUserInAssignDrobDownMenuIntoYou(); // Das habe ich für das You eingefügt!
     renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
     setFutureDatesOnlyForInputDueDate();
     loadContributorsLetter();
-    // renderContactsInAssignDropDownMenu();
     addSubtaskMain();
     
-
-    // addContactToTaskForceWithCheckBox(loggedInUserIndex);
+    addContactToTaskForceWithCheckBox(loggedInUserIndex);
 }
 
 
