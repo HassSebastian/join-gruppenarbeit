@@ -1,5 +1,5 @@
 let rememberUser = [];
-let loggedUser = []; //test
+let loggedUser = [];
 let allUsers = [];
 
 function initSignIn() {

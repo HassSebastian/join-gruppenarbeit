@@ -30,7 +30,7 @@ async function initAddTask() {
 	await enableAddTaskStyles();
 	// document.getElementById('stylsheetAddTaskMobil').disabled = true;
 	// document.getElementById('stylesheetAddTask').disabled = false;
-    // document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
+	// document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 	await renderAddTask();
 	await loadExitingCategories();
 	renderCategoryList();
@@ -45,13 +45,14 @@ async function initAddTask() {
 	// getInnerWidth();
 	taskForce = []; // Das muss noch hier rein oder in einer andere Datei!
 	addSubtaskMain();
-  	addContactToTaskForceWithCheckBox(loggedInUserIndex);
+	addContactToTaskForceWithCheckBox(loggedInUserIndex);
 	getInnerWidth();
+	checkGuesLogin();
 }
 
 function generateAddTaskHtml() {
 	return /*html*/ `
-	<div onclick="fillInGuestTask()" class='contentHeight' id='contentHeight'>
+	<div class='contentHeight' id='contentHeight'>
 		<div class='testResponsiv' id='testResponsiv'>
 			<div class="addTaskHeadlineDiv">
 				<h2 class="addTHeadline">Add Task</h2>
@@ -306,18 +307,16 @@ function joinTaskArrayExistInStorage() {
  * This function enable or disable the Dropdown Menu of the category selector.
  */
 function enableDisableCatList() {
-  if (categoryListAndNewCategoryInputNotActive()) {
-    document.getElementById("CatListDropdown").classList.remove("listD-none");
-    document.getElementById("addTaskAssignedBox").classList.add("addMarginTop");
-  } else {
-    document.getElementById("CatListDropdown").classList.add("listD-none");
-    document
-      .getElementById("addTaskAssignedBox")
-      .classList.remove("addMarginTop");
-  }
-  catListStatus = !catListStatus;
-  tabletViewAddMarginTopCatList();// edit by Bossi for responsivness 27.01
-  boardAddTaskMarginSettings();
+	if (categoryListAndNewCategoryInputNotActive()) {
+		document.getElementById('CatListDropdown').classList.remove('listD-none');
+		document.getElementById('addTaskAssignedBox').classList.add('addMarginTop');
+	} else {
+		document.getElementById('CatListDropdown').classList.add('listD-none');
+		document.getElementById('addTaskAssignedBox').classList.remove('addMarginTop');
+	}
+	catListStatus = !catListStatus;
+	tabletViewAddMarginTopCatList(); // edit by Bossi for responsivness 27.01
+	boardAddTaskMarginSettings();
 }
 
 /**
@@ -427,11 +426,11 @@ function checkCategoryList(newCategoryItem) {
  * this function set the input field for a new category to 'selected a category'.
  */
 function resetCatSelection() {
-  newCatInputActive = false;
-  catListStatus = !catListStatus;
-  document.getElementById("colorSelection").classList.add("listD-none");
-  document.getElementById("selectedCat").innerHTML = resetCatSelectionHtml();
-  // getInnerWidth();
+	newCatInputActive = false;
+	catListStatus = !catListStatus;
+	document.getElementById('colorSelection').classList.add('listD-none');
+	document.getElementById('selectedCat').innerHTML = resetCatSelectionHtml();
+	// getInnerWidth();
 }
 
 /**
@@ -455,12 +454,12 @@ function resetCatSelectionHtml() {
  * @param {number} catId - this value is equal to the index of the category list of the selected category.
  */
 function selectCategory(catId) {
-  if (newCategoryCreationIsSelected(catId)) {
-    setSettingsForNewCategoryInput();
-  } else {
-    setSettingsForExistingCategory(catId);
-  }
-  // getInnerWidth();
+	if (newCategoryCreationIsSelected(catId)) {
+		setSettingsForNewCategoryInput();
+	} else {
+		setSettingsForExistingCategory(catId);
+	}
+	// getInnerWidth();
 }
 
 /**
@@ -984,18 +983,18 @@ function showDropDownAssignTo() {
 }
 
 function enableDisableAssignList() {
-  if (!assignListStatus) {
-    borderBottomOffAssignedBoxButton();
-    showDropDownAssignTo();
-    showBadgesTaskForce();
-  } else {
-    borderBottomOnAssignedBoxButton();
-    hideDropDownAssignTo();
-    hideBadgesTaskForce();
-  }
-  assignListStatus = !assignListStatus;
-  tabletViewAddMarginTopAssignList(); // edit by Bossi for responsivness 27.01
-  boardAddTaskMarginSettings();
+	if (!assignListStatus) {
+		borderBottomOffAssignedBoxButton();
+		showDropDownAssignTo();
+		showBadgesTaskForce();
+	} else {
+		borderBottomOnAssignedBoxButton();
+		hideDropDownAssignTo();
+		hideBadgesTaskForce();
+	}
+	assignListStatus = !assignListStatus;
+	tabletViewAddMarginTopAssignList(); // edit by Bossi for responsivness 27.01
+	boardAddTaskMarginSettings();
 }
 
 function enableAssignList() {
@@ -1297,18 +1296,32 @@ function frontEndDeveloper() {
 /*
 ! GUEST SECTION */
 
-function disableAddTaskFieldsForGuest() {
-	document.getElementById('addTaskTitle').disabled = true;
-	document.getElementById('addTaskDescripten').disabled = true;
-	document.getElementById('dueDate').disabled = true;
-	document.getElementById('CatListDropdown').style.pointerEvents = 'none';
+let idInputFieldsAddTask = ['addTaskTitle', 'addTaskDescripten', 'selectedCatInput', 'dueDate', 'subTask'];
+
+function checkGuesLogin() {
+	guestLoggedIn ? disableInputField() : null;
 }
 
-function fillInGuestTask() {
+/**
+ * Disables input fields (onload)
+ */
+function disableInputField() {
+	idInputFieldsAddTask.forEach((inputId) => {
+		document.getElementById(inputId).disabled = true;
+	});
+}
+
+function fillInGuask() {
 	if (guestLoggedIn) {
-		disableAddTaskFieldsForGuest();
-		document.getElementById('addTaskTitle').value = 'My test task';
 		document.getElementById('addTaskDescripten').value = 'Trying to find out if I like this canban board';
 		document.getElementById('dueDate').value = '2059-12-24';
 	}
+}
+
+let titleInput = document.getElementById('addTaskTitle');
+
+titleInput.addEventListener('click', addTextToTaskTitle());
+
+function addTextToTaskTitle() {
+	document.getElementById('addTaskTitle').value = 'My test task';
 }
