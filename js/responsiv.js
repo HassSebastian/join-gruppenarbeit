@@ -12,7 +12,7 @@ function enableDisableSliderMenu() {
 window.onresize = function () {
 	rezizeCallRelatedBoardFunctions();
 	resizeCallRelatedAddTaskFunctions();
-	switchOverToMobilPhoneView();
+	// switchOverToMobilPhoneView();
 };
 
 
@@ -23,15 +23,15 @@ function getInnerWidth() {
 
 
 
-function switchOverToMobilPhoneView(){
-	if (window.innerWidth <= 768){
-		let setMenu = selectedMenuBtnId;
-		window.location.replace("./summary_mobile.html");
-	}
-	if (!document.querySelector('.content') && window.innerWidth >768){
-		window.location.replace("./summary.html");
-	}
-}
+// function switchOverToMobilPhoneView(){
+// 	if (window.innerWidth <= 768){
+// 		let setMenu = selectedMenuBtnId;
+// 		window.location.replace("./summary_mobile.html");
+// 	}
+// 	if (!document.querySelector('.content') && window.innerWidth >768){
+// 		window.location.replace("./summary.html");
+// 	}
+// }
 
 
 
