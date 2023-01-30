@@ -1318,10 +1318,10 @@ function fillInGuask() {
 	}
 }
 
-let titleInput = document.getElementById('addTaskTitle');
+function addTextToTaskTitle() {
+	let titleInput = document.getElementById('addTaskTitle');
+	titleInput.value = 'My test task';
+	console.log(titleInput);
+}
 
 titleInput.addEventListener('click', addTextToTaskTitle());
-
-function addTextToTaskTitle() {
-	document.getElementById('addTaskTitle').value = 'My test task';
-}
