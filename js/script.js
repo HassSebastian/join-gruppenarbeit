@@ -206,6 +206,8 @@ function loadContributorsLetter() {
 
 let stylesheetDesktopList = [
 	// 'stylesheetStyle',
+	// 'stylesheetIndex',
+	// 'stylesheetIndexMob',
 	'stylesheetAddTask',
 	'stylesheetBoard',
 	'stylesheetContacts',
@@ -233,7 +235,11 @@ let scriptDesktopList = [
 	'jsContacts',
 	'jslegalNotice',
 	'jslegalNotice',
-	'jsHelp'
+	'jsHelp',
+	// 'jsMobilLogin',
+	// 'jsLoginTemplates',
+	// 'jsIndex',
+	// 'jsLogin'
 ];
 
 let stylesheetMobilList =[
