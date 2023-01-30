@@ -63,14 +63,47 @@ async function loadApplicableSummary(){
         document.getElementById('desktopSummary').classList.remove('d-none');
         await deactivatMobil();
         init();
+		desktopView = !desktopView;
     }
     if (window.innerWidth <= 768){
         document.getElementById('desktopSummary').classList.add('d-none');
         document.getElementById('mobilSummary').classList.remove('d-none');
         await deactivatDesktop();
         initMobilSummary();
+		desktopView = !desktopView;
     }
 }
+
+let desktopView;
+let viewchange = false;
+window.onresize = function (){
+	
+    if (desktopView && window.innerWidth <=768 && !viewchange){
+		viewchange = true;
+		startChangetoMobil();
+		
+    }
+    if (!desktopView && window.innerWidth >=769 &&!viewchange){
+		viewchange = true;
+		startChangetoDesktop();
+    }
+}
+
+
+async function startChangetoDesktop(){
+	await activateDesktop();
+	await loadApplicableSummary();
+	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
+	viewchange = false;
+}
+
+async function startChangetoMobil(){
+	await activateMobil();
+	await loadApplicableSummary();
+	viewchange = false;
+}
+
+
 
 
 let stylesheetDesktopDeactivationList =[
@@ -101,6 +134,7 @@ let stylesheetMobilDeactivationList = [
 
 let jsMobilDeactivationList = [
     'jsHelp',
+	'jsResponsiv',
 ]
 
 async function deactivatMobil(){
@@ -112,12 +146,30 @@ async function deactivatMobil(){
 	});
 }
 
+async function activateMobil(){
+	stylesheetDesktopDeactivationList.forEach(stylesheet => {
+		document.getElementById(stylesheet).disabled = false;
+	});
+	jsDesktopDeactivationList.forEach(script => {
+		document.getElementById(script).disabled = false;
+	});
+}
+
 async function deactivatDesktop(){
 	stylesheetMobilDeactivationList.forEach(stylesheet => {
 		document.getElementById(stylesheet).disabled = true;
 	});
 	jsMobilDeactivationList.forEach(script => {
 		document.getElementById(script).disabled = true;
+	});
+}
+
+async function activateDesktop(){
+	stylesheetMobilDeactivationList.forEach(stylesheet => {
+		document.getElementById(stylesheet).disabled = false;
+	});
+	jsMobilDeactivationList.forEach(script => {
+		document.getElementById(script).disabled = false;
 	});
 }
 // index.html start functions end edit by Bossi 30.01
@@ -407,14 +459,6 @@ async function enableHelp(){
 }
 
 
-window.onresize = function (){
-    if (window.innerWidth > 768 && document.querySelector('.content')){
-		let selectedMenu = menuBtnId
 
-    }
-    if (window.innerWidth <= 768 && document.querySelector('.MobilContent')){
-        
-    }
-}
 
 
