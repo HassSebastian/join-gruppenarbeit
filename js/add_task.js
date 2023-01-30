@@ -1311,17 +1311,19 @@ function disableInputField() {
 	});
 }
 
-function fillInGuask() {
+/* function fillInGuask() {
 	if (guestLoggedIn) {
 		document.getElementById('addTaskDescripten').value = 'Trying to find out if I like this canban board';
 		document.getElementById('dueDate').value = '2059-12-24';
 	}
-}
+} */
+
+let titleInput = document.getElementById('addTaskTitle');
+
+/* titleInput.addEventListener('click', addTextToTaskTitle); */
+
+titleInput.addEventListener('click', addTextToTaskTitl);
 
 function addTextToTaskTitle() {
-	let titleInput = document.getElementById('addTaskTitle');
 	titleInput.value = 'My test task';
-	console.log(titleInput);
 }
-
-titleInput.addEventListener('click', addTextToTaskTitle());
