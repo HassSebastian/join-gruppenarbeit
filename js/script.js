@@ -236,16 +236,32 @@ let scriptDesktopList = [
 	'jslegalNotice',
 	'jslegalNotice',
 	'jsHelp',
-	// 'jsMobilLogin',
 	// 'jsLoginTemplates',
 	// 'jsIndex',
-	// 'jsLogin'
+	// 'jsLogin',
+	
 ];
 
 let stylesheetMobilList =[
 	'stylesheetBoardMobil',
-	'stylsheetAddTaskMobil'
+	'stylsheetAddTaskMobil',
+
+	'stylesheetMobilTemplates',
+	'stylesheetMobilContacts',
+	'stylesheetMobilAddContacts',
+	'stylesheetSummaryMobil',
+	'stylesheetHelpMobil'
 ];
+
+let jsMobilList =[
+	'jsMobilLogin',
+	'jsMobilSummary',
+	'jsMobilAddTask',
+	'jsMobilBoard',
+	'jsMobilContacts',
+	'jsHelpMobil',
+	'legalNoticeMobil',
+]
 
 
 async function disableAllStyles(){
@@ -311,6 +327,17 @@ async function enableHelp(){
 	await disableAllStyles();
 	document.getElementById('stylesheetResponsiv').disabled = false;
 	document.getElementById('stylesheetHelp').disabled = false;
+}
+
+
+window.onresize = function (){
+    if (window.innerWidth > 768 && document.querySelector('.content')){
+		let selectedMenu = menuBtnId
+
+    }
+    if (window.innerWidth <= 768 && document.querySelector('.MobilContent')){
+        
+    }
 }
 
 
