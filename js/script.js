@@ -297,3 +297,11 @@ async function enableContactsStyles(){
 	document.getElementById('stylesheetResponsiv').disabled = false;
 }
 
+
+async function enableLegalNotice(){
+	await disableAllStyles();
+	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
+	document.getElementById('stylesheetResponsiv').disabled = false;
+	document.getElementById('stylesheetLegalNotice').disabled = false;
+}
+
