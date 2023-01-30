@@ -1299,7 +1299,7 @@ function frontEndDeveloper() {
 let idInputFieldsAddTask = ['addTaskTitle', 'addTaskDescripten', 'selectedCatInput', 'dueDate', 'subTask'];
 
 function checkGuesLogin() {
-	guestLoggedIn ? disableInputField() : null;
+	// guestLoggedIn ? disableInputField() : null;
 }
 
 /**
@@ -1319,9 +1319,13 @@ function fillInGuask() {
 }
 
 function addTextToTaskTitle() {
-	let titleInput = document.getElementById('addTaskTitle');
-	titleInput.value = 'My test task';
+	let titleInput = document.getElementById('addTaskTitle').value = 'My test task';
+	// titleInput.value = 'My test task';
 	console.log(titleInput);
 }
 
-titleInput.addEventListener('click', addTextToTaskTitle());
+// titleInput.addEventListener('click', addTextToTaskTitle);
+
+document.querySelector('#addTaskTitle').addEventListener("click", function() {
+	this.value = "My test Task";
+  });
