@@ -137,6 +137,8 @@ let stylesheetMobilDeactivationList = [
 let jsMobilDeactivationList = [
     'jsHelp',
 	'jsResponsiv',
+	'jsContacts',
+	'jsContactsTemplates',
 ]
 
 
@@ -494,11 +496,11 @@ function enableAllJs(){
 }
 
 
-async function enableSummaryJs(){
-	await disableAllJs();
-	document.getElementById('jsMiniBackend').disabled = false;
-	document.getElementById('jsSummary').disabled = false;
-}
+// async function enableSummaryJs(){
+// 	await disableAllJs();
+// 	document.getElementById('jsMiniBackend').disabled = false;
+// 	document.getElementById('jsSummary').disabled = false;
+// }
 
 
 

@@ -248,8 +248,6 @@ function rezizeCallRelatedBoardFunctions(){
 	if (window.innerWidth >= 769 && window.innerWidth <= 1400 && selectedMenuBtnId == 2) {
 		if (!boardResponsivView){
 			document.getElementById('stylesheetBoardMobil').disabled = false;
-			// document.getElementById('stylsheetAddTaskMobil').disabled = false;
-			// document.getElementById('stylesheetAddTask').disabled = true;
 			initBoardResponsivTablet();
 			boardResponsivView = true;
 		}
@@ -264,7 +262,6 @@ function rezizeCallRelatedBoardFunctions(){
 		if (!boardResponsivView){
 			document.getElementById('stylesheetBoardMobil').disabled = true;
 			document.getElementById('stylesheetAddTask').disabled = false;
-			// document.getElementById('stylsheetAddTaskMobil').disabled = true;
 		}
 	}
 }
@@ -273,15 +270,10 @@ function rezizeCallRelatedBoardFunctions(){
 function getInnerWidthBoardRelatedFunctions(tabWidth){
 	if (tabWidth >= 1401 || tabWidth < 769) {
 		document.getElementById('stylesheetBoardMobil').disabled = true;
-		// document.getElementById('stylesheetAddTask').disabled = false;
-		// document.getElementById('stylsheetAddTaskMobil').disabled = true;
-		// document.getElementById('stylsheetAddTaskMobil').disabled = true;
 	}
 	if (selectedMenuBtnId == 2 && tabWidth > 768 && tabWidth < 1401){
 		boardResponsivView = true;
 		document.getElementById('stylesheetBoardMobil').disabled = false;
-		// document.getElementById('stylesheetAddTask').disabled = true;
-		// document.getElementById('stylsheetAddTaskMobil').disabled = false;
 		initBoardResponsivTablet();
 	}
 }
