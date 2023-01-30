@@ -1299,7 +1299,7 @@ function frontEndDeveloper() {
 let idInputFieldsAddTask = ['addTaskTitle', 'addTaskDescripten', 'selectedCatInput', 'dueDate', 'subTask'];
 
 function checkGuesLogin() {
-	// guestLoggedIn ? disableInputField() : null;
+	guestLoggedIn ? disableInputField() : null;
 }
 
 /**
