@@ -1,6 +1,6 @@
-function back() {
-    history.back();
-}
+// function back() {
+//     history.back();
+// }
 
 
 async function dataPrivacyMob() {

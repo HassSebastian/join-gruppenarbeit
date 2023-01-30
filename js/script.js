@@ -182,9 +182,10 @@ function renderList() {
 }
 
 // desktop_template.html help function
-function help() {
-	window.location.href = './help.html';
-}
+// function help() {
+// 	window.location.href = './help.html';
+// 	initHelp();
+// }
 
 function logOutBtn() {
 	document.getElementById('logOut').classList.toggle('logOutOn');
@@ -213,6 +214,7 @@ let stylesheetDesktopList = [
 	'stylesheetResponsiv',
 	'stylesheetBoardMobil',
 	'stylsheetAddTaskMobil',
+	'stylesheetHelp'
 ];
 
 let scriptDesktopList = [
@@ -230,7 +232,8 @@ let scriptDesktopList = [
 	'jsContactsTemplates',
 	'jsContacts',
 	'jslegalNotice',
-	'jslegalNotice'
+	'jslegalNotice',
+	'jsHelp'
 ];
 
 let stylesheetMobilList =[
@@ -246,6 +249,7 @@ async function disableAllStyles(){
 	stylesheetMobilList.forEach(stylesheet => {
 		document.getElementById(stylesheet).disabled = true;
 	});
+	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 }
 
 
@@ -261,8 +265,7 @@ function enableAllStyles(){
 
 async function enableSummaryStyles(){
 	await disableAllStyles();
-	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
-	// document.getElementById('stylesheetStyle').disabled = false;
+	document.getElementById('stylesheetStyle').disabled = false;
 	document.getElementById('stylesheetsummary').disabled = false;
 	document.getElementById('stylesheetResponsiv').disabled = false;
 }
@@ -270,8 +273,6 @@ async function enableSummaryStyles(){
 
 async function enableBoardStyles(){
 	await disableAllStyles();
-	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
-	// document.getElementById('stylesheetStyle').disabled = false;
 	document.getElementById('stylesheetBoard').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;
 	document.getElementById('stylesheetResponsiv').disabled = false;
@@ -280,9 +281,6 @@ async function enableBoardStyles(){
 
 async function enableAddTaskStyles(){
 	await disableAllStyles();
-	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
-	document.getElementById('stylesheetStyle').disabled = false;
-	// document.getElementById('stylesheetBoard').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;
 	document.getElementById('stylesheetResponsiv').disabled = false;
 }
@@ -290,8 +288,6 @@ async function enableAddTaskStyles(){
 
 async function enableContactsStyles(){
 	await disableAllStyles();
-	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
-	// document.getElementById('stylesheetStyle').disabled = false;
 	document.getElementById('stylesheetContacts').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;
 	document.getElementById('stylesheetResponsiv').disabled = false;
@@ -300,8 +296,15 @@ async function enableContactsStyles(){
 
 async function enableLegalNotice(){
 	await disableAllStyles();
-	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 	document.getElementById('stylesheetResponsiv').disabled = false;
 	document.getElementById('stylesheetLegalNotice').disabled = false;
 }
+
+
+async function enableHelp(){
+	await disableAllStyles();
+	document.getElementById('stylesheetResponsiv').disabled = false;
+	document.getElementById('stylesheetHelp').disabled = false;
+}
+
 
