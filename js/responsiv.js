@@ -245,7 +245,7 @@ function resetResponsivContainerHeightPart3(){
 
 function rezizeCallRelatedBoardFunctions(){
 	// responsiv Board Functions
-	if (window.innerWidth >= 768 && window.innerWidth <= 1400 && selectedMenuBtnId == 2) {
+	if (window.innerWidth >= 769 && window.innerWidth <= 1400 && selectedMenuBtnId == 2) {
 		if (!boardResponsivView){
 			document.getElementById('stylesheetBoardMobil').disabled = false;
 			// document.getElementById('stylsheetAddTaskMobil').disabled = false;
@@ -255,10 +255,9 @@ function rezizeCallRelatedBoardFunctions(){
 		}
 	}
 
-	if (window.innerWidth <= 767 || window.innerWidth >= 1401 && selectedMenuBtnId == 2) {
+	if (window.innerWidth <= 768 || window.innerWidth >= 1401 && selectedMenuBtnId == 2) {
 		if (boardResponsivView && selectedMenuBtnId == 2){
-			// document.getElementById('stylesheetBoardMobil').disabled = true;
-			
+			document.getElementById('stylesheetBoardMobil').disabled = true;
 			initBoard();
 			boardResponsivView = false;
 		}
