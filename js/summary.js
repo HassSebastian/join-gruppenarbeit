@@ -17,6 +17,7 @@ let guestLoggedIn = false;
 
 async function initSummary() {
 	await enableSummaryStyles();
+	// await enableSummaryJs();
 	// document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	await loadTask();

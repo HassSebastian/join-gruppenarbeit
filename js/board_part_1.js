@@ -35,7 +35,7 @@ async function initBoard() {
 	renderAllCards();
 	loadContributorsLetter();
 	coworkersToAssignTo = transferallUserData();
-	getInnerWidth();
+	// getInnerWidth();
 }
 
 /**

@@ -87,8 +87,8 @@ window.onresize = function (){
 		viewchange = true;
 		startChangetoDesktop();
     }
-	rezizeCallRelatedBoardFunctions();
-	resizeCallRelatedAddTaskFunctions();
+	// rezizeCallRelatedBoardFunctions();
+	// resizeCallRelatedAddTaskFunctions();
 }
 
 
@@ -107,6 +107,8 @@ async function startChangetoMobil(){
 
 
 let stylesheetDesktopDeactivationList =[
+	'stylsheetAddTaskMobil',
+	'stylesheetBoardMobil',
 	'stylesheetMobilTemplates',
 	'stylesheetMobilContacts',
 	'stylesheetMobilAddContacts',
@@ -181,7 +183,7 @@ async function activateDesktop(){
 
 async function init() {
 	await includeHTML();
-	document.getElementById('stylesheetBoardMobil').disabled = true;
+	// document.getElementById('stylesheetBoardMobil').disabled = true;
 	initSummary();
 }
 
@@ -395,8 +397,8 @@ let stylesheetMobilList =[
 	'stylesheetHelpMobil'
 ];
 
-let jsMobilList =[
-	'jsMobilLogin',
+let scriptMobilList =[
+	// 'jsMobilLogin',
 	'jsMobilSummary',
 	'jsMobilAddTask',
 	'jsMobilBoard',
@@ -469,6 +471,33 @@ async function enableHelp(){
 	await disableAllStyles();
 	document.getElementById('stylesheetResponsiv').disabled = false;
 	document.getElementById('stylesheetHelp').disabled = false;
+}
+
+
+async function disableAllJs(){
+	scriptDesktopList.forEach(script => {
+		document.getElementById(script).disabled = true;
+	});
+	scriptMobilList.forEach(script => {
+		document.getElementById(script).disabled = true;
+	});
+}
+
+
+function enableAllJs(){
+	scriptDesktopList.forEach(stylesheet => {
+		document.getElementById(stylesheet).disabled = false;
+	});
+	jsMobilList.forEach(stylesheet => {
+		document.getElementById(stylesheet).disabled = false;
+	});
+}
+
+
+async function enableSummaryJs(){
+	await disableAllJs();
+	document.getElementById('jsMiniBackend').disabled = false;
+	document.getElementById('jsSummary').disabled = false;
 }
 
 
