@@ -1,4 +1,5 @@
 async function initLegalNotice() {
+    await enableLegalNotice();
     await includeHTML();
     await renderLegalNotice();
     selectedMenuBtnId = 0;

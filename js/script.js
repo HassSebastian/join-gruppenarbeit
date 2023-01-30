@@ -41,13 +41,90 @@ let colorUserIndex = ['#02CF2F', '#EE00D6', '#0190E0', '#FF7200', '#FF2500', '#A
 let selectedMenuBtnId;
 let includeAttribute = 'w3-include-html';
 
-// https://gruppe-407.developerakademie.net/smallest_backend_ever
+
+// index.html start functions end edit by Bossi 30.01
+function loadStartDisplay(){
+    if (window.innerWidth > 768){
+        document.getElementById('page1').classList.remove('d-none');
+        setTimeout(initPage1, 300);
+    }
+    if (window.innerWidth <= 768){
+        console.log('mobile')
+        document.getElementById('pageOneMob').classList.remove('d-none');
+        document.getElementById('mobilMasterContainer').classList.remove('d-none');
+        setTimeout(initLoginMob, 300);
+    }
+}
+
+
+async function loadApplicableSummary(){
+    if (window.innerWidth > 768){
+        document.getElementById('mobilSummary').classList.add('d-none');
+        document.getElementById('desktopSummary').classList.remove('d-none');
+        await deactivatMobil();
+        init();
+    }
+    if (window.innerWidth <= 768){
+        document.getElementById('desktopSummary').classList.add('d-none');
+        document.getElementById('mobilSummary').classList.remove('d-none');
+        await deactivatDesktop();
+        initMobilSummary();
+    }
+}
+
+
+let stylesheetDesktopDeactivationList =[
+	'stylesheetMobilTemplates',
+	'stylesheetMobilContacts',
+	'stylesheetMobilAddContacts',
+	'stylesheetSummaryMobil',
+	'stylesheetHelpMobil',
+];
+
+let jsDesktopDeactivationList =[
+	'jsMobilSummary',
+	'jsMobilAddTask',
+	'jsMobilBoard',
+	'jsMobilContacts',
+	'jsHelpMobil',
+	'legalNoticeMobil',
+]
+
+let stylesheetMobilDeactivationList = [
+    'stylesheetsummary',
+    'stylesheetAddTask',
+    'stylesheetBoard',
+    'stylesheetContacts',
+    'stylesheetResponsiv',
+    'stylesheetHelp'  
+]
+
+let jsMobilDeactivationList = [
+    'jsHelp',
+]
+
+async function deactivatMobil(){
+	stylesheetDesktopDeactivationList.forEach(stylesheet => {
+		document.getElementById(stylesheet).disabled = true;
+	});
+	jsDesktopDeactivationList.forEach(script => {
+		document.getElementById(script).disabled = true;
+	});
+}
+
+async function deactivatDesktop(){
+	stylesheetMobilDeactivationList.forEach(stylesheet => {
+		document.getElementById(stylesheet).disabled = true;
+	});
+	jsMobilDeactivationList.forEach(script => {
+		document.getElementById(script).disabled = true;
+	});
+}
+// index.html start functions end edit by Bossi 30.01
 
 async function init() {
 	await includeHTML();
 	document.getElementById('stylesheetBoardMobil').disabled = true;
-	// setURL('https://developerakademie.net/smallest_backend_ever');
-	// selectedMenuButton(1);
 	initSummary();
 }
 
@@ -182,9 +259,10 @@ function renderList() {
 }
 
 // desktop_template.html help function
-function help() {
-	window.location.href = './help.html';
-}
+// function help() {
+// 	window.location.href = './help.html';
+// 	initHelp();
+// }
 
 function logOutBtn() {
 	document.getElementById('logOut').classList.toggle('logOutOn');
@@ -205,6 +283,8 @@ function loadContributorsLetter() {
 
 let stylesheetDesktopList = [
 	// 'stylesheetStyle',
+	// 'stylesheetIndex',
+	// 'stylesheetIndexMob',
 	'stylesheetAddTask',
 	'stylesheetBoard',
 	'stylesheetContacts',
@@ -213,6 +293,7 @@ let stylesheetDesktopList = [
 	'stylesheetResponsiv',
 	'stylesheetBoardMobil',
 	'stylsheetAddTaskMobil',
+	'stylesheetHelp'
 ];
 
 let scriptDesktopList = [
@@ -230,13 +311,34 @@ let scriptDesktopList = [
 	'jsContactsTemplates',
 	'jsContacts',
 	'jslegalNotice',
-	'jslegalNotice'
+	'jslegalNotice',
+	'jsHelp',
+	// 'jsLoginTemplates',
+	// 'jsIndex',
+	// 'jsLogin',
+	
 ];
 
 let stylesheetMobilList =[
 	'stylesheetBoardMobil',
-	'stylsheetAddTaskMobil'
+	'stylsheetAddTaskMobil',
+
+	'stylesheetMobilTemplates',
+	'stylesheetMobilContacts',
+	'stylesheetMobilAddContacts',
+	'stylesheetSummaryMobil',
+	'stylesheetHelpMobil'
 ];
+
+let jsMobilList =[
+	'jsMobilLogin',
+	'jsMobilSummary',
+	'jsMobilAddTask',
+	'jsMobilBoard',
+	'jsMobilContacts',
+	'jsHelpMobil',
+	'legalNoticeMobil',
+]
 
 
 async function disableAllStyles(){
@@ -246,6 +348,7 @@ async function disableAllStyles(){
 	stylesheetMobilList.forEach(stylesheet => {
 		document.getElementById(stylesheet).disabled = true;
 	});
+	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 }
 
 
@@ -261,8 +364,7 @@ function enableAllStyles(){
 
 async function enableSummaryStyles(){
 	await disableAllStyles();
-	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
-	// document.getElementById('stylesheetStyle').disabled = false;
+	document.getElementById('stylesheetStyle').disabled = false;
 	document.getElementById('stylesheetsummary').disabled = false;
 	document.getElementById('stylesheetResponsiv').disabled = false;
 }
@@ -270,8 +372,6 @@ async function enableSummaryStyles(){
 
 async function enableBoardStyles(){
 	await disableAllStyles();
-	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
-	// document.getElementById('stylesheetStyle').disabled = false;
 	document.getElementById('stylesheetBoard').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;
 	document.getElementById('stylesheetResponsiv').disabled = false;
@@ -280,9 +380,6 @@ async function enableBoardStyles(){
 
 async function enableAddTaskStyles(){
 	await disableAllStyles();
-	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
-	document.getElementById('stylesheetStyle').disabled = false;
-	// document.getElementById('stylesheetBoard').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;
 	document.getElementById('stylesheetResponsiv').disabled = false;
 }
@@ -290,10 +387,34 @@ async function enableAddTaskStyles(){
 
 async function enableContactsStyles(){
 	await disableAllStyles();
-	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
-	// document.getElementById('stylesheetStyle').disabled = false;
 	document.getElementById('stylesheetContacts').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;
 	document.getElementById('stylesheetResponsiv').disabled = false;
 }
+
+
+async function enableLegalNotice(){
+	await disableAllStyles();
+	document.getElementById('stylesheetResponsiv').disabled = false;
+	document.getElementById('stylesheetLegalNotice').disabled = false;
+}
+
+
+async function enableHelp(){
+	await disableAllStyles();
+	document.getElementById('stylesheetResponsiv').disabled = false;
+	document.getElementById('stylesheetHelp').disabled = false;
+}
+
+
+window.onresize = function (){
+    if (window.innerWidth > 768 && document.querySelector('.content')){
+		let selectedMenu = menuBtnId
+
+    }
+    if (window.innerWidth <= 768 && document.querySelector('.MobilContent')){
+        
+    }
+}
+
 
