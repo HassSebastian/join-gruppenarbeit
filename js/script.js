@@ -87,6 +87,8 @@ window.onresize = function (){
 		viewchange = true;
 		startChangetoDesktop();
     }
+	rezizeCallRelatedBoardFunctions();
+	resizeCallRelatedAddTaskFunctions();
 }
 
 
@@ -102,8 +104,6 @@ async function startChangetoMobil(){
 	await loadApplicableSummary();
 	viewchange = false;
 }
-
-
 
 
 let stylesheetDesktopDeactivationList =[
@@ -137,6 +137,7 @@ let jsMobilDeactivationList = [
 	'jsResponsiv',
 ]
 
+
 async function deactivatMobil(){
 	stylesheetDesktopDeactivationList.forEach(stylesheet => {
 		document.getElementById(stylesheet).disabled = true;
@@ -145,6 +146,7 @@ async function deactivatMobil(){
 		document.getElementById(script).disabled = true;
 	});
 }
+
 
 async function activateMobil(){
 	stylesheetDesktopDeactivationList.forEach(stylesheet => {
@@ -155,6 +157,7 @@ async function activateMobil(){
 	});
 }
 
+
 async function deactivatDesktop(){
 	stylesheetMobilDeactivationList.forEach(stylesheet => {
 		document.getElementById(stylesheet).disabled = true;
@@ -163,6 +166,7 @@ async function deactivatDesktop(){
 		document.getElementById(script).disabled = true;
 	});
 }
+
 
 async function activateDesktop(){
 	stylesheetMobilDeactivationList.forEach(stylesheet => {
@@ -174,11 +178,13 @@ async function activateDesktop(){
 }
 // index.html start functions end edit by Bossi 30.01
 
+
 async function init() {
 	await includeHTML();
 	document.getElementById('stylesheetBoardMobil').disabled = true;
 	initSummary();
 }
+
 
 async function includeHTML() {
 	let includeElements = document.querySelectorAll(`[${includeAttribute}]`);
@@ -194,6 +200,7 @@ async function includeHTML() {
 	}
 }
 
+
 function selectedMenuButton(menuId) {
 	if (selectedMenuNotShownAndNotLegalNotice(menuId)) {
 		setMenuBtnStyle(menuId);
@@ -204,13 +211,16 @@ function selectedMenuButton(menuId) {
 	selectedMenuBtnId = menuId;
 }
 
+
 function selectedMenuNotShownAndNotLegalNotice(menuId) {
 	return selectedMenuBtnId != menuId && menuId != 5;
 }
 
+
 function selectedMenuIsLegalNoticeAndNotShown(menuId) {
 	return menuId == 5 && selectedMenuBtnId != 5;
 }
+
 
 function setMenuBtnStyle(menuId) {
 	let menuBtnId = menuSelectorStyles[menuId]['menuName'];
@@ -227,6 +237,7 @@ function setMenuBtnStyle(menuId) {
 		setMenuBtnStyleSlider(menuId);
 	}
 }
+
 
 function setMenuBtnStyleSlider(menuId) {
 	let menuBtnId = menuSelectorStyles[menuId]['menuName'];
@@ -260,9 +271,11 @@ function deselectMenuButtonSlider(menuId) {
 	}
 }
 
+
 function otherMenuBtnPreSelected() {
 	return selectedMenuBtnId;
 }
+
 
 function setLegalNoticeBtnStyle(menuId) {
 	let menuBtnId = menuSelectorStyles[menuId]['menuName'];

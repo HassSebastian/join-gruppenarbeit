@@ -9,11 +9,14 @@ function enableDisableSliderMenu() {
 
 
 // general Functions
-window.onresize = function () {
-	rezizeCallRelatedBoardFunctions();
-	resizeCallRelatedAddTaskFunctions();
-	// switchOverToMobilPhoneView();
-};
+
+// die resize Funktionen werden im Script aufgerufen !
+// window.onresize = function () {
+	
+// 	rezizeCallRelatedBoardFunctions();
+// 	resizeCallRelatedAddTaskFunctions();
+
+// };
 
 
 function getInnerWidth() {
