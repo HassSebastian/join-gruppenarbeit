@@ -109,7 +109,7 @@ function rememberDoubleUserCheck(email, password) {
  * If the password icon is hidden, show it and change the password input type to "password". If the
  * password icon is not hidden, hide it and change the password input type to "text".
  */
-function passwordShowIcon() {
+function passwordShowIconLogin() {
 	document.getElementById('passwordLogo').classList.toggle('d-none');
 	document.getElementById('pwShowButton').classList.toggle('d-none');
 	if (document.getElementById('passwordLogo').classList.contains('d-none')) {

@@ -85,7 +85,7 @@ function contactSucc() {
  * It toggles the visibility of the password icon and the show button, and if the password icon is
  * hidden, it changes the type of the password input to text, otherwise it changes it back to password.
  */
-function passwordShowIcon() {
+function passwordShowIconSignUp() {
     document.getElementById('passwordLogo').classList.toggle('d-none');
     document.getElementById('pwShowButton').classList.toggle('d-none');
     if (document.getElementById('passwordLogo').classList.contains('d-none')) {

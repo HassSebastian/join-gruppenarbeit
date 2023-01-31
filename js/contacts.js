@@ -87,12 +87,9 @@ function openNewContact() {
  * It adds the class 'd-none' to the element with the id 'new_contact'.
  */
 function closeNewContact() {
-    if (window.innerWidth < 769) {
-        renderContentMobile();
-    } else {
+    window.innerWidth < 769 ? (renderContentMobile()) :
         document.getElementById('new_contact').classList.remove('add_contact_slide');
-        setTimeout(() => { document.getElementById('new_contact').classList.add('d-none') }, 500);
-    }
+    setTimeout(() => { document.getElementById('new_contact').classList.add('d-none') }, 500);
 }
 
 
@@ -100,13 +97,11 @@ function closeNewContact() {
  * It adds the class 'd-none' to the element with the id 'edit_contact'.
  */
 function closeEditContact() {
-    if (window.innerWidth < 769) {
-        renderContentMobile();
-    } else {
+    window.innerWidth < 769 ? (renderContentMobile()) :
         document.getElementById('edit_contact').classList.remove('add_contact_slide');
-        setTimeout(() => { document.getElementById('edit_contact').classList.add('d-none') }, 500);
-    }
+    setTimeout(() => { document.getElementById('edit_contact').classList.add('d-none') }, 500);
 }
+
 
 
 /**
