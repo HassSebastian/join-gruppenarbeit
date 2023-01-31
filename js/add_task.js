@@ -1326,6 +1326,6 @@ function addTextToTaskTitle() {
 
 // titleInput.addEventListener('click', addTextToTaskTitle);
 
-document.querySelector('#addTaskTitle').addEventListener('click', function () {
-	this.value = 'My test Task';
-});
+// document.querySelector('#addTaskTitle').addEventListener('click', function () {
+// 	this.value = 'My test Task';
+// });
