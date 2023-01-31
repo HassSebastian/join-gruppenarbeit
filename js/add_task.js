@@ -971,10 +971,10 @@ function addContactToTaskForceWithCheckBox(contact) {
  */
 async function renderContactsInAssignDropDownMenu() {
 	for (let contact = 0; contact < coworkersToAssignTo.length; contact++) {
-		if (contact != loggedInUserIndex) {
+		if (contact != loggedInUserIndex && !guestLoggedIn) {
 			let name = coworkersToAssignTo[contact].name;
 			let assignedContactList = document.getElementById('dropdown2');
-			if (!guestLoggedIn) assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(name, contact);
+			assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(name, contact);
 		}
 	}
 }
