@@ -19,10 +19,7 @@ function enableDisableSliderMenu() {
 // };
 
 
-function getInnerWidth() {
-	let tabWidth = window.innerWidth;
-	getInnerWidthBoardRelatedFunctions(tabWidth);
-}
+
 
 
 
@@ -66,30 +63,30 @@ function getInnerWidth() {
 // }
 
 
-
+function getInnerWidth() {
+	let tabWidth = window.innerWidth;
+	getInnerWidthBoardRelatedFunctions(tabWidth);
+}
 
 
 // Board Responsiv Functions
 
 function rezizeCallRelatedBoardFunctions(){
 	// responsiv Board Functions
-	if (window.innerWidth >= 769 && window.innerWidth <= 1400 && selectedMenuBtnId == 2) {
+	if (window.innerWidth >= 769 && window.innerWidth <= 1400) {
 		if (!boardResponsivView){
+			
 			document.getElementById('stylesheetBoardMobil').disabled = false;
 			initBoardResponsivTablet();
 			boardResponsivView = true;
 		}
 	}
 
-	if (window.innerWidth <= 768 || window.innerWidth >= 1401 && selectedMenuBtnId == 2) {
+	if (window.innerWidth < 769 || window.innerWidth > 1401) {
 		if (boardResponsivView && selectedMenuBtnId == 2){
 			document.getElementById('stylesheetBoardMobil').disabled = true;
 			initBoard();
 			boardResponsivView = false;
-		}
-		if (!boardResponsivView){
-			document.getElementById('stylesheetBoardMobil').disabled = true;
-			document.getElementById('stylesheetAddTask').disabled = false;
 		}
 	}
 }
