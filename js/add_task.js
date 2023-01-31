@@ -773,26 +773,20 @@ function resetSubtaskSelections() {
 =======================*/
 
 /**
- * If the list is not visible, make it visible and remove the border bottom from the button. If the
- * list is visible, add the border bottom to the button and make the list invisible.
+ * Shows or hides drob down menu of assignTo
  */
-
-function hideDropDownAssignTo() {
-	document.getElementById('dropdown2').classList.add('listD-none');
-}
-
-function showDropDownAssignTo() {
-	document.getElementById('dropdown2').classList.remove('listD-none');
+function showHideDropDownAssignTo() {
+	document.getElementById('dropdown2').classList.toggle('listD-none');
 }
 
 function enableDisableAssignList() {
 	if (!assignListStatus) {
 		borderBottomOffAssignedBoxButton();
-		showDropDownAssignTo();
+		showHideDropDownAssignTo();
 		showBadgesTaskForce();
 	} else {
 		borderBottomOnAssignedBoxButton();
-		hideDropDownAssignTo();
+		showHideDropDownAssignTo();
 		hideBadgesTaskForce();
 	}
 	assignListStatus = !assignListStatus;
@@ -801,7 +795,7 @@ function enableDisableAssignList() {
 }
 
 function enableAssignList() {
-	showDropDownAssignTo();
+	showHideDropDownAssignTo();
 	assignListStatus = !assignListStatus;
 }
 
@@ -822,22 +816,37 @@ function borderBottomOnAssignedBoxButton() {
 	document.getElementById('addTaskAssignedButton').style = `border-radius: 10px 10px 10px 10px;`;
 }
 
+/**
+ * Sets the placeholder of inputField to "contact email"
+ */
 function assignChangeInputPlaceholderToContactEmail() {
 	document.getElementsByName('selectedAssign')[0].placeholder = `Contact email`;
 }
 
+/**
+ * Disables inputField at addTaskAssignTo
+ */
 function enableInputaddTasAssign() {
 	document.getElementById('selectedAssign').disabled = false;
 }
 
+/**
+ * Shows btn to delete or confirm filled in input
+ */
 function showCancelConfirmButtons() {
 	document.getElementById('assignToCancelConfirmImgContainer').classList.remove('d-none');
 }
 
+/**
+ * Hides assignDropDownImg
+ */
 function hideAssignDropDownImg() {
 	document.getElementById('assignDropDownImg').classList.add('d-none');
 }
 
+/**
+ * Takes assign inpu in focus
+ */
 function assignInputAutoFocus() {
 	document.getElementById('selectedAssign').focus();
 }
