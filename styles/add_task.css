@@ -762,6 +762,7 @@
 	border-radius: 100%;
 	font-size: 21px;
 	cursor: pointer;
+	font-family: 'Inter';
 }
 
 .addTaskAssignList {
