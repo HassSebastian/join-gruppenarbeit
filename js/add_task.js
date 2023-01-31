@@ -1088,8 +1088,7 @@ function showBadgesTaskForce() {
 }
 
 function closeDropDownAssignTo() {
-  assignListStatus = true;
-  enableDisableAssignList();
+  assignListStatus ? enableDisableAssignList() : null;
 }
 
 function clearTaskForce() {
