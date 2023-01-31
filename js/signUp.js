@@ -1,4 +1,3 @@
-//let allUsers = [];
 
 
 function backToLogIn() {
@@ -61,11 +60,7 @@ async function userSignIn(firstLetter, secondLetter, name, email, password, colo
 }
 
 function forwardScript(){
-    if (window.innerWidth < 768) {
-        backToLogInMob();
-    } else {
-        window.location.href = './login.html';
-    };
+    window.innerWidth < 768 ? (backToLogInMob()) : window.location.href = './login.html';
 }
 
 
@@ -75,22 +70,17 @@ function contactSucc() {
 }
 
 
-/**
- * When the signUpDone() function is called, the signUpButton element is hidden and the
- * signUpButtonDone element is shown.
- */
-
 
 /**
  * It toggles the visibility of the password icon and the show button, and if the password icon is
  * hidden, it changes the type of the password input to text, otherwise it changes it back to password.
  */
-function passwordShowIconSignUp() {
+function passwordShowIcon(x) {
     document.getElementById('passwordLogo').classList.toggle('d-none');
     document.getElementById('pwShowButton').classList.toggle('d-none');
     if (document.getElementById('passwordLogo').classList.contains('d-none')) {
-        document.getElementById('inputPasswordSignUp').type = "text";
+        document.getElementById(`inputPassword${x}`).type = "text";
     } else {
-        document.getElementById('inputPasswordSignUp').type = "password";
+        document.getElementById(`inputPassword${x}`).type = "password";
     }
 }
