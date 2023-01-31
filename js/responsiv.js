@@ -9,11 +9,14 @@ function enableDisableSliderMenu() {
 
 
 // general Functions
-window.onresize = function () {
-	rezizeCallRelatedBoardFunctions();
-	resizeCallRelatedAddTaskFunctions();
-	// switchOverToMobilPhoneView();
-};
+
+// die resize Funktionen werden im Script aufgerufen !
+// window.onresize = function () {
+	
+// 	rezizeCallRelatedBoardFunctions();
+// 	resizeCallRelatedAddTaskFunctions();
+
+// };
 
 
 function getInnerWidth() {
@@ -242,27 +245,23 @@ function resetResponsivContainerHeightPart3(){
 
 function rezizeCallRelatedBoardFunctions(){
 	// responsiv Board Functions
-	if (window.innerWidth >= 768 && window.innerWidth <= 1400 && selectedMenuBtnId == 2) {
+	if (window.innerWidth >= 769 && window.innerWidth <= 1400 && selectedMenuBtnId == 2) {
 		if (!boardResponsivView){
 			document.getElementById('stylesheetBoardMobil').disabled = false;
-			// document.getElementById('stylsheetAddTaskMobil').disabled = false;
-			// document.getElementById('stylesheetAddTask').disabled = true;
 			initBoardResponsivTablet();
 			boardResponsivView = true;
 		}
 	}
 
-	if (window.innerWidth <= 767 || window.innerWidth >= 1401 && selectedMenuBtnId == 2) {
+	if (window.innerWidth <= 768 || window.innerWidth >= 1401 && selectedMenuBtnId == 2) {
 		if (boardResponsivView && selectedMenuBtnId == 2){
-			// document.getElementById('stylesheetBoardMobil').disabled = true;
-			
+			document.getElementById('stylesheetBoardMobil').disabled = true;
 			initBoard();
 			boardResponsivView = false;
 		}
 		if (!boardResponsivView){
 			document.getElementById('stylesheetBoardMobil').disabled = true;
 			document.getElementById('stylesheetAddTask').disabled = false;
-			// document.getElementById('stylsheetAddTaskMobil').disabled = true;
 		}
 	}
 }
@@ -271,15 +270,10 @@ function rezizeCallRelatedBoardFunctions(){
 function getInnerWidthBoardRelatedFunctions(tabWidth){
 	if (tabWidth >= 1401 || tabWidth < 769) {
 		document.getElementById('stylesheetBoardMobil').disabled = true;
-		// document.getElementById('stylesheetAddTask').disabled = false;
-		// document.getElementById('stylsheetAddTaskMobil').disabled = true;
-		// document.getElementById('stylsheetAddTaskMobil').disabled = true;
 	}
 	if (selectedMenuBtnId == 2 && tabWidth > 768 && tabWidth < 1401){
 		boardResponsivView = true;
 		document.getElementById('stylesheetBoardMobil').disabled = false;
-		// document.getElementById('stylesheetAddTask').disabled = true;
-		// document.getElementById('stylsheetAddTaskMobil').disabled = false;
 		initBoardResponsivTablet();
 	}
 }
