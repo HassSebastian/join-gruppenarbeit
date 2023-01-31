@@ -1043,43 +1043,8 @@ function frontEndDeveloper() {
 	alert('This function is part of backend. The course is about frontend though');
 }
 
-/*
-! GUEST SECTION */
-
-let idInputFieldsAddTask = ['addTaskTitle', 'addTaskDescripten', 'selectedCatInput', 'dueDate', 'subTask'];
-
-/**
- * Changes input field value with newValue
- * @param {string} inputId
- * @param {string} newValue
- */
-function changeInputValue(inputId, newValue) {
-	let inputElement = document.getElementById(inputId);
-	inputElement.value = newValue;
-}
-
-/**
- * Disables input field
- * @param {string} inputId
- */
-function disableInputField(inputId) {
-	let inputElement = document.getElementById(inputId);
-	inputElement.disabled = true;
-}
-
-/**
- * Changes the input field value just when being logged in with guest login
- * @param {string} inputId
- * @param {string} newValue
- */
-function checkChangeInputValue(inputId, newValue) {
-	guestLoggedIn ? (changeInputValue(inputId, newValue), disableInputField(inputId)) : null;
-}
-
-
-
 // Add Task Responsiv Functions
-function resizeCallRelatedAddTaskFunctions(){
+function resizeCallRelatedAddTaskFunctions() {
 	if (window.innerWidth < 768 || window.innerWidth > 1100) {
 		resetResponsivContainerHeight();
 	}
@@ -1088,9 +1053,8 @@ function resizeCallRelatedAddTaskFunctions(){
 	}
 	if (assignListStatus && selectedMenuBtnId == 3) {
 		enableDisableAssignList();
-	}	
+	}
 }
-
 
 function tabletViewAddMarginTopCatList() {
 	if (catListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100) {
@@ -1106,22 +1070,19 @@ function tabletViewAddMarginTopCatList() {
 	tabletViewAddTaskResize();
 }
 
-
-function checkIdAndRemoveMargin(){
-	if (document.querySelector('#addTaskRightContainer')){
+function checkIdAndRemoveMargin() {
+	if (document.querySelector('#addTaskRightContainer')) {
 		document.getElementById('addTaskRightContainer').classList.remove('addMarginTop');
-		resetResizePageAndChangeBtnPosition();
-	}	
-}
-
-
-function checkIdAndRemoveMargin2(){
-	if (document.querySelector('#addTaskRightContainer')){
-		document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop');
 		resetResizePageAndChangeBtnPosition();
 	}
 }
 
+function checkIdAndRemoveMargin2() {
+	if (document.querySelector('#addTaskRightContainer')) {
+		document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop');
+		resetResizePageAndChangeBtnPosition();
+	}
+}
 
 function tabletViewAddMarginTopAssignList() {
 	if (assignListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100) {
@@ -1137,12 +1098,10 @@ function tabletViewAddMarginTopAssignList() {
 	tabletViewAddMarginTopCatList();
 }
 
-
 function resizePageAndChangeBtnPosition() {
 	document.getElementById('testResponsiv').classList.add('testResponsivNewHeight');
 	btnPosition1();
 }
-
 
 function resetResizePageAndChangeBtnPosition() {
 	document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight');
@@ -1150,13 +1109,11 @@ function resetResizePageAndChangeBtnPosition() {
 	btnPosition2();
 }
 
-
 function resizePageAndChangeBtnPosition1() {
 	document.getElementById('addTaskRightContainer').classList.add('addMarginTop');
 	document.getElementById('testResponsiv').classList.add('testResponsivNewHeight');
 	btnPosition1();
 }
-
 
 function btnPosition1() {
 	document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue2');
@@ -1164,13 +1121,11 @@ function btnPosition1() {
 	document.getElementById('addTaskBtnOuterContainer').classList.add('addTaskBtnOuterContainerNewTopValue1');
 }
 
-
 function btnPosition2() {
 	document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue2');
 	document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue1');
 	document.getElementById('addTaskBtnOuterContainer').classList.add('addTaskBtnOuterContainerNewTopValue');
 }
-
 
 function btnPosition3() {
 	document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue');
@@ -1178,25 +1133,21 @@ function btnPosition3() {
 	document.getElementById('addTaskBtnOuterContainer').classList.add('addTaskBtnOuterContainerNewTopValue2');
 }
 
-
 function addTaskRightContainerNewHeight1() {
 	document.getElementById('addTaskRightContainer').classList.remove('addMarginTop');
 	document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop');
 	document.getElementById('addTaskRightContainer').classList.add('addTaskRightContainerAddMarginTop1');
 }
 
-
-function testResponsivNewHeight1(){
+function testResponsivNewHeight1() {
 	document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight');
 	document.getElementById('testResponsiv').classList.add('testResponsivNewHeight1');
 }
 
-
-function testResponsivNewHeight2(){
+function testResponsivNewHeight2() {
 	document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight');
 	document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight1');
 }
-
 
 function tabletViewAddTaskResize() {
 	if (assignListStatus && catListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100) {
@@ -1205,13 +1156,12 @@ function tabletViewAddTaskResize() {
 		btnPosition3();
 	}
 	if ((!assignListStatus && !catListStatus) || window.innerWidth < 768 || window.innerWidth > 1100) {
-		if (document.querySelector('#addTaskRightContainer')){
+		if (document.querySelector('#addTaskRightContainer')) {
 			document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop1');
 			testResponsivNewHeight2();
 		}
 	}
 }
-
 
 function resetResponsivContainerHeight() {
 	resetResponsivContainerHeightPart1();
@@ -1219,8 +1169,7 @@ function resetResponsivContainerHeight() {
 	resetResponsivContainerHeightPart3();
 }
 
-
-function resetResponsivContainerHeightPart1(){
+function resetResponsivContainerHeightPart1() {
 	if (document.querySelector('.addTaskRightContainerAddMarginTop1')) {
 		document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop1');
 	}
@@ -1229,8 +1178,7 @@ function resetResponsivContainerHeightPart1(){
 	}
 }
 
-
-function resetResponsivContainerHeightPart2(){
+function resetResponsivContainerHeightPart2() {
 	if (document.querySelector('.testResponsivNewHeight')) {
 		document.getElementById('testResponsiv').classList.remove('testResponsivNewHeight');
 	}
@@ -1239,8 +1187,7 @@ function resetResponsivContainerHeightPart2(){
 	}
 }
 
-
-function resetResponsivContainerHeightPart3(){
+function resetResponsivContainerHeightPart3() {
 	if (document.querySelector('.addTaskBtnOuterContainerNewTopValue')) {
 		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue');
 	}
@@ -1251,6 +1198,5 @@ function resetResponsivContainerHeightPart3(){
 		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue2');
 	}
 }
-
 
 // Add Task Responsiv Functions end

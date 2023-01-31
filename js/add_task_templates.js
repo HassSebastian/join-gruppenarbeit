@@ -30,7 +30,7 @@ function generateAddTaskHtml() {
 				<div class="addTaskAddDescriptenBox">
 					<h3>Descripten</h3>
 					<!-- <form onblur='goToCategorySelection(); return false' id='formDesc' action='action.asp'> -->
-					<textarea class='addTaskResponsiv' form="formDesc" type="text" placeholder="Enter Descripten" id="addTaskDescripten" required
+					<textarea onclick=" checkChangeInputValue('addTaskDescripten', 'Discover this canban board')" class='addTaskResponsiv' form="formDesc" type="text" placeholder="Enter Descripten" id="addTaskDescripten" required
 						minlength="5"></textarea>
 					<!-- </form> -->
 					<span class="requiredText" id="descReq">This field is required</span>
