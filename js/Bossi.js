@@ -35,6 +35,7 @@ let scriptDesktopList = [
 	'jsResponsiv',
 	'jsScript',
 	'jsAddTask',
+	'jsAddTaskTemplates',
 	'jsBoardPart1',
 	'jsBoardPart2',
 	'jsBoardPart3',
