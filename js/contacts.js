@@ -87,7 +87,7 @@ function openNewContact() {
  * It adds the class 'd-none' to the element with the id 'new_contact'.
  */
 function closeNewContact() {
-    if (document.getElementById('mobilContent')) {
+    if (window.innerWidth < 769) {
         renderContentMobile();
     } else {
         document.getElementById('new_contact').classList.remove('add_contact_slide');
@@ -100,7 +100,7 @@ function closeNewContact() {
  * It adds the class 'd-none' to the element with the id 'edit_contact'.
  */
 function closeEditContact() {
-    if (document.getElementById('mobilContent')) {
+    if (window.innerWidth < 769) {
         renderContentMobile();
     } else {
         document.getElementById('edit_contact').classList.remove('add_contact_slide');

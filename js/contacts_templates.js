@@ -82,7 +82,7 @@ function showLettersHTML(alphabetLetter) {
 
 
 function showContactQuerry(name, email, phone, letter, color, i, showContact) {
-    if (document.getElementById('mobilContent')) {
+    if (window.innerWidth < 769) {
         document.getElementById('mobilContent').innerHTML = '';
         document.getElementById('mobilContent').innerHTML = showContactHTMLMob(name, email, phone, letter, color, i);
     } else {
