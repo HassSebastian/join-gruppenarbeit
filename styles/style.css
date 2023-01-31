@@ -355,3 +355,33 @@ tr td:nth-child(3) {
     }
 
 }
+
+@media screen and (max-width: 1300px){
+    /* Side Menu and Slider */
+
+    .sideMenu {
+        display: none !important;
+    }
+
+    .sliderMenu {
+        display: flex !important;
+    }
+
+    .title {
+        left: 8% !important;
+    }
+
+    .overview {
+        left: 8% !important;
+    }
+
+    .memberMenu h1 {
+        margin-left: 8%;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    .memberMenu {
+        z-index: 1;
+    }
+}
