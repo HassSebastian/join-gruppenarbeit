@@ -139,6 +139,7 @@ let jsMobilDeactivationList = [
 	'jsResponsiv',
 	'jsContacts',
 	'jsContactsTemplates',
+	'jsAddTaskTemplates'
 ]
 
 
@@ -179,6 +180,8 @@ async function activateDesktop(){
 	jsMobilDeactivationList.forEach(script => {
 		document.getElementById(script).disabled = false;
 	});
+	document.getElementById('jsMobilContacts').disabled = false;
+	document.getElementById('jsContactsTemplates').disabled = false;
 }
 // index.html start functions end edit by Bossi 30.01
 
