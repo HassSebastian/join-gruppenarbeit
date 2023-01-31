@@ -970,11 +970,11 @@ function addContactToTaskForceWithCheckBox(contact) {
  *! "contact" might not be the best name. To be reconsidered!!
  */
 async function renderContactsInAssignDropDownMenu() {
+	let assignedContactList = document.getElementById('dropdown2');
 	for (let contact = 0; contact < coworkersToAssignTo.length; contact++) {
 		if (contact != loggedInUserIndex && !guestLoggedIn) {
 			let name = coworkersToAssignTo[contact].name;
-			let assignedContactList = document.getElementById('dropdown2');
-			assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(name, contact);
+			if (name != 'Guest') assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(name, contact);
 		}
 	}
 }
