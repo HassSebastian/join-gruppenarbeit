@@ -48,19 +48,9 @@
     .boardSubtitleContainer {
         width: 100% !important;
     }
-
-    /* .toDoAreaHeader,
-    .inProgressAreaHeader,
-    .awaitingFeedbackAreaHeader,
-    .doneAreaHeader {
-        width: 21.74% !important;
-    } */
-
     .canbanBoard {
         left: 22% !important;
     }
-
-    
 }
 
 @media screen and (max-width: 1400px) {
