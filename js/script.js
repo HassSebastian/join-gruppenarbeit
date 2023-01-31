@@ -120,7 +120,7 @@ let jsDesktopDeactivationList =[
 	'jsMobilSummary',
 	'jsMobilAddTask',
 	'jsMobilBoard',
-	'jsMobilContacts',
+	// 'jsMobilContacts',
 	'jsHelpMobil',
 	'legalNoticeMobil',
 ]
@@ -138,7 +138,7 @@ let jsMobilDeactivationList = [
     'jsHelp',
 	'jsResponsiv',
 	'jsContacts',
-	'jsContactsTemplates',
+	// 'jsContactsTemplates',
 	'jsAddTaskTemplates'
 ]
 
@@ -180,8 +180,8 @@ async function activateDesktop(){
 	jsMobilDeactivationList.forEach(script => {
 		document.getElementById(script).disabled = false;
 	});
-	document.getElementById('jsMobilContacts').disabled = false;
-	document.getElementById('jsContactsTemplates').disabled = false;
+	// document.getElementById('jsMobilContacts').disabled = false;
+	// document.getElementById('jsContactsTemplates').disabled = false;
 }
 // index.html start functions end edit by Bossi 30.01
 
@@ -491,11 +491,12 @@ async function disableAllJs(){
 
 
 function enableAllJs(){
-	scriptDesktopList.forEach(stylesheet => {
-		document.getElementById(stylesheet).disabled = false;
+	debugger;
+	scriptDesktopList.forEach(script => {
+		document.getElementById(script).disabled = false;
 	});
-	jsMobilList.forEach(stylesheet => {
-		document.getElementById(stylesheet).disabled = false;
+	jsMobilList.forEach(script => {
+		document.getElementById(script).disabled = false;
 	});
 }
 
