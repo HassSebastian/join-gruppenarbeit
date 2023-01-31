@@ -1,3 +1,4 @@
+let guestLoggedIn = false;
 let jsonFromServer = {};
 let BASE_SERVER_URL;
 
@@ -116,16 +117,20 @@ function testSetUser() {
 }
 
 async function saveTask() {
-	await fillDatabaseData();
-	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-	// localStorage.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
-	backend.setItem('database', JSON.stringify(database));
+	if (!guestLoggedIn) {
+		await fillDatabaseData();
+		setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+		// localStorage.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
+		backend.setItem('database', JSON.stringify(database));
+	}
 }
 
 async function loadTask() {
-	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-	await downloadFromServer();
-	database = JSON.parse(backend.getItem('database')) || [];
-	joinTaskArray = database[0]['joinTaskArray'];
-	allUsers = database[0]['allUsers'];
+	if (!guestLoggedIn) {
+		setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
+		await downloadFromServer();
+		database = JSON.parse(backend.getItem('database')) || [];
+		joinTaskArray = database[0]['joinTaskArray'];
+		allUsers = database[0]['allUsers'];
+	}
 }

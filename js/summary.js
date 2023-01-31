@@ -13,7 +13,7 @@ let allYourInProgressTasks = [];
 let allYourAwaitingFeedbackTasks = [];
 let allYourDoneTasks = [];
 
-let guestLoggedIn = false;
+/* let guestLoggedIn = false; */
 
 async function initSummary() {
 	await enableSummaryStyles();
