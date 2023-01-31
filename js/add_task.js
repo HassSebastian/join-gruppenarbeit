@@ -1099,7 +1099,7 @@ function clearTaskForce() {
 }
 
 function frontEndDeveloper() {
-  /* document.getElementById('selectedAssign').value = `Just frontend. Sorry! ;)`; */
+  /* document.getElementById('selectedAssign').value = `Just frontend. Sorry!;)`; */
   alert(
     "This function is part of backend. The course is about frontend though"
   );
