@@ -67,11 +67,6 @@ function rememberMe(email, password, loginStatus) {
 	loggedUser.push(loginStatus);
 	let loggedUserAsString = JSON.stringify(loggedUser);
 	localStorage.setItem('loggedUser', loggedUserAsString);
-	// if (window.innerWidth < 768) {
-	// 	window.location.href = './summary_mobile.html';
-	// } else {
-	// 	window.location.href = './summary.html';
-	// }
 	window.location.href = './summary.html';
 }
 
@@ -105,19 +100,6 @@ function rememberDoubleUserCheck(email, password) {
 	calculateRememberDoubleUserCheck(email, password, rememberUser, valueToCheck, check);
 }
 
-/**
- * If the password icon is hidden, show it and change the password input type to "password". If the
- * password icon is not hidden, hide it and change the password input type to "text".
- */
-function passwordShowIconLogin() {
-	document.getElementById('passwordLogo').classList.toggle('d-none');
-	document.getElementById('pwShowButton').classList.toggle('d-none');
-	if (document.getElementById('passwordLogo').classList.contains('d-none')) {
-		document.getElementById('inputPasswordLogin').type = 'text';
-	} else {
-		document.getElementById('inputPasswordLogin').type = 'password';
-	}
-}
 
 /**
  * If there is a string in localStorage with the key 'rememberUser', then parse the string into an
