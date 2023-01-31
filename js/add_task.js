@@ -974,7 +974,7 @@ async function renderContactsInAssignDropDownMenu() {
 		if (contact != loggedInUserIndex) {
 			let name = coworkersToAssignTo[contact].name;
 			let assignedContactList = document.getElementById('dropdown2');
-			assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(name, contact);
+			if (!guestLoggedIn) assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(name, contact);
 		}
 	}
 }

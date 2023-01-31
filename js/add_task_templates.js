@@ -22,7 +22,7 @@ function generateAddTaskHtml() {
 				<div class="addTaskAddTitleBox">
 					<h3>Title</h3>
 					<form onsubmit="goToDescripten(); return false">
-						<input onclick=" checkChangeInputValue('addTaskTitle', 'My new task')" class='addTaskResponsiv' required type="text" placeholder="Enter a title" id="addTaskTitle" autocomplete="off"
+						<input class='addTaskResponsiv' required type="text" placeholder="Enter a title" id="addTaskTitle" autocomplete="off"
 							minlength="3" />
 					</form>
 					<span class="requiredText" id="titleReq">This field is required</span>
@@ -30,7 +30,7 @@ function generateAddTaskHtml() {
 				<div class="addTaskAddDescriptenBox">
 					<h3>Descripten</h3>
 					<!-- <form onblur='goToCategorySelection(); return false' id='formDesc' action='action.asp'> -->
-					<textarea onclick=" checkChangeInputValue('addTaskDescripten', 'Discover this canban board')" class='addTaskResponsiv' form="formDesc" type="text" placeholder="Enter Descripten" id="addTaskDescripten" required
+					<textarea class='addTaskResponsiv' form="formDesc" type="text" placeholder="Enter Descripten" id="addTaskDescripten" required
 						minlength="5"></textarea>
 					<!-- </form> -->
 					<span class="requiredText" id="descReq">This field is required</span>
