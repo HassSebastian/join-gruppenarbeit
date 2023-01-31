@@ -33,21 +33,7 @@
 
 @media screen and (max-width: 1440px) {
     /* board */
-    .boardOverlay {
-        left: 22% !important;
-        width: 75% !important;
-        justify-content: space-between;
-        gap: unset !important;
-    }
-
-    .boardSubheaders {
-        left: calc(22% - 45px) !important;
-        width: 76.78% !important;
-    }
-
-    .boardSubtitleContainer {
-        width: 100% !important;
-    }
+    
     .canbanBoard {
         left: 22% !important;
     }
@@ -55,13 +41,6 @@
 
 @media screen and (max-width: 1400px) {
     /* board */
-
-    .boardOverlay {
-        left: 22% !important;
-        width: 58% !important;
-        justify-content: center;
-        gap: 202px !important;
-    }
 
     .toDoHeadline {
         width: 401px !important;
@@ -167,17 +146,6 @@
     
 }
 
-
-
-@media screen and (max-width: 956px) {
-    .boardOverlay {
-        left: 22% !important;
-        width: 58% !important;
-        justify-content: center;
-        gap: 102px !important;
-    }
-
-}
 
 @media screen and (max-width: 768px) {
 
