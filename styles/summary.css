@@ -437,3 +437,20 @@
 /* display: flex;
 justify-content: center;
  */
+
+ @media screen and (max-width: 1440px) {
+  /* Summary */
+
+  .welcome {
+      left: calc(99% - 385px) !important;
+  }
+
+  .title {
+      left: 22% !important;
+  }
+
+  .overview {
+      left: 22% !important;
+  }
+
+}
