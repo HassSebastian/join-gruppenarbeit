@@ -460,3 +460,15 @@ justify-content: center;
     display: none;
 }
 }
+
+
+@media screen and (max-width: 950px) {
+  .title {
+    left: 8% !important;
+}
+
+.overview {
+    left: 8% !important;
+}
+  
+}
