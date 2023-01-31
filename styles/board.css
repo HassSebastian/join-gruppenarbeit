@@ -1621,28 +1621,39 @@ transform: translateX(-1290px);
 
 
 
-@media(max-width: 1300px){
-    /* .boardAddTaskPopupOverlay{
-        width: 560px !important;
-        overflow: hidden;
-        overflow: scroll;
+@media screen and (max-width: 1440px) {
+    /* board */
+    .boardOverlay {
+        left: 22% !important;
+        width: 75% !important;
+        justify-content: space-between;
+        gap: unset !important;
     }
-    .close_logo_edit_task{
-        left: 500px;
+
+    .boardSubheaders {
+        left: calc(22% - 45px) !important;
+        width: 76.78% !important;
     }
-    .boardAddTaskDividerBoard{
-        display: none;
-    }
-    .boardAddTaskRightContainer{
-        left: 0;
-        top: 560px;
-    }
-    .boardAddTaskBtnOuterContainer{
-        left: 158px;
-        top: 1160px;
-    }
-    .boardtaskAddedToBoard{
-        left: 130px;
-        top: 1270px
-    } */
+
 }
+
+@media screen and (max-width: 1400px) {
+    .boardOverlay {
+        left: 22% !important;
+        width: 58% !important;
+        justify-content: center;
+        gap: 202px !important;
+    }
+
+}
+
+
+@media screen and (max-width: 956px) {
+    .boardOverlay {
+        left: 22% !important;
+        width: 58% !important;
+        justify-content: center;
+        gap: 102px !important;
+    }
+}
+
