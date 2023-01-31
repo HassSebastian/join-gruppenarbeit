@@ -1395,6 +1395,13 @@
     }
 }
 
+@media screen and (max-width: 1300px) {
+	.rightContainer {
+        width: 100%;
+    }
+	
+}
+
 @media screen and (max-width: 1100px){
 	/*addTask  */
 

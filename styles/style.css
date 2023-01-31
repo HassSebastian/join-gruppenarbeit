@@ -378,6 +378,10 @@ tr td:nth-child(3) {
     .memberMenu h1 {
         margin-left: 8%;
     }
+
+    .rightContainer {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 1100px){

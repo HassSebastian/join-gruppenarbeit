@@ -130,7 +130,7 @@ let stylesheetMobilDeactivationList = [
     'stylesheetAddTask',
     'stylesheetBoard',
     'stylesheetContacts',
-    'stylesheetResponsiv',
+    // 'stylesheetResponsiv',
     'stylesheetHelp'  
 ]
 
@@ -362,7 +362,7 @@ let stylesheetDesktopList = [
 	'stylesheetContacts',
 	'stylesheetLegalNotice',
 	'stylesheetsummary',
-	'stylesheetResponsiv',
+	// 'stylesheetResponsiv',
 	'stylesheetBoardMobil',
 	'stylsheetAddTaskMobil',
 	'stylesheetHelp'
@@ -439,7 +439,7 @@ async function enableSummaryStyles(){
 	await disableAllStyles();
 	document.getElementById('stylesheetStyle').disabled = false;
 	document.getElementById('stylesheetsummary').disabled = false;
-	document.getElementById('stylesheetResponsiv').disabled = false;
+	// document.getElementById('stylesheetResponsiv').disabled = false;
 }
 
 
@@ -447,14 +447,14 @@ async function enableBoardStyles(){
 	await disableAllStyles();
 	document.getElementById('stylesheetBoard').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;
-	document.getElementById('stylesheetResponsiv').disabled = false;
+	// document.getElementById('stylesheetResponsiv').disabled = false;
 }
 
 
 async function enableAddTaskStyles(){
 	await disableAllStyles();
 	document.getElementById('stylesheetAddTask').disabled = false;
-	document.getElementById('stylesheetResponsiv').disabled = false;
+	// document.getElementById('stylesheetResponsiv').disabled = false;
 }
 
 
@@ -462,20 +462,20 @@ async function enableContactsStyles(){
 	await disableAllStyles();
 	document.getElementById('stylesheetContacts').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;
-	document.getElementById('stylesheetResponsiv').disabled = false;
+	// document.getElementById('stylesheetResponsiv').disabled = false;
 }
 
 
 async function enableLegalNotice(){
 	await disableAllStyles();
-	document.getElementById('stylesheetResponsiv').disabled = false;
+	// document.getElementById('stylesheetResponsiv').disabled = false;
 	document.getElementById('stylesheetLegalNotice').disabled = false;
 }
 
 
 async function enableHelp(){
 	await disableAllStyles();
-	document.getElementById('stylesheetResponsiv').disabled = false;
+	// document.getElementById('stylesheetResponsiv').disabled = false;
 	document.getElementById('stylesheetHelp').disabled = false;
 }
 
