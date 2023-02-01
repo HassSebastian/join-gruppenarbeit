@@ -25,7 +25,14 @@ async function initSummary() {
 	resetYourTasksArrays(); // sonst addieren sich die tasks bei jedem Aufrufen
 	await loadAmountsForSummary(); // await später für server wichtig
 	await includeHTML();
-	await renderSummary(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount);
+	await renderSummary(
+		allYourTasksAmount,
+		allYourToDoTasksAmount,
+		allYourInProgressTasksAmount,
+		allYourAwaitingFeedbackTasksAmount,
+		allYourDoneTasksAmount,
+		yourUrgentTasksAmount
+	);
 	selectedMenuBtnId = 0;
 	selectedMenuButton(1);
 	showDate();
@@ -50,7 +57,14 @@ function resetYourTasksArrays() {
 	allYourDoneTasks = [];
 }
 
-function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount) {
+function generateSummaryHtml(
+	allYourTasksAmount,
+	allYourToDoTasksAmount,
+	allYourInProgressTasksAmount,
+	allYourAwaitingFeedbackTasksAmount,
+	allYourDoneTasksAmount,
+	yourUrgentTasksAmount
+) {
 	return /*html*/ `
     <!-- <div class='summary_content'> -->
         <div class='title'>
@@ -104,7 +118,14 @@ function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYour
     `;
 }
 
-async function renderSummary(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount) {
+async function renderSummary(
+	allYourTasksAmount,
+	allYourToDoTasksAmount,
+	allYourInProgressTasksAmount,
+	allYourAwaitingFeedbackTasksAmount,
+	allYourDoneTasksAmount,
+	yourUrgentTasksAmount
+) {
 	document.getElementById('content').innerHTML = '';
 	document.getElementById('content').innerHTML += generateSummaryHtml(
 		allYourTasksAmount,
@@ -236,7 +257,6 @@ function getLoggedUserIndex() {
  */
 function getEmailAdrressOfLoggedUser() {
 	emailAddress = allUsers[loggedInUserIndex].email;
-	console.log('guestemail', emailAddress);
 	emailAddress == 'guest@web.de' ? (guestLoggedIn = true) : null;
 }
 

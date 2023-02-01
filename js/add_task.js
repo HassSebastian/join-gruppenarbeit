@@ -931,8 +931,12 @@ function addSelectedContactToTaskForce(contact) {
 	taskForce.push(coworkersToAssignTo[contact]);
 }
 
+/**
+ *Id von Guestlogin als Variable eingeben wie? loggedUse?
+ * @param {number} contact
+ */
 function removeCheckMarkFromCheckBox(contact) {
-	document.getElementById(`checkMark${contact}`).classList.add('d-none');
+	if (contact != 15) document.getElementById(`checkMark${contact}`).classList.add('d-none');
 }
 
 function removeSelectedContactFromTaskForce(index) {
@@ -981,7 +985,7 @@ async function renderContactsInAssignDropDownMenu() {
 	for (let contact = 0; contact < coworkersToAssignTo.length; contact++) {
 		if (contact != loggedInUserIndex && !guestLoggedIn) {
 			let name = coworkersToAssignTo[contact].name;
-			/* if (name != 'Guest')  */ assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(name, contact);
+			if (name != 'Guest') assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(name, contact);
 		}
 	}
 }

@@ -100,7 +100,6 @@ function rememberDoubleUserCheck(email, password) {
 	calculateRememberDoubleUserCheck(email, password, rememberUser, valueToCheck, check);
 }
 
-
 /**
  * If there is a string in localStorage with the key 'rememberUser', then parse the string into an
  * object, push the object into an array, and then set the value of the email and password inputs to
