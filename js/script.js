@@ -216,6 +216,16 @@ function selectedMenuButton(menuId) {
 		setLegalNoticeBtnStyle(menuId);
 	}
 	selectedMenuBtnId = menuId;
+	enableDisableScrollContent();
+}
+
+function enableDisableScrollContent(){
+	if (selectedMenuBtnId == 4){
+		document.getElementById('content').style = 'overflow: hidden; overflow-y: hidden;';
+	}
+	if (selectedMenuBtnId == 3 || selectedMenuBtnId == 2){
+		document.getElementById('content').style = 'overflow: hidden; overflow-y: scroll;';
+	}
 }
 
 
