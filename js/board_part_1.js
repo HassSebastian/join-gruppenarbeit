@@ -157,11 +157,14 @@ function createWorkStatusJson(cardTitle, cardDescription, cardCatColor, cardCate
  * This function renders all the cards in the Kanban board.
  */
 async function renderAllCards() {
-	renderToDoCards();
-	renderInProgressCards();
-	renderAwaitingFeedbackCards();
-	renderDoneCards();
-	renderAssignTo();
+	if (!selectedMenuBtnId == 4){
+		renderToDoCards();
+		renderInProgressCards();
+		renderAwaitingFeedbackCards();
+		renderDoneCards();
+		renderAssignTo();
+	}
+	
 }
 
 /**
