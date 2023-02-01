@@ -1,4 +1,4 @@
-let boardResponsivView = false;
+
 
 
 // responsiv Slider menu functions
@@ -69,25 +69,28 @@ function getInnerWidth() {
 }
 
 
+let boardResponsivView = false;
+
 // Board Responsiv Functions
 
 function rezizeCallRelatedBoardFunctions(){
 	// responsiv Board Functions
-	if (window.innerWidth >= 769 && window.innerWidth <= 1400) {
-		if (!boardResponsivView){
-			
-			document.getElementById('stylesheetBoardMobil').disabled = false;
-			initBoardResponsivTablet();
+	if (window.innerWidth > 768 && window.innerWidth <= 1400 && boardResponsivView == false) {
+		if (selectedMenuBtnId == 2){
 			boardResponsivView = true;
+			document.getElementById('stylesheetBoardMobil').disabled = false;
+			document.getElementById('stylesheetMobilTemplates').disabled = true;
+			initBoardResponsivTablet();
 		}
-	}
-
-	if (window.innerWidth < 769 || window.innerWidth > 1401) {
-		if (boardResponsivView && selectedMenuBtnId == 2){
+		if (selectedMenuBtnId != 2 && window.innerWidth > 1400){
 			document.getElementById('stylesheetBoardMobil').disabled = true;
-			initBoard();
+			document.getElementById('stylesheetMobilTemplates').disabled = true;
 			boardResponsivView = false;
 		}
+	}
+	if (window.innerWidth > 1400 && selectedMenuBtnId == 2 && boardResponsivView == true){
+		boardResponsivView = false;
+		initBoard();
 	}
 }
 
@@ -241,7 +244,7 @@ function boardHtmlRESPOSIV() {
             </div>
         </div>
 
-        <!-- <div class='boardSubheaders'>
+        <div class='boardSubheaders'>
             <div class='boardSubtitleContainer'>
                 <div class='toDoAreaHeader'>
                     <span>To do</span>
@@ -269,7 +272,7 @@ function boardHtmlRESPOSIV() {
                     </button>
                 </div>
             </div>	
-        </div> -->
+        </div>
 		
         <div class='canbanBoard' onscroll='changeHeightDropArea()' id='canbanBoard'>
 			<div>

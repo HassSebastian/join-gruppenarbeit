@@ -44,6 +44,7 @@ async function initBoard() {
 async function renderBoard() {
 	document.getElementById('content').innerHTML = '';
 	document.getElementById('content').innerHTML += boardHtml();
+	// document.getElementById('content').innerHTML += boardHtmlRESPOSIV();
 }
 
 /**
