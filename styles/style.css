@@ -198,12 +198,17 @@ tr td:nth-child(3) {
     width: 1208px;
 }
 
-.content {
+.content{
     height: 1024px;
     width: 1208px;
     background-color: #F6F7F8;
     color: #000000;
+    overflow: auto;
 }
+.content::-webkit-scrollbar{
+    width: 0px;
+}
+
 
 .memberMenu {
     display: flex;
