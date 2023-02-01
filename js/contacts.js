@@ -226,11 +226,15 @@ async function editContact(i) {
 
 async function deleteContactQuestion(i) {
 	let letter = allUsers[i].firstSecondLetter;
+    let email = allUsers[i].email;
 	let deleteQuestion = document.getElementById('deleteContactQuestion');
 	let deleteQuestionInner = document.getElementById('deleteContactQuestion').innerHTML;
 	if (letter === deleteQuestionInner) {
+        if(email == 'guest@web.de'){
+        }else{
 		deleteQuestion.innerHTML = `Delete?`;
 		deleteQuestion.style = 'font-size: 30px';
+        }
 	} else {
 		allUsers.splice(i, 1);
 		await saveTask();
