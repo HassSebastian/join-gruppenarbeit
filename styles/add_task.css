@@ -1266,7 +1266,7 @@
 /* add to Board animation */
 .content {
 	overflow: hidden;
-	overflow-y: scroll;
+	/* overflow-y: scroll;   edit by Basti / ich finde den Fehler nicht mehr */
 }
 
 .taskAddedToBoard {
