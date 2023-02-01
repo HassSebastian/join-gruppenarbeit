@@ -462,6 +462,7 @@ async function enableContactsStyles(){
 	await disableAllStyles();
 	document.getElementById('stylesheetContacts').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;
+	document.getElementById('stylesheetBoard').disabled = false;
 	// document.getElementById('stylesheetResponsiv').disabled = false;
 }
 
