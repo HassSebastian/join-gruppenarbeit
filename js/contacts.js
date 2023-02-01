@@ -1,35 +1,59 @@
-let alphabetOrd = { A: [], B: [], C: [], D: [], E: [], F: [], G: [], H: [], I: [], J: [], K: [], L: [], M: [], N: [], O: [], P: [], Q: [], R: [], S: [], T: [], U: [], V: [], W: [], X: [], Y: [], Z: [] };
+let alphabetOrd = {
+	A: [],
+	B: [],
+	C: [],
+	D: [],
+	E: [],
+	F: [],
+	G: [],
+	H: [],
+	I: [],
+	J: [],
+	K: [],
+	L: [],
+	M: [],
+	N: [],
+	O: [],
+	P: [],
+	Q: [],
+	R: [],
+	S: [],
+	T: [],
+	U: [],
+	V: [],
+	W: [],
+	X: [],
+	Y: [],
+	Z: [],
+};
 let newContactUser = [];
 let colorIndex = ['#02CF2F', '#EE00D6', '#0190E0', '#FF7200', '#FF2500', '#AF1616', '#FFC700', '#3E0099', '#462F8A', '#FF7A00', '#000000'];
 let check = 0;
-
 
 /**
  * This function is called when the user clicks on the contacts button in the menu. It loads the
  * contacts page and renders the content.
  */
 async function initContacts() {
-    await enableContactsStyles();
-    // document.getElementById('stylsheetAddTaskMobil').disabled = true;
-    // document.getElementById('stylesheetAddTask').disabled = false;
-    // document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
-    await loadTask();
-    await renderContent();
-    selectedMenuButton(4);
-    await userInAlphabetArray();
-    loadContributorsLetter();
-    coworkersToAssignTo = transferallUserData();
+	await enableContactsStyles();
+	// document.getElementById('stylsheetAddTaskMobil').disabled = true;
+	// document.getElementById('stylesheetAddTask').disabled = false;
+	// document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
+	await loadTask();
+	await renderContent();
+	selectedMenuButton(4);
+	await userInAlphabetArray();
+	loadContributorsLetter();
+	coworkersToAssignTo = transferallUserData();
 }
-
 
 /**
  * It takes the HTML from the renderContentHTML() function and puts it into the content div.
  */
 async function renderContent() {
-    document.getElementById('content').innerHTML = '';
-    document.getElementById('content').innerHTML = renderContentHTML();
+	document.getElementById('content').innerHTML = '';
+	document.getElementById('content').innerHTML = renderContentHTML();
 }
-
 
 /**
  * This function is called when the user clicks the "Submit" button. It calls the
@@ -38,20 +62,45 @@ async function renderContent() {
  * results.
  */
 async function userInAlphabetArray() {
-    alphabetOrd = { A: [], B: [], C: [], D: [], E: [], F: [], G: [], H: [], I: [], J: [], K: [], L: [], M: [], N: [], O: [], P: [], Q: [], R: [], S: [], T: [], U: [], V: [], W: [], X: [], Y: [], Z: [] };
-    calculateUserInAlphabetArray();
-    alphabet();
+	alphabetOrd = {
+		A: [],
+		B: [],
+		C: [],
+		D: [],
+		E: [],
+		F: [],
+		G: [],
+		H: [],
+		I: [],
+		J: [],
+		K: [],
+		L: [],
+		M: [],
+		N: [],
+		O: [],
+		P: [],
+		Q: [],
+		R: [],
+		S: [],
+		T: [],
+		U: [],
+		V: [],
+		W: [],
+		X: [],
+		Y: [],
+		Z: [],
+	};
+	calculateUserInAlphabetArray();
+	alphabet();
 }
-
 
 /**
  * It clears the contact list and then calls the calculateAndShowAlphabet function.
  */
 function alphabet() {
-    document.getElementById('Contact_list').innerHTML = '';
-    calculateAndShowAlphabet();
+	document.getElementById('Contact_list').innerHTML = '';
+	calculateAndShowAlphabet();
 }
-
 
 /**
  * It removes the class 'd-none' from the element with the id 'edit_contact', then it sets the
@@ -60,49 +109,50 @@ function alphabet() {
  * @param i - the index of the user in the array
  */
 function openEditContact(i) {
-    let color = allUsers[i].colorIndex;
-    let letter = allUsers[i].firstSecondLetter;
-    let name = allUsers[i].name;
-    let email = allUsers[i].email;
-    let phone = allUsers[i].phone;
-    document.getElementById('edit_contact').classList.remove('d-none')
-    document.getElementById('edit_contact').innerHTML = '';
-    document.getElementById('edit_contact').innerHTML = openEditContactHTML(color, letter, name, email, phone, i);
-    setTimeout(() => { document.getElementById('edit_contact').classList.add('add_contact_slide') }, 1);
+	let color = allUsers[i].colorIndex;
+	let letter = allUsers[i].firstSecondLetter;
+	let name = allUsers[i].name;
+	let email = allUsers[i].email;
+	let phone = allUsers[i].phone;
+	document.getElementById('edit_contact').classList.remove('d-none');
+	document.getElementById('edit_contact').innerHTML = '';
+	document.getElementById('edit_contact').innerHTML = openEditContactHTML(color, letter, name, email, phone, i);
+	setTimeout(() => {
+		document.getElementById('edit_contact').classList.add('add_contact_slide');
+	}, 1);
 }
-
 
 /**
  * It opens a new contact form.
  */
 function openNewContact() {
-    document.getElementById('new_contact').classList.remove('d-none')
-    document.getElementById('new_contact').innerHTML = '';
-    document.getElementById('new_contact').innerHTML = openNewContactHTML();
-    setTimeout(() => { document.getElementById('new_contact').classList.add('add_contact_slide') }, 1);
+	document.getElementById('new_contact').classList.remove('d-none');
+	document.getElementById('new_contact').innerHTML = '';
+	document.getElementById('new_contact').innerHTML = openNewContactHTML();
+	setTimeout(() => {
+		document.getElementById('new_contact').classList.add('add_contact_slide');
+	}, 1);
 }
-
 
 /**
  * It adds the class 'd-none' to the element with the id 'new_contact'.
  */
 function closeNewContact() {
-    window.innerWidth < 769 ? (renderContentMobile()) :
-        document.getElementById('new_contact').classList.remove('add_contact_slide');
-    setTimeout(() => { document.getElementById('new_contact').classList.add('d-none') }, 500);
+	window.innerWidth < 769 ? renderContentMobile() : document.getElementById('new_contact').classList.remove('add_contact_slide');
+	setTimeout(() => {
+		document.getElementById('new_contact').classList.add('d-none');
+	}, 500);
 }
-
 
 /**
  * It adds the class 'd-none' to the element with the id 'edit_contact'.
  */
 function closeEditContact() {
-    window.innerWidth < 769 ? (renderContentMobile()) :
-        document.getElementById('edit_contact').classList.remove('add_contact_slide');
-    setTimeout(() => { document.getElementById('edit_contact').classList.add('d-none') }, 500);
+	window.innerWidth < 769 ? renderContentMobile() : document.getElementById('edit_contact').classList.remove('add_contact_slide');
+	setTimeout(() => {
+		document.getElementById('edit_contact').classList.add('d-none');
+	}, 500);
 }
-
-
 
 /**
  * It takes the index of the user in the array, and then it gets the name, email, phone, letter, and
@@ -111,15 +161,14 @@ function closeEditContact() {
  * @param i - the index of the user in the allUsers array
  */
 function showContact(i) {
-    let name = allUsers[i].name;
-    let email = allUsers[i].email;
-    let phone = allUsers[i].phone;
-    let letter = allUsers[i].firstSecondLetter;
-    let color = allUsers[i].colorIndex;
-    let showContact = document.getElementById('showContact');
-    showContactQuerry(name, email, phone, letter, color, i, showContact);
+	let name = allUsers[i].name;
+	let email = allUsers[i].email;
+	let phone = allUsers[i].phone;
+	let letter = allUsers[i].firstSecondLetter;
+	let color = allUsers[i].colorIndex;
+	let showContact = document.getElementById('showContact');
+	showContactQuerry(name, email, phone, letter, color, i, showContact);
 }
-
 
 /**
  * AddContact() is an async function that takes the values of the input fields, calculates the first
@@ -127,38 +176,37 @@ function showContact(i) {
  * addContactSave() function.
  */
 async function addContact() {
-    let name = document.getElementById('newUserName');
-    let email = document.getElementById('newUserEmail');
-    let phone = document.getElementById('newUserPhone');
-    let newNameRequired = document.getElementById('newContentNameRequired');
-    let newEmailRequired = document.getElementById('newContentEmailRequired');
-    let newPhoneRequired = document.getElementById('newContentPhoneRequired');
-    addContactHelp(name, email, phone, newNameRequired, newEmailRequired, newPhoneRequired);
+	if (!guestLoggedIn) {
+		let name = document.getElementById('newUserName');
+		let email = document.getElementById('newUserEmail');
+		let phone = document.getElementById('newUserPhone');
+		let newNameRequired = document.getElementById('newContentNameRequired');
+		let newEmailRequired = document.getElementById('newContentEmailRequired');
+		let newPhoneRequired = document.getElementById('newContentPhoneRequired');
+		addContactHelp(name, email, phone, newNameRequired, newEmailRequired, newPhoneRequired);
+	}
+	if (guestLoggedIn) alert('Sorry, does not work with guest status!');
 }
-
 
 function comparisonEmail(newEmailRequired, name, email, phone) {
-    let valueToCheck = email;
-    comparisonEmailHelp(newEmailRequired, name, email, phone, valueToCheck);
+	let valueToCheck = email;
+	comparisonEmailHelp(newEmailRequired, name, email, phone, valueToCheck);
 }
-
 
 async function calculateNewAllUserArray(name, email, phone) {
-    let firstLetter = name[0].toUpperCase();
-    let secondLetter = await calcSecondLetter(name);
-    let colorIndex = await calcColorIndex(firstLetter, secondLetter);
-    addContactSave(name, email, phone, firstLetter, secondLetter, colorIndex);
+	let firstLetter = name[0].toUpperCase();
+	let secondLetter = await calcSecondLetter(name);
+	let colorIndex = await calcColorIndex(firstLetter, secondLetter);
+	addContactSave(name, email, phone, firstLetter, secondLetter, colorIndex);
 }
-
 
 /**
  * If the user is logged in, then the user can edit his/her own data.
  * @param i - the id of the contact
  */
 function saveEditContact(i) {
-    editContact(i);
+	editContact(i);
 }
-
 
 /**
  * It takes the values from the input fields, and then calls the function editContactSave() with the
@@ -166,28 +214,27 @@ function saveEditContact(i) {
  * @param i - the index of the user in the array
  */
 async function editContact(i) {
-    let name = document.getElementById('editUserName').value;
-    let email = document.getElementById('editUserEmail').value;
-    let phone = document.getElementById('editUserPhone').value;
-    let password = allUsers[i].password;
-    let firstLetter = name[0];
-    let secondLetter = await calcSecondLetter(name);
-    let colorIndex = await calcColorIndex(firstLetter, secondLetter);
-    editContactSave(name, email, password, phone, firstLetter, secondLetter, colorIndex, i);
+	let name = document.getElementById('editUserName').value;
+	let email = document.getElementById('editUserEmail').value;
+	let phone = document.getElementById('editUserPhone').value;
+	let password = allUsers[i].password;
+	let firstLetter = name[0];
+	let secondLetter = await calcSecondLetter(name);
+	let colorIndex = await calcColorIndex(firstLetter, secondLetter);
+	editContactSave(name, email, password, phone, firstLetter, secondLetter, colorIndex, i);
 }
 
-
 async function deleteContactQuestion(i) {
-    let letter = allUsers[i].firstSecondLetter;
-    let deleteQuestion = document.getElementById('deleteContactQuestion');
-    let deleteQuestionInner = document.getElementById('deleteContactQuestion').innerHTML;
-    if (letter === deleteQuestionInner) {
-        deleteQuestion.innerHTML = `Delete?`;
-        deleteQuestion.style = "font-size: 30px";
-    } else {
-        allUsers.splice(i, 1);
-        await saveTask();
-        await renderContent();
-        await userInAlphabetArray();
-    }
+	let letter = allUsers[i].firstSecondLetter;
+	let deleteQuestion = document.getElementById('deleteContactQuestion');
+	let deleteQuestionInner = document.getElementById('deleteContactQuestion').innerHTML;
+	if (letter === deleteQuestionInner) {
+		deleteQuestion.innerHTML = `Delete?`;
+		deleteQuestion.style = 'font-size: 30px';
+	} else {
+		allUsers.splice(i, 1);
+		await saveTask();
+		await renderContent();
+		await userInAlphabetArray();
+	}
 }
