@@ -375,6 +375,9 @@
     order: 1;
     flex-grow: 0;
     padding: 10px 0;
+    color: blue;
+    text-decoration: underline;
+
 }
 
 .contactPhone {
@@ -392,6 +395,8 @@
     flex: none;
     order: 1;
     flex-grow: 0;
+    color: blue;
+    text-decoration: underline;
 }
 
 .edit_contact {
