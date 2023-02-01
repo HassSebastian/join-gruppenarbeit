@@ -168,6 +168,10 @@ function enableDisableCatList() {
   boardAddTaskMarginSettings();
 }
 
+function closeCatList() {
+  catListStatus ? enableDisableCatList() : null;
+}
+
 /**
  * This function determind "Dropdown Menu" of the category selector and "Category Input" active or not active.
  *
@@ -534,6 +538,7 @@ function clearFormularData() {
   document.getElementById("catReq").classList.add("listD-none");
   resetAssignToList(); // edited by Bossi 04.01.2022, the function is in the board.js
   subTaskArray = [];
+  closeCatList();
   clearTaskForce();
 }
 
@@ -1092,7 +1097,9 @@ function closeDropDownAssignTo() {
 }
 
 function clearTaskForce() {
-  checkStatusToFalse();
+  if (!guestLoggedIn) {
+    checkStatusToFalse();
+  }
   taskForce = [];
   renderBadgesMemberOfTaskForce();
   closeDropDownAssignTo();
