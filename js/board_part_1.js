@@ -157,7 +157,7 @@ function createWorkStatusJson(cardTitle, cardDescription, cardCatColor, cardCate
  * This function renders all the cards in the Kanban board.
  */
 async function renderAllCards() {
-	if (!selectedMenuBtnId == 4){
+	if (selectedMenuBtnId == 2){
 		renderToDoCards();
 		renderInProgressCards();
 		renderAwaitingFeedbackCards();
