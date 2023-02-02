@@ -20,6 +20,7 @@ let subTaskArray = [];
 let selectedSubtasks = [];
 // let index;
 let badgesIndex;
+let guestId;
 /* 
 !TEST ARRAY for renderFunciont (assignedContact list in dropdown menu) */
 let coworkersToAssignTo = [];
@@ -47,6 +48,7 @@ async function initAddTask() {
 	addSubtaskMain();
 	addContactToTaskForceWithCheckBox(loggedInUserIndex);
 	getInnerWidth();
+	setIndexOfGuest();
 }
 
 /**
@@ -932,11 +934,11 @@ function addSelectedContactToTaskForce(contact) {
 }
 
 /**
- *Id von Guestlogin als Variable eingeben wie? loggedUse?
+ *!Id von Guestlogin als Variable eingeben wie? loggedUse?
  * @param {number} contact
  */
 function removeCheckMarkFromCheckBox(contact) {
-	if (contact != 15) document.getElementById(`checkMark${contact}`).classList.add('d-none');
+	if (contact != guestId) document.getElementById(`checkMark${contact}`).classList.add('d-none');
 }
 
 function removeSelectedContactFromTaskForce(index) {
@@ -1052,6 +1054,16 @@ function clearTaskForce() {
 function frontEndDeveloper() {
 	/* document.getElementById('selectedAssign').value = `Just frontend. Sorry!;)`; */
 	alert('This function is part of backend. The course is about frontend though');
+}
+
+/* 
+!GUEST Login */
+
+/**
+ * gets Index of Guest
+ */
+function setIndexOfGuest() {
+	guestId = allUsers.findIndex((user) => user.email === 'guest@web.de');
 }
 
 // Add Task Responsiv Functions

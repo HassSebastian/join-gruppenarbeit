@@ -13,7 +13,6 @@ function resetRequiredLine(email, password, requiredEmail, requiredPassword) {
 	requiredPassword.innerHTML = `This field is required`;
 }
 
-
 /**
  * If the email and password fields are not empty, check if the email is valid, if not, show the
  * required email message, if it is, check if the password is empty, if it is, show the required
@@ -26,12 +25,7 @@ function resetRequiredLine(email, password, requiredEmail, requiredPassword) {
  */
 function calculateCheckCorrectInput(email, password, requiredEmail, requiredPassword) {
 	if (email.value.length || password.value.length) {
-		if (
-			email.value.length < 8 ||
-			!email.value.includes('@') ||
-			!email.value.includes('.') ||
-			email.value[0] === ' '
-		) {
+		if (email.value.length < 8 || !email.value.includes('@') || !email.value.includes('.') || email.value[0] === ' ') {
 			requiredEmail.classList.add('requiredOn');
 		} else {
 			requiredEmail.classList.remove('requiredOn');
@@ -41,15 +35,11 @@ function calculateCheckCorrectInput(email, password, requiredEmail, requiredPass
 		} else {
 			requiredPassword.classList.remove('requiredOn');
 		}
-		if (
-			!requiredEmail.classList.contains('requiredOn') &&
-			!requiredPassword.classList.contains('requiredOn')
-		) {
+		if (!requiredEmail.classList.contains('requiredOn') && !requiredPassword.classList.contains('requiredOn')) {
 			userLogin(email.value, password.value);
 		}
 	}
 }
-
 
 /**
  * If the user doesn't exist, then add the class 'requiredOn' to the email and password fields, and add
@@ -63,7 +53,6 @@ function pleaseRegister(requiredEmailLogin, requiredPasswordLogin) {
 	requiredPasswordLogin.classList.add('requiredOn');
 	requiredPasswordLogin.innerHTML = `No user available. please  <b>Sign up!!</b>`;
 }
-
 
 /**
  * If the email and password match, then the user is logged in.
@@ -95,7 +84,6 @@ function statusOK(email, password, requiredEmailLogin, requiredPasswordLogin) {
 	}
 }
 
-
 /**
  * It checks if the email and password entered by the user is in the local storage. If it is, it
  * redirects the user to the summary page. If it isn't, it calls the keyQueryOne function.
@@ -120,18 +108,17 @@ function calculateRememberDoubleUserCheck(email, password, rememberUser, valueTo
 	}
 }
 
-
 /**
- * It takes two arguments, email and password, and pushes them into an array called rememberUser. 
- * 
- * Then it converts the array into a string and stores it in localStorage. 
- * 
- * The function is called when the user clicks the checkbox. 
- * 
- * The function is called with the email and password values from the form. 
- * 
- * The function is called from the checkbox's onclick event. 
- * 
+ * It takes two arguments, email and password, and pushes them into an array called rememberUser.
+ *
+ * Then it converts the array into a string and stores it in localStorage.
+ *
+ * The function is called when the user clicks the checkbox.
+ *
+ * The function is called with the email and password values from the form.
+ *
+ * The function is called from the checkbox's onclick event.
+ *
  * The function is called from the check
  * @param email - the email address of the user
  * @param password - the password of the user
@@ -142,7 +129,6 @@ function keyQueryNull(email, password) {
 	let rememberUserAtString = JSON.stringify(rememberUser);
 	localStorage.setItem('rememberUser', rememberUserAtString);
 }
-
 
 /**
  * It takes two arguments, email and password, and pushes them into an array called rememberUser.
