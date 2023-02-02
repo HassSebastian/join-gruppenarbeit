@@ -265,20 +265,13 @@ async function getTaskChanges(taskIndex) {
     joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
     
     await saveTask();
-    if(window.innerWidth > 1400){
-        await renderBoard();
-        await createWorkStatusArrays();
-        await renderAllCards();
-        // disablePopupWindow();
-    }else {
-        disablePopupWindow();
-        await renderMobileBoardHtml();
-        await createWorkStatusArrays();
-        debugger;
-        await renderAllCardsMobil();
-        
-    }
+    await renderBoard();
+    await createWorkStatusArrays();
+    await renderAllCards();
+    // await initBoard();
+    // disablePopupWindow();
 }
+
 
 /**
  * If the user clicks on a priority button, the function will check if the button is already selected.
