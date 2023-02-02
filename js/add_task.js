@@ -88,7 +88,7 @@ function addCheckAttributeToCoworkersToAssignTo() {
 	});
 }
 
-// this are test function for the HTML 5 Form validation !
+//? this are test function for the HTML 5 Form validation !
 function goToDescripten() {
 	document.getElementById('addTaskDescripten').focus();
 }
@@ -96,11 +96,12 @@ function goToDescripten() {
 function goToPrio() {
 	document.getElementById('addTaskUrgent').focus();
 }
-// this are test function for the HTML 5 Form validation end!
+//?this are test function for the HTML 5 Form validation end!
 
 /**
  * This function load the data(key:joinTaskArray) from local storage.
  * Then it filter this data to create a JSON Array with existing categories.
+ * !Christian has stopped cleaning here. To be continued later ;)
  */
 async function loadExitingCategories() {
 	await loadTask();
@@ -110,11 +111,11 @@ async function loadExitingCategories() {
 			catColor: '',
 		},
 	];
-	for (let i = 0; i < joinTaskArray.length; i++) {
-		let taskCategory = joinTaskArray[i]['category'];
-		let categoryColor = joinTaskArray[i]['catColor'];
+	joinTaskArray.forEach((task) => {
+		const taskCategory = task['category'];
+		const categoryColor = task['catColor'];
 
-		let newCategoryItem = {
+		const newCategoryItem = {
 			category: taskCategory,
 			catColor: categoryColor,
 		};
@@ -124,7 +125,7 @@ async function loadExitingCategories() {
 				catColor: categoryColor,
 			});
 		}
-	}
+	});
 }
 
 /**
@@ -163,6 +164,9 @@ function enableDisableCatList() {
 	boardAddTaskMarginSettings();
 }
 
+/**
+ * Closes category list
+ */
 function closeCatList() {
 	catListStatus ? enableDisableCatList() : null;
 }
@@ -251,7 +255,7 @@ function setNewCategoryToList() {
 			selectCategory(+newCategoryIndex);
 			enableDisableCatList();
 		}
-		// enableDisableCatList();
+
 		newCatInputActive = false;
 	}
 }
