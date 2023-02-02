@@ -114,12 +114,15 @@ function openEditContact(i) {
 	let name = allUsers[i].name;
 	let email = allUsers[i].email;
 	let phone = allUsers[i].phone;
-	document.getElementById('edit_contact').classList.remove('d-none');
-	document.getElementById('edit_contact').innerHTML = '';
-	document.getElementById('edit_contact').innerHTML = openEditContactHTML(color, letter, name, email, phone, i);
-	setTimeout(() => {
-		document.getElementById('edit_contact').classList.add('add_contact_slide');
-	}, 1);
+	if (email == 'guest@web.de') {
+	} else {
+		document.getElementById('edit_contact').classList.remove('d-none');
+		document.getElementById('edit_contact').innerHTML = '';
+		document.getElementById('edit_contact').innerHTML = openEditContactHTML(color, letter, name, email, phone, i);
+		setTimeout(() => {
+			document.getElementById('edit_contact').classList.add('add_contact_slide');
+		}, 1);
+	}
 }
 
 /**
@@ -227,15 +230,15 @@ async function editContact(i) {
 
 async function deleteContactQuestion(i) {
 	let letter = allUsers[i].firstSecondLetter;
-    let email = allUsers[i].email;
+	let email = allUsers[i].email;
 	let deleteQuestion = document.getElementById('deleteContactQuestion');
 	let deleteQuestionInner = document.getElementById('deleteContactQuestion').innerHTML;
 	if (letter === deleteQuestionInner) {
-        if(email == 'guest@web.de'){
-        }else{
-		deleteQuestion.innerHTML = `Delete?`;
-		deleteQuestion.style = 'font-size: 30px';
-        }
+		if (email == 'guest@web.de') {
+		} else {
+			deleteQuestion.innerHTML = `Delete?`;
+			deleteQuestion.style = 'font-size: 30px';
+		}
 	} else {
 		allUsers.splice(i, 1);
 		await saveTask();
