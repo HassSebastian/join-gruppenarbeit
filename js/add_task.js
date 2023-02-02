@@ -26,28 +26,20 @@ let guestId;
 let coworkersToAssignTo = [];
 
 async function initAddTask() {
-	// setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-	// await includeHTML();
 	await enableAddTaskStyles();
-	// document.getElementById('stylsheetAddTaskMobil').disabled = true;
-	// document.getElementById('stylesheetAddTask').disabled = false;
-	// document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 	await renderAddTask();
 	await loadExitingCategories();
 	renderCategoryList();
 	newCatInputActive = false;
 	renderSubtasks();
-	// selectedMenuBtnId = 0;
 	selectedMenuButton(3);
 	renderLoggedUserInAssignDrobDownMenuIntoYou(); // Das habe ich für das You eingefügt!
 	renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
 	setFutureDatesOnlyForInputDueDate();
 	loadContributorsLetter();
-	// getInnerWidth();
 	taskForce = []; // Das muss noch hier rein oder in einer andere Datei!
 	addSubtaskMain();
 	addContactToTaskForceWithCheckBox(loggedInUserIndex);
-	getInnerWidth();
 	setIndexOfGuest();
 }
 
