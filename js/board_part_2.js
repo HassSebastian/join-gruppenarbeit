@@ -36,11 +36,9 @@ async function disablePopupWindow() {
         document.getElementById('boardPopup').classList.add('d-none');
         // await disableBoardPopup();
     }
-    if (selectedMenuButton = 4) { } else {
-        // await renderAllCards();
-        await initBoard();
-        searchAfterPopup();
-    }
+    // await renderAllCards();
+    await initBoard();
+    searchAfterPopup();
 }
 
 
@@ -265,22 +263,15 @@ async function getTaskChanges(taskIndex) {
     joinTaskArray[taskIndex]['descripten'] = boardEditedDescripten;
     joinTaskArray[taskIndex]['dueDate'] = boardEditedDueDate;
     joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
-
+    
     await saveTask();
-    if(window.innerWidth > 1400){
-        await renderBoard();
-        await createWorkStatusArrays();
-        await renderAllCards();
-        // disablePopupWindow();
-    }else {
-        disablePopupWindow();
-        await renderMobileBoardHtml();
-        await createWorkStatusArrays();
-        debugger;
-        await renderAllCardsMobil();
-        
-    }
+    await renderBoard();
+    await createWorkStatusArrays();
+    await renderAllCards();
+    // await initBoard();
+    // disablePopupWindow();
 }
+
 
 /**
  * If the user clicks on a priority button, the function will check if the button is already selected.
@@ -330,13 +321,13 @@ async function showAddTaskPopupWindow() {
     await loadExitingCategories();
     renderCategoryList();
     newCatInputActive = false;
-
+    
     renderLoggedUserInAssignDrobDownMenuIntoYou(); // Das habe ich für das You eingefügt!
     renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
     setFutureDatesOnlyForInputDueDate();
     loadContributorsLetter();
     addSubtaskMain();
-
+    
     addContactToTaskForceWithCheckBox(loggedInUserIndex);
 }
 
