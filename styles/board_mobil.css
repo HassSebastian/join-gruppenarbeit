@@ -541,7 +541,7 @@
     margin-bottom: 80px;
 }
 
-.taskCardPopupCategory {
+.taskCardPopupCategoryMob {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -557,7 +557,7 @@
     box-sizing: border-box;
 }
 
-.taskCardPopupCategory span {
+.taskCardPopupCategoryMob span {
     /* width: 54px; */
     height: 25px;
     font-family: 'Inter';
@@ -580,7 +580,7 @@
     cursor: pointer;
 }
 
-.taskCardPopupTask {
+.taskCardPopupTaskMob {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -593,7 +593,7 @@
     top: 125px;
 }
 
-.taskCardPopupTask span {
+.taskCardPopupTaskMob span {
     width: 100%;
     height: 86px;
     font-family: 'Inter';
@@ -607,7 +607,7 @@
     flex-grow: 0;
 }
 
-.taskCardPopupDescription {
+.taskCardPopupDescriptionMob {
     position: absolute;
     width: 363px;
     height: 38px;
@@ -623,7 +623,7 @@
     overflow-y: scroll;
 }
 
-.taskCardPopupDateContainer {
+.taskCardPopupDateContainerMob {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -636,7 +636,7 @@
     top: 299px;
 }
 
-.taskCardPopupDateText {
+.taskCardPopupDateTextMob {
     width: 75px;
     height: 19px;
     font-family: 'Inter';
@@ -650,7 +650,7 @@
     flex-grow: 0;
 }
 
-.taskCardPopupDueDate {
+.taskCardPopupDueDateMob {
     width: 93px;
     height: 19px;
     font-family: 'Inter';
@@ -664,7 +664,7 @@
     flex-grow: 0;
 }
 
-.taskCardPopupPriorityContainer {
+.taskCardPopupPriorityContainerMob {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -677,7 +677,7 @@
     top: 349px;
 }
 
-.taskCardPopupPriorityContainer span {
+.taskCardPopupPriorityContainerMob span {
     width: 63px;
     height: 19px;
     font-family: 'Inter';
@@ -688,7 +688,7 @@
     color: #000000;
 }
 
-.urgency {
+.urgencyMob {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -705,7 +705,7 @@
     flex-grow: 0;
 }
 
-.urgency span {
+.urgencyMob span {
     /* width: 52px; */
     height: 19px;
     font-family: 'Inter';
@@ -719,7 +719,7 @@
     flex-grow: 0;
 }
 
-.urgency img {
+.urgencyMob img {
     width: 17px;
     height: 12px;
     /* transform: rotate(-180deg); */
@@ -728,7 +728,7 @@
     flex-grow: 0;
 }
 
-.assigned {
+.assignedMob {
     position: absolute;
     width: 102px;
     height: 19px;
@@ -742,7 +742,7 @@
     color: #000000;
 }
 
-.members {
+.membersMob {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -756,7 +756,7 @@
     top: 451px;
 }
 
-.members div {
+.membersMob div {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -774,7 +774,7 @@
     flex-grow: 0;
 }
 
-.editButton {
+.editButtonMob {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -868,7 +868,7 @@
 } */
 
 
-.boardSubtasksTitleDiv{
+.boardSubtasksTitleDivMob{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -885,7 +885,7 @@
     top: 510px;
 }
 
-.boardSubtasksDiv{
+.boardSubtasksDivMob{
     display: flex;
     flex-direction: column;
     padding: 0px;
@@ -902,7 +902,7 @@
     overflow-y: scroll;
 }
 
-.boardSubtasksDiv div span{
+.boardSubtasksDivMob div span{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -910,7 +910,7 @@
     color: #000000;
 }
 
-.boardSubtaskTitle{
+.boardSubtaskTitleMob{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
@@ -970,7 +970,7 @@
     cursor: pointer;
 }
 
-.editTaskOkBtn {
+.editTaskOkBtnMob {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1000,7 +1000,7 @@
     cursor: pointer;
 }
 
-.editTaskOkBtn:hover{
+.editTaskOkBtnMob:hover{
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;

@@ -575,30 +575,30 @@ function renderPopupTaskCardHtmlMobil(taskIndex) {
         document.getElementById('boardTaskDetail').innerHTML = '';
         document.getElementById('boardTaskDetail').innerHTML = /*html*/`
         <div class='boardTaskCardPopup'>
-            <div class='taskCardPopupCategory' id='taskCardPopupCategory'>
+            <div class='taskCardPopupCategoryMob' id='taskCardPopupCategory'>
                 <span>${cardCategory}</span>
             </div>
             <img src="./assets/img/arrow-left-line.png" class='backArrow' onclick='closeBoardMobilDetailOverlay(); saveChangesDetailView()'>
-            <div class='taskCardPopupTask'>
+            <div class='taskCardPopupTaskMob'>
                 <span>${cardTitle}</span>
             </div>
-            <span class='taskCardPopupDescription'>${cardDescription}</span>
-            <div class='taskCardPopupDateContainer'>
-                <span class='taskCardPopupDateText'>Due date:</span>
-                <span class='taskCardPopupDueDate'>${cardDueDate}</span>
+            <span class='taskCardPopupDescriptionMob'>${cardDescription}</span>
+            <div class='taskCardPopupDateContainerMob'>
+                <span class='taskCardPopupDateTextMob'>Due date:</span>
+                <span class='taskCardPopupDueDateMob'>${cardDueDate}</span>
             </div>
-            <div class='taskCardPopupPriorityContainer'>
+            <div class='taskCardPopupPriorityContainerMob'>
                 <span>Priority:</span>
-                <div class='urgency' id='prioContainer'>
+                <div class='urgencyMob' id='prioContainer'>
                     <span>${taskPrio}</span>
                     <img src='./assets/img/urgent_white.png' id='cardPrioImg'>
                 </div>
             </div>
-            <span class='assigned'>Assigned To:</span>
-            <div class='members' id='members'>
+            <span class='assignedMob'>Assigned To:</span>
+            <div class='membersMob' id='members'>
             
             </div>
-            <div class='editButton' onclick='startDetailViewOverlay(); openEditTaskCardMobil(${taskIndex})'>
+            <div class='editButtonMob' onclick='startDetailViewOverlay(); openEditTaskCardMobil(${taskIndex})'>
                 <img src='./assets/img/edit_button.png'>
             </div>
 
@@ -613,11 +613,11 @@ function renderPopupTaskCardHtmlMobil(taskIndex) {
         
             </div>
 
-            <div class='boardSubtasksTitleDiv'>
-                <span class='boardSubtaskTitle'>Subtasks:</span>
+            <div class='boardSubtasksTitleDivMob'>
+                <span class='boardSubtaskTitleMob'>Subtasks:</span>
             
             </div >
-            <div class='boardSubtasksDiv' id='subtaskListTaskCard'>
+            <div class='boardSubtasksDivMob' id='subtaskListTaskCard'>
                 
             </div>
             
@@ -856,7 +856,7 @@ async function renderPopupEditTaskCardHtmlMobil(taskIndex) {
                     </ul>
                 </div>
 
-                <button class='editTaskOkBtn' onclick='getTaskChangesMobil(${taskIndex})'>Ok <img src='../assets/img/akar-icons_check_white.png' ></button>
+                <button class='editTaskOkBtnMob' onclick='getTaskChangesMobil(${taskIndex})'>Ok <img src='../assets/img/akar-icons_check_white.png' ></button>
             <!-- Delete Button edited by Bossi  -->
                 <button class='deleteButton d-none' id='deleteButton' onclick='deleteButtonMobil(${taskIndex})'> <!--edit by Basti-->
                     Delete <img src='../assets/img/akar-icons_check_white.png' >
