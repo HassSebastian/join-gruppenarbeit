@@ -26,19 +26,34 @@ function renderContentHTML() {
 }
 
 /**
+ * Depending on guestLoggedIn
+ * either allUsers or allFakeUsers
+ * will showup in the list of contacts
+ * @param {boolean} guestLoggedIn
+ */
+function chooseRightUserArray() {
+	if (!guestLoggedIn) {
+		calculateUserInAlphabetArray(allUsers);
+	}
+	if (guestLoggedIn) {
+		calculateUserInAlphabetArray(allFakeUsers);
+	}
+}
+
+/**
  * It takes the users from the allUsers array and pushes them into the alphabetOrd array based on the
  * first letter of their name.
  */
-function calculateUserInAlphabetArray() {
-	for (let i = 0; i < allUsers.length; i++) {
+function calculateUserInAlphabetArray(arr) {
+	arr.forEach((user, i) => {
 		let id = i;
-		let colorIndex = allUsers[i].colorIndex;
-		let name = allUsers[i].name;
-		let email = allUsers[i].email;
-		let letter = allUsers[i].firstSecondLetter;
-		let firstLetter = allUsers[i].firstSecondLetter[0];
+		let colorIndex = user.colorIndex;
+		let name = user.name;
+		let email = user.email;
+		let letter = user.firstSecondLetter;
+		let firstLetter = user.firstSecondLetter[0];
 		alphabetOrd[firstLetter].push({ name: name, email: email, id: id, letter: letter, colorIndex: colorIndex });
-	}
+	});
 }
 
 /**

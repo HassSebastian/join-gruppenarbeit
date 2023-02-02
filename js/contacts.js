@@ -91,7 +91,7 @@ async function userInAlphabetArray() {
 		Y: [],
 		Z: [],
 	};
-	calculateUserInAlphabetArray();
+	chooseRightUserArray();
 	alphabet();
 }
 
@@ -264,3 +264,22 @@ async function deleteContactQuestion(i) {
 		await userInAlphabetArray();
 	}
 }
+
+let allFakeUsers = [
+	{
+		name: 'Rosa Lilie',
+		email: 'rosalie@testSetUser.de',
+		password: 'rosi',
+		colorIndex: 8,
+		firstSecondLetter: 'RL',
+		phone: 123456789,
+	},
+	{
+		name: 'Peter Lustig',
+		email: 'peter@web.de',
+		password: 'peter92348.',
+		colorIndex: 1,
+		firstSecondLetter: 'PL',
+		phone: 16789345345,
+	},
+];
