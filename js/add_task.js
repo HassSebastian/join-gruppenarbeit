@@ -90,6 +90,10 @@ function addCheckAttributeToCoworkersToAssignTo() {
 	});
 }
 
+/* 
+? Wofür sind die?
+*/
+
 //? this are test function for the HTML 5 Form validation !
 function goToDescripten() {
 	document.getElementById('addTaskDescripten').focus();
@@ -106,7 +110,7 @@ function goToPrio() {
  * !Christian has stopped cleaning here. To be continued later ;)
  */
 async function loadExitingCategories() {
-	await loadTask();
+	/* 	await loadTask(); */ //!Braucht man nicht!
 	addTaskCategoryList = [
 		{
 			category: 'New Category',
@@ -114,8 +118,8 @@ async function loadExitingCategories() {
 		},
 	];
 	joinTaskArray.forEach((task) => {
-		const taskCategory = task['category'];
-		const categoryColor = task['catColor'];
+		const taskCategory = task.category;
+		const categoryColor = task.catColor;
 
 		const newCategoryItem = {
 			category: taskCategory,
@@ -249,7 +253,7 @@ function setNewCategoryToList() {
 			category: newSetCategory,
 			catColor: newCatColor,
 		};
-		// checkCategoryList(newCategoryItem);
+		/* checkCategoryList(newCategoryItem); */
 		if (!checkCategoryList(newCategoryItem)) {
 			addTaskCategoryList.push(newCategoryItem);
 			let newCategoryIndex = addTaskCategoryList.length - 1;
@@ -262,17 +266,23 @@ function setNewCategoryToList() {
 	}
 }
 
+/**
+ * Checks if new typed in category already exists
+ * @param {object} newCategoryItem
+ * @returns {boolean} doubleEntry
+ */
 function checkCategoryList(newCategoryItem) {
 	let categoryName1 = newCategoryItem['category'];
 	let categoryColor1 = newCategoryItem['catColor'];
 	let doubleEntry = false;
-	for (let i = 0; i < addTaskCategoryList.length; i++) {
-		let listCategory = addTaskCategoryList[i]['category'];
-		let listCatColor = addTaskCategoryList[i]['catColor'];
+
+	addTaskCategoryList.forEach((category) => {
+		let listCategory = category['category'];
+		let listCatColor = category['catColor'];
 		if (listCategory == categoryName1 && listCatColor == categoryColor1) {
 			doubleEntry = true;
 		}
-	}
+	});
 	return doubleEntry;
 }
 
