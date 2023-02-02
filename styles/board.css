@@ -1645,6 +1645,135 @@ transform: translateX(-1290px);
         gap: 202px !important;
     }
 
+    .boardTaskCardPopup{
+        left: unset !important;
+    }
+
+    /* später in der board mobil umbenennen ! Dann kann das gelöscht werden ! */
+    .taskCardPopupCategory {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 4px 36.5px !important;
+        gap: 10px !important;
+        min-width: 142px !important;
+        height: 40px !important;
+        background: #FC71FF !important;
+        border-radius: 8px !important;
+        position: unset !important;
+        box-sizing: unset !important;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        z-index: 0;
+    }
+
+    .taskCardPopupCategory span{
+        font-size: 27px !important;
+        height: 32px !important;
+    }
+
+    .taskCardPopupTask{
+        width: 523px !important;
+        position: unset !important;
+        height: unset !important;
+        padding: unset !important;
+    }
+
+    .taskCardPopupTask span{
+        font-size: 61px !important;
+        height: 146px !important;
+        width: 523px !important;
+    }
+
+    .taskCardPopupDescription{
+        position: unset !important;
+        font-size: 21px !important;
+        width: 518px !important;
+        height: 50px !important;
+    }
+
+    .taskCardPopupDateContainer{
+        position: unset !important;
+        width: 246px !important;
+        height: 25px !important;
+    }
+
+    .taskCardPopupDateText{
+        width: 99px !important;
+        height: 25px !important;
+        font-size: 21px !important;
+    }
+
+    .taskCardPopupDueDate{
+        width: 122px !important;
+        height: 25px !important;
+        font-size: 21px !important;
+    }
+
+    .taskCardPopupPriorityContainer{
+        position: unset !important;
+        width: 230px !important;
+        height: 33px !important;
+    }
+
+    .taskCardPopupPriorityContainer span{
+        font-size: 21px !important;
+        width: 82px !important;
+        height: 25px !important;
+    }
+
+    .urgency{
+        padding: 4px 18px !important;
+        width: 131px !important;
+        height: 33px !important;
+    }
+
+    .urgency span{
+        width: max-content !important;
+    }
+
+    .assigned{
+        position: unset !important;
+        font-size: 21px !important;
+        width: 134px !important;
+        height: 25px !important;
+    }
+
+    .editButton{
+        width: 57px !important;
+        height: 57px !important;
+        left: 574px !important;
+        top: 777px !important;
+        z-index: 10 !important;
+    }
+
+    .members{
+        position: unset !important;
+        gap: 25px !important;
+    }
+
+    .boardSubtasksTitleDiv{
+        position: unset !important;
+    }
+
+    .boardSubtaskTitle{
+        font-size: 21px !important;
+    }
+
+    .boardSubtasksDiv{
+        width: 460px !important;
+        height: 200px !important;
+        position: unset !important;
+    }
+
+    .editTaskOkBtn{
+        left: 508px !important;
+        top: 719px !important;
+    }
+
+    
 }
 
 
@@ -1693,7 +1822,7 @@ transform: translateX(-1290px);
     }
 
     /* board Detail View */
-    .boardTaskCardPopup {
+    /* .boardTaskCardPopup {
         left: unset;
         top: unset;
         box-sizing: border-box;
@@ -1713,7 +1842,7 @@ transform: translateX(-1290px);
     .moveBtnMobil {
         left: -18px !important;
         top: 635px !important;
-    }
+    } */
 
 }
 
