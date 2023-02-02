@@ -272,21 +272,21 @@ function openNewContactHTML() {
                     <div class="nameOutContainer">
                         <div class="nameContainer">
                             <div class="inputEditContainer">
-                                <input class="inputName" id="newUserName" type="text" placeholder="Name">
+                                <input class="inputName" id="newUserName" type="text" placeholder="Name" required>
                                 <img src="./assets/img/name_logo.png" alt="">
                             </div>
                             <span class="required d-none" id="newContentNameRequired">This field is required</span>
                         </div>
                         <div class="nameContainer">
                             <div class="inputEditContainer">
-                                <input class="inputName" id="newUserEmail" type="email" placeholder="Email">
+                                <input class="inputName" id="newUserEmail" type="email" placeholder="Email" required>
                                 <img src="./assets/img/email_Logo.png" alt="">
                             </div>
                             <span class="required d-none" id="newContentEmailRequired">This field is required</span>
                         </div>
                         <div class="nameContainer">
                             <div class="inputEditContainer">
-                                <input class="inputName" id="newUserPhone" type="number" placeholder="Phone">
+                                <input class="inputName" id="newUserPhone" type="number" placeholder="Phone" required>
                                 <img src="./assets/img/phoneLogo.png" alt="">
                             </div>
                             <span class="required d-none" id="newContentPhoneRequired">This field is required</span>
@@ -294,7 +294,14 @@ function openNewContactHTML() {
                     </div>
                 </div>
             </div>
+            <div class="contactSucc" id="contactSucc">
+            <div class="contactSuccContainer">
+                <span>Contact succesfully created</span>
+            </div>
         </div>
+
+        </div>
+
     `;
 }
 

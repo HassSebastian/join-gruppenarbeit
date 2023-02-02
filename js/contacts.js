@@ -218,11 +218,12 @@ async function editContact(i) {
 	let email = document.getElementById('editUserEmail').value;
 	let phone = document.getElementById('editUserPhone').value;
 	let password = allUsers[i].password;
-	let firstLetter = name[0];
+	let firstLetter = name[0].toUpperCase();
 	let secondLetter = await calcSecondLetter(name);
 	let colorIndex = await calcColorIndex(firstLetter, secondLetter);
 	editContactSave(name, email, password, phone, firstLetter, secondLetter, colorIndex, i);
 }
+
 
 async function deleteContactQuestion(i) {
 	let letter = allUsers[i].firstSecondLetter;

@@ -59,8 +59,13 @@ async function userSignIn(firstLetter, secondLetter, name, email, password, colo
     setTimeout(forwardScript, 2000);
 }
 
-function forwardScript(){
-    window.innerWidth < 768 ? (backToLogInMob()) : window.location.href = './login.html';
+function forwardScript() {
+    if (document.getElementById('new_contact').classList.contains('add_contact_slide')) {
+        closeNewContact();
+        setTimeout(userInAlphabetArray, 500);
+    } else {
+        window.innerWidth < 768 ? (backToLogInMob()) : window.location.href = './login.html';
+    }
 }
 
 

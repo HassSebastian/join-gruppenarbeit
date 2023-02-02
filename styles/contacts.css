@@ -239,6 +239,7 @@
     flex-direction: row;
     box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.08);
     z-index: 1;
+    overflow: hidden;
     transition: 500ms ease-in-out;
 }
 
@@ -880,165 +881,254 @@
     top: 470px;
 }
 
+
+
+
+
+
+
+.contactSucc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    position: relative;
+    width: 326px;
+    height: 74px;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
+    top: 600px;
+    left: 470px;
+    transition: 500ms ease-in-out;
+}
+
+.contactSuccContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    width: 326px;
+    height: 74px;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.contactSuccContainer span {
+    width: 279px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    color: #FFFFFF;
+    text-align: center;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.contactSuccSlide{
+    transform: translateY(-366px);
+}
+
+
 /**************************/
 /* New- und Edit- Contact */
-@media(max-width: 1440px){
-    .add_contact{
+@media(max-width: 1440px) {
+    .add_contact {
         width: 1000px;
     }
-    .closeLogo{
+
+    .closeLogo {
         left: 950px;
     }
-    .name_logo_inContainer{
+
+    .name_logo_inContainer {
         left: 430px;
     }
-    .buttonOutContainer{
+
+    .buttonOutContainer {
         left: 820px;
     }
-    .contactContainer{
+
+    .contactContainer {
         left: 560px;
     }
-    .buttonNewOutContainer{
+
+    .buttonNewOutContainer {
         left: 610px;
     }
 }
 
-@media(max-width: 1100px){
-    .blackSite{
+@media(max-width: 1100px) {
+    .blackSite {
         height: 350px;
         top: -156px;
         border-bottom-left-radius: 0;
         border-top-right-radius: 30px;
     }
-    .add_contact{
+
+    .add_contact {
         width: 463px;
     }
-    .closeLogo{
+
+    .closeLogo {
         left: 420px;
         top: 210px;
     }
-    .name_logo_inContainer{
+
+    .name_logo_inContainer {
         left: 160px;
         top: 150px;
     }
-    .buttonOutContainer{
+
+    .buttonOutContainer {
         left: 290px;
         top: 500px;
     }
-    .contactContainer{
+
+    .contactContainer {
         left: 20px;
         top: 290px;
     }
-    .nameOutContainer{
+
+    .nameOutContainer {
         gap: 20px;
     }
-    .buttonNewOutContainer{
+
+    .buttonNewOutContainer {
         left: 70px;
         top: 510px;
     }
 }
+
 /**************************/
 
 /****************/
 /* Show Contact */
-@media(max-width: 1300px){
-    .Frame_97{
+@media(max-width: 1300px) {
+    .Frame_97 {
         left: 0;
     }
-    .better_with_a_team{
+
+    .better_with_a_team {
         left: 500px;
     }
 }
 
-@media(max-width: 1100px){
-    .showContact{
+@media(max-width: 1100px) {
+    .showContact {
         display: flex;
         flex-direction: column;
         align-items: center;
         left: 1111px;
     }
-    .better_with_a_team{
-       flex-direction: column;
+
+    .better_with_a_team {
+        flex-direction: column;
     }
-    .vector_5{
+
+    .vector_5 {
         height: 0;
         width: 150px;
     }
-    .showContactDetail{
+
+    .showContactDetail {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    .show_contact_ellipse_5{
+
+    .show_contact_ellipse_5 {
         position: relative;
     }
-    .showContact_Name_addTask{
+
+    .showContact_Name_addTask {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    .showContact_Name_addTask h1{
+
+    .showContact_Name_addTask h1 {
         margin-left: 0;
         text-align: center;
         justify-content: center;
-    } 
-    .showContact_Name_addTask span{
+    }
+
+    .showContact_Name_addTask span {
         margin-left: 0;
     }
-    .contact_information_edit{
+
+    .contact_information_edit {
         display: flex;
         flex-direction: column;
         gap: 0;
     }
-    .contact_information{
+
+    .contact_information {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 0;
         padding-bottom: 32px;
     }
-    .contact_information_edit h2{
+
+    .contact_information_edit h2 {
         margin: 0;
     }
-    .contact_information{
+
+    .contact_information {
         width: 40px;
     }
-    .contactEmailAndPhone{
+
+    .contactEmailAndPhone {
         width: 40px;
         height: 50px;
     }
-    .contactEmail{
+
+    .contactEmail {
         justify-content: center;
         order: 0;
     }
-    .contactPhone{
+
+    .contactPhone {
         width: auto;
     }
 }
 
-@media (max-width: 870px){
-    .showContact{
+@media (max-width: 870px) {
+    .showContact {
         left: 1050px;
     }
-    .better_with_a_team{
+
+    .better_with_a_team {
         left: 450px;
     }
 }
+
 /****************/
 
 /****************/
 /* Contact List */
-@media (max-width: 1100px){
-    .Frame_97{
+@media (max-width: 1100px) {
+    .Frame_97 {
         width: 350px;
     }
-    .Contact_list{
+
+    .Contact_list {
         width: 260px;
     }
-    .contact{
+
+    .contact {
         width: 280px;
     }
-    .name{
+
+    .name {
         height: 60px;
     }
 }
