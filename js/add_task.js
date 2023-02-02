@@ -60,6 +60,8 @@ async function renderAddTask() {
  * @returns {object} transferArray
  */
 function transferallUserData() {
+	transferArray = [];
+	coworkersToAssignTo = [];
 	allUsers.forEach((user) => {
 		let transferColorIndex = user.colorIndex;
 		let transferEmail = user.email;
