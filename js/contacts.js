@@ -103,27 +103,30 @@ function alphabet() {
 	calculateAndShowAlphabet();
 }
 
+function openEditContact(i) {
+	!guestLoggedIn ? openEditContactsOf(allUsers, i) : openEditContactsOf(allFakeUsers, i);
+}
+
 /**
  * It removes the class 'd-none' from the element with the id 'edit_contact', then it sets the
  * innerHTML of that element to the return value of the function openEditContactHTML(color, letter,
  * name, email, phone).
- * @param i - the index of the user in the array
+ * @param {array} arr of users
+ * @param {number}i - the index of the user in the array
  */
-function openEditContact(i) {
-	let color = allUsers[i].colorIndex;
-	let letter = allUsers[i].firstSecondLetter;
-	let name = allUsers[i].name;
-	let email = allUsers[i].email;
-	let phone = allUsers[i].phone;
-	if (email == 'guest@web.de') {
-	} else {
-		document.getElementById('edit_contact').classList.remove('d-none');
-		document.getElementById('edit_contact').innerHTML = '';
-		document.getElementById('edit_contact').innerHTML = openEditContactHTML(color, letter, name, email, phone, i);
-		setTimeout(() => {
-			document.getElementById('edit_contact').classList.add('add_contact_slide');
-		}, 1);
-	}
+function openEditContactsOf(arr, i) {
+	let color = arr[i].colorIndex;
+	let letter = arr[i].firstSecondLetter;
+	let name = arr[i].name;
+	let email = arr[i].email;
+	let phone = arr[i].phone;
+
+	document.getElementById('edit_contact').classList.remove('d-none');
+	document.getElementById('edit_contact').innerHTML = '';
+	document.getElementById('edit_contact').innerHTML = openEditContactHTML(color, letter, name, email, phone, i);
+	setTimeout(() => {
+		document.getElementById('edit_contact').classList.add('add_contact_slide');
+	}, 1);
 }
 
 /**

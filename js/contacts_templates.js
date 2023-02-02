@@ -399,7 +399,7 @@ async function editContactSave(name, email, password, phone, firstLetter, second
 		firstSecondLetter: firstLetter + secondLetter,
 		phone: phone,
 	};
-	await saveTask();
+	await saveTask(); // ! Speichert die einen Task oder einen bearbeiteten Kontakt?
 	closeEditContact();
 	document.getElementById('showContact').classList.add('d-none');
 	userInAlphabetArray();
