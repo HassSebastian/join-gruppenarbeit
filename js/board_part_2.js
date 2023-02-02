@@ -328,7 +328,6 @@ async function showAddTaskPopupWindow() {
     await loadExitingCategories();
     renderCategoryList();
     newCatInputActive = false;
-    
     renderLoggedUserInAssignDrobDownMenuIntoYou(); // Das habe ich für das You eingefügt!
     renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
     setFutureDatesOnlyForInputDueDate();
