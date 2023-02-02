@@ -21,7 +21,6 @@ let prioColorAndUrlArray = [
  * renderAllCards().
  */
 async function initBoard() {
-	taskForce = [];
 	await enableBoardStyles();
 	await renderBoard();
 	selectedMenuButton(2);
