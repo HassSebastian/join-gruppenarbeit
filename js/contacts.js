@@ -159,17 +159,27 @@ function closeEditContact() {
 }
 
 /**
+ * Depending on guestLoggedIn it chooses the right contacts to show
+ * @param {boolean} guestLoggedIn
+ * @param {number} i= index of user of allUsers or allFakeUsers
+ */
+function showContact(i) {
+	if (!guestLoggedIn) showContactOf(allUsers, i);
+	if (guestLoggedIn) showContactOf(allFakeUsers, i);
+}
+
+/**
  * It takes the index of the user in the array, and then uses that index to get the user's name, email,
  * phone, first and second letter of their name, and the color index of their name. Then it passes all
  * of that information to the showContactQuerry function.
- * @param i - the index of the user in the allUsers array
+ * @param {number}i - the index of the user in the allUsers array
  */
-function showContact(i) {
-	let name = allUsers[i].name;
-	let email = allUsers[i].email;
-	let phone = allUsers[i].phone;
-	let letter = allUsers[i].firstSecondLetter;
-	let color = allUsers[i].colorIndex;
+function showContactOf(arr, i) {
+	let name = arr[i].name;
+	let email = arr[i].email;
+	let phone = arr[i].phone;
+	let letter = arr[i].firstSecondLetter;
+	let color = arr[i].colorIndex;
 	let showContact = document.getElementById('showContact');
 	showContactQuerry(name, email, phone, letter, color, i, showContact);
 }
