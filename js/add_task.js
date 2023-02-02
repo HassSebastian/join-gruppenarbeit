@@ -1,5 +1,5 @@
 'use strict';
-
+let transferArray = [];
 let catListStatus = false;
 let assignListStatus = false;
 let newCatInputActive = false;
@@ -49,22 +49,23 @@ async function initAddTask() {
  *
  */
 async function renderAddTask() {
-	// coworkersToAssignTo = allUsers;
 	coworkersToAssignTo = transferallUserData();
 	addCheckAttributeToCoworkersToAssignTo();
 	document.getElementById('content').innerHTML = '';
 	document.getElementById('content').innerHTML += generateAddTaskHtml();
 }
 
-let transferArray = [];
-
+/**
+ * Transfers allUserData needed to transferArray
+ * @returns {object} transferArray
+ */
 function transferallUserData() {
-	for (let i = 0; i < allUsers.length; i++) {
-		let transferColorIndex = allUsers[i].colorIndex;
-		let transferEmail = allUsers[i].email;
-		let transferFirstSecondLetter = allUsers[i].firstSecondLetter;
-		let transferName = allUsers[i].name;
-		let transferPhone = allUsers[i].phone;
+	allUsers.forEach((user) => {
+		let transferColorIndex = user.colorIndex;
+		let transferEmail = user.email;
+		let transferFirstSecondLetter = user.firstSecondLetter;
+		let transferName = user.name;
+		let transferPhone = user.phone;
 		let transferJson = {
 			colorIndex: transferColorIndex,
 			email: transferEmail,
@@ -73,13 +74,14 @@ function transferallUserData() {
 			phone: transferPhone,
 		};
 		transferArray.push(transferJson);
-	}
+	});
+
 	return transferArray;
 }
-/* 
-!!
-!!!
-!!!!!!!!!!!!!!!!!! */
+
+/**
+ * Adds "check: false" to every  coworker in coworkersToAssignTo Object
+ */
 function addCheckAttributeToCoworkersToAssignTo() {
 	coworkersToAssignTo.forEach((contact) => {
 		contact.check = false;
