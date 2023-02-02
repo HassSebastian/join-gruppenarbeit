@@ -36,9 +36,11 @@ async function disablePopupWindow() {
         document.getElementById('boardPopup').classList.add('d-none');
         // await disableBoardPopup();
     }
-    // await renderAllCards();
-    await initBoard();
-    searchAfterPopup();
+    if (selectedMenuButton = 4) { } else {
+        // await renderAllCards();
+        await initBoard();
+        searchAfterPopup();
+    }
 }
 
 
@@ -263,7 +265,7 @@ async function getTaskChanges(taskIndex) {
     joinTaskArray[taskIndex]['descripten'] = boardEditedDescripten;
     joinTaskArray[taskIndex]['dueDate'] = boardEditedDueDate;
     joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
-    
+
     await saveTask();
     await renderBoard();
     await createWorkStatusArrays();
@@ -321,13 +323,13 @@ async function showAddTaskPopupWindow() {
     await loadExitingCategories();
     renderCategoryList();
     newCatInputActive = false;
-    
+
     renderLoggedUserInAssignDrobDownMenuIntoYou(); // Das habe ich für das You eingefügt!
     renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
     setFutureDatesOnlyForInputDueDate();
     loadContributorsLetter();
     addSubtaskMain();
-    
+
     addContactToTaskForceWithCheckBox(loggedInUserIndex);
 }
 
