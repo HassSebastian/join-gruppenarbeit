@@ -8,67 +8,6 @@ function enableDisableSliderMenu() {
 }
 
 
-// general Functions
-
-// die resize Funktionen werden im Script aufgerufen !
-// window.onresize = function () {
-
-// 	callBoardRelatedInit();
-// 	resizeCallRelatedAddTaskFunctions();
-
-// };
-
-
-
-
-
-
-// function switchOverToMobilPhoneView(){
-// 	if (window.innerWidth <= 768){
-// 		let setMenu = selectedMenuBtnId;
-// 		window.location.replace("./summary_mobile.html");
-// 	}
-// 	if (!document.querySelector('.content') && window.innerWidth >768){
-// 		window.location.replace("./summary.html");
-// 	}
-// }
-
-
-
-// window.onload = function () {
-// 	let tabWidth = window.innerWidth;
-// 	if (!boardResponsivView && tabWidth >= 1401) {
-// 		document.getElementById('stylesheetBoardMobil').disabled = true;
-// 		// document.getElementById('stylsheetAddTaskMobil').disabled = true;
-// 	}
-// };
-
-
-
-// function myFunction(tabWidth) {
-// 	let contentH = document.getElementById('contentHeight');
-// 	let content = document.getElementById('content');
-// 	let mobilView = document.getElementById('mobilContent');
-
-// 	if (contentH && window.innerWidth >= 763 && tabWidth <= 1100) {
-// 		if (!mobilView) {
-// 			// enableDisableAssignList();
-
-// 		}
-// 	} else {
-// 		if (!mobilView) {
-
-// 		}
-// 	}
-// }
-
-
-// function getInnerWidth() {
-// 	let tabWidth = window.innerWidth;
-// 	getInnerWidthBoardRelatedFunctions(tabWidth);
-// }
-
-
 let boardResponsivView = false;
 
 // Board Responsiv Functions

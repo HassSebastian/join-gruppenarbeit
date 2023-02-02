@@ -1,19 +1,23 @@
 let arrayMoveBtnText = [
-    {'workStatus': 0, 
-     'btn': ['Task to "In progress"'],
-     'newStatus':[1]
+    {
+        'workStatus': 0,
+        'btn': ['Task to "In progress"'],
+        'newStatus': [1]
     },
-    {'workStatus': 1, 
-     'btn': ['Task to "To do"', 'Task to "Awaiting Feedback"'],
-     'newStatus':[0, 2]
+    {
+        'workStatus': 1,
+        'btn': ['Task to "To do"', 'Task to "Awaiting Feedback"'],
+        'newStatus': [0, 2]
     },
-    {'workStatus': 2, 
-     'btn': ['Task to "In progress"', 'Task to "Done"'],
-     'newStatus':[1, 3]
+    {
+        'workStatus': 2,
+        'btn': ['Task to "In progress"', 'Task to "Done"'],
+        'newStatus': [1, 3]
     },
-    {'workStatus': 3, 
-     'btn': ['Task to "Awaiting Feedback"'],
-     'newStatus':[2]
+    {
+        'workStatus': 3,
+        'btn': ['Task to "Awaiting Feedback"'],
+        'newStatus': [2]
     }
 ];
 
@@ -206,15 +210,15 @@ function toDoCardMobilHtml(arrayIndex) {
 
 
 function inProgressMobilHtml(arrayIndex) {
-	let cardTitle = workStatus1Array[arrayIndex]['cardTitle'];
-	let cardDescription = workStatus1Array[arrayIndex]['cardDescription'];
-	let cardCategory = workStatus1Array[arrayIndex]['cardCategory'];
-	let taskIndex = workStatus1Array[arrayIndex]['taskIndex'];
-	let workStatusArrayNo = 1;
-	let subTasksAmount = workStatus1Array[arrayIndex]['subTasks'].length;
-	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
-	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
-	return /*html*/ `
+    let cardTitle = workStatus1Array[arrayIndex]['cardTitle'];
+    let cardDescription = workStatus1Array[arrayIndex]['cardDescription'];
+    let cardCategory = workStatus1Array[arrayIndex]['cardCategory'];
+    let taskIndex = workStatus1Array[arrayIndex]['taskIndex'];
+    let workStatusArrayNo = 1;
+    let subTasksAmount = workStatus1Array[arrayIndex]['subTasks'].length;
+    let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+    let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
+    return /*html*/ `
             <div class='taskBackgroundMobil' id='taskCard${taskIndex}' onclick='startDetailViewOverlay(); renderPopupTaskCardHtmlMobil(${taskIndex})'>
                 <div class='taskContainerMobil'>
                     <div class='boardTaskCategoryMobil' id='progressCard${arrayIndex}'>
@@ -244,15 +248,15 @@ function inProgressMobilHtml(arrayIndex) {
 
 
 function awaitingFeedbackMobilHtml(arrayIndex) {
-	let cardTitle = workStatus2Array[arrayIndex]['cardTitle'];
-	let cardDescription = workStatus2Array[arrayIndex]['cardDescription'];
-	let cardCategory = workStatus2Array[arrayIndex]['cardCategory'];
-	let taskIndex = workStatus2Array[arrayIndex]['taskIndex'];
-	let workStatusArrayNo = 2;
-	let subTasksAmount = workStatus2Array[arrayIndex]['subTasks'].length;
-	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
-	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
-	return /*html*/ `
+    let cardTitle = workStatus2Array[arrayIndex]['cardTitle'];
+    let cardDescription = workStatus2Array[arrayIndex]['cardDescription'];
+    let cardCategory = workStatus2Array[arrayIndex]['cardCategory'];
+    let taskIndex = workStatus2Array[arrayIndex]['taskIndex'];
+    let workStatusArrayNo = 2;
+    let subTasksAmount = workStatus2Array[arrayIndex]['subTasks'].length;
+    let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+    let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
+    return /*html*/ `
         <div class='taskBackgroundMobil' id='taskCard${taskIndex}' onclick='startDetailViewOverlay(); renderPopupTaskCardHtmlMobil(${taskIndex})'>
             <div class='taskContainerMobil'>
                 <div class='boardTaskCategoryMobil' id='feedbackCard${arrayIndex}'>
@@ -282,15 +286,15 @@ function awaitingFeedbackMobilHtml(arrayIndex) {
 
 
 function doneMobilHtml(arrayIndex) {
-	let cardTitle = workStatus3Array[arrayIndex]['cardTitle'];
-	let cardDescription = workStatus3Array[arrayIndex]['cardDescription'];
-	let cardCategory = workStatus3Array[arrayIndex]['cardCategory'];
-	let taskIndex = workStatus3Array[arrayIndex]['taskIndex'];
-	let workStatusArrayNo = 3;
-	let subTasksAmount = workStatus3Array[arrayIndex]['subTasks'].length;
-	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
-	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
-	return /*html*/ `
+    let cardTitle = workStatus3Array[arrayIndex]['cardTitle'];
+    let cardDescription = workStatus3Array[arrayIndex]['cardDescription'];
+    let cardCategory = workStatus3Array[arrayIndex]['cardCategory'];
+    let taskIndex = workStatus3Array[arrayIndex]['taskIndex'];
+    let workStatusArrayNo = 3;
+    let subTasksAmount = workStatus3Array[arrayIndex]['subTasks'].length;
+    let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+    let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
+    return /*html*/ `
         <div class='taskBackgroundMobil' id='taskCard${taskIndex}' onclick='startDetailViewOverlay(); renderPopupTaskCardHtmlMobil(${taskIndex})'>
             <div class='taskContainerMobil'>
                 <div class='boardTaskCategoryMobil' id='doneCard${arrayIndex}'>
@@ -357,7 +361,7 @@ async function startAddTaskOverlay() {
     document.getElementById('boardAddTask').classList.remove('d-none');
     // document.getElementById('bottomMenu').classList.add('d-none');
     taskForce = [];
-    
+
 }
 
 
@@ -527,9 +531,9 @@ async function createTaskDataMobil() {
     setTimeout(closeBoardAddTask, 1200);
     // closeAddTaskOverlay();
     // clearTaskForce();
-  }
+}
 
-async function closeBoardAddTask(){
+async function closeBoardAddTask() {
     initMobilBoard();
     closeAddTaskOverlay();
     taskForce = [];
@@ -538,9 +542,10 @@ async function closeBoardAddTask(){
 
 //   Task Card detail View
 
-async function startDetailViewOverlay(){
-    
-    document.getElementById('boardTaskDetail').classList.remove('d-none');
+async function startDetailViewOverlay() {
+    if (innerWidth <= 768) {
+        document.getElementById('boardTaskDetail').classList.remove('d-none');
+    }
 }
 
 
@@ -556,13 +561,19 @@ function closeBoardMobilDetailOverlay() {
 
 
 function renderPopupTaskCardHtmlMobil(taskIndex) {
-    let cardTitle = joinTaskArray[taskIndex]['title'];
-    let cardDescription = joinTaskArray[taskIndex]['descripten'];
-    let cardCategory = joinTaskArray[taskIndex]['category'];
-    let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
-    let taskPrio = joinTaskArray[taskIndex]['prio'];
-    document.getElementById('boardTaskDetail').innerHTML = '';
-    document.getElementById('boardTaskDetail').innerHTML = /*html*/`
+    if (window.innerWidth > 768) {
+        console.log('mobil Board JS');
+        enablePopupWindow(taskIndex);
+        renderPopupTaskCardHtml(taskIndex);
+    } else {
+
+        let cardTitle = joinTaskArray[taskIndex]['title'];
+        let cardDescription = joinTaskArray[taskIndex]['descripten'];
+        let cardCategory = joinTaskArray[taskIndex]['category'];
+        let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
+        let taskPrio = joinTaskArray[taskIndex]['prio'];
+        document.getElementById('boardTaskDetail').innerHTML = '';
+        document.getElementById('boardTaskDetail').innerHTML = /*html*/`
         <div class='boardTaskCardPopup'>
             <div class='taskCardPopupCategory' id='taskCardPopupCategory'>
                 <span>${cardCategory}</span>
@@ -612,15 +623,16 @@ function renderPopupTaskCardHtmlMobil(taskIndex) {
             
         </div>`;
 
-    setTaskCardPopupCatColor(taskIndex);
-    setTaskCardPopupPrioBackground(taskIndex);
-    renderSubtaskMobil(taskIndex);
-    renderAssignToHtml2(taskIndex);
-    renderMoveBtnMobil(taskIndex);
+        setTaskCardPopupCatColor(taskIndex);
+        setTaskCardPopupPrioBackground(taskIndex);
+        renderSubtaskMobil(taskIndex);
+        renderAssignToHtml2(taskIndex);
+        renderMoveBtnMobil(taskIndex);
+    }
 }
 
 
-async function renderBtnBySubtaskChange(taskIndex){
+async function renderBtnBySubtaskChange(taskIndex) {
     await saveChangesDetailView();
     renderMoveBtnMobil(taskIndex);
 }
@@ -648,27 +660,27 @@ async function renderSubtaskMobilHtml(taskIndex) {
 }
 
 
-async function saveChangesDetailView(){
+async function saveChangesDetailView() {
     await saveTask();
     await createWorkStatusArrays();
     renderAllCardsMobil();
 }
 
 
-async function renderMoveBtnMobil(taskIndex){
+async function renderMoveBtnMobil(taskIndex) {
     document.getElementById('moveBtnMobil').innerHTML = '';
     let workStatus = joinTaskArray[taskIndex]['workFlowStatus'];
     let buttonArray = arrayMoveBtnText[workStatus]['btn'];
     let forLoppEndValue = buttonArray.length;
     let newStatusArray = arrayMoveBtnText[workStatus]['newStatus'];
-    if (workStatus >= 1 && workStatus < 3){
+    if (workStatus >= 1 && workStatus < 3) {
         forLoppEndValue = taskCardAllowMove(taskIndex);
     }
     for (let i = 0; i < forLoppEndValue; i++) {
         let buttonText = buttonArray[i];
         let newTaskStatus = newStatusArray[i];
         renderMoveBtnMobilHtml(buttonText, newTaskStatus, taskIndex);
-    }   
+    }
 }
 
 
@@ -680,7 +692,7 @@ function renderMoveBtnMobilHtml(buttonText, newTaskStatus, taskIndex) {
 }
 
 
-async function moveMobilTaskTo(taskIndex, newTaskStatus){
+async function moveMobilTaskTo(taskIndex, newTaskStatus) {
     joinTaskArray[taskIndex]['workFlowStatus'] = newTaskStatus;
     await saveTask();
     await createWorkStatusArrays();
@@ -689,16 +701,16 @@ async function moveMobilTaskTo(taskIndex, newTaskStatus){
 }
 
 
-function taskCardAllowMove(taskIndex){
+function taskCardAllowMove(taskIndex) {
     let endValue;
     // let workStatus = joinTaskArray[taskIndex]['workFlowStatus'];
     let doneBarDraggedElement = document.getElementById(`doneBar${taskIndex}`);
-	let doneBarOuterDraggedElement = document.getElementById(`doneBarOuter${taskIndex}`);
+    let doneBarOuterDraggedElement = document.getElementById(`doneBarOuter${taskIndex}`);
     let doneBarWidth = doneBarDraggedElement.offsetWidth;
-	let doneBarOuterWidth = doneBarOuterDraggedElement.offsetWidth;
-    if (doneBarWidth == doneBarOuterWidth){
+    let doneBarOuterWidth = doneBarOuterDraggedElement.offsetWidth;
+    if (doneBarWidth == doneBarOuterWidth) {
         endValue = 2;
-    }else{
+    } else {
         endValue = 1
     }
     return endValue;
@@ -708,7 +720,7 @@ function taskCardAllowMove(taskIndex){
 // edit function
 
 async function openEditTaskCardMobil(taskIndex) {
-    if (boardResponsivView){
+    if (boardResponsivView) {
         document.getElementById('stylsheetAddTaskMobil').disabled = false;
         document.getElementById('stylesheetAddTask').disabled = true;
     }
@@ -720,7 +732,7 @@ async function openEditTaskCardMobil(taskIndex) {
     renderLoggedUserInAssignDrobDownMenuIntoYou();
     await renderContactsInAssignDropDownMenu();
     await renderEditTaskCardInputFieldsMobil(taskIndex);
-    boardEditTaskCardAssignPreseselction(taskIndex);   
+    boardEditTaskCardAssignPreseselction(taskIndex);
 }
 
 
@@ -893,18 +905,18 @@ async function getTaskChangesMobil(taskIndex) {
     joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
     await saveTask();
     showAddDiv();
-    setTimeout(closeSequenceEditTaskCard, 1200); 
-    checkStatusToFalse(); 
+    setTimeout(closeSequenceEditTaskCard, 1200);
+    checkStatusToFalse();
 }
 
 
-async function closeSequenceEditTaskCard(){
+async function closeSequenceEditTaskCard() {
     closeBoardMobilDetailOverlay();
-    if (boardResponsivView){
+    if (boardResponsivView) {
         document.getElementById('stylsheetAddTaskMobil').disabled = true;
         document.getElementById('stylesheetAddTask').disabled = false;
         initBoardResponsivTablet()
-    }else{
+    } else {
         await renderMobileBoardHtml();
         await createWorkStatusArrays();
         renderAllCardsMobil();
