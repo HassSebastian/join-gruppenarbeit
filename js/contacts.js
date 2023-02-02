@@ -257,21 +257,24 @@ async function editContact(i) {
  * @param i - the index of the user in the array
  */
 async function deleteContactQuestion(i) {
-	let letter = allUsers[i].firstSecondLetter;
-	let email = allUsers[i].email;
-	let deleteQuestion = document.getElementById('deleteContactQuestion');
-	let deleteQuestionInner = document.getElementById('deleteContactQuestion').innerHTML;
-	if (letter === deleteQuestionInner) {
-		if (email == 'guest@web.de') {
+	if (guestLoggedIn) return;
+	if (!guestLoggedIn) {
+		let letter = allUsers[i].firstSecondLetter;
+		let email = allUsers[i].email;
+		let deleteQuestion = document.getElementById('deleteContactQuestion');
+		let deleteQuestionInner = document.getElementById('deleteContactQuestion').innerHTML;
+		if (letter === deleteQuestionInner) {
+			if (email == 'guest@web.de') {
+			} else {
+				deleteQuestion.innerHTML = `Delete?`;
+				deleteQuestion.style = 'font-size: 30px';
+			}
 		} else {
-			deleteQuestion.innerHTML = `Delete?`;
-			deleteQuestion.style = 'font-size: 30px';
+			allUsers.splice(i, 1);
+			await saveTask();
+			await renderContent();
+			await userInAlphabetArray();
 		}
-	} else {
-		allUsers.splice(i, 1);
-		await saveTask();
-		await renderContent();
-		await userInAlphabetArray();
 	}
 }
 
