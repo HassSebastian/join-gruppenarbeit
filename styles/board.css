@@ -1650,7 +1650,7 @@ transform: translateX(-1290px);
     }
 
     /* später in der board mobil umbenennen ! Dann kann das gelöscht werden ! */
-    .taskCardPopupCategory {
+    /* .taskCardPopupCategory {
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
@@ -1672,9 +1672,9 @@ transform: translateX(-1290px);
     .taskCardPopupCategory span{
         font-size: 27px !important;
         height: 32px !important;
-    }
+    } */
 
-    .taskCardPopupTask{
+    /* .taskCardPopupTask{
         width: 523px !important;
         position: unset !important;
         height: unset !important;
@@ -1685,46 +1685,46 @@ transform: translateX(-1290px);
         font-size: 61px !important;
         height: 146px !important;
         width: 523px !important;
-    }
+    } */
 
-    .taskCardPopupDescription{
+    /* .taskCardPopupDescription{
         position: unset !important;
         font-size: 21px !important;
         width: 518px !important;
         height: 50px !important;
-    }
+    } */
 
-    .taskCardPopupDateContainer{
+    /* .taskCardPopupDateContainer{
         position: unset !important;
         width: 246px !important;
         height: 25px !important;
-    }
+    } */
 
-    .taskCardPopupDateText{
+    /* .taskCardPopupDateText{
         width: 99px !important;
         height: 25px !important;
         font-size: 21px !important;
-    }
+    } */
 
-    .taskCardPopupDueDate{
+    /* .taskCardPopupDueDate{
         width: 122px !important;
         height: 25px !important;
         font-size: 21px !important;
-    }
+    } */
 
-    .taskCardPopupPriorityContainer{
+    /* .taskCardPopupPriorityContainer{
         position: unset !important;
         width: 230px !important;
         height: 33px !important;
-    }
+    } */
 
-    .taskCardPopupPriorityContainer span{
+    /* .taskCardPopupPriorityContainer span{
         font-size: 21px !important;
         width: 82px !important;
         height: 25px !important;
-    }
+    } */
 
-    .urgency{
+    /* .urgency{
         padding: 4px 18px !important;
         width: 131px !important;
         height: 33px !important;
@@ -1732,46 +1732,46 @@ transform: translateX(-1290px);
 
     .urgency span{
         width: max-content !important;
-    }
+    } */
 
-    .assigned{
+    /* .assigned{
         position: unset !important;
         font-size: 21px !important;
         width: 134px !important;
         height: 25px !important;
-    }
+    } */
 
-    .editButton{
+    /* .editButton{
         width: 57px !important;
         height: 57px !important;
         left: 574px !important;
         top: 777px !important;
         z-index: 10 !important;
-    }
+    } */
 
-    .members{
+    /* .members{
         position: unset !important;
         gap: 25px !important;
-    }
+    } */
 
-    .boardSubtasksTitleDiv{
+    /* .boardSubtasksTitleDiv{
         position: unset !important;
-    }
+    } */
 
-    .boardSubtaskTitle{
+    /* .boardSubtaskTitle{
         font-size: 21px !important;
-    }
+    } */
 
-    .boardSubtasksDiv{
+    /* .boardSubtasksDiv{
         width: 460px !important;
         height: 200px !important;
         position: unset !important;
-    }
+    } */
 
-    .editTaskOkBtn{
+    /* .editTaskOkBtn{
         left: 508px !important;
         top: 719px !important;
-    }
+    } */
 
     
 }
