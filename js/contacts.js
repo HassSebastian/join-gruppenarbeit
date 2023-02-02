@@ -26,6 +26,7 @@ let alphabetOrd = {
 	Y: [],
 	Z: [],
 };
+
 let newContactUser = [];
 let colorIndex = ['#02CF2F', '#EE00D6', '#0190E0', '#FF7200', '#FF2500', '#AF1616', '#FFC700', '#3E0099', '#462F8A', '#FF7A00', '#000000'];
 let check = 0;
@@ -137,9 +138,6 @@ function openNewContact() {
 	}, 1);
 }
 
-/**
- * It adds the class 'd-none' to the element with the id 'new_contact'.
- */
 function closeNewContact() {
 	window.innerWidth < 769 ? renderContentMobile() : document.getElementById('new_contact').classList.remove('add_contact_slide');
 	setTimeout(() => {
@@ -148,7 +146,10 @@ function closeNewContact() {
 }
 
 /**
- * It adds the class 'd-none' to the element with the id 'edit_contact'.
+ * If the window width is less than 769px, render the content for mobile, otherwise remove the class
+ * 'add_contact_slide' from the element with the id 'edit_contact'.
+ *
+ * After 500ms, add the class 'd-none' to the element with the id 'edit_contact'.
  */
 function closeEditContact() {
 	window.innerWidth < 769 ? renderContentMobile() : document.getElementById('edit_contact').classList.remove('add_contact_slide');
@@ -158,9 +159,9 @@ function closeEditContact() {
 }
 
 /**
- * It takes the index of the user in the array, and then it gets the name, email, phone, letter, and
- * color of that user, and then it removes the class 'd-none' from the div with the id 'showContact',
- * and then it sets the innerHTML of that div to the HTML returned by the function showContactHTML.
+ * It takes the index of the user in the array, and then uses that index to get the user's name, email,
+ * phone, first and second letter of their name, and the color index of their name. Then it passes all
+ * of that information to the showContactQuerry function.
  * @param i - the index of the user in the allUsers array
  */
 function showContact(i) {
@@ -174,9 +175,7 @@ function showContact(i) {
 }
 
 /**
- * AddContact() is an async function that takes the values of the input fields, calculates the first
- * and second letters of the name, and then calculates the color index, and then calls the
- * addContactSave() function.
+ * If the user is not logged in as a guest, then run the addContactHelp function.
  */
 async function addContact() {
 	if (!guestLoggedIn) {
@@ -191,11 +190,25 @@ async function addContact() {
 	if (guestLoggedIn) alert('Sorry, does not work with guest status!');
 }
 
+/**
+ * If the email is required, then check the email, otherwise check the phone.
+ * @param newEmailRequired - boolean
+ * @param name - the name of the person who is being checked
+ * @param email - the email address to check
+ * @param phone - the phone number of the person
+ */
 function comparisonEmail(newEmailRequired, name, email, phone) {
 	let valueToCheck = email;
 	comparisonEmailHelp(newEmailRequired, name, email, phone, valueToCheck);
 }
 
+/**
+ * This function takes in a name, email, and phone number, and then adds the contact to the
+ * allUserArray.
+ * @param name - string
+ * @param email - "test@test.com"
+ * @param phone - string
+ */
 async function calculateNewAllUserArray(name, email, phone) {
 	let firstLetter = name[0].toUpperCase();
 	let secondLetter = await calcSecondLetter(name);
@@ -204,8 +217,9 @@ async function calculateNewAllUserArray(name, email, phone) {
 }
 
 /**
- * If the user is logged in, then the user can edit his/her own data.
- * @param i - the id of the contact
+ * It takes the value of the input field with the id of "editContactName" and sets the innerHTML of the
+ * element with the id of "contactName" to that value.
+ * @param i - The index of the contact to edit.
  */
 function saveEditContact(i) {
 	editContact(i);
@@ -213,8 +227,8 @@ function saveEditContact(i) {
 
 /**
  * It takes the values from the input fields, and then calls the function editContactSave() with the
- * values and the index of the user to be edited.
- * @param i - the index of the user in the array
+ * values and the index of the user in the array.
+ * @param i - the index of the user in the allUsers array
  */
 async function editContact(i) {
 	let name = document.getElementById('editUserName').value;
@@ -227,7 +241,11 @@ async function editContact(i) {
 	editContactSave(name, email, password, phone, firstLetter, secondLetter, colorIndex, i);
 }
 
-
+/**
+ * It deletes a contact from the array and then re-renders the content.
+ * </code>
+ * @param i - the index of the user in the array
+ */
 async function deleteContactQuestion(i) {
 	let letter = allUsers[i].firstSecondLetter;
 	let email = allUsers[i].email;

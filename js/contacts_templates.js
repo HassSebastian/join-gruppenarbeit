@@ -120,7 +120,11 @@ function addContactHelp(name, email, phone, newNameRequired, newEmailRequired, n
 			newPhoneRequired.classList.remove('requiredOn');
 			newPhoneRequired.classList.add('d-none');
 		}
-		if (!newNameRequired.classList.contains('requiredOn') && !newEmailRequired.classList.contains('requiredOn') && !newPhoneRequired.classList.contains('requiredOn')) {
+		if (
+			!newNameRequired.classList.contains('requiredOn') &&
+			!newEmailRequired.classList.contains('requiredOn') &&
+			!newPhoneRequired.classList.contains('requiredOn')
+		) {
 			comparisonEmail(newEmailRequired, name.value, email.value, phone.value);
 		}
 	}
@@ -372,7 +376,14 @@ async function addContactSave(name, email, phone, firstLetter, secondLetter, col
  * @param i - the index of the user in the allUsers array
  */
 async function editContactSave(name, email, password, phone, firstLetter, secondLetter, colorIndex, i) {
-	allUsers[i] = { name: name, email: email, password: password, colorIndex: colorIndex, firstSecondLetter: firstLetter + secondLetter, phone: phone };
+	allUsers[i] = {
+		name: name,
+		email: email,
+		password: password,
+		colorIndex: colorIndex,
+		firstSecondLetter: firstLetter + secondLetter,
+		phone: phone,
+	};
 	await saveTask();
 	closeEditContact();
 	document.getElementById('showContact').classList.add('d-none');
