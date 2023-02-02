@@ -18,11 +18,8 @@ let prio = '';
 let subTask = '';
 let subTaskArray = [];
 let selectedSubtasks = [];
-// let index;
 let badgesIndex;
 let guestId;
-/* 
-!TEST ARRAY for renderFunciont (assignedContact list in dropdown menu) */
 let coworkersToAssignTo = [];
 
 async function initAddTask() {
@@ -34,13 +31,13 @@ async function initAddTask() {
 	newCatInputActive = false;
 	renderSubtasks();
 	selectedMenuButton(3);
-	renderLoggedUserInAssignDrobDownMenuIntoYou(); // Das habe ich für das You eingefügt!
-	renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
+	renderLoggedUserInAssignDrobDownMenuIntoYou();
+	renderContactsInAssignDropDownMenu();
+	taskForce = [];
+	addContactToTaskForceWithCheckBox(loggedInUserIndex);
 	setFutureDatesOnlyForInputDueDate();
 	loadContributorsLetter();
-	taskForce = []; // Das muss noch hier rein oder in einer andere Datei!
 	addSubtaskMain();
-	addContactToTaskForceWithCheckBox(loggedInUserIndex);
 	setIndexOfGuest();
 }
 
