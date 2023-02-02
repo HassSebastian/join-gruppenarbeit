@@ -21,6 +21,7 @@ let prioColorAndUrlArray = [
  * renderAllCards().
  */
 async function initBoard() {
+	taskForce = [];
 	await enableBoardStyles();
 	await renderBoard();
 	selectedMenuButton(2);
@@ -41,7 +42,7 @@ async function initBoardNormal(){
 	await createWorkStatusArrays();
 	renderAllCards();
 	loadContributorsLetter();
-	coworkersToAssignTo = transferallUserData();
+	// coworkersToAssignTo = transferallUserData();
 }
 
 /**

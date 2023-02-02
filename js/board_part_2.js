@@ -263,11 +263,13 @@ async function getTaskChanges(taskIndex) {
     joinTaskArray[taskIndex]['descripten'] = boardEditedDescripten;
     joinTaskArray[taskIndex]['dueDate'] = boardEditedDueDate;
     joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
+    
     await saveTask();
     await renderBoard();
     await createWorkStatusArrays();
-    renderAllCards();
-    disablePopupWindow();
+    await renderAllCards();
+    // await initBoard();
+    // disablePopupWindow();
 }
 
 
