@@ -27,11 +27,9 @@ let alphabetOrd = {
 	Z: [],
 };
 
-
 let newContactUser = [];
 let colorIndex = ['#02CF2F', '#EE00D6', '#0190E0', '#FF7200', '#FF2500', '#AF1616', '#FFC700', '#3E0099', '#462F8A', '#FF7A00', '#000000'];
 let check = 0;
-
 
 /**
  * This function is called when the user clicks on the contacts button in the menu. It loads the
@@ -50,7 +48,6 @@ async function initContacts() {
 	coworkersToAssignTo = transferallUserData();
 }
 
-
 /**
  * It takes the HTML from the renderContentHTML() function and puts it into the content div.
  */
@@ -58,7 +55,6 @@ async function renderContent() {
 	document.getElementById('content').innerHTML = '';
 	document.getElementById('content').innerHTML = renderContentHTML();
 }
-
 
 /**
  * This function is called when the user clicks the "Submit" button. It calls the
@@ -99,7 +95,6 @@ async function userInAlphabetArray() {
 	alphabet();
 }
 
-
 /**
  * It clears the contact list and then calls the calculateAndShowAlphabet function.
  */
@@ -107,7 +102,6 @@ function alphabet() {
 	document.getElementById('Contact_list').innerHTML = '';
 	calculateAndShowAlphabet();
 }
-
 
 /**
  * It removes the class 'd-none' from the element with the id 'edit_contact', then it sets the
@@ -132,7 +126,6 @@ function openEditContact(i) {
 	}
 }
 
-
 /**
  * It opens a new contact form.
  */
@@ -145,8 +138,6 @@ function openNewContact() {
 	}, 1);
 }
 
-
-
 function closeNewContact() {
 	window.innerWidth < 769 ? renderContentMobile() : document.getElementById('new_contact').classList.remove('add_contact_slide');
 	setTimeout(() => {
@@ -154,11 +145,10 @@ function closeNewContact() {
 	}, 500);
 }
 
-
 /**
  * If the window width is less than 769px, render the content for mobile, otherwise remove the class
  * 'add_contact_slide' from the element with the id 'edit_contact'.
- * 
+ *
  * After 500ms, add the class 'd-none' to the element with the id 'edit_contact'.
  */
 function closeEditContact() {
@@ -167,7 +157,6 @@ function closeEditContact() {
 		document.getElementById('edit_contact').classList.add('d-none');
 	}, 500);
 }
-
 
 /**
  * It takes the index of the user in the array, and then uses that index to get the user's name, email,
@@ -185,7 +174,6 @@ function showContact(i) {
 	showContactQuerry(name, email, phone, letter, color, i, showContact);
 }
 
-
 /**
  * If the user is not logged in as a guest, then run the addContactHelp function.
  */
@@ -202,7 +190,6 @@ async function addContact() {
 	if (guestLoggedIn) alert('Sorry, does not work with guest status!');
 }
 
-
 /**
  * If the email is required, then check the email, otherwise check the phone.
  * @param newEmailRequired - boolean
@@ -214,7 +201,6 @@ function comparisonEmail(newEmailRequired, name, email, phone) {
 	let valueToCheck = email;
 	comparisonEmailHelp(newEmailRequired, name, email, phone, valueToCheck);
 }
-
 
 /**
  * This function takes in a name, email, and phone number, and then adds the contact to the
@@ -230,8 +216,6 @@ async function calculateNewAllUserArray(name, email, phone) {
 	addContactSave(name, email, phone, firstLetter, secondLetter, colorIndex);
 }
 
-
-
 /**
  * It takes the value of the input field with the id of "editContactName" and sets the innerHTML of the
  * element with the id of "contactName" to that value.
@@ -240,7 +224,6 @@ async function calculateNewAllUserArray(name, email, phone) {
 function saveEditContact(i) {
 	editContact(i);
 }
-
 
 /**
  * It takes the values from the input fields, and then calls the function editContactSave() with the
@@ -257,7 +240,6 @@ async function editContact(i) {
 	let colorIndex = await calcColorIndex(firstLetter, secondLetter);
 	editContactSave(name, email, password, phone, firstLetter, secondLetter, colorIndex, i);
 }
-
 
 /**
  * It deletes a contact from the array and then re-renders the content.
