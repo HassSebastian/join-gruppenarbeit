@@ -26,6 +26,7 @@ let guestId;
 let coworkersToAssignTo = [];
 
 async function initAddTask() {
+	transferArray = [];
 	await enableAddTaskStyles();
 	await renderAddTask();
 	await loadExitingCategories();
@@ -58,13 +59,11 @@ async function renderAddTask() {
 let transferArray = [];
 
 function transferallUserData() {
-	transferArray = [];
 	for (let i = 0; i < allUsers.length; i++) {
 		let transferColorIndex = allUsers[i].colorIndex;
 		let transferEmail = allUsers[i].email;
 		let transferFirstSecondLetter = allUsers[i].firstSecondLetter;
 		let transferName = allUsers[i].name;
-		let transferPW = allUsers[i].password;
 		let transferPhone = allUsers[i].phone;
 		let transferJson = {
 			colorIndex: transferColorIndex,
@@ -930,7 +929,11 @@ function addSelectedContactToTaskForce(contact) {
  * @param {number} contact
  */
 function removeCheckMarkFromCheckBox(contact) {
-	if (contact != guestId) document.getElementById(`checkMark${contact}`).classList.add('d-none');
+	try {
+		if (contact != guestId) document.getElementById(`checkMark${contact}`).classList.add('d-none');
+	} catch (error) {
+		console.log('error', error, contact);
+	}
 }
 
 function removeSelectedContactFromTaskForce(index) {
