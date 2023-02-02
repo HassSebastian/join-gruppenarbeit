@@ -797,6 +797,10 @@ function showHideDropDownAssignTo() {
 	document.getElementById('dropdown2').classList.toggle('listD-none');
 }
 
+/**
+ * Opens/shuts assignTo-list
+ * @param {boolean} assignListStatus
+ */
 function enableDisableAssignList() {
 	if (!assignListStatus) {
 		borderBottomOffAssignedBoxButton('addTaskAssignedButton');
@@ -812,6 +816,10 @@ function enableDisableAssignList() {
 	boardAddTaskMarginSettings();
 }
 
+/**
+ * Opens assignTo-List
+ * needed for  mobile version
+ */
 function enableAssignList() {
 	showHideDropDownAssignTo();
 	assignListStatus = !assignListStatus;
@@ -881,38 +889,66 @@ function assigendContactEmail() {
 	changeAssignPlaceholderColorToGrey();
 }
 
+/**
+ * Prevents other function from bubbling up
+ * @param {object} event
+ */
 function doNotCloseOnClick(event) {
 	event.stopPropagation();
 }
 
+/**
+ * Sets placeholde of input field to default
+ */
 function assignInputPlaceholderToDefaultMode() {
 	document.getElementsByName('selectedAssign')[0].placeholder = `Select contacts to Assign`;
 }
 
+/**
+ * Clears the input field of assignTo
+ */
 function assignInputValueToDefault() {
 	document.getElementById('selectedAssign').value = '';
 }
 
+/**
+ * Hides buttons
+ */
 function hideCancelConfirmButtons() {
 	document.getElementById('assignToCancelConfirmImgContainer').classList.add('d-none');
 }
 
+/**
+ * Shows btn in drop down menu of assignTo
+ */
 function showAssignDropDownImg() {
 	document.getElementById('assignDropDownImg').classList.remove('d-none');
 }
 
+/**
+ * Disables input field of assignTo
+ */
 function disableInputAddTasAssign() {
 	document.getElementById('selectedAssign').disabled = true;
 }
 
+/**
+ * Changes color of placeholder in input field of assignTo
+ */
 function changeAssignPlaceholderColorToGrey() {
 	document.getElementById('selectedAssign').classList.add('greyPlaceholder');
 }
 
+/**
+ * Sets color of input of assignTo to default color
+ */
 function changeAssignPlaceholderColorToDefault() {
 	document.getElementById('selectedAssign').classList.remove('greyPlaceholder');
 }
 
+/**
+ * Sets assignTo box to default mode
+ */
 function assignBoxBackToDefaultMode() {
 	assignInputPlaceholderToDefaultMode();
 	changeAssignPlaceholderColorToDefault();
@@ -934,16 +970,24 @@ function findIndexOfMemberOfTaskForce(emailAddress) {
 	});
 }
 
+/**
+ * Removes checkmark of contact in assignTo-List
+ * @param {number} contact
+ */
 function addCheckMarkToCheckBox(contact) {
 	document.getElementById(`checkMark${contact}`).classList.remove('d-none');
 }
 
+/**
+ * Pushes selected contoct to task force
+ * @param {number} contact
+ */
 function addSelectedContactToTaskForce(contact) {
 	taskForce.push(coworkersToAssignTo[contact]);
 }
 
 /**
- *!Id von Guestlogin als Variable eingeben wie? loggedUse?
+ *Removes check mark from all exept of the Guest
  * @param {number} contact
  */
 function removeCheckMarkFromCheckBox(contact) {
@@ -954,6 +998,10 @@ function removeCheckMarkFromCheckBox(contact) {
 	}
 }
 
+/**
+ * Removes contact from taskforce
+ * @param {number} index
+ */
 function removeSelectedContactFromTaskForce(index) {
 	taskForce.splice(index, 1);
 }
@@ -1005,6 +1053,9 @@ async function renderContactsInAssignDropDownMenu() {
 	}
 }
 
+/**
+ * Renders assignTo-List in drop down menu
+ */
 async function renderLoggedUserInAssignDrobDownMenuIntoYou() {
 	let contact = loggedInUserIndex;
 	let name = coworkersToAssignTo[loggedInUserIndex].name;
@@ -1012,49 +1063,65 @@ async function renderLoggedUserInAssignDrobDownMenuIntoYou() {
 	assignedContactList.innerHTML += generateLoggedUserHtml(name, contact);
 }
 
+/**
+ * Sets check in object of taskForce to false
+ * @param {object} member
+ */
 function setCheckStatusToFalse() {
 	taskForce.forEach((member) => {
 		member.check = false;
-		// log(member.checonsole.ck);
 	});
 }
 
+/**
+ * Sets check to false
+ */
 function checkStatusToFalse() {
-	for (let coworker = 0; coworker < coworkersToAssignTo.length; coworker++) {
-		coworkersToAssignTo[coworker].check = false;
-		removeCheckMarkFromCheckBox(coworker);
-	}
+	coworkersToAssignTo.forEach((coworker, i) => {
+		coworker.check = false;
+		removeCheckMarkFromCheckBox(i);
+	});
 }
 
 /**
- * It takes the first and last name of each member of the task force and generates a badge for each
- * member.
+ * Renders badges for members of taskForce
  */
 function renderBadgesMemberOfTaskForce() {
 	let badgeContainer = document.getElementById('badgesTaskForce');
 	badgeContainer.innerHTML = '';
-	for (let memberOfTaskForce = 0; memberOfTaskForce < taskForce.length; memberOfTaskForce++) {
-		const initials = taskForce[memberOfTaskForce].firstSecondLetter;
-		const name = taskForce[memberOfTaskForce].name;
-		const badgesIndex = taskForce[memberOfTaskForce].colorIndex;
-
-		/* chooseColorForTaskForceBadge(initialFirstName, initialLastName); */
-		badgeContainer.innerHTML += generateBadgesTaskForceHtml(memberOfTaskForce, name, initials, badgesIndex);
-	}
+	taskForce.forEach((member, i) => {
+		const initials = member.firstSecondLetter;
+		const name = member.name;
+		const badgesIndex = member.colorIndex;
+		badgeContainer.innerHTML += generateBadgesTaskForceHtml(i, name, initials, badgesIndex);
+	});
 }
 
+/**
+ * Hides badges of taskForce
+ */
 function hideBadgesTaskForce() {
 	document.getElementById('badgesTaskForce').classList.remove('d-none');
 }
 
+/**
+ * Show badges of taskForce
+ */
 function showBadgesTaskForce() {
 	document.getElementById('badgesTaskForce').classList.add('d-none');
 }
 
+/**
+ * Closes dropDown menu
+ */
 function closeDropDownAssignTo() {
 	assignListStatus ? enableDisableAssignList() : null;
 }
 
+/**
+ * Clears taskForce depending on guestLoggedIn
+ * @param {boolean} guestLoggedIn
+ */
 function clearTaskForce() {
 	if (!guestLoggedIn) {
 		checkStatusToFalse();
@@ -1064,8 +1131,10 @@ function clearTaskForce() {
 	closeDropDownAssignTo();
 }
 
+/**
+ * Open alert window with message
+ */
 function frontEndDeveloper() {
-	/* document.getElementById('selectedAssign').value = `Just frontend. Sorry!;)`; */
 	alert('This function is part of backend. The course is about frontend though');
 }
 
@@ -1073,7 +1142,7 @@ function frontEndDeveloper() {
 !GUEST Login */
 
 /**
- * gets Index of Guest
+ * Gets index of guest
  */
 function setIndexOfGuest() {
 	guestId = allUsers.findIndex((user) => user.email === 'guest@web.de');
