@@ -87,7 +87,7 @@ window.onresize = function (){
 		viewchange = true;
 		startChangetoDesktop();
     }
-	rezizeCallRelatedBoardFunctions();
+	callBoardRelatedInit();
 	// resizeCallRelatedAddTaskFunctions();
 }
 

@@ -22,20 +22,26 @@ let prioColorAndUrlArray = [
  */
 async function initBoard() {
 	await enableBoardStyles();
-	// setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-	// await includeHTML();
-	// document.getElementById('stylsheetAddTaskMobil').disabled = true;
-	// document.getElementById('stylesheetAddTask').disabled = false;
-	// document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 	await renderBoard();
-	// selectedMenuBtnId = 0;
 	selectedMenuButton(2);
 	await loadTask();
 	await createWorkStatusArrays();
 	renderAllCards();
 	loadContributorsLetter();
 	coworkersToAssignTo = transferallUserData();
-	// getInnerWidth();
+	await checkBoardInitMode();
+}
+
+
+async function initBoardNormal(){
+	await enableBoardStyles();
+	await renderBoard();
+	selectedMenuButton(2);
+	await loadTask();
+	await createWorkStatusArrays();
+	renderAllCards();
+	loadContributorsLetter();
+	coworkersToAssignTo = transferallUserData();
 }
 
 /**
