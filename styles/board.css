@@ -1635,6 +1635,12 @@ transform: translateX(-1290px);
         width: 76.78% !important;
     }
 
+    .toDoHeadline{
+        position:sticky;
+        top: 0;
+        background-color: #F6F7F8;
+    }
+
 }
 
 @media screen and (max-width: 1400px) {
