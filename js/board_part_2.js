@@ -38,7 +38,7 @@ async function disablePopupWindow() {
     }
     // await renderAllCards();
 
-    // für einen Test raus genommen von Basti///
+    // für einen Test raus genommen von Basti //
     //    wenn was nicht passt, bitte ohne    //
     //     Rücksprache wieder rein nehmen     //
     ////////////////////////////////////////////
