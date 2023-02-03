@@ -30,25 +30,11 @@ async function disablePopupWindow() {
     if (document.getElementById('boardAddTaskPopup')) {
         document.getElementById('boardAddTaskPopup').classList.remove('boardAddTaskPopupOverlay');
         setTimeout(() => { document.getElementById('boardPopup').classList.add('d-none') }, 500);
-        // document.getElementById('boardPopup').classList.add('d-none');
-        // await disableBoardPopup();
-    } else {
-        // document.getElementById('boardPopup').classList.add('d-none');
-        // await disableBoardPopup();
     }
-    // await renderAllCards();
-
-    // für einen Test raus genommen von Basti //
-    //    wenn was nicht passt, bitte ohne    //
-    //     Rücksprache wieder rein nehmen     //
-    ////////////////////////////////////////////
-    //                                        //
-    // if (selectedMenuBtnId == 4) { } else { //
-    //     setTimeout(await initBoard, 500);  //
-    //     searchAfterPopup();                //
-    // }                                      //
-    //                                        //
-    ////////////////////////////////////////////
+    if (selectedMenuBtnId == 4) { } else {
+        setTimeout(await initBoard, 500);
+        searchAfterPopup();
+    }
 }
 
 
