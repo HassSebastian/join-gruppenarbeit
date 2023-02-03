@@ -1,4 +1,3 @@
-
 .headlineContainerMob {
 	display: flex;
 	flex-direction: column;
@@ -131,7 +130,6 @@ vector {
 	align-items: center;
 }
 
-
 #taskInBoardAmount p,
 #taskInProgressAmount p,
 #awaitingFeedbackAmount p {
@@ -163,6 +161,7 @@ vector {
 	flex: none;
 	order: 1;
 	flex-grow: 0;
+	margin: 16px 0;
 }
 
 .ugencySummaryMob:hover {
@@ -450,23 +449,21 @@ vector {
 
 /*  */
 
-
 .greetingMasterContainer {
 	position: absolute;
 	width: 428px;
 	height: 760px;
-	background: #F6F7F8;
+	background: #f6f7f8;
 	top: 85px;
-	animation:greetMove 2s;
+	animation: greetMove 2s;
 	animation-delay: 2s;
-
 }
 
-@keyframes greetMove{
-	for{
+@keyframes greetMove {
+	for {
 		opacity: 1;
 	}
-	to{
+	to {
 		opacity: 0;
 		display: none;
 	}
@@ -494,7 +491,7 @@ vector {
 	font-weight: 400;
 	font-size: 36px;
 	line-height: 120%;
-	color: #2A3647;
+	color: #2a3647;
 	text-align: center;
 	flex: none;
 	order: 0;
@@ -509,7 +506,7 @@ vector {
 	font-weight: 700;
 	font-size: 47px;
 	line-height: 120%;
-	color: #29ABE2;
+	color: #29abe2;
 	text-align: center;
 	flex: none;
 	order: 1;

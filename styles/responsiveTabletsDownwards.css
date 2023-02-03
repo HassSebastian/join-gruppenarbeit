@@ -1,0 +1,81 @@
+@media screen and (max-width: 768px) {
+	.mobilMasterContainer,
+	header,
+	.navMasterContainerMob {
+		width: 100vw;
+	}
+
+	.outerContainer,
+	.mobileContent {
+		height: 100vh;
+	}
+
+	.mobilMasterContainer {
+		height: 100vh;
+	}
+
+	.summaryFloatingMasterContainer {
+		left: unset !important;
+		width: 100vw !important;
+		height: fit-content !important;
+		justify-content: center;
+		align-items: center !important;
+	}
+
+	.summaryDisplayMobilContainer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.taskOverviewMob {
+		height: unset !important;
+		width: fit-content !important;
+	}
+
+	.cardsSummaryTop {
+		width: 150px !important;
+		height: 150px !important;
+	}
+
+	.ugencySummaryMob {
+		margin: 16px 0;
+		width: 100% !important;
+		height: 110px !important;
+	}
+
+	.toDoDataMob {
+		align-items: unset !important;
+		width: 100% !important;
+	}
+
+	.toDo,
+	.toDoDone {
+		flex: 1 !important;
+	}
+
+	nav {
+		position: absolute;
+		top: unset !important;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		margin: unset !important;
+		width: unset !important;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.summaryDisplayMobilContainer {
+		width: 330px !important;
+	}
+
+	.cardsSummaryTop {
+		width: 100px !important;
+		height: 100px !important;
+	}
+
+	.ugencySummaryMob {
+		width: 330px !important;
+	}
+}
