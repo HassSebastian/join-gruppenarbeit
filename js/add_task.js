@@ -18,8 +18,11 @@ let prio = '';
 let subTask = '';
 let subTaskArray = [];
 let selectedSubtasks = [];
+// let index;
 let badgesIndex;
 let guestId;
+/* 
+!TEST ARRAY for renderFunciont (assignedContact list in dropdown menu) */
 let coworkersToAssignTo = [];
 
 async function initAddTask() {
@@ -31,13 +34,13 @@ async function initAddTask() {
 	newCatInputActive = false;
 	renderSubtasks();
 	selectedMenuButton(3);
-	renderLoggedUserInAssignDrobDownMenuIntoYou();
-	renderContactsInAssignDropDownMenu();
-	taskForce = [];
-	addContactToTaskForceWithCheckBox(loggedInUserIndex);
+	renderLoggedUserInAssignDrobDownMenuIntoYou(); // Das habe ich für das You eingefügt!
+	renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
 	setFutureDatesOnlyForInputDueDate();
 	loadContributorsLetter();
+	taskForce = []; // Das muss noch hier rein oder in einer andere Datei!
 	addSubtaskMain();
+	addContactToTaskForceWithCheckBox(loggedInUserIndex);
 	setIndexOfGuest();
 }
 
@@ -74,7 +77,6 @@ function transferallUserData() {
 		};
 		transferArray.push(transferJson);
 	});
-
 	return transferArray;
 }
 
@@ -86,10 +88,6 @@ function addCheckAttributeToCoworkersToAssignTo() {
 		contact.check = false;
 	});
 }
-
-/* 
-? Wofür sind die?
-*/
 
 //? this are test function for the HTML 5 Form validation !
 function goToDescripten() {
@@ -107,7 +105,7 @@ function goToPrio() {
  * !Christian has stopped cleaning here. To be continued later ;)
  */
 async function loadExitingCategories() {
-	/* 	await loadTask(); */ //!Braucht man nicht!
+	await loadTask();
 	addTaskCategoryList = [
 		{
 			category: 'New Category',
@@ -115,8 +113,8 @@ async function loadExitingCategories() {
 		},
 	];
 	joinTaskArray.forEach((task) => {
-		const taskCategory = task.category;
-		const categoryColor = task.catColor;
+		const taskCategory = task['category'];
+		const categoryColor = task['catColor'];
 
 		const newCategoryItem = {
 			category: taskCategory,
@@ -250,7 +248,7 @@ function setNewCategoryToList() {
 			category: newSetCategory,
 			catColor: newCatColor,
 		};
-		/* checkCategoryList(newCategoryItem); */
+		// checkCategoryList(newCategoryItem);
 		if (!checkCategoryList(newCategoryItem)) {
 			addTaskCategoryList.push(newCategoryItem);
 			let newCategoryIndex = addTaskCategoryList.length - 1;
@@ -263,23 +261,17 @@ function setNewCategoryToList() {
 	}
 }
 
-/**
- * Checks if new typed in category already exists
- * @param {object} newCategoryItem
- * @returns {boolean} doubleEntry
- */
 function checkCategoryList(newCategoryItem) {
 	let categoryName1 = newCategoryItem['category'];
 	let categoryColor1 = newCategoryItem['catColor'];
 	let doubleEntry = false;
-
-	addTaskCategoryList.forEach((category) => {
-		let listCategory = category['category'];
-		let listCatColor = category['catColor'];
+	for (let i = 0; i < addTaskCategoryList.length; i++) {
+		let listCategory = addTaskCategoryList[i]['category'];
+		let listCatColor = addTaskCategoryList[i]['catColor'];
 		if (listCategory == categoryName1 && listCatColor == categoryColor1) {
 			doubleEntry = true;
 		}
-	});
+	}
 	return doubleEntry;
 }
 
@@ -794,10 +786,6 @@ function showHideDropDownAssignTo() {
 	document.getElementById('dropdown2').classList.toggle('listD-none');
 }
 
-/**
- * Opens/shuts assignTo-list
- * @param {boolean} assignListStatus
- */
 function enableDisableAssignList() {
 	if (!assignListStatus) {
 		borderBottomOffAssignedBoxButton('addTaskAssignedButton');
@@ -813,10 +801,6 @@ function enableDisableAssignList() {
 	boardAddTaskMarginSettings();
 }
 
-/**
- * Opens assignTo-List
- * needed for  mobile version
- */
 function enableAssignList() {
 	showHideDropDownAssignTo();
 	assignListStatus = !assignListStatus;
@@ -886,66 +870,38 @@ function assigendContactEmail() {
 	changeAssignPlaceholderColorToGrey();
 }
 
-/**
- * Prevents other function from bubbling up
- * @param {object} event
- */
 function doNotCloseOnClick(event) {
 	event.stopPropagation();
 }
 
-/**
- * Sets placeholde of input field to default
- */
 function assignInputPlaceholderToDefaultMode() {
 	document.getElementsByName('selectedAssign')[0].placeholder = `Select contacts to Assign`;
 }
 
-/**
- * Clears the input field of assignTo
- */
 function assignInputValueToDefault() {
 	document.getElementById('selectedAssign').value = '';
 }
 
-/**
- * Hides buttons
- */
 function hideCancelConfirmButtons() {
 	document.getElementById('assignToCancelConfirmImgContainer').classList.add('d-none');
 }
 
-/**
- * Shows btn in drop down menu of assignTo
- */
 function showAssignDropDownImg() {
 	document.getElementById('assignDropDownImg').classList.remove('d-none');
 }
 
-/**
- * Disables input field of assignTo
- */
 function disableInputAddTasAssign() {
 	document.getElementById('selectedAssign').disabled = true;
 }
 
-/**
- * Changes color of placeholder in input field of assignTo
- */
 function changeAssignPlaceholderColorToGrey() {
 	document.getElementById('selectedAssign').classList.add('greyPlaceholder');
 }
 
-/**
- * Sets color of input of assignTo to default color
- */
 function changeAssignPlaceholderColorToDefault() {
 	document.getElementById('selectedAssign').classList.remove('greyPlaceholder');
 }
 
-/**
- * Sets assignTo box to default mode
- */
 function assignBoxBackToDefaultMode() {
 	assignInputPlaceholderToDefaultMode();
 	changeAssignPlaceholderColorToDefault();
@@ -967,24 +923,16 @@ function findIndexOfMemberOfTaskForce(emailAddress) {
 	});
 }
 
-/**
- * Removes checkmark of contact in assignTo-List
- * @param {number} contact
- */
 function addCheckMarkToCheckBox(contact) {
 	document.getElementById(`checkMark${contact}`).classList.remove('d-none');
 }
 
-/**
- * Pushes selected contoct to task force
- * @param {number} contact
- */
 function addSelectedContactToTaskForce(contact) {
 	taskForce.push(coworkersToAssignTo[contact]);
 }
 
 /**
- *Removes check mark from all exept of the Guest
+ *!Id von Guestlogin als Variable eingeben wie? loggedUse?
  * @param {number} contact
  */
 function removeCheckMarkFromCheckBox(contact) {
@@ -995,10 +943,6 @@ function removeCheckMarkFromCheckBox(contact) {
 	}
 }
 
-/**
- * Removes contact from taskforce
- * @param {number} index
- */
 function removeSelectedContactFromTaskForce(index) {
 	taskForce.splice(index, 1);
 }
@@ -1050,9 +994,6 @@ async function renderContactsInAssignDropDownMenu() {
 	}
 }
 
-/**
- * Renders assignTo-List in drop down menu
- */
 async function renderLoggedUserInAssignDrobDownMenuIntoYou() {
 	let contact = loggedInUserIndex;
 	let name = coworkersToAssignTo[loggedInUserIndex].name;
@@ -1060,65 +1001,49 @@ async function renderLoggedUserInAssignDrobDownMenuIntoYou() {
 	assignedContactList.innerHTML += generateLoggedUserHtml(name, contact);
 }
 
-/**
- * Sets check in object of taskForce to false
- * @param {object} member
- */
 function setCheckStatusToFalse() {
 	taskForce.forEach((member) => {
 		member.check = false;
+		// log(member.checonsole.ck);
 	});
 }
 
-/**
- * Sets check to false
- */
 function checkStatusToFalse() {
-	coworkersToAssignTo.forEach((coworker, i) => {
-		coworker.check = false;
-		removeCheckMarkFromCheckBox(i);
-	});
+	for (let coworker = 0; coworker < coworkersToAssignTo.length; coworker++) {
+		coworkersToAssignTo[coworker].check = false;
+		removeCheckMarkFromCheckBox(coworker);
+	}
 }
 
 /**
- * Renders badges for members of taskForce
+ * It takes the first and last name of each member of the task force and generates a badge for each
+ * member.
  */
 function renderBadgesMemberOfTaskForce() {
 	let badgeContainer = document.getElementById('badgesTaskForce');
 	badgeContainer.innerHTML = '';
-	taskForce.forEach((member, i) => {
-		const initials = member.firstSecondLetter;
-		const name = member.name;
-		const badgesIndex = member.colorIndex;
-		badgeContainer.innerHTML += generateBadgesTaskForceHtml(i, name, initials, badgesIndex);
-	});
+	for (let memberOfTaskForce = 0; memberOfTaskForce < taskForce.length; memberOfTaskForce++) {
+		const initials = taskForce[memberOfTaskForce].firstSecondLetter;
+		const name = taskForce[memberOfTaskForce].name;
+		const badgesIndex = taskForce[memberOfTaskForce].colorIndex;
+
+		/* chooseColorForTaskForceBadge(initialFirstName, initialLastName); */
+		badgeContainer.innerHTML += generateBadgesTaskForceHtml(memberOfTaskForce, name, initials, badgesIndex);
+	}
 }
 
-/**
- * Hides badges of taskForce
- */
 function hideBadgesTaskForce() {
 	document.getElementById('badgesTaskForce').classList.remove('d-none');
 }
 
-/**
- * Show badges of taskForce
- */
 function showBadgesTaskForce() {
 	document.getElementById('badgesTaskForce').classList.add('d-none');
 }
 
-/**
- * Closes dropDown menu
- */
 function closeDropDownAssignTo() {
 	assignListStatus ? enableDisableAssignList() : null;
 }
 
-/**
- * Clears taskForce depending on guestLoggedIn
- * @param {boolean} guestLoggedIn
- */
 function clearTaskForce() {
 	if (!guestLoggedIn) {
 		checkStatusToFalse();
@@ -1128,10 +1053,8 @@ function clearTaskForce() {
 	closeDropDownAssignTo();
 }
 
-/**
- * Open alert window with message
- */
 function frontEndDeveloper() {
+	/* document.getElementById('selectedAssign').value = `Just frontend. Sorry!;)`; */
 	alert('This function is part of backend. The course is about frontend though');
 }
 
@@ -1139,7 +1062,7 @@ function frontEndDeveloper() {
 !GUEST Login */
 
 /**
- * Gets index of guest
+ * gets Index of Guest
  */
 function setIndexOfGuest() {
 	guestId = allUsers.findIndex((user) => user.email === 'guest@web.de');
