@@ -40,7 +40,7 @@ header {
 	width: 32px;
 	height: 39.02px;
 	flex: none;
-    margin-left: 16px;
+	margin-left: 16px;
 	order: 0;
 	flex-grow: 0;
 }
@@ -62,7 +62,7 @@ header {
 	width: 39px;
 	height: 39px;
 	flex: none;
-    margin-right: 16px;
+	margin-right: 16px;
 	order: 1;
 	flex-grow: 0;
 	border-radius: 100%;
@@ -163,7 +163,7 @@ nav {
 	flex-grow: 0;
 }
 
-.mobileContent{
+.mobileContent {
 	overflow: hidden;
 	height: 845px;
 }
@@ -171,7 +171,7 @@ nav {
 /******************************************/
 
 .kanbanProjectManagementTool {
-	position: absolute;
+	/* position: absolute; */
 	width: 300px;
 	height: 19px;
 	left: 33px;
@@ -194,11 +194,11 @@ nav {
 	align-items: flex-start;
 	padding: 0px;
 	gap: 20px;
-	position: absolute;
+	/* position: absolute; */
 	width: 237px;
 	height: 101px;
-	left: 33px;
-	top: 152px;
+	/* left: 33px; */
+	/* top: 152px; */
 }
 
 .headlineMob {

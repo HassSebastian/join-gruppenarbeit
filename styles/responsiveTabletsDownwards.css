@@ -20,12 +20,19 @@
 		height: fit-content !important;
 		justify-content: center;
 		align-items: center !important;
+		top: 105px !important;
+		/* padding: 0 33px !important; */
+	}
+
+	.summaryHeadingContainer {
+		width: 480px;
 	}
 
 	.summaryDisplayMobilContainer {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		height: fit-content;
 	}
 
 	.taskOverviewMob {
@@ -63,9 +70,17 @@
 		margin: unset !important;
 		width: unset !important;
 	}
+
+	/* .logOutMasterContainer {
+		right: 26px !important;
+	} */
 }
 
 @media screen and (max-width: 500px) {
+	.summaryHeadingContainer {
+		width: 330px;
+	}
+
 	.summaryDisplayMobilContainer {
 		width: 330px !important;
 	}
@@ -77,5 +92,27 @@
 
 	.ugencySummaryMob {
 		width: 330px !important;
+	}
+}
+
+@media screen and (max-height: 700px) {
+	.kanbanProjectManagementTool,
+	.headlineDisMob {
+		display: none;
+	}
+
+	.headlineContainerMob {
+		height: 0 !important;
+		margin: 24px 0;
+	}
+}
+
+@media screen and (max-height: 620px) {
+	header {
+		display: none;
+	}
+
+	.summaryFloatingMasterContainer {
+		top: 12px !important;
 	}
 }
