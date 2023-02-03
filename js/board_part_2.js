@@ -33,12 +33,22 @@ async function disablePopupWindow() {
         // document.getElementById('boardPopup').classList.add('d-none');
         // await disableBoardPopup();
     } else {
-        document.getElementById('boardPopup').classList.add('d-none');
+        // document.getElementById('boardPopup').classList.add('d-none');
         // await disableBoardPopup();
     }
     // await renderAllCards();
-    await initBoard();
-    searchAfterPopup();
+
+    // für einen Test raus genommen von Basti///
+    //    wenn was nicht passt, bitte ohne    //
+    //     Rücksprache wieder rein nehmen     //
+    ////////////////////////////////////////////
+    //                                        //
+    // if (selectedMenuBtnId == 4) { } else { //
+    //     setTimeout(await initBoard, 500);  //
+    //     searchAfterPopup();                //
+    // }                                      //
+    //                                        //
+    ////////////////////////////////////////////
 }
 
 
@@ -263,20 +273,20 @@ async function getTaskChanges(taskIndex) {
     joinTaskArray[taskIndex]['descripten'] = boardEditedDescripten;
     joinTaskArray[taskIndex]['dueDate'] = boardEditedDueDate;
     joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
-    
+
     await saveTask();
-    if(window.innerWidth > 1400){
+    if (window.innerWidth > 1400) {
         await renderBoard();
         await createWorkStatusArrays();
         await renderAllCards();
         // disablePopupWindow();
-    }else {
+    } else {
         disablePopupWindow();
         await renderMobileBoardHtml();
         await createWorkStatusArrays();
         debugger;
         await renderAllCardsMobil();
-        
+
     }
 }
 
@@ -334,7 +344,7 @@ async function showAddTaskPopupWindow() {
     setFutureDatesOnlyForInputDueDate();
     loadContributorsLetter();
     addSubtaskMain();
-    
+
     addContactToTaskForceWithCheckBox(loggedInUserIndex);
 }
 
