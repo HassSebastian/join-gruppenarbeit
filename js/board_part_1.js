@@ -362,12 +362,13 @@ function moveTo(area) {
 	let doneBarWidth = doneBarDraggedElement.offsetWidth;
 	let doneBarOuterWidth = doneBarOuterDraggedElement.offsetWidth;
 	let workFlowStatusDraggedElement = joinTaskArray[currentDraggedElement]['workFlowStatus'];
-	if ((doneBarWidth == doneBarOuterWidth && workFlowStatusDraggedElement >= 1) || (workFlowStatusDraggedElement < 1 && area < 2)) {
+	if ((doneBarWidth == doneBarOuterWidth && workFlowStatusDraggedElement >= 1) || (workFlowStatusDraggedElement < 1 && area < 2) || (area < workFlowStatusDraggedElement)) {
 		moveToNewArea(area);
 	}
-	if (area < workFlowStatusDraggedElement) {
-		moveToNewArea(area);
-	}
+	// if (area < workFlowStatusDraggedElement) {
+	// 	console.log('move2');
+	// 	moveToNewArea(area);
+	// }
 }
 
 async function moveToNewArea(area) {
