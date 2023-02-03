@@ -44,16 +44,20 @@ let includeAttribute = 'w3-include-html';
 
 // index.html start functions end edit by Bossi 30.01
 function loadStartDisplay(){
-    if (window.innerWidth > 768){
-        document.getElementById('page1').classList.remove('d-none');
-        setTimeout(initPage1, 300);
-    }
-    if (window.innerWidth <= 768){
-        console.log('mobile')
-        document.getElementById('pageOneMob').classList.remove('d-none');
-        document.getElementById('mobilMasterContainer').classList.remove('d-none');
-        setTimeout(initLoginMob, 300);
-    }
+    // if (window.innerWidth > 768){
+    //     document.getElementById('page1').classList.remove('d-none');
+    //     setTimeout(initPage1, 300);
+    // }
+    // if (window.innerWidth <= 768){
+    //     console.log('mobile')
+    //     document.getElementById('pageOneMob').classList.remove('d-none');
+    //     document.getElementById('mobilMasterContainer').classList.remove('d-none');
+    //     setTimeout(initLoginMob, 300);
+    // }
+	console.log('mobile')
+    document.getElementById('pageOneMob').classList.remove('d-none');
+    document.getElementById('mobilMasterContainer').classList.remove('d-none');
+    setTimeout(initLoginMob, 300);
 }
 
 
