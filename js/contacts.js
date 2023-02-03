@@ -104,7 +104,11 @@ function alphabet() {
 }
 
 function openEditContact(i) {
+	let email = allUsers[i].email;
+	if (email == 'guest@web.de') {
+	} else {
 	!guestLoggedIn ? openEditContactsOf(allUsers, i) : openEditContactsOf(allFakeUsers, i);
+	}
 }
 
 /**
