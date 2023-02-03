@@ -137,7 +137,9 @@ function logOutBtnMob() {
 
 function logOutMob() {
 	helloCheck = 0;
-	window.location.href = './indexMob.html';
+    initLoginMob();
+	// window.location.href = './indexMob.html';
+
 }
 ////////////////////
 

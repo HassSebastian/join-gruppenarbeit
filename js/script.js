@@ -355,6 +355,8 @@ function logOut() {
 	window.location.href = './index.html';
 	localStorage.removeItem('loggedUser');
 }
+
+
 function loadContributorsLetter() {
 	let colorIndex = allUsers[loggedUser[0]].colorIndex;
 	document.getElementById('contributorsLogoHeadder').style = `background:${colorUserIndex[colorIndex]}`;
