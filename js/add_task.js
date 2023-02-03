@@ -62,22 +62,23 @@ async function renderAddTask() {
 function transferallUserData() {
 	transferArray = [];
 	coworkersToAssignTo = [];
-	allUsers.forEach((user) => {
-		let transferColorIndex = user.colorIndex;
-		let transferEmail = user.email;
-		let transferFirstSecondLetter = user.firstSecondLetter;
-		let transferName = user.name;
-		let transferPhone = user.phone;
-		let transferJson = {
-			colorIndex: transferColorIndex,
-			email: transferEmail,
-			firstSecondLetter: transferFirstSecondLetter,
-			name: transferName,
-			phone: transferPhone,
-		};
-		transferArray.push(transferJson);
-	});
+	creatingTransferObjectOfContacts();
 	return transferArray;
+}
+
+/**
+ * Creates a copy of allUsers without password
+ */
+function creatingTransferObjectOfContacts() {
+	allUsers.forEach((user) =>
+		transferArray.push({
+			colorIndex: user.colorIndex,
+			email: user.email,
+			firstSecondLetter: user.firstSecondLetter,
+			name: user.name,
+			phone: user.phone,
+		})
+	);
 }
 
 /**
