@@ -103,7 +103,12 @@
 	}
 
 	button input {
-		min-width: 100px;
+		min-width: 100px !important;
+		width: 211px;
+	}
+
+	.addTaskCatList {
+		padding: unset;
 	}
 }
 

@@ -12,6 +12,7 @@ body {
 	width: 428px;
 	height: 926px;
 	background: #f6f7f8;
+	overflow: hidden;
 }
 
 /********/
