@@ -113,6 +113,12 @@
 }
 
 @media screen and (max-width: 500px) {
+	.scroll {
+		/* width: unset; */
+		right: 8px;
+		left: 8px;
+	}
+
 	/* SUMMARY */
 	.summaryHeadingContainer {
 		width: 330px;
