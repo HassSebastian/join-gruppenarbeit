@@ -562,7 +562,6 @@ function closeBoardMobilDetailOverlay() {
 
 function renderPopupTaskCardHtmlMobil(taskIndex) {
     if (window.innerWidth > 768) {
-        console.log('mobil Board JS');
         enablePopupWindow(taskIndex);
         renderPopupTaskCardHtml(taskIndex);
     } else {
