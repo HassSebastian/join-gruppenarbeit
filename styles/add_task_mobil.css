@@ -19,11 +19,11 @@ body {
 .mobilHeader {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
-	gap: 182px;
+
 	position: absolute;
-	width: 428px;
+	width: 100vw;
 	height: 79.02px;
 	left: 0px;
 	top: 0px;
@@ -42,6 +42,7 @@ body {
 	flex: none;
 	order: 0;
 	flex-grow: 0;
+	margin-left: 16px;
 }
 
 .mobilHeader button {
@@ -57,6 +58,7 @@ body {
 	order: 1;
 	flex-grow: 0;
 	cursor: pointer;
+	margin-right: 16px;
 }
 
 .mobilHeader button:hover {

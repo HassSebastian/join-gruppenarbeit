@@ -117,6 +117,7 @@
 		/* width: unset; */
 		right: 8px;
 		left: 8px;
+		height: 500px;
 	}
 
 	/* SUMMARY */
@@ -143,6 +144,44 @@
 		flex: 1 !important;
 		width: unset !important;
 	}
+
+	.addTaskDateMob {
+		margin-top: 14px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	/* ADD TASK */
+	.frame28 {
+		height: 160px;
+		width: 100%;
+	}
+
+	.addTaskPrioIconsMob {
+		flex-direction: column;
+		height: 140px;
+		width: 100%;
+	}
+
+	#addTaskUrgentSpan,
+	#addTaskMediumSpan,
+	#addTaskLowSpan {
+		height: 40px;
+		display: flex;
+		align-items: center;
+		padding-right: 16px;
+		padding-left: 16px;
+	}
+
+	#addTaskUrgentImg,
+	#addTaskMediumImg,
+	#addTaskLowImg {
+		padding-right: 16px;
+	}
+
+	.addTaskPrioMobil {
+		height: fit-content;
+	}
 }
 
 @media screen and (max-height: 700px) {
@@ -155,8 +194,6 @@
 		height: 0 !important;
 		margin: 24px 0;
 	}
-
-	/* ADD TASK */
 }
 
 @media screen and (max-height: 620px) {
