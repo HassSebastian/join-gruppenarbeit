@@ -1114,13 +1114,15 @@
     padding: 0px;
     gap: 25px;
     width: 460px;
-    height: 200px;
+    height: 169px;
     flex: none;
     order: 6;
     flex-grow: 0;
     z-index: 6;
     overflow: hidden;
     overflow-y: scroll;
+    /* height changed and flex-wrap hinzugefügt */
+    flex-wrap: wrap;
 }
 
 .boardSubtasksDiv div span{
@@ -1639,6 +1641,22 @@ transform: translateX(-1290px);
         position:sticky;
         top: 0;
         background-color: #F6F7F8;
+    }
+
+    /* Btn hinzugefügt */
+    .moveBtnMobil{
+        display: flex !important;
+        position: absolute !important;
+        top: 777px !important;
+        height: 57px !important;
+    }
+
+    .moveBtnMobil button{
+        height: 57px !important;
+    }
+
+    .boardSubtasksDiv{
+        height: 112px;
     }
 
 }

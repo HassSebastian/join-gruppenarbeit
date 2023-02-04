@@ -603,13 +603,6 @@ function renderPopupTaskCardHtmlMobil(taskIndex) {
             </div>
 
             <div class='moveBtnMobil' id='moveBtnMobil'>
-                <!-- <button>
-                    Task to 'To do'
-                </button>
-
-                <button>
-                    Task to 'In progress'
-                </button> -->
         
             </div>
 
@@ -697,7 +690,12 @@ async function moveMobilTaskTo(taskIndex, newTaskStatus) {
     await saveTask();
     await createWorkStatusArrays();
     renderAllCardsMobil();
-    closeBoardMobilDetailOverlay();
+    if(window.innerWidth >= 768){
+        closeBoardMobilDetailOverlay();
+    }
+    if(window.innerWidth > 768){
+        disablePopupWindow();
+    }
 }
 
 

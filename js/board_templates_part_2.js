@@ -36,7 +36,8 @@ async function renderSubtaskHtml(taskIndex) {
             let subtaskText = subtaskArray[i]['subtaskText'];
             document.getElementById('subtaskListTaskCard').innerHTML += /*html*/`
                 <div>
-                    <input type='checkbox' id='subtask${i}' onclick='checkboxSubtaskSelected(${i}, ${taskIndex})'>
+                    <!-- renderBtnBySubtaskChange(${taskIndex}) hizugefügt -->
+                    <input type='checkbox' id='subtask${i}' onclick='checkboxSubtaskSelected(${i}, ${taskIndex}), renderBtnBySubtaskChange(${taskIndex})'>
                     <span>${subtaskText}</span>
                 </div>`;
         }
@@ -366,10 +367,18 @@ function renderPopupTaskCardHtml(taskIndex) {
         </div >
         <div class='boardSubtasksDiv' id='subtaskListTaskCard'>
             
-        </div>`;
+        </div>
+        <!-- Btn hinzugefügt -->
+        <div class='moveBtnMobil d-none' id='moveBtnMobil'>
+        
+        </div>
+        
+        `;
 
     setTaskCardPopupCatColor(taskIndex);
     setTaskCardPopupPrioBackground(taskIndex);
     renderSubtask(taskIndex);
     renderAssignToHtml2(taskIndex);
+    // Btn hinzugefügt
+    renderMoveBtnMobil(taskIndex);
 }
