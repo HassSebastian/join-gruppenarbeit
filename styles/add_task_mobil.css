@@ -59,6 +59,7 @@ body {
 	flex-grow: 0;
 	cursor: pointer;
 	margin-right: 16px;
+	border: 0;
 }
 
 .mobilHeader button:hover {
