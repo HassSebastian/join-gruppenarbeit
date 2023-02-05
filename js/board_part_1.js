@@ -57,7 +57,7 @@ async function renderBoard() {
  * This function clear all Arrays related to the workstatus.
  * The workstatus is releted to the progress of processing of the task.
  */
-function resetWorkStatusArrays() {
+async function resetWorkStatusArrays() {
 	workStatus0Array = [];
 	workStatus1Array = [];
 	workStatus2Array = [];
@@ -69,6 +69,7 @@ function resetWorkStatusArrays() {
 let filteredTaskList = [];
 
 async function startFilter() {
+	console.log(joinTaskArray);
     for (let i = 0; i < joinTaskArray.length; i++) {
         let assignedList = joinTaskArray[i].assignedTo;
         for (let index = 0; index < assignedList.length; index++) {
@@ -87,7 +88,7 @@ async function startFilter() {
  * createWorkStatusArrayData(index, i)
  */
 async function createWorkStatusArrays() {
-	resetWorkStatusArrays();
+	await resetWorkStatusArrays();
 	filteredTaskList = [];
 	await startFilter();
 	// for (let index = 0; index < 4; index++) {
@@ -99,6 +100,7 @@ async function createWorkStatusArrays() {
 	// 	}
 	// }
 	for (let index = 0; index < 4; index++) {
+		console.log(filteredTaskList);
 		for (let i = 0; i < filteredTaskList.length; i++) {
 			let taskWorkStatus = filteredTaskList[i]['workFlowStatus'];
 			let taskIndex = filteredTaskList[i].taskIndex;

@@ -1,23 +1,21 @@
 async function initMobilAddTask() {
-	// await includeHTML();
-	// checkStatusToFalse();
 	transferArray = [];
-	taskForce = [];
-	await renderMobilAddTask();
+
+    await renderMobilAddTask();
 	await loadExitingCategories();
 	renderCategoryList();
 	newCatInputActive = false;
 	renderSubtasks();
-	// selectedMenuBtnId = 0;
 	selectedMenuButton(3);
 	renderLoggedUserInAssignDrobDownMenuIntoYou();
 	await renderContactsInAssignDropDownMenu();
 	setFutureDatesOnlyForInputDueDate();
-	// loadContributorsLetter();
+	loadContributorsLetter();
+    taskForce = [];
 	addSubtaskMain();
-	// getInnerWidth();
+    addContactToTaskForceWithCheckBox(loggedInUserIndex);
 	document.getElementById('greetingMasterContainer').classList.add('d-none');
-	addContactToTaskForceWithCheckBox(loggedInUserIndex);
+	setIndexOfGuest();
 }
 
 async function renderMobilAddTask() {
