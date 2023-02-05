@@ -7,14 +7,12 @@ async function dataPrivacyMob() {
     document.getElementById('logOutMasterContainer').classList.toggle('d-none');
     document.getElementById('mobilContent').innerHTML = '';
     document.getElementById('mobilContent').innerHTML += /*html*/ `
-        <div class="backArrowMob">
-            <img src="../../assets/img/back_logo_black.png" onclick="backButtonMob()">
-        </div>
         <div class="OverlayMob">
             <span>Legal Notice</span>
         </div>
         <div class="kanbanProjectManagementToolMob">
             <span>Kanban Project Management Tool</span>
+            <img src="../../assets/img/back_logo_black.png" onclick="backButtonMob()">
         </div>
 
         

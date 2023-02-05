@@ -9,11 +9,9 @@ async function renderHelpMob() {
     document.getElementById('logOutMasterContainer').classList.toggle('d-none');
     document.getElementById('mobilContent').innerHTML = '';
     document.getElementById('mobilContent').innerHTML += /*html*/ `
-        <div class="backArrowMob">
-            <img src="../../assets/img/back_logo_black.png" onclick="backButtonMob()">
-        </div>
         <div class="helpOverlayMob">
             <span>Help</span>
+            <img src="../../assets/img/back_logo_black.png" onclick="backButtonMob()">
         </div>
         <div class="kanbanProjectManagementToolMob">
             <span>Kanban Project Management Tool</span>
