@@ -63,7 +63,7 @@ async function renderMobilAddTask() {
                             <span id='addTaskMediumSpan'>Medium</span>
                             <img id='addTaskMediumImg' src="../assets/img/prio_medium.png">
                         </div>
-                        <div class='addTaskLowMob urgencyLevelCard' id='addTaskLow' onclick='addPrio(2)'>
+                        <div class='addTaskLowMob' id='addTaskLow' onclick='addPrio(2)'>
                             <span id='addTaskLowSpan'>Low</span>
                             <img id='addTaskLowImg' src="../assets/img/prio_low.png">
                         </div>
