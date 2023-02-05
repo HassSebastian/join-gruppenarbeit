@@ -55,11 +55,11 @@ async function renderMobilAddTask() {
                 <div class='frame28'>
                     <h3>Prio</h3>
                     <div class='addTaskPrioIconsMob' id='addTaskPrioIcons'>
-                        <div class='addTaskUrgentMob urgencyLevelCard' id='addTaskUrgent' onclick='addPrio(0)'>
+                        <div class='addTaskUrgentMob' id='addTaskUrgent' onclick='addPrio(0)'>
                             <span id='addTaskUrgentSpan'>Urgent</span>
                             <img id='addTaskUrgentImg' src="../assets/img/urgent_arrows.png">
                         </div>
-                        <div class='addTaskMediumMob urgencyLevelCard' id='addTaskMedium' onclick='addPrio(1)'>
+                        <div class='addTaskMediumMob' id='addTaskMedium' onclick='addPrio(1)'>
                             <span id='addTaskMediumSpan'>Medium</span>
                             <img id='addTaskMediumImg' src="../assets/img/prio_medium.png">
                         </div>

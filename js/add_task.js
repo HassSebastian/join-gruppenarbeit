@@ -619,6 +619,7 @@ function addTaskClearOff() {
 }
 
 async function addPrio(prioIdIndex) {
+	debugger;
 	let idList = ['addTaskUrgent', 'addTaskMedium', 'addTaskLow'];
 	let selectedId = idList[+prioIdIndex];
 	let cListLength = document.getElementById(selectedId).classList.length;
