@@ -451,12 +451,15 @@ vector {
 
 .greetingMasterContainer {
 	position: absolute;
-	width: 428px;
+	width: 100%;
 	height: 760px;
 	background: #f6f7f8;
 	top: 85px;
 	animation: greetMove 2s;
 	animation-delay: 2s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 @keyframes greetMove {
@@ -476,11 +479,8 @@ vector {
 	align-items: center;
 	padding: 0px;
 	gap: 3px;
-	position: absolute;
 	width: 274px;
 	height: 102px;
-	left: 78px;
-	top: 300px;
 }
 
 #greetUser {
