@@ -105,7 +105,7 @@
 }
 
 .whatIsJoinIllustrationMob {
-	width: 363px;
+	width: 100%;
 	height: fit-content;
 	font-family: 'Inter';
 	font-style: normal;
@@ -159,7 +159,7 @@
 }
 
 .listContentMob {
-	width: 305px;
+	width: 100%;
 	height: fit-content;
 	font-family: 'Poppins';
 	font-style: normal;
