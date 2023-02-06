@@ -92,8 +92,8 @@ function generateMobilSummaryHtml() {
                     <img src='../../assets/img/vertical-line2.png' class='ugentVerticalLine'>
                 </div>
                 <div class='deadlineDataMob'>
-                    <p id='deadlineDate'>October 16, 2022</p>
-                    <p class='deadlineText' id='deadlineText'><b>31.01.2023 Deadline</b></p>
+                    <p id='deadlineDate'></p>
+                    <p class='deadlineText' id='deadlineText'><b>12.02.2023 Deadline</b></p>
                 </div>
             </div>
 
