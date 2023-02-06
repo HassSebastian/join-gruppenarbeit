@@ -509,6 +509,7 @@ email {
     display: flex;
     align-items: center;
     color: #007CEE;
+    text-decoration: underline;
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -553,7 +554,8 @@ phone {
     line-height: 120%;
     display: flex;
     align-items: center;
-    color: #000000;
+    color: #007CEE;
+    text-decoration: underline;
     flex: none;
     order: 1;
     flex-grow: 0;

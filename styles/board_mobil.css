@@ -787,7 +787,8 @@
     position: absolute;
     width: 40px;
     height: 40px;
-    left: 366px;
+    left: 284px;
+    /* left: 366px; */  /*wenn das irgendwo nicht passt, bitte basti bescheid geben*/
     top: 685px;
     background: #2A3647;
     border-radius: 10px;

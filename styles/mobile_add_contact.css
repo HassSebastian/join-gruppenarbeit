@@ -13,7 +13,8 @@ body {
     gap: 49px;
     isolation: isolate;
     position: relative;
-    left: 24px;
+    left: calc(50% - (381px / 2));
+    /* left: 24px; */
     top: 940px;
     width: 381px;
     height: 760px;    
