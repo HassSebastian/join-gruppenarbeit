@@ -552,6 +552,7 @@ function getDataFromFomular() {
 }
 
 async function createAssignToListForSave() {
+	assignToArray = [];
 	for (let i = 0; i < coworkersToAssignTo.length; i++) {
 		let checkStatus = coworkersToAssignTo[i]['check'];
 		if (checkStatus) {
