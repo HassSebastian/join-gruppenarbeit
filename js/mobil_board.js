@@ -655,7 +655,11 @@ async function renderSubtaskMobilHtml(taskIndex) {
 async function saveChangesDetailView() {
     await saveTask();
     await createWorkStatusArrays();
-    renderAllCardsMobil();
+    if (window.innerWidth < 1400){
+        renderAllCardsMobil();
+    }else{
+        renderAllCards();
+    }
 }
 
 

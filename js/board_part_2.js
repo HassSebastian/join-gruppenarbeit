@@ -32,7 +32,8 @@ async function disablePopupWindow() {
         setTimeout(() => { document.getElementById('boardPopup').classList.add('d-none') }, 500);
     }
     if (selectedMenuBtnId == 4) { } else {
-        setTimeout(await initBoard, 500);
+        document.getElementById('boardPopup').classList.add('d-none');
+        // setTimeout(await initBoard, 500);
         searchAfterPopup();
     }
 }
@@ -270,9 +271,7 @@ async function getTaskChanges(taskIndex) {
         disablePopupWindow();
         await renderMobileBoardHtml();
         await createWorkStatusArrays();
-        debugger;
         await renderAllCardsMobil();
-
     }
 }
 
