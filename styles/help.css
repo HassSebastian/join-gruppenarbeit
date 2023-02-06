@@ -1,161 +1,156 @@
-.helpBodyContainer{
+.helpBodyContainer {
     position: relative;
-width: 1440px;
-height: 1024px;
-background: #F6F7F8;
+    width: 1440px;
+    height: 1024px;
+    background: #F6F7F8;
 }
-.backArrow{
-    position: absolute;
-width: 37px;
-height: 37px;
-left: 1281px;
-top: 165px;
 
-}
-.backArrow img{
+
+.backArrowimg {
     position: absolute;
-    left: 16.67%;
+    left: calc(90% - (37px / 2));
+
+    /* left: 16.67%; */
     right: 16.67%;
     top: 17.59%;
     bottom: 17.59%;
     cursor: pointer;
 }
-.helpOverlay{
-    display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 0px;
-gap: 30px;
-position: absolute;
-width: 138px;
-height: 73px;
-left: 355px;
-top: 171px;
-}
-.helpOverlay span{
+
+.helpOverlayspan {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    color: #000000;
+    position: absolute;
     width: 138px;
-height: 73px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 61px;
-line-height: 120%;
-color: #000000;
-flex: none;
-order: 0;
-flex-grow: 0;
+    height: 73px;
+    left: calc(30% - (138px / 2));
+    /* left: 355px; */
+    top: 171px;
 }
-.textFieldContainer{
+
+.textFieldContainer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
     gap: 35px;
     position: absolute;
-    width: 976px;
+    width: 835px;
     height: 411px;
-    left: 347px;
+    left: calc(30% - (180px / 2));
+    /* left: 347px; */
     top: 292px;
 }
-.whatIsJoinContainer{
+
+.whatIsJoinContainer {
     display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding: 0px;
-gap: 10px;
-width: 969px;
-height: 137px;
-flex: none;
-order: 0;
-flex-grow: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+    width: 969px;
+    height: 137px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
-.whatIsJoinField{
+
+.whatIsJoinField {
     width: 346px;
-height: 32px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 27px;
-line-height: 120%;
-color: #000000;
-flex: none;
-order: 0;
-flex-grow: 0;
+    height: 32px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 27px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
-.whatIsJoinIllustration{
-width: max-content;
-height: max-content;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 120%;
-color: #000000;
-flex: none;
-order: 1;
-flex-grow: 0;
-}
-.howToUseItField{
-    width: 346px;
-height: 32px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 27px;
-line-height: 120%;
-color: #000000;
-flex: none;
-order: 1;
-flex-grow: 0;
-}
-.listBigContainer{
-    display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding: 0px;
-gap: 10px;
-width: 976px;
-height: 172px;
-flex: none;
-order: 2;
-flex-grow: 0;
-}
-.listContainer{
-    display: flex;
-flex-direction: row;
-align-items: flex-start;
-padding: 0px;
-gap: 35px;
-width: 971px;
-height: 57px;
-flex: none;
-order: 0;
-flex-grow: 0;
-}
-.listNumber{
-    width: 21px;
-height: 32px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 27px;
-line-height: 120%;
-color: #000000;
-flex: none;
-order: 0;
-flex-grow: 0;
-}
-.listContent{
+
+.whatIsJoinIllustration {
     width: max-content;
-height: max-content;
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 120%;
-color: #000000;
-flex: none;
-order: 1;
-flex-grow: 0;
+    height: max-content;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.howToUseItField {
+    width: 346px;
+    height: 32px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 27px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.listBigContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+    width: 976px;
+    height: 172px;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 35px;
+    width: 971px;
+    height: 57px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.listNumber {
+    width: 21px;
+    height: 32px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 27px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.listContent {
+    width: 571px;
+    height: max-content;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
 }
