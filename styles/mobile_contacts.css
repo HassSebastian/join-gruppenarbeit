@@ -827,7 +827,7 @@ vectorEdit {
   align-items: center;
   padding: 0px;
   position: relative;
-  top: 800px;
+  top: 860px;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -840,6 +840,7 @@ vectorEdit {
 
 .contactSuccSlide {
   transform: translateY(-379px);
+  z-index: 102;
 }
 
 .contactSuccContainer {

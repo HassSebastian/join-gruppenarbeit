@@ -55,8 +55,12 @@ async function userSignIn(firstLetter, secondLetter, name, email, password, colo
     await loadTask();
     allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter + secondLetter });
     await saveTask();
+    if(window.innerWidth < 768){
+        contactSucc();
+    }else{
     contactSucc();
     setTimeout(forwardScript, 2000);
+    }
 }
 
 

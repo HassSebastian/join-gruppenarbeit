@@ -97,7 +97,7 @@ function renderContentMobileHTML() {
     `;
 }
 
-function addContactMob() {
+function contactSucc() {
   document.getElementById("contactSucc").classList.add("contactSuccSlide");
   setTimeout(closeOverlayMob, 2000);
 }
@@ -116,6 +116,8 @@ function closeOverlayMob() {
   document
     .getElementById("overlayMasterContainerMob")
     .classList.remove("overlayMasterContainerMobSlide");
+    document.getElementById("contactSucc").classList.remove("contactSuccSlide");
+    initMobilContacts();
 }
 
 function showContactHTMLMob(name, email, phone, letter, color, i) {
