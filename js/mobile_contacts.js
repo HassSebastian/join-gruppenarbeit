@@ -59,7 +59,7 @@ function renderContentMobileHTML() {
                             <img src="../../assets/img/name_logo.png" alt="">
                         </div>
                     </div>
-                    <span class="required">This field is required</span>
+                    <span class="required" id="newContentNameRequired">This field is required</span>
                 </div>
                 <div class="outerInputContainerMob">
                     <div class="inputContainerMob">
@@ -68,7 +68,7 @@ function renderContentMobileHTML() {
                             <img src="../../assets/img/email_Logo.png" alt="">
                         </div>
                     </div>
-                    <span class="required">This field is required</span>
+                    <span class="required" id="newContentEmailRequired">This field is required</span>
                 </div>
                 <div class="outerInputContainerMob">
                     <div class="inputContainerMob">
@@ -77,10 +77,10 @@ function renderContentMobileHTML() {
                             <img src="../../assets/img/phoneLogo.png" alt="">
                         </div>
                     </div>
-                    <span class="required">This field is required</span>
+                    <span class="required" id="newContentPhoneRequired">This field is required</span>
                 </div>
             </div>
-            <button onclick="addContactMob()" class="createContactButtonMob">
+            <button onclick="addContact()" class="createContactButtonMob">
                 <span>Create contact</span>
                 <img src="../../assets/img/okHaeckchen.png">
             </button>
@@ -99,7 +99,7 @@ function renderContentMobileHTML() {
 
 function addContactMob() {
   document.getElementById("contactSucc").classList.add("contactSuccSlide");
-  setTimeout(addContact, 2000);
+  setTimeout(closeOverlayMob, 2000);
 }
 
 function test() {
