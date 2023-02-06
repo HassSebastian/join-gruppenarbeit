@@ -16,12 +16,8 @@ function back() {
 async function renderHelp() {
     document.getElementById('content').innerHTML = '';
     document.getElementById('content').innerHTML += /*html*/ `
-        <div class="backArrow">
-            <img src="./assets/img/back_logo_black.png" onclick="back()">
-        </div>
-        <div class="helpOverlay">
-            <span>Help</span>
-        </div>
+            <img src="./assets/img/back_logo_black.png" onclick="back()" class="backArrowimg">
+            <span class="helpOverlayspan">Help</span>
         <div class="textFieldContainer">
             <div class="whatIsJoinContainer">
                 <span class="whatIsJoinField">What is Join?</span>
