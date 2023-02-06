@@ -118,17 +118,17 @@
 		margin-right: auto;
 	}
 
-	.new_contactMob {
-		background: unset !important;
-		width: 193px !important;
-		/* left: 0 !important; */
-		right: 0;
-		margin-left: auto;
-		margin-right: auto;
+	.new_contact_buttonMob {
+		/* margin-right: unset !important; */
 	}
 
-	.new_contact_buttonMob {
-		margin-right: unset !important;
+	.new_contactMob {
+		background: unset !important;
+		width: 100vw !important;
+		/* left: 0 !important; */
+		/* right: 0; */
+		/* 		margin-left: auto;
+		margin-right: auto; */
 	}
 }
 
@@ -190,6 +190,15 @@
 		left: unset !important;
 		right: 36px;
 	}
+
+	.new_contactMob {
+		background: #ffffff !important;
+		width: 100vw !important;
+		/* left: 0 !important; */
+		right: 0;
+		/* margin-left: auto;
+		margin-right: auto; */
+	}
 }
 
 @media screen and (max-width: 400px) {
@@ -224,6 +233,24 @@
 	.addTaskPrioMobil {
 		height: fit-content;
 	}
+
+	/* Contacts */
+	.overlayMasterContainerMob {
+		width: 100vw !important;
+	}
+
+	/* .centerNewContactHeader {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+
+	.centerNewContactHeaderContainer {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 289px;
+	} */
 }
 
 @media screen and (max-height: 700px) {
