@@ -38,13 +38,18 @@ function renderContentMobileHTML() {
                         <img class="closeButtonMob" onclick="closeOverlayMob()" src="../../assets/img/plus_logo_white.png" alt="">
                     </div>
                 </div>
-            </div>
-            <div class="addNewBatchContainerMob">
-                <div class="addNewContactLogoElypseContainer">
-                    <img class="addNewContactLogoElypse" src="../../assets/img/elypse.png">
-                    <img class="addNewContactLogoLogo" src="../../assets/img/nameLogoOverlay.png">
+
+
+                <div class="addNewBatchContainerMob">
+                    <div class="addNewContactLogoElypseContainer">
+                        <img class="addNewContactLogoElypse" src="../../assets/img/elypse.png">
+                        <img class="addNewContactLogoLogo" src="../../assets/img/nameLogoOverlay.png">
+                    </div>
                 </div>
+
+
             </div>
+            
             <div class="contactImputMasterContainerMob">
                 <div class="outerInputContainerMob">
                     <div class="inputContainerMob">

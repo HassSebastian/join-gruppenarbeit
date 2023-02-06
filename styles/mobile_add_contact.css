@@ -46,6 +46,7 @@ body {
 }
 
 .blackContainerMob {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -135,8 +136,12 @@ body {
 	position: absolute;
 	width: 120px;
 	height: 120px;
+	right: 0;
+	left: 0;
+	margin-left: auto;
+	margin-right: auto;
 	/* left: 131px; */
-	top: 267px;
+	bottom: -44px;
 	background: #ffffff;
 	border: 3px solid #ffffff;
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
