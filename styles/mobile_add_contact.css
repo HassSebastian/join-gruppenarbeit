@@ -262,6 +262,11 @@ body {
   flex-grow: 0;
 }
 
+.requiredOn {
+  color: red !important;
+}
+
+
 .createContactButtonMob {
   display: flex;
   flex-direction: row;

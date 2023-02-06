@@ -140,6 +140,7 @@ function logOutBtnMob() {
 function logOutMob() {
 	helloCheck = 0;
 	outLogoutMob();
+    localStorage.removeItem('loggedUser');
 }
 ////////////////////
 
