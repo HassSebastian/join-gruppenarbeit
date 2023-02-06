@@ -1,3 +1,8 @@
+async function outLogoutMob(){
+    await initLoginMob();
+    window.location.href = 'index.html';
+} 
+
 async function initLoginMob() {
     setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
     await loadTask();
