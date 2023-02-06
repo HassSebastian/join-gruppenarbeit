@@ -1,21 +1,22 @@
 async function initMobilContacts() {
-	await includeHTML();
-	await loadTask();
-	selectedMenuButton(4);
-	renderContentMobile();
-	userInAlphabetArray();
-	loadContributorsLetterMob();
-	logOutMasterContainerMob();
-	document.getElementById('greetingMasterContainer').classList.add('d-none');
+  await includeHTML();
+  await loadTask();
+  selectedMenuButton(4);
+  renderContentMobile();
+  userInAlphabetArray();
+  loadContributorsLetterMob();
+  logOutMasterContainerMob();
+  document.getElementById("greetingMasterContainer").classList.add("d-none");
 }
 
 async function renderContentMobile() {
-	document.getElementById('mobilContent').innerHTML = '';
-	document.getElementById('mobilContent').innerHTML += renderContentMobileHTML();
+  document.getElementById("mobilContent").innerHTML = "";
+  document.getElementById("mobilContent").innerHTML +=
+    renderContentMobileHTML();
 }
 
 function renderContentMobileHTML() {
-	return /*html*/ `
+  return /*html*/ `
         <div id="Frame_97Mob" class="Frame_97Mob">
             <div class="Contact_listMob" id="Contact_list"></div>
         </div>
@@ -97,24 +98,28 @@ function renderContentMobileHTML() {
 }
 
 function addContactMob() {
-	document.getElementById('contactSucc').classList.add('contactSuccSlide');
-	setTimeout(addContact, 2000);
+  document.getElementById("contactSucc").classList.add("contactSuccSlide");
+  setTimeout(addContact, 2000);
 }
 
 function test() {
-	console.log('ok');
+  console.log("ok");
 }
 
 function openOverlayMob() {
-	document.getElementById('overlayMasterContainerMob').classList.add('overlayMasterContainerMobSlide');
+  document
+    .getElementById("overlayMasterContainerMob")
+    .classList.add("overlayMasterContainerMobSlide");
 }
 
 function closeOverlayMob() {
-	document.getElementById('overlayMasterContainerMob').classList.remove('overlayMasterContainerMobSlide');
+  document
+    .getElementById("overlayMasterContainerMob")
+    .classList.remove("overlayMasterContainerMobSlide");
 }
 
 function showContactHTMLMob(name, email, phone, letter, color, i) {
-	return /*html*/ `
+  return /*html*/ `
         <div class="arrowContainerMob" onclick="initMobilContacts()">
             <img src="../../assets/img/back_logo_black.png">
         </div>
