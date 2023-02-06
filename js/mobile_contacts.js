@@ -1,22 +1,22 @@
 async function initMobilContacts() {
-    await includeHTML();
-    await loadTask();
-    selectedMenuButton(4);
-    renderContentMobile();
-    userInAlphabetArray();
-    loadContributorsLetterMob();
-    logOutMasterContainerMob();
-    document.getElementById("greetingMasterContainer").classList.add("d-none");
+  await includeHTML();
+  await loadTask();
+  selectedMenuButton(4);
+  renderContentMobile();
+  userInAlphabetArray();
+  loadContributorsLetterMob();
+  logOutMasterContainerMob();
+  document.getElementById("greetingMasterContainer").classList.add("d-none");
 }
 
 async function renderContentMobile() {
-    document.getElementById("mobilContent").innerHTML = "";
-    document.getElementById("mobilContent").innerHTML +=
-        renderContentMobileHTML();
+  document.getElementById("mobilContent").innerHTML = "";
+  document.getElementById("mobilContent").innerHTML +=
+    renderContentMobileHTML();
 }
 
 function renderContentMobileHTML() {
-    return /*html*/ `
+  return /*html*/ `
         <div id="Frame_97Mob" class="Frame_97Mob">
             <div class="Contact_listMob" id="Contact_list"></div>
         </div>
@@ -59,7 +59,7 @@ function renderContentMobileHTML() {
                             <img src="../../assets/img/name_logo.png" alt="">
                         </div>
                     </div>
-                    <span class="required" id="newContentNameRequired">This field is required</span>
+                    <span class="required d-none" id="newContentNameRequired">This field is required</span>
                 </div>
                 <div class="outerInputContainerMob">
                     <div class="inputContainerMob">
@@ -68,7 +68,7 @@ function renderContentMobileHTML() {
                             <img src="../../assets/img/email_Logo.png" alt="">
                         </div>
                     </div>
-                    <span class="required" id="newContentEmailRequired">This field is required</span>
+                    <span class="required d-none" id="newContentEmailRequired">This field is required</span>
                 </div>
                 <div class="outerInputContainerMob">
                     <div class="inputContainerMob">
@@ -77,7 +77,7 @@ function renderContentMobileHTML() {
                             <img src="../../assets/img/phoneLogo.png" alt="">
                         </div>
                     </div>
-                    <span class="required" id="newContentPhoneRequired">This field is required</span>
+                    <span class="required d-none" id="newContentPhoneRequired">This field is required</span>
                 </div>
             </div>
             <button onclick="addContact()" class="createContactButtonMob">
@@ -98,32 +98,32 @@ function renderContentMobileHTML() {
 }
 
 function contactSucc() {
-    document.getElementById("contactSucc").classList.add("contactSuccSlide");
-    setTimeout(closeOverlayMob, 2000);
+  document.getElementById("contactSucc").classList.add("contactSuccSlide");
+  setTimeout(closeOverlayMob, 2000);
 }
 
 function test() {
-    console.log("ok");
+  console.log("ok");
 }
 
 function openOverlayMob() {
-    document
-        .getElementById("overlayMasterContainerMob")
-        .classList.add("overlayMasterContainerMobSlide");
+  document
+    .getElementById("overlayMasterContainerMob")
+    .classList.add("overlayMasterContainerMobSlide");
 }
 
 function closeOverlayMob() {
-    document
-        .getElementById("overlayMasterContainerMob")
-        .classList.remove("overlayMasterContainerMobSlide");
-    if (document.querySelector('.contactSuccSlide')) {
-        document.getElementById("contactSucc").classList.remove("contactSuccSlide");
-        setTimeout(initMobilContacts,500);
-    };
+  document
+    .getElementById("overlayMasterContainerMob")
+    .classList.remove("overlayMasterContainerMobSlide");
+  if (document.querySelector(".contactSuccSlide")) {
+    document.getElementById("contactSucc").classList.remove("contactSuccSlide");
+    setTimeout(initMobilContacts, 500);
+  }
 }
 
 function showContactHTMLMob(name, email, phone, letter, color, i) {
-    return /*html*/ `
+  return /*html*/ `
         <div class="arrowContainerMob" onclick="initMobilContacts()">
             <img src="../../assets/img/back_logo_black.png">
         </div>
@@ -170,8 +170,10 @@ function showContactHTMLMob(name, email, phone, letter, color, i) {
 
         <div class="overlayMasterContainerMob" id="overlayMasterContainerMob">
             <div class="overlayBlackContainerMob">
-                <span>Edit contact</span>
-                <vectorEdit></vectorEdit>
+                <div class="centerBox">
+                   <span>Edit contact</span>
+                   <vectorEdit></vectorEdit>
+                </div>
                 <img onclick="closeOverlayMob()" src="../../assets/img/plus_logo_white.png">
             </div>
             <div class="userColorBatchContainerMob">
@@ -209,7 +211,7 @@ function showContactHTMLMob(name, email, phone, letter, color, i) {
                     <span class="required">This field is required</span>
                 </div>
             </div>
-            <button class="editButtonMob" onclick="saveEditContact(${i})" class="save">
+            <button class="editButtonMobContact" onclick="saveEditContact(${i})" class="save">
                 <span id="saveEditButton">Save</span>
             </button>
         </div>

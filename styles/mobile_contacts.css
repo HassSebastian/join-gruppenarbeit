@@ -584,7 +584,7 @@ phone {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
   width: 381px;
   height: 351px;
@@ -606,7 +606,7 @@ phone {
   font-size: 47px;
   line-height: 120%;
   color: #ffffff;
-  margin-left: 45px;
+  /*  margin-left: 45px; */
   flex: none;
   order: 0;
   flex-grow: 0;
@@ -614,7 +614,7 @@ phone {
 }
 
 vectorEdit {
-  margin-left: 45px;
+  /*  margin-left: 45px; */
   width: 90px;
   height: 0;
   border: 2px solid #29abe2;
@@ -624,7 +624,7 @@ vectorEdit {
   position: absolute;
   width: 21.65px;
   height: 21.65px;
-  left: 340px;
+  right: 23px;
   top: 26px;
   transform: rotate(45deg);
   flex: none;
@@ -632,6 +632,12 @@ vectorEdit {
   flex-grow: 0;
   z-index: 2;
   cursor: pointer;
+}
+
+.centerBox {
+  display: flex;
+  height: fit-content;
+  flex-direction: column;
 }
 
 .userColorBatchContainerMob {
@@ -642,9 +648,13 @@ vectorEdit {
   padding: 0px;
   gap: 10px;
   position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   width: 120px;
   height: 120px;
-  left: 131px;
+  /*  left: 131px; */
   top: 267px;
   background: #ffffff;
   border: 3px solid #ffffff;
@@ -787,11 +797,17 @@ vectorEdit {
   flex-grow: 0;
 }
 
-.editButtonMob {
+.editButtonMobContact {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 48px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 18px 10px;
   gap: 10px;
   width: fit-content;
@@ -804,7 +820,7 @@ vectorEdit {
   z-index: 2;
 }
 
-.editButtonMob span {
+.editButtonMobContact span {
   width: fit-content;
   height: 25px;
   font-family: "Inter";

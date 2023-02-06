@@ -251,6 +251,10 @@
 		justify-content: center;
 		width: 289px;
 	} */
+
+  .overlayBlackContainerMob {
+    width: 100vw !important;
+  }
 }
 
 @media screen and (max-height: 750px) {
