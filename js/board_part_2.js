@@ -32,11 +32,12 @@ async function disablePopupWindow() {
         setTimeout(() => { document.getElementById('boardPopup').classList.add('d-none') }, 500);
     }
     if (selectedMenuBtnId == 4) { } else {
-        document.getElementById('boardPopup').classList.add('d-none');
         // setTimeout(await initBoard, 500);
+        setTimeout(() => { document.getElementById('boardPopup').classList.add('d-none') }, 500);
         searchAfterPopup();
     }
 }
+
 
 
 /**
