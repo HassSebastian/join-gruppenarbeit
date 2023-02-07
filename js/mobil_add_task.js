@@ -25,7 +25,7 @@ async function renderMobilAddTask() {
   document.getElementById("mobilContent").innerHTML = /*html*/ `
         <header class='mobilHeader'>
             <img src='../../assets/img/mobil_header_logo.png'>
-            
+            <button onclick='checkInputsMobil()' class="addTaskButtonMobile"><span>Create</span><img src='../assets/img/akar-icons_check_white.png'> </button>
         </header>
 
             <div class='frame164'>
@@ -159,7 +159,7 @@ async function renderMobilAddTask() {
 				</div>
 				<div class='addTaskCheckbox' id='subtaskCheckboxes'></div>
 			</div>
-        <button onclick='checkInputsMobil()' class="addTaskButtonMobile"><span>Create</span><img src='../assets/img/akar-icons_check_white.png'> </button>
+        
         </div>
         <div class="taskAddedToBoard" id="taskCreatedIndication">
             <div class="taskAddedToBoardContainer">
