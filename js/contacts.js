@@ -37,6 +37,7 @@ let check = 0;
  */
 async function initContacts() {
 	await enableContactsStyles();
+	sliderMenuShown = false;
 	// document.getElementById('stylsheetAddTaskMobil').disabled = true;
 	// document.getElementById('stylesheetAddTask').disabled = false;
 	// document.querySelector('.sliderMenu').classList.remove('showSliderMenu');

@@ -21,6 +21,7 @@ let prioColorAndUrlArray = [
  * renderAllCards().
  */
 async function initBoard() {
+	sliderMenuShown = false;
 	await enableBoardStyles();
 	await renderBoard();
 	selectedMenuButton(2);
@@ -34,6 +35,7 @@ async function initBoard() {
 
 
 async function initBoardNormal(){
+	sliderMenuShown = false;
 	await enableBoardStyles();
 	await renderBoard();
 	selectedMenuButton(2);

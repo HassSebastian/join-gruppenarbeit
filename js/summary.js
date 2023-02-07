@@ -14,6 +14,7 @@ let allYourAwaitingFeedbackTasks = [];
 let allYourDoneTasks = [];
 
 async function initSummary() {
+	sliderMenuShown = false;
 	await enableSummaryStyles();
 	// await enableSummaryJs();
 	// document.querySelector('.sliderMenu').classList.remove('showSliderMenu');

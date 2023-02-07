@@ -27,6 +27,7 @@ let coworkersToAssignTo = [];
 
 async function initAddTask() {
 	transferArray = [];
+	sliderMenuShown = false;
 	await enableAddTaskStyles();
 	await renderAddTask();
 	await loadExitingCategories();
