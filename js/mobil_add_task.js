@@ -23,7 +23,8 @@ async function renderMobilAddTask() {
 	addCheckAttributeToCoworkersToAssignTo();
 	document.getElementById('mobilContent').innerHTML = '';
 	document.getElementById('mobilContent').innerHTML = /*html*/ `
-        <header class='mobilHeader'>
+    <img id="cancelAddTaskMobile" class="cancelAddTaskMobile" src="./assets/img/cancel_grey.png" alt="cancel">     
+    <header class='mobilHeader'>
             <img src='../../assets/img/mobil_header_logo.png'>
             <button onclick='checkInputsMobil()'><span>Create</span><img src='../assets/img/akar-icons_check_white.png'> </button>
         </header>

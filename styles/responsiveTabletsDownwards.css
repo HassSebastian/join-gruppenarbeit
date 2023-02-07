@@ -1,273 +1,278 @@
 @media screen and (max-width: 768px) {
-  /* SUMMARAY */
-  .mobilMasterContainer,
-  header,
-  .navMasterContainerMob {
-    width: 100vw;
-  }
+	/* SUMMARAY */
+	.mobilMasterContainer,
+	header,
+	.navMasterContainerMob {
+		width: 100vw;
+	}
 
-  .outerContainer,
-  .mobileContent {
-    height: 100vh;
-  }
+	.outerContainer,
+	.mobileContent {
+		height: 100vh;
+	}
 
-  .mobilMasterContainer {
-    height: 100vh;
-  }
+	.mobilMasterContainer {
+		height: 100vh;
+	}
 
-  .summaryFloatingMasterContainer {
-    left: unset !important;
-    width: 100vw !important;
-    height: fit-content !important;
-    justify-content: center;
-    align-items: center !important;
-    top: 105px !important;
-    /* padding: 0 33px !important; */
-  }
+	.summaryFloatingMasterContainer {
+		left: unset !important;
+		width: 100vw !important;
+		height: fit-content !important;
+		justify-content: center;
+		align-items: center !important;
+		top: 105px !important;
+		/* padding: 0 33px !important; */
+	}
 
-  .summaryHeadingContainer {
-    width: 480px;
-  }
+	.summaryHeadingContainer {
+		width: 480px;
+	}
 
-  .summaryDisplayMobilContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: fit-content;
-  }
+	.summaryDisplayMobilContainer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		height: fit-content;
+	}
 
-  .taskOverviewMob {
-    height: unset !important;
-    width: fit-content !important;
-  }
+	.taskOverviewMob {
+		height: unset !important;
+		width: fit-content !important;
+	}
 
-  .cardsSummaryTop {
-    width: 150px !important;
-    height: 150px !important;
-  }
+	.cardsSummaryTop {
+		width: 150px !important;
+		height: 150px !important;
+	}
 
-  .ugencySummaryMob {
-    margin: 16px 0;
-    width: 100% !important;
-    height: 110px !important;
-  }
+	.ugencySummaryMob {
+		margin: 16px 0;
+		width: 100% !important;
+		height: 110px !important;
+	}
 
-  .toDoDataMob {
-    align-items: unset !important;
-    width: 100% !important;
-  }
+	.toDoDataMob {
+		align-items: unset !important;
+		width: 100% !important;
+	}
 
-  .toDo,
-  .toDoDone {
-    flex: 1 !important;
-  }
+	.toDo,
+	.toDoDone {
+		flex: 1 !important;
+	}
 
-  nav {
-    position: absolute;
-    top: unset !important;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: unset !important;
-    width: unset !important;
-  }
+	nav {
+		position: absolute;
+		top: unset !important;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		margin: unset !important;
+		width: unset !important;
+	}
 
-  /* .logOutMasterContainer {
+	/* .logOutMasterContainer {
 		right: 26px !important;
 	} */
 
-  /* ADD TASK */
-  .scroll {
-    width: unset;
-    right: 31px;
-  }
+	/* ADD TASK */
+	.scroll {
+		width: unset;
+		right: 31px;
+	}
 
-  .addTaskTitleMobil,
-  .addTaskDescriptionMobil,
-  .addTaskPrioMobil,
-  .addTaskDateMob,
-  .addTaskAddCategoryBoxMob,
-  .addTaskAssignedBoxMob,
-  .subtaskMob,
-  .addTaskAssignedBoxMob button,
-  .inputDiv {
-    width: 100% !important;
-  }
-  .addTaskTitleMobil input,
-  .addTaskDescriptionMobil textarea {
-    width: 100%;
-  }
+	.addTaskTitleMobil,
+	.addTaskDescriptionMobil,
+	.addTaskPrioMobil,
+	.addTaskDateMob,
+	.addTaskAddCategoryBoxMob,
+	.addTaskAssignedBoxMob,
+	.subtaskMob,
+	.addTaskAssignedBoxMob button,
+	.inputDiv {
+		width: 100% !important;
+	}
+	.addTaskTitleMobil input,
+	.addTaskDescriptionMobil textarea {
+		width: 100%;
+	}
 
-  .addTaskPrioMobil {
-    align-items: unset;
-  }
+	.addTaskPrioMobil {
+		align-items: unset;
+	}
 
-  button input {
-    min-width: 100px !important;
-    width: 211px;
-  }
+	button input {
+		min-width: 100px !important;
+		width: 211px;
+	}
 
-  .addTaskCatList {
-    padding: unset;
-  }
+	.addTaskCatList {
+		padding: unset;
+	}
 
-  /* Contacts */
-  .Frame_97Mob {
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-  }
+	/* Contacts */
+	.Frame_97Mob {
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
 
-  /*   .new_contact_buttonMob {
+	/*   .new_contact_buttonMob {
   
   } */
 
-  .new_contactMob {
-    background: unset !important;
-    width: 100vw !important;
-    /* left: 0 !important; */
-    /* right: 0; */
-    /* 		margin-left: auto;
+	.new_contactMob {
+		background: unset !important;
+		width: 100vw !important;
+		/* left: 0 !important; */
+		/* right: 0; */
+		/* 		margin-left: auto;
 		margin-right: auto; */
-  }
+	}
 }
 
 @media screen and (max-width: 500px) {
-  .scroll {
-    /* width: unset; */
-    right: 8px;
-    left: 8px;
-    height: 500px;
-  }
+	.scroll {
+		/* width: unset; */
+		right: 8px;
+		left: 8px;
+		height: auto;
+		bottom: 80px;
+	}
 
-  /* SUMMARY */
-  .summaryHeadingContainer {
-    width: 330px;
-  }
+	/* SUMMARY */
+	.summaryHeadingContainer {
+		width: 330px;
+	}
 
-  .summaryDisplayMobilContainer {
-    width: 330px !important;
-  }
+	.summaryDisplayMobilContainer {
+		width: 330px !important;
+	}
 
-  .cardsSummaryTop {
-    width: 100px !important;
-    height: 100px !important;
-  }
+	.cardsSummaryTop {
+		width: 100px !important;
+		height: 100px !important;
+	}
 
-  .ugencySummaryMob {
-    width: 330px !important;
-  }
+	.ugencySummaryMob {
+		width: 330px !important;
+	}
 
-  /* ADD TASK */
+	/* ADD TASK */
 
-  .urgencyLevelCard {
-    flex: 1 !important;
-    width: unset !important;
-  }
+	.cancelAddTaskMobile {
+		right: 16px !important;
+	}
 
-  .addTaskDateMob {
-    margin-top: 14px;
-  }
+	.urgencyLevelCard {
+		flex: 1 !important;
+		width: unset !important;
+	}
 
-  /* Contacs */
+	.addTaskDateMob {
+		margin-top: 14px;
+	}
 
-  .Frame_97Mob {
-    width: 100vw !important;
-  }
+	/* Contacs */
 
-  .Contact_listMob {
-    left: 18px !important;
-    right: 18px;
-    width: unset !important;
-  }
+	.Frame_97Mob {
+		width: 100vw !important;
+	}
 
-  /*  .arrowContainerMob {
+	.Contact_listMob {
+		left: 18px !important;
+		right: 18px;
+		width: unset !important;
+	}
+
+	/*  .arrowContainerMob {
     right: 36px !important;
     left: unset !important;
   } */
 
-  .editButtonContainerMob {
-    left: unset !important;
-    right: 36px;
-  }
+	.editButtonContainerMob {
+		left: unset !important;
+		right: 36px;
+	}
 
-  .new_contactMob {
-    background: #ffffff !important;
-    width: 100vw !important;
-    /* left: 0 !important; */
-    right: 0;
-    /* margin-left: auto;
+	.new_contactMob {
+		background: #ffffff !important;
+		width: 100vw !important;
+		/* left: 0 !important; */
+		right: 0;
+		/* margin-left: auto;
 		margin-right: auto; */
-  }
+	}
 
-  /* Help */
-  .helpContainer {
-    width: calc(100vw - 32px);
-    height: 100vh;
-    margin: 0 16px !important;
-  }
+	/* Help */
+	.helpContainer {
+		width: calc(100vw - 32px);
+		height: 100vh;
+		margin: 0 16px !important;
+	}
 
-  /*  .kanbanProjectManagementToolMob {
+	/*  .kanbanProjectManagementToolMob {
     left: unset 1
   } */
 
-  .helpOverlayMob {
-    right: 16px !important;
-    left: 16px !important;
-  }
+	.helpOverlayMob {
+		right: 16px !important;
+		left: 16px !important;
+	}
 
-  /* Legal Notice */
+	/* Legal Notice */
 
-  .kanbanProjectManagementToolMob {
-    left: 16px !important;
-    right: 16px !important;
-  }
+	.kanbanProjectManagementToolMob {
+		left: 16px !important;
+		right: 16px !important;
+	}
 
-  .textFieldContainerMob {
-    left: 16px !important;
-    right: 16px !important;
-  }
+	.textFieldContainerMob {
+		left: 16px !important;
+		right: 16px !important;
+	}
 }
 
 @media screen and (max-width: 400px) {
-  /* ADD TASK */
-  .frame28 {
-    height: 160px;
-    width: 100%;
-  }
+	/* ADD TASK */
+	.frame28 {
+		height: 160px;
+		width: 100%;
+	}
 
-  .addTaskPrioIconsMob {
-    flex-direction: column;
-    height: 140px;
-    width: 100%;
-  }
+	.addTaskPrioIconsMob {
+		flex-direction: column;
+		height: 140px;
+		width: 100%;
+	}
 
-  #addTaskUrgentSpan,
-  #addTaskMediumSpan,
-  #addTaskLowSpan {
-    height: 40px;
-    display: flex;
-    align-items: center;
-    padding-right: 16px;
-    padding-left: 16px;
-  }
+	#addTaskUrgentSpan,
+	#addTaskMediumSpan,
+	#addTaskLowSpan {
+		height: 40px;
+		display: flex;
+		align-items: center;
+		padding-right: 16px;
+		padding-left: 16px;
+	}
 
-  #addTaskUrgentImg,
-  #addTaskMediumImg,
-  #addTaskLowImg {
-    padding-right: 16px;
-  }
+	#addTaskUrgentImg,
+	#addTaskMediumImg,
+	#addTaskLowImg {
+		padding-right: 16px;
+	}
 
-  .addTaskPrioMobil {
-    height: fit-content;
-  }
+	.addTaskPrioMobil {
+		height: fit-content;
+	}
 
-  /* Contacts */
-  .overlayMasterContainerMob {
-    width: 100vw !important;
-  }
+	/* Contacts */
+	.overlayMasterContainerMob {
+		width: 100vw !important;
+	}
 
-  /* .centerNewContactHeader {
+	/* .centerNewContactHeader {
 		width: 100%;
 		display: flex;
 		justify-content: center;
@@ -280,41 +285,41 @@
 		width: 289px;
 	} */
 
-  .overlayBlackContainerMob {
-    width: 100vw !important;
-  }
+	.overlayBlackContainerMob {
+		width: 100vw !important;
+	}
 }
 
 @media screen and (max-height: 750px) {
-  .kanbanProjectManagementTool,
-  .headlineDisMob {
-    display: none;
-  }
+	.kanbanProjectManagementTool,
+	.headlineDisMob {
+		display: none;
+	}
 
-  .headlineContainerMob {
-    height: 0 !important;
-    margin: 24px 0;
-  }
+	.headlineContainerMob {
+		height: 0 !important;
+		margin: 24px 0;
+	}
 
-  /* Contacts */
+	/* Contacts */
 
-  .blackContainerMob {
-    height: 270px !important;
-  }
+	.blackContainerMob {
+		height: 270px !important;
+	}
 }
 
 @media screen and (max-height: 620px) {
-  /* SUMMARY */
-  /*  header {
+	/* SUMMARY */
+	/*  header {
     display: none;
   } */
 
-  .summaryFloatingMasterContainer {
-    top: 12px !important;
-  }
+	.summaryFloatingMasterContainer {
+		top: 12px !important;
+	}
 
-  /* ADD TASK */
-  .addTaskDateMob div {
-    width: 100% !important;
-  }
+	/* ADD TASK */
+	.addTaskDateMob div {
+		width: 100% !important;
+	}
 }
