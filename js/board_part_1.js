@@ -71,6 +71,7 @@ async function resetWorkStatusArrays() {
 let filteredTaskList = [];
 
 async function startFilter() {
+	filteredTaskList = [];
     for (let i = 0; i < joinTaskArray.length; i++) {
         let assignedList = joinTaskArray[i].assignedTo;
         for (let index = 0; index < assignedList.length; index++) {
@@ -90,25 +91,24 @@ async function startFilter() {
  */
 async function createWorkStatusArrays() {
 	await resetWorkStatusArrays();
-	filteredTaskList = [];
-	// await startFilter();
-	for (let index = 0; index < 4; index++) {
-		for (let i = 0; i < joinTaskArray.length; i++) {
-			let taskWorkStatus = joinTaskArray[i]['workFlowStatus'];
-			if (taskWorkStatus == index) {
-				createWorkStatusArrayData(index, i);
-			}
-		}
-	}
+	await startFilter();
 	// for (let index = 0; index < 4; index++) {
-	// 	for (let i = 0; i < filteredTaskList.length; i++) {
-	// 		let taskWorkStatus = filteredTaskList[i]['workFlowStatus'];
-	// 		let taskIndex = filteredTaskList[i].taskIndex;
+	// 	for (let i = 0; i < joinTaskArray.length; i++) {
+	// 		let taskWorkStatus = joinTaskArray[i]['workFlowStatus'];
 	// 		if (taskWorkStatus == index) {
-	// 			createWorkStatusArrayData(index, taskIndex);
+	// 			createWorkStatusArrayData(index, i);
 	// 		}
 	// 	}
 	// }
+	for (let index = 0; index < 4; index++) {
+		for (let i = 0; i < filteredTaskList.length; i++) {
+			let taskWorkStatus = filteredTaskList[i]['workFlowStatus'];
+			let taskIndex = filteredTaskList[i].taskIndex;
+			if (taskWorkStatus == index) {
+				createWorkStatusArrayData(index, taskIndex);
+			}
+		}
+	}
 }
 
 /**
