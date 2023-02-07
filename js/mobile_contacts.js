@@ -51,48 +51,50 @@ function renderContentMobileHTML() {
 
             </div>
             
-            <div class="contactImputMasterContainerMob">
-                <div class="outerInputContainerMob">
-                    <div class="inputContainerMob">
-                        <div class="innerInputContainerMob">
-                            <input class="imputFieldMob" id="newUserName" type="text" placeholder="Name">
-                            <img src="../../assets/img/name_logo.png" alt="">
+            <form action="#" onsubmit="addContact();return false">
+                <div class="contactImputMasterContainerMob">
+                    <div class="outerInputContainerMob">
+                        <div class="inputContainerMob">
+                            <div class="innerInputContainerMob">
+                                <input class="imputFieldMob" id="newUserName" type="text" placeholder="Name" required>
+                                <img src="../../assets/img/name_logo.png" alt="">
+                            </div>
                         </div>
+                        <span class="required d-none" id="newContentNameRequired">This field is required</span>
                     </div>
-                    <span class="required d-none" id="newContentNameRequired">This field is required</span>
+                    <div class="outerInputContainerMob">
+                        <div class="inputContainerMob">
+                            <div class="innerInputContainerMob">
+                                <input class="imputFieldMob" id="newUserEmail" type="email" placeholder="Email" required>
+                                <img src="../../assets/img/email_Logo.png" alt="">
+                            </div>
+                        </div>
+                        <span class="required d-none" id="newContentEmailRequired">This field is required</span>
+                    </div>
+                    <div class="outerInputContainerMob">
+                        <div class="inputContainerMob">
+                            <div class="innerInputContainerMob">
+                                <input class="imputFieldMob" id="newUserPhone" type="number" placeholder="Phone" required>
+                                <img src="../../assets/img/phoneLogo.png" alt="">
+                            </div>
+                        </div>
+                        <span class="required d-none" id="newContentPhoneRequired">This field is required</span>
+                    </div>
                 </div>
-                <div class="outerInputContainerMob">
-                    <div class="inputContainerMob">
-                        <div class="innerInputContainerMob">
-                            <input class="imputFieldMob" id="newUserEmail" type="email" placeholder="Email">
-                            <img src="../../assets/img/email_Logo.png" alt="">
-                        </div>
-                    </div>
-                    <span class="required d-none" id="newContentEmailRequired">This field is required</span>
-                </div>
-                <div class="outerInputContainerMob">
-                    <div class="inputContainerMob">
-                        <div class="innerInputContainerMob">
-                            <input class="imputFieldMob" id="newUserPhone" type="number" placeholder="Phone">
-                            <img src="../../assets/img/phoneLogo.png" alt="">
-                        </div>
-                    </div>
-                    <span class="required d-none" id="newContentPhoneRequired">This field is required</span>
+                <button class="createContactButtonMob" type="submit">
+                    <span>Create contact</span>
+                    <img src="../../assets/img/okHaeckchen.png">
+                </button>
+            </div>
+
+            <!--contactSucc-->
+
+            <div class="contactSucc" id="contactSucc">
+                <div class="contactSuccContainer">
+                    <span>Contact succesfully created</span>
                 </div>
             </div>
-            <button onclick="addContact()" class="createContactButtonMob">
-                <span>Create contact</span>
-                <img src="../../assets/img/okHaeckchen.png">
-            </button>
-        </div>
-
-        <!--contactSucc-->
-
-        <div class="contactSucc" id="contactSucc">
-            <div class="contactSuccContainer">
-                <span>Contact succesfully created</span>
-            </div>
-        </div>
+        </form>
 
     `;
 }
