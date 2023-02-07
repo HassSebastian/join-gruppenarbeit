@@ -6,13 +6,17 @@
  * this function remove the d-none class from the popup window. The result is that the Popup Window is shown.
  */
 async function enablePopupWindow(taskIndex) {
-    if (document.getElementById(`taskCard${taskIndex}`)) {
-        document.getElementById('boardPopup').classList.remove('d-none');
-        // await enableBoardPopup();
-    } else {
-        document.getElementById('boardPopup').classList.remove('d-none');
-        setTimeout(() => { document.getElementById('boardAddTaskPopup').classList.add('boardAddTaskPopupOverlay') }, 1);
-    }
+  if (document.getElementById(`taskCard${taskIndex}`)) {
+    document.getElementById("boardPopup").classList.remove("d-none");
+    // await enableBoardPopup();
+  } else {
+    document.getElementById("boardPopup").classList.remove("d-none");
+    setTimeout(() => {
+      document
+        .getElementById("boardAddTaskPopup")
+        .classList.add("boardAddTaskPopupOverlay");
+    }, 1);
+  }
 }
 
 // async function enableBoardPopup(){
@@ -27,34 +31,34 @@ async function enablePopupWindow(taskIndex) {
  * this function add the d-none class to the popup window. The result is that the Popup Window not shown.
  */
 async function disablePopupWindow() {
-    if (document.getElementById('boardAddTaskPopup')) {
-        document.getElementById('boardAddTaskPopup').classList.remove('boardAddTaskPopupOverlay');
-        setTimeout(() => { document.getElementById('boardPopup').classList.add('d-none') }, 500);
-    }
-    if (selectedMenuBtnId == 4) { } else {
-        // setTimeout(await initBoard, 500);
-        setTimeout(() => { document.getElementById('boardPopup').classList.add('d-none') }, 500);
-        searchAfterPopup();
-    }
+  if (document.getElementById("boardAddTaskPopup")) {
+    document
+      .getElementById("boardAddTaskPopup")
+      .classList.remove("boardAddTaskPopupOverlay");
+    setTimeout(() => {
+      document.getElementById("boardPopup").classList.add("d-none");
+    }, 500);
+  }
+  if (selectedMenuBtnId == 4) {
+  } else {
+    // setTimeout(await initBoard, 500);
+    setTimeout(() => {
+      document.getElementById("boardPopup").classList.add("d-none");
+    }, 500);
+    searchAfterPopup();
+  }
 }
-
-
 
 /**
  * this function prevent the closure of the popup window when clicking on the Popup Task Card.
  */
 function stopClose(event) {
-    event.stopPropagation();
+  event.stopPropagation();
 }
-
 
 // basic function popup end
 
-
 // render function for the detail view of the task card.
-
-
-
 
 /**
  * If the length of the assignedList is greater than 0, then return true. Otherwise, return false.
@@ -62,9 +66,8 @@ function stopClose(event) {
  * @returns true if the assignedList length is greater than 0.
  */
 function assignedToDataExists(assignedList) {
-    return assignedList.length > 0;
+  return assignedList.length > 0;
 }
-
 
 /**
  * Render the subtask HTML for the given task index, then set the subtask status for the given task
@@ -72,10 +75,9 @@ function assignedToDataExists(assignedList) {
  * @param taskIndex - The index of the task in the task array.
  */
 async function renderSubtask(taskIndex) {
-    await renderSubtaskHtml(taskIndex);
-    setSubTaskStatus(taskIndex);
+  await renderSubtaskHtml(taskIndex);
+  setSubTaskStatus(taskIndex);
 }
-
 
 /**
  * If the length of the array is greater than 0, then the array has at least one element.
@@ -83,23 +85,21 @@ async function renderSubtask(taskIndex) {
  * @returns true if the subtaskArray length is greater than 0.
  */
 function subtaskExist(subtaskArray) {
-    return subtaskArray.length > 0;
+  return subtaskArray.length > 0;
 }
-
 
 /**
  * If the subtaskStatus is true, then check the checkbox.
  * @param taskIndex - the index of the task in the joinTaskArray
  */
 function setSubTaskStatus(taskIndex) {
-    let subtaskArray = joinTaskArray[taskIndex]['subTasks'];
-    for (let i = 0; i < subtaskArray.length; i++) {
-        if (subtaskStatusIsTrue(i, subtaskArray)) {
-            document.getElementById(`subtask${i}`).checked = true;
-        }
+  let subtaskArray = joinTaskArray[taskIndex]["subTasks"];
+  for (let i = 0; i < subtaskArray.length; i++) {
+    if (subtaskStatusIsTrue(i, subtaskArray)) {
+      document.getElementById(`subtask${i}`).checked = true;
     }
+  }
 }
-
 
 /**
  * If the subtaskStatus property of the subtask object at the given index is true, return true,
@@ -110,9 +110,8 @@ function setSubTaskStatus(taskIndex) {
  * array subtaskArray.
  */
 function subtaskStatusIsTrue(subtaskIndex, subtaskArray) {
-    return subtaskArray[subtaskIndex]['subtaskStatus'];
+  return subtaskArray[subtaskIndex]["subtaskStatus"];
 }
-
 
 /**
  * It's a function that takes two parameters, one is the index of the subtask and the other is the
@@ -122,12 +121,15 @@ function subtaskStatusIsTrue(subtaskIndex, subtaskArray) {
  * @param taskIndex - The index of the task in the array.
  */
 async function checkboxSubtaskSelected(subTaskIndex, taskIndex) {
-    let checkboxStatus = document.getElementById(`subtask${subTaskIndex}`).checked;
-    joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'] = checkboxStatus;
-    joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'] = checkboxStatus;
-    await saveTask();
+  let checkboxStatus = document.getElementById(
+    `subtask${subTaskIndex}`
+  ).checked;
+  joinTaskArray[taskIndex]["subTasks"][subTaskIndex]["subtaskStatus"] =
+    checkboxStatus;
+  joinTaskArray[taskIndex]["subTasks"][subTaskIndex]["subtaskStatus"] =
+    checkboxStatus;
+  await saveTask();
 }
-
 
 /**
  * this function set the category background-color of the category.
@@ -135,11 +137,12 @@ async function checkboxSubtaskSelected(subTaskIndex, taskIndex) {
  * the task card information is stored.
  */
 function setTaskCardPopupCatColor(taskIndex) {
-    let cardCatColorIndex = joinTaskArray[taskIndex]['catColor'];
-    let cardCatColor = categoryBackgroundColors[cardCatColorIndex];
-    document.getElementById('taskCardPopupCategory').style = `background-color: ${cardCatColor};`;
+  let cardCatColorIndex = joinTaskArray[taskIndex]["catColor"];
+  let cardCatColor = categoryBackgroundColors[cardCatColorIndex];
+  document.getElementById(
+    "taskCardPopupCategory"
+  ).style = `background-color: ${cardCatColor};`;
 }
-
 
 /**
  * This function sets the background color of the prio button and transfers the url of the image associated with the prio button.
@@ -147,33 +150,32 @@ function setTaskCardPopupCatColor(taskIndex) {
  * the task card information is stored.
  */
 function setTaskCardPopupPrioBackground(taskIndex) {
-    let cardPrio = joinTaskArray[taskIndex]['prio'];
-    cardPrio = cardPrio.toLowerCase();
-    let cardPrioBackground = prioColorAndUrlArray[0][cardPrio][0];
-    let cardPrioImgSrc = prioColorAndUrlArray[0][cardPrio][1];
-    document.getElementById('prioContainer').style = `background-color: ${cardPrioBackground};`;
-    document.getElementById('cardPrioImg').src = cardPrioImgSrc;
+  let cardPrio = joinTaskArray[taskIndex]["prio"];
+  cardPrio = cardPrio.toLowerCase();
+  let cardPrioBackground = prioColorAndUrlArray[0][cardPrio][0];
+  let cardPrioImgSrc = prioColorAndUrlArray[0][cardPrio][1];
+  document.getElementById(
+    "prioContainer"
+  ).style = `background-color: ${cardPrioBackground};`;
+  document.getElementById("cardPrioImg").src = cardPrioImgSrc;
 }
 
-
 // Edit Taskcard popup
-
 
 /**
  * It opens a modal window with a form to edit a task.
  * @param taskIndex - the index of the task in the array of tasks
  */
 async function openEditTaskCard(taskIndex) {
-    resetAssignToList();
-    await renderEditTaskCardHtml(taskIndex);
-    showDeleteButton(taskIndex);
-    await renderLoggedUserInAssignDrobDownMenuIntoYou();
-    await renderContactsInAssignDropDownMenu();
-    renderEditTaskCardInputFields(taskIndex);
-    await boardEditTaskCardAssignPreseselction(taskIndex);
-    // setPrioPreselection(taskIndex);
+  resetAssignToList();
+  await renderEditTaskCardHtml(taskIndex);
+  showDeleteButton(taskIndex);
+  await renderLoggedUserInAssignDrobDownMenuIntoYou();
+  await renderContactsInAssignDropDownMenu();
+  renderEditTaskCardInputFields(taskIndex);
+  await boardEditTaskCardAssignPreseselction(taskIndex);
+  // setPrioPreselection(taskIndex);
 }
-
 
 /**
  * It takes the index of the task in the array and then renders the input fields with the values of the
@@ -182,44 +184,42 @@ async function openEditTaskCard(taskIndex) {
  * @param taskIndex - the index of the task in the array
  */
 async function renderEditTaskCardInputFields(taskIndex) {
-    let cardTitle = joinTaskArray[taskIndex]['title'];
-    let cardDescription = joinTaskArray[taskIndex]['descripten'];
-    let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
-    let taskPrio = joinTaskArray[taskIndex]['prio'];
-    boardEditedPrio = taskPrio;
-    let prioArray = { 'Urgent': 0, 'Medium': 1, 'Low': 2 };
-    let taskPrioNumber = prioArray[taskPrio];
-    await addPrio(taskPrioNumber);
-    document.getElementById('boardEditTitle').value = cardTitle;
-    document.getElementById('boardEditDecription').value = cardDescription;
-    document.getElementById('boardEditDueDate').value = cardDueDate;
+  let cardTitle = joinTaskArray[taskIndex]["title"];
+  let cardDescription = joinTaskArray[taskIndex]["descripten"];
+  let cardDueDate = joinTaskArray[taskIndex]["dueDate"];
+  let taskPrio = joinTaskArray[taskIndex]["prio"];
+  boardEditedPrio = taskPrio;
+  let prioArray = { Urgent: 0, Medium: 1, Low: 2 };
+  let taskPrioNumber = prioArray[taskPrio];
+  await addPrio(taskPrioNumber);
+  document.getElementById("boardEditTitle").value = cardTitle;
+  document.getElementById("boardEditDecription").value = cardDescription;
+  document.getElementById("boardEditDueDate").value = cardDueDate;
 }
-
 
 /**
  * It takes an array of objects, and compares the email property of each object in the array to the
  * email property of each object in another array. If the email properties match, it adds the object
  * from the second array to a third array.
- * 
+ *
  * I'm trying to figure out how to do this with a forEach loop. I've tried a few different things, but
  * I can't seem to get it to work.
- * 
+ *
  * Here's what I've tried:
  * @param taskIndex - the index of the task in the joinTaskArray
  */
 async function boardEditTaskCardAssignPreseselction(taskIndex) {
-    let assignToArray = joinTaskArray[taskIndex]['assignedTo'];
-    for (let i = 0; i < assignToArray.length; i++) {
-        let refEmail = assignToArray[i]['email'];
-        for (let index = 0; index < coworkersToAssignTo.length; index++) {
-            let email = coworkersToAssignTo[index]['email'];
-            if (refEmail == email) {
-                addContactToTaskForceWithCheckBox(index);
-            }
-        }
+  let assignToArray = joinTaskArray[taskIndex]["assignedTo"];
+  for (let i = 0; i < assignToArray.length; i++) {
+    let refEmail = assignToArray[i]["email"];
+    for (let index = 0; index < coworkersToAssignTo.length; index++) {
+      let email = coworkersToAssignTo[index]["email"];
+      if (refEmail == email) {
+        addContactToTaskForceWithCheckBox(index);
+      }
     }
+  }
 }
-
 
 /**
  * It takes a taskIndex as an argument, and then sets the preselected priority of the task to the
@@ -227,25 +227,23 @@ async function boardEditTaskCardAssignPreseselction(taskIndex) {
  * @param taskIndex - The index of the task in the array.
  */
 function setPrioPreselection(taskIndex) {
-    let preselectedPrio = joinTaskArray[taskIndex]['prio'];
-    let boardPrioStatusJson = { 'Urgent': 0, 'Medium': 1, 'Low': 2 };
-    addPrio(boardPrioStatusJson[preselectedPrio]);
-    boardEditedPrio = preselectedPrio;
+  let preselectedPrio = joinTaskArray[taskIndex]["prio"];
+  let boardPrioStatusJson = { Urgent: 0, Medium: 1, Low: 2 };
+  addPrio(boardPrioStatusJson[preselectedPrio]);
+  boardEditedPrio = preselectedPrio;
 }
-
 
 /**
  * This function resets the check property of each object in the coworkersToAssignTo array to false,
  * and then empties the assignToArray and taskForce arrays.
  */
 function resetAssignToList() {
-    for (let i = 0; i < coworkersToAssignTo.length; i++) {
-        coworkersToAssignTo[i]['check'] = false;
-        assignToArray = [];
-        taskForce = [];
-    }
+  for (let i = 0; i < coworkersToAssignTo.length; i++) {
+    coworkersToAssignTo[i]["check"] = false;
+    assignToArray = [];
+    taskForce = [];
+  }
 }
-
 
 /**
  * It takes the values from the input fields and saves them to the array.
@@ -253,29 +251,30 @@ function resetAssignToList() {
  * @param taskIndex - the index of the task in the array
  */
 async function getTaskChanges(taskIndex) {
-    let boardEditedTitle = document.getElementById('boardEditTitle').value;
-    let boardEditedDescripten = document.getElementById('boardEditDecription').value;
-    let boardEditedDueDate = document.getElementById('boardEditDueDate').value;
-    joinTaskArray[taskIndex]['assignedTo'] = taskForce;
-    joinTaskArray[taskIndex]['title'] = boardEditedTitle;
-    joinTaskArray[taskIndex]['descripten'] = boardEditedDescripten;
-    joinTaskArray[taskIndex]['dueDate'] = boardEditedDueDate;
-    joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
+  let boardEditedTitle = document.getElementById("boardEditTitle").value;
+  let boardEditedDescripten = document.getElementById(
+    "boardEditDecription"
+  ).value;
+  let boardEditedDueDate = document.getElementById("boardEditDueDate").value;
+  joinTaskArray[taskIndex]["assignedTo"] = taskForce;
+  joinTaskArray[taskIndex]["title"] = boardEditedTitle;
+  joinTaskArray[taskIndex]["descripten"] = boardEditedDescripten;
+  joinTaskArray[taskIndex]["dueDate"] = boardEditedDueDate;
+  joinTaskArray[taskIndex]["prio"] = boardEditedPrio;
 
-    await saveTask();
-    if (window.innerWidth > 1400) {
-        await renderBoard();
-        await createWorkStatusArrays();
-        await renderAllCards();
-        // disablePopupWindow();
-    } else {
-        disablePopupWindow();
-        await renderMobileBoardHtml();
-        await createWorkStatusArrays();
-        await renderAllCardsMobil();
-    }
+  await saveTask();
+  if (window.innerWidth > 1400) {
+    await renderBoard();
+    await createWorkStatusArrays();
+    await renderAllCards();
+    // disablePopupWindow();
+  } else {
+    disablePopupWindow();
+    await renderMobileBoardHtml();
+    await createWorkStatusArrays();
+    await renderAllCardsMobil();
+  }
 }
-
 
 /**
  * If the user clicks on a priority button, the function will check if the button is already selected.
@@ -283,14 +282,13 @@ async function getTaskChanges(taskIndex) {
  * @param index - the index of the status in the statusNames array
  */
 function prioStatusChange(index) {
-    let statusNames = ['Urgent', 'Medium', 'Low'];
-    if (actualClickedPrioBtnIsSet(index, statusNames)) {
-        boardEditedPrio = '';
-    } else {
-        boardEditedPrio = statusNames[index];
-    }
+  let statusNames = ["Urgent", "Medium", "Low"];
+  if (actualClickedPrioBtnIsSet(index, statusNames)) {
+    boardEditedPrio = "";
+  } else {
+    boardEditedPrio = statusNames[index];
+  }
 }
-
 
 /**
  * If the index of the clicked button is the same as the index of the edited priority, then return
@@ -301,16 +299,12 @@ function prioStatusChange(index) {
  * statusNames[index] == boardEditedPrio
  */
 function actualClickedPrioBtnIsSet(index, statusNames) {
-    return statusNames[index] == boardEditedPrio;
+  return statusNames[index] == boardEditedPrio;
 }
-
-
 
 // render function for the detail view of the task card end.
 
-
 // render function for the creation of a new task card.
-
 
 /**
  * Show the add task popup window by enabling the popup window, rendering the add task popup, loading
@@ -318,42 +312,39 @@ function actualClickedPrioBtnIsSet(index, statusNames) {
  * and rendering the contacts in the assign drop down menu.
  */
 async function showAddTaskPopupWindow() {
-    taskForce = [];
-    coworkersToAssignTo[loggedInUserIndex].check = false;
-    enablePopupWindow();
-    await renderAddTaskPopup();
-    await loadExitingCategories();
-    renderCategoryList();
-    newCatInputActive = false;
-    renderLoggedUserInAssignDrobDownMenuIntoYou(); // Das habe ich für das You eingefügt!
-    renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
-    setFutureDatesOnlyForInputDueDate();
-    loadContributorsLetter();
-    addSubtaskMain();
+  taskForce = [];
+  coworkersToAssignTo[loggedInUserIndex].check = false;
+  enablePopupWindow();
+  await renderAddTaskPopup();
+  await loadExitingCategories();
+  renderCategoryList();
+  newCatInputActive = false;
+  renderLoggedUserInAssignDrobDownMenuIntoYou(); // Das habe ich für das You eingefügt!
+  renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
+  setFutureDatesOnlyForInputDueDate();
+  loadContributorsLetter();
+  addSubtaskMain();
 
-    addContactToTaskForceWithCheckBox(loggedInUserIndex);
+  addContactToTaskForceWithCheckBox(loggedInUserIndex);
 }
-
 
 /**
  * this function render the popup menu AddTask.
  */
 async function renderAddTaskPopup() {
-    document.getElementById('boardPopup').innerHTML = '';
-    document.getElementById('boardPopup').innerHTML = renderAddTaskPopupHtml();
+  document.getElementById("boardPopup").innerHTML = "";
+  document.getElementById("boardPopup").innerHTML = renderAddTaskPopupHtml();
 }
-
 
 /**
  * If the workFlowStatus of the task is 3, then remove the class 'd-none' from the delete button.
  * @param taskIndex - the index of the task in the array
  */
 function showDeleteButton(taskIndex) {
-    if (joinTaskArray[taskIndex].workFlowStatus == 3) {
-        document.getElementById('deleteButton').classList.remove('d-none');
-    }
+  if (joinTaskArray[taskIndex].workFlowStatus == 3) {
+    document.getElementById("deleteButton").classList.remove("d-none");
+  }
 }
-
 
 /**
  * The function deleteButton() takes the taskIndex as a parameter and removes the task from the
@@ -361,10 +352,10 @@ function showDeleteButton(taskIndex) {
  * @param taskIndex - The index of the task in the array.
  */
 async function deleteButton(taskIndex) {
-    joinTaskArray.splice(taskIndex, 1);
-    await saveTask();
-    // initBoard();
-    await renderBoard();
-    await createWorkStatusArrays();
-    renderAllCards();
+  joinTaskArray.splice(taskIndex, 1);
+  await saveTask();
+  // initBoard();
+  await renderBoard();
+  await createWorkStatusArrays();
+  renderAllCards();
 }

@@ -1,31 +1,31 @@
 async function initMobilAddTask() {
-  transferArray = [];
+	transferArray = [];
 
-  await renderMobilAddTask();
-  await loadExitingCategories();
-  renderCategoryList();
-  newCatInputActive = false;
-  renderSubtasks();
-  selectedMenuButton(3);
-  renderLoggedUserInAssignDrobDownMenuIntoYou();
-  await renderContactsInAssignDropDownMenu();
-  setFutureDatesOnlyForInputDueDate();
-  loadContributorsLetter();
-  taskForce = [];
-  addSubtaskMain();
-  addContactToTaskForceWithCheckBox(loggedInUserIndex);
-  document.getElementById("greetingMasterContainer").classList.add("d-none");
-  setIndexOfGuest();
+	await renderMobilAddTask();
+	await loadExitingCategories();
+	renderCategoryList();
+	newCatInputActive = false;
+	renderSubtasks();
+	selectedMenuButton(3);
+	renderLoggedUserInAssignDrobDownMenuIntoYou();
+	await renderContactsInAssignDropDownMenu();
+	setFutureDatesOnlyForInputDueDate();
+	loadContributorsLetter();
+	taskForce = [];
+	addSubtaskMain();
+	addContactToTaskForceWithCheckBox(loggedInUserIndex);
+	document.getElementById('greetingMasterContainer').classList.add('d-none');
+	setIndexOfGuest();
 }
 
 async function renderMobilAddTask() {
-  coworkersToAssignTo = transferallUserData();
-  addCheckAttributeToCoworkersToAssignTo();
-  document.getElementById("mobilContent").innerHTML = "";
-  document.getElementById("mobilContent").innerHTML = /*html*/ `
+	coworkersToAssignTo = transferallUserData();
+	addCheckAttributeToCoworkersToAssignTo();
+	document.getElementById('mobilContent').innerHTML = '';
+	document.getElementById('mobilContent').innerHTML = /*html*/ `
         <header class='mobilHeader'>
             <img src='../../assets/img/mobil_header_logo.png'>
-            <button onclick='checkInputsMobil()' class="addTaskButtonMobile"><span>Create</span><img src='../assets/img/akar-icons_check_white.png'> </button>
+            <button onclick='checkInputsMobil()'><span>Create</span><img src='../assets/img/akar-icons_check_white.png'> </button>
         </header>
 
             <div class='frame164'>

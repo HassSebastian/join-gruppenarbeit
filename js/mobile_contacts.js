@@ -1,22 +1,21 @@
 async function initMobilContacts() {
-  await includeHTML();
-  await loadTask();
-  selectedMenuButton(4);
-  renderContentMobile();
-  userInAlphabetArray();
-  loadContributorsLetterMob();
-  logOutMasterContainerMob();
-  document.getElementById("greetingMasterContainer").classList.add("d-none");
+	await includeHTML();
+	await loadTask();
+	selectedMenuButton(4);
+	renderContentMobile();
+	userInAlphabetArray();
+	loadContributorsLetterMob();
+	logOutMasterContainerMob();
+	document.getElementById('greetingMasterContainer').classList.add('d-none');
 }
 
 async function renderContentMobile() {
-  document.getElementById("mobilContent").innerHTML = "";
-  document.getElementById("mobilContent").innerHTML +=
-    renderContentMobileHTML();
+	document.getElementById('mobilContent').innerHTML = '';
+	document.getElementById('mobilContent').innerHTML += renderContentMobileHTML();
 }
 
 function renderContentMobileHTML() {
-  return /*html*/ `
+	return /*html*/ `
         <div id="Frame_97Mob" class="Frame_97Mob">
             <div class="Contact_listMob" id="Contact_list"></div>
         </div>
@@ -51,7 +50,7 @@ function renderContentMobileHTML() {
 
             </div>
             
-            <form action="#" onsubmit="addContact();return false">
+            
                 <div class="contactImputMasterContainerMob">
                     <div class="outerInputContainerMob">
                         <div class="inputContainerMob">
@@ -81,7 +80,7 @@ function renderContentMobileHTML() {
                         <span class="required d-none" id="newContentPhoneRequired">This field is required</span>
                     </div>
                 </div>
-                <button class="createContactButtonMob" type="submit">
+                <button onclick="addContact()" class="createContactButtonMob" type="submit">
                     <span>Create contact</span>
                     <img src="../../assets/img/okHaeckchen.png">
                 </button>
@@ -94,38 +93,32 @@ function renderContentMobileHTML() {
                     <span>Contact succesfully created</span>
                 </div>
             </div>
-        </form>
-
     `;
 }
 
 function contactSucc() {
-  document.getElementById("contactSucc").classList.add("contactSuccSlide");
-  setTimeout(closeOverlayMob, 2000);
+	document.getElementById('contactSucc').classList.add('contactSuccSlide');
+	setTimeout(closeOverlayMob, 2000);
 }
 
 function test() {
-  console.log("ok");
+	console.log('ok');
 }
 
 function openOverlayMob() {
-  document
-    .getElementById("overlayMasterContainerMob")
-    .classList.add("overlayMasterContainerMobSlide");
+	document.getElementById('overlayMasterContainerMob').classList.add('overlayMasterContainerMobSlide');
 }
 
 function closeOverlayMob() {
-  document
-    .getElementById("overlayMasterContainerMob")
-    .classList.remove("overlayMasterContainerMobSlide");
-  if (document.querySelector(".contactSuccSlide")) {
-    document.getElementById("contactSucc").classList.remove("contactSuccSlide");
-    setTimeout(initMobilContacts, 500);
-  }
+	document.getElementById('overlayMasterContainerMob').classList.remove('overlayMasterContainerMobSlide');
+	if (document.querySelector('.contactSuccSlide')) {
+		document.getElementById('contactSucc').classList.remove('contactSuccSlide');
+		setTimeout(initMobilContacts, 500);
+	}
 }
 
 function showContactHTMLMob(name, email, phone, letter, color, i) {
-  return /*html*/ `
+	return /*html*/ `
         <div class="arrowContainerMob" onclick="initMobilContacts()">
             <img src="../../assets/img/back_logo_black.png">
         </div>
