@@ -63,6 +63,13 @@ body {
   border-top-right-radius: 30px;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .addContactMob {
   width: 282px;
   height: 56px;
