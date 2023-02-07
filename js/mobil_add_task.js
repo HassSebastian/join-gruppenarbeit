@@ -1,28 +1,28 @@
 async function initMobilAddTask() {
-	transferArray = [];
+  transferArray = [];
 
-    await renderMobilAddTask();
-	await loadExitingCategories();
-	renderCategoryList();
-	newCatInputActive = false;
-	renderSubtasks();
-	selectedMenuButton(3);
-	renderLoggedUserInAssignDrobDownMenuIntoYou();
-	await renderContactsInAssignDropDownMenu();
-	setFutureDatesOnlyForInputDueDate();
-	loadContributorsLetter();
-    taskForce = [];
-	addSubtaskMain();
-    addContactToTaskForceWithCheckBox(loggedInUserIndex);
-	document.getElementById('greetingMasterContainer').classList.add('d-none');
-	setIndexOfGuest();
+  await renderMobilAddTask();
+  await loadExitingCategories();
+  renderCategoryList();
+  newCatInputActive = false;
+  renderSubtasks();
+  selectedMenuButton(3);
+  renderLoggedUserInAssignDrobDownMenuIntoYou();
+  await renderContactsInAssignDropDownMenu();
+  setFutureDatesOnlyForInputDueDate();
+  loadContributorsLetter();
+  taskForce = [];
+  addSubtaskMain();
+  addContactToTaskForceWithCheckBox(loggedInUserIndex);
+  document.getElementById("greetingMasterContainer").classList.add("d-none");
+  setIndexOfGuest();
 }
 
 async function renderMobilAddTask() {
-	coworkersToAssignTo = transferallUserData();
-	addCheckAttributeToCoworkersToAssignTo();
-	document.getElementById('mobilContent').innerHTML = '';
-	document.getElementById('mobilContent').innerHTML = /*html*/ `
+  coworkersToAssignTo = transferallUserData();
+  addCheckAttributeToCoworkersToAssignTo();
+  document.getElementById("mobilContent").innerHTML = "";
+  document.getElementById("mobilContent").innerHTML = /*html*/ `
         <header class='mobilHeader'>
             <img src='../../assets/img/mobil_header_logo.png'>
             <button onclick='checkInputsMobil()'><span>Create</span><img src='../assets/img/akar-icons_check_white.png'> </button>
@@ -41,7 +41,7 @@ async function renderMobilAddTask() {
 
             <div class='addTaskTitleMobil'>
                 <h3>Title</h3>
-                <input type="text" placeholder='Enter a title' id="addTaskTitle" autocomplete='off'>
+                <input type="text" placeholder='Enter a title' id="addTaskTitle" autocomplete='off' required>
                 <span class="requiredText" id="titleReq">This field is required</span>
             </div>
 
@@ -74,7 +74,7 @@ async function renderMobilAddTask() {
             <div class='addTaskDateMob'>
                 <h3>Due date</h3>
                 <div>
-                    <input required type="date" id='dueDate' min="2023-01-01">
+                    <input  type="date" id='dueDate' min="2023-01-01" required>
                     
                 </div>
                 <span class='requiredText' id='dateReq'>This field is required</span>
