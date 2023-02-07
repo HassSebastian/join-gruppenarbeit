@@ -150,7 +150,7 @@ function addContactHelp(
   newEmailRequired,
   newPhoneRequired
 ) {
-  if (!name.value.length || !email.value.length || !phone.value.length) {
+  if (name.value.length || email.value.length || phone.value.length) {
     if (name.value.length == 0 || name.value[0] === " ") {
       newNameRequired.classList.remove("d-none");
       newNameRequired.classList.add("requiredOn");

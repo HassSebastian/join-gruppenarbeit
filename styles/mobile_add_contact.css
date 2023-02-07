@@ -17,7 +17,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   /* top: 879px; */
-  top: 860px;
+  top: 1000px;
   width: 381px;
   height: 100vh;
   background: #ffffff;
@@ -28,7 +28,7 @@ body {
 
 .overlayMasterContainerMobSlide {
   transition: 500ms ease-in-out;
-  transform: translateY(-860px);
+  transform: translateY(-1000px);
   z-index: 101;
 }
 
@@ -265,7 +265,6 @@ body {
 .requiredOn {
   color: red !important;
 }
-
 
 .createContactButtonMob {
   display: flex;
