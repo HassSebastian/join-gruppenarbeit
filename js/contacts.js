@@ -108,7 +108,7 @@ function openEditContact(i) {
 	let email = allUsers[i].email;
 	if (email == 'guest@web.de') {
 	} else {
-	!guestLoggedIn ? openEditContactsOf(allUsers, i) : openEditContactsOf(allFakeUsers, i);
+		!guestLoggedIn ? openEditContactsOf(allUsers, i) : openEditContactsOf(allFakeUsers, i);
 	}
 }
 
@@ -305,5 +305,29 @@ let allFakeUsers = [
 		colorIndex: 1,
 		firstSecondLetter: 'PL',
 		phone: 16789345345,
+	},
+	{
+		name: 'Anna Mueller',
+		email: 'anna.mueller@mail.com',
+		password: 'anna12345',
+		colorIndex: 4,
+		firstSecondLetter: 'AM',
+		phone: 987654321,
+	},
+	{
+		name: 'Max Mustermann',
+		email: 'max.mustermann@gmail.com',
+		password: 'maxmuster',
+		colorIndex: 2,
+		firstSecondLetter: 'MM',
+		phone: 13572468,
+	},
+	{
+		name: 'Laura Schmidt',
+		email: 'laura.schmidt@outlook.com',
+		password: 'lauraschmidt',
+		colorIndex: 7,
+		firstSecondLetter: 'LS',
+		phone: 246803579,
 	},
 ];
