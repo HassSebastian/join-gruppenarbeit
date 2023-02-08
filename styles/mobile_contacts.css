@@ -833,6 +833,7 @@ vectorEdit {
 	order: 2;
 	flex-grow: 0;
 	z-index: 2;
+	cursor: pointer;
 }
 
 .editButtonMobContact span {

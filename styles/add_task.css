@@ -922,6 +922,7 @@
 	flex: none;
 	order: 1;
 	flex-grow: 0;
+	cursor: pointer;
 
 	font-family: 'Inter';
 	font-style: normal;
@@ -1250,6 +1251,7 @@
 	flex: none;
 	order: 0;
 	flex-grow: 0;
+	cursor: pointer;
 }
 
 .addTaskCheckbox span {
