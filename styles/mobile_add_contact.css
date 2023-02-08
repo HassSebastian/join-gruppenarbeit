@@ -257,7 +257,7 @@ form {
 }
 
 .required {
-	width: 119px;
+	width: fit-content;
 	height: 12px;
 	font-family: 'Poppins';
 	font-style: normal;
