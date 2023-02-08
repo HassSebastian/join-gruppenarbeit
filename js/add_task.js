@@ -21,8 +21,6 @@ let selectedSubtasks = [];
 // let index;
 let badgesIndex;
 let guestId;
-/* 
-!TEST ARRAY for renderFunciont (assignedContact list in dropdown menu) */
 let coworkersToAssignTo = [];
 
 async function initAddTask() {
@@ -547,12 +545,9 @@ async function createTaskData() {
 	clearFormularData();
 }
 
-
-async function minOneSubtask(){
-	if (selectedSubtasks.length == 0){
-		selectedSubtasks = [
-			{subtaskText: 'Maintask', subtaskStatus: true}
-		];
+async function minOneSubtask() {
+	if (selectedSubtasks.length == 0) {
+		selectedSubtasks = [{ subtaskText: 'Maintask', subtaskStatus: true }];
 	}
 }
 
@@ -803,11 +798,11 @@ function enableDisableAssignList() {
 	if (!assignListStatus) {
 		borderBottomOffAssignedBoxButton('addTaskAssignedButton');
 		showHideDropDownAssignTo();
-		showBadgesTaskForce();
+		hideBadgesTaskForce();
 	} else {
 		borderBottomOnAssignedBoxButton('addTaskAssignedButton');
 		showHideDropDownAssignTo();
-		hideBadgesTaskForce();
+		showBadgesTaskForce();
 	}
 	assignListStatus = !assignListStatus;
 	tabletViewAddMarginTopAssignList(); // edit by Bossi for responsivness 27.01
@@ -1045,29 +1040,43 @@ function renderBadgesMemberOfTaskForce() {
 	}
 }
 
-function hideBadgesTaskForce() {
+/**
+ * Show assignTo-list by removing d-none class
+ */
+function showBadgesTaskForce() {
 	document.getElementById('badgesTaskForce').classList.remove('d-none');
 }
 
-function showBadgesTaskForce() {
+/**
+ * Closes assignTo-List
+ */
+function hideBadgesTaskForce() {
 	document.getElementById('badgesTaskForce').classList.add('d-none');
 }
 
+/**
+ * Closes assignTo-List if open
+ * @param {boolean} assignListStatus
+ */
 function closeDropDownAssignTo() {
 	assignListStatus ? enableDisableAssignList() : null;
 }
 
+/**
+ * Sets taskForce and assignTo checkMarks to default mode; restricteds in guestLogIn
+ * @param {boolean} guestLoggedIn
+ */
 function clearTaskForce() {
-	if (!guestLoggedIn) {
-		checkStatusToFalse();
-	}
+	if (!guestLoggedIn) checkStatusToFalse();
 	taskForce = [];
 	renderBadgesMemberOfTaskForce();
 	closeDropDownAssignTo();
 }
 
+/**
+ * Opens window with a message
+ */
 function frontEndDeveloper() {
-	/* document.getElementById('selectedAssign').value = `Just frontend. Sorry!;)`; */
 	alert('This function is part of backend. The course is about frontend though');
 }
 
@@ -1103,7 +1112,7 @@ function tabletViewAddMarginTopCatList() {
 	if (!catListStatus || window.innerWidth < 768 || window.innerWidth > 1100) {
 		checkIdAndRemoveMargin();
 	}
-	if (!catListStatus && assignListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100  && addTaskView) {
+	if (!catListStatus && assignListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100 && addTaskView) {
 		resizePageAndChangeBtnPosition1();
 	}
 	tabletViewAddTaskResize();
@@ -1129,7 +1138,7 @@ function tabletViewAddMarginTopAssignList() {
 		document.getElementById('addTaskRightContainer').classList.add('addTaskRightContainerAddMarginTop');
 		resizePageAndChangeBtnPosition();
 	}
-	if (!assignListStatus || window.innerWidth < 768 || window.innerWidth > 1100 && addTaskView && addTaskView) {
+	if (!assignListStatus || window.innerWidth < 768 || (window.innerWidth > 1100 && addTaskView && addTaskView)) {
 		checkIdAndRemoveMargin2();
 	}
 	if (catListStatus && !assignListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100 && addTaskView) {
@@ -1196,7 +1205,7 @@ function tabletViewAddTaskResize() {
 		testResponsivNewHeight1();
 		btnPosition3();
 	}
-	if ((!assignListStatus && !catListStatus) || window.innerWidth < 768 || window.innerWidth > 1100 && addTaskView) {
+	if ((!assignListStatus && !catListStatus) || window.innerWidth < 768 || (window.innerWidth > 1100 && addTaskView)) {
 		if (document.querySelector('#addTaskRightContainer')) {
 			document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop1');
 			testResponsivNewHeight2();
