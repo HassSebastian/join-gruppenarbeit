@@ -537,6 +537,7 @@ async function createTaskData() {
 	await loadTask();
 	getDataFromFomular();
 	await createAssignToListForSave();
+	await minOneSubtask();
 	fillTaskData();
 	pushTaskData();
 	saveTask();
@@ -544,6 +545,15 @@ async function createTaskData() {
 	setTimeout(initBoard, 1200);
 	resetAssignToList();
 	clearFormularData();
+}
+
+
+async function minOneSubtask(){
+	if (selectedSubtasks.length == 0){
+		selectedSubtasks = [
+			{subtaskText: 'Maintask', subtaskStatus: true}
+		];
+	}
 }
 
 // toDo this is a transition function that to have reworked after all data for task card avalable.
@@ -1085,14 +1095,15 @@ function resizeCallRelatedAddTaskFunctions() {
 }
 
 function tabletViewAddMarginTopCatList() {
-	if (catListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100) {
+	let addTaskView = document.querySelector('.addTaskRightContainer');
+	if (catListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100 && addTaskView) {
 		document.getElementById('addTaskRightContainer').classList.add('addMarginTop');
 		resizePageAndChangeBtnPosition();
 	}
 	if (!catListStatus || window.innerWidth < 768 || window.innerWidth > 1100) {
 		checkIdAndRemoveMargin();
 	}
-	if (!catListStatus && assignListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100) {
+	if (!catListStatus && assignListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100  && addTaskView) {
 		resizePageAndChangeBtnPosition1();
 	}
 	tabletViewAddTaskResize();
@@ -1113,14 +1124,15 @@ function checkIdAndRemoveMargin2() {
 }
 
 function tabletViewAddMarginTopAssignList() {
-	if (assignListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100) {
+	let addTaskView = document.querySelector('.addTaskRightContainer');
+	if (assignListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100 && addTaskView) {
 		document.getElementById('addTaskRightContainer').classList.add('addTaskRightContainerAddMarginTop');
 		resizePageAndChangeBtnPosition();
 	}
-	if (!assignListStatus || window.innerWidth < 768 || window.innerWidth > 1100) {
+	if (!assignListStatus || window.innerWidth < 768 || window.innerWidth > 1100 && addTaskView && addTaskView) {
 		checkIdAndRemoveMargin2();
 	}
-	if (catListStatus && !assignListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100) {
+	if (catListStatus && !assignListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100 && addTaskView) {
 		resizePageAndChangeBtnPosition1();
 	}
 	tabletViewAddMarginTopCatList();
@@ -1178,12 +1190,13 @@ function testResponsivNewHeight2() {
 }
 
 function tabletViewAddTaskResize() {
-	if (assignListStatus && catListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100) {
+	let addTaskView = document.querySelector('.addTaskRightContainer');
+	if (assignListStatus && catListStatus && window.innerWidth >= 768 && window.innerWidth <= 1100 && addTaskView) {
 		addTaskRightContainerNewHeight1();
 		testResponsivNewHeight1();
 		btnPosition3();
 	}
-	if ((!assignListStatus && !catListStatus) || window.innerWidth < 768 || window.innerWidth > 1100) {
+	if ((!assignListStatus && !catListStatus) || window.innerWidth < 768 || window.innerWidth > 1100 && addTaskView) {
 		if (document.querySelector('#addTaskRightContainer')) {
 			document.getElementById('addTaskRightContainer').classList.remove('addTaskRightContainerAddMarginTop1');
 			testResponsivNewHeight2();

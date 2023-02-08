@@ -994,7 +994,8 @@
     flex-grow: 0;
 }
 
-.assigned, .boardSubtaskTitle {
+.assigned,
+.boardSubtaskTitle {
     width: 134px;
     height: 25px;
     font-family: 'Inter';
@@ -1093,7 +1094,7 @@
     flex-grow: 0;
 }
 
-.boardSubtasksTitleDiv{
+.boardSubtasksTitleDiv {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1107,7 +1108,7 @@
     z-index: 6;
 }
 
-.boardSubtasksDiv{
+.boardSubtasksDiv {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -1125,7 +1126,7 @@
     flex-wrap: wrap;
 }
 
-.boardSubtasksDiv div span{
+.boardSubtasksDiv div span {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -1192,13 +1193,13 @@
     box-shadow: 0px 0px 4px rgb(0 0 0 / 10%);
     border-radius: 30px;
     /* left: 1429px; */
-    left: 1291px; 
+    left: 1291px;
     transition: 500ms ease-in-out;
 }
 
-.boardAddTaskPopupOverlay{
-transition: 500ms ease-in-out;
-transform: translateX(-1290px);
+.boardAddTaskPopupOverlay {
+    transition: 500ms ease-in-out;
+    transform: translateX(-1290px);
 }
 
 .boardAddTaskHeadlineDiv {
@@ -1308,7 +1309,7 @@ transform: translateX(-1290px);
 
 /* Edit Task Card css classes */
 
-.close_logo_edit_task{
+.close_logo_edit_task {
     position: absolute;
     width: 21.65px;
     height: 21.65px;
@@ -1553,7 +1554,7 @@ transform: translateX(-1290px);
     border: 0;
 }
 
-.editTaskOkBtn:hover{
+.editTaskOkBtn:hover {
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
@@ -1562,7 +1563,7 @@ transform: translateX(-1290px);
 }
 
 /* Delete Button edited by Bossi  */
-.deleteButton{
+.deleteButton {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1584,15 +1585,16 @@ transform: translateX(-1290px);
     color: #FFFFFF;
     border: 0;
 }
+
 /* deleteButton:hover edit by Basti*/
-.deleteButton:hover{
+.deleteButton:hover {
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;  
+    border-radius: 10px;
     border-width: 0px;
 }
 
-.boardAddTaskDividerBoard{
+.boardAddTaskDividerBoard {
     position: absolute;
     width: 0px;
     height: 669px;
@@ -1601,7 +1603,7 @@ transform: translateX(-1290px);
     border: 2px solid #D1D1D1;
 }
 
-.addTaskAssignedBox2{
+.addTaskAssignedBox2 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -1618,7 +1620,7 @@ transform: translateX(-1290px);
     left: 101px;
 }
 
-.boardAddTaskAssignedBox{
+.boardAddTaskAssignedBox {
     position: absolute;
     top: 578px;
     left: 101px;
@@ -1627,6 +1629,7 @@ transform: translateX(-1290px);
 
 
 @media screen and (max-width: 1440px) {
+
     /* board */
     .boardOverlay {
         left: 22% !important;
@@ -1642,18 +1645,18 @@ transform: translateX(-1290px);
 
 
     /* Btn hinzugefügt */
-    .moveBtnMobil{
+    .moveBtnMobil {
         display: flex !important;
         position: absolute !important;
         top: 777px !important;
         height: 57px !important;
     }
 
-    .moveBtnMobil button{
+    .moveBtnMobil button {
         height: 57px !important;
     }
 
-    .boardSubtasksDiv{
+    .boardSubtasksDiv {
         height: 112px;
     }
 
@@ -1667,7 +1670,7 @@ transform: translateX(-1290px);
         gap: 202px !important;
     }
 
-    .boardTaskCardPopup{
+    .boardTaskCardPopup {
         left: unset !important;
     }
 }
@@ -1683,15 +1686,15 @@ transform: translateX(-1290px);
 }
 
 /* Responsiv Test Bossi */
-@media screen and (max-width: 1440px)  {
+@media screen and (max-width: 1440px) {
     /* board */
-    
+
     .canbanBoard {
         left: 22% !important;
     }
 }
 
-@media screen and (max-width: 1400px)  {
+@media screen and (max-width: 1400px) {
     /* board */
 
     .toDoHeadline {
@@ -1719,41 +1722,43 @@ transform: translateX(-1290px);
 
 }
 
-@media screen and (max-width: 1300px)  {
+@media screen and (max-width: 1300px) {
+
     /* Board Add Task */
-    .shadowOverlay{
+    .shadowOverlay {
         width: 100%;
     }
-    .boardAddTaskPopupOverlay{
+
+    .boardAddTaskPopupOverlay {
         width: 560px !important;
         overflow: hidden;
         overflow-y: scroll;
     }
 
-    .close_logo_edit_task{
+    .close_logo_edit_task {
         left: 510px;
         position: sticky;
     }
 
-    .boardAddTaskDividerBoard{
+    .boardAddTaskDividerBoard {
         display: none;
     }
 
-    .boardAddTaskRightContainer{
+    .boardAddTaskRightContainer {
         left: 73px;
         top: 814px;
     }
 
-    .boardAddTaskBtnOuterContainer{
+    .boardAddTaskBtnOuterContainer {
         left: 158px;
         top: 1360px;
     }
 
-    .boardAddTaskBtnInnerContainer{
+    .boardAddTaskBtnInnerContainer {
         margin-bottom: 100px;
     }
 
-    .addTaskCheckBox{
+    .addTaskCheckBox {
         flex-wrap: wrap;
         flex-direction: row;
         width: 100%;
@@ -1765,7 +1770,7 @@ transform: translateX(-1290px);
         transform: translateY(-1000px) !important;
     }
 
-    .boardtaskAddedToBoard{
+    .boardtaskAddedToBoard {
         left: calc(50% - 168px);
         /* left: 130px; */
         top: calc((50% - 37px) + 1000px);
@@ -1776,8 +1781,43 @@ transform: translateX(-1290px);
         width: 100%;
     }
 
+    .deleteButton {
+        left: 470.31px !important;
+        top: 787px !important;
+    }
 
-    
+    .boardAddTaskHeadlineDiv {
+        position: sticky;
+        background-color: #FFFFFF;
+        flex-direction: unset;
+        align-items: center;
+        height: 167px;
+        width: 429px;
+        top: 0px;
+        margin-top: -26px;
+        z-index: 1;
+    }
+
+    .addTaskCheckbox{
+        flex-direction: unset !important;
+        width: 420px !important;
+        flex-wrap: wrap;
+        height: 95px !important;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
 }
 
+@media screen and (max-width: 1100px){
+    .addTaskAssignList li{
+        width: 420px !important;
+    }
 
+    #CatListDropdown{
+        width: 420px !important;
+    }
+
+    #dropdown2{
+        width: 420px !important;
+    }
+}

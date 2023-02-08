@@ -324,9 +324,18 @@ async function showAddTaskPopupWindow() {
   setFutureDatesOnlyForInputDueDate();
   loadContributorsLetter();
   addSubtaskMain();
-
   addContactToTaskForceWithCheckBox(loggedInUserIndex);
+  dropdownImgSettings();
 }
+
+
+function dropdownImgSettings(){
+  if (window.innerWidth <= 1100){
+    document.getElementById('dropdownImg').style = 'left: 392px !important;';
+    document.getElementById('assignDropDownImg').style = 'left: 392px !important;';
+  }
+}
+
 
 /**
  * this function render the popup menu AddTask.
