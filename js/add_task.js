@@ -931,16 +931,24 @@ function findIndexOfMemberOfTaskForce(emailAddress) {
 	});
 }
 
+/**
+ * Shows check mark of contact in assignTo list
+ * @param {number} contact
+ */
 function addCheckMarkToCheckBox(contact) {
 	document.getElementById(`checkMark${contact}`).classList.remove('d-none');
 }
 
+/**
+ * Adds so of contact list to taskForce
+ * @param {number} contact
+ */
 function addSelectedContactToTaskForce(contact) {
 	taskForce.push(coworkersToAssignTo[contact]);
 }
 
 /**
- *!Id von Guestlogin als Variable eingeben wie? loggedUse?
+ *
  * @param {number} contact
  */
 function removeCheckMarkFromCheckBox(contact) {
@@ -951,6 +959,10 @@ function removeCheckMarkFromCheckBox(contact) {
 	}
 }
 
+/**
+ * Takes a member off the taskForce
+ * @param {number} index
+ */
 function removeSelectedContactFromTaskForce(index) {
 	taskForce.splice(index, 1);
 }
@@ -990,7 +1002,6 @@ function addContactToTaskForceWithCheckBox(contact) {
 /**
  * This function loops through the assignedContacts array and generates a list of contacts for the
  * dropdown menu.
- *! "contact" might not be the best name. To be reconsidered!!
  */
 async function renderContactsInAssignDropDownMenu() {
 	let assignedContactList = document.getElementById('dropdown2');
