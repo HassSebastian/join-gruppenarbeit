@@ -11,36 +11,32 @@
  * @param requiredPassword - the element that will be added the class 'requiredOn' if the password
  * input is empty or starts with a space.
  */
-function calculateinputValueTest(name, email, password, requiredName, requiredEmail, requiredPassword){
-    if (name.value.length || email.value.length || password.value.length) {
-        if (name.value.length == 0 ||
-            name.value[0] === ' ') {
-            requiredName.classList.add('requiredOn');
-        } else {
-            requiredName.classList.remove('requiredOn');
-        };
-        if (email.value.length < 8 ||
-            !email.value.includes('@') ||
-            !email.value.includes('.') ||
-            email.value[0] === ' ') {
-            requiredEmail.classList.add('requiredOn');
-        } else {
-            requiredEmail.classList.remove('requiredOn');
-        };
-        if (password.value.length == 0 ||
-            password.value[0] === ' ') {
-            requiredPassword.classList.add('requiredOn');
-        } else {
-            requiredPassword.classList.remove('requiredOn');
-        };
-        if (!requiredName.classList.contains('requiredOn') &&
-            !requiredEmail.classList.contains('requiredOn') &&
-            !requiredPassword.classList.contains('requiredOn')) {
-            emailToCheck(name.value, email.value, password.value);
-        }
-    }
+function calculateinputValueTest(name, email, password, requiredName, requiredEmail, requiredPassword) {
+	if (name.value.length || email.value.length || password.value.length) {
+		if (name.value.length == 0 || name.value[0] === ' ') {
+			requiredName.classList.add('requiredOn');
+		} else {
+			requiredName.classList.remove('requiredOn');
+		}
+		if (email.value.length < 8 || !email.value.includes('@') || !email.value.includes('.') || email.value[0] === ' ') {
+			requiredEmail.classList.add('requiredOn');
+		} else {
+			requiredEmail.classList.remove('requiredOn');
+		}
+		if (password.value.length == 0 || password.value[0] === ' ') {
+			requiredPassword.classList.add('requiredOn');
+		} else {
+			requiredPassword.classList.remove('requiredOn');
+		}
+		if (
+			!requiredName.classList.contains('requiredOn') &&
+			!requiredEmail.classList.contains('requiredOn') &&
+			!requiredPassword.classList.contains('requiredOn')
+		) {
+			emailToCheck(name.value, email.value, password.value);
+		}
+	}
 }
-
 
 /**
  * If the email address is already available, then add the class 'requiredOn' to the element with the
@@ -52,24 +48,23 @@ function calculateinputValueTest(name, email, password, requiredName, requiredEm
  * @param email - the email address that the user has entered
  * @param password - the password that the user has entered
  */
-function comparisonEmail(requiredEmail, name, email, password){
-    let valueToCheck = email;
-    let check = 0;
-    for (let i = 0; i < allUsers.length; i++) {
-        let testValue = allUsers[i].email;
-        if (testValue === valueToCheck) {
-            check = 1;
-            break;
-        }
-    }
-    if (check == 1) {
-        requiredEmail.classList.add('requiredOn');
-        requiredEmail.innerHTML = `This email address is already available!!`;
-    } else {
-        calculateAllUserArray(name, email, password);
-    }
+function comparisonEmail(requiredEmail, name, email, password) {
+	let valueToCheck = email;
+	let check = 0;
+	for (let i = 0; i < allUsers.length; i++) {
+		let testValue = allUsers[i].email;
+		if (testValue === valueToCheck) {
+			check = 1;
+			break;
+		}
+	}
+	if (check == 1) {
+		requiredEmail.classList.add('requiredOn');
+		requiredEmail.innerHTML = `This email address is not available!!`;
+	} else {
+		calculateAllUserArray(name, email, password);
+	}
 }
-
 
 /**
  * This function takes in a name, email, and password, and then calls the calcSecondLetter function,
@@ -79,13 +74,12 @@ function comparisonEmail(requiredEmail, name, email, password){
  * @param email - string
  * @param password - string
  */
-async function calculateAllUserArray(name, email, password){
-    let firstLetter = name[0].toUpperCase();
-    let secondLetter = await calcSecondLetter(name);
-    let colorIndex = await calcColorIndex(firstLetter, secondLetter);
-    userSignIn(firstLetter, secondLetter, name, email, password, colorIndex);
+async function calculateAllUserArray(name, email, password) {
+	let firstLetter = name[0].toUpperCase();
+	let secondLetter = await calcSecondLetter(name);
+	let colorIndex = await calcColorIndex(firstLetter, secondLetter);
+	userSignIn(firstLetter, secondLetter, name, email, password, colorIndex);
 }
-
 
 /**
  * It takes a string, finds the index of the space, then takes the substring from the space to the end
@@ -93,13 +87,12 @@ async function calculateAllUserArray(name, email, password){
  * @param name - the name of the person
  * @returns The second letter of the second name.
  */
-function calcSecondLetter(name){
-    let spaceIndex = name.indexOf(' ');
-    let secondName = name.substring(spaceIndex + 1);
-    let secondLetter = secondName[0].toUpperCase();
-    return secondLetter;
+function calcSecondLetter(name) {
+	let spaceIndex = name.indexOf(' ');
+	let secondName = name.substring(spaceIndex + 1);
+	let secondLetter = secondName[0].toUpperCase();
+	return secondLetter;
 }
-
 
 /**
  * It takes two letters, converts them to their ASCII values, adds them together, and then returns the
@@ -108,10 +101,10 @@ function calcSecondLetter(name){
  * @param secondLetter - The second letter of the name of the person you want to get the color for.
  * @returns The colorIndex is being returned.
  */
-function calcColorIndex(firstLetter, secondLetter){
-    let asciiFirstLetter = firstLetter.charCodeAt(0);
-    let asciiSecondLetter = secondLetter.charCodeAt(0);
-    let sum = asciiFirstLetter + asciiSecondLetter;
-    let colorIndex = sum % 10;
-    return colorIndex;
+function calcColorIndex(firstLetter, secondLetter) {
+	let asciiFirstLetter = firstLetter.charCodeAt(0);
+	let asciiSecondLetter = secondLetter.charCodeAt(0);
+	let sum = asciiFirstLetter + asciiSecondLetter;
+	let colorIndex = sum % 10;
+	return colorIndex;
 }

@@ -189,7 +189,7 @@ function comparisonEmailHelp(newEmailRequired, name, email, phone, valueToCheck)
 	if (check == 1) {
 		newEmailRequired.classList.remove('d-none');
 		newEmailRequired.classList.add('requiredOn');
-		newEmailRequired.innerHTML = `This email address is already available!!`;
+		newEmailRequired.innerHTML = `This email address is not available!!`;
 	} else {
 		calculateNewAllUserArray(name, email, phone);
 	}
