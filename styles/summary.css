@@ -135,7 +135,6 @@
   flex: none;
   order: 2;
   flex-grow: 0;
-  cursor: pointer;
 }
 
 #taskInBoard:hover,
@@ -204,7 +203,6 @@
   flex: none;
   order: 1;
   flex-grow: 0;
-  cursor: pointer;
 }
 
 .ugencySummary:hover {
@@ -372,7 +370,6 @@
   flex: none;
   order: 0;
   flex-grow: 0;
-  cursor: pointer;
 }
 
 .toDoHover,
