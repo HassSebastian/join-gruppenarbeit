@@ -524,7 +524,9 @@ function clearFormularData() {
 	document.getElementById('catReq').style = 'opacity: 0;';
 	document.getElementById('catReq').classList.add('listD-none');
 	resetAssignToList(); // edited by Bossi 04.01.2022, the function is in the board.js
-	subTaskArray = [];
+	/* subTaskArray = []; */
+	emptySubTaskArray();
+	renderSubtasks();
 	closeCatList();
 	clearTaskForce();
 }
@@ -781,6 +783,12 @@ function resetSubtaskSelections() {
 	for (let i = 0; i < subTaskArray.length; i++) {
 		document.getElementById(`subtask${i}`).checked = false;
 	}
+}
+
+/* subTaskArray bei cleaButton bis auf maintask löschen */
+
+function emptySubTaskArray() {
+	subTaskArray.splice(1);
 }
 
 /*=======================
