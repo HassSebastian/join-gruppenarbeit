@@ -109,6 +109,7 @@
 	order: 1;
 	flex-grow: 0;
 	border: 0;
+	cursor: pointer;
 }
 
 .addTaskCreate:hover {
@@ -992,6 +993,7 @@
 	flex: none;
 	order: 0;
 	flex-grow: 0;
+	cursor: pointer;
 }
 
 .addTaskUrgent span {
@@ -1031,6 +1033,7 @@
 	flex: none;
 	order: 1;
 	flex-grow: 0;
+	cursor: pointer;
 }
 
 .addTaskMedium span {
@@ -1070,6 +1073,7 @@
 	flex: none;
 	order: 2;
 	flex-grow: 0;
+	cursor: pointer;
 }
 
 .addTaskLow span {

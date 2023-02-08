@@ -201,6 +201,7 @@
     background: #2A3647;
     border: 1px solid #2A3647;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .new_contact span {
@@ -596,6 +597,7 @@
     order: 0;
     flex-grow: 0;
     border: 0;
+    cursor: pointer;
 }
 
 .save:hover {
@@ -633,6 +635,7 @@
     flex: none;
     order: 1;
     flex-grow: 0;
+    cursor: pointer;
 }
 
 .createContact span {
@@ -778,6 +781,7 @@
     flex: none;
     order: 0;
     flex-grow: 0;
+    cursor: pointer;
 }
 
 .cancel:hover {
