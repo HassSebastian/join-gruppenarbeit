@@ -8,12 +8,12 @@ body {
 	width: 0px;
 }
 
-.cancelAddTaskMobile {
+/* .cancelAddTaskMobile {
 	position: absolute;
 	top: 118px;
 	right: 33px;
 	cursor: pointer;
-}
+} */
 
 .addTaskMobil {
 	position: relative;
@@ -1132,7 +1132,7 @@ button input {
 	position: absolute;
 	width: 66px;
 	height: 31px;
-	left: 287px;
+	right: 11px;
 	top: 11px;
 	flex: none;
 	order: 1;

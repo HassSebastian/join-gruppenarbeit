@@ -161,8 +161,12 @@
 
 	/* ADD TASK */
 
-	.cancelAddTaskMobile {
-		right: 16px !important;
+	.frame164 {
+		left: 16px;
+	}
+
+	.frame154 {
+		left: 16px;
 	}
 
 	.urgencyLevelCard {
