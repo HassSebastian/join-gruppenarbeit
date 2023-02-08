@@ -57,7 +57,7 @@ vector {
 	gap: 24px;
 	position: absolute;
 	width: 363px;
-	height: 378px;
+	height: auto;
 	left: 33px;
 	top: 326px;
 }
