@@ -574,45 +574,46 @@ function renderPopupTaskCardHtmlMobil(taskIndex) {
         document.getElementById('boardTaskDetail').innerHTML = '';
         document.getElementById('boardTaskDetail').innerHTML = /*html*/`
         <div class='boardTaskCardPopup'>
-            <div class='taskCardPopupCategoryMob' id='taskCardPopupCategory'>
-                <span>${cardCategory}</span>
-            </div>
-            <img src="./assets/img/arrow-left-line.png" class='backArrow' onclick='closeBoardMobilDetailOverlay(); saveChangesDetailView()'>
-            <div class='taskCardPopupTaskMob'>
-                <span>${cardTitle}</span>
-            </div>
-            <span class='taskCardPopupDescriptionMob'>${cardDescription}</span>
-            <div class='taskCardPopupDateContainerMob'>
-                <span class='taskCardPopupDateTextMob'>Due date:</span>
-                <span class='taskCardPopupDueDateMob'>${cardDueDate}</span>
-            </div>
-            <div class='taskCardPopupPriorityContainerMob'>
-                <span>Priority:</span>
-                <div class='urgencyMob' id='prioContainer'>
-                    <span>${taskPrio}</span>
-                    <img src='./assets/img/urgent_white.png' id='cardPrioImg'>
+            <div class='scrollOverEdit'>
+                <div class='taskCardPopupCategoryMob' id='taskCardPopupCategory'>
+                    <span>${cardCategory}</span>
+                </div>
+                <img src="./assets/img/arrow-left-line.png" class='backArrow' onclick='closeBoardMobilDetailOverlay(); saveChangesDetailView()'>
+                <div class='taskCardPopupTaskMob'>
+                    <span>${cardTitle}</span>
+                </div>
+                <span class='taskCardPopupDescriptionMob'>${cardDescription}</span>
+                <div class='taskCardPopupDateContainerMob'>
+                    <span class='taskCardPopupDateTextMob'>Due date:</span>
+                    <span class='taskCardPopupDueDateMob'>${cardDueDate}</span>
+                </div>
+                <div class='taskCardPopupPriorityContainerMob'>
+                    <span>Priority:</span>
+                    <div class='urgencyMob' id='prioContainer'>
+                        <span>${taskPrio}</span>
+                        <img src='./assets/img/urgent_white.png' id='cardPrioImg'>
+                    </div>
+                </div>
+                <span class='assignedMob'>Assigned To:</span>
+                <div class='membersMob' id='members'>
+                
+                </div>
+                <div class='editButtonMob' onclick='startDetailViewOverlay(); openEditTaskCardMobil(${taskIndex})'>
+                    <img src='./assets/img/edit_button.png'>
+                </div>
+
+                <div class='moveBtnMobil' id='moveBtnMobil'>
+            
+                </div>
+
+                <div class='boardSubtasksTitleDivMob'>
+                    <span class='boardSubtaskTitleMob'>Subtasks:</span>
+                
+                </div >
+                <div class='boardSubtasksDivMob' id='subtaskListTaskCard'>
+                    
                 </div>
             </div>
-            <span class='assignedMob'>Assigned To:</span>
-            <div class='membersMob' id='members'>
-            
-            </div>
-            <div class='editButtonMob' onclick='startDetailViewOverlay(); openEditTaskCardMobil(${taskIndex})'>
-                <img src='./assets/img/edit_button.png'>
-            </div>
-
-            <div class='moveBtnMobil' id='moveBtnMobil'>
-        
-            </div>
-
-            <div class='boardSubtasksTitleDivMob'>
-                <span class='boardSubtaskTitleMob'>Subtasks:</span>
-            
-            </div >
-            <div class='boardSubtasksDivMob' id='subtaskListTaskCard'>
-                
-            </div>
-            
         </div>`;
 
         setTaskCardPopupCatColor(taskIndex);

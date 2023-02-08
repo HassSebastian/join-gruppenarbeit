@@ -1218,4 +1218,40 @@
     .boardSearchMobilOuterContainer{
         left: calc(50% - 200.5px);
     }
+
+    .boardAddTask{
+        height: 100%;
+    }
+
+    .scrollOver{
+        width: calc(100% - 66px);
+        height: calc(100% - 296px);
+    }
+
+    .closeAddTask{
+        left: calc(100% - 51.65px);
+    }
+
+    .boardTaskDetail{
+        width: 100%;
+        height: calc(100% - 160px);
+    }
+
+    .backArrow{
+        z-index: 2;
+    }
+
+
+    .boardTaskCardPopup{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .scrollOverEdit{
+        left: unset;
+        height: calc(100% - 160px);
+        width: 402px;
+    }
 }
