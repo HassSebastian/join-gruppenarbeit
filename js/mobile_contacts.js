@@ -16,6 +16,7 @@ async function renderContentMobile() {
 
 function renderContentMobileHTML() {
 	return /*html*/ `
+        <div class="shadowOverlay d-none" id="shadowOverlay"></div>
         <div id="Frame_97Mob" class="Frame_97Mob">
             <div class="Contact_listMob" id="Contact_list"></div>
         </div>
@@ -106,10 +107,12 @@ function test() {
 }
 
 function openOverlayMob() {
+    document.getElementById('shadowOverlay').classList.remove('d-none');
 	document.getElementById('overlayMasterContainerMob').classList.add('overlayMasterContainerMobSlide');
 }
 
 function closeOverlayMob() {
+    document.getElementById('shadowOverlay').classList.add('d-none');
 	document.getElementById('overlayMasterContainerMob').classList.remove('overlayMasterContainerMobSlide');
 	if (document.querySelector('.contactSuccSlide')) {
 		document.getElementById('contactSucc').classList.remove('contactSuccSlide');
@@ -119,7 +122,8 @@ function closeOverlayMob() {
 
 function showContactHTMLMob(name, email, phone, letter, color, i) {
 	return /*html*/ `
-        <div class="arrowContainerMob" onclick="initMobilContacts()">
+            <div class="shadowOverlay d-none" id="shadowOverlay"></div>
+            <div class="arrowContainerMob" onclick="initMobilContacts()">
             <img src="../../assets/img/back_logo_black.png">
         </div>
 

@@ -1,3 +1,17 @@
+.shadowOverlay{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1024px;
+    width: 1440px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    left: 0px;
+    z-index: 10;
+    cursor: pointer;
+    overflow: hidden;
+}
+
 .Frame_97Mob {
   position: absolute;
   width: 428px;
