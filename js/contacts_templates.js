@@ -119,7 +119,6 @@ function showContactHelp(name, email, phone, letter, color, i, showContact) {
 }
 
 function addContactHelp(name, email, phone, newNameRequired, newEmailRequired, newPhoneRequired) {
-	/* if (name.value.length || email.value.length || phone.value.length) { */
 	if (name.value.length == 0 || name.value[0] === ' ') {
 		newNameRequired.classList.remove('d-none');
 		newNameRequired.classList.add('requiredOn');
@@ -148,7 +147,6 @@ function addContactHelp(name, email, phone, newNameRequired, newEmailRequired, n
 	) {
 		comparisonEmail(newEmailRequired, name.value, email.value, phone.value);
 	}
-	/* } */
 }
 
 function comparisonEmailHelp(newEmailRequired, name, email, phone, valueToCheck) {
