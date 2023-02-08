@@ -119,34 +119,50 @@ function showContactHelp(name, email, phone, letter, color, i, showContact) {
 }
 
 function addContactHelp(name, email, phone, newNameRequired, newEmailRequired, newPhoneRequired) {
-	if (name.value.length == 0 || name.value[0] === ' ') {
+	if (noNameInput(name)) {
 		newNameRequired.classList.remove('d-none');
 		newNameRequired.classList.add('requiredOn');
 	} else {
 		newNameRequired.classList.remove('requiredOn');
 		newNameRequired.classList.add('d-none');
 	}
-	if (email.value.length < 8 || !email.value.includes('@') || !email.value.includes('.') || email.value[0] === ' ') {
+	if (noValidEmailInput(email)) {
 		newEmailRequired.classList.remove('d-none');
 		newEmailRequired.classList.add('requiredOn');
 	} else {
 		newEmailRequired.classList.remove('requiredOn');
 		newEmailRequired.classList.add('d-none');
 	}
-	if (phone.value.length < 8 || phone.value[0] === ' ') {
+	if (noPhoneNumber(phone)) {
 		newPhoneRequired.classList.remove('d-none');
 		newPhoneRequired.classList.add('requiredOn');
 	} else {
 		newPhoneRequired.classList.remove('requiredOn');
 		newPhoneRequired.classList.add('d-none');
 	}
-	if (
+	if (allInformationTypedIn(newNameRequired, newEmailRequired, newPhoneRequired)) {
+		comparisonEmail(newEmailRequired, name.value, email.value, phone.value);
+	}
+}
+
+function allInformationTypedIn(newNameRequired, newEmailRequired, newPhoneRequired) {
+	return (
 		!newNameRequired.classList.contains('requiredOn') &&
 		!newEmailRequired.classList.contains('requiredOn') &&
 		!newPhoneRequired.classList.contains('requiredOn')
-	) {
-		comparisonEmail(newEmailRequired, name.value, email.value, phone.value);
-	}
+	);
+}
+
+function noNameInput(name) {
+	return name.value.length == 0 || name.value[0] === ' ';
+}
+
+function noValidEmailInput(email) {
+	return email.value.length < 8 || !email.value.includes('@') || !email.value.includes('.') || email.value[0] === ' ';
+}
+
+function noPhoneNumber(phone) {
+	return phone.value.length < 8 || phone.value[0] === ' ';
 }
 
 function comparisonEmailHelp(newEmailRequired, name, email, phone, valueToCheck) {
