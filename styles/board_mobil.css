@@ -1199,11 +1199,23 @@
 @media screen and (max-width: 768px) {
     .boardTaskCardOuterContainer{
         width: 100%;
-        height: 100%;
+        height: calc(100% - 463px);
         left: 0;
     }
 
     .toDoHeadline{
         width: 401px;
+    }
+
+    .headlineContainerBoardMob{
+        left: calc(50% - 200.5px);
+    }
+
+    .addTaskPlusHeader{
+        left: calc(50% + 160.5px);
+    }
+
+    .boardSearchMobilOuterContainer{
+        left: calc(50% - 200.5px);
     }
 }
