@@ -25,6 +25,10 @@
 	flex-grow: 0;
 }
 
+.backToSummaryButton {
+	cursor: pointer;
+}
+
 .helpContainer {
 	width: calc(100vw - 66px);
 	height: 100vh;

@@ -1,17 +1,17 @@
 function backFromHelpMob() {
-  let backIndex = menuSelectorStyles[selectedMenuBtnId].url;
-  // window.location.href = backIndex;
-  console.log(backIndex);
+	let backIndex = menuSelectorStyles[selectedMenuBtnId].url;
+	// window.location.href = backIndex;
+	console.log(backIndex);
 }
 
 async function renderHelpMob() {
-  document.getElementById("logOutMasterContainer").classList.toggle("d-none");
-  document.getElementById("mobilContent").innerHTML = "";
-  document.getElementById("mobilContent").innerHTML += /*html*/ `
+	document.getElementById('logOutMasterContainer').classList.toggle('d-none');
+	document.getElementById('mobilContent').innerHTML = '';
+	document.getElementById('mobilContent').innerHTML += /*html*/ `
         <div class="helpContainer">
             <div class="helpOverlayMob">
                 <span>Help</span>
-                <img src="../../assets/img/back_logo_black.png" onclick="backButtonMob()">
+                <img src="../../assets/img/back_logo_black.png" onclick="backButtonMob()" class="backToSummaryButton">
             </div>
             <div class="kanbanProjectManagementToolMob">
                 <span>Kanban Project Management Tool</span>
