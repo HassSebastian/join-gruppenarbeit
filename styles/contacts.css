@@ -226,9 +226,9 @@
 }
 
 .add_contact {
-    position: relative;
-    top: -1200px;
-    left: 1210px;
+    position: absolute;
+    top: 206px;
+    left: 2131px;
     right: 0px;
     margin-left: auto;
     margin-right: auto;
@@ -246,7 +246,7 @@
 
 .add_contact_slide {
     transition: 500ms ease-in-out;
-    transform: translateX(-1210px);
+    transform: translateX(-2013px);
 }
 
 
