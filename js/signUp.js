@@ -55,25 +55,29 @@ async function userSignIn(firstLetter, secondLetter, name, email, password, colo
     await loadTask();
     allUsers.push({ 'name': name, 'email': email, 'password': password, 'colorIndex': colorIndex, 'firstSecondLetter': firstLetter + secondLetter });
     await saveTask();
-    if(window.innerWidth < 768){
+    if (window.innerWidth < 768) {
         contactSucc();
-    }else{
-    contactSucc();
-    setTimeout(forwardScript, 2000);
+    } else {
+        contactSucc();
+        setTimeout(forwardScript, 2000);
     }
 }
 
 
 function forwardScript() {
-    if (document.getElementById('new_contact').classList.contains('add_contact_slide')) {
-        closeNewContact();
-        setTimeout(userInAlphabetArray, 500);
-    } else {
-        if (window.innerWidth < 768) {
-            backToLogInMob();
+    if (document.getElementById('new_contact')) {
+        if (document.getElementById('new_contact').classList.contains('add_contact_slide')) {
+            closeNewContact();
+            setTimeout(userInAlphabetArray, 500);
         } else {
-            window.location.href = './login.html';
+            if (window.innerWidth < 768) {
+                backToLogInMob();
+            } else {
+                window.location.href = './login.html';
+            }
         }
+    } else {
+        window.location.href = './login.html';
     }
 }
 
