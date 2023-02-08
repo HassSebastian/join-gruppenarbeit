@@ -218,7 +218,7 @@ async function addContact() {
  * @param email - the email address to check
  * @param phone - the phone number of the person
  */
-function comparisonEmail(newEmailRequired, name, email, phone) {
+function comparisonEmailAddress(newEmailRequired, name, email, phone) {
 	let valueToCheck = email;
 	comparisonEmailHelp(newEmailRequired, name, email, phone, valueToCheck);
 }

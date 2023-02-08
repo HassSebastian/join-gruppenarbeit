@@ -123,7 +123,7 @@ function addContactHelp(name, email, phone, newNameRequired, newEmailRequired, n
 	checkEmailInput(email, newEmailRequired);
 	checkPhoneInput(phone, newPhoneRequired);
 	if (allInformationTypedIn(newNameRequired, newEmailRequired, newPhoneRequired)) {
-		comparisonEmail(newEmailRequired, name.value, email.value, phone.value);
+		comparisonEmailAddress(newEmailRequired, name.value, email.value, phone.value);
 	}
 }
 
