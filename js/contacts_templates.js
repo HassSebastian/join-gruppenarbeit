@@ -119,6 +119,15 @@ function showContactHelp(name, email, phone, letter, color, i, showContact) {
 }
 
 function addContactHelp(name, email, phone, newNameRequired, newEmailRequired, newPhoneRequired) {
+	checkNameInput(name, newNameRequired);
+	checkEmailInput(email, newEmailRequired);
+	checkPhoneInput(phone, newPhoneRequired);
+	if (allInformationTypedIn(newNameRequired, newEmailRequired, newPhoneRequired)) {
+		comparisonEmail(newEmailRequired, name.value, email.value, phone.value);
+	}
+}
+
+function checkNameInput(name, newNameRequired) {
 	if (noNameInput(name)) {
 		newNameRequired.classList.remove('d-none');
 		newNameRequired.classList.add('requiredOn');
@@ -126,6 +135,9 @@ function addContactHelp(name, email, phone, newNameRequired, newEmailRequired, n
 		newNameRequired.classList.remove('requiredOn');
 		newNameRequired.classList.add('d-none');
 	}
+}
+
+function checkEmailInput(email, newEmailRequired) {
 	if (noValidEmailInput(email)) {
 		newEmailRequired.classList.remove('d-none');
 		newEmailRequired.classList.add('requiredOn');
@@ -133,6 +145,9 @@ function addContactHelp(name, email, phone, newNameRequired, newEmailRequired, n
 		newEmailRequired.classList.remove('requiredOn');
 		newEmailRequired.classList.add('d-none');
 	}
+}
+
+function checkPhoneInput(phone, newPhoneRequired) {
 	if (noPhoneNumber(phone)) {
 		newPhoneRequired.classList.remove('d-none');
 		newPhoneRequired.classList.add('requiredOn');
@@ -140,17 +155,6 @@ function addContactHelp(name, email, phone, newNameRequired, newEmailRequired, n
 		newPhoneRequired.classList.remove('requiredOn');
 		newPhoneRequired.classList.add('d-none');
 	}
-	if (allInformationTypedIn(newNameRequired, newEmailRequired, newPhoneRequired)) {
-		comparisonEmail(newEmailRequired, name.value, email.value, phone.value);
-	}
-}
-
-function allInformationTypedIn(newNameRequired, newEmailRequired, newPhoneRequired) {
-	return (
-		!newNameRequired.classList.contains('requiredOn') &&
-		!newEmailRequired.classList.contains('requiredOn') &&
-		!newPhoneRequired.classList.contains('requiredOn')
-	);
 }
 
 function noNameInput(name) {
@@ -163,6 +167,14 @@ function noValidEmailInput(email) {
 
 function noPhoneNumber(phone) {
 	return phone.value.length < 8 || phone.value[0] === ' ';
+}
+
+function allInformationTypedIn(newNameRequired, newEmailRequired, newPhoneRequired) {
+	return (
+		!newNameRequired.classList.contains('requiredOn') &&
+		!newEmailRequired.classList.contains('requiredOn') &&
+		!newPhoneRequired.classList.contains('requiredOn')
+	);
 }
 
 function comparisonEmailHelp(newEmailRequired, name, email, phone, valueToCheck) {
