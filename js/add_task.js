@@ -994,14 +994,19 @@ function addContactToTaskForceWithCheckBox(contact) {
  */
 async function renderContactsInAssignDropDownMenu() {
 	let assignedContactList = document.getElementById('dropdown2');
-	for (let contact = 0; contact < coworkersToAssignTo.length; contact++) {
-		if (contact != loggedInUserIndex && !guestLoggedIn) {
-			let name = coworkersToAssignTo[contact].name;
-			if (name != 'Guest') assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(name, contact);
+	coworkersToAssignTo.forEach((coworker, contact) => {
+		if (contact !== loggedInUserIndex && !guestLoggedIn) {
+			let name = coworker.name;
+			if (name !== 'Guest') {
+				assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(name, contact);
+			}
 		}
-	}
+	});
 }
 
+/**
+ * Renders logged user into assignTo list under "you"
+ */
 async function renderLoggedUserInAssignDrobDownMenuIntoYou() {
 	let contact = loggedInUserIndex;
 	let name = coworkersToAssignTo[loggedInUserIndex].name;
@@ -1009,6 +1014,11 @@ async function renderLoggedUserInAssignDrobDownMenuIntoYou() {
 	assignedContactList.innerHTML += generateLoggedUserHtml(name, contact);
 }
 
+/**
+ * Sets check status to false
+ * !Warum zweimal???
+ *
+ */
 function setCheckStatusToFalse() {
 	taskForce.forEach((member) => {
 		member.check = false;
@@ -1016,11 +1026,14 @@ function setCheckStatusToFalse() {
 	});
 }
 
+/**
+ * Sets check status to false
+ */
 function checkStatusToFalse() {
-	for (let coworker = 0; coworker < coworkersToAssignTo.length; coworker++) {
-		coworkersToAssignTo[coworker].check = false;
-		removeCheckMarkFromCheckBox(coworker);
-	}
+	coworkersToAssignTo.forEach((coworker, i) => {
+		coworker.check = false;
+		removeCheckMarkFromCheckBox(i);
+	});
 }
 
 /**
@@ -1030,14 +1043,14 @@ function checkStatusToFalse() {
 function renderBadgesMemberOfTaskForce() {
 	let badgeContainer = document.getElementById('badgesTaskForce');
 	badgeContainer.innerHTML = '';
-	for (let memberOfTaskForce = 0; memberOfTaskForce < taskForce.length; memberOfTaskForce++) {
-		const initials = taskForce[memberOfTaskForce].firstSecondLetter;
-		const name = taskForce[memberOfTaskForce].name;
-		const badgesIndex = taskForce[memberOfTaskForce].colorIndex;
+	taskForce.forEach((member, i) => {
+		const initials = member.firstSecondLetter;
+		const name = member.name;
+		const badgesIndex = member.colorIndex;
 
 		/* chooseColorForTaskForceBadge(initialFirstName, initialLastName); */
-		badgeContainer.innerHTML += generateBadgesTaskForceHtml(memberOfTaskForce, name, initials, badgesIndex);
-	}
+		badgeContainer.innerHTML += generateBadgesTaskForceHtml(i, name, initials, badgesIndex);
+	});
 }
 
 /**
