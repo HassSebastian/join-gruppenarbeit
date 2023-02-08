@@ -125,7 +125,7 @@ function openEditContactsOf(arr, i) {
 	let name = arr[i].name;
 	let email = arr[i].email;
 	let phone = arr[i].phone;
-
+	document.getElementById('boardPopup').classList.remove('d-none');
 	document.getElementById('edit_contact').classList.remove('d-none');
 	document.getElementById('edit_contact').innerHTML = '';
 	document.getElementById('edit_contact').innerHTML = openEditContactHTML(color, letter, name, email, phone, i);
@@ -138,6 +138,7 @@ function openEditContactsOf(arr, i) {
  * It opens a new contact form.
  */
 function openNewContact() {
+	document.getElementById('boardPopup').classList.remove('d-none');
 	document.getElementById('new_contact').classList.remove('d-none');
 	document.getElementById('new_contact').innerHTML = '';
 	document.getElementById('new_contact').innerHTML = openNewContactHTML();
@@ -150,6 +151,7 @@ function closeNewContact() {
 	window.innerWidth < 769 ? renderContentMobile() : document.getElementById('new_contact').classList.remove('add_contact_slide');
 	setTimeout(() => {
 		document.getElementById('new_contact').classList.add('d-none');
+		document.getElementById('boardPopup').classList.add('d-none');
 	}, 500);
 }
 
@@ -163,6 +165,7 @@ function closeEditContact() {
 	window.innerWidth < 769 ? renderContentMobile() : document.getElementById('edit_contact').classList.remove('add_contact_slide');
 	setTimeout(() => {
 		document.getElementById('edit_contact').classList.add('d-none');
+		document.getElementById('boardPopup').classList.add('d-none');
 	}, 500);
 }
 

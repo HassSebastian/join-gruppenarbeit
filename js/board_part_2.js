@@ -368,3 +368,4 @@ async function deleteButton(taskIndex) {
   await createWorkStatusArrays();
   renderAllCards();
 }
+
