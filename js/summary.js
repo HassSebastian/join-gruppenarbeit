@@ -182,16 +182,14 @@ function toDoDoneHoverOff() {
 	document.getElementById('ugencySummaryurgent').classList.remove('toDoHoverSpanP');
 } */
 
-// show date in Summary
+/**
+ * Shows date in the summary
+ */
 function showDate() {
 	let currentDate = new Date();
-	let day = currentDate.getDate();
-	if (day < 10) {
-		day = '0' + day;
-	}
 	let dateString = currentDate.toLocaleDateString('en-US', {
 		month: 'long',
-		day: 'numeric',
+		day: '2-digit',
 		year: 'numeric',
 	});
 	document.getElementById('deadlineDate').innerHTML = dateString;
@@ -283,9 +281,9 @@ function updatingSummary() {
 /**
  * If the email address is the same as the email address of the user, then add one to the amount of
  * tasks that the user has.
- * @param email - the email address of the person who is assigned to the task
- * @param workflowStatus - 0 = To Do, 1 = In Progress, 2 = Awaiting Feedback, 3 = Done
- * @param priority - 0 = Low, 1 = Medium, 2 = High, 3 = Urgent
+ * @param {string} email - the email address of the person who is assigned to the task
+ * @param {number}workflowStatus - 0 = To Do, 1 = In Progress, 2 = Awaiting Feedback, 3 = Done
+ * @param {string} priority - 0 = Low, 1 = Medium, 2 = High, 3 = Urgent
  */
 function itemsToUpdate(email, workflowStatus, priority, task) {
 	updateTaskInBoard(email);
