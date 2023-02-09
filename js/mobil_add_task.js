@@ -28,6 +28,7 @@ async function renderMobilAddTask() {
             <button onclick='checkInputsMobil()'><span>Create</span><img src='../assets/img/akar-icons_check_white.png'> </button>
         </header>
 
+        <div class="headingContainer">
             <div class='frame164'>
                 <h3>Kanban Project Management Tool</h3>
             </div>
@@ -36,6 +37,7 @@ async function renderMobilAddTask() {
                     <h2>Add Task</h2>
                 </div>
             </div>
+        </div>    
 
         <div class="scroll">
 

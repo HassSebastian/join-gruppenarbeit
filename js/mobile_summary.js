@@ -50,7 +50,7 @@ async function renderMobilSummary(
 function generateMobilSummaryHtml() {
 	return /*html*/ `
     <div class="summaryFloatingMasterContainer">
-        <div class="summaryHeadingContainer">
+        <div class="headingContainer">
             <span class="kanbanProjectManagementTool">
             Kanban Project Management Tool
             </span>
@@ -140,7 +140,7 @@ function logOutBtnMob() {
 function logOutMob() {
 	helloCheck = 0;
 	outLogoutMob();
-    localStorage.removeItem('loggedUser');
+	localStorage.removeItem('loggedUser');
 }
 ////////////////////
 
