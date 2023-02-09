@@ -12,6 +12,7 @@ let allYourInProgressTasks = [];
 let allYourAwaitingFeedbackTasks = [];
 let allYourDoneTasks = [];
 let helloCheck = 0; // prevents errors when changing the size of the window on your desktop
+let penImage = 'to_do_pen';
 
 async function initSummary() {
 	sliderMenuShown = false;
@@ -137,20 +138,24 @@ async function renderSummary(
 }
 
 // Hover Summary help-function
+function changeImg(imgId, on) {
+	document.getElementById(imgId).src = `./assets/img/${penImage}${on ? '_black' : ''}.png`;
+}
+
 function toDoHoverOn() {
-	document.getElementById('toDoImg').src = './assets/img/to_do_pen_black.png';
+	changeImg('toDoImg', true);
 }
 
 function toDoHoverOff() {
-	document.getElementById('toDoImg').src = './assets/img/to_do_pen.png';
+	changeImg('toDoImg', false);
 }
 
 function toDoDoneHoverOn() {
-	document.getElementById('toDoDoneImg').src = './assets/img/done_black.png';
+	changeImg('toDoDoneImg', true);
 }
 
 function toDoDoneHoverOff() {
-	document.getElementById('toDoDoneImg').src = './assets/img/done.png';
+	changeImg('toDoDoneImg', false);
 }
 
 /**
