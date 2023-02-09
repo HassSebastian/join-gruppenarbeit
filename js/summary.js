@@ -1,4 +1,4 @@
-let loggedInUserIndex; // Test: Im Array ist immer nur eine Zahl drin
+let loggedInUserIndex;
 let emailAddress;
 let allYourTasksAmount = 0;
 let allYourToDoTasksAmount = 0;
