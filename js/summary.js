@@ -203,6 +203,7 @@ function showDate() {
  * Depending on the time greet user being logged in
  */
 function greetUser() {
+	if (window.innerWidth < 768) return;
 	const currentTime = new Date();
 	const hours = currentTime.getHours();
 	const greeting = getGreeting(hours);
