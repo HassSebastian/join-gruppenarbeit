@@ -67,7 +67,7 @@
 		top: unset !important;
 		right: 0;
 		left: 0;
-		bottom: 0;
+		bottom: 56px; /* Das für Abgabe wieder auf Null setzen! */
 		margin: unset !important;
 		width: unset !important;
 	}
