@@ -176,19 +176,21 @@ function backButtonMob() {
 ///////////////////////////
 let helloCheckMob = 0;
 function helloPageMob() {
-	if (helloCheckMob == 1) {
-		document.getElementById('greetingMasterContainer').classList.add('d-none');
-	} else {
-		document.getElementById('greetingMasterContainer').innerHTML = ``;
-		document.getElementById('greetingMasterContainer').innerHTML = /*html*/ `
-            <div class='greetContainerMob'>
-                <span id='greetUser'></span>
-                <span class="greetUserName">${allUsers[loggedUser[0]].name}</span>
-            </div>
-        `;
-		helloCheckMob = 1;
-		greetingMasterContainerHide();
-	}
+	helloCheckMob == 1
+		? document.getElementById('greetingMasterContainer').classList.add('d-none')
+		: null /* (document.getElementById('greetingMasterContainer').innerHTML = ``) */;
+	document.getElementById('greetingMasterContainer').innerHTML = generateHtmlGreetingUserMobil();
+	helloCheckMob = 1;
+	greetingMasterContainerHide();
+}
+
+function generateHtmlGreetingUserMobil() {
+	return /*html*/ `
+    <div class='greetContainerMob'>
+        <span id='greetUser'></span>
+        <span class="greetUserName">${allUsers[loggedUser[0]].name}</span>
+    </div>
+`;
 }
 
 function greetingMasterContainerHide() {

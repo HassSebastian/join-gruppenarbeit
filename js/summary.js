@@ -11,6 +11,7 @@ let allYourToDoTasks = [];
 let allYourInProgressTasks = [];
 let allYourAwaitingFeedbackTasks = [];
 let allYourDoneTasks = [];
+let helloCheck = 0; // prevents errors when changing the size of the window on your desktop
 
 async function initSummary() {
 	sliderMenuShown = false;
@@ -199,13 +200,20 @@ function showDate() {
 
 /**
  * Depending on the time greet user being logged in
+ * @param {number} helloCheck
  */
 function greetUser() {
-	const currentTime = new Date();
-	const hours = currentTime.getHours();
-	const greeting = getGreeting(hours);
+	helloCheck == 0
+		? (() => {
+				const currentTime = new Date();
+				const hours = currentTime.getHours();
+				const greeting = getGreeting(hours);
 
-	document.getElementById('greetUser').innerHTML = `${greeting},`;
+				document.getElementById('greetUser').innerHTML = `${greeting},`;
+		  })()
+		: null;
+
+	window.innerWidth < 768 ? (helloCheck = 1) : null;
 }
 
 /**
