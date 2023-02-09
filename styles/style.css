@@ -1,397 +1,394 @@
 body {
-    margin: 0;
-    scroll-behavior: smooth;
-    user-select: none;
-    color: white;
-    background-color: black;
-    font-family: 'inter-regular';
+	margin: 0;
+	scroll-behavior: smooth;
+	user-select: none;
+	color: white;
+	background-color: black;
+	font-family: 'inter-regular';
 }
 
 .outerContainer {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .mainContainer {
-    display: flex;
-    justify-content: flex-start;
-    height: 1024px;
-    max-width: 1440px;
-    position: absolute;
+	display: flex;
+	justify-content: flex-start;
+	height: 1024px;
+	max-width: 1440px;
+	position: absolute;
 }
 
 .sideMenu {
-    height: 1024px;
-    width: 232px;
-    background-color: #2A3647;
-    color: #CDCDCD;
-    z-index: 1;
+	height: 1024px;
+	width: 232px;
+	background-color: #2a3647;
+	color: #cdcdcd;
+	z-index: 1;
 }
 
 .logo {
-    margin-top: 66px;
-    margin-left: 65.98px;
-    margin-right: 65.98px;
-    margin-bottom: 103px;
+	margin-top: 66px;
+	margin-left: 65.98px;
+	margin-right: 65.98px;
+	margin-bottom: 103px;
 }
 
 nav {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 229px;
-    /* width: 232px; */
-    margin-bottom: 346px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	height: 229px;
+	/* width: 232px; */
+	margin-bottom: 346px;
 }
 
 table {
-    border-spacing: 0px;
+	border-spacing: 0px;
 }
 
 td {
-    font-family: 'inter';
-    font-weight: 400;
-    font-size: 16px;
-    color: #CDCDCD;
-    height: 55.25px;
-    gap: 15px;
+	font-family: 'inter';
+	font-weight: 400;
+	font-size: 16px;
+	color: #cdcdcd;
+	height: 55.25px;
+	gap: 15px;
 }
 
 tr td:first-child {
-    width: 108.5px;
-    text-align: right;
+	width: 108.5px;
+	text-align: right;
 }
 
 tr td:nth-child(2) {
-    width: 15px;
+	width: 15px;
 }
 
 tr td:nth-child(3) {
-    width: 108.5px;
+	width: 108.5px;
 }
 
 #imgSummary1 {
-    display: inline-table;
+	display: inline-table;
 }
 
 #imgSummary2 {
-    display: none;
+	display: none;
 }
 
 #imgBoard1 {
-    display: inline-table;
+	display: inline-table;
 }
 
 #imgBoard2 {
-    display: none;
+	display: none;
 }
 
 #imgAddTask1 {
-    display: inline-table;
+	display: inline-table;
 }
 
 #imgAddTask2 {
-    display: none;
+	display: none;
 }
 
 #imgContacts1 {
-    display: inline-table;
+	display: inline-table;
 }
 
 #imgContacts2 {
-    display: none;
+	display: none;
 }
 
 #imgSummary11 {
-    display: inline-table;
+	display: inline-table;
 }
 
 #imgSummary21 {
-    display: none;
+	display: none;
 }
 
 #imgBoard11 {
-    display: inline-table;
+	display: inline-table;
 }
 
 #imgBoard21 {
-    display: none;
+	display: none;
 }
 
 #imgAddTask11 {
-    display: inline-table;
+	display: inline-table;
 }
 
 #imgAddTask21 {
-    display: none;
+	display: none;
 }
 
 #imgContacts11 {
-    display: inline-table;
+	display: inline-table;
 }
 
 #imgContacts21 {
-    display: none;
+	display: none;
 }
 
 .trHover:hover {
-    background-color: #091931;
-    cursor: pointer;
+	background-color: #091931;
+	cursor: pointer;
 }
 
 .trHover:hover td:nth-child(3) {
-    color: #FFFFFF;
+	color: #ffffff;
 }
 
 .trHover:hover td:nth-child(1) #imgSummary1 {
-    display: none;
+	display: none;
 }
 
 .trHover:hover td:nth-child(1) #imgSummary2 {
-    display: inline-table;
+	display: inline-table;
 }
 
 .trHover:hover td:nth-child(1) #imgBoard1 {
-    display: none;
+	display: none;
 }
 
 .trHover:hover td:nth-child(1) #imgBoard2 {
-    display: inline-table;
+	display: inline-table;
 }
 
 .trHover:hover td:nth-child(1) #imgAddTask1 {
-    display: none;
+	display: none;
 }
 
 .trHover:hover td:nth-child(1) #imgAddTask2 {
-    display: inline-table;
+	display: inline-table;
 }
 
 .trHover:hover td:nth-child(1) #imgContacts1 {
-    display: none;
+	display: none;
 }
 
 .trHover:hover td:nth-child(1) #imgContacts2 {
-    display: inline-table;
+	display: inline-table;
 }
 
 .imgDisplayNone {
-    opacity: 0;
-    display: none !important;
+	opacity: 0;
+	display: none !important;
 }
 
 .imgDisplay {
-    display: inline-table !important;
-    opacity: 1;
+	display: inline-table !important;
+	opacity: 1;
 }
 
 .legalNotice {
-    height: 53px;
+	height: 53px;
 }
 
 #btnLegalNotice {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .rightContainer {
-    height: 1024px;
-    width: 1208px;
+	height: 1024px;
+	width: 1208px;
 }
 
-.content{
-    height: 1024px;
-    width: 1208px;
-    background-color: #F6F7F8;
-    color: #000000;
-    overflow: auto;
+.content {
+	height: 1024px;
+	width: 1208px;
+	background-color: #f6f7f8;
+	color: #000000;
+	overflow: auto;
 }
 
-.content::-webkit-scrollbar{
-    width: 0px;
+.content::-webkit-scrollbar {
+	width: 0px;
 }
-
 
 .memberMenu {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 36px 0px 348px;
-    gap: 34px;
-    color: black;
-    position: absolute;
-    width: 1056px;
-    height: 89px;
-    left: 0px;
-    top: 0px;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px 36px 0px 348px;
+	gap: 34px;
+	color: black;
+	position: absolute;
+	width: 1056px;
+	height: 89px;
+	left: 0px;
+	top: 0px;
+	background: #ffffff;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
 
 .memberMenu h1 {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
-    color: #000000;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 21px;
+	line-height: 120%;
+	color: #000000;
 }
 
 #memberInfo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-    gap: 26px;
-    width: 106px;
-    height: 49px;
-    cursor: pointer;
-    font-family: 'Inter';
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0px;
+	gap: 26px;
+	width: 106px;
+	height: 49px;
+	cursor: pointer;
+	font-family: 'Inter';
 }
 
 #memberInfo img:first-child {
-    width: 31px;
-    height: 31px;
-    cursor: pointer;
+	width: 31px;
+	height: 31px;
+	cursor: pointer;
 }
 
 .logOut {
-    position: absolute;
-    top: 89px;
-    right: 25px;
-    cursor: pointer;
-    display: none;
-    z-index: 2;
+	position: absolute;
+	top: 89px;
+	right: 25px;
+	cursor: pointer;
+	display: none;
+	z-index: 2;
 }
 
 .logOutOn {
-    display: block;
+	display: block;
 }
 
 /* von Basti hinzugefügt*/
 #contributorsLogoHeadder {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    gap: 16px;
-    width: 49px;
-    height: 49px;
-    border-radius: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0px;
+	gap: 16px;
+	width: 49px;
+	height: 49px;
+	border-radius: 100%;
 }
 
 .sliderMenu {
-    display: none;
-    height: 1024px;
-    width: 302px;
-    color: #CDCDCD;
-    z-index: 1;
-    position: fixed;
-    left: -232px;
-    align-items: center;
-    transition: 100ms ease-in-out;
+	display: none;
+	height: 1024px;
+	width: 302px;
+	color: #cdcdcd;
+	z-index: 1;
+	position: fixed;
+	left: -232px;
+	align-items: center;
+	transition: 100ms ease-in-out;
 }
 
 .showSliderMenu {
-    transition: 100ms ease-in-out;
-    transform: translateX(232px);
+	transition: 100ms ease-in-out;
+	transform: translateX(232px);
 }
 
 .menuContainer {
-    height: 935px;
-    width: 232px;
-    background-color: #2A3647;
-    color: #CDCDCD;
-    margin-top: 89px;
+	height: 935px;
+	width: 232px;
+	background-color: #2a3647;
+	color: #cdcdcd;
+	margin-top: 89px;
 }
 
 .menuButton img {
-    height: 50px;
-    background: #2A3647;
-    border-radius: 0% 50% 50% 0%;
-    padding: 10px;
+	height: 50px;
+	background: #2a3647;
+	border-radius: 0% 50% 50% 0%;
+	padding: 10px;
 }
 
 .menuButton img:hover {
-    cursor: pointer;
-    background: #29ABE2;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    transition: 100ms ease-in-out;
+	cursor: pointer;
+	background: #29abe2;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	transition: 100ms ease-in-out;
 }
 
 /* slider menu end */
 
-
 @media screen and (max-width: 1500px) {
-    .outerContainer {
-        width: 100%;
-    }
+	.outerContainer {
+		width: 100%;
+	}
 
-    .mainContainer {
-        justify-content: center;
-        overflow: hidden;
-        width: 100%;
-    }
+	.mainContainer {
+		justify-content: center;
+		overflow: hidden;
+		width: 100%;
+	}
 }
 
 @media screen and (max-width: 1440px) {
-    /* style.css */
-    .rightContainer {
-        width: calc(100% - 232px);
-    }
+	/* style.css */
+	.rightContainer {
+		width: calc(100% - 232px);
+	}
 
-    .memberMenu {
-        /* width: 100px; */
-        width: 100%;
-        padding: 0px 0px 0px 0px;
-        /* padding-left: 24.17% !important;
+	.memberMenu {
+		/* width: 100px; */
+		width: 100%;
+		padding: 0px 0px 0px 0px;
+		/* padding-left: 24.17% !important;
         padding-right: 36px !important; */
-    }
+	}
 
-    #memberInfo {
-        margin-right: 36px;
-    }
+	#memberInfo {
+		margin-right: 36px;
+	}
 
-    .memberMenu h1 {
-        margin-left: 22%;
-    }
+	.memberMenu h1 {
+		margin-left: 22%;
+	}
 
-    .content {
-        width: 100%;
-    }
-
+	.content {
+		width: 100%;
+	}
 }
 
-@media screen and (max-width: 1300px){
-    /* Side Menu and Slider */
+@media screen and (max-width: 1300px) {
+	/* Side Menu and Slider */
 
-    .sideMenu {
-        display: none !important;
-    }
+	.sideMenu {
+		display: none !important;
+	}
 
-    .sliderMenu {
-        display: flex !important;
-    }
+	.sliderMenu {
+		display: flex !important;
+	}
 
-    .title {
-        left: 8% !important;
-    }
+	.title {
+		left: 8% !important;
+	}
 
-    .overview {
-        left: 8% !important;
-    }
+	.overview {
+		left: 8% !important;
+	}
 
-    .memberMenu h1 {
-        margin-left: 8%;
-    }
+	.memberMenu h1 {
+		margin-left: 8%;
+	}
 
-    .rightContainer {
-        width: 100%;
-    }
+	.rightContainer {
+		width: 100%;
+	}
 }
 
-@media screen and (max-width: 1100px){
-    .memberMenu {
-        z-index: 1;
-    }
+@media screen and (max-width: 1100px) {
+	.memberMenu {
+		z-index: 1;
+	}
 }

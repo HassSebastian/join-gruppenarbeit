@@ -81,7 +81,7 @@ function generateSummaryHtml(
                 <div id='taskInProgress'><span id='taskInProgressAmount'>${allYourInProgressTasksAmount}</span> <p>Task in Progress</p></div>
                 <div id='awaitingFeedback'><span id='awaitingFeedbackAmount'>${allYourAwaitingFeedbackTasksAmount}</span> <p>Awaiting Feedback</p></div>
             </div>
-            <div class='ugencySummary' onmouseover="ugencySummaryHoverOn()" onmouseout="ugencySummaryHoverOff()">
+            <div class='ugencySummary'>
                 <div class="ugent">
                     <div class='ugentImgContainer'>
                         <img class='ugentImg' id='urgentImg' src='./assets/img/summary_urgent.png' >
@@ -139,49 +139,19 @@ async function renderSummary(
 // Hover Summary help-function
 function toDoHoverOn() {
 	document.getElementById('toDoImg').src = './assets/img/to_do_pen_black.png';
-	/* document.getElementById('toDo').classList.add('toDoHover');
-	document.getElementById('toDoAmountTasks').classList.add('toDoHoverSpanP');
-	document.getElementById('toDoAmountP').classList.add('toDoHoverSpanP'); */
 }
 
 function toDoHoverOff() {
 	document.getElementById('toDoImg').src = './assets/img/to_do_pen.png';
-	/* 	document.getElementById('toDo').classList.remove('toDoHover');
-	document.getElementById('toDoAmountTasks').classList.remove('toDoHoverSpanP');
-	document.getElementById('toDoAmountP').classList.remove('toDoHoverSpanP'); */
 }
 
 function toDoDoneHoverOn() {
 	document.getElementById('toDoDoneImg').src = './assets/img/done_black.png';
-	/* 	document.getElementById('toDoDone').classList.add('toDoHover');
-	document.getElementById('toDoDoneAmountTasks').classList.add('toDoHoverSpanP');
-	document.getElementById('toDoDoneAmountP').classList.add('toDoHoverSpanP'); */
 }
 
 function toDoDoneHoverOff() {
 	document.getElementById('toDoDoneImg').src = './assets/img/done.png';
-	/* 	document.getElementById('toDoDone').classList.remove('toDoHover');
-	document.getElementById('toDoDoneAmountTasks').classList.remove('toDoHoverSpanP');
-	document.getElementById('toDoDoneAmountP').classList.remove('toDoHoverSpanP'); */
 }
-
-/* function ugencySummaryHoverOn() {
-	document.getElementById('ugencySummaryAmount').classList.add('toDoHoverSpanP');
-	document.getElementById('deadlineDate').classList.add('toDoHoverSpanP');
-	document.getElementById('deadlineText').classList.add('toDoHoverSpanP');
-	document.getElementById('ugencySummaryurgent').classList.add('toDoHoverSpanP');
-} */
-
-/**
- * It removes the class 'toDoHoverSpanP' from the elements with the ids 'ugencySummaryAmount',
- * 'deadlineDate', 'deadlineText', and 'ugencySummaryurgent'.
- */
-/* function ugencySummaryHoverOff() {
-	document.getElementById('ugencySummaryAmount').classList.remove('toDoHoverSpanP');
-	document.getElementById('deadlineDate').classList.remove('toDoHoverSpanP');
-	document.getElementById('deadlineText').classList.remove('toDoHoverSpanP');
-	document.getElementById('ugencySummaryurgent').classList.remove('toDoHoverSpanP');
-} */
 
 /**
  * Shows date in the summary

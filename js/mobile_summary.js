@@ -80,7 +80,7 @@ function generateMobilSummaryHtml() {
                 </div>
             </div>
 
-            <div class='ugencySummaryMob' onmouseover="ugencySummaryHoverOn()" onmouseout="ugencySummaryHoverOff()">
+            <div class='ugencySummaryMob'>
                 <div class="ugentMob">
                     <div class='ugentImgContainerMob'>
                         <img class='ugentImgMob' id='urgentImg' src='../../assets/img/summary_urgent.png'>
