@@ -1199,7 +1199,8 @@
 @media screen and (max-width: 768px) {
     .boardTaskCardOuterContainer{
         width: 100%;
-        height: calc(100% - 463px);
+        /* height: calc(100% - 463px); */
+        height: calc(100% - 382px);
         left: 0;
     }
 
@@ -1262,4 +1263,58 @@
         gap: 13px;
         width: 320px;
     }
+}
+
+
+@media screen and (max-width: 450px){
+    .toDoHeadline{
+        width: calc(100% - 35px);
+    }
+
+    .taskBackgroundMobil{
+        width: calc(100% - 75px);
+        margin-left: 17px;
+    }
+
+    .taskContainerMobil{
+        width: calc(100% - 79px);
+    }
+
+    .taskHeadlineMobil{
+        width: 100%;
+    }
+
+    .doneBarMobil{
+        width: 207px;
+    }
+
+    .doneBarOuterMobil{
+        width: 150px;
+    }
+
+    .contributorsPrioMobil{
+        width: 100%;
+        gap: 93px;
+    }
+
+    .headlineContainerBoardMob,
+    .boardSearchMobilOuterContainer{
+        left: 24.5px;
+    }
+
+    .addTaskPlusHeader {
+        left: calc(50% + 116.5px);
+    }
+
+    #toDoDiv,
+    #progressDiv,
+    #awaitingDiv,
+    #doneDiv{
+        width: 100%;
+    }
+
+    
+
+    
+
 }
