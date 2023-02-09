@@ -7,8 +7,7 @@ let allYourAwaitingFeedbackTasksAmount = 0;
 let allYourDoneTasksAmount = 0;
 let yourUrgentTasksAmount = 0;
 
-/* sollten die besser im board sein? */
-let allYourToDoTasks = []; // Bossis Idee, für workflow 0-3
+let allYourToDoTasks = [];
 let allYourInProgressTasks = [];
 let allYourAwaitingFeedbackTasks = [];
 let allYourDoneTasks = [];
@@ -220,15 +219,6 @@ function showTime() {
 		helloCheck = 1;
 	}
 }
-/**
- * !NOCH ERLEDIGEN:
-FUnktion: Der, der die Task anlegt, erscheint automatisch in der Taksforce!!!!!!!
- */
-
-/* 
-!FRAGE:
-Kann loggedUser auch ein String sein, statt ein Arry? Einfacher!
-*/
 
 /**
  * It takes the loggedUserAtString from localStorage,
