@@ -1806,6 +1806,10 @@
         overflow: hidden;
         overflow-y: scroll;
     }
+
+    #boardEditDueDate{
+        font-size: 21px !important;
+    }
 }
 
 @media screen and (max-width: 1100px){
