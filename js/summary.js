@@ -34,7 +34,7 @@ async function initSummary() {
 	selectedMenuBtnId = 0;
 	selectedMenuButton(1);
 	showDate();
-	showTime();
+	greetUser();
 	loadContributorsLetter();
 	// getInnerWidth();
 }
@@ -198,26 +198,39 @@ function showDate() {
 }
 
 // greet User
-let helloCheck = 0;
 
-function showTime() {
-	if (helloCheck == 0) {
-		let currentTime = new Date();
-		let hours = currentTime.getHours();
-		let timeString = hours;
-		if (timeString >= 0) {
-			document.getElementById('greetUser').innerHTML = `Good Morning,`;
-		}
-		if (timeString >= 12) {
-			document.getElementById('greetUser').innerHTML = `Good Day,`;
-		}
-		if (timeString >= 18) {
-			document.getElementById('greetUser').innerHTML = `Good Evening,`;
-		}
-	}
-	if (window.innerWidth < 768) {
-		helloCheck = 1;
-	}
+/**
+ * Depending on the time greet user being logged in
+ */
+function greetUser() {
+	const currentTime = new Date();
+	const hours = currentTime.getHours();
+	const greeting = getGreeting(hours);
+
+	document.getElementById('greetUser').innerHTML = `${greeting},`;
+}
+
+/**
+ * Depending on time returns greeting
+ * @param {number} hours
+ * @returns string fitting greeting
+ */
+function getGreeting(hours) {
+	if (hours >= 0 && hours < 12) return 'Good Morning';
+	if (hours >= 12 && hours < 18) return 'Good Day';
+	return 'Good Evening';
+}
+
+/**
+ * This function loads the logged in user's array,
+ * gets the index of the logged in user, gets the email
+ * address of the logged in user, and updates the summary.
+ */
+async function loadAmountsForSummary() {
+	loadLoggedInUserArray();
+	getLoggedUserIndex();
+	getEmailAdrressOfLoggedUser();
+	updatingSummary();
 }
 
 /**
@@ -274,34 +287,79 @@ function updatingSummary() {
  * @param priority - 0 = Low, 1 = Medium, 2 = High, 3 = Urgent
  */
 function itemsToUpdate(email, workflowStatus, priority, task) {
+	updateTaskInBoard(email);
+	updateToDoTasks(email, workflowStatus, task);
+	updateTaskInProgress(email, workflowStatus, task);
+	updateTaskAwaitingFeedback(email, workflowStatus, task);
+	updateTaskDone(email, workflowStatus, task);
+	updateTaskUrgent(email, priority);
+}
+
+/**
+ * Updates tasks in baord variable
+ * @param {string} email
+ */
+function updateTaskInBoard(email) {
 	if (email == emailAddress) allYourTasksAmount++;
+}
+
+/**
+ * Updates tasks still to do
+ * @param {string} email
+ * @param {number} workflowStatus
+ * @param {object} task
+ */
+function updateToDoTasks(email, workflowStatus, task) {
 	if (email == emailAddress && workflowStatus === 0) {
 		allYourToDoTasksAmount++;
 		allYourToDoTasks.push(task);
 	}
+}
+
+/**
+ * Updates tasks being in "in progress"
+ * @param {string} email
+ * @param {number} workflowStatus
+ * @param {object} task
+ */
+function updateTaskInProgress(email, workflowStatus, task) {
 	if (email == emailAddress && workflowStatus === 1) {
 		allYourInProgressTasksAmount++;
 		allYourInProgressTasks.push(task);
 	}
+}
+
+/**
+ * Updates tasks in "awaiting feedback"
+ * @param {string} email
+ * @param {number} workflowStatus
+ * @param {object} task
+ */
+function updateTaskAwaitingFeedback(email, workflowStatus, task) {
 	if (email == emailAddress && workflowStatus === 2) {
 		allYourAwaitingFeedbackTasksAmount++;
 		allYourAwaitingFeedbackTasks.push(task);
 	}
+}
+
+/**
+ * Updates done tasks
+ * @param {string} email
+ * @param {number} workflowStatus
+ * @param {object} task
+ */
+function updateTaskDone(email, workflowStatus, task) {
 	if (email == emailAddress && workflowStatus === 3) {
 		allYourDoneTasksAmount++;
 		allYourDoneTasks.push(task);
 	}
-	if (email == emailAddress && priority === 'Urgent') yourUrgentTasksAmount++;
 }
 
 /**
- * This function loads the logged in user's array,
- * gets the index of the logged in user, gets the email
- * address of the logged in user, and updates the summary.
+ * Updates urgend tasks
+ * @param {stringg} email
+ * @param {string} priority
  */
-async function loadAmountsForSummary() {
-	loadLoggedInUserArray();
-	getLoggedUserIndex();
-	getEmailAdrressOfLoggedUser();
-	updatingSummary();
+function updateTaskUrgent(email, priority) {
+	if (email == emailAddress && priority === 'Urgent') yourUrgentTasksAmount++;
 }

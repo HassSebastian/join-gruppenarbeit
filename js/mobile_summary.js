@@ -17,7 +17,7 @@ async function initMobilSummary() {
 	selectedMenuButton(1);
 
 	showDate();
-	showTime();
+	greetUser();
 	loadContributorsLetterMob();
 	logOutMasterContainerMob();
 }
