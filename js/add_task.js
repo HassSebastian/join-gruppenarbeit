@@ -960,11 +960,7 @@ function addSelectedContactToTaskForce(contact) {
  * @param {number} contact
  */
 function removeCheckMarkFromCheckBox(contact) {
-	try {
-		if (contact != guestId) document.getElementById(`checkMark${contact}`).classList.add('d-none');
-	} catch (error) {
-		console.log('error', error, contact);
-	}
+	contact != guestId ? document.getElementById(`checkMark${contact}`).classList.add('d-none') : null;
 }
 
 /**

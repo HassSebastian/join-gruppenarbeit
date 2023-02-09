@@ -138,6 +138,12 @@ async function renderSummary(
 }
 
 // Hover Summary help-function
+
+/**
+ * Right image gets chosen for hover effect
+ * @param {string} imgId
+ * @param {boolean} on if the cursor is on the div on == true
+ */
 function changeImg(imgId, on) {
 	document.getElementById(imgId).src = `./assets/img/${penImage}${on ? '_black' : ''}.png`;
 }
@@ -175,7 +181,7 @@ function showDate() {
 
 /**
  * Depending on the time greet user being logged in
- * @param {number} helloCheck
+ * @param {number} helloCheck is 0 when width of window is bigger 768px
  */
 function greetUser() {
 	helloCheck == 0
@@ -230,7 +236,6 @@ function loadLoggedInUserArray() {
  */
 function getLoggedUserIndex() {
 	loggedInUserIndex = loggedUser[0];
-	console.log('IDGuest', loggedInUserIndex);
 }
 
 /**
@@ -281,7 +286,7 @@ function itemsToUpdate(email, workflowStatus, priority, task) {
  * @param {string} email
  */
 function updateTaskInBoard(email) {
-	if (email == emailAddress) allYourTasksAmount++;
+	if (email === emailAddress) allYourTasksAmount++;
 }
 
 /**
@@ -291,7 +296,7 @@ function updateTaskInBoard(email) {
  * @param {object} task
  */
 function updateToDoTasks(email, workflowStatus, task) {
-	if (email == emailAddress && workflowStatus === 0) {
+	if (email === emailAddress && workflowStatus === 0) {
 		allYourToDoTasksAmount++;
 		allYourToDoTasks.push(task);
 	}
@@ -304,7 +309,7 @@ function updateToDoTasks(email, workflowStatus, task) {
  * @param {object} task
  */
 function updateTaskInProgress(email, workflowStatus, task) {
-	if (email == emailAddress && workflowStatus === 1) {
+	if (email === emailAddress && workflowStatus === 1) {
 		allYourInProgressTasksAmount++;
 		allYourInProgressTasks.push(task);
 	}
@@ -317,7 +322,7 @@ function updateTaskInProgress(email, workflowStatus, task) {
  * @param {object} task
  */
 function updateTaskAwaitingFeedback(email, workflowStatus, task) {
-	if (email == emailAddress && workflowStatus === 2) {
+	if (email === emailAddress && workflowStatus === 2) {
 		allYourAwaitingFeedbackTasksAmount++;
 		allYourAwaitingFeedbackTasks.push(task);
 	}
@@ -330,7 +335,7 @@ function updateTaskAwaitingFeedback(email, workflowStatus, task) {
  * @param {object} task
  */
 function updateTaskDone(email, workflowStatus, task) {
-	if (email == emailAddress && workflowStatus === 3) {
+	if (email === emailAddress && workflowStatus === 3) {
 		allYourDoneTasksAmount++;
 		allYourDoneTasks.push(task);
 	}
@@ -342,5 +347,5 @@ function updateTaskDone(email, workflowStatus, task) {
  * @param {string} priority
  */
 function updateTaskUrgent(email, priority) {
-	if (email == emailAddress && priority === 'Urgent') yourUrgentTasksAmount++;
+	if (email === emailAddress && priority === 'Urgent') yourUrgentTasksAmount++;
 }
