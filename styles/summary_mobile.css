@@ -512,3 +512,15 @@ vector {
 	order: 1;
 	flex-grow: 0;
 }
+
+/* !TEST */
+.ugencySummaryMob:hover span,
+.ugencySummaryMob:hover p,
+.toDo:hover,
+.toDo:hover span,
+.toDo:hover p,
+.toDoDone:hover,
+.toDoDone:hover span,
+.toDoDone:hover p {
+	color: white !important;
+}
