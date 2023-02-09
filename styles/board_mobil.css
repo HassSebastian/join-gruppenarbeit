@@ -1263,6 +1263,10 @@
         gap: 13px;
         width: 320px;
     }
+
+    .editTaskOkBtnMob{
+        left: 315px;
+    }
 }
 
 
@@ -1313,8 +1317,39 @@
         width: 100%;
     }
 
-    
 
-    
+    .scrollOverEdit{
+        width: calc(100% - 48px);
+    }
 
+    .taskCardPopupTaskMob,
+    .taskCardPopupDescriptionMob{
+        width: calc(100% - 30px);
+    }
+
+    .backArrow{
+        left: calc(100% - 24.5px);
+    }
+
+    .editButtonMob{
+        left: calc(100% - 64.5px);
+    }
+
+    .moveBtnMobil{
+       align-items: unset; 
+       height: unset;
+       flex-direction: column;
+    }
+
+    .editTaskOkBtnMob{
+        left: calc(100% - 87.5px)
+    }
+}
+
+
+
+@media screen and (max-width: 400px){
+    .editTaskOkBtnMob{
+        top: 685px;
+    }
 }
