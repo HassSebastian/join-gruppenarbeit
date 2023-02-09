@@ -167,7 +167,7 @@
 	}
 
 	.frame154 {
-		left: 16px;
+		left: 8px;
 	}
 
 	.urgencyLevelCard {
@@ -307,7 +307,15 @@
 		margin: 24px 0;
 	}
 
+	/* Baord */
+	/* .headlineContainerBoardMob { !So ???
+		top: 100px;
+	} */
+
 	/* Add Task */
+	.scroll {
+		top: 180px;
+	}
 
 	.frame164 {
 		display: none;
