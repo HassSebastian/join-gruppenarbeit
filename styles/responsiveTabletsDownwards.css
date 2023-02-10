@@ -81,6 +81,7 @@
 	.scroll {
 		width: unset;
 		right: 31px;
+		bottom: 80px !important;
 	}
 
 	.addTaskTitleMobil,
@@ -139,7 +140,7 @@
 		right: 8px;
 		left: 8px;
 		height: auto;
-		bottom: 137px;
+		bottom: 80px;
 	}
 
 	/* SUMMARY */

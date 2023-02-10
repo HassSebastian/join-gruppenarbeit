@@ -270,9 +270,9 @@ body {
 	gap: 9px;
 	position: absolute;
 	width: 363px;
-	height: 610px;
 	left: 31px;
 	top: 231px;
+	bottom: 80px;
 }
 
 .addTaskTitleMobil {
