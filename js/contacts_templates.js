@@ -8,13 +8,15 @@ function renderContentHTML() {
         <div class="contactsContainer">
             <div class="Frame_97">
                 <div class="Contact_list" id="Contact_list"></div>
-            </div>
-                <div class="showContact" id="showContact"></div>
                 <div class="better_with_a_team">
                     <h1>Contacts</h1>
                     <div class="vector_5"></div>
                     <span>Better with a team</span>
+                    
                 </div>
+                <div class="showContact" id="showContact"></div>
+            </div>
+                
             <div class="new_contact" onclick="openNewContact()">
                 <span>New contact</span>
                 <img src="assets/img/add_contact_icon.png" alt="">
@@ -368,8 +370,10 @@ function showContactHTML(name, email, phone, letter, color, i) {
                 <span id="deleteContactQuestion">${letter}</span>
             </div>
             <div class="showContact_Name_addTask">
-                <h1>${name}</h1>
-                <span onclick="showAddTaskPopupWindow()">+ Add Task</span>
+                <div class="rightSideShowContacts">
+                    <h1>${name}</h1>
+                    <span onclick="showAddTaskPopupWindow()">+ Add Task</span>
+                </div>
             </div>
         </div>
         <div class="showContact_information_edit">

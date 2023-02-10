@@ -25,7 +25,7 @@
 	padding: 0px;
 	position: absolute;
 	width: 357px;
-	height: 933px;
+	height: 100vh;
 	left: 48px;
 	top: 2px;
 	background: #ffffff;
@@ -136,8 +136,8 @@
 
 .better_with_a_team {
 	position: relative;
-	top: -1170px;
-	left: 450px;
+	top: 82px;
+	left: 508px;
 	width: fit-content;
 	display: flex;
 	justify-content: space-around;
@@ -146,7 +146,7 @@
 }
 
 .better_with_a_team h1 {
-	margin: 16px;
+	margin-right: 16px;
 	width: 274px;
 	height: 73px;
 	font-family: 'Inter';
@@ -257,12 +257,16 @@
 }
 
 .showContact {
-	position: relative;
+	position: absolute;
 	width: 461px;
 	height: 370px;
 	left: 1210px;
-	top: -600px;
+	top: 237px;
 	transition: 500ms ease-in-out;
+}
+
+.showContactDetail {
+	display: flex;
 }
 
 .showContactSlide {
@@ -271,11 +275,11 @@
 }
 
 .show_contact_ellipse_5 {
-	position: absolute;
+	/* position: absolute; */
 	width: 120px;
 	height: 120px;
 	left: 0px;
-	top: -30px;
+	/* top: -30px; */
 	border-radius: 100%;
 	background: #ff7a00;
 	display: flex;
@@ -289,8 +293,15 @@
 	color: #ffffff;
 }
 
+.rightSideShowContacts {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding-left: 54px;
+}
+
 .showContact_Name_addTask h1 {
-	margin-left: 239px;
+	/* margin-left: 239px; */
 	width: 287px;
 	height: 56px;
 	font-family: 'Inter';
@@ -307,8 +318,8 @@
 }
 
 .showContact_Name_addTask span {
-	margin-left: 239px;
-	width: 120px;
+	/* margin-left: 239px; */
+	width: fit-content;
 	height: 27px;
 	font-family: 'Inter';
 	font-style: normal;
@@ -965,6 +976,11 @@
 }
 
 @media (max-width: 1100px) {
+	.rightSideShowContacts {
+		padding-left: unset;
+		align-items: center;
+	}
+
 	.blackSite {
 		height: 350px;
 		top: -156px;
