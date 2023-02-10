@@ -5,7 +5,7 @@
 function renderContentHTML() {
 	return /*html*/ `
         <div class='shadowOverlay d-none' id='boardPopup' onclick='disablePopupWindow()'></div>
-        <div>
+        <div class="contactsContainer">
             <div class="Frame_97">
                 <div class="Contact_list" id="Contact_list"></div>
             </div>

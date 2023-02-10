@@ -15,13 +15,16 @@ body {
 .mainContainer {
 	display: flex;
 	justify-content: flex-start;
-	height: 1024px;
+	height: 100%;
 	max-width: 1440px;
 	position: absolute;
 }
 
 .sideMenu {
-	height: 1024px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
 	width: 232px;
 	background-color: #2a3647;
 	color: #cdcdcd;
@@ -41,7 +44,7 @@ nav {
 	flex-direction: column;
 	height: 229px;
 	/* width: 232px; */
-	margin-bottom: 346px;
+	/* margin-bottom: 346px; */
 }
 
 table {
@@ -187,6 +190,7 @@ tr td:nth-child(3) {
 
 .legalNotice {
 	height: 53px;
+	margin-bottom: 112.03px;
 }
 
 #btnLegalNotice {
@@ -194,12 +198,12 @@ tr td:nth-child(3) {
 }
 
 .rightContainer {
-	height: 1024px;
+	height: 100vh;
 	width: 1208px;
 }
 
 .content {
-	height: 1024px;
+	height: 100%;
 	width: 1208px;
 	background-color: #f6f7f8;
 	color: #000000;
@@ -281,12 +285,13 @@ tr td:nth-child(3) {
 
 .sliderMenu {
 	display: none;
-	height: 1024px;
+	height: 100%;
 	width: 302px;
 	color: #cdcdcd;
 	z-index: 1;
 	position: fixed;
 	left: -232px;
+	top: 89px;
 	align-items: center;
 	transition: 100ms ease-in-out;
 }
@@ -297,11 +302,11 @@ tr td:nth-child(3) {
 }
 
 .menuContainer {
-	height: 935px;
+	height: 100%;
 	width: 232px;
 	background-color: #2a3647;
 	color: #cdcdcd;
-	margin-top: 89px;
+	/* margin-top: 89px; */
 }
 
 .menuButton img {
