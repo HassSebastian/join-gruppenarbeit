@@ -35,7 +35,7 @@ function calculateinputValueTest(name, email, password, requiredName, requiredEm
 		) {
 			emailToCheck(name.value, email.value, password.value);
 		}
-	}else{
+	} else {
 		requiredName.classList.add('requiredOn');
 		requiredEmail.classList.add('requiredOn');
 		requiredPassword.classList.add('requiredOn');

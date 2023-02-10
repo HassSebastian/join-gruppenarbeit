@@ -32,12 +32,8 @@ function renderContentHTML() {
  * @param {boolean} guestLoggedIn
  */
 function chooseRightUserArray() {
-	if (!guestLoggedIn) {
-		calculateUserInAlphabetArray(allUsers);
-	}
-	if (guestLoggedIn) {
-		calculateUserInAlphabetArray(allFakeUsers);
-	}
+	!guestLoggedIn ? calculateUserInAlphabetArray(allUsers) : null;
+	guestLoggedIn ? calculateUserInAlphabetArray(allFakeUsers) : null;
 }
 
 /**
