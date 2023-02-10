@@ -1,394 +1,393 @@
 .board {
-    position: relative;
-    width: 1440px;
-    height: 1024px;
-    overflow-y: scroll;
-    background: #F6F7F8;
+	position: relative;
+	width: 1440px;
+	height: 1024px;
+	overflow-y: scroll;
+	background: #f6f7f8;
 }
 
 .boardOverlay {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-    gap: 474px;
-    position: absolute;
-    width: 1078px;
-    height: 73px;
-    left: 302px;
-    top: 171px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0px;
+	gap: 474px;
+	position: absolute;
+	width: 1078px;
+	height: 73px;
+	left: 302px;
+	top: 171px;
 }
 
 .boardHeadline {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 1px;
-    width: 176px;
-    height: 73px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 1px;
+	width: 176px;
+	height: 73px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .boardHeadline span {
-    width: 176px;
-    height: 73px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 61px;
-    line-height: 120%;
-    color: #000000;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: 176px;
+	height: 73px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 61px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .inputOutContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 35px;
-    width: 423px;
-    height: 51px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 35px;
+	width: 423px;
+	height: 51px;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
 }
 
 .inputContainer {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 13px 21px;
-    gap: 10px;
-    width: 251px;
-    height: 51px;
-    background: #FFFFFF;
-    border: 1px solid #A8A8A8;
-    border-radius: 10px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 13px 21px;
+	gap: 10px;
+	width: 251px;
+	height: 51px;
+	background: #ffffff;
+	border: 1px solid #a8a8a8;
+	border-radius: 10px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .inputInContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px;
-    gap: 10px;
-    width: 226px;
-    height: 31px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px;
+	gap: 10px;
+	width: 226px;
+	height: 31px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .vector {
-    width: 0px;
-    height: 31px;
-    border: 1px solid #D1D1D1;
-    flex: none;
-    margin-left: 60px;
-    order: 0;
-    flex-grow: 0;
+	width: 0px;
+	height: 31px;
+	border: 1px solid #d1d1d1;
+	flex: none;
+	margin-left: 60px;
+	order: 0;
+	flex-grow: 0;
 }
 
 .inputInContainer img {
-    width: 20.31px;
-    height: 20.31px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    padding-right: 16px;
+	width: 20.31px;
+	height: 20.31px;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	padding-right: 16px;
 }
 
 .inputFontContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    gap: 13px;
-    width: 100px;
-    height: 19px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 0px;
+	gap: 13px;
+	width: 100px;
+	height: 19px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .inputFontContainer input {
-    width: 100px;
-    height: 19px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
-    display: flex;
-    align-items: center;
-    /* color: #D1D1D1; */
-    color: #2A3647;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    border: 0px;
-    outline: none;
+	width: 100px;
+	height: 19px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 120%;
+	display: flex;
+	align-items: center;
+	/* color: #D1D1D1; */
+	color: #2a3647;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	border: 0px;
+	outline: none;
 }
 
 .addTaskButton {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 18px 10px;
-    gap: 10px;
-    width: 137px;
-    height: 51px;
-    background: #2A3647;
-    border: 1px solid #2A3647;
-    border-radius: 10px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    border: 0;
-    cursor: pointer;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 18px 10px;
+	gap: 10px;
+	width: 137px;
+	height: 51px;
+	background: #2a3647;
+	border: 1px solid #2a3647;
+	border-radius: 10px;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	border: 0;
+	cursor: pointer;
 }
 
 .addTaskButton:hover {
-    background: #29ABE2;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    transition: 100ms ease-in-out;
+	background: #29abe2;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	transition: 100ms ease-in-out;
 }
 
 .addTaskButton span {
-    width: 92px;
-    height: 25px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 120%;
-    color: #FFFFFF;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: 92px;
+	height: 25px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 21px;
+	line-height: 120%;
+	color: #ffffff;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .plusOutContainer {
-    width: 15px;
-    height: 15px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+	width: 15px;
+	height: 15px;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
 }
 
 .plusInContainer img {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    left: 112px;
-    top: 18px;
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	left: 112px;
+	top: 18px;
 }
 
 .menuOverlay {
-    position: absolute;
-    width: 1145px;
-    height: 327px;
-    left: 267px;
-    top: 57px;
-    /* background: #F6F7F8; */
+	position: absolute;
+	width: 1145px;
+	height: 327px;
+	left: 267px;
+	top: 57px;
+	/* background: #F6F7F8; */
 }
 
 .menuTask {
-    position: absolute;
-    width: 1058px;
-    height: 30px;
-    left: 35px;
-    bottom: 11px;
+	position: absolute;
+	width: 1058px;
+	height: 30px;
+	left: 35px;
+	bottom: 11px;
 }
 
 .menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px;
-    gap: 6px;
-    position: absolute;
-    width: 230px;
-    height: 30px;
-    left: 828px;
-    top: 0px;
-    /* edit by Bossi 24.12.2022 */
-    /* margin-top: -36px; */
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px;
+	gap: 6px;
+	position: absolute;
+	width: 230px;
+	height: 30px;
+	left: 828px;
+	top: 0px;
+	/* edit by Bossi 24.12.2022 */
+	/* margin-top: -36px; */
 }
 
 .menu span {
-    width: max-content;
-    height: 25px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 120%;
-    color: #2A3647;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: max-content;
+	height: 25px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 21px;
+	line-height: 120%;
+	color: #2a3647;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .menuPlusButton {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 3px;
-    gap: 10px;
-    width: 30px;
-    height: 30px;
-    border: 2px solid #2A3647;
-    border-radius: 10px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    cursor: pointer;
-    background-image: url("../assets/img/plus_logo_black.png");
-    background-position: center;
-    background-size: 15px 15px;
-    background-repeat: no-repeat;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 3px;
+	gap: 10px;
+	width: 30px;
+	height: 30px;
+	border: 2px solid #2a3647;
+	border-radius: 10px;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	cursor: pointer;
+	background-image: url('../assets/img/plus_logo_black.png');
+	background-position: center;
+	background-size: 15px 15px;
+	background-repeat: no-repeat;
 }
 
 .menuPlusButton:hover {
-    background-image: url("../assets/img/plus_logo_blue.png");
-    border: 2px solid #29ABE2;
-    ;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    transition: 100ms ease-in-out;
+	background-image: url('../assets/img/plus_logo_blue.png');
+	border: 2px solid #29abe2;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	transition: 100ms ease-in-out;
 }
 
 .menuPlusButton img {
-    width: 15px;
-    height: 15px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: 15px;
+	height: 15px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .done {
-    left: 828px;
+	left: 828px;
 }
 
 .feedback {
-    left: 552px;
+	left: 552px;
 }
 
 .progress {
-    left: 276px;
+	left: 276px;
 }
 
 .todo {
-    left: 0px;
+	left: 0px;
 }
 
 .canbanBoard {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 26px;
-    position: absolute;
-    width: 1078px;
-    height: 607px;
-    left: 302px;
-    top: 408px;
-    overflow: hidden;
-    overflow-y: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 26px;
+	position: absolute;
+	width: 1078px;
+	height: 607px;
+	left: 302px;
+	top: 408px;
+	overflow: hidden;
+	overflow-y: auto;
 }
 
 .canbanBoard::-webkit-scrollbar {
-    width: 0px;
+	width: 0px;
 }
 
 .canbanContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 250px;
-    height: 600px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 250px;
+	height: 600px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .taskBackground {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 18px 19px;
-    gap: 10px;
-    width: 212px;
-    height: 239px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
-    border-radius: 30px;
-    margin-top: 8px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 18px 19px;
+	gap: 10px;
+	width: 212px;
+	height: 239px;
+	background: #ffffff;
+	box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+	border-radius: 30px;
+	margin-top: 8px;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	cursor: pointer;
 }
 
 .taskContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 20px;
-    width: 209px;
-    height: 203px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 20px;
+	width: 209px;
+	height: 203px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .boardTaskCategory {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 4px 25px;
-    gap: 10px;
-    min-width: 103px;
-    height: 27px;
-    border-radius: 8px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 4px 25px;
+	gap: 10px;
+	min-width: 103px;
+	height: 27px;
+	border-radius: 8px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .boardTaskCategory span {
-    width: max-content;
-    height: 19px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
-    color: #FFFFFF;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: max-content;
+	height: 19px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 120%;
+	color: #ffffff;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 /* .design {
@@ -412,643 +411,636 @@
 } */
 
 .taskHeadline {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 10px;
-    width: 207px;
-    height: 67px;
-    border-radius: 10px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 10px;
+	width: 207px;
+	height: 67px;
+	border-radius: 10px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .taskHeadlineContent {
-    width: 100%;
-    height: 19px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 120%;
-    color: #2A3647;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    overflow: hidden;
+	width: 100%;
+	height: 19px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 120%;
+	color: #2a3647;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	overflow: hidden;
 }
 
 .taskContent {
-    width: 207px;
-    height: 38px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
-    color: #A8A8A8;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    overflow: hidden;
+	width: 207px;
+	height: 38px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 120%;
+	color: #a8a8a8;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	overflow: hidden;
 }
 
 .doneBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    gap: 20px;
-    width: 209px;
-    height: 14px;
-    flex: none;
-    order: 2;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 0px;
+	gap: 20px;
+	width: 209px;
+	height: 14px;
+	flex: none;
+	order: 2;
+	flex-grow: 0;
 }
 
 .doneBarOuter {
-    width: 138px;
-    height: 8px;
-    /* background: #F4F4F4; */
-    /* background: #29ABE2; */
-    border-radius: 2px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: 138px;
+	height: 8px;
+	/* background: #F4F4F4; */
+	/* background: #29ABE2; */
+	border-radius: 2px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .doneBar span {
-    width: 51px;
-    height: 14px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 120%;
-    color: #000000;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+	width: 51px;
+	height: 14px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
 }
 
 .contributorsPrio {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    gap: 35px;
-    width: 207px;
-    height: 35px;
-    flex: none;
-    order: 3;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 0px;
+	gap: 35px;
+	width: 207px;
+	height: 35px;
+	flex: none;
+	order: 3;
+	flex-grow: 0;
 }
 
 .contributorsLogoContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0px;
-    width: 93px;
-    height: 35px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 0px;
+	width: 93px;
+	height: 35px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .contributorsLogo {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 8px;
-    gap: 10px;
-    width: 35px;
-    height: 35px;
-    border: 1px solid #FFFFFF;
-    border-radius: 58px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin: 0px -6px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 8px;
+	gap: 10px;
+	width: 35px;
+	height: 35px;
+	border: 1px solid #ffffff;
+	border-radius: 58px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	margin: 0px -6px;
 }
 
 .contributorsLogo span {
-    width: 15px;
-    height: 14px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 120%;
-    color: #FFFFFF;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: 15px;
+	height: 14px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 120%;
+	color: #ffffff;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .blue {
-    background: #0190E0;
+	background: #0190e0;
 }
 
 .pink {
-    background: #EE00D6;
+	background: #ee00d6;
 }
 
 .litegreen {
-    background: #02CF2F;
+	background: #02cf2f;
 }
 
 .yellow {
-    background: #FFA800;
+	background: #ffa800;
 }
 
 .lila {
-    background: #9327FF;
+	background: #9327ff;
 }
 
 .black {
-    background: #2A3647;
+	background: #2a3647;
 }
 
 .orange {
-    background: #FF5C00;
+	background: #ff5c00;
 }
 
 .green {
-    background: #4E963D;
+	background: #4e963d;
 }
 
 .liteblue {
-    background: #32DAFF;
+	background: #32daff;
 }
 
 .prio {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 18px;
-    gap: 10px;
-    width: 32px;
-    height: 32px;
-    background: #FFFFFF;
-    border-radius: 10px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 18px;
+	gap: 10px;
+	width: 32px;
+	height: 32px;
+	background: #ffffff;
+	border-radius: 10px;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
 }
 
 .prio img {
-    width: 17px;
-    height: 12px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: 17px;
+	height: 12px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .drag-area-highlight {
-    background-color: rgba(0, 0, 0, 0.2);
+	background-color: rgba(0, 0, 0, 0.2);
 }
 
 .boardSubheaders {
-    position: absolute;
-    width: 1145px;
-    height: 57px;
-    left: 267px;
-    top: 327px;
+	position: absolute;
+	width: 1145px;
+	height: 57px;
+	left: 267px;
+	top: 327px;
 
-    background: #F6F7F8;
+	background: #f6f7f8;
 }
 
 .boardSubtitleContainer {
-    position: absolute;
-    width: 1058px;
-    height: 30px;
-    left: 45px;
-    bottom: 11px;
+	position: absolute;
+	width: 1058px;
+	height: 30px;
+	left: 45px;
+	bottom: 11px;
 }
 
 .toDoAreaHeader {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px;
-    gap: 35px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px;
+	gap: 35px;
 
-    position: absolute;
-    width: 230px;
-    height: 30px;
-    left: 0px;
-    top: 0px;
-
+	position: absolute;
+	width: 230px;
+	height: 30px;
+	left: 0px;
+	top: 0px;
 }
 
 .toDoAreaHeader span {
-    width: 57px;
-    height: 25px;
+	width: 57px;
+	height: 25px;
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 120%;
-    /* or 25px */
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 21px;
+	line-height: 120%;
+	/* or 25px */
 
+	color: #2a3647;
 
-    color: #2A3647;
+	/* Inside auto layout */
 
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .inProgressAreaHeader {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px;
-    gap: 35px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px;
+	gap: 35px;
 
-    position: absolute;
-    width: 230px;
-    height: 30px;
-    left: 276px;
-    top: 0px;
+	position: absolute;
+	width: 230px;
+	height: 30px;
+	left: 276px;
+	top: 0px;
 }
 
 .inProgressAreaHeader span {
-    width: 116px;
-    height: 25px;
+	width: 116px;
+	height: 25px;
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 120%;
-    /* or 25px */
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 21px;
+	line-height: 120%;
+	/* or 25px */
 
+	color: #2a3647;
 
-    color: #2A3647;
+	/* Inside auto layout */
 
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .awaitingFeedbackAreaHeader {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px;
-    gap: 6px;
-    position: absolute;
-    width: 230px;
-    height: 30px;
-    left: 545px;
-    top: 0px;
-
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px;
+	gap: 6px;
+	position: absolute;
+	width: 230px;
+	height: 30px;
+	left: 545px;
+	top: 0px;
 }
 
 .awaitingFeedbackAreaHeader span {
-    width: max-content;
-    height: 25px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 120%;
-    color: #2A3647;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: max-content;
+	height: 25px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 21px;
+	line-height: 120%;
+	color: #2a3647;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .doneAreaHeader {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px;
-    gap: 35px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px;
+	gap: 35px;
 
-    position: absolute;
-    width: 230px;
-    height: 30px;
-    left: 828px;
-    top: 0px;
+	position: absolute;
+	width: 230px;
+	height: 30px;
+	left: 828px;
+	top: 0px;
 }
 
 .doneAreaHeader span {
-    width: 54px;
-    height: 25px;
+	width: 54px;
+	height: 25px;
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 120%;
-    color: #2A3647;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 21px;
+	line-height: 120%;
+	color: #2a3647;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 /* add by Bossi 25.12 */
 .shadowOverlay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 1024px;
-    width: 1440px;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.2);
-    left: 0px;
-    z-index: 10;
-    cursor: pointer;
-    overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 1440px;
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.2);
+	left: 0px;
+	z-index: 10;
+	cursor: pointer;
+	overflow: hidden;
 }
-
 
 /* Copy from boardTaskCardPopup.css */
 .boardTaskCardPopup {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 50px;
-    gap: 25px;
-    isolation: isolate;
-    position: relative;
-    width: 573px;
-    height: 774px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 30px;
-    cursor: auto;
-    position: absolute;
-    left: 480px;
-    top: 117px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 50px;
+	gap: 25px;
+	isolation: isolate;
+	position: relative;
+	width: 573px;
+	height: 774px;
+	background: #ffffff;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 30px;
+	cursor: auto;
+	position: absolute;
+	left: 480px;
+	top: 117px;
 }
 
 .taskCardPopupCategory {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 4px 36.5px;
-    gap: 10px;
-    min-width: 142px;
-    height: 40px;
-    background: #FC71FF;
-    border-radius: 8px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    z-index: 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	padding: 4px 36.5px;
+	gap: 10px;
+	min-width: 142px;
+	height: 40px;
+	background: #fc71ff;
+	border-radius: 8px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	z-index: 0;
 }
 
 .taskCardPopupCategory span {
-    /* width: 69px; */
-    height: 32px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 27px;
-    line-height: 120%;
-    color: #FFFFFF;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	/* width: 69px; */
+	height: 32px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 27px;
+	line-height: 120%;
+	color: #ffffff;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .taskCardPopupTask {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 1px;
-    width: 523px;
-    max-height: 150px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    z-index: 1;
-    overflow: hidden;
-    overflow-y: scroll;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 1px;
+	width: 523px;
+	max-height: 150px;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	z-index: 1;
+	overflow: hidden;
+	overflow-y: scroll;
 }
 
 .taskCardPopupTask span {
-    width: 523px;
-    height: 146px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 61px;
-    line-height: 120%;
-    color: #2A3647;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: 523px;
+	height: 146px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 61px;
+	line-height: 120%;
+	color: #2a3647;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .taskCardPopupDescription {
-    width: 518px;
-    /* height: 50px; */
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
-    color: #000000;
-    flex: none;
-    order: 2;
-    flex-grow: 0;
-    z-index: 2;
-    max-height: 100px;
-    overflow: hidden;
-    overflow-y: scroll;
-    min-height: 50px;
+	width: 518px;
+	/* height: 50px; */
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 21px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 2;
+	flex-grow: 0;
+	z-index: 2;
+	max-height: 100px;
+	overflow: hidden;
+	overflow-y: scroll;
+	min-height: 50px;
 }
 
 .taskCardPopupDateContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 25px;
-    width: 246px;
-    height: 25px;
-    flex: none;
-    order: 3;
-    flex-grow: 0;
-    z-index: 3;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 25px;
+	width: 246px;
+	height: 25px;
+	flex: none;
+	order: 3;
+	flex-grow: 0;
+	z-index: 3;
 }
 
 .taskCardPopupDateText {
-    width: 99px;
-    height: 25px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 120%;
-    color: #000000;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: 99px;
+	height: 25px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 21px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .taskCardPopupDueDate {
-    /* width: 122px; */
-    height: 25px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+	/* width: 122px; */
+	height: 25px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 21px;
+	line-height: 120%;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
 }
 
 .taskCardPopupPriorityContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-    gap: 25px;
-    width: 238px;
-    height: 33px;
-    flex: none;
-    order: 4;
-    flex-grow: 0;
-    z-index: 4;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0px;
+	gap: 25px;
+	width: 238px;
+	height: 33px;
+	flex: none;
+	order: 4;
+	flex-grow: 0;
+	z-index: 4;
 }
 
 .taskCardPopupPriorityContainer span {
-    width: 82px;
-    height: 25px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 120%;
-    color: #000000;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: 82px;
+	height: 25px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 21px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .urgency {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 4px 18px;
-    gap: 10px;
-    width: 131px;
-    height: 33px;
-    background: #FF3D00;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 4px 18px;
+	gap: 10px;
+	width: 131px;
+	height: 33px;
+	background: #ff3d00;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
 }
 
 .urgency span {
-    width: max-content;
-    height: 25px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
-    color: #FFFFFF;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: max-content;
+	height: 25px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 21px;
+	line-height: 120%;
+	color: #ffffff;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .urgency img {
-    width: 17px;
-    height: 12px;
-    transform: rotate(-360deg);
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+	width: 17px;
+	height: 12px;
+	transform: rotate(-360deg);
+	flex: none;
+	order: 1;
+	flex-grow: 0;
 }
 
 .assigned,
 .boardSubtaskTitle {
-    width: 134px;
-    height: 25px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 120%;
-    color: #000000;
-    flex: none;
-    order: 5;
-    flex-grow: 0;
-    z-index: 5;
+	width: 134px;
+	height: 25px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 21px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 5;
+	flex-grow: 0;
+	z-index: 5;
 }
 
 .close_logo {
-    position: absolute;
-    width: 21.65px;
-    height: 21.65px;
-    left: 619.31px;
-    top: 34px;
-    transform: rotate(90deg);
-    flex: none;
-    order: 9;
-    flex-grow: 0;
-    z-index: 9;
-    cursor: pointer;
+	position: absolute;
+	width: 21.65px;
+	height: 21.65px;
+	left: 619.31px;
+	top: 34px;
+	transform: rotate(90deg);
+	flex: none;
+	order: 9;
+	flex-grow: 0;
+	z-index: 9;
+	cursor: pointer;
 }
 
 .editButton {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    gap: 6px;
-    position: absolute;
-    width: 57px;
-    height: 57px;
-    left: 574px;
-    top: 777px;
-    background: #2A3647;
-    border-radius: 10px;
-    flex: none;
-    order: 10;
-    flex-grow: 0;
-    z-index: 10;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 0px;
+	gap: 6px;
+	position: absolute;
+	width: 57px;
+	height: 57px;
+	left: 574px;
+	top: 777px;
+	background: #2a3647;
+	border-radius: 10px;
+	flex: none;
+	order: 10;
+	flex-grow: 0;
+	z-index: 10;
 }
 
 .editButton:hover {
-    background: #29ABE2;
-    border-radius: 10px;
-    transition: 100ms ease-in-out;
-    cursor: pointer;
+	background: #29abe2;
+	border-radius: 10px;
+	transition: 100ms ease-in-out;
+	cursor: pointer;
 }
 
 /* .editButton img {
@@ -1061,93 +1053,90 @@
 } */
 
 .members {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 0px;
-    /* gap: 25px; */
-    width: 315px;
-    height: 45px;
-    flex: none;
-    order: 6;
-    flex-grow: 0;
-    z-index: 6;
-    overflow: scroll;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 0px;
+	/* gap: 25px; */
+	width: 315px;
+	height: 45px;
+	flex: none;
+	order: 6;
+	flex-grow: 0;
+	z-index: 6;
+	overflow: scroll;
 }
 
 .members div {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 8px;
-    gap: 10px;
-    width: 45px;
-    height: 45px;
-    /* background: #9327FF; */
-    border: 2px solid #FFFFFF;
-    border-radius: 58px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 8px;
+	gap: 10px;
+	width: 45px;
+	height: 45px;
+	/* background: #9327FF; */
+	border: 2px solid #ffffff;
+	border-radius: 58px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .boardSubtasksTitleDiv {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-    /* gap: 25px; */
-    width: 231px;
-    height: 45px;
-    flex: none;
-    order: 6;
-    flex-grow: 0;
-    z-index: 6;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0px;
+	/* gap: 25px; */
+	width: 231px;
+	height: 45px;
+	flex: none;
+	order: 6;
+	flex-grow: 0;
+	z-index: 6;
 }
 
 .boardSubtasksDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 25px;
-    width: 460px;
-    height: 169px;
-    flex: none;
-    order: 6;
-    flex-grow: 0;
-    z-index: 6;
-    overflow: hidden;
-    overflow-y: scroll;
-    /* height changed and flex-wrap hinzugefügt */
-    flex-wrap: wrap;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 25px;
+	width: 460px;
+	height: 169px;
+	flex: none;
+	order: 6;
+	flex-grow: 0;
+	z-index: 6;
+	overflow: hidden;
+	overflow-y: scroll;
+	/* height changed and flex-wrap hinzugefügt */
+	flex-wrap: wrap;
 }
 
 .boardSubtasksDiv div span {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 21px;
 }
 
-
-
-
 .shortcut {
-    width: 22px;
-    height: 19px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
-    color: #FFFFFF;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: 22px;
+	height: 19px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 120%;
+	color: #ffffff;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 /* .name {
@@ -1181,647 +1170,636 @@
     background: #CB02CF;
 } */
 
-
 /* add by Bossi */
 /* boardAddTaskPopup*/
 
 #boardAddTaskPopup {
-    position: relative;
-    width: 1116px;
-    height: 914px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 4px rgb(0 0 0 / 10%);
-    border-radius: 30px;
-    /* left: 1429px; */
-    left: 1291px;
-    transition: 500ms ease-in-out;
+	position: relative;
+	width: 1116px;
+	height: 914px;
+	background: #ffffff;
+	box-shadow: 0px 0px 4px rgb(0 0 0 / 10%);
+	border-radius: 30px;
+	/* left: 1429px; */
+	left: 1291px;
+	transition: 500ms ease-in-out;
 }
 
 .boardAddTaskPopupOverlay {
-    transition: 500ms ease-in-out;
-    transform: translateX(-1290px);
+	transition: 500ms ease-in-out;
+	transform: translateX(-1290px);
 }
 
 .boardAddTaskHeadlineDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 1px;
-    position: absolute;
-    width: 466px;
-    height: 78px;
-    left: 74px;
-    top: 63px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 1px;
+	position: absolute;
+	width: 466px;
+	height: 78px;
+	left: 74px;
+	top: 63px;
 }
 
 .boardAddTaskAddTitleContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 14px;
-    position: absolute;
-    width: 422px;
-    height: 506px;
-    left: 74px;
-    top: 182px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 14px;
+	position: absolute;
+	width: 422px;
+	height: 506px;
+	left: 74px;
+	top: 182px;
 }
 
 .boardAddTaskAddTitleBox {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 8px;
-    width: 422px;
-    height: 104px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 8px;
+	width: 422px;
+	height: 104px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .boardAddTaskDivider {
-    position: absolute;
-    width: 0px;
-    height: 669px;
-    left: 555px;
-    top: 182px;
-    border: 2px solid #D1D1D1;
+	position: absolute;
+	width: 0px;
+	height: 669px;
+	left: 555px;
+	top: 182px;
+	border: 2px solid #d1d1d1;
 }
 
 .boardAddTaskRightContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    padding: 0px;
-    gap: 14px;
-    position: absolute;
-    width: 422px;
-    height: 356px;
-    left: 614px;
-    top: 185px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	padding: 0px;
+	gap: 14px;
+	position: absolute;
+	width: 422px;
+	height: 356px;
+	left: 614px;
+	top: 185px;
 }
 
 .boardAddTaskBtnOuterContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0px;
-    gap: 4px;
-    position: absolute;
-    width: 338px;
-    height: 61px;
-    left: 703px;
-    top: 781px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 0px;
+	gap: 4px;
+	position: absolute;
+	width: 338px;
+	height: 61px;
+	left: 703px;
+	top: 781px;
 }
 
 .boardAddTaskBtnInnerContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    gap: 25px;
-    width: 338px;
-    height: 61px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 0px;
+	gap: 25px;
+	width: 338px;
+	height: 61px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .boardtaskAddedToBoard {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    position: absolute;
-    width: 326px;
-    height: 74px;
-    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
-    /* top: 1073px; */
-    top: 1129px;
-    /* left: 358px; */
-    left: 568px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0px;
+	position: absolute;
+	width: 326px;
+	height: 74px;
+	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
+	/* top: 1073px; */
+	top: 1129px;
+	/* left: 358px; */
+	left: 568px;
 }
 
 /* Edit Task Card css classes */
 
 .close_logo_edit_task {
-    position: absolute;
-    width: 21.65px;
-    height: 21.65px;
-    left: 1056px;
-    top: 26px;
-    transform: rotate(90deg);
-    flex: none;
-    order: 9;
-    flex-grow: 0;
-    z-index: 9;
-    cursor: pointer;
+	position: absolute;
+	width: 21.65px;
+	height: 21.65px;
+	left: 1056px;
+	top: 26px;
+	transform: rotate(90deg);
+	flex: none;
+	order: 9;
+	flex-grow: 0;
+	z-index: 9;
+	cursor: pointer;
 }
 
-
 .boardEditTitleContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 5px;
-    position: absolute;
-    width: 422px;
-    height: 81px;
-    left: 101px;
-    top: 53px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 5px;
+	position: absolute;
+	width: 422px;
+	height: 81px;
+	left: 101px;
+	top: 53px;
 }
 
 .boardEditTitleContainer span {
-    width: 65px;
-    height: 25px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
-    color: #000000;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: 65px;
+	height: 25px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 21px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .boardEditTitleContainer input {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 13px 21px;
-    gap: 10px;
-    width: 422px;
-    height: 51px;
-    background: #FFFFFF;
-    border: 1px solid #D1D1D1;
-    border-radius: 10px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
-    color: #000000;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 13px 21px;
+	gap: 10px;
+	width: 422px;
+	height: 51px;
+	background: #ffffff;
+	border: 1px solid #d1d1d1;
+	border-radius: 10px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 21px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
 }
 
 .boardEditDescriptionContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 5px;
-    position: absolute;
-    width: 422px;
-    height: 149px;
-    left: 101px;
-    top: 154px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 5px;
+	position: absolute;
+	width: 422px;
+	height: 149px;
+	left: 101px;
+	top: 154px;
 }
 
 .boardEditDescriptionContainer span {
-    width: 154px;
-    height: 25px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
-    color: #000000;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: 154px;
+	height: 25px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 21px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .boardEditDescriptionContainer textarea {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 18px 21px;
-    gap: 10px;
-    isolation: isolate;
-    width: 422px;
-    height: 119px;
-    background: #FFFFFF;
-    border: 1px solid #D1D1D1;
-    border-radius: 10px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
-    color: #000000;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 18px 21px;
+	gap: 10px;
+	isolation: isolate;
+	width: 422px;
+	height: 119px;
+	background: #ffffff;
+	border: 1px solid #d1d1d1;
+	border-radius: 10px;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 21px;
+	line-height: 120%;
+	color: #000000;
 }
 
 .boardEditDateContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 5px;
-    position: absolute;
-    width: 422px;
-    height: 81px;
-    left: 101px;
-    top: 333px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 5px;
+	position: absolute;
+	width: 422px;
+	height: 81px;
+	left: 101px;
+	top: 333px;
 }
 
 .boardEditDateContainer span {
-    /* width: 91px; */
-    height: 25px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
-    color: #000000;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	/* width: 91px; */
+	height: 25px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 21px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .boardEditDateContainer input {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 18px 21px;
-    gap: 10px;
-    isolation: isolate;
-    width: 422px;
-    height: 51px;
-    background: #FFFFFF;
-    border: 1px solid #D1D1D1;
-    border-radius: 10px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    /* width: 119px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 18px 21px;
+	gap: 10px;
+	isolation: isolate;
+	width: 422px;
+	height: 51px;
+	background: #ffffff;
+	border: 1px solid #d1d1d1;
+	border-radius: 10px;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	/* width: 119px;
     height: 25px; */
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
-    color: #000000;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 21px;
+	line-height: 120%;
+	color: #000000;
 }
-
 
 /* editTaskCard Classes */
 
 .editTaskCardPrio {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 5px;
 
-    position: absolute;
-    width: 422px;
-    height: 91px;
-    left: 101px;
-    top: 444px;
+	position: absolute;
+	width: 422px;
+	height: 91px;
+	left: 101px;
+	top: 444px;
 }
 
 .editTaskCardPrio h3 {
-    width: 39px;
-    height: 25px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
-    color: #000000;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+	width: 39px;
+	height: 25px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 21px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .editTaskCardPrioBtn {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    gap: 10px;
-    width: 422px;
-    height: 61px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 0px;
+	gap: 10px;
+	width: 422px;
+	height: 61px;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
 }
 
 .editTaskOkBtn {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 18px 10px;
-    gap: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 18px 10px;
+	gap: 10px;
 
-    position: absolute;
-    width: 83px;
-    height: 61px;
-    left: 508px;
-    top: 719px;
+	position: absolute;
+	width: 83px;
+	height: 61px;
+	left: 508px;
+	top: 719px;
 
-    background: #2A3647;
-    border-radius: 10px;
+	background: #2a3647;
+	border-radius: 10px;
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 120%;
-    /* or 25px */
-    color: #FFFFFF;
-    border: 0;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 21px;
+	line-height: 120%;
+	/* or 25px */
+	color: #ffffff;
+	border: 0;
 }
 
 .editTaskOkBtn:hover {
-    background: #29ABE2;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    /* border-color: #29ABE2; */
-    border-width: 0px;
+	background: #29abe2;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+	/* border-color: #29ABE2; */
+	border-width: 0px;
 }
 
 /* Delete Button edited by Bossi  */
 .deleteButton {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 18px 10px;
-    gap: 10px;
-    position: absolute;
-    height: 61px;
-    left: 470.31px;
-    top: 787px;
-    background: #2A3647;
-    border-radius: 10px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 120%;
-    /* or 25px */
-    color: #FFFFFF;
-    border: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 18px 10px;
+	gap: 10px;
+	position: absolute;
+	height: 61px;
+	left: 470.31px;
+	top: 787px;
+	background: #2a3647;
+	border-radius: 10px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 21px;
+	line-height: 120%;
+	/* or 25px */
+	color: #ffffff;
+	border: 0;
 }
 
 /* deleteButton:hover edit by Basti*/
 .deleteButton:hover {
-    background: #29ABE2;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    border-width: 0px;
+	background: #29abe2;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+	border-width: 0px;
 }
 
 .boardAddTaskDividerBoard {
-    position: absolute;
-    width: 0px;
-    height: 669px;
-    left: 555px;
-    top: 182px;
-    border: 2px solid #D1D1D1;
+	position: absolute;
+	width: 0px;
+	height: 669px;
+	left: 555px;
+	top: 182px;
+	border: 2px solid #d1d1d1;
 }
 
 .addTaskAssignedBox2 {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 8px;
-    width: 422px;
-    height: 84px;
-    flex: none;
-    order: 3;
-    flex-grow: 0;
-    margin-top: 12px;
-    position: absolute;
-    top: 578px;
-    left: 101px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 8px;
+	width: 422px;
+	height: 84px;
+	flex: none;
+	order: 3;
+	flex-grow: 0;
+	margin-top: 12px;
+	position: absolute;
+	top: 578px;
+	left: 101px;
 }
 
 .boardAddTaskAssignedBox {
-    position: absolute;
-    top: 578px;
-    left: 101px;
+	position: absolute;
+	top: 578px;
+	left: 101px;
 }
 
-
-
 @media screen and (max-width: 1440px) {
+	/* board */
+	.boardOverlay {
+		left: 22% !important;
+		width: 75% !important;
+		justify-content: space-between;
+		gap: unset !important;
+	}
 
-    /* board */
-    .boardOverlay {
-        left: 22% !important;
-        width: 75% !important;
-        justify-content: space-between;
-        gap: unset !important;
-    }
+	.boardSubheaders {
+		left: calc(22% - 45px) !important;
+		width: 76.78% !important;
+	}
 
-    .boardSubheaders {
-        left: calc(22% - 45px) !important;
-        width: 76.78% !important;
-    }
+	/* Btn hinzugefügt */
+	.moveBtnMobil {
+		display: flex !important;
+		position: absolute !important;
+		top: 777px !important;
+		height: 57px !important;
+	}
 
+	.moveBtnMobil button {
+		height: 57px !important;
+	}
 
-    /* Btn hinzugefügt */
-    .moveBtnMobil {
-        display: flex !important;
-        position: absolute !important;
-        top: 777px !important;
-        height: 57px !important;
-    }
-
-    .moveBtnMobil button {
-        height: 57px !important;
-    }
-
-    .boardSubtasksDiv {
-        height: 112px;
-    }
-
+	.boardSubtasksDiv {
+		height: 112px;
+	}
 }
 
 @media screen and (max-width: 1400px) {
-    .boardOverlay {
-        left: 22% !important;
-        width: 58% !important;
-        justify-content: center;
-        gap: 202px !important;
-    }
+	.boardOverlay {
+		left: 22% !important;
+		width: 58% !important;
+		justify-content: center;
+		gap: 202px !important;
+	}
 
-    .boardTaskCardPopup {
-        left: unset !important;
-    }
+	.boardTaskCardPopup {
+		left: unset !important;
+	}
 }
 
-
 @media screen and (max-width: 956px) {
-    .boardOverlay {
-        left: 22% !important;
-        width: 58% !important;
-        justify-content: center;
-        gap: 102px !important;
-    }
+	.boardOverlay {
+		left: 22% !important;
+		width: 58% !important;
+		justify-content: center;
+		gap: 102px !important;
+	}
 }
 
 /* Responsiv Test Bossi */
 @media screen and (max-width: 1440px) {
-    /* board */
+	/* board */
 
-    .canbanBoard {
-        left: 22% !important;
-    }
+	.canbanBoard {
+		left: 22% !important;
+	}
 }
 
 @media screen and (max-width: 1400px) {
-    /* board */
+	/* board */
 
-    .toDoHeadline {
-        width: 401px !important;
-    }
+	.toDoHeadline {
+		width: 401px !important;
+	}
 
-    .boardTaskCardOuterContainer {
-        left: 22px !important;
-    }
+	.boardTaskCardOuterContainer {
+		left: 22px !important;
+	}
 
-    .boardTaskCardOuterContainer {
-        height: 640px !important;
-    }
+	.boardTaskCardOuterContainer {
+		height: 640px !important;
+	}
 
-    .boardTaskCardOuterContainer {
-        width: 100% !important;
-    }
+	.boardTaskCardOuterContainer {
+		width: 100% !important;
+	}
 
-    .toDoOuterContainer {
-        flex-direction: unset !important;
-        align-items: unset !important;
-        width: 86% !important;
-        flex-wrap: wrap;
-    }
-
+	.toDoOuterContainer {
+		flex-direction: unset !important;
+		align-items: unset !important;
+		width: 86% !important;
+		flex-wrap: wrap;
+	}
 }
 
 @media screen and (max-width: 1300px) {
+	/* Board Add Task */
+	.shadowOverlay {
+		width: 100%;
+	}
 
-    /* Board Add Task */
-    .shadowOverlay {
-        width: 100%;
-    }
+	.boardAddTaskPopupOverlay {
+		width: 560px !important;
+		overflow: hidden;
+		overflow-y: scroll;
+	}
 
-    .boardAddTaskPopupOverlay {
-        width: 560px !important;
-        overflow: hidden;
-        overflow-y: scroll;
-    }
+	.close_logo_edit_task {
+		left: 510px;
+		position: sticky;
+	}
 
-    .close_logo_edit_task {
-        left: 510px;
-        position: sticky;
-    }
+	.boardAddTaskDividerBoard {
+		display: none;
+	}
 
-    .boardAddTaskDividerBoard {
-        display: none;
-    }
+	.boardAddTaskRightContainer {
+		left: 73px;
+		top: 814px;
+	}
 
-    .boardAddTaskRightContainer {
-        left: 73px;
-        top: 814px;
-    }
+	.boardAddTaskBtnOuterContainer {
+		left: 158px;
+		top: 1360px;
+	}
 
-    .boardAddTaskBtnOuterContainer {
-        left: 158px;
-        top: 1360px;
-    }
+	.boardAddTaskBtnInnerContainer {
+		margin-bottom: 100px;
+	}
 
-    .boardAddTaskBtnInnerContainer {
-        margin-bottom: 100px;
-    }
+	.addTaskCheckBox {
+		flex-wrap: wrap;
+		flex-direction: row;
+		width: 100%;
+		max-height: 90px;
+		overflow: scroll;
+	}
 
-    .addTaskCheckBox {
-        flex-wrap: wrap;
-        flex-direction: row;
-        width: 100%;
-        max-height: 90px;
-        overflow: scroll;
-    }
+	.taskCreatedIndication {
+		transform: translateY(-1000px) !important;
+	}
 
-    .taskCreatedIndication {
-        transform: translateY(-1000px) !important;
-    }
+	.boardtaskAddedToBoard {
+		left: calc(50% - 168px);
+		/* left: 130px; */
+		top: calc((50% - 37px) + 1000px);
+		/* top: calc(100% + 500px); */
+	}
 
-    .boardtaskAddedToBoard {
-        left: calc(50% - 168px);
-        /* left: 130px; */
-        top: calc((50% - 37px) + 1000px);
-        /* top: calc(100% + 500px); */
-    }
+	.rightContainer {
+		width: 100%;
+	}
 
-    .rightContainer {
-        width: 100%;
-    }
+	.deleteButton {
+		left: 470.31px !important;
+		top: 787px !important;
+	}
 
-    .deleteButton {
-        left: 470.31px !important;
-        top: 787px !important;
-    }
+	.boardAddTaskHeadlineDiv {
+		position: sticky;
+		background-color: #ffffff;
+		flex-direction: unset;
+		align-items: center;
+		height: 167px;
+		width: 429px;
+		top: 0px;
+		margin-top: -26px;
+		z-index: 1;
+	}
 
-    .boardAddTaskHeadlineDiv {
-        position: sticky;
-        background-color: #FFFFFF;
-        flex-direction: unset;
-        align-items: center;
-        height: 167px;
-        width: 429px;
-        top: 0px;
-        margin-top: -26px;
-        z-index: 1;
-    }
+	.addTaskCheckbox {
+		flex-direction: unset !important;
+		width: 420px !important;
+		flex-wrap: wrap;
+		height: 95px !important;
+		overflow: hidden;
+		overflow-y: scroll;
+	}
 
-    .addTaskCheckbox{
-        flex-direction: unset !important;
-        width: 420px !important;
-        flex-wrap: wrap;
-        height: 95px !important;
-        overflow: hidden;
-        overflow-y: scroll;
-    }
-
-    #boardEditDueDate{
-        font-size: 21px !important;
-    }
+	#boardEditDueDate {
+		font-size: 21px !important;
+	}
 }
 
-@media screen and (max-width: 1100px){
-    .addTaskAssignList li{
-        width: 420px !important;
-    }
+@media screen and (max-width: 1100px) {
+	.addTaskAssignList li {
+		width: 420px !important;
+	}
 
-    #CatListDropdown{
-        width: 420px !important;
-    }
+	#CatListDropdown {
+		width: 420px !important;
+	}
 
-    #dropdown2{
-        width: 420px !important;
-    }
+	#dropdown2 {
+		width: 420px !important;
+	}
 }
