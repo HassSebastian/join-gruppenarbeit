@@ -12,7 +12,7 @@
  * input is empty or starts with a space.
  */
 function calculateinputValueTest(name, email, password, requiredName, requiredEmail, requiredPassword) {
-	if (name.value.length || email.value.length || password.value.length) {
+	if (name.value || email.value || password.value) {
 		if (name.value.length == 0 || name.value[0] === ' ') {
 			requiredName.classList.add('requiredOn');
 		} else {
@@ -35,6 +35,10 @@ function calculateinputValueTest(name, email, password, requiredName, requiredEm
 		) {
 			emailToCheck(name.value, email.value, password.value);
 		}
+	}else{
+		requiredName.classList.add('requiredOn');
+		requiredEmail.classList.add('requiredOn');
+		requiredPassword.classList.add('requiredOn');
 	}
 }
 

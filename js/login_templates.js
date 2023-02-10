@@ -24,7 +24,7 @@ function resetRequiredLine(email, password, requiredEmail, requiredPassword) {
  * @param requiredPassword - the password input field
  */
 function calculateCheckCorrectInput(email, password, requiredEmail, requiredPassword) {
-	if (email.value.length || password.value.length) {
+	if (email.value || password.value) {
 		if (email.value.length < 8 || !email.value.includes('@') || !email.value.includes('.') || email.value[0] === ' ') {
 			requiredEmail.classList.add('requiredOn');
 		} else {
@@ -38,6 +38,9 @@ function calculateCheckCorrectInput(email, password, requiredEmail, requiredPass
 		if (!requiredEmail.classList.contains('requiredOn') && !requiredPassword.classList.contains('requiredOn')) {
 			userLogin(email.value, password.value);
 		}
+	}else{
+		requiredEmail.classList.add('requiredOn');
+		requiredPassword.classList.add('requiredOn');
 	}
 }
 
