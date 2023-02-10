@@ -16,7 +16,7 @@
 	position: absolute;
 	width: 428px;
 	height: auto;
-	bottom: 136px; /*! 56px bei Abgabe abziehen */
+	bottom: 80px;
 	left: 0px;
 	top: 169px;
 	background: #ffffff;
