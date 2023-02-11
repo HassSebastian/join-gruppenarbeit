@@ -107,12 +107,12 @@ function test() {
 }
 
 function openOverlayMob() {
-    document.getElementById('shadowOverlay').classList.remove('d-none');
+	document.getElementById('shadowOverlay').classList.remove('d-none');
 	document.getElementById('overlayMasterContainerMob').classList.add('overlayMasterContainerMobSlide');
 }
 
 function closeOverlayMob() {
-    document.getElementById('shadowOverlay').classList.add('d-none');
+	document.getElementById('shadowOverlay').classList.add('d-none');
 	document.getElementById('overlayMasterContainerMob').classList.remove('overlayMasterContainerMobSlide');
 	if (document.querySelector('.contactSuccSlide')) {
 		document.getElementById('contactSucc').classList.remove('contactSuccSlide');
@@ -120,7 +120,7 @@ function closeOverlayMob() {
 	}
 }
 
-function showContactHTMLMob(name, email, phone, letter, color, i) {
+function showContactHTMLMob(name, email, phone = 'N/A', letter, color, i) {
 	return /*html*/ `
             <div class="shadowOverlay d-none" id="shadowOverlay"></div>
             <div class="arrowContainerMob" onclick="initMobilContacts()">
