@@ -785,16 +785,23 @@
 	padding: 50px;
 	gap: 25px;
 	isolation: isolate;
-	position: relative;
+	/* position: relative; */
 	width: 573px;
+	/* max-height: 100vh; */
 	height: 774px;
 	background: #ffffff;
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 	border-radius: 30px;
 	cursor: auto;
 	position: absolute;
-	left: 480px;
-	top: 117px;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .taskCardPopupCategory {
@@ -1176,6 +1183,7 @@
 #boardAddTaskPopup {
 	position: relative;
 	width: 1116px;
+	max-height: 100vh;
 	height: 914px;
 	background: #ffffff;
 	box-shadow: 0px 0px 4px rgb(0 0 0 / 10%);
@@ -1261,8 +1269,8 @@
 	position: absolute;
 	width: 338px;
 	height: 61px;
-	left: 703px;
-	top: 781px;
+	right: 75px;
+	bottom: 72px;
 }
 
 .boardAddTaskBtnInnerContainer {
@@ -1651,9 +1659,9 @@
 		gap: 202px !important;
 	}
 
-	.boardTaskCardPopup {
+	/* .boardTaskCardPopup {
 		left: unset !important;
-	}
+	} */
 }
 
 @media screen and (max-width: 956px) {
