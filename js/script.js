@@ -62,14 +62,14 @@ function loadStartDisplay(){
 
 
 async function loadApplicableSummary(){
-    if (window.innerWidth > 768){
+    if (window.innerWidth > 768 && !document.querySelector('#logIn')){
         document.getElementById('mobilSummary').classList.add('d-none');
         document.getElementById('desktopSummary').classList.remove('d-none');
         await deactivatMobil();
         init();
 		desktopView = !desktopView;
     }
-    if (window.innerWidth <= 768){
+    if (window.innerWidth <= 768 && !document.querySelector('#logIn')){
         document.getElementById('desktopSummary').classList.add('d-none');
         document.getElementById('mobilSummary').classList.remove('d-none');
         await deactivatDesktop();
@@ -80,27 +80,34 @@ async function loadApplicableSummary(){
 
 let desktopView;
 let viewchange = false;
+ 
+
 window.onresize = function (){
-	
-    if (desktopView && window.innerWidth <=768 && !viewchange){
+	let loginPageActiv = document.querySelector('#logIn');
+    if (desktopView && window.innerWidth <=768 && !viewchange && !loginPageActiv){
 		viewchange = true;
 		startChangetoMobil();
 		
     }
-    if (!desktopView && window.innerWidth >=769 &&!viewchange){
+    if (!desktopView && window.innerWidth >=769 &&!viewchange && !loginPageActiv){
 		viewchange = true;
 		startChangetoDesktop();
     }
-	callBoardRelatedInit();
+	if (!loginPageActiv){
+		callBoardRelatedInit();
+	}
+	
 	// resizeCallRelatedAddTaskFunctions();
 }
 
 
 async function startChangetoDesktop(){
-	await activateDesktop();
-	await loadApplicableSummary();
-	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
-	viewchange = false;
+	if (!document.querySelector('#logIn')){
+		await activateDesktop();
+		await loadApplicableSummary();
+		document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
+		viewchange = false;
+	}
 }
 
 async function startChangetoMobil(){
@@ -178,12 +185,16 @@ async function deactivatDesktop(){
 
 
 async function activateDesktop(){
-	stylesheetMobilDeactivationList.forEach(stylesheet => {
+	let loginPageActiv = document.querySelector('#logIn');
+	if (!document.querySelector('#logIn')){
+		stylesheetMobilDeactivationList.forEach(stylesheet => {
 		document.getElementById(stylesheet).disabled = false;
 	});
-	jsMobilDeactivationList.forEach(script => {
+		jsMobilDeactivationList.forEach(script => {
 		document.getElementById(script).disabled = false;
 	});
+	}
+	
 	// document.getElementById('jsMobilContacts').disabled = false;
 	// document.getElementById('jsContactsTemplates').disabled = false;
 }
