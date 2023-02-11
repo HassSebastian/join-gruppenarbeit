@@ -1482,7 +1482,7 @@
 	.outerContainer,
 	.mainContainer,
 	.rightContainer {
-		height: auto !important;
+		/* height: auto !important; */
 	}
 
 	.addTaskResponsiv {
