@@ -84,15 +84,16 @@ let viewchange = false;
 
 window.onresize = function (){
 	let loginPageActiv = document.querySelector('#logIn');
-    if (desktopView && window.innerWidth <=768 && !viewchange && !loginPageActiv){
+    if (desktopView && window.innerWidth <=768 && !viewchange){
 		viewchange = true;
 		startChangetoMobil();
 		
     }
-    if (!desktopView && window.innerWidth >=769 &&!viewchange && !loginPageActiv){
+    if (!desktopView && window.innerWidth >=769 &&!viewchange){
 		viewchange = true;
 		startChangetoDesktop();
     }
+	
 	if (!loginPageActiv){
 		callBoardRelatedInit();
 	}
