@@ -120,7 +120,7 @@ function closeOverlayMob() {
 	}
 }
 
-function showContactHTMLMob(name, email, phone = 'N/A', letter, color, i) {
+function showContactHTMLMob(name, email, phone, letter, color, i) {
 	return /*html*/ `
             <div class="shadowOverlay d-none" id="shadowOverlay"></div>
             <div class="arrowContainerMob" onclick="initMobilContacts()">

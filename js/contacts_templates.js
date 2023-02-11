@@ -363,7 +363,7 @@ function openNewContactHTML() {
  * @param color - is a number from 0 to 5
  * @returns A string of HTML.
  */
-function showContactHTML(name, email, phone = 'N/A', letter, color, i) {
+function showContactHTML(name, email, phone, letter, color, i) {
 	return /*html*/ `
         <div class="showContactDetail">                       
             <div class="show_contact_ellipse_5" style='background:${colorIndex[color]}' onclick="deleteContactQuestion(${i})">
