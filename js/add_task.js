@@ -68,16 +68,16 @@ function transferallUserData() {
  * Creates a copy of allUsers without password
  */
 function creatingTransferObjectOfContacts() {
-	allUsers.forEach((user) => {
-		if (user.email !== guestEmail) {
-			transferArray.push({
-				colorIndex: user.colorIndex,
-				email: user.email,
-				firstSecondLetter: user.firstSecondLetter,
-				name: user.name,
-				phone: user.phone,
-			});
-		}
+	const users = guestLoggedIn ? allFakeUsers : allUsers.filter((user) => user.email !== guestEmail);
+
+	users.forEach((user) => {
+		transferArray.push({
+			colorIndex: user.colorIndex,
+			email: user.email,
+			firstSecondLetter: user.firstSecondLetter,
+			name: user.name,
+			phone: user.phone,
+		});
 	});
 }
 
@@ -997,10 +997,9 @@ async function renderContactsInAssignDropDownMenu() {
  * @param {object} coworker
  * @param {number} contact
  * @returns boolean
- * !NAME UND FUNKTION ÜBERARBEITEN
  */
 function coworkerIsGuest(coworker, contact) {
-	return contact !== loggedInUserIndex && coworker.name !== 'Guest' && !guestLoggedIn;
+	return contact !== loggedInUserIndex; /*  && coworker.name !== 'Guest' && !guestLoggedIn; */
 }
 
 /**
@@ -1079,7 +1078,7 @@ function closeDropDownAssignTo() {
  * @param {boolean} guestLoggedIn
  */
 function clearTaskForce() {
-	if (!guestLoggedIn) checkStatusToFalse();
+	checkStatusToFalse();
 	taskForce = [];
 	renderBadgesMemberOfTaskForce();
 	closeDropDownAssignTo();
