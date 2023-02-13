@@ -386,7 +386,7 @@ function showContactHTML(name, email, phone, letter, color, i) {
                     </div>
                 </div>
                 <div class="contactEmailAndPhone">Email</div>
-                <div class="contactEmail">${email}</div>
+                <div class="contactEmail"><a href="mailto:${email}">${email}</a></div>
                 <div class="contactEmailAndPhone">Phone</div>
                 <div class="contactPhone"><a href="tel:${phone}">${phone}</a></div>
             </div>

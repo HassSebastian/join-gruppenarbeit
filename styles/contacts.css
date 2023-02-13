@@ -397,6 +397,12 @@
 	/* text-decoration: underline; */
 }
 
+.contactEmail a {
+	text-decoration: none;
+	color: #29abe2;
+	cursor: pointer;
+}
+
 .contactPhone,
 .contactPhone a {
 	width: fit-content;
@@ -415,6 +421,7 @@
 	flex-grow: 0;
 	/* color: blue; */
 	text-decoration: none;
+	cursor: pointer;
 }
 
 .edit_contact {
