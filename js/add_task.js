@@ -70,7 +70,7 @@ function transferallUserData() {
  */
 function creatingTransferObjectOfContacts() {
 	allUsers.forEach((user) => {
-		if (user.email !== 'guest@web.de') {
+		if (user.email !== guestEmail) {
 			transferArray.push({
 				colorIndex: user.colorIndex,
 				email: user.email,
@@ -1124,7 +1124,7 @@ function frontEndDeveloper() {
  * gets Index of Guest
  */
 function setIndexOfGuest() {
-	guestId = allUsers.findIndex((user) => user.email === 'guest@web.de');
+	guestId = allUsers.findIndex((user) => user.email === guestEmail);
 }
 
 // Add Task Responsiv Functions

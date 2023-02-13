@@ -106,7 +106,7 @@ function alphabet() {
 
 function openEditContact(i) {
 	let email = allUsers[i].email;
-	if (email == 'guest@web.de') {
+	if (email == guestEmail) {
 	} else {
 		!guestLoggedIn ? openEditContactsOf(allUsers, i) : openEditContactsOf(allFakeUsers, i);
 	}
@@ -263,23 +263,21 @@ async function editContact(i) {
 }
 
 /**
- * It deletes a contact from the array and then re-renders the content.
- * </code>
- * @param i - the index of the user in the array
+ * Delets contact on click; function restricted for guest
+ * @param {number} i index of user of allUsers Array
+ * @returns
  */
 async function deleteContactQuestion(i) {
-	if (guestLoggedIn) return;
+	let letter = allUsers[i].firstSecondLetter;
+	let email = allUsers[i].email;
+	let deleteQuestion = document.getElementById('deleteContactQuestion');
+	let deleteQuestionInner = document.getElementById('deleteContactQuestion').innerHTML;
+
+	if (guestLoggedIn || email == guestEmail) return;
 	if (!guestLoggedIn) {
-		let letter = allUsers[i].firstSecondLetter;
-		let email = allUsers[i].email;
-		let deleteQuestion = document.getElementById('deleteContactQuestion');
-		let deleteQuestionInner = document.getElementById('deleteContactQuestion').innerHTML;
 		if (letter === deleteQuestionInner) {
-			if (email == 'guest@web.de') {
-			} else {
-				deleteQuestion.innerHTML = `Delete?`;
-				deleteQuestion.style = 'font-size: 30px';
-			}
+			deleteQuestion.innerHTML = `Delete?`;
+			deleteQuestion.style = 'font-size: 30px';
 		} else {
 			allUsers.splice(i, 1);
 			await saveTask();

@@ -1,6 +1,7 @@
 let rememberUser = [];
 let loggedUser = [];
 let allUsers = [];
+let guestEmail = 'guest@web.de';
 
 function initSignIn() {
 	window.location.href = './signUp.html';
@@ -11,7 +12,7 @@ function forgotPassword() {
 }
 
 function guestLogIn() {
-	const email = 'guest@web.de';
+	const email = guestEmail;
 	const password = '123456';
 	document.getElementById('inputEmailLogin').value = email;
 	document.getElementById('inputPasswordLogin').value = password;

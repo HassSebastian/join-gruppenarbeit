@@ -245,7 +245,7 @@ function getLoggedUserIndex() {
  */
 function getEmailAdrressOfLoggedUser() {
 	emailAddress = allUsers[loggedInUserIndex].email;
-	emailAddress == 'guest@web.de' ? (guestLoggedIn = true) : null;
+	emailAddress == guestEmail ? (guestLoggedIn = true) : null;
 }
 
 /**
