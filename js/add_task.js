@@ -66,9 +66,10 @@ function transferallUserData() {
 
 /**
  * Creates a copy of allUsers without password
+ *
  */
 function creatingTransferObjectOfContacts() {
-	const users = guestLoggedIn ? allFakeUsers : allUsers.filter((user) => user.email !== guestEmail);
+	const users = guestLoggedIn ? allFakeUsers : allUsers; /*! .filter((user) => user.email !== guestEmail) */
 
 	users.forEach((user) => {
 		transferArray.push({
