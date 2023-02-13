@@ -590,7 +590,6 @@ function pushTaskData() {
 	joinTaskArray.push(taskData);
 }
 
-
 // deleteJoinTaskArrayFromServer() is not used in this code, it is only to remove the Array from Server!!!!!!!!!!!
 async function deleteJoinTaskArrayFromServer() {
 	// localStorage.removeItem('joinTaskArray');
@@ -998,6 +997,7 @@ async function renderContactsInAssignDropDownMenu() {
  * @param {object} coworker
  * @param {number} contact
  * @returns boolean
+ * !NAME UND FUNKTION ÜBERARBEITEN
  */
 function coworkerIsGuest(coworker, contact) {
 	return contact !== loggedInUserIndex && coworker.name !== 'Guest' && !guestLoggedIn;
