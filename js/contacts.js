@@ -145,11 +145,13 @@ function openNewContact() {
 }
 
 function closeNewContact() {
-	window.innerWidth < 769 ? renderContentMobile() : document.getElementById('new_contact').classList.remove('add_contact_slide');
-	/* setTimeout(() => {
-		document.getElementById('new_contact').classList.add('d-none');
-		document.getElementById('boardPopup').classList.add('d-none');
-	}, 500); */
+	window.innerWidth < 768 ? renderContentMobile() : document.getElementById('new_contact').classList.remove('add_contact_slide');
+	if (window.innerWidth > 768) {
+		setTimeout(() => {
+			document.getElementById('new_contact').classList.add('d-none');
+			document.getElementById('boardPopup').classList.add('d-none');
+		}, 500);
+	}
 }
 
 /**
