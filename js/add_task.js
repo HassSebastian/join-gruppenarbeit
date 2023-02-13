@@ -69,15 +69,17 @@ function transferallUserData() {
  * Creates a copy of allUsers without password
  */
 function creatingTransferObjectOfContacts() {
-	allUsers.forEach((user) =>
-		transferArray.push({
-			colorIndex: user.colorIndex,
-			email: user.email,
-			firstSecondLetter: user.firstSecondLetter,
-			name: user.name,
-			phone: user.phone,
-		})
-	);
+	allUsers.forEach((user) => {
+		if (user.email !== 'guest@web.de') {
+			transferArray.push({
+				colorIndex: user.colorIndex,
+				email: user.email,
+				firstSecondLetter: user.firstSecondLetter,
+				name: user.name,
+				phone: user.phone,
+			});
+		}
+	});
 }
 
 /**
@@ -960,7 +962,7 @@ function addSelectedContactToTaskForce(contact) {
  * @param {number} contact
  */
 function removeCheckMarkFromCheckBox(contact) {
-	contact != guestId ? document.getElementById(`checkMark${contact}`).classList.add('d-none') : null;
+	document.getElementById(`checkMark${contact}`).classList.add('d-none');
 }
 
 /**
