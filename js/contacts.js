@@ -274,17 +274,23 @@ async function deleteContactQuestion(i) {
 	let deleteQuestionInner = document.getElementById('deleteContactQuestion').innerHTML;
 
 	if (guestLoggedIn || email == guestEmail) return;
-	if (!guestLoggedIn) {
-		if (letter === deleteQuestionInner) {
-			deleteQuestion.innerHTML = `Delete?`;
-			deleteQuestion.style = 'font-size: 30px';
-		} else {
-			allUsers.splice(i, 1);
-			await saveTask();
-			await renderContent();
-			await userInAlphabetArray();
-		}
+	if (deletionRequested(letter, deleteQuestionInner)) {
+		deleteQuestion.innerHTML = `Delete?`;
+		deleteQuestion.style = 'font-size: 20px'; // damit es auch in der mobilen version passt
+	} else {
+		deleteUser(i);
 	}
+}
+
+function deletionRequested(letter, deleteQuestionInner) {
+	return letter === deleteQuestionInner;
+}
+
+async function deleteUser(i) {
+	allUsers.splice(i, 1);
+	await saveTask();
+	await renderContent();
+	await userInAlphabetArray();
 }
 
 let allFakeUsers = [

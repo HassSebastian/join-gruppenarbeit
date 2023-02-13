@@ -139,10 +139,10 @@ function showContactHTMLMob(name, email, phone, letter, color, i) {
 
         <div class="floatingContactsMasterContainer">
             <div class="batchPlusNameContainer">
-                <div class="batchMasterContainer">
+                <div class="batchMasterContainer" onclick="deleteContactQuestion(${i})">
                     <div class="batchContainer">
                         <div style="background:${colorIndex[color]}"></div>
-                        <span>${letter}</span>
+                        <span id="deleteContactQuestion">${letter}</span>
                     </div>
                 </div>
                 <div class="nameMasterContainer">
