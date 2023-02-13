@@ -43,7 +43,6 @@ async function initBoardNormal(){
 	await createWorkStatusArrays();
 	renderAllCards();
 	loadContributorsLetter();
-	// coworkersToAssignTo = transferallUserData();
 }
 
 /**
@@ -92,14 +91,6 @@ async function startFilter() {
 async function createWorkStatusArrays() {
 	await resetWorkStatusArrays();
 	await startFilter();
-	// for (let index = 0; index < 4; index++) {
-	// 	for (let i = 0; i < joinTaskArray.length; i++) {
-	// 		let taskWorkStatus = joinTaskArray[i]['workFlowStatus'];
-	// 		if (taskWorkStatus == index) {
-	// 			createWorkStatusArrayData(index, i);
-	// 		}
-	// 	}
-	// }
 	for (let index = 0; index < 4; index++) {
 		for (let i = 0; i < filteredTaskList.length; i++) {
 			let taskWorkStatus = filteredTaskList[i]['workFlowStatus'];
@@ -367,10 +358,6 @@ function moveTo(area) {
 	if ((doneBarWidth == doneBarOuterWidth && workFlowStatusDraggedElement >= 1) || (workFlowStatusDraggedElement < 1 && area < 2) || (area < workFlowStatusDraggedElement)) {
 		moveToNewArea(area);
 	}
-	// if (area < workFlowStatusDraggedElement) {
-	// 	console.log('move2');
-	// 	moveToNewArea(area);
-	// }
 }
 
 async function moveToNewArea(area) {

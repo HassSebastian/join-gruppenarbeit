@@ -31,26 +31,22 @@ function boardHtml() {
                 <div class='toDoAreaHeader'>
                     <span>To do</span>
                     <button class='menuPlusButton' onclick='showAddTaskPopupWindow()'>
-                        <!-- <img src='./assets/img/plus.svg'> -->
                     </button>
                 </div>
                 <div class='inProgressAreaHeader'>
                     <span>In progress</span>
                     <button class='menuPlusButton' onclick='showAddTaskPopupWindow()'>
-                        <!-- <img src='./assets/img/plus_logo_black.png'> -->
                     </button>
                 </div>
                 <div class='awaitingFeedbackAreaHeader'>
                     <span>Anwaiting Feedback</span>
                     <button class='menuPlusButton' onclick='showAddTaskPopupWindow()'>
-                        <!-- <img src='./assets/img/plus_logo_black.png'> -->
                     </button>
                 </div>
                 
                 <div class='doneAreaHeader'>
                     <span>Done</span>
                         <button class='menuPlusButton' onclick='showAddTaskPopupWindow()'>
-                        <!-- <img src='./assets/img/plus_logo_black.png'> -->
                     </button>
                 </div>
             </div>

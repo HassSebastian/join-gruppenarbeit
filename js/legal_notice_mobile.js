@@ -1,6 +1,3 @@
-// function back() {
-//     history.back();
-// }
 
 async function dataPrivacyMob() {
 	document.getElementById('logOutMasterContainer').classList.toggle('d-none');

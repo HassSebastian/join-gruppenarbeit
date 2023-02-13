@@ -18,7 +18,6 @@ let prio = '';
 let subTask = '';
 let subTaskArray = [];
 let selectedSubtasks = [];
-// let index;
 let badgesIndex;
 let guestId;
 let coworkersToAssignTo = [];
@@ -132,15 +131,6 @@ async function loadExitingCategories() {
 }
 
 /**
- * This function load the data(key:joinTaskArray) from local storage.
- */
-// async function loadTask() {
-// 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-// 	await downloadFromServer();
-// 	joinTaskArray = JSON.parse(backend.getItem('joinTaskArray')) || [];
-// }
-
-/**
  * This function determind data(key:joinTaskArray) available in local storage.
  *
  * @returns true or false
@@ -250,7 +240,6 @@ function setNewCategoryToList() {
 			category: newSetCategory,
 			catColor: newCatColor,
 		};
-		// checkCategoryList(newCategoryItem);
 		if (!checkCategoryList(newCategoryItem)) {
 			addTaskCategoryList.push(newCategoryItem);
 			let newCategoryIndex = addTaskCategoryList.length - 1;
@@ -285,7 +274,6 @@ function resetCatSelection() {
 	catListStatus = !catListStatus;
 	document.getElementById('colorSelection').classList.add('listD-none');
 	document.getElementById('selectedCat').innerHTML = resetCatSelectionHtml();
-	// getInnerWidth();
 }
 
 /**
@@ -299,7 +287,6 @@ function selectCategory(catId) {
 	} else {
 		setSettingsForExistingCategory(catId);
 	}
-	// getInnerWidth();
 }
 
 /**
@@ -526,7 +513,6 @@ function clearFormularData() {
 	document.getElementById('catReq').style = 'opacity: 0;';
 	document.getElementById('catReq').classList.add('listD-none');
 	resetAssignToList(); // edited by Bossi 04.01.2022, the function is in the board.js
-	/* subTaskArray = []; */
 	emptySubTaskArray();
 	renderSubtasks();
 	closeCatList();
@@ -604,14 +590,6 @@ function pushTaskData() {
 	joinTaskArray.push(taskData);
 }
 
-/**
- * this function save the main array to the local storage.
- */
-// async function saveTask() {
-// 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-// 	// localStorage.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
-// 	backend.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
-// }
 
 // deleteJoinTaskArrayFromServer() is not used in this code, it is only to remove the Array from Server!!!!!!!!!!!
 async function deleteJoinTaskArrayFromServer() {
@@ -706,12 +684,9 @@ function addSubtask() {
 	subTaskText = subTaskText.trim();
 	if (subTaskText != '' && subTaskText.length >= 3) {
 		subTaskInputLeave();
-		// subTaskArray.push(subTaskText);
 		pushNewSubtaskDatatoArray(subTaskText);
-
 		renderSubtasks();
 		resetSubtaskInput();
-		// document.getElementById(`subtask${subTaskArray.length - 1}`).checked = true;
 		createSubtaskListToSave();
 	}
 }

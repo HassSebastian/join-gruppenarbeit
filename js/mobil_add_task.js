@@ -112,7 +112,6 @@ async function renderMobilAddTask() {
 
             <div class="addTaskAssignedBoxMob" id="addTaskAssignedBox">
                 <h3>Assigned to</h3>
-        <!--ab hier komme ich in "Assigned to" nicht mehr weiter. Ich weiß nicht wo ich ansetzen soll :-( -->
                 <button id="addTaskAssignedButton" onclick="enableDisableAssignList()">
                     <input disabled onclick="doNotCloseOnClick(event)" id="selectedAssign" name="selectedAssign"
                         class="inputselectedAssign" placeholder="Select contacts to assign" autocomplete="off" />
@@ -132,20 +131,12 @@ async function renderMobilAddTask() {
                         Invite new contacts<img class="assignInviteNewContactImage"
                             src="assets/img/assigned_inviteNewContact.png" alt="" />
                     </li>
-                    <!-- <li>
-                        You
-                        <div class="assignCheckboxContainer">
-                            <img class="checkBox" src="assets/img/check_box.png" alt="checkbox" />
-                            <img class="checkMark" src="assets/img/check_mark.png" />
-                        </div>
-                    </li> -->
                 </ul>
             </div>
 
 
             <div class='subtaskMob'>
 				<h3>Subtask</h3>
-        <!--ab hier komme ich in "Subtask" nicht mehr weiter. Ich weiß nicht wo ich ansetzen soll :-( -->
 				<div class='inputDiv'>
 					<form onsubmit='addSubtask(); return false'>
 						<input type="text" placeholder="Add new subtask" id="subTask" autocomplete="off"

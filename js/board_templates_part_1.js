@@ -31,26 +31,22 @@ function boardHtml() {
                 <div class='toDoAreaHeader'>
                     <span>To do</span>
                     <button class='menuPlusButton' onclick='showAddTaskPopupWindow()'>
-                        <!-- <img src='./assets/img/plus.svg'> -->
                     </button>
                 </div>
                 <div class='inProgressAreaHeader'>
                     <span>In progress</span>
                     <button class='menuPlusButton' onclick='showAddTaskPopupWindow()'>
-                        <!-- <img src='./assets/img/plus_logo_black.png'> -->
                     </button>
                 </div>
                 <div class='awaitingFeedbackAreaHeader'>
                     <span>Anwaiting Feedback</span>
                     <button class='menuPlusButton' onclick='showAddTaskPopupWindow()'>
-                        <!-- <img src='./assets/img/plus_logo_black.png'> -->
                     </button>
                 </div>
                 
                 <div class='doneAreaHeader'>
                     <span>Done</span>
                         <button class='menuPlusButton' onclick='showAddTaskPopupWindow()'>
-                        <!-- <img src='./assets/img/plus_logo_black.png'> -->
                     </button>
                 </div>
             </div>
@@ -96,7 +92,6 @@ function renderAssignToHtml(taskIndex) {
 			for (let i = 0; i < assignedList.length; i++) {
 				let name = assignedList[i].name;
 				let nameLetters = assignedList[i].firstSecondLetter;
-				// chooseColorForTaskForceBadge(nameLetters);
 				let assignToColor = colorIndex[assignedList[i].colorIndex];
 				let assignToTitle = name;
 				document.getElementById(divId).innerHTML += /*html*/ `
@@ -108,7 +103,6 @@ function renderAssignToHtml(taskIndex) {
 			for (let i = 0; i < 3; i++) {
 				let name = assignedList[i].name;
 				let nameLetters = assignedList[i].firstSecondLetter;
-				// chooseColorForTaskForceBadge(nameLetters);
 				let assignToColor = colorIndex[assignedList[i].colorIndex];
 				let assignToTitle = name;
 				document.getElementById(divId).innerHTML += /*html*/ `

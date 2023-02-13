@@ -2,13 +2,10 @@ async function initHelp() {
     await enableHelp();
     await includeHTML();
     await renderHelp();
-    // selectedMenuBtnId = 0;
-    // selectedMenuButton(0);
 }
 
 
 function back() {
-    // history.back();
     initSummary();
 }
 

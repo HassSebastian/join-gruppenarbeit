@@ -19,14 +19,6 @@ async function enablePopupWindow(taskIndex) {
   }
 }
 
-// async function enableBoardPopup(){
-//     document.getElementById('boardPopup').classList.remove('d-none');
-// }
-
-// async function disableBoardPopup(){
-//     document.getElementById('boardPopup').classList.add('d-none');
-// }
-
 /**
  * this function add the d-none class to the popup window. The result is that the Popup Window not shown.
  */
@@ -174,7 +166,6 @@ async function openEditTaskCard(taskIndex) {
   await renderContactsInAssignDropDownMenu();
   renderEditTaskCardInputFields(taskIndex);
   await boardEditTaskCardAssignPreseselction(taskIndex);
-  // setPrioPreselection(taskIndex);
 }
 
 /**
@@ -267,7 +258,6 @@ async function getTaskChanges(taskIndex) {
     await renderBoard();
     await createWorkStatusArrays();
     await renderAllCards();
-    // disablePopupWindow();
   } else {
     disablePopupWindow();
     await renderMobileBoardHtml();
@@ -363,7 +353,6 @@ function showDeleteButton(taskIndex) {
 async function deleteButton(taskIndex) {
   joinTaskArray.splice(taskIndex, 1);
   await saveTask();
-  // initBoard();
   await renderBoard();
   await createWorkStatusArrays();
   renderAllCards();

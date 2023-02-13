@@ -29,10 +29,8 @@ function generateAddTaskHtml() {
 				</div>
 				<div class="addTaskAddDescriptenBox">
 					<h3>Descripten</h3>
-					<!-- <form onblur='goToCategorySelection(); return false' id='formDesc' action='action.asp'> -->
 					<textarea class='addTaskResponsiv' form="formDesc" type="text" placeholder="Enter Descripten" id="addTaskDescripten" required
 						minlength="5"></textarea>
-					<!-- </form> -->
 					<span class="requiredText" id="descReq">This field is required</span>
 				</div>
 				<div class="addTaskAddCategoryBox">
@@ -139,14 +137,6 @@ function generateAddTaskHtml() {
 			</div>
 
 		</div>
-
-  <!-- <div class="taskAddedToBoard" id="taskCreatedIndication">
-    <div class="taskAddedToBoardContainer">
-      <span>Task added to board</span>
-      <img src="./assets/img/img_board_w.png" />
-    </div>
-  </div> -->
-
 	</div>`;
 }
 

@@ -54,10 +54,6 @@ function loadStartDisplay(){
         document.getElementById('mobilMasterContainer').classList.remove('d-none');
         setTimeout(initLoginMob, 300);
     }
-	// console.log('mobile')
-    // document.getElementById('pageOneMob').classList.remove('d-none');
-    // document.getElementById('mobilMasterContainer').classList.remove('d-none');
-    // setTimeout(initLoginMob, 300);
 }
 
 
@@ -98,7 +94,6 @@ window.onresize = function (){
 		callBoardRelatedInit();
 	}
 	
-	// resizeCallRelatedAddTaskFunctions();
 }
 
 
@@ -132,7 +127,6 @@ let jsDesktopDeactivationList =[
 	'jsMobilSummary',
 	'jsMobilAddTask',
 	'jsMobilBoard',
-	// 'jsMobilContacts',
 	'jsHelpMobil',
 	'legalNoticeMobil',
 ]
@@ -142,7 +136,6 @@ let stylesheetMobilDeactivationList = [
     'stylesheetAddTask',
     'stylesheetBoard',
     'stylesheetContacts',
-    // 'stylesheetResponsiv',
     'stylesheetHelp'  
 ]
 
@@ -150,7 +143,6 @@ let jsMobilDeactivationList = [
     'jsHelp',
 	'jsResponsiv',
 	'jsContacts',
-	// 'jsContactsTemplates',
 	'jsAddTaskTemplates'
 ]
 
@@ -196,15 +188,11 @@ async function activateDesktop(){
 	});
 	}
 	
-	// document.getElementById('jsMobilContacts').disabled = false;
-	// document.getElementById('jsContactsTemplates').disabled = false;
 }
-// index.html start functions end edit by Bossi 30.01
 
 
 async function init() {
 	await includeHTML();
-	// document.getElementById('stylesheetBoardMobil').disabled = true;
 	initSummary();
 }
 
@@ -357,11 +345,6 @@ function renderList() {
 	renderLegalNotice();
 }
 
-// desktop_template.html help function
-// function help() {
-// 	window.location.href = './help.html';
-// 	initHelp();
-// }
 
 function logOutBtn() {
 	document.getElementById('logOut').classList.toggle('logOutOn');
@@ -383,15 +366,11 @@ function loadContributorsLetter() {
 // Load only applicable js and css. Edit by Bossi 29.01
 
 let stylesheetDesktopList = [
-	// 'stylesheetStyle',
-	// 'stylesheetIndex',
-	// 'stylesheetIndexMob',
 	'stylesheetAddTask',
 	'stylesheetBoard',
 	'stylesheetContacts',
 	'stylesheetLegalNotice',
 	'stylesheetsummary',
-	// 'stylesheetResponsiv',
 	'stylesheetBoardMobil',
 	'stylsheetAddTaskMobil',
 	'stylesheetHelp'
@@ -415,9 +394,6 @@ let scriptDesktopList = [
 	'jslegalNotice',
 	'jslegalNotice',
 	'jsHelp',
-	// 'jsLoginTemplates',
-	// 'jsIndex',
-	// 'jsLogin',
 	
 ];
 
@@ -433,7 +409,6 @@ let stylesheetMobilList =[
 ];
 
 let scriptMobilList =[
-	// 'jsMobilLogin',
 	'jsMobilSummary',
 	'jsMobilAddTask',
 	'jsMobilBoard',
@@ -468,7 +443,6 @@ async function enableSummaryStyles(){
 	await disableAllStyles();
 	document.getElementById('stylesheetStyle').disabled = false;
 	document.getElementById('stylesheetsummary').disabled = false;
-	// document.getElementById('stylesheetResponsiv').disabled = false;
 }
 
 
@@ -476,14 +450,12 @@ async function enableBoardStyles(){
 	await disableAllStyles();
 	document.getElementById('stylesheetBoard').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;
-	// document.getElementById('stylesheetResponsiv').disabled = false;
 }
 
 
 async function enableAddTaskStyles(){
 	await disableAllStyles();
 	document.getElementById('stylesheetAddTask').disabled = false;
-	// document.getElementById('stylesheetResponsiv').disabled = false;
 }
 
 
@@ -492,20 +464,17 @@ async function enableContactsStyles(){
 	document.getElementById('stylesheetContacts').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;
 	document.getElementById('stylesheetBoard').disabled = false;
-	// document.getElementById('stylesheetResponsiv').disabled = false;
 }
 
 
 async function enableLegalNotice(){
 	await disableAllStyles();
-	// document.getElementById('stylesheetResponsiv').disabled = false;
 	document.getElementById('stylesheetLegalNotice').disabled = false;
 }
 
 
 async function enableHelp(){
 	await disableAllStyles();
-	// document.getElementById('stylesheetResponsiv').disabled = false;
 	document.getElementById('stylesheetHelp').disabled = false;
 }
 
@@ -531,11 +500,6 @@ function enableAllJs(){
 }
 
 
-// async function enableSummaryJs(){
-// 	await disableAllJs();
-// 	document.getElementById('jsMiniBackend').disabled = false;
-// 	document.getElementById('jsSummary').disabled = false;
-// }
 
 
 

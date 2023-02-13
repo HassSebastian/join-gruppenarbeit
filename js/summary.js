@@ -17,8 +17,6 @@ let penImage = 'to_do_pen';
 async function initSummary() {
 	sliderMenuShown = false;
 	await enableSummaryStyles();
-	// await enableSummaryJs();
-	// document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	await loadTask();
 	resetCounters();
@@ -38,7 +36,6 @@ async function initSummary() {
 	showDate();
 	greetUser();
 	loadContributorsLetter();
-	// getInnerWidth();
 }
 
 function resetCounters() {
@@ -66,7 +63,6 @@ function generateSummaryHtml(
 	yourUrgentTasksAmount
 ) {
 	return /*html*/ `
-    <!-- <div class='summary_content'> -->
         <div class='title'>
             <h3>Summary</h3>
             <img src='./assets/img/vertical_line.png'>

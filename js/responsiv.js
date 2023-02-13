@@ -53,7 +53,6 @@ async function checkBoardInitMode() {
 async function initBoardDesktopResponsiv() {
 	await renderBoardResponsivHtml();
 	await loadTask();
-	// selectedMenuButton(2);
 	await createWorkStatusArrays();
 	await renderAllCardsMobil();
 }

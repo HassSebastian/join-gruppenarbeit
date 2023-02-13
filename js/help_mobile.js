@@ -1,6 +1,5 @@
 function backFromHelpMob() {
 	let backIndex = menuSelectorStyles[selectedMenuBtnId].url;
-	// window.location.href = backIndex;
 	console.log(backIndex);
 }
 

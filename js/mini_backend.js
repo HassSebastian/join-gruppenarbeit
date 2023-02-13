@@ -25,7 +25,6 @@ window.onload = async function () {
 async function downloadFromServer() {
 	let result = await loadJSONFromServer();
 	jsonFromServer = JSON.parse(result);
-	// console.log('Loaded', result);
 }
 
 function setURL(url) {
@@ -98,8 +97,6 @@ setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 
 // save and load function for Join Arrays add by Stefan Boskamp at 10.01.2023
 
-// let joinTaskArray = [];
-// let allUsers = [];
 
 let database = [];
 
@@ -120,7 +117,6 @@ async function saveTask() {
 	if (!guestLoggedIn) {
 		await fillDatabaseData();
 		setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
-		// localStorage.setItem('joinTaskArray', JSON.stringify(joinTaskArray));
 		backend.setItem('database', JSON.stringify(database));
 	}
 }

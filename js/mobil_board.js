@@ -28,7 +28,6 @@ async function initMobilBoard() {
     await loadTask();
     await createWorkStatusArrays();
     await renderAllCardsMobil();
-    // loadContributorsLetter();
     logOutMasterContainerMob();
     document.getElementById('greetingMasterContainer').classList.add('d-none');
 }
@@ -60,7 +59,6 @@ async function renderMobileBoardHtml() {
         </div>
         <div class='boardTaskCardOuterContainer'>
             <div class='toDoOuterContainer'>
-                <!-- toDo TaskCards -->
                 <div class='toDoHeadline'>
                     <span>To do</span>
                     <div class='headlinePlusBtn' onclick='startAddTaskOverlay()'>
@@ -71,7 +69,6 @@ async function renderMobileBoardHtml() {
                 <div id='toDoDiv'>
 
                 </div>
-                <!-- In progress TaskCards-->
                 <div class='toDoHeadline'>
                     <span>In progress</span>
                     <div class='headlinePlusBtn' onclick='startAddTaskOverlay()'>
@@ -81,7 +78,6 @@ async function renderMobileBoardHtml() {
                 <div id='progressDiv'>
 
                 </div>
-                <!-- Awaiting Feedback TaskCards-->
                 <div class='toDoHeadline'>
                     <span>Awaiting Feedback</span>
                     <div class='headlinePlusBtn' onclick='startAddTaskOverlay()'>
@@ -91,7 +87,6 @@ async function renderMobileBoardHtml() {
                 <div id='awaitingDiv'>
 
                 </div>
-                <!-- Done TaskCards-->
                 <div class='toDoHeadline'>
                     <span>Done</span>
                     <div class='headlinePlusBtn' onclick='startAddTaskOverlay()'>
@@ -106,11 +101,9 @@ async function renderMobileBoardHtml() {
         </div>
 
         
-        <!-- Add Task Overlay -->
         <div id='boardAddTask' class='boardAddTask d-none'>
 
         </div>
-        <!-- Detail View Overlay -->
         <div id='boardTaskDetail' class='boardTaskDetail d-none'>
 
         </div>
@@ -180,7 +173,6 @@ function toDoCardMobilHtml(arrayIndex) {
     let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
     let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
     return /*html*/ `
-        <!-- später wieder einfügen: onclick='startDetailViewOverlay(); renderPopupTaskCardHtmlMobil(${taskIndex})' -->
         <div class='taskBackgroundMobil' id='taskCard${taskIndex}' onclick='startDetailViewOverlay(); renderPopupTaskCardHtmlMobil(${taskIndex})'>
             <div class='taskContainerMobil'>
                 <div class='boardTaskCategoryMobil' id='toDoCardCat${arrayIndex}'>
@@ -350,16 +342,11 @@ async function startAddTaskOverlay() {
     renderCategoryList();
     newCatInputActive = false;
     renderSubtasks();
-    // selectedMenuBtnId = 0;
-    // selectedMenuButton(3);
     renderLoggedUserInAssignDrobDownMenuIntoYou()
     await renderContactsInAssignDropDownMenu();
     setFutureDatesOnlyForInputDueDate();
-    // loadContributorsLetter();
     addSubtaskMain();
-    // getInnerWidth();
     document.getElementById('boardAddTask').classList.remove('d-none');
-    // document.getElementById('bottomMenu').classList.add('d-none');
     taskForce = [];
 
 }
@@ -367,7 +354,6 @@ async function startAddTaskOverlay() {
 
 function closeAddTaskOverlay() {
     document.getElementById('boardAddTask').classList.add('d-none');
-    // document.getElementById('bottomMenu').classList.remove('d-none');
 }
 
 
@@ -529,8 +515,6 @@ async function createTaskDataMobil() {
     saveTask();
     showAddDiv();
     setTimeout(closeBoardAddTask, 1200);
-    // closeAddTaskOverlay();
-    // clearTaskForce();
 }
 
 async function closeBoardAddTask() {
@@ -549,10 +533,6 @@ async function startDetailViewOverlay() {
 }
 
 
-// async function boardMobilDetailViewHtml(){
-//     document.getElementById('boardTaskDetail').innerHTML = '';
-//     document.getElementById('boardTaskDetail').innerHTML = /*html*/ ``;
-// }
 
 
 function closeBoardMobilDetailOverlay() {
@@ -705,7 +685,6 @@ async function moveMobilTaskTo(taskIndex, newTaskStatus) {
 
 function taskCardAllowMove(taskIndex) {
     let endValue;
-    // let workStatus = joinTaskArray[taskIndex]['workFlowStatus'];
     let doneBarDraggedElement = document.getElementById(`doneBar${taskIndex}`);
     let doneBarOuterDraggedElement = document.getElementById(`doneBarOuter${taskIndex}`);
     let doneBarWidth = doneBarDraggedElement.offsetWidth;
@@ -727,7 +706,6 @@ async function openEditTaskCardMobil(taskIndex) {
         document.getElementById('stylesheetAddTask').disabled = true;
     }
     resetAssignToList();
-    // resetCheckValueAllUsers();
     coworkersToAssignTo = transferallUserData();
     await renderPopupEditTaskCardHtmlMobil(taskIndex);
     showDeleteButton(taskIndex);
@@ -738,11 +716,6 @@ async function openEditTaskCardMobil(taskIndex) {
 }
 
 
-// function resetCheckValueAllUsers(){
-//     for (let i = 0; i < allUsers.length; i++) {
-//         allUsers[i].check = false;
-//     }
-// }
 
 
 
@@ -809,28 +782,6 @@ async function renderPopupEditTaskCardHtmlMobil(taskIndex) {
                 </div>
 
 
-                <!-- <div class="addTaskAddCategoryBoxMob">
-                    <h3>Category</h3>
-                    <button onclick="enableDisableCatList()" id="selectedCat">
-                        <input disabled id="selectedCatInput" placeholder="Select task category" autocomplete="off" />
-                        <span id="sColor"></span>
-                        <div class="newCategoryImgDiv d-none" id="addTaskNewCatBtn">
-                            <img src="../assets/img/new_cat_cancel.png" />
-                            <img src="../assets/img/bnt_divider.png" class="btnDivider" />
-                            <img src="../assets/img/akar-icons_check.png" />
-                        </div>
-                        <img src="../assets/img/Vector 2.png" class="dropdownImg" id="dropdownImg" />
-                    </button>
-                    <span class="listD-none requiredText" id="catReq">This field is required</span>
-                    <ul class="addTaskCatList listD-none" id="CatListDropdown"></ul>
-                    <div class="addTaskAddCategoryColor listD-none" id="colorSelection">
-                        <div class="color0" id="color0Div" onclick="addColorToCat(0)"></div>
-                        <div class="color1" id="color1Div" onclick="addColorToCat(1)"></div>
-                        <div class="color2" id="color2Div" onclick="addColorToCat(2)"></div>
-                        <div class="color3" id="color3Div" onclick="addColorToCat(3)"></div>
-                        <div class="color4" id="color4Div" onclick="addColorToCat(4)"></div>
-                        <div class="color5" id="color5Div" onclick="addColorToCat(5)"></div>
-                    </div>
                 </div> -->
 
 
@@ -864,24 +815,6 @@ async function renderPopupEditTaskCardHtmlMobil(taskIndex) {
                     Delete <img src='../assets/img/akar-icons_check_white.png' >
                 </button>
 
-
-                <!-- <div class='subtaskMob'>
-                    <h3>Subtask</h3>
-                    <div class='inputDiv'>
-                        <form onsubmit='addSubtask(); return false'>
-                            <input type="text" placeholder="Add new subtask" id="subTask" autocomplete="off"
-                                onfocus="subTaskInputentered()" onblur="subTaskInputLeave()" minlength="3" />
-                            <img src="../assets/img/add_cross.png" class="subtaskCross" id="subtaskCross"
-                                onclick="enterSubTaskInput()" />
-                        </form>
-                        <div class='subTaskImgDiv d-none' id='subTaskImgDiv'>
-                            <img src="../assets/img/new_cat_cancel.png" onclick='resetSubtaskInput()'>
-                            <img src="../assets/img/bnt_divider.png" class='btnDivider'>
-                            <img src="../assets/img/akar-icons_check.png" onclick='addSubtask()'>
-                        </div>
-                    </div>
-                    <div class='addTaskCheckbox' id='subtaskCheckboxes'></div>
-                </div> -->
 
             </div>
             

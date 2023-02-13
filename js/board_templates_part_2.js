@@ -11,8 +11,6 @@ function renderAssignToHtml2(taskIndex) {
         for (let i = 0; i < assignedList.length; i++) {
             let name = assignedList[i]['name'];
             let nameLetters = assignedList[i].firstSecondLetter;
-            // chooseColorForTaskForceBadge(firstName[0], lastName[0]);
-            // let assignToColor = assignedList[i].colorIndex;
             let assignToColor = colorIndex[assignedList[i].colorIndex];
             let assignToTitle = name;
             document.getElementById(divId).innerHTML += /*html*/`
@@ -36,7 +34,6 @@ async function renderSubtaskHtml(taskIndex) {
             let subtaskText = subtaskArray[i]['subtaskText'];
             document.getElementById('subtaskListTaskCard').innerHTML += /*html*/`
                 <div>
-                    <!-- renderBtnBySubtaskChange(${taskIndex}) hizugefügt -->
                     <input type='checkbox' id='subtask${i}' onclick='checkboxSubtaskSelected(${i}, ${taskIndex}), renderBtnBySubtaskChange(${taskIndex})'>
                     <span>${subtaskText}</span>
                 </div>`;
@@ -129,16 +126,9 @@ async function renderEditTaskCardHtml(taskIndex) {
                             alt=''
                         />
                     </li>
-                    <!-- <li> -->
-                    <!-- You
-                    <div  class='assignCheckboxContainer'>
-                        <img class='checkBox' src='assets/img/check_box.png' alt='checkbox' />
-                        <img class='checkMark' src='assets/img/check_mark.png' />
-                    </div> -->
                 </div>
 
             <button class='editTaskOkBtn' onclick='getTaskChanges(${taskIndex})'>Ok <img src='../assets/img/akar-icons_check_white.png' ></button>
-            <!-- Delete Button edited by Bossi  -->
             <button class='deleteButton d-none' id='deleteButton' onclick='deleteButton(${taskIndex})'> <!--edit by Basti-->
                 Delete <img src='../assets/img/akar-icons_check_white.png' >
             </button>
@@ -180,9 +170,7 @@ function renderAddTaskPopupHtml() {
 
                 <div class='addTaskAddDescriptenBox'>
                     <h3>Descripten</h3>
-                    <!-- <form onblur='goToCategorySelection(); return false' id='formDesc' action='action.asp'> -->
                     <textarea form='formDesc' type='text' placeholder='Enter Descripten' id='addTaskDescripten'  required minlength='5'></textarea>
-                    <!-- </form> -->
                     <span class='requiredText' id='descReq'>This field is required</span>
                 </div>
 
@@ -245,12 +233,6 @@ function renderAddTaskPopupHtml() {
                             alt=''
                         />
                     </li>
-                    <!-- <li>
-                    You -->
-                    <!-- <div  class='assignCheckboxContainer'>
-                        <img class='checkBox' src='assets/img/check_box.png' alt='checkbox' /> -->
-                        <!-- <img class='checkMark' src='assets/img/check_mark.png' /> -->
-                    <!-- </div> -->
                 </div>
             
 
@@ -306,7 +288,6 @@ function renderAddTaskPopupHtml() {
     
             </div>
         </div>
-        <!-- </form>  -->
         <div class='boardtaskAddedToBoard' id='taskCreatedIndication'>
             <div class='taskAddedToBoardContainer'>
                 <span>Task added to board</span>
@@ -343,7 +324,6 @@ function renderPopupTaskCardHtml(taskIndex) {
                 <span class='taskCardPopupDueDate'>${cardDueDate}</span>
             </div>
             <div class='taskCardPopupPriorityContainer'>
-                <!-- classes down must be changed later ! -->
             <span>Priority:</span>
             <div class='urgency' id='prioContainer'>
                 <span>${taskPrio}</span>
@@ -368,7 +348,6 @@ function renderPopupTaskCardHtml(taskIndex) {
         <div class='boardSubtasksDiv' id='subtaskListTaskCard'>
             
         </div>
-        <!-- Btn hinzugefügt -->
         <div class='moveBtnMobil d-none' id='moveBtnMobil'>
         
         </div>
@@ -379,6 +358,5 @@ function renderPopupTaskCardHtml(taskIndex) {
     setTaskCardPopupPrioBackground(taskIndex);
     renderSubtask(taskIndex);
     renderAssignToHtml2(taskIndex);
-    // Btn hinzugefügt
     renderMoveBtnMobil(taskIndex);
 }
