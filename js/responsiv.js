@@ -1,18 +1,16 @@
-
 let sliderMenuShown = false;
 
 // responsiv Slider menu functions
 function enableDisableSliderMenu() {
 	let sliderMenu = document.querySelector('.sliderMenu');
-	if (!sliderMenuShown){
+	if (!sliderMenuShown) {
 		sliderMenu.classList.add('showSliderMenu');
 		sliderMenuShown = true;
-	}else{
+	} else {
 		sliderMenu.classList.remove('showSliderMenu');
 		sliderMenuShown = false;
 	}
 }
-
 
 let boardResponsivView = false;
 
@@ -39,7 +37,6 @@ async function callBoardRelatedInit() {
 	}
 }
 
-
 async function checkBoardInitMode() {
 	if (window.innerWidth < 1400) {
 		boardResponsivView = true;
@@ -49,7 +46,6 @@ async function checkBoardInitMode() {
 	}
 }
 
-
 async function initBoardDesktopResponsiv() {
 	await renderBoardResponsivHtml();
 	await loadTask();
@@ -57,109 +53,85 @@ async function initBoardDesktopResponsiv() {
 	await renderAllCardsMobil();
 }
 
-
 async function renderBoardResponsivHtml() {
 	document.getElementById('content').innerHTML = '';
-	document.getElementById('content').innerHTML = /*html*/`
-		<div class='boardOverlay'>
-            <div class='boardHeadline'>
-                <span>Board</span>
-            </div>
-            <div class='inputOutContainer'>
-                <div class='inputContainer'>
-                    <div class='inputInContainer'>
-                        <div class='inputFontContainer'>
-                            <input type="text" id="searchField" required placeholder='Find Task' onfocus='startSearch(event)' autocomplete='off'>
-                        </div>
-                        <div class='vector'></div>
-                        <img src='./assets/img/search_logo.png'>
-                    </div>
-                </div>
-                <button class='addTaskButton' onclick='showAddTaskPopupWindow()'>
-                    <span>Add task</span>
-                    <div class='plusOutContainer'>
-                        <img src='./assets/img/plus_logo_white.png'>
-                    </div>
-                </button>
-            </div>
-        </div>
+	document.getElementById('content').innerHTML = /*html*/ `
+	<div class="boardContainer">
+		<div class="boardOverlay">
+			<div class="boardHeadline">
+				<span>Board</span>
+			</div>
+			<div class="inputOutContainer">
+				<div class="inputContainer">
+					<div class="inputInContainer">
+						<div class="inputFontContainer">
+							<input type="text" id="searchField" required placeholder="Find Task" onfocus="startSearch(event)" autocomplete="off" />
+						</div>
+						<div class="vector"></div>
+						<img src="./assets/img/search_logo.png" />
+					</div>
+				</div>
+				<button class="addTaskButton" onclick="showAddTaskPopupWindow()">
+					<span>Add task</span>
+					<div class="plusOutContainer">
+						<img src="./assets/img/plus_logo_white.png" />
+					</div>
+				</button>
+			</div>
+		</div>
 		<!--  -->
 
-		<div class='boardTaskCardOuterContainer'>
-            <div class='toDoOuterContainer'>
-
+		<div class="boardTaskCardOuterContainer">
+			<div class="toDoOuterContainer">
 				<div>
 					<!-- toDo TaskCards -->
-					<div class='toDoHeadline'>
+					<div class="toDoHeadline">
 						<span>To do</span>
-						<div class='headlinePlusBtn' onclick='showAddTaskPopupWindow()'>
-
-						</div>
+						<div class="headlinePlusBtn" onclick="showAddTaskPopupWindow()"></div>
 					</div>
-					
-					<div id='toDoDiv'>
 
-					</div>
+					<div id="toDoDiv"></div>
 				</div>
 
 				<div>
 					<!-- In progress TaskCards-->
-					<div class='toDoHeadline'>
+					<div class="toDoHeadline">
 						<span>In progress</span>
-						<div class='headlinePlusBtn' onclick='showAddTaskPopupWindow()'>
-
-						</div>
+						<div class="headlinePlusBtn" onclick="showAddTaskPopupWindow()"></div>
 					</div>
-					<div id='progressDiv'>
-
-					</div>
+					<div id="progressDiv"></div>
 				</div>
 
 				<div>
 					<!-- Awaiting Feedback TaskCards-->
-					<div class='toDoHeadline'>
+					<div class="toDoHeadline">
 						<span>Awaiting Feedback</span>
-						<div class='headlinePlusBtn' onclick='showAddTaskPopupWindow()'>
-
-						</div>
+						<div class="headlinePlusBtn" onclick="showAddTaskPopupWindow()"></div>
 					</div>
-					<div id='awaitingDiv'>
-
-					</div>
+					<div id="awaitingDiv"></div>
 				</div>
 
 				<div>
 					<!-- Done TaskCards-->
-					<div class='toDoHeadline'>
+					<div class="toDoHeadline">
 						<span>Done</span>
-						<div class='headlinePlusBtn' onclick='showAddTaskPopupWindow()'>
-
-						</div>
+						<div class="headlinePlusBtn" onclick="showAddTaskPopupWindow()"></div>
 					</div>
-					<div id='doneDiv'>
-
-					</div>
+					<div id="doneDiv"></div>
 				</div>
+			</div>
+		</div>
 
-            </div>
-        </div>
+		<!-- Add Task Overlay -->
+		<div id="boardAddTask" class="boardAddTask d-none"></div>
+		<!-- Detail View Overlay -->
+		<div id="boardTaskDetail" class="boardTaskDetail d-none"></div>
 
-        
-        <!-- Add Task Overlay -->
-        <div id='boardAddTask' class='boardAddTask d-none'>
-
-        </div>
-        <!-- Detail View Overlay -->
-        <div id='boardTaskDetail' class='boardTaskDetail d-none'>
-
-        </div>
-
-		<div class='shadowOverlay d-none' id='boardPopup' onclick='disablePopupWindow()'>
-           
-        </div>
+		<div class="shadowOverlay d-none" id="boardPopup" onclick="disablePopupWindow()"></div>
+	</div>
+	<div class="shadowOverlay d-none" id="boardPopup" onclick="disablePopupWindow()"></div>
 		`;
 }
-
 
 // Board AddTask
 
@@ -185,7 +157,6 @@ function boardAddTaskMarginSettings() {
 			document.getElementById('boardAddTaskRightContainer').classList.remove('addMarginAssignList');
 			document.getElementById('boardAddTaskBtnContainer').classList.remove('addMarginBothList');
 			document.getElementById('boardAddTaskRightContainer').classList.remove('addMarginBothList');
-
 		}
 		if (catListStatus && assignListStatus) {
 			document.getElementById('boardAddTaskRightContainer').classList.remove('addMarginCatList');
@@ -194,5 +165,4 @@ function boardAddTaskMarginSettings() {
 			document.getElementById('boardAddTaskBtnContainer').classList.add('addMarginBothList');
 		}
 	}
-
 }

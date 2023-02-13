@@ -83,7 +83,7 @@
 .inputInContainer {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	padding: 0px;
 	gap: 10px;
@@ -110,7 +110,6 @@
 	flex: none;
 	order: 1;
 	flex-grow: 0;
-	padding-right: 16px;
 }
 
 .inputFontContainer {
@@ -1627,17 +1626,17 @@
 
 @media screen and (max-width: 1440px) {
 	/* board */
-	.boardOverlay {
+	/* .boardOverlay {
 		left: 22% !important;
 		width: 75% !important;
 		justify-content: space-between;
 		gap: unset !important;
-	}
+	} */
 
-	.boardSubheaders {
+	/* .boardSubheaders {
 		left: calc(22% - 45px) !important;
 		width: 76.78% !important;
-	}
+	} */
 
 	/* Btn hinzugefügt */
 	.moveBtnMobil {
@@ -1657,12 +1656,12 @@
 }
 
 @media screen and (max-width: 1400px) {
-	.boardOverlay {
+	/* 	.boardOverlay {
 		left: 22% !important;
 		width: 58% !important;
 		justify-content: center;
 		gap: 202px !important;
-	}
+	} */
 
 	/* .boardTaskCardPopup {
 		left: unset !important;
@@ -1682,9 +1681,9 @@
 @media screen and (max-width: 1440px) {
 	/* board */
 
-	.canbanBoard {
+	/* .canbanBoard {
 		left: 22% !important;
-	}
+	} */
 }
 
 @media screen and (max-width: 1400px) {
