@@ -146,10 +146,10 @@ function openNewContact() {
 
 function closeNewContact() {
 	window.innerWidth < 769 ? renderContentMobile() : document.getElementById('new_contact').classList.remove('add_contact_slide');
-	setTimeout(() => {
+	/* setTimeout(() => {
 		document.getElementById('new_contact').classList.add('d-none');
 		document.getElementById('boardPopup').classList.add('d-none');
-	}, 500);
+	}, 500); */
 }
 
 /**
