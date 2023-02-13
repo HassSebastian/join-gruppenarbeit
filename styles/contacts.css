@@ -494,6 +494,7 @@
 	order: 0;
 	flex-grow: 0;
 	z-index: 0;
+	padding-top: 115px;
 }
 
 .editContactVector {
@@ -687,7 +688,7 @@
 	padding: 0px;
 	position: absolute;
 	width: 422px;
-	height: 271px;
+	height: 215px;
 	left: 737px;
 	top: 129px;
 }
@@ -880,17 +881,6 @@
 	flex-grow: 0;
 }
 
-.contactContainer {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	padding: 0px;
-	position: absolute;
-	width: 422px;
-	height: 271px;
-	left: 737px;
-	top: 129px;
-}
 
 .buttonNewOutContainer {
 	display: flex;
