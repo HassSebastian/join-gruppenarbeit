@@ -5,6 +5,8 @@ body {
 	color: white;
 	background-color: black;
 	font-family: 'inter-regular';
+	min-height: 100vh;
+	overflow: hidden;
 }
 
 .outerContainer {
