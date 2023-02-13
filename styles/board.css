@@ -1,3 +1,7 @@
+.boardContainer {
+	padding-left: 70px;
+}
+
 .board {
 	position: relative;
 	width: 1440px;
@@ -15,7 +19,7 @@
 	position: absolute;
 	width: 1078px;
 	height: 73px;
-	left: 302px;
+	/* left: 302px; */
 	top: 171px;
 }
 
@@ -308,7 +312,7 @@
 	position: absolute;
 	width: 1078px;
 	/* height: 607px; */
-	left: 302px;
+	/* left: 302px; */
 	top: 408px;
 	bottom: 0;
 	overflow: hidden;
@@ -337,7 +341,7 @@
 	align-items: center;
 	padding: 18px 19px;
 	gap: 10px;
-	width: 212px;
+	width: 250px;
 	height: 239px;
 	background: #ffffff;
 	box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
@@ -621,7 +625,7 @@
 	position: absolute;
 	width: 1145px;
 	height: 57px;
-	left: 267px;
+	/* left: 267px; */
 	top: 327px;
 
 	background: #f6f7f8;
