@@ -482,7 +482,7 @@
 
 .fontAddContact {
 	width: 366px;
-	height: 73px;
+	height: fit-content;
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 700;
