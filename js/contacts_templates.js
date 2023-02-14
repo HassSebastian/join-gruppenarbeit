@@ -3,27 +3,27 @@
  * @returns A string of HTML.
  */
 function renderContentHTML() {
-    return /*html*/ `
-        <div class='shadowOverlay d-none' id='boardPopup' onclick='disablePopupWindow()'></div>
-        <div class="contactsContainer">
-            <div class="Frame_97">
-                <div class="Contact_list" id="Contact_list"></div>
-                <div class="better_with_a_team">
-                    <h1>Contacts</h1>
-                    <div class="vector_5"></div>
-                    <span>Better with a team</span>
-                    
-                </div>
-                <div class="showContact" id="showContact"></div>
-            </div>
-                
-            <div class="new_contact" onclick="openNewContact()">
-                <span>New contact</span>
-                <img src="assets/img/add_contact_icon.png" alt="">
-            </div>
-            <div class="add_contact d-none" id="new_contact"></div>
-            <div class="add_contact d-none" id="edit_contact"></div>
-        </div>
+	return /*html*/ `
+    <div class="shadowOverlay d-none" id="boardPopup" onclick="disablePopupWindow()"></div>
+		<div class="contactsContainer">
+			<div class="Frame_97">
+				<div class="Contact_list" id="Contact_list"></div>
+			</div>
+			<div class="contactContainerRight">
+				<div class="better_with_a_team">
+					<h1>Contacts</h1>
+					<div class="vector_5"></div>
+					<span>Better with a team</span>
+				</div>
+				<div class="showContact" id="showContact"></div>
+			</div>
+			<div class="new_contact" onclick="openNewContact()">
+				<span>New contact</span>
+				<img src="assets/img/add_contact_icon.png" alt="" />
+			</div>
+			<div class="add_contact d-none" id="new_contact"></div>
+			<div class="add_contact d-none" id="edit_contact"></div>
+		</div>
     `;
 }
 
@@ -34,8 +34,8 @@ function renderContentHTML() {
  * @param {boolean} guestLoggedIn
  */
 function chooseRightUserArray() {
-    !guestLoggedIn ? calculateUserInAlphabetArray(allUsers) : null;
-    guestLoggedIn ? calculateUserInAlphabetArray(allFakeUsers) : null;
+	!guestLoggedIn ? calculateUserInAlphabetArray(allUsers) : null;
+	guestLoggedIn ? calculateUserInAlphabetArray(allFakeUsers) : null;
 }
 
 /**
@@ -43,21 +43,21 @@ function chooseRightUserArray() {
  * first letter of their name.
  */
 function calculateUserInAlphabetArray(arr) {
-    arr.forEach((user, i) => {
-        let id = i;
-        let colorIndex = user.colorIndex;
-        let name = user.name;
-        let email = user.email;
-        let letter = user.firstSecondLetter;
-        let firstLetter = user.firstSecondLetter[0];
-        alphabetOrd[firstLetter].push({
-            name: name,
-            email: email,
-            id: id,
-            letter: letter,
-            colorIndex: colorIndex,
-        });
-    });
+	arr.forEach((user, i) => {
+		let id = i;
+		let colorIndex = user.colorIndex;
+		let name = user.name;
+		let email = user.email;
+		let letter = user.firstSecondLetter;
+		let firstLetter = user.firstSecondLetter[0];
+		alphabetOrd[firstLetter].push({
+			name: name,
+			email: email,
+			id: id,
+			letter: letter,
+			colorIndex: colorIndex,
+		});
+	});
 }
 
 /**
@@ -65,19 +65,19 @@ function calculateUserInAlphabetArray(arr) {
  * add the letter to the HTML, and then loop through the array and add the names to the HTML.
  */
 function calculateAndShowAlphabet() {
-    for (let alphabetLetter in alphabetOrd) {
-        if (alphabetOrd[alphabetLetter].length > 0) {
-            document.getElementById('Contact_list').innerHTML += showLettersHTML(alphabetLetter);
-            for (i = 0; i < alphabetOrd[alphabetLetter].length; i++) {
-                let name = alphabetOrd[alphabetLetter][i].name;
-                let color = alphabetOrd[alphabetLetter][i].colorIndex;
-                let email = alphabetOrd[alphabetLetter][i].email;
-                let id = alphabetOrd[alphabetLetter][i].id;
-                let letter = alphabetOrd[alphabetLetter][i].letter;
-                document.getElementById(alphabetLetter).innerHTML += showAlphabetNames(name, color, email, id, letter);
-            }
-        }
-    }
+	for (let alphabetLetter in alphabetOrd) {
+		if (alphabetOrd[alphabetLetter].length > 0) {
+			document.getElementById('Contact_list').innerHTML += showLettersHTML(alphabetLetter);
+			for (i = 0; i < alphabetOrd[alphabetLetter].length; i++) {
+				let name = alphabetOrd[alphabetLetter][i].name;
+				let color = alphabetOrd[alphabetLetter][i].colorIndex;
+				let email = alphabetOrd[alphabetLetter][i].email;
+				let id = alphabetOrd[alphabetLetter][i].id;
+				let letter = alphabetOrd[alphabetLetter][i].letter;
+				document.getElementById(alphabetLetter).innerHTML += showAlphabetNames(name, color, email, id, letter);
+			}
+		}
+	}
 }
 
 /**
@@ -87,7 +87,7 @@ function calculateAndShowAlphabet() {
  * @returns the HTML code for the letters of the alphabet.
  */
 function showLettersHTML(alphabetLetter) {
-    return /*html*/ `
+	return /*html*/ `
         <div class="letters">
             <span><b>${alphabetLetter}</b></span>
         </div>
@@ -96,97 +96,97 @@ function showLettersHTML(alphabetLetter) {
 }
 
 function showContactQuerry(name, email, phone, letter, color, i, showContact) {
-    if (window.innerWidth < 769) {
-        document.getElementById('mobilContent').innerHTML = '';
-        document.getElementById('mobilContent').innerHTML = showContactHTMLMob(name, email, phone, letter, color, i);
-    } else {
-        showContact.classList.remove('d-none');
-        if (showContact.classList.contains('showContactSlide')) {
-            showContact.classList.remove('showContactSlide');
-            setTimeout(showContactHelp, 700, name, email, phone, letter, color, i, showContact);
-        } else {
-            showContactHelp(name, email, phone, letter, color, i, showContact);
-        }
-    }
+	if (window.innerWidth < 769) {
+		document.getElementById('mobilContent').innerHTML = '';
+		document.getElementById('mobilContent').innerHTML = showContactHTMLMob(name, email, phone, letter, color, i);
+	} else {
+		showContact.classList.remove('d-none');
+		if (showContact.classList.contains('showContactSlide')) {
+			showContact.classList.remove('showContactSlide');
+			setTimeout(showContactHelp, 700, name, email, phone, letter, color, i, showContact);
+		} else {
+			showContactHelp(name, email, phone, letter, color, i, showContact);
+		}
+	}
 }
 
 function showContactHelp(name, email, phone, letter, color, i, showContact) {
-    showContact.innerHTML = '';
-    showContact.innerHTML = showContactHTML(name, email, phone, letter, color, i);
-     	showContact.classList.add('showContactSlide'); 
+	showContact.innerHTML = '';
+	showContact.innerHTML = showContactHTML(name, email, phone, letter, color, i);
+	showContact.classList.add('showContactSlide');
 }
 
 function addContactHelp(name, email, phone, newNameRequired, newEmailRequired, newPhoneRequired) {
-    checkNameInput(name, newNameRequired);
-    checkEmailInput(email, newEmailRequired);
-    checkPhoneInput(phone, newPhoneRequired);
-    if (allInformationTypedIn(newNameRequired, newEmailRequired, newPhoneRequired)) {
-        comparisonEmailAddress(newEmailRequired, name.value, email.value, phone.value);
-    }
+	checkNameInput(name, newNameRequired);
+	checkEmailInput(email, newEmailRequired);
+	checkPhoneInput(phone, newPhoneRequired);
+	if (allInformationTypedIn(newNameRequired, newEmailRequired, newPhoneRequired)) {
+		comparisonEmailAddress(newEmailRequired, name.value, email.value, phone.value);
+	}
 }
 
 function checkNameInput(name, newNameRequired) {
-    if (noNameInput(name)) {
-        newNameRequired.classList.remove('d-none');
-        newNameRequired.classList.add('requiredOn');
-    } else {
-        newNameRequired.classList.remove('requiredOn');
-        newNameRequired.classList.add('d-none');
-    }
+	if (noNameInput(name)) {
+		newNameRequired.classList.remove('d-none');
+		newNameRequired.classList.add('requiredOn');
+	} else {
+		newNameRequired.classList.remove('requiredOn');
+		newNameRequired.classList.add('d-none');
+	}
 }
 
 function checkEmailInput(email, newEmailRequired) {
-    if (noValidEmailInput(email)) {
-        newEmailRequired.classList.remove('d-none');
-        newEmailRequired.classList.add('requiredOn');
-    } else {
-        newEmailRequired.classList.remove('requiredOn');
-        newEmailRequired.classList.add('d-none');
-    }
+	if (noValidEmailInput(email)) {
+		newEmailRequired.classList.remove('d-none');
+		newEmailRequired.classList.add('requiredOn');
+	} else {
+		newEmailRequired.classList.remove('requiredOn');
+		newEmailRequired.classList.add('d-none');
+	}
 }
 
 function checkPhoneInput(phone, newPhoneRequired) {
-    if (noPhoneNumber(phone)) {
-        newPhoneRequired.classList.remove('d-none');
-        newPhoneRequired.classList.add('requiredOn');
-    } else {
-        newPhoneRequired.classList.remove('requiredOn');
-        newPhoneRequired.classList.add('d-none');
-    }
+	if (noPhoneNumber(phone)) {
+		newPhoneRequired.classList.remove('d-none');
+		newPhoneRequired.classList.add('requiredOn');
+	} else {
+		newPhoneRequired.classList.remove('requiredOn');
+		newPhoneRequired.classList.add('d-none');
+	}
 }
 
 function noNameInput(name) {
-    return name.value.length == 0 || name.value[0] === ' ';
+	return name.value.length == 0 || name.value[0] === ' ';
 }
 
 function noValidEmailInput(email) {
-    return email.value.length < 8 || !email.value.includes('@') || !email.value.includes('.') || email.value[0] === ' ';
+	return email.value.length < 8 || !email.value.includes('@') || !email.value.includes('.') || email.value[0] === ' ';
 }
 
 function noPhoneNumber(phone) {
-    return phone.value.length < 8 || phone.value[0] === ' ';
+	return phone.value.length < 8 || phone.value[0] === ' ';
 }
 
 function allInformationTypedIn(newNameRequired, newEmailRequired, newPhoneRequired) {
-    return !newNameRequired.classList.contains('requiredOn') && !newEmailRequired.classList.contains('requiredOn') && !newPhoneRequired.classList.contains('requiredOn');
+	return !newNameRequired.classList.contains('requiredOn') && !newEmailRequired.classList.contains('requiredOn') && !newPhoneRequired.classList.contains('requiredOn');
 }
 
 function comparisonEmailHelp(newEmailRequired, name, email, phone, valueToCheck) {
-    check = 0;
-    for (let i = 0; i < allUsers.length; i++) {
-        let testValue = allUsers[i].email;
-        if (testValue === valueToCheck) {
-            check = 1;
-            break;
-        }
-    }
-    if (check == 1) {
-        newEmailRequired.classList.remove('d-none');
-        newEmailRequired.classList.add('requiredOn');
-        newEmailRequired.innerHTML = `This email address is not available!!`;
-    } else {
-        calculateNewAllUserArray(name, email, phone);
-    }
+	check = 0;
+	for (let i = 0; i < allUsers.length; i++) {
+		let testValue = allUsers[i].email;
+		if (testValue === valueToCheck) {
+			check = 1;
+			break;
+		}
+	}
+	if (check == 1) {
+		newEmailRequired.classList.remove('d-none');
+		newEmailRequired.classList.add('requiredOn');
+		newEmailRequired.innerHTML = `This email address is not available!!`;
+	} else {
+		calculateNewAllUserArray(name, email, phone);
+	}
 }
 
 /**
@@ -199,7 +199,7 @@ function comparisonEmailHelp(newEmailRequired, name, email, phone, valueToCheck)
  * @returns A string of HTML code.
  */
 function showAlphabetNames(name, color, email, id, letter) {
-    return /*html*/ `
+	return /*html*/ `
         <div class="contact" id="contact${i}" onclick="showContact(${id})">
             <div class="ellipse" style='background:${colorIndex[color]}'>
                 <span>${letter}</span>
@@ -224,7 +224,7 @@ function showAlphabetNames(name, color, email, id, letter) {
  * @returns A string of HTML.
  */
 function openEditContactHTML(color, letter, name, email, phone, i) {
-    return /*html*/ `   
+	return /*html*/ `   
         <div class="overlayAdd">
             <div class="blackSite">
                 <div class="blackSiteContainer">
@@ -282,7 +282,7 @@ function openEditContactHTML(color, letter, name, email, phone, i) {
  * @returns A string of HTML.
  */
 function openNewContactHTML() {
-    return /*html*/ `
+	return /*html*/ `
         <div class="overlayAdd">
             <div class="blackSite">
                 <div class="blackSiteContainer">
@@ -360,7 +360,7 @@ function openNewContactHTML() {
  * @returns A string of HTML.
  */
 function showContactHTML(name, email, phone, letter, color, i) {
-    return /*html*/ `
+	return /*html*/ `
         <div class="showContactDetail">                       
             <div class="show_contact_ellipse_5" style='background:${colorIndex[color]}' onclick="deleteContactQuestion(${i})">
                 <span id="deleteContactQuestion">${letter}</span>
@@ -401,16 +401,16 @@ function showContactHTML(name, email, phone, letter, color, i) {
  * @param colorIndex - 0-5
  */
 async function addContactSave(name, email, phone, firstLetter, secondLetter, colorIndex) {
-    allUsers.push({
-        name: name,
-        email: email,
-        colorIndex: colorIndex,
-        firstSecondLetter: firstLetter + secondLetter,
-        phone: phone,
-    });
-    await saveTask();
-    closeNewContact();
-    userInAlphabetArray();
+	allUsers.push({
+		name: name,
+		email: email,
+		colorIndex: colorIndex,
+		firstSecondLetter: firstLetter + secondLetter,
+		phone: phone,
+	});
+	await saveTask();
+	closeNewContact();
+	userInAlphabetArray();
 }
 
 /**
@@ -425,30 +425,30 @@ async function addContactSave(name, email, phone, firstLetter, secondLetter, col
  * @param i - the index of the user in the allUsers array
  */
 async function editContactSave(name, email, password, phone, firstLetter, secondLetter, colorIndex, i) {
-    allUsers[i] = {
-        name: name,
-        email: email,
-        password: password,
-        colorIndex: colorIndex,
-        firstSecondLetter: firstLetter + secondLetter,
-        phone: phone,
-    };
-    await saveTask(); // ! Speichert die einen Task oder einen bearbeiteten Kontakt?
-    closeEditContact();
-    document.getElementById('showContact').classList.add('d-none');
-    userInAlphabetArray();
+	allUsers[i] = {
+		name: name,
+		email: email,
+		password: password,
+		colorIndex: colorIndex,
+		firstSecondLetter: firstLetter + secondLetter,
+		phone: phone,
+	};
+	await saveTask(); // ! Speichert die einen Task oder einen bearbeiteten Kontakt?
+	closeEditContact();
+	document.getElementById('showContact').classList.add('d-none');
+	userInAlphabetArray();
 }
 
 /**
  * When the user hovers over the cancel button, the image changes to a blue version of the same image.
  */
 function cancelOn() {
-    document.getElementById('cancelImg').src = '././assets/img/close_logo_blue.png';
+	document.getElementById('cancelImg').src = '././assets/img/close_logo_blue.png';
 }
 
 /**
  * When the mouse leaves the cancel button, change the image to the original image.
  */
 function cancelOff() {
-    document.getElementById('cancelImg').src = './assets/img/close_logo.png';
+	document.getElementById('cancelImg').src = './assets/img/close_logo.png';
 }

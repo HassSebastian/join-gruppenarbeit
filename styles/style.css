@@ -343,7 +343,7 @@ tr td:nth-child(3) {
 	.mainContainer {
 		justify-content: center;
 		overflow: hidden;
-		width: 100%;
+		/* width: 100%; */
 	}
 }
 

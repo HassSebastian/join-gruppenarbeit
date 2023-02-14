@@ -133,10 +133,19 @@
 	flex-grow: 0;
 }
 
+.contactContainerRight {
+	position: absolute;
+	top: 89px;
+	bottom: 0;
+	left: 453px;
+	right: 0;
+	overflow: hidden;
+}
+
 .better_with_a_team {
 	position: relative;
 	top: 82px;
-	left: 508px;
+	left: 58px;
 	width: fit-content;
 	display: flex;
 	justify-content: space-around;
@@ -259,9 +268,10 @@
 	position: relative;
 	width: 461px;
 	height: fit-content;
-	left: 5000px;
+	left: 65px;
 	top: 237px;
 	transition: 400ms ease-in;
+	transform: translateX(4500px);
 }
 
 .showContactDetail {
@@ -270,7 +280,7 @@
 
 .showContactSlide {
 	transition: 400ms ease-out;
-	transform: translateX(-4500px);
+	transform: translateX(0px);
 }
 
 .show_contact_ellipse_5 {
@@ -1026,10 +1036,6 @@
 	.Frame_97 {
 		left: 0;
 	}
-
-	.better_with_a_team {
-		left: 500px;
-	}
 }
 
 @media (max-width: 1100px) {
@@ -1037,11 +1043,15 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		left: 1095px;
+		top: 90px;
 	}
 
 	.better_with_a_team {
 		flex-direction: column;
+		right: 0;
+		left: 0;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.vector_5 {
