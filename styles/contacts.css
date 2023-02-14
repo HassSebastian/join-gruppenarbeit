@@ -389,6 +389,15 @@
 	flex-grow: 0;
 }
 
+.contactPhoneContainer {
+	padding-top: 22px;
+}
+
+.contactEmail,
+.contactPhone {
+	padding-top: 15px;
+}
+
 .contactEmail {
 	width: 140px;
 	height: 19px;
@@ -403,7 +412,6 @@
 	flex: none;
 	order: 1;
 	flex-grow: 0;
-	padding: 10px 0;
 	color: blue;
 	/* text-decoration: underline; */
 }
@@ -426,7 +434,6 @@
 	display: flex;
 	align-items: center;
 	color: #000000;
-	padding: 10px 0;
 	flex: none;
 	order: 1;
 	flex-grow: 0;
@@ -562,8 +569,8 @@
 }
 
 .elypse {
-	width: 120px;
-	height: 120px;
+	width: 100%;
+	height: 100%;
 	border-radius: 100%;
 	background: #d1d1d1;
 	display: flex;
@@ -1141,16 +1148,12 @@
 	}
 }
 
-/****************/
-
-/****************/
-/* Contact List */
-@media (max-width: 1100px) {
-	/* .Frame_97 {
-		width: 350px;
-	} */
-
-	/* .Contact_list {
-		width: 260px;
-	} */
+@media screen and (max-height: 768px) {
+	.showContact {
+		top: 130px;
+	}
 }
+
+/****************/
+
+/****************/

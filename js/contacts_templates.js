@@ -1,3 +1,4 @@
+d;
 /**
  * It returns a string of HTML code.
  * @returns A string of HTML.
@@ -381,10 +382,14 @@ function showContactHTML(name, email, phone, letter, color, i) {
                         <span>Edit Contact</span>
                     </div>
                 </div>
-                <div class="contactEmailAndPhone">Email</div>
-                <div class="contactEmail"><a href="mailto:${email}">${email}</a></div>
-                <div class="contactEmailAndPhone">Phone</div>
-                <div class="contactPhone"><a href="tel:${phone}">${phone}</a></div>
+                <div class="contactEmailContainer">
+                    <div class="contactEmailAndPhone">Email</div>
+                    <div class="contactEmail"><a href="mailto:${email}">${email}</a></div>
+                </div>
+                <div class="contactPhoneContainer">
+                    <div class="contactEmailAndPhone">Phone</div>
+                    <div class="contactPhone"><a href="tel:${phone}">${phone}</a></div>
+                </div>
             </div>
         </div>
     `;
