@@ -1030,9 +1030,13 @@ function setCheckStatusToFalse() {
  */
 function checkStatusToFalse() {
 	coworkersToAssignTo.forEach((coworker, i) => {
-		coworker.check = false;
-		removeCheckMarkFromCheckBox(i);
+		if (!(coworker.email == 'guest@web.de')){
+			coworker.check = false;
+			removeCheckMarkFromCheckBox(i);
+		}	
 	});
+
+	
 }
 
 /**
