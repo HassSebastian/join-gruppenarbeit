@@ -25,9 +25,7 @@ let coworkersToAssignTo = [];
 async function initAddTask() {
 	transferArray = [];
 	sliderMenuShown = false;
-	await enableAddTaskStyles();
 	await renderAddTask();
-	await loadExitingCategories();
 	renderCategoryList();
 	newCatInputActive = false;
 	renderSubtasks();
@@ -47,9 +45,11 @@ async function initAddTask() {
  *
  */
 async function renderAddTask() {
+	document.getElementById('content').innerHTML = '';
 	coworkersToAssignTo = transferallUserData();
 	addCheckAttributeToCoworkersToAssignTo();
-	document.getElementById('content').innerHTML = '';
+	await enableAddTaskStyles();
+	await loadExitingCategories();
 	document.getElementById('content').innerHTML += generateAddTaskHtml();
 }
 

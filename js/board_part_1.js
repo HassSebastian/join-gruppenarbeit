@@ -22,10 +22,8 @@ let prioColorAndUrlArray = [
  */
 async function initBoard() {
 	sliderMenuShown = false;
-	await enableBoardStyles();
 	await renderBoard();
 	selectedMenuButton(2);
-	await loadTask();
 	await createWorkStatusArrays();
 	renderAllCards();
 	loadContributorsLetter();
@@ -35,10 +33,8 @@ async function initBoard() {
 
 async function initBoardNormal() {
 	sliderMenuShown = false;
-	await enableBoardStyles();
 	await renderBoard();
 	selectedMenuButton(2);
-	await loadTask();
 	await createWorkStatusArrays();
 	renderAllCards();
 	loadContributorsLetter();
@@ -49,6 +45,8 @@ async function initBoardNormal() {
  */
 async function renderBoard() {
 	document.getElementById('content').innerHTML = '';
+	await enableBoardStyles();
+	await loadTask();
 	document.getElementById('content').innerHTML += boardHtml();
 	// document.getElementById('content').innerHTML += boardHtmlRESPOSIV();
 }
