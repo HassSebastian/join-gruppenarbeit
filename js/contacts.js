@@ -28,19 +28,7 @@ let alphabetOrd = {
 };
 
 let newContactUser = [];
-let colorIndex = [
-	'#02CF2F',
-	'#EE00D6',
-	'#0190E0',
-	'#FF7200',
-	'#FF2500',
-	'#AF1616',
-	'#FFC700',
-	'#3E0099',
-	'#462F8A',
-	'#FF7A00',
-	'#000000',
-];
+let colorIndex = ['#02CF2F', '#EE00D6', '#0190E0', '#FF7200', '#FF2500', '#AF1616', '#FFC700', '#3E0099', '#462F8A', '#FF7A00', '#000000'];
 let check = 0;
 
 /**
@@ -117,9 +105,7 @@ function openEditContact(i) {
 	let email = allUsers[i].email;
 	if (email == guestEmail) {
 	} else {
-		!guestLoggedIn
-			? openEditContactsOf(allUsers, i)
-			: openEditContactsOf(allFakeUsers, i);
+		!guestLoggedIn ? openEditContactsOf(allUsers, i) : openEditContactsOf(allFakeUsers, i);
 	}
 }
 
@@ -139,18 +125,9 @@ function openEditContactsOf(arr, i) {
 	document.getElementById('boardPopup').classList.remove('d-none');
 	document.getElementById('edit_contact').classList.remove('d-none');
 	document.getElementById('edit_contact').innerHTML = '';
-	document.getElementById('edit_contact').innerHTML = openEditContactHTML(
-		color,
-		letter,
-		name,
-		email,
-		phone,
-		i
-	);
+	document.getElementById('edit_contact').innerHTML = openEditContactHTML(color, letter, name, email, phone, i);
 	setTimeout(() => {
-		document
-			.getElementById('edit_contact')
-			.classList.add('add_contact_slide');
+		document.getElementById('edit_contact').classList.add('add_contact_slide');
 	}, 1);
 }
 
@@ -163,18 +140,12 @@ function openNewContact() {
 	document.getElementById('new_contact').innerHTML = '';
 	document.getElementById('new_contact').innerHTML = openNewContactHTML();
 	setTimeout(() => {
-		document
-			.getElementById('new_contact')
-			.classList.add('add_contact_slide');
+		document.getElementById('new_contact').classList.add('add_contact_slide');
 	}, 1);
 }
 
 function closeNewContact() {
-	window.innerWidth < 768
-		? renderContentMobile()
-		: document
-				.getElementById('new_contact')
-				.classList.remove('add_contact_slide');
+	window.innerWidth < 768 ? renderContentMobile() : document.getElementById('new_contact').classList.remove('add_contact_slide');
 	if (window.innerWidth > 768) {
 		setTimeout(() => {
 			document.getElementById('new_contact').classList.add('d-none');
@@ -190,11 +161,7 @@ function closeNewContact() {
  * After 500ms, add the class 'd-none' to the element with the id 'edit_contact'.
  */
 function closeEditContact() {
-	window.innerWidth < 769
-		? renderContentMobile()
-		: document
-				.getElementById('edit_contact')
-				.classList.remove('add_contact_slide');
+	window.innerWidth < 769 ? renderContentMobile() : document.getElementById('edit_contact').classList.remove('add_contact_slide');
 	setTimeout(() => {
 		document.getElementById('edit_contact').classList.add('d-none');
 		document.getElementById('boardPopup').classList.add('d-none');
@@ -236,20 +203,9 @@ async function addContact() {
 		let email = document.getElementById('newUserEmail');
 		let phone = document.getElementById('newUserPhone');
 		let newNameRequired = document.getElementById('newContentNameRequired');
-		let newEmailRequired = document.getElementById(
-			'newContentEmailRequired'
-		);
-		let newPhoneRequired = document.getElementById(
-			'newContentPhoneRequired'
-		);
-		addContactHelp(
-			name,
-			email,
-			phone,
-			newNameRequired,
-			newEmailRequired,
-			newPhoneRequired
-		);
+		let newEmailRequired = document.getElementById('newContentEmailRequired');
+		let newPhoneRequired = document.getElementById('newContentPhoneRequired');
+		addContactHelp(name, email, phone, newNameRequired, newEmailRequired, newPhoneRequired);
 	}
 	if (guestLoggedIn) alert('Sorry, does not work with guest status!');
 }
@@ -302,16 +258,7 @@ async function editContact(i) {
 	let firstLetter = name[0].toUpperCase();
 	let secondLetter = await calcSecondLetter(name);
 	let colorIndex = await calcColorIndex(firstLetter, secondLetter);
-	editContactSave(
-		name,
-		email,
-		password,
-		phone,
-		firstLetter,
-		secondLetter,
-		colorIndex,
-		i
-	);
+	editContactSave(name, email, password, phone, firstLetter, secondLetter, colorIndex, i);
 }
 
 /**
@@ -323,9 +270,7 @@ async function deleteContactQuestion(i) {
 	let letter = allUsers[i].firstSecondLetter;
 	let email = allUsers[i].email;
 	let deleteQuestion = document.getElementById('deleteContactQuestion');
-	let deleteQuestionInner = document.getElementById(
-		'deleteContactQuestion'
-	).innerHTML;
+	let deleteQuestionInner = document.getElementById('deleteContactQuestion').innerHTML;
 
 	if (guestLoggedIn || email == guestEmail) return;
 	if (deletionRequested(letter, deleteQuestionInner)) {

@@ -53,7 +53,7 @@
 	padding: 15px 25px;
 	gap: 35px;
 	width: 357px;
-	height: 79px;
+	height: fit-content;
 	background: #ffffff;
 	border-radius: 10px;
 	flex: none;
@@ -103,7 +103,7 @@
 
 .name {
 	width: fit-content;
-	height: 25px;
+	height: fit-content;
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 400;
@@ -258,7 +258,7 @@
 .showContact {
 	position: absolute;
 	width: 461px;
-	height: 370px;
+	height: fit-content;
 	left: 1210px;
 	top: 237px;
 	transition: 500ms ease-in-out;
@@ -1110,6 +1110,14 @@
 	.contactPhone {
 		width: auto;
 	}
+
+	.contact {
+		width: 350px;
+	}
+
+	.name {
+		height: fit-content;
+	}
 }
 
 @media (max-width: 870px) {
@@ -1127,19 +1135,11 @@
 /****************/
 /* Contact List */
 @media (max-width: 1100px) {
-	.Frame_97 {
+	/* .Frame_97 {
 		width: 350px;
-	}
+	} */
 
-	.Contact_list {
+	/* .Contact_list {
 		width: 260px;
-	}
-
-	.contact {
-		width: 280px;
-	}
-
-	.name {
-		height: 60px;
-	}
+	} */
 }

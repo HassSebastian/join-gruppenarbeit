@@ -168,11 +168,7 @@ function noPhoneNumber(phone) {
 }
 
 function allInformationTypedIn(newNameRequired, newEmailRequired, newPhoneRequired) {
-	return (
-		!newNameRequired.classList.contains('requiredOn') &&
-		!newEmailRequired.classList.contains('requiredOn') &&
-		!newPhoneRequired.classList.contains('requiredOn')
-	);
+	return !newNameRequired.classList.contains('requiredOn') && !newEmailRequired.classList.contains('requiredOn') && !newPhoneRequired.classList.contains('requiredOn');
 }
 
 function comparisonEmailHelp(newEmailRequired, name, email, phone, valueToCheck) {
