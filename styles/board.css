@@ -772,7 +772,7 @@
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	width: 1440px;
+	width: 100%;
 	position: absolute;
 	background-color: rgba(0, 0, 0, 0.2);
 	left: 0px;

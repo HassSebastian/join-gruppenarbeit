@@ -22,7 +22,7 @@
 	padding: 0px;
 	gap: 30px;
 	/* position: absolute; */
-	width: 679px;
+	width: fit-content;
 	height: 73px;
 	/* left: 355px; */
 	top: 171px;
@@ -458,14 +458,22 @@
 	width: 452px;
 }
 
+.ugencySummary:hover span,
+.ugencySummary:hover p,
+.ugencySummary:hover b,
+.toDo:hover,
+.toDo:hover span,
+.toDo:hover p,
+.toDoDone:hover,
+.toDoDone:hover span,
+.toDoDone:hover p {
+	color: white !important;
+	background-color: #2a3647;
+}
+
 /* display: flex;
 justify-content: center;
  */
-@media screen and (max-height: 856px) {
-	.summaryContainer {
-		padding: 16px 53px 16px 16px;
-	}
-}
 
 @media screen and (max-width: 1440px) {
 	/* Summary */
@@ -493,6 +501,15 @@ justify-content: center;
 	}
 }
 
+@media screen and (max-width: 1024px) {
+	.summaryContainer {
+		display: flex;
+		align-items: center;
+		padding: 82px 53px 16px 53px;
+		width: 100vw;
+	}
+}
+
 @media screen and (max-width: 950px) {
 	.title {
 		left: 8% !important;
@@ -503,24 +520,8 @@ justify-content: center;
 	}
 }
 
-/*! TEST: Das soll die Hover SUmmary help functions eventuell ersetzen
-*/
-/* .ugencySummary span,
-.ugencySummary p,
-.ugencySummary b,
-#deadlineDate {
-	color: inherit;
-} */
-
-.ugencySummary:hover span,
-.ugencySummary:hover p,
-.ugencySummary:hover b,
-.toDo:hover,
-.toDo:hover span,
-.toDo:hover p,
-.toDoDone:hover,
-.toDoDone:hover span,
-.toDoDone:hover p {
-	color: white !important;
-	background-color: #2a3647;
+@media screen and (max-height: 856px) {
+	.summaryContainer {
+		padding: 16px 53px 16px 16px;
+	}
 }

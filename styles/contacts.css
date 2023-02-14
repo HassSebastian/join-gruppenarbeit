@@ -12,8 +12,6 @@
 	max-width: 453px;
 	height: 100vh;
 	left: 0;
-	/* left: calc(32% - (453px / 2)); */
-	top: 89px;
 	background: #ffffff;
 	box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
 }
@@ -25,9 +23,10 @@
 	padding: 0px;
 	position: absolute;
 	width: 357px;
-	height: 90vh;
+	height: auto !important;
 	left: 48px;
 	top: 2px;
+	bottom: 89px;
 	background: #ffffff;
 	overflow: scroll;
 	overflow-x: hidden;
@@ -880,7 +879,6 @@
 	order: 1;
 	flex-grow: 0;
 }
-
 
 .buttonNewOutContainer {
 	display: flex;
