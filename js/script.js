@@ -53,24 +53,17 @@ let includeAttribute = 'w3-include-html';
 /*test Basti in Progress*/        window.location.href = 'loginMob.html';
 /*test Basti in Progress*/    }
 /*test Basti in Progress*/}
-/*test Basti in Progress*/function initPage1(){
-/*test Basti in Progress*/    document.getElementById('page1_logo').classList.add('page1joinLogoContainerMove');
-/*test Basti in Progress*/    setTimeout(startLogIn, 700);
-/*test Basti in Progress*/}
-/*test Basti in Progress*/function startLogIn(){ 
-/*test Basti in Progress*/    window.location.href = './loginDesk.html';
-/*test Basti in Progress*/}
 
 
 function loadStartDisplay(){
     if (window.innerWidth > 768){
-        document.getElementById('page1').classList.remove('d-none');
+        // document.getElementById('page1').classList.remove('d-none');
         setTimeout(initPage1, 300);
     }
     if (window.innerWidth <= 768){
         console.log('mobile')
-        document.getElementById('pageOneMob').classList.remove('d-none');
-        document.getElementById('mobilMasterContainer').classList.remove('d-none');
+        // document.getElementById('pageOneMob').classList.remove('d-none');
+        // document.getElementById('mobilMasterContainer').classList.remove('d-none');
         setTimeout(initLoginMob, 300);
     }
 }
