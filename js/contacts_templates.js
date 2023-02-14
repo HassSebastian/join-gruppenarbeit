@@ -100,8 +100,8 @@ function showContactQuerry(name, email, phone, letter, color, i, showContact) {
 		document.getElementById('mobilContent').innerHTML = '';
 		document.getElementById('mobilContent').innerHTML = showContactHTMLMob(name, email, phone, letter, color, i);
 	} else { */
-	/* 	showContact.classList.remove('d-none');
-	if (showContact.classList.contains('showContactSlide')) {
+	showContact.classList.remove('d-none');
+	/*if (showContact.classList.contains('showContactSlide')) {
 		showContact.classList.remove('showContactSlide');
 		setTimeout(showContactHelp, 700, name, email, phone, letter, color, i, showContact);
 	} else { */
