@@ -261,7 +261,7 @@
 	height: fit-content;
 	left: 5000px;
 	top: 237px;
-	transition: 400ms ease-in-out;
+	transition: 400ms ease-in;
 }
 
 .showContactDetail {
@@ -269,7 +269,7 @@
 }
 
 .showContactSlide {
-	transition: 400ms ease-in-out;
+	transition: 400ms ease-out;
 	transform: translateX(-4500px);
 }
 
