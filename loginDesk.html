@@ -22,18 +22,15 @@
 </head>
 
 <body onload="initLoginMob()">
-    <div id="page1" class="page1 d-none">
-        <div>
-            <img id="page1_logo" class="page1joinLogoContainer" src="../assets/img/join_Logo_Black_Big.png">
-        </div>
-    </div>
+    <div class="pageOneMob" id="pageOneMob"></div>
 
     <div id="logIn">
         <div class="notAJoinUser" id="notAJoinUserContainerMob">
             <span>Not a Join user?</span>
             <div onclick="notAJoinUserButtonMob()">Sign up</div>
         </div>
-        <img src="../assets/img/join_logo_black.png" class="joinLogo">
+        <img class="logInLogoImgWhite" id="pageOneMobImgWhite" src="./assets/img/join_logo.png" alt="">
+        <img class="logInLogoImgBlack" id="pageOneMobImgBlack" src="./assets/img/join_logo_black.png" alt="">
         <form action="" onsubmit="checkCorrectInput() ;return false">
             <div class="loginMasterContainer" id="logInMasterContainerMob">
                 <div class="logInHeadlineContainer">
