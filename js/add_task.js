@@ -517,6 +517,7 @@ function clearFormularData() {
 	renderSubtasks();
 	closeCatList();
 	clearTaskForce();
+	addContactToTaskForceWithCheckBox(loggedInUserIndex);
 }
 
 // save data to local storage/server!
@@ -1035,8 +1036,6 @@ function checkStatusToFalse() {
 			removeCheckMarkFromCheckBox(i);
 		}	
 	});
-
-	
 }
 
 /**
