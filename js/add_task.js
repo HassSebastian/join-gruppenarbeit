@@ -66,19 +66,18 @@ function transferallUserData() {
 
 /**
  * Creates a copy of allUsers without password
- *
  */
 function creatingTransferObjectOfContacts() {
-	const users = guestLoggedIn ? allFakeUsers : allUsers; /*! .filter((user) => user.email !== guestEmail) */
-
-	users.forEach((user) => {
-		transferArray.push({
-			colorIndex: user.colorIndex,
-			email: user.email,
-			firstSecondLetter: user.firstSecondLetter,
-			name: user.name,
-			phone: user.phone,
-		});
+	allUsers.forEach((user) => {
+		if (user.email !== guestEmail) {
+			transferArray.push({
+				colorIndex: user.colorIndex,
+				email: user.email,
+				firstSecondLetter: user.firstSecondLetter,
+				name: user.name,
+				phone: user.phone,
+			});
+		}
 	});
 }
 
@@ -743,15 +742,17 @@ function subtaskSelectionChange(subTaskIndex) {
 
 function createSubtaskListToSave() {
 	selectedSubtasks = [];
-	subTaskArray.forEach((subtask) => {
-		let subTaskText = subtask['subtaskText'];
-		let subTaskStatus = subtask['subtaskStatus'];
+	for (let i = 0; i < subTaskArray.length; i++) {
+		let subTaskText = subTaskArray[i]['subtaskText'];
+		let subTaskStatus = subTaskArray[i]['subtaskStatus'];
 		let subtaskJson = {
 			subtaskText: subTaskText,
 			subtaskStatus: subTaskStatus,
 		};
-		subTaskStatus ? selectedSubtasks.push(subtaskJson) : null;
-	});
+		if (subTaskStatus) {
+			selectedSubtasks.push(subtaskJson);
+		}
+	}
 }
 
 function resetSubtaskSelections() {
@@ -996,9 +997,10 @@ async function renderContactsInAssignDropDownMenu() {
  * @param {object} coworker
  * @param {number} contact
  * @returns boolean
+ * !NAME UND FUNKTION ÜBERARBEITEN
  */
 function coworkerIsGuest(coworker, contact) {
-	return contact !== loggedInUserIndex; /*  && coworker.name !== 'Guest' && !guestLoggedIn; */
+	return contact !== loggedInUserIndex && coworker.name !== 'Guest' && !guestLoggedIn;
 }
 
 /**
@@ -1077,7 +1079,7 @@ function closeDropDownAssignTo() {
  * @param {boolean} guestLoggedIn
  */
 function clearTaskForce() {
-	checkStatusToFalse();
+	if (!guestLoggedIn) checkStatusToFalse();
 	taskForce = [];
 	renderBadgesMemberOfTaskForce();
 	closeDropDownAssignTo();
