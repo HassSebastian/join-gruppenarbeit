@@ -23,14 +23,7 @@ async function initSummary() {
 	resetYourTasksArrays(); // sonst addieren sich die tasks bei jedem Aufrufen
 	await loadAmountsForSummary(); // await später für server wichtig
 	await includeHTML();
-	await renderSummary(
-		allYourTasksAmount,
-		allYourToDoTasksAmount,
-		allYourInProgressTasksAmount,
-		allYourAwaitingFeedbackTasksAmount,
-		allYourDoneTasksAmount,
-		yourUrgentTasksAmount
-	);
+	await renderSummary(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount);
 	selectedMenuBtnId = 0;
 	selectedMenuButton(1);
 	showDate();
@@ -54,85 +47,79 @@ function resetYourTasksArrays() {
 	allYourDoneTasks = [];
 }
 
-function generateSummaryHtml(
-	allYourTasksAmount,
-	allYourToDoTasksAmount,
-	allYourInProgressTasksAmount,
-	allYourAwaitingFeedbackTasksAmount,
-	allYourDoneTasksAmount,
-	yourUrgentTasksAmount
-) {
+function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount) {
 	return /*html*/ `
-		<div class="summaryContainer">
-			<div class='title'>
-				<h3>Summary</h3>
-				<img src='./assets/img/vertical_line.png'>
-				<h4>Everything in a nutshell!</h4>
-			</div>
-			<div class='welcome'>
-				<h4 id='greetUser'></h4>
-				<h3>${allUsers[loggedUser[0]].name}</h3>
-			</div>
-			<div class="overview">
-				<div class='taskOverview'>
-					<div id='taskInBoard'><span id='taskInBoardAmount'>${allYourTasksAmount}</span> <p>Task in Board</p></div>
-					<div id='taskInProgress'><span id='taskInProgressAmount'>${allYourInProgressTasksAmount}</span> <p>Task in Progress</p></div>
-					<div id='awaitingFeedback'><span id='awaitingFeedbackAmount'>${allYourAwaitingFeedbackTasksAmount}</span> <p>Awaiting Feedback</p></div>
+	<div class="summaryContainer">
+		<div class="title">
+			<h3>Summary</h3>
+			<img src="./assets/img/vertical_line.png" />
+			<h4>Everything in a nutshell!</h4>
+		</div>
+		<div class="summaryMain">
+			<div class="summaryContainerLeft">
+				<div class="overview">
+					<div class="taskOverview">
+						<div id="taskInBoard">
+							<span id="taskInBoardAmount">${allYourTasksAmount}</span>
+							<p>Task in Board</p>
+						</div>
+						<div id="taskInProgress">
+							<span id="taskInProgressAmount">${allYourInProgressTasksAmount}</span>
+							<p>Task in Progress</p>
+						</div>
+						<div id="awaitingFeedback">
+							<span id="awaitingFeedbackAmount">${allYourAwaitingFeedbackTasksAmount}</span>
+							<p>Awaiting Feedback</p>
+						</div>
+					</div>
+					<div class="ugencySummary">
+						<div class="ugent">
+							<div class="ugentImgContainer">
+								<img class="ugentImg" id="urgentImg" src="./assets/img/summary_urgent.png" />
+							</div>
+							<div class="ugentAmount">
+								<span id="ugencySummaryAmount">${yourUrgentTasksAmount}</span>
+								<p id="ugencySummaryurgent">Urgent</p>
+							</div>
+							<img src="./assets/img/vertical-line2.png" class="ugentVerticalLine" />
+						</div>
+						<div class="deadlineData">
+							<p id="deadlineDate"></p>
+							<p class="deadlineText" id="deadlineText"><b>12.02.2023 Deadline</b></p>
+						</div>
+					</div>
+					<div class="toDoData">
+						<div class="toDo" id="toDo" onmouseover="toDoHoverOn()" onmouseout="toDoHoverOff()">
+							<img id="toDoImg" src="./assets/img/to_do_pen.png" alt="" />
+							<div class="toDoAmountData">
+								<span id="toDoAmountTasks">${allYourToDoTasksAmount}</span>
+								<p id="toDoAmountP">to-Do</p>
+							</div>
+						</div>
+						<div class="toDoDone" id="toDoDone" onmouseover="toDoDoneHoverOn()" onmouseout="toDoDoneHoverOff()">
+							<img id="toDoDoneImg" src="./assets/img/done.png" alt="" />
+							<div class="toDoAmountData">
+								<span id="toDoDoneAmountTasks">${allYourDoneTasksAmount}</span>
+								<p id="toDoDoneAmountP">Done</p>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class='ugencySummary'>
-					<div class="ugent">
-						<div class='ugentImgContainer'>
-							<img class='ugentImg' id='urgentImg' src='./assets/img/summary_urgent.png' >
-						</div>
-						<div class='ugentAmount'>
-							<span id='ugencySummaryAmount' >${yourUrgentTasksAmount}</span>
-							<p id='ugencySummaryurgent'>Urgent</p>
-						</div>
-						<img src='./assets/img/vertical-line2.png' class='ugentVerticalLine'>
-					</div>
-					<div class='deadlineData'>
-						<p id='deadlineDate'></p> 
-						<p class='deadlineText' id='deadlineText'><b>12.02.2023 Deadline</b></p> 
-					</div>
-				</div>
-				<div class='toDoData'>
-					<div class='toDo' id='toDo' onmouseover="toDoHoverOn()" onmouseout="toDoHoverOff()">
-						<img id='toDoImg' src='./assets/img/to_do_pen.png' alt="">
-						<div class='toDoAmountData'>
-							<span id='toDoAmountTasks'>${allYourToDoTasksAmount}</span>
-							<p id='toDoAmountP'>to-Do</p>
-						</div>
-					</div>
-					<div class='toDoDone' id='toDoDone' onmouseover="toDoDoneHoverOn()" onmouseout="toDoDoneHoverOff()">
-						<img id='toDoDoneImg' src='./assets/img/done.png' alt="">
-						<div class='toDoAmountData'>
-							<span id='toDoDoneAmountTasks'>${allYourDoneTasksAmount}</span>
-							<p id='toDoDoneAmountP'>Done</p>
-						</div>
-					</div>
+			</div>
+			<div class="summaryContainerRight">
+				<div class="welcome">
+					<h4 id="greetUser"></h4>
+					<h3>${allUsers[loggedUser[0]].name}</h3>
 				</div>
 			</div>
 		</div>
+	</div>
     `;
 }
 
-async function renderSummary(
-	allYourTasksAmount,
-	allYourToDoTasksAmount,
-	allYourInProgressTasksAmount,
-	allYourAwaitingFeedbackTasksAmount,
-	allYourDoneTasksAmount,
-	yourUrgentTasksAmount
-) {
+async function renderSummary(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount) {
 	document.getElementById('content').innerHTML = '';
-	document.getElementById('content').innerHTML += generateSummaryHtml(
-		allYourTasksAmount,
-		allYourToDoTasksAmount,
-		allYourInProgressTasksAmount,
-		allYourAwaitingFeedbackTasksAmount,
-		allYourDoneTasksAmount,
-		yourUrgentTasksAmount
-	);
+	document.getElementById('content').innerHTML += generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount);
 }
 
 // Hover Summary help-function
