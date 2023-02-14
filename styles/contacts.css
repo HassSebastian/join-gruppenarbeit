@@ -259,7 +259,7 @@
 	position: relative;
 	width: 461px;
 	height: fit-content;
-	left: 2000px;
+	left: 5000px;
 	top: 237px;
 	transition: 400ms ease-in-out;
 }
@@ -270,7 +270,7 @@
 
 .showContactSlide {
 	transition: 400ms ease-in-out;
-	transform: translateX(-1500px);
+	transform: translateX(-4500px);
 }
 
 .show_contact_ellipse_5 {
