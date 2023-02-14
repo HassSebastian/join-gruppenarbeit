@@ -42,29 +42,12 @@ let selectedMenuBtnId;
 let includeAttribute = 'w3-include-html';
 
 
-// index.html start functions end edit by Bossi 30.01
-
-
-/*test Basti in Progress*/function initLoginStart(){
-/*test Basti in Progress*/    if (window.innerWidth > 768){
-/*test Basti in Progress*/        window.location.href = 'loginDesk.html';
-/*test Basti in Progress*/    }
-/*test Basti in Progress*/    if (window.innerWidth <= 768){
-/*test Basti in Progress*/        window.location.href = 'loginMob.html';
-/*test Basti in Progress*/    }
-/*test Basti in Progress*/}
-
-
-function loadStartDisplay(){
+function initLoginStart(){
     if (window.innerWidth > 768){
-        // document.getElementById('page1').classList.remove('d-none');
-        setTimeout(initPage1, 300);
+        window.location.href = 'loginDesk.html';
     }
     if (window.innerWidth <= 768){
-        console.log('mobile')
-        // document.getElementById('pageOneMob').classList.remove('d-none');
-        // document.getElementById('mobilMasterContainer').classList.remove('d-none');
-        setTimeout(initLoginMob, 300);
+        window.location.href = 'loginMob.html';
     }
 }
 
@@ -85,6 +68,7 @@ async function loadApplicableSummary(){
 		desktopView = !desktopView;
     }
 }
+
 
 let desktopView;
 let viewchange = false;
