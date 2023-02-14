@@ -256,12 +256,12 @@
 }
 
 .showContact {
-	position: absolute;
+	position: relative;
 	width: 461px;
 	height: fit-content;
-	left: 500px; /* 1210px; */
+	left: 2000px;
 	top: 237px;
-	transition: 500ms ease-in-out;
+	transition: 400ms ease-in-out;
 }
 
 .showContactDetail {
@@ -269,8 +269,8 @@
 }
 
 .showContactSlide {
-	transition: 500ms ease-in-out;
-	transform: translateX(-680px);
+	transition: 400ms ease-in-out;
+	transform: translateX(-1500px);
 }
 
 .show_contact_ellipse_5 {
