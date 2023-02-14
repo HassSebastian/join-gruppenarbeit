@@ -353,18 +353,6 @@ tr td:nth-child(3) {
 		width: calc(100% - 232px);
 	}
 
-	.memberMenu {
-		/* width: 100px; */
-		/* width: 100%;
-		padding: 0px 0px 0px 0px; */
-		/* padding-left: 24.17% !important;
-        padding-right: 36px !important; */
-	}
-
-	/* .memberMenu h1 {
-		margin-left: 22%;
-	} */
-
 	.content {
 		width: 100%;
 	}

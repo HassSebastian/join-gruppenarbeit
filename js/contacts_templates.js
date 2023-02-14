@@ -96,24 +96,24 @@ function showLettersHTML(alphabetLetter) {
 }
 
 function showContactQuerry(name, email, phone, letter, color, i, showContact) {
-	if (window.innerWidth < 769) {
+	/* if (window.innerWidth < 769) {
 		document.getElementById('mobilContent').innerHTML = '';
 		document.getElementById('mobilContent').innerHTML = showContactHTMLMob(name, email, phone, letter, color, i);
-	} else {
-		showContact.classList.remove('d-none');
-		if (showContact.classList.contains('showContactSlide')) {
-			showContact.classList.remove('showContactSlide');
-			setTimeout(showContactHelp, 700, name, email, phone, letter, color, i, showContact);
-		} else {
-			showContactHelp(name, email, phone, letter, color, i, showContact);
-		}
-	}
+	} else { */
+	/* 	showContact.classList.remove('d-none');
+	if (showContact.classList.contains('showContactSlide')) {
+		showContact.classList.remove('showContactSlide');
+		setTimeout(showContactHelp, 700, name, email, phone, letter, color, i, showContact);
+	} else { */
+	showContactHelp(name, email, phone, letter, color, i, showContact);
+	/* 	} */
 }
+/* } */
 
 function showContactHelp(name, email, phone, letter, color, i, showContact) {
 	showContact.innerHTML = '';
 	showContact.innerHTML = showContactHTML(name, email, phone, letter, color, i);
-	showContact.classList.add('showContactSlide');
+	/* 	showContact.classList.add('showContactSlide'); */
 }
 
 function addContactHelp(name, email, phone, newNameRequired, newEmailRequired, newPhoneRequired) {

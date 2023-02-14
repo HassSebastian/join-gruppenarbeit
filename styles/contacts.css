@@ -259,7 +259,7 @@
 	position: absolute;
 	width: 461px;
 	height: fit-content;
-	left: 1210px;
+	left: 500px; /* 1210px; */
 	top: 237px;
 	transition: 500ms ease-in-out;
 }
@@ -302,11 +302,11 @@
 .showContact_Name_addTask h1 {
 	/* margin-left: 239px; */
 	width: 287px;
-	height: 56px;
+	height: fit-content;
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 500;
-	font-size: 47px;
+	font-size: 32px;
 	line-height: 120%;
 	display: flex;
 	align-items: center;
