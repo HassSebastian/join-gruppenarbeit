@@ -48,7 +48,7 @@ async function renderMobilAddTask() {
             </div>
 
             <div class='addTaskDescriptionMobil'>
-                <h3>Descripten</h3>
+                <h3>Description</h3>
                 <textarea type="text" placeholder='Enter a descripten' id="addTaskDescripten"></textarea>
                 <span class="requiredText" id="descReq">This field is required</span>
             </div>

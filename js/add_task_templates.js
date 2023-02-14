@@ -28,7 +28,7 @@ function generateAddTaskHtml() {
 					<span class="requiredText" id="titleReq">This field is required</span>
 				</div>
 				<div class="addTaskAddDescriptenBox">
-					<h3>Descripten</h3>
+					<h3>Description</h3>
 					<textarea class='addTaskResponsiv' form="formDesc" type="text" placeholder="Enter Descripten" id="addTaskDescripten" required
 						minlength="5"></textarea>
 					<span class="requiredText" id="descReq">This field is required</span>
