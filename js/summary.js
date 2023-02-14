@@ -16,15 +16,13 @@ let penImage = 'to_do_pen';
 
 async function initSummary() {
 	sliderMenuShown = false;
-	await includeHTML(); // von Basti nach oben verschoben
-
+	await includeHTML();
 	await enableSummaryStyles();
 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	await loadTask();
 	resetCounters();
 	resetYourTasksArrays(); // sonst addieren sich die tasks bei jedem Aufrufen
 	await loadAmountsForSummary(); // await später für server wichtig
-	// await includeHTML();
 	await renderSummary(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount);
 	selectedMenuBtnId = 0;
 	selectedMenuButton(1);
