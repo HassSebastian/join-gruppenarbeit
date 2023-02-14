@@ -36,10 +36,8 @@ let check = 0;
  * contacts page and renders the content.
  */
 async function initContacts() {
-	await enableContactsStyles();
-	sliderMenuShown = false;
-	await loadTask();
 	await renderContent();
+	sliderMenuShown = false;
 	selectedMenuButton(4);
 	await userInAlphabetArray();
 	loadContributorsLetter();
@@ -51,6 +49,8 @@ async function initContacts() {
  */
 async function renderContent() {
 	document.getElementById('content').innerHTML = '';
+	await enableContactsStyles();
+	await loadTask();
 	document.getElementById('content').innerHTML = renderContentHTML();
 }
 

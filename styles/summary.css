@@ -475,6 +475,12 @@
 justify-content: center;
  */
 
+@media screen and (max-height: 856px) {
+	.summaryContainer {
+		padding: 16px 53px 16px 16px;
+	}
+}
+
 @media screen and (max-width: 1440px) {
 	/* Summary */
 
@@ -517,11 +523,5 @@ justify-content: center;
 
 	.overview {
 		left: 8% !important;
-	}
-}
-
-@media screen and (max-height: 856px) {
-	.summaryContainer {
-		padding: 16px 53px 16px 16px;
 	}
 }
