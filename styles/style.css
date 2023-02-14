@@ -227,7 +227,7 @@ tr td:nth-child(3) {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0px 36px 0px 16px;
+	padding: 0px 36px 0px 116px;
 	gap: 34px;
 	color: black;
 	position: absolute;
@@ -389,5 +389,11 @@ tr td:nth-child(3) {
 @media screen and (max-width: 1100px) {
 	.memberMenu {
 		z-index: 1;
+	}
+}
+
+@media screen and (max-height: 856px) {
+	.memberMenu {
+		padding: 0px 36px 0px 16px;
 	}
 }
