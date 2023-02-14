@@ -46,7 +46,9 @@ async function initBoardNormal() {
 async function renderBoard() {
 	document.getElementById('content').innerHTML = '';
 	await enableBoardStyles();
-	await loadTask();
+	if (!selectedMenuBtnId == 2){
+		await loadTask();
+	}
 	document.getElementById('content').innerHTML += boardHtml();
 	// document.getElementById('content').innerHTML += boardHtmlRESPOSIV();
 }
