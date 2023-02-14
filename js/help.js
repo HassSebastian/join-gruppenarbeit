@@ -1,6 +1,4 @@
 async function initHelp() {
-    await enableHelp();
-    await includeHTML();
     await renderHelp();
 }
 
@@ -12,6 +10,7 @@ function back() {
 
 async function renderHelp() {
     document.getElementById('content').innerHTML = '';
+    await enableHelp();
     document.getElementById('content').innerHTML += /*html*/ `
             <img src="./assets/img/back_logo_black.png" onclick="back()" class="backArrowimg">
             <span class="helpOverlayspan">Help</span>
