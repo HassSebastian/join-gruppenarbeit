@@ -43,6 +43,25 @@ let includeAttribute = 'w3-include-html';
 
 
 // index.html start functions end edit by Bossi 30.01
+
+
+/*test Basti in Progress*/function initLoginStart(){
+/*test Basti in Progress*/    if (window.innerWidth > 768){
+/*test Basti in Progress*/        window.location.href = 'loginDesk.html';
+/*test Basti in Progress*/    }
+/*test Basti in Progress*/    if (window.innerWidth <= 768){
+/*test Basti in Progress*/        window.location.href = 'loginMob.html';
+/*test Basti in Progress*/    }
+/*test Basti in Progress*/}
+/*test Basti in Progress*/function initPage1(){
+/*test Basti in Progress*/    document.getElementById('page1_logo').classList.add('page1joinLogoContainerMove');
+/*test Basti in Progress*/    setTimeout(startLogIn, 700);
+/*test Basti in Progress*/}
+/*test Basti in Progress*/function startLogIn(){ 
+/*test Basti in Progress*/    window.location.href = './loginDesk.html';
+/*test Basti in Progress*/}
+
+
 function loadStartDisplay(){
     if (window.innerWidth > 768){
         document.getElementById('page1').classList.remove('d-none');
