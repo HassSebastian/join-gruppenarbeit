@@ -1,34 +1,34 @@
 .legal-wrapper {
-  padding: 148px 48px 48px 48px;
+	padding: 48px 48px 48px 48px;
 }
 
 .legal-wrapper h2,
 .legal-wrapper h3,
 .legal-wrapper h4,
 .legal-wrapper h5 {
-  word-break: break-all;
-  margin: 0;
+	word-break: break-all;
+	margin: 0;
 }
 
 .legal-wrapper p {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
 .legal-wrapper a {
-  word-break: break-all;
+	word-break: break-all;
 }
 
 @media (max-width: 800px) {
-  .legal-wrapper {
-    padding: 128px 48px 136px 48px;
-  }
+	.legal-wrapper {
+		padding: 128px 48px 136px 48px;
+	}
 }
 
 @media (max-width: 400px) {
-  .legal-wrapper {
-    padding: 128px 24px 136px 24px;
-  }
+	.legal-wrapper {
+		padding: 128px 24px 136px 24px;
+	}
 }
