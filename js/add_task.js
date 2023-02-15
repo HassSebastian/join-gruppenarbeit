@@ -987,7 +987,7 @@ function addContactToTaskForceWithCheckBox(contact) {
 async function renderContactsInAssignDropDownMenu() {
 	let assignedContactList = document.getElementById('dropdown2');
 	coworkersToAssignTo.forEach((coworker, contact) => {
-		if (coworkerIsGuest(coworker, contact)) {
+		if (notLoggedUser(contact)) {
 			assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(coworker.name, contact);
 		}
 	});
@@ -1000,8 +1000,8 @@ async function renderContactsInAssignDropDownMenu() {
  * @returns boolean
  * !NAME UND FUNKTION ÜBERARBEITEN
  */
-function coworkerIsGuest(coworker, contact) {
-	return contact !== loggedInUserIndex && coworker.name !== 'Guest' && !guestLoggedIn;
+function notLoggedUser(contact) {
+	return contact !== loggedInUserIndex;
 }
 
 /**
@@ -1031,10 +1031,10 @@ function setCheckStatusToFalse() {
  */
 function checkStatusToFalse() {
 	coworkersToAssignTo.forEach((coworker, i) => {
-		if (!(coworker.email == 'guest@web.de')){
+		if (!(coworker.email == 'guest@web.de')) {
 			coworker.check = false;
 			removeCheckMarkFromCheckBox(i);
-		}	
+		}
 	});
 }
 
