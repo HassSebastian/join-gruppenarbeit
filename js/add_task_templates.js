@@ -6,18 +6,7 @@ function generateAddTaskHtml() {
 		<h2 class="addTHeadline">Add Task</h2>
 	</div>
 
-	<div class="addTaskBtnOuterContainer" id="addTaskBtnOuterContainer">
-		<div class="addTaskBtnInnerContainer">
-			<button class="addTaskClear" onmouseover="addTaskClearOn()" onmouseout="addTaskClearOff()" onclick="clearFormularData()">
-				<span>Clear</span>
-				<img id="addTaskClear" src="./assets/img/clearb.png" />
-			</button>
-			<button class="addTaskCreate" onclick="checkInputs()">
-				<span>Create Task</span>
-				<img src="./assets/img/createb.png" />
-			</button>
-		</div>
-	</div>
+	
 
 	<div class="mainAddTaskContainer">
 		<div class="addTaskAddTitleContainer">
@@ -124,6 +113,19 @@ function generateAddTaskHtml() {
 				</div>
 			</div>
 		</div>
+		<div class="addTaskBtnOuterContainer" id="addTaskBtnOuterContainer">
+		<div class="addTaskBtnInnerContainer">
+			<button class="addTaskClear" onmouseover="addTaskClearOn()" onmouseout="addTaskClearOff()" onclick="clearFormularData()">
+				<span>Clear</span>
+				<img id="addTaskClear" src="./assets/img/clearb.png" />
+			</button>
+			<button class="addTaskCreate" onclick="checkInputs()">
+				<span>Create Task</span>
+				<img src="./assets/img/createb.png" />
+			</button>
+		</div>
+	</div>
+
 	</div>
 
 	<!-- <div class="addTaskDivider" id= 'addTaskDiverder'></div> -->

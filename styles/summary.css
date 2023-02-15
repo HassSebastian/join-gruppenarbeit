@@ -475,9 +475,13 @@
 justify-content: center;
  */
 
-@media screen and (max-height: 856px) {
+@media screen and (max-height: 930px) {
 	.summaryContainer {
 		padding: 16px 53px 16px 16px;
+	}
+
+	.title h3 {
+		font-size: 36px;
 	}
 }
 

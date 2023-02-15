@@ -56,8 +56,8 @@
 	position: absolute;
 	width: 338px;
 	height: 61px;
-	left: 752px;
-	top: 800px;
+	right: 0;
+	bottom: -105px;
 }
 
 .addTaskBtnInnerContainer {
@@ -195,6 +195,8 @@
 
 .mainAddTaskContainer {
 	display: flex;
+	width: fit-content;
+	position: relative;
 }
 
 .addTaskAddTitleContainer {
@@ -879,7 +881,7 @@
 	padding: 0px;
 	gap: 14px; */
 	/* position: absolute; */
-	/* position: relative; */
+	position: relative;
 	width: fit-content;
 	height: 551px;
 	/* left: 895px; */
@@ -1398,7 +1400,7 @@
 
 	.testResponsiv {
 		/* left: calc(-4%) !important; */
-		left: calc((100% - 1208px) / 2);
+		/* left: calc((100% - 1208px) / 2); */
 	}
 }
 
@@ -1452,7 +1454,6 @@
 		height: 1413px;
 		left: 0px;
 		margin-bottom: 82px;
-		margin-left: -53px;
 	}
 
 	.addTaskBtnOuterContainerNewTopValue {
@@ -1549,5 +1550,15 @@
 	.addTaskPrio,
 	.subtask {
 		order: 0;
+	}
+}
+
+@media (max-height: 950px) {
+	.testResponsiv {
+		padding: 16px 0 0 16px;
+	}
+
+	.addTaskHeadlineDiv {
+		display: none;
 	}
 }
