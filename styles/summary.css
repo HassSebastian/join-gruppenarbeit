@@ -505,15 +505,16 @@ justify-content: center;
 	.summaryContainerRight {
 		display: none;
 	}
-}
 
-@media screen and (max-width: 1024px) {
 	.summaryContainer {
 		display: flex;
 		align-items: center;
 		padding: 82px 53px 16px 53px;
 		width: 100vw;
 	}
+}
+
+@media screen and (max-width: 1024px) {
 }
 
 @media screen and (max-width: 950px) {

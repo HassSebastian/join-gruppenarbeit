@@ -302,6 +302,7 @@ tr td:nth-child(3) {
 	position: fixed;
 	left: -232px;
 	top: 89px;
+	bottom: 0;
 	align-items: center;
 	transition: 100ms ease-in-out;
 }

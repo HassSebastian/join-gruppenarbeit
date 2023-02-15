@@ -1,4 +1,3 @@
-d;
 /**
  * It returns a string of HTML code.
  * @returns A string of HTML.
