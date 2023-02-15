@@ -8,13 +8,22 @@
 	display: none;
 }
 
+.testResponsiv {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: 100%;
+	height: fit-content;
+	padding: 82px 0 0 123px;
+}
+
 .addTaskHeadlineDiv {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 0px;
 	gap: 1px;
-	position: absolute;
+	/* position: absolute; */
 	width: 466px;
 	height: 78px;
 	left: 123px;
@@ -184,20 +193,21 @@
     border: 2px solid #FFFFFF;
 } */
 
+.mainAddTaskContainer {
+	display: flex;
+}
+
 .addTaskAddTitleContainer {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 0px;
 	gap: 14px;
-
-	position: absolute;
-	/* position: relative; */
-	width: 422px;
-	height: 506px;
-	/* left: 355px; */
+	width: fit-content;
+	height: fit-content;
 	left: 123px;
 	top: 201px;
+	padding-right: 59px;
 }
 
 .addTaskAddTitleBox {
@@ -863,19 +873,20 @@
 }
 
 .addTaskRightContainer {
-	display: flex;
+	/* display: flex;
 	flex-direction: column;
 	align-items: flex-end;
 	padding: 0px;
-	gap: 14px;
-	position: absolute;
+	gap: 14px; */
+	/* position: absolute; */
 	/* position: relative; */
-	width: 422px;
-	height: 356px;
+	width: fit-content;
+	height: 551px;
 	/* left: 895px; */
-	left: 663px;
-	top: 201px;
-	/* overflow:hidden; */
+	/* left: 663px;
+	top: 201px; */
+	padding-left: 59px;
+	border-left: 2px solid #d1d1d1;
 }
 
 .addTaskDate {
@@ -943,7 +954,7 @@
 	padding: 0px;
 	gap: 8px;
 	width: 422px;
-	height: 113px;
+	height: fit-content;
 	flex: none;
 	order: 1;
 	flex-grow: 0;
@@ -963,6 +974,7 @@
 	flex-grow: 0;
 	margin-block-start: 0px;
 	margin-block-end: 0px;
+	padding-top: 14px;
 }
 
 .addTaskPrioIcons {
@@ -1114,6 +1126,7 @@
 	flex: none;
 	order: 2;
 	flex-grow: 0;
+	padding-top: 30px;
 }
 
 .subtask h3 {
@@ -1270,7 +1283,7 @@
 
 /* add to Board animation */
 .content {
-	overflow: hidden;
+	overflow: hidden !important;
 	/* overflow-y: scroll;   edit by Basti / ich finde den Fehler nicht mehr */
 }
 
@@ -1379,17 +1392,6 @@
 
 /*********************************************************************************/
 /*********************************************************************************/
-
-.testResponsiv {
-	display: flex;
-	justify-content: space-between;
-	position: relative;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-	/* margin-left: 232px;
-    left: -232px; */
-}
 
 @media screen and (max-width: 1440px) {
 	/* addTask */
