@@ -67,18 +67,20 @@ function pleaseRegister(requiredEmailLogin, requiredPasswordLogin) {
  * incorrect.
  */
 function statusOK(email, password, requiredEmailLogin, requiredPasswordLogin) {
-	let loginStatus;
+	let loginStatus = false;
+	let userId;
 	for (let i = 0; i < allUsers.length; i++) {
 		let emailData = allUsers[i]['email'];
 		if (emailData == email) {
 			if (allUsers[i]['password'] == password) {
-				loginStatus = i;
+				loginStatus = true;
+				userId = i;
 				break;
 			}
 		}
 	}
-	if (loginStatus) {
-		rememberMe(email, password, loginStatus);
+	if (loginStatus == true) {
+		rememberMe(email, password, userId);
 	} else {
 		requiredEmailLogin.classList.add('requiredOn');
 		requiredEmailLogin.innerHTML = `Email or Password do not match!!`;

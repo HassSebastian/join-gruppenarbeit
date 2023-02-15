@@ -56,16 +56,16 @@ async function userLogin(email, password) {
  * user is redirected to the summary page.
  * @param email - the email of the user
  * @param password - the password the user entered
- * @param loginStatus - true or false
+ * @param userId - true or false
  */
 //  remember me checkbox check
-function rememberMe(email, password, loginStatus) {
+function rememberMe(email, password, userId) {
 	let checkbox = document.getElementById('checkbox');
 	if (checkbox.checked) {
 		rememberUserExisting(email, password);
 	}
 	loggedUser = [];
-	loggedUser.push(loginStatus);
+	loggedUser.push(userId);
 	let loggedUserAsString = JSON.stringify(loggedUser);
 	localStorage.setItem('loggedUser', loggedUserAsString);
 	window.location.href = './summary.html';
