@@ -1,6 +1,6 @@
 function generateAddTaskHtml() {
 	return /*html*/ `
-	<div class='contentHeight' id='contentHeight'>
+	
 		<div class='testResponsiv' id='testResponsiv'>
 			<div class="addTaskHeadlineDiv">
 				<h2 class="addTHeadline">Add Task</h2>
@@ -137,7 +137,7 @@ function generateAddTaskHtml() {
 			</div>
 
 		</div>
-	</div>`;
+	`;
 }
 
 /**
