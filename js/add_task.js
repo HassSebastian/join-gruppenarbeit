@@ -153,8 +153,8 @@ function enableDisableCatList() {
 		borderBottomOnAssignedBoxButton('selectedCat');
 	}
 	catListStatus = !catListStatus;
-	tabletViewAddMarginTopCatList(); // edit by Bossi for responsivness 27.01
-	boardAddTaskMarginSettings();
+	/* tabletViewAddMarginTopCatList(); */ // edit by Bossi for responsivness 27.01
+	/* boardAddTaskMarginSettings(); */
 }
 
 /**
@@ -790,8 +790,8 @@ function enableDisableAssignList() {
 		showBadgesTaskForce();
 	}
 	assignListStatus = !assignListStatus;
-	tabletViewAddMarginTopAssignList(); // edit by Bossi for responsivness 27.01
-	boardAddTaskMarginSettings();
+	/* tabletViewAddMarginTopAssignList(); */ // edit by Bossi for responsivness 27.01
+	/* boardAddTaskMarginSettings(); */
 }
 
 function enableAssignList() {
