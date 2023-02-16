@@ -381,6 +381,16 @@ tr td:nth-child(3) {
 	}
 }
 
+@media screen and (max-width: 1024px) {
+	.memberMenu {
+		height: 79px;
+	}
+
+	.content {
+		padding-top: 79px;
+	}
+}
+
 @media screen and (max-height: 930px) {
 	.memberMenu {
 		padding: 0px 36px 0px 50px;

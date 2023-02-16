@@ -521,7 +521,11 @@ justify-content: center;
 	}
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1024px) {
+	.sliderMenu {
+		top: 79px;
+	}
+
 	.title h3 {
 		font-size: 50px;
 	}
@@ -536,9 +540,6 @@ justify-content: center;
 		padding: 82px 53px 16px 53px;
 		width: 100vw;
 	}
-}
-
-@media screen and (max-width: 1024px) {
 }
 
 @media screen and (max-width: 950px) {
