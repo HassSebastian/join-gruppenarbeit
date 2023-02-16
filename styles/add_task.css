@@ -1551,6 +1551,48 @@
 		padding-left: unset;
 		border: unset;
 	} */
+
+	/* !Test */
+	.testResponsiv {
+		padding: 0px 0 0 50px;
+	}
+
+	/* .content {
+		overflow: hidden scroll !important;
+	} */
+	/* .addTaskHeadlineDiv {
+		display: none;
+	} */
+
+	.mainAddTaskContainer * {
+		font-size: 18px !important;
+	}
+	.addTaskHeadlineDiv {
+		height: fit-content;
+	}
+
+	.addTHeadline {
+		font-size: 36px;
+		height: 73px;
+		vertical-align: center;
+		display: flex;
+		align-items: center;
+	}
+	.requiredText {
+		font-size: 12px !important;
+	}
+
+	.addTaskBtnOuterContainer {
+		bottom: 0;
+	}
+
+	.addTaskAssignList li {
+		padding: 6px 21px;
+	}
+
+	.addTaskCatList li {
+		padding: 6px 21px;
+	}
 }
 
 @media (max-height: 930px) {
