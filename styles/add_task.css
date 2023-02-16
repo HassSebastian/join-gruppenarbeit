@@ -57,7 +57,7 @@
 	width: 338px;
 	height: 61px;
 	right: 0;
-	bottom: -105px;
+	bottom: -95px;
 }
 
 .addTaskBtnInnerContainer {
@@ -1552,7 +1552,8 @@
 		border: unset;
 	} */
 
-	/* !Test */
+	/* !Test Kann man das irgendwie mit der @media hight verbinden
+	Code DOPPLUNG!*/
 	.testResponsiv {
 		padding: 0px 0 0 50px;
 	}
@@ -1595,7 +1596,7 @@
 	}
 }
 
-@media (max-height: 930px) {
+@media (max-height: 900px) {
 	.testResponsiv {
 		padding: 0px 0 0 50px;
 	}

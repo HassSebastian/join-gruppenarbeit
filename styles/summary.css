@@ -478,7 +478,7 @@
 justify-content: center;
  */
 
-@media screen and (max-height: 930px) {
+@media screen and (max-height: 900px) {
 	.summaryContainer {
 		padding: 0px 53px 16px 50px;
 		gap: 20px;
