@@ -521,22 +521,6 @@ justify-content: center;
 	}
 }
 
-@media screen and (max-width: 1440px) {
-	/* Summary */
-
-	.welcome {
-		left: 600px;
-	}
-
-	.title {
-		left: 22% !important;
-	}
-
-	.overview {
-		left: 22% !important;
-	}
-}
-
 @media screen and (max-width: 1100px) {
 	.title h3 {
 		font-size: 50px;
