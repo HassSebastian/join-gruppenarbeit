@@ -1418,25 +1418,13 @@
 }
 
 @media screen and (max-width: 1100px) {
-	/*addTask  */
-
-	/* .addTaskRightContainerAddMarginTop {
-		margin-top: 75px;
+	.addTaskAddTitleContainer {
+		padding-right: 35px;
 	}
 
-	.addTaskRightContainerAddMarginTop1 {
-		margin-top: 150px;
-	} */
-
-	/* .testResponsivNewHeight {
-		height: 1488px !important;
+	.addTaskRightContainer {
+		padding-left: 35px;
 	}
-
-	.testResponsivNewHeight1 {
-		height: 1563px !important;
-	} */
-
-	/* addTask */
 
 	.addTaskAssignList {
 		z-index: 0 !important;
@@ -1503,9 +1491,9 @@
 		flex: 1 !important;
 	}
 
-	.addTaskPrioIcons {
+	/* 	.addTaskPrioIcons {
 		gap: 35px !important;
-	}
+	} */
 
 	.taskAddedToBoard {
 		left: 0px !important;
