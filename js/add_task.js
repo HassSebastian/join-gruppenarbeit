@@ -1106,7 +1106,7 @@ function setIndexOfGuest() {
 }
 
 // Add Task Responsiv Functions
-function resizeCallRelatedAddTaskFunctions() {
+/* function resizeCallRelatedAddTaskFunctions() {
 	if (window.innerWidth < 768 || window.innerWidth > 1100) {
 		resetResponsivContainerHeight();
 	}
@@ -1263,5 +1263,5 @@ function resetResponsivContainerHeightPart3() {
 		document.getElementById('addTaskBtnOuterContainer').classList.remove('addTaskBtnOuterContainerNewTopValue2');
 	}
 }
-
+ */
 // Add Task Responsiv Functions end
