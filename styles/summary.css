@@ -3,9 +3,10 @@
 	flex-direction: column;
 	padding: 82px 53px 16px 123px;
 	width: fit-content;
-	height: 100%;
-	max-height: 768px;
+	/* height: 100%;
+	max-height: 768px; */
 	justify-content: space-between;
+	gap: 87px;
 }
 
 .summaryContainerLeft {
@@ -101,7 +102,7 @@
 
 .welcome h3 {
 	width: 385px;
-	height: 77px;
+	height: fit-content;
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 700;
@@ -122,7 +123,7 @@
 	padding: 0px;
 	gap: 35px;
 	width: 580px;
-	height: 540px;
+	height: fit-content;
 }
 
 .taskOverview {
@@ -131,8 +132,8 @@
 	align-items: flex-start;
 	padding: 0px;
 	gap: 35px;
-	width: 580px;
-	height: 170px;
+	/* width: 580px; */
+	/* height: 170px; */
 	flex: none;
 	order: 0;
 	flex-grow: 0;
@@ -174,7 +175,7 @@
 #taskInProgressAmount,
 #awaitingFeedbackAmount {
 	width: 41px;
-	height: 77px;
+	/* height: 77px; */
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 600;
@@ -215,7 +216,7 @@
 	align-items: center;
 	padding: 28px 48px;
 	gap: 61px;
-	width: 580px;
+	width: 100%;
 	height: 150px;
 	background: #ffffff;
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
@@ -297,16 +298,17 @@
 	width: 52px;
 	height: 19px;
 	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 400;
+	/* font-style: normal; */
+	/* font-weight: 400; */
 	font-size: 16px;
-	line-height: 120%;
+	/* line-height: 120%; */
 	color: #2a3647;
-	flex: none;
+	/* flex: none; */
 	order: 1;
-	flex-grow: 0;
+	/* flex-grow: 0; */
 	margin-block-start: 0px;
 	margin-block-end: 0px;
+	text-align: center;
 }
 
 .ugentVerticalLine {
@@ -322,6 +324,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	justify-content: space-between;
 	padding: 0px;
 	width: 178px;
 	height: 57px;
@@ -359,6 +362,7 @@
 	order: 1;
 	flex-grow: 0;
 	color: red;
+	margin: unset;
 }
 
 .toDoData {
@@ -367,7 +371,7 @@
 	align-items: center;
 	padding: 0px;
 	gap: 35px;
-	width: 580px;
+	width: 100%;
 	height: 150px;
 	flex: none;
 	order: 2;
@@ -383,13 +387,11 @@
 	padding: 38px 19px;
 	gap: 18px;
 	width: 272.5px;
-	height: 150px;
+	height: 100%;
 	background: #ffffff;
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 	border-radius: 30px;
-	flex: none;
-	order: 0;
-	flex-grow: 0;
+	flex-basis: 100%;
 }
 
 .toDoHover,
@@ -414,7 +416,7 @@
 	align-items: center;
 	padding: 0px;
 	width: fit-content;
-	height: 102px;
+	height: fit-content;
 	flex: none;
 	order: 1;
 	flex-grow: 0;
@@ -449,6 +451,7 @@
 	flex-grow: 0;
 	margin-block-start: 0px;
 	margin-block-end: 0px;
+	text-align: center;
 }
 
 .summaryContainerRight {
@@ -477,11 +480,44 @@ justify-content: center;
 
 @media screen and (max-height: 930px) {
 	.summaryContainer {
-		padding: 16px 53px 16px 16px;
+		padding: 24px 53px 16px 32px;
+		gap: 20px;
 	}
 
 	.title h3 {
 		font-size: 36px;
+	}
+
+	.overview {
+		width: 460px;
+	}
+
+	#taskInBoard,
+	#taskInProgress,
+	#awaitingFeedback {
+		width: 130px;
+		height: 130px;
+		gap: unset;
+	}
+
+	.ugencySummary,
+	.toDoData {
+		height: 120px;
+	}
+
+	.amountSummary {
+		font-size: 47px !important;
+	}
+	.toDoAmountData span {
+		height: fit-content;
+	}
+
+	.nameTask {
+		font-size: 14px !important;
+	}
+
+	.ugentAmount p {
+		font-size: 14px;
 	}
 }
 
