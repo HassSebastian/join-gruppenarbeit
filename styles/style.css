@@ -391,7 +391,7 @@ tr td:nth-child(3) {
 	}
 }
 
-@media screen and (max-height: 930px) {
+@media screen and (max-height: 900px) {
 	.memberMenu {
 		padding: 0px 36px 0px 50px;
 	}
