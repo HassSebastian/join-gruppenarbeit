@@ -51,7 +51,8 @@ function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYour
 	return /*html*/ `
 	<div class="summaryContainer">
 		<div class="title">
-			<h3>Summary</h3>
+		<span class="kanbanboardTitleSummary"> Kanban Project Management Tool </span>	
+		<h3>Summary</h3>
 			<img src="./assets/img/vertical_line.png" />
 			<h4>Everything in a nutshell!</h4>
 		</div>

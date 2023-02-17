@@ -241,6 +241,11 @@ tr td:nth-child(3) {
 	z-index: 1;
 }
 
+.joinLogo {
+	height: 32px;
+	width: auto;
+}
+
 .memberMenu h1 {
 	font-family: 'Inter';
 	font-style: normal;
@@ -391,8 +396,24 @@ tr td:nth-child(3) {
 	}
 }
 
+@media screen and (max-width: 768px) {
+	.memberMenu h1 {
+		display: none;
+	}
+
+	.sliderMenu {
+		display: none !important;
+	}
+}
+
 @media screen and (max-height: 900px) {
 	.memberMenu {
 		padding: 0px 36px 0px 50px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.joinLogo {
+		display: none;
 	}
 }

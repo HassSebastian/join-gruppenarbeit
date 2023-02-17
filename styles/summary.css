@@ -542,12 +542,37 @@ justify-content: center;
 	}
 }
 
-@media screen and (max-width: 950px) {
-	.title {
-		left: 8% !important;
+@media screen and (max-width: 768px) {
+	.summaryContainer {
+		padding: 53px 53px 16px 53px;
 	}
 
-	.overview {
-		left: 8% !important;
+	.title {
+		height: 120px;
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+		gap: unset;
+		width: 460px;
+	}
+
+	.title h3 {
+		font-size: 47px;
+		margin: unset;
+	}
+
+	.title img {
+		display: none;
+	}
+
+	.title h4 {
+		font-size: 21px;
+		margin: unset;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.kanbanboardTitleSummary {
+		display: none;
 	}
 }
