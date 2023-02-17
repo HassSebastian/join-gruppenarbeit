@@ -74,19 +74,22 @@ function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYour
 						</div>
 					</div>
 					<div class="ugencySummary">
-						<div class="ugent">
-							<div class="ugentImgContainer">
-								<img class="ugentImg" id="urgentImg" src="./assets/img/summary_urgent.png" />
+						<div class="urgencyCenterContainer">
+							<div class="ugent">
+								<div class="ugentImgContainer">
+									<img class="ugentImg" id="urgentImg" src="./assets/img/summary_urgent.png" />
+								</div>
+								<div class="ugentAmount">
+									<span id="ugencySummaryAmount" class="amountSummary">${yourUrgentTasksAmount}</span>
+									<p id="ugencySummaryurgent" class="nameTask">Urgent</p>
+								</div>
+								
 							</div>
-							<div class="ugentAmount">
-								<span id="ugencySummaryAmount" class="amountSummary">${yourUrgentTasksAmount}</span>
-								<p id="ugencySummaryurgent" class="nameTask">Urgent</p>
+							<div class="ugentVerticalLine"></div>
+							<div class="deadlineData">
+								<p id="deadlineDate"></p>
+								<p class="deadlineText" id="deadlineText"><b>12.02.2023 Deadline</b></p>
 							</div>
-							<img src="./assets/img/vertical-line2.png" class="ugentVerticalLine" />
-						</div>
-						<div class="deadlineData">
-							<p id="deadlineDate"></p>
-							<p class="deadlineText" id="deadlineText"><b>12.02.2023 Deadline</b></p>
 						</div>
 					</div>
 					<div class="toDoData">

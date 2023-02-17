@@ -130,9 +130,10 @@
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
+	justify-content: space-between;
 	padding: 0px;
-	gap: 35px;
-	/* width: 580px; */
+	/* gap: 35px; */
+	width: 580px;
 	/* height: 170px; */
 	flex: none;
 	order: 0;
@@ -215,7 +216,7 @@
 	justify-content: center;
 	align-items: center;
 	padding: 28px 48px;
-	gap: 61px;
+
 	width: 100%;
 	height: 150px;
 	background: #ffffff;
@@ -229,6 +230,13 @@
 .ugencySummary:hover {
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	background: #2a3647;
+}
+
+.urgencyCenterContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 60px;
 }
 
 .ugent {
@@ -478,7 +486,7 @@
 justify-content: center;
  */
 
-@media screen and (max-height: 900px) {
+@media screen and (max-height: 1024px) {
 	.summaryContainer {
 		padding: 0px 53px 16px 50px;
 		gap: 20px;
@@ -489,6 +497,10 @@ justify-content: center;
 	}
 
 	.overview {
+		width: 460px;
+	}
+
+	.taskOverview {
 		width: 460px;
 	}
 
@@ -568,6 +580,95 @@ justify-content: center;
 	.title h4 {
 		font-size: 21px;
 		margin: unset;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.summaryContainer {
+		padding: 33px;
+		gap: 20px;
+	}
+
+	.title h3 {
+		font-size: 36px;
+	}
+
+	.overview {
+		width: 360px;
+	}
+
+	.taskOverview {
+		width: 360px;
+	}
+
+	#taskInBoard,
+	#taskInProgress,
+	#awaitingFeedback {
+		width: 110px;
+		height: 110px;
+		gap: unset;
+	}
+
+	.ugencySummary,
+	.toDoData {
+		height: 110px;
+		width: 360px !important;
+	}
+
+	.toDoData {
+		gap: 15px;
+	}
+
+	.toDo,
+	.toDoDone {
+		flex-basis: 100% !important;
+	}
+
+	#toDoImg,
+	#toDoDoneImg,
+	#urgentImg {
+		width: 40px;
+		height: 40px;
+	}
+
+	.amountSummary {
+		font-size: 47px !important;
+	}
+
+	.toDoAmountData span {
+		height: fit-content;
+	}
+
+	.nameTask {
+		font-size: 14px !important;
+	}
+
+	.ugencySummary {
+		padding: 28px 0;
+	}
+	.urgencyCenterContainer {
+		gap: 40px;
+	}
+
+	.ugent {
+		width: 108px;
+		height: 73px;
+	}
+
+	.ugentVerticalLine {
+		height: 68px;
+	}
+
+	.ugentAmount p {
+		font-size: 14px;
+	}
+
+	#deadlineDate {
+		font-size: 16px;
+	}
+
+	.deadlineText {
+		font-size: 14px;
 	}
 }
 
