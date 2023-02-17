@@ -28,7 +28,7 @@ async function initBoard() {
 	renderAllCards();
 	loadContributorsLetter();
 	coworkersToAssignTo = transferallUserData();
-	await checkBoardInitMode();
+	/* await checkBoardInitMode(); */
 }
 
 async function initBoardNormal() {
@@ -45,7 +45,7 @@ async function initBoardNormal() {
  */
 async function renderBoard() {
 	document.getElementById('content').innerHTML = '';
-	if (!(selectedMenuBtnId == 2)){
+	if (!(selectedMenuBtnId == 2)) {
 		await enableBoardStyles();
 		await loadTask();
 	}
@@ -351,11 +351,7 @@ function moveTo(area) {
 	let doneBarWidth = doneBarDraggedElement.offsetWidth;
 	let doneBarOuterWidth = doneBarOuterDraggedElement.offsetWidth;
 	let workFlowStatusDraggedElement = joinTaskArray[currentDraggedElement]['workFlowStatus'];
-	if (
-		(doneBarWidth == doneBarOuterWidth && workFlowStatusDraggedElement >= 1) ||
-		(workFlowStatusDraggedElement < 1 && area < 2) ||
-		area < workFlowStatusDraggedElement
-	) {
+	if ((doneBarWidth == doneBarOuterWidth && workFlowStatusDraggedElement >= 1) || (workFlowStatusDraggedElement < 1 && area < 2) || area < workFlowStatusDraggedElement) {
 		moveToNewArea(area);
 	}
 }

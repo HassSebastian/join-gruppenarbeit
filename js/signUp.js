@@ -1,5 +1,5 @@
 function backToLogIn() {
-	window.location.href = './logIn.html';
+	window.location.href = './loginDesk.html';
 }
 
 /**
@@ -74,11 +74,11 @@ function forwardScript() {
 			if (window.innerWidth < 768) {
 				backToLogInMob();
 			} else {
-				window.location.href = './login.html';
+				window.location.href = './loginDesk.html';
 			}
 		}
 	} else {
-		window.location.href = './login.html';
+		window.location.href = './loginDesk.html';
 	}
 }
 

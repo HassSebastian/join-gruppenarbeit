@@ -243,6 +243,10 @@
 	margin-block-end: 0px;
 }
 
+.formAddTaskTitle {
+	width: 100%;
+}
+
 .addTaskAddTitleBox input {
 	box-sizing: border-box;
 	display: flex;

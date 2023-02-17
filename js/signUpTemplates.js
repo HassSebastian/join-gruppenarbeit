@@ -3,7 +3,7 @@
  * the email field is less than 8 characters, does not contain an @ or ., or starts with a space, check
  * if the password field is empty or starts with a space, and if all of the above are false, run the
  * emailToCheck function.
- * @param name - the name input field
+ * @param {name} - the name input field
  * @param email - the email input
  * @param password - the password input
  * @param requiredName - the span element that will be added to the name input
@@ -28,11 +28,7 @@ function calculateinputValueTest(name, email, password, requiredName, requiredEm
 		} else {
 			requiredPassword.classList.remove('requiredOn');
 		}
-		if (
-			!requiredName.classList.contains('requiredOn') &&
-			!requiredEmail.classList.contains('requiredOn') &&
-			!requiredPassword.classList.contains('requiredOn')
-		) {
+		if (!requiredName.classList.contains('requiredOn') && !requiredEmail.classList.contains('requiredOn') && !requiredPassword.classList.contains('requiredOn')) {
 			emailToCheck(name.value, email.value, password.value);
 		}
 	} else {

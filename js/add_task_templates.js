@@ -12,7 +12,7 @@ function generateAddTaskHtml() {
 		<div class="addTaskAddTitleContainer">
 			<div class="addTaskAddTitleBox">
 				<h3 class="subTitleAddTask">Title</h3>
-				<form onsubmit="goToDescripten(); return false">
+				<form class="formAddTaskTitle" onsubmit="goToDescripten(); return false">
 					<input class="addTaskResponsiv" required type="text" placeholder="Enter a title" id="addTaskTitle" autocomplete="off" minlength="3" />
 				</form>
 				<span class="requiredText" id="titleReq">This field is required</span>

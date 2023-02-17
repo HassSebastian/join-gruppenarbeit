@@ -41,60 +41,35 @@ let colorUserIndex = ['#02CF2F', '#EE00D6', '#0190E0', '#FF7200', '#FF2500', '#A
 let selectedMenuBtnId;
 let includeAttribute = 'w3-include-html';
 
-
-function initLoginStart(){
-    if (window.innerWidth > 768){
-        window.location.href = 'loginDesk.html';
-    }
-    if (window.innerWidth <= 768){
-        window.location.href = 'loginMob.html';
-    }
+function initLoginStart() {
+	window.location.href = 'loginDesk.html';
 }
 
-
-async function loadApplicableSummary(){
-    if (window.innerWidth > 768 && !document.querySelector('#logIn')){
-        document.getElementById('mobilSummary').classList.add('d-none');
-        document.getElementById('desktopSummary').classList.remove('d-none');
-        await deactivatMobil();
-        init();
-		desktopView = !desktopView;
-    }
-    if (window.innerWidth <= 768 && !document.querySelector('#logIn')){
-        document.getElementById('desktopSummary').classList.add('d-none');
-        document.getElementById('mobilSummary').classList.remove('d-none');
-        await deactivatDesktop();
-        initMobilSummary();
-		desktopView = !desktopView;
-    }
+async function loadApplicableSummary() {
+	init();
 }
-
 
 let desktopView;
 let viewchange = false;
- 
 
-window.onresize = function (){
+/* window.onresize = function () {
 	let loginPageActiv = document.querySelector('#logIn');
-    if (desktopView && window.innerWidth <=768 && !viewchange){
+	if (desktopView && window.innerWidth <= 768 && !viewchange) {
 		viewchange = true;
 		startChangetoMobil();
-		
-    }
-    if (!desktopView && window.innerWidth >=769 &&!viewchange){
+	}
+	if (!desktopView && window.innerWidth >= 769 && !viewchange) {
 		viewchange = true;
 		startChangetoDesktop();
-    }
-	
-	if (!loginPageActiv){
+	}
+
+	if (!loginPageActiv) {
 		callBoardRelatedInit();
 	}
-	
-}
+}; */
 
-
-async function startChangetoDesktop(){
-	if (!document.querySelector('#logIn')){
+async function startChangetoDesktop() {
+	if (!document.querySelector('#logIn')) {
 		await activateDesktop();
 		await loadApplicableSummary();
 		document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
@@ -102,96 +77,63 @@ async function startChangetoDesktop(){
 	}
 }
 
-async function startChangetoMobil(){
+/* async function startChangetoMobil(){
 	await activateMobil();
 	await loadApplicableSummary();
 	viewchange = false;
-}
+} */
 
+let stylesheetDesktopDeactivationList = ['stylsheetAddTaskMobil', 'stylesheetBoardMobil', 'stylesheetMobilTemplates', 'stylesheetMobilContacts', 'stylesheetMobilAddContacts', 'stylesheetSummaryMobil', 'stylesheetHelpMobil'];
 
-let stylesheetDesktopDeactivationList =[
-	'stylsheetAddTaskMobil',
-	'stylesheetBoardMobil',
-	'stylesheetMobilTemplates',
-	'stylesheetMobilContacts',
-	'stylesheetMobilAddContacts',
-	'stylesheetSummaryMobil',
-	'stylesheetHelpMobil',
-];
+let jsDesktopDeactivationList = ['jsMobilSummary', 'jsMobilAddTask', 'jsMobilBoard', 'jsHelpMobil', 'legalNoticeMobil'];
 
-let jsDesktopDeactivationList =[
-	'jsMobilSummary',
-	'jsMobilAddTask',
-	'jsMobilBoard',
-	'jsHelpMobil',
-	'legalNoticeMobil',
-]
+let stylesheetMobilDeactivationList = ['stylesheetsummary', 'stylesheetAddTask', 'stylesheetBoard', 'stylesheetContacts', 'stylesheetHelp'];
 
-let stylesheetMobilDeactivationList = [
-    'stylesheetsummary',
-    'stylesheetAddTask',
-    'stylesheetBoard',
-    'stylesheetContacts',
-    'stylesheetHelp'  
-]
+let jsMobilDeactivationList = ['jsHelp', 'jsResponsiv', 'jsContacts', 'jsAddTaskTemplates'];
 
-let jsMobilDeactivationList = [
-    'jsHelp',
-	'jsResponsiv',
-	'jsContacts',
-	'jsAddTaskTemplates'
-]
-
-
-async function deactivatMobil(){
-	stylesheetDesktopDeactivationList.forEach(stylesheet => {
+async function deactivatMobil() {
+	stylesheetDesktopDeactivationList.forEach((stylesheet) => {
 		document.getElementById(stylesheet).disabled = true;
 	});
-	jsDesktopDeactivationList.forEach(script => {
+	jsDesktopDeactivationList.forEach((script) => {
 		document.getElementById(script).disabled = true;
 	});
 }
 
-
-async function activateMobil(){
-	stylesheetDesktopDeactivationList.forEach(stylesheet => {
+async function activateMobil() {
+	stylesheetDesktopDeactivationList.forEach((stylesheet) => {
 		document.getElementById(stylesheet).disabled = false;
 	});
-	jsDesktopDeactivationList.forEach(script => {
+	jsDesktopDeactivationList.forEach((script) => {
 		document.getElementById(script).disabled = false;
 	});
 }
 
-
-async function deactivatDesktop(){
-	stylesheetMobilDeactivationList.forEach(stylesheet => {
+async function deactivatDesktop() {
+	stylesheetMobilDeactivationList.forEach((stylesheet) => {
 		document.getElementById(stylesheet).disabled = true;
 	});
-	jsMobilDeactivationList.forEach(script => {
+	jsMobilDeactivationList.forEach((script) => {
 		document.getElementById(script).disabled = true;
 	});
 }
 
-
-async function activateDesktop(){
+async function activateDesktop() {
 	let loginPageActiv = document.querySelector('#logIn');
-	if (!document.querySelector('#logIn')){
-		stylesheetMobilDeactivationList.forEach(stylesheet => {
-		document.getElementById(stylesheet).disabled = false;
-	});
-		jsMobilDeactivationList.forEach(script => {
-		document.getElementById(script).disabled = false;
-	});
+	if (!document.querySelector('#logIn')) {
+		stylesheetMobilDeactivationList.forEach((stylesheet) => {
+			document.getElementById(stylesheet).disabled = false;
+		});
+		jsMobilDeactivationList.forEach((script) => {
+			document.getElementById(script).disabled = false;
+		});
 	}
-	
 }
-
 
 async function init() {
 	await includeHTML();
 	initSummary();
 }
-
 
 async function includeHTML() {
 	let includeElements = document.querySelectorAll(`[${includeAttribute}]`);
@@ -207,7 +149,6 @@ async function includeHTML() {
 	}
 }
 
-
 function selectedMenuButton(menuId) {
 	if (selectedMenuNotShownAndNotLegalNotice(menuId)) {
 		setMenuBtnStyle(menuId);
@@ -219,26 +160,22 @@ function selectedMenuButton(menuId) {
 	enableDisableScrollContent();
 }
 
-
-function enableDisableScrollContent(){
-	if (selectedMenuBtnId == 4){
+function enableDisableScrollContent() {
+	if (selectedMenuBtnId == 4) {
 		document.getElementById('content').style = 'overflow: hidden; overflow-y: hidden;';
 	}
-	if (selectedMenuBtnId == 3 || selectedMenuBtnId == 2){
+	if (selectedMenuBtnId == 3 || selectedMenuBtnId == 2) {
 		document.getElementById('content').style = 'overflow: hidden; overflow-y: scroll;';
 	}
 }
-
 
 function selectedMenuNotShownAndNotLegalNotice(menuId) {
 	return selectedMenuBtnId != menuId && menuId != 5;
 }
 
-
 function selectedMenuIsLegalNoticeAndNotShown(menuId) {
 	return menuId == 5 && selectedMenuBtnId != 5;
 }
-
 
 function setMenuBtnStyle(menuId) {
 	let menuBtnId = menuSelectorStyles[menuId]['menuName'];
@@ -251,11 +188,10 @@ function setMenuBtnStyle(menuId) {
 	if (otherMenuBtnPreSelected()) {
 		deselectMenuButton(selectedMenuBtnId);
 	}
-	if (!document.querySelector('.mobileContent')){
+	if (!document.querySelector('.mobileContent')) {
 		setMenuBtnStyleSlider(menuId);
 	}
 }
-
 
 function setMenuBtnStyleSlider(menuId) {
 	let menuBtnId = menuSelectorStyles[menuId]['menuName'];
@@ -269,7 +205,6 @@ function setMenuBtnStyleSlider(menuId) {
 	document.getElementById(img1Id).classList.add(menuSelectorStyles[0]['disableImg']);
 	document.getElementById(img2Id).classList.add(menuSelectorStyles[0]['enableImg']);
 }
-
 
 function deselectMenuButtonSlider(menuId) {
 	let menuBtnId = menuSelectorStyles[menuId]['menuName'];
@@ -289,11 +224,9 @@ function deselectMenuButtonSlider(menuId) {
 	}
 }
 
-
 function otherMenuBtnPreSelected() {
 	return selectedMenuBtnId;
 }
-
 
 function setLegalNoticeBtnStyle(menuId) {
 	let menuBtnId = menuSelectorStyles[menuId]['menuName'];
@@ -316,7 +249,7 @@ function deselectMenuButton(menuId) {
 	if (legalNoticeSelected()) {
 		document.getElementById(menuBtnId).style = menuSelectorStyles[0]['disabledBackground'];
 	}
-	if (!document.querySelector('.mobileContent')){
+	if (!document.querySelector('.mobileContent')) {
 		deselectMenuButtonSlider(menuId);
 	}
 }
@@ -341,7 +274,6 @@ function renderList() {
 	renderLegalNotice();
 }
 
-
 function logOutBtn() {
 	document.getElementById('logOut').classList.toggle('logOutOn');
 }
@@ -351,153 +283,92 @@ function logOut() {
 	localStorage.removeItem('loggedUser');
 }
 
-
 function loadContributorsLetter() {
 	let colorIndex = allUsers[loggedUser[0]].colorIndex;
 	document.getElementById('contributorsLogoHeadder').style = `background:${colorUserIndex[colorIndex]}`;
 	document.getElementById('contributorsLogoHeadderLetters').innerHTML = `<p style='color:white'>${allUsers[loggedUser].firstSecondLetter}</p>`;
 }
 
-
 // Load only applicable js and css. Edit by Bossi 29.01
 
-let stylesheetDesktopList = [
-	'stylesheetAddTask',
-	'stylesheetBoard',
-	'stylesheetContacts',
-	'stylesheetLegalNotice',
-	'stylesheetsummary',
-	'stylesheetBoardMobil',
-	'stylsheetAddTaskMobil',
-	'stylesheetHelp'
-];
+let stylesheetDesktopList = ['stylesheetAddTask', 'stylesheetBoard', 'stylesheetContacts', 'stylesheetLegalNotice', 'stylesheetsummary', 'stylesheetBoardMobil', 'stylsheetAddTaskMobil', 'stylesheetHelp'];
 
-let scriptDesktopList = [
-	'jsMiniBackend',
-	'jsResponsiv',
-	'jsScript',
-	'jsAddTask',
-	'jsAddTaskTemplates',
-	'jsBoardPart1',
-	'jsBoardPart2',
-	'jsBoardPart3',
-	'jsBoardTemplatesPart1',
-	'jsBoardTemplatesPart2',
-	'jsSignUp',
-	'jsSignUpTemplates',
-	'jsContactsTemplates',
-	'jsContacts',
-	'jslegalNotice',
-	'jslegalNotice',
-	'jsHelp',
-	
-];
+let scriptDesktopList = ['jsMiniBackend', 'jsResponsiv', 'jsScript', 'jsAddTask', 'jsAddTaskTemplates', 'jsBoardPart1', 'jsBoardPart2', 'jsBoardPart3', 'jsBoardTemplatesPart1', 'jsBoardTemplatesPart2', 'jsSignUp', 'jsSignUpTemplates', 'jsContactsTemplates', 'jsContacts', 'jslegalNotice', 'jslegalNotice', 'jsHelp'];
 
-let stylesheetMobilList =[
-	'stylesheetBoardMobil',
-	'stylsheetAddTaskMobil',
+let stylesheetMobilList = ['stylesheetBoardMobil', 'stylsheetAddTaskMobil', 'stylesheetMobilTemplates', 'stylesheetMobilContacts', 'stylesheetMobilAddContacts', 'stylesheetSummaryMobil', 'stylesheetHelpMobil'];
 
-	'stylesheetMobilTemplates',
-	'stylesheetMobilContacts',
-	'stylesheetMobilAddContacts',
-	'stylesheetSummaryMobil',
-	'stylesheetHelpMobil'
-];
+let scriptMobilList = ['jsMobilSummary', 'jsMobilAddTask', 'jsMobilBoard', 'jsMobilContacts', 'jsHelpMobil', 'legalNoticeMobil'];
 
-let scriptMobilList =[
-	'jsMobilSummary',
-	'jsMobilAddTask',
-	'jsMobilBoard',
-	'jsMobilContacts',
-	'jsHelpMobil',
-	'legalNoticeMobil',
-]
-
-
-async function disableAllStyles(){
-	stylesheetDesktopList.forEach(stylesheet => {
+async function disableAllStyles() {
+	stylesheetDesktopList.forEach((stylesheet) => {
 		document.getElementById(stylesheet).disabled = true;
 	});
-	stylesheetMobilList.forEach(stylesheet => {
+	stylesheetMobilList.forEach((stylesheet) => {
 		document.getElementById(stylesheet).disabled = true;
 	});
 	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 }
 
-
-function enableAllStyles(){
-	stylesheetDesktopList.forEach(stylesheet => {
+/**
+ * ! DIESE FUNKTION AKTIVIERT DATEIEN DIE IMMER AKTIVIERT SEIN SOLLEN
+ */
+function enableAllStyles() {
+	stylesheetDesktopList.forEach((stylesheet) => {
 		document.getElementById(stylesheet).disabled = false;
 	});
-	stylesheetMobilList.forEach(stylesheet => {
+	stylesheetMobilList.forEach((stylesheet) => {
 		document.getElementById(stylesheet).disabled = false;
 	});
 }
 
-
-async function enableSummaryStyles(){
+async function enableSummaryStyles() {
 	await disableAllStyles();
 	document.getElementById('stylesheetStyle').disabled = false;
 	document.getElementById('stylesheetsummary').disabled = false;
 }
 
-
-async function enableBoardStyles(){
+async function enableBoardStyles() {
 	await disableAllStyles();
 	document.getElementById('stylesheetBoard').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;
 }
 
-
-async function enableAddTaskStyles(){
-	await disableAllStyles();
+async function enableAddTaskStyles() {
 	document.getElementById('stylesheetAddTask').disabled = false;
 }
 
-
-async function enableContactsStyles(){
-	await disableAllStyles();
+async function enableContactsStyles() {
+	/* await disableAllStyles(); */
 	document.getElementById('stylesheetContacts').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;
 	document.getElementById('stylesheetBoard').disabled = false;
 }
 
-
-async function enableLegalNotice(){
-	await disableAllStyles();
+async function enableLegalNotice() {
+	/* await disableAllStyles(); */
 	document.getElementById('stylesheetLegalNotice').disabled = false;
 }
 
-
-async function enableHelp(){
-	await disableAllStyles();
+async function enableHelp() {
+	/* await disableAllStyles(); */
 	document.getElementById('stylesheetHelp').disabled = false;
 }
 
-
-async function disableAllJs(){
-	scriptDesktopList.forEach(script => {
+/* async function disableAllJs() {
+	scriptDesktopList.forEach((script) => {
 		document.getElementById(script).disabled = true;
 	});
-	scriptMobilList.forEach(script => {
+	scriptMobilList.forEach((script) => {
 		document.getElementById(script).disabled = true;
 	});
-}
+} */
 
-
-function enableAllJs(){
+/* function enableAllJs() {
 	debugger;
-	scriptDesktopList.forEach(script => {
+	scriptDesktopList.forEach((script) => {
 		document.getElementById(script).disabled = false;
 	});
-	jsMobilList.forEach(script => {
+	jsMobilList.forEach((script) => {
 		document.getElementById(script).disabled = false;
 	});
-}
-
-
-
-
-
-
-
+} */
