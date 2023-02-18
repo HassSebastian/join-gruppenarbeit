@@ -1650,7 +1650,7 @@
 	}
 }
 
-@media screen and (max-height: 1024px) {
+@media screen and (max-height: 900px) {
 	.testResponsiv {
 		padding: 0px 0 0 50px;
 	}

@@ -334,7 +334,7 @@
 	align-items: flex-start;
 	justify-content: space-between;
 	padding: 0px;
-	width: 178px;
+	/* width: 178px; */
 	height: 57px;
 	flex: none;
 	order: 2;
@@ -358,14 +358,14 @@
 }
 
 .deadlineText {
-	width: 170px;
+	/* width: 170px; */
 	height: 19px;
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 120%;
-	color: #2a3647;
+	/* color: #2a3647; */
 	flex: none;
 	order: 1;
 	flex-grow: 0;
@@ -486,7 +486,8 @@
 justify-content: center;
  */
 
-@media screen and (max-height: 1024px) {
+@media screen and (max-height: 900px) {
+	/* 1024 oder 900% */
 	.summaryContainer {
 		padding: 0px 53px 16px 50px;
 		gap: 20px;
@@ -512,6 +513,10 @@ justify-content: center;
 		gap: unset;
 	}
 
+	.urgencyCenterContainer {
+		gap: 40px;
+	}
+
 	.ugencySummary,
 	.toDoData {
 		height: 120px;
@@ -530,6 +535,27 @@ justify-content: center;
 
 	.ugentAmount p {
 		font-size: 14px;
+	}
+}
+
+@media screen and (max-height: 768px) {
+	.kanbanboardTitleSummary,
+	.title h4 {
+		display: none;
+	}
+
+	.title h3 {
+		height: max-content;
+	}
+
+	.overview {
+		padding-top: 24px !important;
+	}
+}
+
+@media screen and (max-width: 1150px) {
+	.welcome {
+		display: none;
 	}
 }
 
@@ -556,16 +582,25 @@ justify-content: center;
 
 @media screen and (max-width: 768px) {
 	.summaryContainer {
-		padding: 53px 53px 16px 53px;
+		padding: 33px;
+		gap: 20px;
 	}
 
+	.summaryContainerLeft::before {
+		content: '';
+		border: 3px solid #29abe2;
+		width: 90px;
+	}
 	.title {
-		height: 120px;
+		height: fit-content;
 		display: flex;
 		align-items: flex-start;
 		flex-direction: column;
 		gap: unset;
-		width: 460px;
+		width: 360px;
+	}
+	.title img {
+		display: none;
 	}
 
 	.title h3 {
@@ -573,28 +608,14 @@ justify-content: center;
 		margin: unset;
 	}
 
-	.title img {
-		display: none;
-	}
-
 	.title h4 {
 		font-size: 21px;
 		margin: unset;
 	}
-}
-
-@media screen and (max-width: 480px) {
-	.summaryContainer {
-		padding: 33px;
-		gap: 20px;
-	}
-
-	.title h3 {
-		font-size: 36px;
-	}
 
 	.overview {
 		width: 360px;
+		padding-top: 41px;
 	}
 
 	.taskOverview {
@@ -607,6 +628,10 @@ justify-content: center;
 		width: 110px;
 		height: 110px;
 		gap: unset;
+	}
+
+	.ugentImgContainer {
+		width: unset;
 	}
 
 	.ugencySummary,
@@ -647,7 +672,7 @@ justify-content: center;
 		padding: 28px 0;
 	}
 	.urgencyCenterContainer {
-		gap: 40px;
+		gap: 20px;
 	}
 
 	.ugent {
@@ -669,6 +694,52 @@ justify-content: center;
 
 	.deadlineText {
 		font-size: 14px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.title {
+		width: 338px;
+	}
+
+	.summaryContainer {
+		padding: 8px;
+	}
+
+	.title h3 {
+		font-size: 36px;
+	}
+
+	.title h4 {
+		font-size: 18px;
+	}
+
+	.overview,
+	.taskOverview {
+		width: 338px;
+	}
+
+	#taskInBoard,
+	#taskInProgress,
+	#awaitingFeedback {
+		width: 100px;
+		height: 100px;
+		gap: unset;
+	}
+
+	.ugencySummary,
+	.toDoData {
+		height: 100px;
+		width: 338px !important;
+	}
+
+	.amountSummary {
+		font-size: 32px !important;
+		height: fit-content !important;
+	}
+
+	.nameTask {
+		height: fit-content !important;
 	}
 }
 

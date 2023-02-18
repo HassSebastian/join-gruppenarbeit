@@ -408,6 +408,10 @@ tr td:nth-child(3) {
 	.sliderMenu {
 		display: none !important;
 	}
+
+	.overview {
+		gap: 24px !important;
+	}
 }
 
 @media screen and (max-height: 1024px) {
