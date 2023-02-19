@@ -21,14 +21,13 @@ body {
 	padding: 0px;
 	gap: 35px;
 	position: absolute;
-	width: 287px;
-	height: 51px;
-	left: calc(80% - (287px / 2));
+	width: fit-content;
+	right: 114px;
 	top: 67px;
 }
 
 .notAJoinUser span {
-	width: 161px;
+	/* width: 161px; */
 	height: 25px;
 	font-family: 'Inter';
 	font-style: normal;
@@ -95,6 +94,26 @@ body {
 	cursor: pointer;
 }
 
+@keyframes logoBlack {
+	from {
+		left: 50%;
+		top: 50%;
+		width: 100.03px;
+		height: 121.97px;
+		opacity: 0;
+		z-index: 0;
+	}
+
+	to {
+		left: 5.35%;
+		right: 87.71%;
+		top: 7.81%;
+		bottom: 80.28%;
+		opacity: 1;
+		z-index: 1000;
+	}
+}
+
 .logInLogoImgWhite {
 	position: absolute;
 	left: 5.35%;
@@ -121,26 +140,6 @@ body {
 		bottom: 80.28%;
 		opacity: 0;
 		z-index: 0;
-	}
-}
-
-@keyframes logoBlack {
-	from {
-		left: 50%;
-		top: 50%;
-		width: 100.03px;
-		height: 121.97px;
-		opacity: 0;
-		z-index: 0;
-	}
-
-	to {
-		left: 5.35%;
-		right: 87.71%;
-		top: 7.81%;
-		bottom: 80.28%;
-		opacity: 1;
-		z-index: 1000;
 	}
 }
 
@@ -1194,13 +1193,27 @@ body {
 	.loginMasterContainer {
 		width: 372px;
 		gap: unset;
+		justify-content: space-between;
+	}
+
+	.logInHeadlineContainer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: unset;
 	}
 
 	.logInHeadlineContainer span {
 		font-size: 47px;
 	}
 
+	.loginContainer {
+		height: 41px;
+	}
+
 	.loginInputContainer {
+		justify-content: space-between;
 		width: 327px;
 		height: 151px;
 		gap: unset;
@@ -1212,9 +1225,11 @@ body {
 	}
 
 	.rememberMeContainer {
+		margin-top: -20px;
 		flex-direction: column-reverse;
 		justify-content: space-between;
 		height: 69px;
+		width: 327px;
 	}
 
 	.logInButtonContainer {
