@@ -23,7 +23,14 @@ async function initSummary() {
 	resetCounters();
 	resetYourTasksArrays(); // sonst addieren sich die tasks bei jedem Aufrufen
 	await loadAmountsForSummary(); // await später für server wichtig
-	await renderSummary(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount);
+	await renderSummary(
+		allYourTasksAmount,
+		allYourToDoTasksAmount,
+		allYourInProgressTasksAmount,
+		allYourAwaitingFeedbackTasksAmount,
+		allYourDoneTasksAmount,
+		yourUrgentTasksAmount
+	);
 	selectedMenuBtnId = 0;
 	selectedMenuButton(1);
 	showDate();
@@ -47,7 +54,14 @@ function resetYourTasksArrays() {
 	allYourDoneTasks = [];
 }
 
-function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount) {
+function generateSummaryHtml(
+	allYourTasksAmount,
+	allYourToDoTasksAmount,
+	allYourInProgressTasksAmount,
+	allYourAwaitingFeedbackTasksAmount,
+	allYourDoneTasksAmount,
+	yourUrgentTasksAmount
+) {
 	return /*html*/ `
 	<div class="summaryContainer">
 		<div class="title">
@@ -60,15 +74,15 @@ function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYour
 			<div class="summaryContainerLeft">
 				<div class="overview">
 					<div class="taskOverview">
-						<div id="taskInBoard">
+						<div id="taskInBoard" onclick="initBoard()">
 							<span id="taskInBoardAmount" class="amountSummary">${allYourTasksAmount}</span>
 							<p class="nameTask">Task in Board</p>
 						</div>
-						<div id="taskInProgress">
+						<div id="taskInProgress" onclick="initBoard()">
 							<span id="taskInProgressAmount" class="amountSummary">${allYourInProgressTasksAmount}</span>
 							<p class="nameTask">Task in Progress</p>
 						</div>
-						<div id="awaitingFeedback">
+						<div id="awaitingFeedback" onclick="initBoard()">
 							<span id="awaitingFeedbackAmount" class="amountSummary">${allYourAwaitingFeedbackTasksAmount}</span>
 							<p class="nameTask">Awaiting Feedback</p>
 						</div>
@@ -121,9 +135,23 @@ function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYour
     `;
 }
 
-async function renderSummary(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount) {
+async function renderSummary(
+	allYourTasksAmount,
+	allYourToDoTasksAmount,
+	allYourInProgressTasksAmount,
+	allYourAwaitingFeedbackTasksAmount,
+	allYourDoneTasksAmount,
+	yourUrgentTasksAmount
+) {
 	document.getElementById('content').innerHTML = '';
-	document.getElementById('content').innerHTML += generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount);
+	document.getElementById('content').innerHTML += generateSummaryHtml(
+		allYourTasksAmount,
+		allYourToDoTasksAmount,
+		allYourInProgressTasksAmount,
+		allYourAwaitingFeedbackTasksAmount,
+		allYourDoneTasksAmount,
+		yourUrgentTasksAmount
+	);
 }
 
 // Hover Summary help-function
@@ -134,7 +162,9 @@ async function renderSummary(allYourTasksAmount, allYourToDoTasksAmount, allYour
  * @param {boolean} on if the cursor is on the div on == true
  */
 function changeImg(imgId, on) {
-	document.getElementById(imgId).src = `./assets/img/${penImage}${on ? '_black' : ''}.png`;
+	document.getElementById(imgId).src = `./assets/img/${penImage}${
+		on ? '_black' : ''
+	}.png`;
 }
 
 function toDoHoverOn() {
@@ -336,5 +366,6 @@ function updateTaskDone(email, workflowStatus, task) {
  * @param {string} priority
  */
 function updateTaskUrgent(email, priority) {
-	if (email === emailAddress && priority === 'Urgent') yourUrgentTasksAmount++;
+	if (email === emailAddress && priority === 'Urgent')
+		yourUrgentTasksAmount++;
 }
