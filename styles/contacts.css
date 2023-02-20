@@ -142,6 +142,17 @@
 	overflow: hidden;
 }
 
+.contactContainerList {
+	display: flex;
+	margin-left: 32px;
+	margin-top: 32px;
+	border: solid, 1px, black;
+}
+
+.contactContainerList span {
+	font-family: 'Inter';
+}
+
 .better_with_a_team {
 	position: relative;
 	top: 82px;
@@ -154,26 +165,13 @@
 }
 
 .better_with_a_team h1 {
-	margin-right: 16px;
-	width: 274px;
-	height: 73px;
 	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 700;
 	font-size: 61px;
-	line-height: 120%;
-	color: #000000;
-	flex: none;
-	order: 0;
-	flex-grow: 0;
-	margin-block-start: 0px;
-	margin-block-end: 0px;
 	margin-block-start: 0px;
 	margin-block-end: 0px;
 }
 
 .better_with_a_team span {
-	margin: 16px;
 	width: 235px;
 	height: 32px;
 	font-family: 'Inter';
@@ -195,6 +193,7 @@
 	flex: none;
 	order: 1;
 	flex-grow: 0;
+	margin: 16px;
 }
 
 .new_contact {
@@ -272,8 +271,8 @@
 	height: fit-content;
 	left: 65px;
 	top: 237px;
-	transition: 400ms ease-in;
-	transform: translateX(4500px);
+	/*transition: 400ms ease-in;
+	transform: translateX(4500px);*/
 }
 
 .showContactDetail {
@@ -422,22 +421,13 @@
 	cursor: pointer;
 }
 
-.contactPhone,
 .contactPhone a {
-	width: fit-content;
 	height: 19px;
 	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 120%;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	color: #000000;
-	flex: none;
-	order: 1;
-	flex-grow: 0;
-	/* color: blue; */
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -953,8 +943,14 @@
 	order: 0;
 	flex-grow: 0;
 }
+
 .contactSuccSlide {
 	transform: translateY(-366px);
+}
+
+#listing {
+	position: absolute;
+	display: none;
 }
 
 /**************************/
@@ -1037,10 +1033,11 @@
 	}
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1077px) {
 	.contactContainerRight {
 		top: 79px;
 	}
+
 	.showContact {
 		display: flex;
 		flex-direction: column;
@@ -1050,6 +1047,11 @@
 		left: 0;
 		margin-left: auto;
 		margin-right: auto;
+	}
+
+	.new_contact {
+		right: 8px;
+		bottom: 8px;
 	}
 
 	.rightSideShowContacts {
@@ -1069,8 +1071,7 @@
 		top: 25px;
 	}
 
-	.showContact {
-	}
+	.showContact {}
 
 	.better_with_a_team {
 		flex-direction: column;
@@ -1166,6 +1167,40 @@
 }
 
 @media (max-width: 768px) {
+
+	.Frame_97 {
+		margin-left: 0px;
+	}
+
+	.better_with_a_team {
+		display: none;
+	}
+
+	.contact_information h2 {
+		width: 207px;
+		height: 74px;
+		font-family: 'Inter';
+		font-weight: 400;
+		font-size: 21px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.new_contact {
+		right: 8px;
+		bottom: 87px;
+	}
+
+	/*.contactContainerRight {
+		position: absolute;
+		top: 89px;
+		bottom: 0;
+		left: 0px;
+		right: 0;
+		overflow: hidden;
+		z-index: -1;
+	}*/
 	/* .Frame_97 {
 		left: 0;
 		right: 0;
@@ -1176,6 +1211,22 @@
 	/* 	.contactContainerRight {
 		display: none;
 	} */
+}
+
+@media (max-width: 453px) {
+	.Frame_97 {
+		max-width: 100%;
+	}
+
+	.Contact_list {
+		max-width: 100%;
+	}
+
+	.letters {
+		max-width: 100%;
+		min-width: 100%;
+		border-bottom: 1px solid;
+	}
 }
 
 @media (max-height: 900px) {

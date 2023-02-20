@@ -176,6 +176,7 @@ function closeEditContact() {
 function showContact(i) {
 	if (!guestLoggedIn) showContactOf(allUsers, i);
 	if (guestLoggedIn) showContactOf(allFakeUsers, i);
+	showContactList();
 }
 
 /**
@@ -192,6 +193,24 @@ function showContactOf(arr, i) {
 	let color = arr[i].colorIndex;
 	let showContact = document.getElementById('showContact');
 	showContactQuerry(name, email, phone, letter, color, i, showContact);
+}
+let listOpen = true;
+function showContactList() {
+
+	if (!listOpen) {
+		document.getElementById('Frame_97').style.marginLeft = "0";
+		document.getElementById('contactContainerRight').style.removeProperty('left');
+		document. getElementById('listing').style.removeProperty('display');
+		listOpen = true;
+		console.log('open');
+	}
+	else if (listOpen && window.innerWidth < 769) {
+		document.getElementById('Frame_97').style.marginLeft = "-460px";
+		document.getElementById('contactContainerRight').style.left = "0";
+		document. getElementById('listing').style.display = "flex"
+		listOpen = false
+		console.log('close')
+	}
 }
 
 /**
