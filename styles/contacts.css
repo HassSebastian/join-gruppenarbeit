@@ -986,11 +986,6 @@
 }
 
 @media (max-width: 1100px) {
-	.rightSideShowContacts {
-		padding-left: unset;
-		align-items: center;
-	}
-
 	.blackSite {
 		height: 350px;
 		top: -156px;
@@ -1042,20 +1037,39 @@
 	}
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
+	.contactContainerRight {
+		top: 79px;
+	}
+	.showContact {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		top: 50px;
+		right: 0;
+		left: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.rightSideShowContacts {
+		align-items: center;
+		padding-left: unset;
+	}
+
+	.contactEmailContainer {
+		width: fit-content;
+		height: fit-content;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
 	.better_with_a_team {
 		top: 25px;
 	}
 
 	.showContact {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		top: 90px;
-		right: 0;
-		left: 0;
-		margin-left: auto;
-		margin-right: auto;
 	}
 
 	.better_with_a_team {
@@ -1069,6 +1083,15 @@
 	.vector_5 {
 		height: 0;
 		width: 150px;
+	}
+
+	.better_with_a_team span {
+		display: none;
+	}
+
+	.show_contact_ellipse_5 {
+		width: 100px;
+		height: 100px;
 	}
 
 	.showContactDetail {
@@ -1142,34 +1165,7 @@
 	}
 }
 
-@media screen and (max-width: 1024px) {
-	.showContact {
-		top: 75px;
-	}
-
-	.contactEmailContainer {
-		width: fit-content;
-		height: fit-content;
-		/* display: flex; */
-		align-items: center;
-	}
-
-	/* .contactContainerRight {
-		display: none;
-	} */
-}
-
-/* @media (max-width: 870px) {
-	.showContact {
-		left: 1050px;
-	}
-
-	.better_with_a_team {
-		left: 450px;
-	}
-} */
-
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
 	/* .Frame_97 {
 		left: 0;
 		right: 0;
@@ -1196,9 +1192,9 @@
 		overflow: scroll;
 	}
 
-	.showContact {
+	/* .showContact {
 		top: 100px;
-	}
+	} */
 
 	.new_contact {
 		right: 16px;
