@@ -103,17 +103,6 @@ function showLettersHTML(alphabetLetter) {
 }
 
 function showContactQuerry(name, email, phone, letter, color, i, showContact) {
-	if (window.innerWidth < 769) {
-		document.getElementById('mobilContent').innerHTML = '';
-		document.getElementById('mobilContent').innerHTML = showContactHTMLMob(
-			name,
-			email,
-			phone,
-			letter,
-			color,
-			i
-		);
-	} else {
 		showContact.classList.remove('d-none');
 		if (showContact.classList.contains('showContactSlide')) {
 			showContact.classList.remove('showContactSlide');
@@ -132,7 +121,6 @@ function showContactQuerry(name, email, phone, letter, color, i, showContact) {
 			showContactHelp(name, email, phone, letter, color, i, showContact);
 		}
 	}
-}
 
 function showContactHelp(name, email, phone, letter, color, i, showContact) {
 	showContact.innerHTML = '';
