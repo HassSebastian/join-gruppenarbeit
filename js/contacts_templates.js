@@ -108,7 +108,7 @@ function showContactQuerry(name, email, phone, letter, color, i, showContact) {
 		showContact.classList.remove('showContactSlide');
 		setTimeout(
 			showContactHelp,
-			10, //kann man noch anders machen!
+			10, //!kann man noch anders machen!
 			name,
 			email,
 			phone,
