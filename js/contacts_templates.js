@@ -3,7 +3,7 @@
  * @returns A string of HTML.
  */
 function renderContentHTML() {
-    return /*html*/ `
+	return /*html*/ `
     <div class="shadowOverlay d-none" id="boardPopup" onclick="disablePopupWindow()"></div>
 		<div class="contactsContainer">
 			<div class="Frame_97" id="Frame_97">
@@ -39,8 +39,8 @@ function renderContentHTML() {
  * @param {boolean} guestLoggedIn
  */
 function chooseRightUserArray() {
-    !guestLoggedIn ? calculateUserInAlphabetArray(allUsers) : null;
-    guestLoggedIn ? calculateUserInAlphabetArray(allFakeUsers) : null;
+	!guestLoggedIn ? calculateUserInAlphabetArray(allUsers) : null;
+	guestLoggedIn ? calculateUserInAlphabetArray(allFakeUsers) : null;
 }
 
 /**
@@ -48,21 +48,21 @@ function chooseRightUserArray() {
  * first letter of their name.
  */
 function calculateUserInAlphabetArray(arr) {
-    arr.forEach((user, i) => {
-        let id = i;
-        let colorIndex = user.colorIndex;
-        let name = user.name;
-        let email = user.email;
-        let letter = user.firstSecondLetter;
-        let firstLetter = user.firstSecondLetter[0];
-        alphabetOrd[firstLetter].push({
-            name: name,
-            email: email,
-            id: id,
-            letter: letter,
-            colorIndex: colorIndex,
-        });
-    });
+	arr.forEach((user, i) => {
+		let id = i;
+		let colorIndex = user.colorIndex;
+		let name = user.name;
+		let email = user.email;
+		let letter = user.firstSecondLetter;
+		let firstLetter = user.firstSecondLetter[0];
+		alphabetOrd[firstLetter].push({
+			name: name,
+			email: email,
+			id: id,
+			letter: letter,
+			colorIndex: colorIndex,
+		});
+	});
 }
 
 /**
@@ -94,7 +94,7 @@ function calculateAndShowAlphabet() {
  * @returns the HTML code for the letters of the alphabet.
  */
 function showLettersHTML(alphabetLetter) {
-    return /*html*/ `
+	return /*html*/ `
         <div class="letters">
             <span><b>${alphabetLetter}</b></span>
         </div>
@@ -103,24 +103,24 @@ function showLettersHTML(alphabetLetter) {
 }
 
 function showContactQuerry(name, email, phone, letter, color, i, showContact) {
-		showContact.classList.remove('d-none');
-		if (showContact.classList.contains('showContactSlide')) {
-			showContact.classList.remove('showContactSlide');
-			setTimeout(
-				showContactHelp,
-				700,
-				name,
-				email,
-				phone,
-				letter,
-				color,
-				i,
-				showContact
-			);
-		} else {
-			showContactHelp(name, email, phone, letter, color, i, showContact);
-		}
+	showContact.classList.remove('d-none');
+	if (showContact.classList.contains('showContactSlide')) {
+		showContact.classList.remove('showContactSlide');
+		setTimeout(
+			showContactHelp,
+			10, //kann man noch anders machen!
+			name,
+			email,
+			phone,
+			letter,
+			color,
+			i,
+			showContact
+		);
+	} else {
+		showContactHelp(name, email, phone, letter, color, i, showContact);
 	}
+}
 
 function showContactHelp(name, email, phone, letter, color, i, showContact) {
 	showContact.innerHTML = '';
@@ -163,37 +163,37 @@ function addContactHelp(
 }
 
 function checkNameInput(name, newNameRequired) {
-    if (noNameInput(name)) {
-        newNameRequired.classList.remove('d-none');
-        newNameRequired.classList.add('requiredOn');
-    } else {
-        newNameRequired.classList.remove('requiredOn');
-        newNameRequired.classList.add('d-none');
-    }
+	if (noNameInput(name)) {
+		newNameRequired.classList.remove('d-none');
+		newNameRequired.classList.add('requiredOn');
+	} else {
+		newNameRequired.classList.remove('requiredOn');
+		newNameRequired.classList.add('d-none');
+	}
 }
 
 function checkEmailInput(email, newEmailRequired) {
-    if (noValidEmailInput(email)) {
-        newEmailRequired.classList.remove('d-none');
-        newEmailRequired.classList.add('requiredOn');
-    } else {
-        newEmailRequired.classList.remove('requiredOn');
-        newEmailRequired.classList.add('d-none');
-    }
+	if (noValidEmailInput(email)) {
+		newEmailRequired.classList.remove('d-none');
+		newEmailRequired.classList.add('requiredOn');
+	} else {
+		newEmailRequired.classList.remove('requiredOn');
+		newEmailRequired.classList.add('d-none');
+	}
 }
 
 function checkPhoneInput(phone, newPhoneRequired) {
-    if (noPhoneNumber(phone)) {
-        newPhoneRequired.classList.remove('d-none');
-        newPhoneRequired.classList.add('requiredOn');
-    } else {
-        newPhoneRequired.classList.remove('requiredOn');
-        newPhoneRequired.classList.add('d-none');
-    }
+	if (noPhoneNumber(phone)) {
+		newPhoneRequired.classList.remove('d-none');
+		newPhoneRequired.classList.add('requiredOn');
+	} else {
+		newPhoneRequired.classList.remove('requiredOn');
+		newPhoneRequired.classList.add('d-none');
+	}
 }
 
 function noNameInput(name) {
-    return name.value.length == 0 || name.value[0] === ' ';
+	return name.value.length == 0 || name.value[0] === ' ';
 }
 
 function noValidEmailInput(email) {
@@ -206,7 +206,7 @@ function noValidEmailInput(email) {
 }
 
 function noPhoneNumber(phone) {
-    return phone.value.length < 8 || phone.value[0] === ' ';
+	return phone.value.length < 8 || phone.value[0] === ' ';
 }
 
 function allInformationTypedIn(
@@ -255,7 +255,7 @@ function comparisonEmailHelp(
  * @returns A string of HTML code.
  */
 function showAlphabetNames(name, color, email, id, letter) {
-    return /*html*/ `
+	return /*html*/ `
         <div class="contact" id="contact${i}" onclick="showContact(${id})">
             <div class="ellipse" style='background:${colorIndex[color]}'>
                 <span>${letter}</span>
@@ -280,7 +280,7 @@ function showAlphabetNames(name, color, email, id, letter) {
  * @returns A string of HTML.
  */
 function openEditContactHTML(color, letter, name, email, phone, i) {
-    return /*html*/ `   
+	return /*html*/ `   
         <div class="overlayAdd">
             <div class="blackSite">
                 <div class="blackSiteContainer">
@@ -338,7 +338,7 @@ function openEditContactHTML(color, letter, name, email, phone, i) {
  * @returns A string of HTML.
  */
 function openNewContactHTML() {
-    return /*html*/ `
+	return /*html*/ `
         <div class="overlayAdd">
             <div class="blackSite">
                 <div class="blackSiteContainer">
@@ -416,7 +416,7 @@ function openNewContactHTML() {
  * @returns A string of HTML.
  */
 function showContactHTML(name, email, phone, letter, color, i) {
-    return /*html*/ `
+	return /*html*/ `
         <div class="showContactDetail">                       
             <div class="show_contact_ellipse_5" style='background:${colorIndex[color]}' onclick="deleteContactQuestion(${i})">
                 <span id="deleteContactQuestion">${letter}</span>
@@ -527,5 +527,5 @@ function cancelOn() {
  * When the mouse leaves the cancel button, change the image to the original image.
  */
 function cancelOff() {
-    document.getElementById('cancelImg').src = './assets/img/close_logo.png';
+	document.getElementById('cancelImg').src = './assets/img/close_logo.png';
 }
