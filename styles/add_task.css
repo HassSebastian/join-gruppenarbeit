@@ -882,20 +882,11 @@
 }
 
 .addTaskRightContainer {
-	/* display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-	padding: 0px;
-	gap: 14px; */
-	/* position: absolute; */
-	position: relative;
 	width: fit-content;
 	height: 551px;
-	/* left: 895px; */
-	/* left: 663px;
-	top: 201px; */
 	padding-left: 59px;
 	border-left: 2px solid #d1d1d1;
+	position: relative;
 }
 
 .addTaskDate {
@@ -1229,7 +1220,7 @@
 	position: absolute;
 	width: 66px;
 	height: 31px;
-	left: 341px;
+	right: 22px;
 	top: 11px;
 	flex: none;
 	order: 1;
@@ -1265,7 +1256,7 @@
 	padding: 0px;
 	gap: 8px;
 	width: 300px;
-	height: 95px;
+	height: fit-content;
 	flex: none;
 	order: 2;
 	flex-grow: 0;
@@ -1310,16 +1301,21 @@
 	justify-content: center;
 	align-items: center;
 	padding: 0px;
-	position: relative;
+	position: absolute;
 	width: 326px;
 	height: 74px;
 	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
-	top: 630px;
-	left: -300px;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin-right: auto;
+	margin-left: auto;
+	transform: translateX(-1000px);
+	z-index: 2;
 }
 
 .taskCreatedIndication {
-	transform: translateY(-500px);
+	transform: translateX(0px);
 	transition-delay: 900ms;
 	transition-duration: 300ms;
 	transition: transform 100ms ease-in-out;
@@ -1410,15 +1406,6 @@
 /*********************************************************************************/
 /*********************************************************************************/
 
-@media screen and (max-width: 1440px) {
-	/* addTask */
-
-	.testResponsiv {
-		/* left: calc(-4%) !important; */
-		/* left: calc((100% - 1208px) / 2); */
-	}
-}
-
 @media screen and (max-width: 1300px) {
 	.rightContainer {
 		width: 100%;
@@ -1447,13 +1434,6 @@
 		z-index: 0 !important;
 	}
 
-	/* 	.addTaskDivider {
-		rotate: 90deg !important;
-		left: 332px !important;
-		top: 599px !important;
-		height: 422px !important;
-	} */
-
 	.testResponsiv {
 		height: 1413px;
 		left: 0px;
@@ -1471,22 +1451,6 @@
 	.addTaskBtnOuterContainerNewTopValue2 {
 		top: 1495px !important;
 	}
-
-	/* 	.addTaskRightContainer {
-		left: 123px !important;
-		top: 832px !important;
-	} */
-
-	/* .addTaskBtnOuterContainer {
-		left: 0px !important;
-		top: 1345px;
-		justify-content: center !important;
-		width: 100% !important;
-	} */
-
-	/* .addTaskResponsiv {
-		width: calc(100vw - 140px) !important;
-	} */
 
 	.addTaskLow {
 		flex: 1 !important;
@@ -1509,70 +1473,14 @@
 		top: 531px !important;
 	}
 
-	/* #dropdownImg {
-		left: calc(100vw - 170px) !important;
-	}
-
-	#assignDropDownImg {
-		left: calc(100vw - 170px) !important;
-		display: flex !important;
-	}
-
-	#addTaskNewCatBtn {
-		left: calc(100vw - 221px) !important;
-	}
-
-	#CatListDropdown {
-		width: calc(100vw - 142px) !important;
-	}
-
-	#dropdown2 {
-		width: calc(100vw - 142px) !important;
-	}
-
-	#assignToCancelConfirmImgContainer {
-		left: calc(100vw - 221px) !important;
-	}
-
-	#addTaskPrioIcons {
-		width: calc(100vw - 142px) !important;
-		justify-content: space-between;
-	}
-
-	#subtaskCross {
-		left: calc(100vw - 184px) !important;
-	}
-
-	#addTaskDiverder {
-		display: none !important;
-	}
-
-	#subTaskImgDiv {
-		left: calc(100vw - 220px) !important;
-	} */
-
 	.addTaskPrio,
 	.subtask {
 		order: 0;
 	}
 
-	/* 	.addTaskRightContainer {
-		padding-left: unset;
-		border: unset;
-	} */
-
-	/* !Test Kann man das irgendwie mit der @media hight verbinden
-	Code DOPPLUNG!*/
 	.testResponsiv {
 		padding: 0px 0 0 50px;
 	}
-
-	/* .content {
-		overflow: hidden scroll !important;
-	} */
-	/* .addTaskHeadlineDiv {
-		display: none;
-	} */
 
 	.mainAddTaskContainer * {
 		font-size: 18px !important;
@@ -1606,8 +1514,17 @@
 }
 
 @media screen and (max-width: 1024px) {
+	.sliderMenu {
+		top: 79px;
+	}
 	.testResponsiv {
 		padding: 0 50px 0 50px !important;
+	}
+
+	.addTaskBtnOuterContainer {
+		position: unset;
+		padding-top: 20px;
+		height: fit-content;
 	}
 	.addTaskHeadlineDiv {
 		width: 100%;
@@ -1615,7 +1532,9 @@
 	.mainAddTaskContainer {
 		flex-direction: column;
 		width: 100% !important;
-		overflow: hidden scroll;
+		overflow: scroll;
+		height: calc(100vh - 143px);
+		padding-bottom: 109px;
 	}
 
 	.addTaskAddTitleContainer {
@@ -1650,17 +1569,57 @@
 	}
 }
 
+@media screen and (max-width: 768px) {
+	.testResponsiv {
+		padding: 0 34px !important;
+		height: auto;
+		overflow: scroll;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.addTaskBtnOuterContainer {
+		position: absolute;
+	}
+
+	.testResponsiv {
+		padding: 0 8px !important;
+		position: unset;
+		height: fit-content;
+	}
+
+	.mainAddTaskContainer {
+		position: unset;
+		/* height: auto; */ /* !wie stell man dich richtig ein automatisch geht nicht */
+	}
+	.addTaskRightContainer {
+		position: unset;
+	}
+
+	.addTaskBtnOuterContainer {
+		top: 14px;
+		left: unset;
+		height: 51px;
+		right: 25px;
+		width: fit-content;
+		z-index: 2;
+		width: fit-content;
+		padding: 0;
+	}
+	.addTaskBtnInnerContainer {
+		width: unset;
+		height: 100%;
+	}
+
+	.addTaskClear {
+		display: none;
+	}
+}
+
 @media screen and (max-height: 900px) {
 	.testResponsiv {
 		padding: 0px 0 0 50px;
 	}
-
-	/* .content {
-		overflow: hidden scroll !important;
-	} */
-	/* .addTaskHeadlineDiv {
-		display: none;
-	} */
 
 	.mainAddTaskContainer * {
 		font-size: 18px !important;
@@ -1690,5 +1649,15 @@
 
 	.addTaskCatList li {
 		padding: 6px 21px;
+	}
+}
+
+@media screen and (max-height: 768px) {
+	.mainAddTaskContainer {
+		/* flex-direction: column; */
+		/* width: 100% !important; */
+		overflow: scroll;
+		height: calc(100vh - 143px);
+		padding-bottom: 109px;
 	}
 }

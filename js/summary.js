@@ -88,7 +88,7 @@ function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYour
 							<div class="ugentVerticalLine"></div>
 							<div class="deadlineData">
 								<p id="deadlineDate"></p>
-								<p class="deadlineText" id="deadlineText"><b>12.02.2023 Deadline</b></p>
+								<p class="deadlineText" id="deadlineText"><b>24.02.2023 Deadline</b></p>
 							</div>
 						</div>
 					</div>

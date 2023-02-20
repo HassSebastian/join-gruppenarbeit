@@ -9,7 +9,14 @@ function generateAddTaskHtml() {
 	
 
 	<div class="mainAddTaskContainer">
+	<div class="taskAddedToBoard" id="taskCreatedIndication">
+				<div class="taskAddedToBoardContainer">
+					<span>Task added to board</span>
+					<img src="./assets/img/img_board_w.png" />
+				</div>
+			</div>
 		<div class="addTaskAddTitleContainer">
+		
 			<div class="addTaskAddTitleBox">
 				<h3 class="subTitleAddTask">Title</h3>
 				<form class="formAddTaskTitle" onsubmit="goToDescripten(); return false">
@@ -105,26 +112,21 @@ function generateAddTaskHtml() {
 
 				<div class="addTaskCheckbox" id="subtaskCheckboxes"></div>
 			</div>
-
-			<div class="taskAddedToBoard" id="taskCreatedIndication">
-				<div class="taskAddedToBoardContainer">
-					<span>Task added to board</span>
-					<img src="./assets/img/img_board_w.png" />
-				</div>
+			<div class="addTaskBtnOuterContainer" id="addTaskBtnOuterContainer">
+			<div class="addTaskBtnInnerContainer">
+				<button class="addTaskClear" onmouseover="addTaskClearOn()" onmouseout="addTaskClearOff()" onclick="clearFormularData()">
+					<span>Clear</span>
+					<img id="addTaskClear" src="./assets/img/clearb.png" />
+				</button>
+				<button class="addTaskCreate" onclick="checkInputs()">
+					<span>Create Task</span>
+					<img src="./assets/img/createb.png" />
+				</button>
 			</div>
 		</div>
-		<div class="addTaskBtnOuterContainer" id="addTaskBtnOuterContainer">
-		<div class="addTaskBtnInnerContainer">
-			<button class="addTaskClear" onmouseover="addTaskClearOn()" onmouseout="addTaskClearOff()" onclick="clearFormularData()">
-				<span>Clear</span>
-				<img id="addTaskClear" src="./assets/img/clearb.png" />
-			</button>
-			<button class="addTaskCreate" onclick="checkInputs()">
-				<span>Create Task</span>
-				<img src="./assets/img/createb.png" />
-			</button>
+			
 		</div>
-	</div>
+		
 
 	</div>
 

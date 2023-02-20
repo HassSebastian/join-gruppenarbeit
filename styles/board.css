@@ -1811,17 +1811,3 @@
 		font-size: 21px !important;
 	}
 }
-
-@media screen and (max-width: 1100px) {
-	.addTaskAssignList li {
-		width: 420px !important;
-	}
-
-	#CatListDropdown {
-		width: 420px !important;
-	}
-
-	#dropdown2 {
-		width: 420px !important;
-	}
-}

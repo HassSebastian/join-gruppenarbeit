@@ -9,9 +9,10 @@ body {
 }
 
 #logIn {
-	width: 100%;
+	width: 100vw;
 	height: 100vh;
 	background: #f6f7f8;
+	box-sizing: border-box;
 }
 
 .notAJoinUser {
@@ -1189,7 +1190,7 @@ body {
 	flex-grow: 0;
 }
 
-@media screen and (max-width: 1024px), (max-height: 1024px) {
+@media screen and (max-width: 1024px), (max-height: 900px) {
 	.loginMasterContainer {
 		width: 372px;
 		gap: unset;
@@ -1245,5 +1246,15 @@ body {
 	.guestButton {
 		width: 100%;
 		height: 51px !important;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	#logIn {
+		padding: 0 29px;
+	}
+
+	.loginMasterContainer {
+		width: 100%;
 	}
 }
