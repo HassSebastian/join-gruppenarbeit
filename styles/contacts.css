@@ -1188,7 +1188,9 @@
 	}
 
 	.ellipse {
-		margin-left: 0;
+		position: unset;
+		margin-left: 24px;
+		min-width: 42px;
 	}
 
 	.name_and_email {
