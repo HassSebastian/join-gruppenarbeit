@@ -363,6 +363,10 @@
 	cursor: pointer;
 }
 
+.taskBackground:active {
+	rotate: 5deg;
+}
+
 .taskContainer {
 	display: flex;
 	flex-direction: column;
