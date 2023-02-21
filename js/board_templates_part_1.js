@@ -35,7 +35,7 @@ function boardHtml() {
         </div>
     </div>
     <div class="boardSubheaders">
-        <div class="boardSubtitleContainer">
+        
             <div class="toDoAreaHeader">
                 <span>To do</span>
                 <button class="menuPlusButton" onclick="showAddTaskPopupWindow()"></button>
@@ -53,7 +53,7 @@ function boardHtml() {
                 <span>Done</span>
                 <button class="menuPlusButton" onclick="showAddTaskPopupWindow()"></button>
             </div>
-        </div>
+        
     </div>
     <div class="canbanBoard" onscroll="changeHeightDropArea()" id="canbanBoard">
         <div
@@ -150,7 +150,10 @@ function toDoCardHtml(arrayIndex) {
 	let taskIndex = workStatus0Array[arrayIndex]['taskIndex'];
 	let workStatusArrayNo = 0;
 	let subTasksAmount = workStatus0Array[arrayIndex]['subTasks'].length;
-	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+	let subTaskDoneAmount = determindSubTasksDone(
+		arrayIndex,
+		workStatusArrayNo
+	);
 	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 	return /*html*/ `
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(${taskIndex}); renderPopupTaskCardHtml(${taskIndex})'>
@@ -192,7 +195,10 @@ function inProgressHtml(arrayIndex) {
 	let taskIndex = workStatus1Array[arrayIndex]['taskIndex'];
 	let workStatusArrayNo = 1;
 	let subTasksAmount = workStatus1Array[arrayIndex]['subTasks'].length;
-	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+	let subTaskDoneAmount = determindSubTasksDone(
+		arrayIndex,
+		workStatusArrayNo
+	);
 	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 	return /*html*/ `
             <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(${taskIndex}); renderPopupTaskCardHtml(${taskIndex})'>
@@ -234,7 +240,10 @@ function awaitingFeedbackHtml(arrayIndex) {
 	let taskIndex = workStatus2Array[arrayIndex]['taskIndex'];
 	let workStatusArrayNo = 2;
 	let subTasksAmount = workStatus2Array[arrayIndex]['subTasks'].length;
-	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+	let subTaskDoneAmount = determindSubTasksDone(
+		arrayIndex,
+		workStatusArrayNo
+	);
 	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 	return /*html*/ `
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(${taskIndex}); renderPopupTaskCardHtml(${taskIndex})'>
@@ -276,7 +285,10 @@ function doneHtml(arrayIndex) {
 	let taskIndex = workStatus3Array[arrayIndex]['taskIndex'];
 	let workStatusArrayNo = 3;
 	let subTasksAmount = workStatus3Array[arrayIndex]['subTasks'].length;
-	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
+	let subTaskDoneAmount = determindSubTasksDone(
+		arrayIndex,
+		workStatusArrayNo
+	);
 	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 	return /*html*/ `
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(${taskIndex}); renderPopupTaskCardHtml(${taskIndex})'>

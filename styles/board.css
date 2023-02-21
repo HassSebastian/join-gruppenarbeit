@@ -1,5 +1,13 @@
 .boardContainer {
-	padding-left: 70px;
+	position: absolute;
+	top: 89px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0 70px;
 }
 
 .board {
@@ -12,11 +20,12 @@
 
 .boardOverlay {
 	display: flex;
-	flex-direction: row;
+	/* 	flex-direction: row; */
 	align-items: center;
+	justify-content: space-between;
 	padding: 0px;
-	gap: 474px;
-	position: absolute;
+	/* gap: 474px; */
+	/* position: absolute; */
 	width: 1078px;
 	height: 73px;
 	/* left: 302px; */
@@ -308,7 +317,7 @@
 	align-items: flex-start;
 	padding: 0px;
 	gap: 26px;
-	position: absolute;
+	/* position: absolute; */
 	width: 1078px;
 	/* height: 607px; */
 	/* left: 302px; */
@@ -621,17 +630,23 @@
 }
 
 .boardSubheaders {
-	position: absolute;
-	width: 1145px;
+	/* position: absolute; */
+	width: 100%;
 	height: 57px;
 	/* left: 267px; */
 	top: 327px;
+	display: flex;
+	justify-content: space-between;
 
 	background: #f6f7f8;
 }
 
+boardSubheaders > * {
+	flex-basis: 100%;
+}
+
 .boardSubtitleContainer {
-	position: absolute;
+	/* position: absolute; */
 	width: 1058px;
 	height: 30px;
 	left: 45px;
@@ -644,17 +659,17 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 0px;
-	gap: 35px;
+	/* gap: 35px; */
 
-	position: absolute;
-	width: 230px;
+	/* position: absolute; */
+	/* width: 230px; */
 	height: 30px;
 	left: 0px;
 	top: 0px;
 }
 
 .toDoAreaHeader span {
-	width: 57px;
+	/* width: 57px; */
 	height: 25px;
 
 	font-family: 'Inter';
@@ -679,17 +694,17 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 0px;
-	gap: 35px;
+	/* gap: 35px; */
 
-	position: absolute;
-	width: 230px;
+	/* position: absolute; */
+	/* width: 230px; */
 	height: 30px;
 	left: 276px;
 	top: 0px;
 }
 
 .inProgressAreaHeader span {
-	width: 116px;
+	/* width: 116px; */
 	height: 25px;
 
 	font-family: 'Inter';
@@ -715,15 +730,15 @@
 	align-items: center;
 	padding: 0px;
 	gap: 6px;
-	position: absolute;
-	width: 230px;
+	/* position: absolute; */
+	/* width: 230px; */
 	height: 30px;
 	left: 545px;
 	top: 0px;
 }
 
 .awaitingFeedbackAreaHeader span {
-	width: max-content;
+	/* width: max-content; */
 	height: 25px;
 	font-family: 'Inter';
 	font-style: normal;
@@ -742,10 +757,10 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 0px;
-	gap: 35px;
+	/* gap: 35px; */
 
-	position: absolute;
-	width: 230px;
+	/* position: absolute; */
+	/* width: 230px; */
 	height: 30px;
 	left: 828px;
 	top: 0px;
@@ -773,7 +788,7 @@
 	align-items: center;
 	height: 100vh;
 	width: 100%;
-	position: absolute;
+	/* position: absolute; */
 	background-color: rgba(0, 0, 0, 0.2);
 	left: 0px;
 	top: 0;
