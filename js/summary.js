@@ -203,17 +203,11 @@ function showDate() {
  * @param {number} helloCheck is 0 when width of window is bigger 768px
  */
 function greetUser() {
-	helloCheck == 0
-		? (() => {
-				const currentTime = new Date();
-				const hours = currentTime.getHours();
-				const greeting = getGreeting(hours);
+	const currentTime = new Date();
+	const hours = currentTime.getHours();
+	const greeting = getGreeting(hours);
 
-				document.getElementById('greetUser').innerHTML = `${greeting},`;
-		  })()
-		: null;
-
-	window.innerWidth < 768 ? (helloCheck = 1) : null;
+	document.getElementById('greetUser').innerHTML = `${greeting},`;
 }
 
 /**

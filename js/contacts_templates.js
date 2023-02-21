@@ -104,22 +104,7 @@ function showLettersHTML(alphabetLetter) {
 
 function showContactQuerry(name, email, phone, letter, color, i, showContact) {
 	showContact.classList.remove('d-none');
-	if (showContact.classList.contains('showContactSlide')) {
-		showContact.classList.remove('showContactSlide');
-		setTimeout(
-			showContactHelp,
-			10, //!kann man noch anders machen!
-			name,
-			email,
-			phone,
-			letter,
-			color,
-			i,
-			showContact
-		);
-	} else {
-		showContactHelp(name, email, phone, letter, color, i, showContact);
-	}
+	showContactHelp(name, email, phone, letter, color, i, showContact);
 }
 
 function showContactHelp(name, email, phone, letter, color, i, showContact) {
