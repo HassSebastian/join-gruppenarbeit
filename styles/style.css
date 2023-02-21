@@ -216,8 +216,8 @@ tr td:nth-child(3) {
 	width: 100vw;
 	height: 100vh;
 	background: transparent;
-	background-color: rgba(246, 247, 248, 1);
-	opacity: 0.5;
+
+	display: none;
 }
 
 .greetMobileContainer {
