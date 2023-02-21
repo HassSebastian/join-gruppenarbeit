@@ -21,10 +21,10 @@
 	flex-direction: column;
 	align-items: center;
 	padding: 0px;
-	position: absolute;
 	width: 357px;
 	height: auto !important;
-	left: 48px;
+	margin-right: auto;
+    margin-left: auto;
 	top: 2px;
 	bottom: 89px;
 	background: #ffffff;
@@ -156,7 +156,7 @@
 .better_with_a_team {
 	position: relative;
 	top: 82px;
-	left: 58px;
+	left: 36px;
 	width: fit-content;
 	display: flex;
 	justify-content: space-around;
@@ -270,9 +270,7 @@
 	max-width: 461px;
 	height: fit-content;
 	left: 65px;
-	top: 237px;
-	/*transition: 400ms ease-in;
-	transform: translateX(4500px);*/
+	top: 137px;
 }
 
 .showContactDetail {
@@ -426,7 +424,7 @@
 	font-family: 'Inter';
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	color: #000000;
 	text-decoration: none;
 	cursor: pointer;
@@ -1035,18 +1033,44 @@
 
 @media (max-width: 1077px) {
 	.contactContainerRight {
-		top: 79px;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.showContact {
+		top: 64px;
+	}
+
+	.rightSideShowContacts {
+		padding-left: 16px;
+	}
+
+	.showContact_information_edit {
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	.contact_information {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		top: 50px;
-		right: 0;
-		left: 0;
-		margin-left: auto;
-		margin-right: auto;
+	}
+
+	.contact_information_edit {
+		gap: 0;
+	}
+
+	.edit_contact {
+		background-color: #2a3647;
+		min-width: 40px;
+		min-height: 40px;
+	}
+
+	.edit_contact img {
+		filter: brightness(100);
+	}
+
+	.edit_contact span {
+		display: none;
 	}
 
 	.new_contact {
@@ -1054,24 +1078,9 @@
 		bottom: 8px;
 	}
 
-	.rightSideShowContacts {
-		align-items: center;
-		padding-left: unset;
-	}
-
-	.contactEmailContainer {
-		width: fit-content;
-		height: fit-content;
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-	}
-
 	.better_with_a_team {
 		top: 25px;
 	}
-
-	.showContact {}
 
 	.better_with_a_team {
 		flex-direction: column;
@@ -1091,48 +1100,18 @@
 	}
 
 	.show_contact_ellipse_5 {
-		width: 100px;
-		height: 100px;
-	}
-
-	.showContactDetail {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+		min-width: 100px;
+		min-height: 100px;
+		max-width: 100px;
+		max-height: 100px;
 	}
 
 	.show_contact_ellipse_5 {
 		position: relative;
 	}
 
-	.showContact_Name_addTask {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-
-	.showContact_Name_addTask h1 {
-		margin-left: 0;
-		text-align: center;
-		justify-content: center;
-	}
-
 	.showContact_Name_addTask span {
 		margin-left: 0;
-	}
-
-	.contact_information_edit {
-		display: flex;
-		flex-direction: column;
-		gap: 0;
-	}
-
-	.contact_information {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0;
-		padding-bottom: 32px;
 	}
 
 	.contact_information_edit h2 {
@@ -1143,18 +1122,12 @@
 		width: 40px;
 	}
 
-	.contactEmailAndPhone {
-		width: fit-content;
-		height: 50px;
-	}
-
 	.contactEmail {
-		justify-content: center;
-		order: 0;
+		justify-content: flex-start;
 	}
 
 	.contactPhone {
-		width: auto;
+		justify-content: flex-start;
 	}
 
 	.contact {
@@ -1176,6 +1149,10 @@
 		display: none;
 	}
 
+	.showContact {
+		margin-left: -50px;
+	}
+
 	.contact_information h2 {
 		width: 207px;
 		height: 74px;
@@ -1191,42 +1168,40 @@
 		right: 8px;
 		bottom: 87px;
 	}
-
-	/*.contactContainerRight {
-		position: absolute;
-		top: 89px;
-		bottom: 0;
-		left: 0px;
-		right: 0;
-		overflow: hidden;
-		z-index: -1;
-	}*/
-	/* .Frame_97 {
-		left: 0;
-		right: 0;
-		margin-left: auto;
-		margin-right: auto;
-	} */
-
-	/* 	.contactContainerRight {
-		display: none;
-	} */
 }
 
 @media (max-width: 453px) {
 	.Frame_97 {
 		max-width: 100%;
+		height: 100%;
+		background: #ffffff;
+		display: flex;
 	}
 
 	.Contact_list {
-		max-width: 100%;
+		width: 90%;
 	}
 
+	.contact {
+		padding-left: 0!important;
+	}
+
+	.ellipse {
+		margin-left: 0;
+	}
+
+	.name_and_email {
+		margin-left: 64px;
+	}
+
+
 	.letters {
-		max-width: 100%;
-		min-width: 100%;
+		width: 100%;
+		padding: 20px 0;
 		border-bottom: 1px solid;
 	}
+
+
 }
 
 @media (max-height: 900px) {
