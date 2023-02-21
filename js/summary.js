@@ -363,3 +363,11 @@ function updateTaskUrgent(email, priority) {
 	if (email === emailAddress && priority === 'Urgent')
 		yourUrgentTasksAmount++;
 }
+
+function greetingMobileAnimation() {
+	document.getElementById('greetMobileOverlay').classList.remove('d-none');
+
+	setTimeout(() => {
+		document.getElementById('greetMobileOverlay').classList.add('d-none');
+	}, 4000);
+}
