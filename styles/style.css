@@ -222,8 +222,8 @@ tr td:nth-child(3) {
 	align-items: center;
 	justify-content: center;
 	background: #f6f7f8;
-	animation: greeting 2s;
-	animation-delay: 2s;
+	animation: greeting 1s;
+	animation-delay: 1s;
 }
 
 @keyframes greeting {

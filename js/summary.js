@@ -377,7 +377,7 @@ function greetingMobileAnimation() {
 			document
 				.getElementById('greetMobileOverlay')
 				.classList.add('d-none');
-		}, 4000);
+		}, 2000);
 		greetingOnce = true;
 	}
 }
