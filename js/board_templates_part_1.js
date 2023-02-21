@@ -5,96 +5,71 @@
 function boardHtml() {
 	return /*html*/ `
     <div class="boardContainer">
-    <div class="boardOverlay">
-        <div class="boardHeadline">
-            <span>Board</span>
-        </div>
-        <div class="inputOutContainer">
-            <div class="inputContainer">
-                <div class="inputInContainer">
-                    <div class="inputFontContainer">
-                        <input
-                            type="text"
-                            id="searchField"
-                            required
-                            placeholder="Find Task"
-                            onfocus="startSearch(event)"
-                            autocomplete="off"
-                        />
-                    </div>
-                    <div class="vector"></div>
-                    <img src="./assets/img/search_logo.png" />
-                </div>
-            </div>
-            <button class="addTaskButton" onclick="showAddTaskPopupWindow()">
-                <span>Add task</span>
-                <div class="plusOutContainer">
-                    <img src="./assets/img/plus_logo_white.png" />
-                </div>
-            </button>
-        </div>
-    </div>
-    <div class="boardSubheaders">
-        
-            <div class="toDoAreaHeader">
-                <span>To do</span>
-                <button class="menuPlusButton" onclick="showAddTaskPopupWindow()"></button>
-            </div>
-            <div class="inProgressAreaHeader">
-                <span>In progress</span>
-                <button class="menuPlusButton" onclick="showAddTaskPopupWindow()"></button>
-            </div>
-            <div class="awaitingFeedbackAreaHeader">
-                <span>Anwaiting Feedback</span>
-                <button class="menuPlusButton" onclick="showAddTaskPopupWindow()"></button>
-            </div>
+			<div class="boardOverlay">
+				<div class="boardHeadline">
+					<span>Board</span>
+				</div>
+				<div class="inputOutContainer">
+					<div class="inputContainer">
+						<div class="inputInContainer">
+							<div class="inputFontContainer">
+								<input type="text" id="searchField" required placeholder="Find Task" onfocus="startSearch(event)" autocomplete="off" />
+							</div>
+							<div class="vector"></div>
+							<img src="./assets/img/search_logo.png" />
+						</div>
+					</div>
+					<button class="addTaskButton" onclick="showAddTaskPopupWindow()">
+						<span>Add task</span>
+						<div class="plusOutContainer">
+							<img src="./assets/img/plus_logo_white.png" />
+						</div>
+					</button>
+				</div>
+			</div>
+			<div class="canbanBoard" id="canbanBoard">
+				<div class="columnBoard">
+					<div class="toDoAreaHeader">
+						<span>To do</span>
+						<button class="menuPlusButton" onclick="showAddTaskPopupWindow()"></button>
+					</div>
+					<div class="canbanContainer dragArea" id="dropArea0" ondrop="moveTo(0); removeHighlight('dropArea0')" ondragleave="removeHighlight('dropArea0')" ondragover="allowDrop(event); highlight('dropArea0')">
+						<div id="toDoDiv"></div>
+					</div>
+				</div>
 
-            <div class="doneAreaHeader">
-                <span>Done</span>
-                <button class="menuPlusButton" onclick="showAddTaskPopupWindow()"></button>
-            </div>
-        
-    </div>
-    <div class="canbanBoard" onscroll="changeHeightDropArea()" id="canbanBoard">
-        <div
-            class="canbanContainer dragArea"
-            id="dropArea0"
-            ondrop="moveTo(0); removeHighlight('dropArea0')"
-            ondragleave="removeHighlight('dropArea0')"
-            ondragover="allowDrop(event); highlight('dropArea0')"
-        >
-            <div id="toDoDiv"></div>
-        </div>
-        <div
-            class="canbanContainer dragArea"
-            id="dropArea1"
-            ondrop="moveTo(1); removeHighlight('dropArea1')"
-            ondragleave="removeHighlight('dropArea1')"
-            ondragover="allowDrop(event); highlight('dropArea1')"
-        >
-            <div id="progressDiv"></div>
-        </div>
-        <div
-            class="canbanContainer dragArea"
-            id="dropArea2"
-            ondrop="moveTo(2); removeHighlight('dropArea2')"
-            ondragleave="removeHighlight('dropArea2')"
-            ondragover="allowDrop(event); highlight('dropArea2')"
-        >
-            <div id="awaitingDiv"></div>
-        </div>
-        <div
-            class="canbanContainer dragArea"
-            id="dropArea3"
-            ondrop="moveTo(3); removeHighlight('dropArea3')"
-            ondragleave="removeHighlight('dropArea3')"
-            ondragover="allowDrop(event); highlight('dropArea3')"
-        >
-            <div id="doneDiv"></div>
-        </div>
-    </div>
-</div>
-<div class="shadowOverlay d-none" id="boardPopup" onclick="disablePopupWindow()"></div>`;
+				<div class="columnBoard">
+					<div class="inProgressAreaHeader">
+						<span>In progress</span>
+						<button class="menuPlusButton" onclick="showAddTaskPopupWindow()"></button>
+					</div>
+					<div class="canbanContainer dragArea" id="dropArea1" ondrop="moveTo(1); removeHighlight('dropArea1')" ondragleave="removeHighlight('dropArea1')" ondragover="allowDrop(event); highlight('dropArea1')">
+						<div id="progressDiv"></div>
+					</div>
+				</div>
+
+				<div class="columnBoard">
+					<div class="awaitingFeedbackAreaHeader">
+						<span>Anwaiting Feedback</span>
+						<button class="menuPlusButton" onclick="showAddTaskPopupWindow()"></button>
+					</div>
+					<div class="canbanContainer dragArea" id="dropArea2" ondrop="moveTo(2); removeHighlight('dropArea2')" ondragleave="removeHighlight('dropArea2')" ondragover="allowDrop(event); highlight('dropArea2')">
+						<div id="awaitingDiv"></div>
+					</div>
+				</div>
+
+				<div class="columnBoard">
+					<div class="doneAreaHeader">
+						<span>Done</span>
+						<button class="menuPlusButton" onclick="showAddTaskPopupWindow()"></button>
+					</div>
+					<div class="canbanContainer dragArea" id="dropArea3" ondrop="moveTo(3); removeHighlight('dropArea3')" ondragleave="removeHighlight('dropArea3')" ondragover="allowDrop(event); highlight('dropArea3')">
+						<div id="doneDiv"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="shadowOverlay d-none" id="boardPopup" onclick="disablePopupWindow()"></div>`;
 }
 
 /**
@@ -150,10 +125,7 @@ function toDoCardHtml(arrayIndex) {
 	let taskIndex = workStatus0Array[arrayIndex]['taskIndex'];
 	let workStatusArrayNo = 0;
 	let subTasksAmount = workStatus0Array[arrayIndex]['subTasks'].length;
-	let subTaskDoneAmount = determindSubTasksDone(
-		arrayIndex,
-		workStatusArrayNo
-	);
+	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
 	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 	return /*html*/ `
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(${taskIndex}); renderPopupTaskCardHtml(${taskIndex})'>
@@ -195,10 +167,7 @@ function inProgressHtml(arrayIndex) {
 	let taskIndex = workStatus1Array[arrayIndex]['taskIndex'];
 	let workStatusArrayNo = 1;
 	let subTasksAmount = workStatus1Array[arrayIndex]['subTasks'].length;
-	let subTaskDoneAmount = determindSubTasksDone(
-		arrayIndex,
-		workStatusArrayNo
-	);
+	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
 	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 	return /*html*/ `
             <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(${taskIndex}); renderPopupTaskCardHtml(${taskIndex})'>
@@ -240,10 +209,7 @@ function awaitingFeedbackHtml(arrayIndex) {
 	let taskIndex = workStatus2Array[arrayIndex]['taskIndex'];
 	let workStatusArrayNo = 2;
 	let subTasksAmount = workStatus2Array[arrayIndex]['subTasks'].length;
-	let subTaskDoneAmount = determindSubTasksDone(
-		arrayIndex,
-		workStatusArrayNo
-	);
+	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
 	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 	return /*html*/ `
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(${taskIndex}); renderPopupTaskCardHtml(${taskIndex})'>
@@ -285,10 +251,7 @@ function doneHtml(arrayIndex) {
 	let taskIndex = workStatus3Array[arrayIndex]['taskIndex'];
 	let workStatusArrayNo = 3;
 	let subTasksAmount = workStatus3Array[arrayIndex]['subTasks'].length;
-	let subTaskDoneAmount = determindSubTasksDone(
-		arrayIndex,
-		workStatusArrayNo
-	);
+	let subTaskDoneAmount = determindSubTasksDone(arrayIndex, workStatusArrayNo);
 	let percentDone = calculatePercentage(subTaskDoneAmount, subTasksAmount);
 	return /*html*/ `
         <div class='taskBackground' id='taskCard${taskIndex}' draggable='true' ondragstart='startDrag(${taskIndex})' onclick='enablePopupWindow(${taskIndex}); renderPopupTaskCardHtml(${taskIndex})'>

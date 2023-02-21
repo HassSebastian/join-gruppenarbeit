@@ -7,7 +7,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: 0 70px;
+	padding: 87px 70px 0 70px;
 }
 
 .board {
@@ -30,6 +30,7 @@
 	height: 73px;
 	/* left: 302px; */
 	top: 171px;
+	margin-bottom: 100px;
 }
 
 .boardHeadline {
@@ -319,12 +320,11 @@
 	gap: 26px;
 	/* position: absolute; */
 	width: 1078px;
-	/* height: 607px; */
+	height: auto;
 	/* left: 302px; */
 	top: 408px;
 	bottom: 0;
 	overflow: hidden;
-	overflow-y: auto;
 }
 
 .canbanBoard::-webkit-scrollbar {
@@ -336,10 +336,11 @@
 	flex-direction: column;
 	align-items: center;
 	width: 250px;
-	height: 600px;
+	height: calc(100vh - 384px);
 	flex: none;
 	order: 0;
 	flex-grow: 0;
+	overflow: scroll;
 }
 
 .taskBackground {
@@ -788,7 +789,7 @@ boardSubheaders > * {
 	align-items: center;
 	height: 100vh;
 	width: 100%;
-	/* position: absolute; */
+	position: absolute;
 	background-color: rgba(0, 0, 0, 0.2);
 	left: 0px;
 	top: 0;
