@@ -40,7 +40,12 @@ function checkCorrectInput() {
 	let requiredEmail = document.getElementById('requiredEmailLogin');
 	let requiredPassword = document.getElementById('requiredPasswordLogin');
 	resetRequiredLine(email, password, requiredEmail, requiredPassword);
-	calculateCheckCorrectInput(email, password, requiredEmail, requiredPassword);
+	calculateCheckCorrectInput(
+		email,
+		password,
+		requiredEmail,
+		requiredPassword
+	);
 }
 
 /**
@@ -53,7 +58,9 @@ function checkCorrectInput() {
 async function userLogin(email, password) {
 	await loadTask();
 	let requiredEmailLogin = document.getElementById('requiredEmailLogin');
-	let requiredPasswordLogin = document.getElementById('requiredPasswordLogin');
+	let requiredPasswordLogin = document.getElementById(
+		'requiredPasswordLogin'
+	);
 	if (allUsers.length == null) {
 		pleaseRegister(requiredEmailLogin, requiredPasswordLogin);
 	} else {
@@ -108,7 +115,13 @@ function rememberDoubleUserCheck(email, password) {
 	let rememberUser = JSON.parse(doubleUserCheckAtString);
 	let valueToCheck = email;
 	let check = 0;
-	calculateRememberDoubleUserCheck(email, password, rememberUser, valueToCheck, check);
+	calculateRememberDoubleUserCheck(
+		email,
+		password,
+		rememberUser,
+		valueToCheck,
+		check
+	);
 }
 
 /**
@@ -121,8 +134,12 @@ function logInAtLocalstorage() {
 	if (rememberUserString) {
 		rememberUser = JSON.parse(rememberUserString);
 		rememberUser.push(rememberUser);
-		document.getElementById('inputEmailLogin').value = `${rememberUser[0].email}`;
-		document.getElementById('inputPasswordLogin').value = `${rememberUser[0].password}`;
+		document.getElementById(
+			'inputEmailLogin'
+		).value = `${rememberUser[0].email}`;
+		document.getElementById(
+			'inputPasswordLogin'
+		).value = `${rememberUser[0].password}`;
 	}
 }
 
@@ -130,78 +147,137 @@ function logInAtLocalstorage() {
 
 function notAJoinUserButtonMob() {
 	document.getElementById('logInMasterContainerMob').classList.add('d-none');
-	document.getElementById('signInMasterContainerMob').classList.remove('d-none');
+	document
+		.getElementById('signInMasterContainerMob')
+		.classList.remove('d-none');
 	document.getElementById('notAJoinUserContainerMob').classList.add('d-none');
 }
 
 function backToLogInMob() {
-	document.getElementById('logInMasterContainerMob').classList.remove('d-none');
+	document
+		.getElementById('logInMasterContainerMob')
+		.classList.remove('d-none');
 	document.getElementById('signInMasterContainerMob').classList.add('d-none');
-	document.getElementById('notAJoinUserContainerMob').classList.remove('d-none');
+	document
+		.getElementById('notAJoinUserContainerMob')
+		.classList.remove('d-none');
 	document.getElementById('contactSucc').classList.add('d-none');
-	document.getElementById('forgotPWMasterContainerMob').classList.add('d-none');
-	document.getElementById('pwResetContainerMob').classList.remove('pwResetContainerMobSlide');
-	document.getElementById('resetPWMasterContainerMob').classList.add('d-none');
+	document
+		.getElementById('forgotPWMasterContainerMob')
+		.classList.add('d-none');
+	document
+		.getElementById('pwResetContainerMob')
+		.classList.remove('pwResetContainerMobSlide');
+	document
+		.getElementById('resetPWMasterContainerMob')
+		.classList.add('d-none');
 }
 
 /* Forgot Password */
 function showForgotPasswordMob() {
 	document.getElementById('logInMasterContainerMob').classList.add('d-none');
 	document.getElementById('notAJoinUserContainerMob').classList.add('d-none');
-	document.getElementById('forgotPWMasterContainerMob').classList.remove('d-none');
+	document
+		.getElementById('forgotPWMasterContainerMob')
+		.classList.remove('d-none');
 }
 
 let forgotEmailIndex;
 function sendMailButton() {
-	document.getElementById('requiredEmailForgot').classList.remove('requiredOn');
-	document.getElementById('requiredEmailForgot').innerHTML = `This field is required`;
+	document
+		.getElementById('requiredEmailForgot')
+		.classList.remove('requiredOn');
+	document.getElementById(
+		'requiredEmailForgot'
+	).innerHTML = `This field is required`;
 	let inputForgotValue = document.getElementById('inputForgot').value;
 	if (inputForgotValue.length == 0) {
-		document.getElementById('requiredEmailForgot').classList.add('requiredOn');
+		document
+			.getElementById('requiredEmailForgot')
+			.classList.add('requiredOn');
 	} else {
 		for (i = 0; i < allUsers.length; i++) {
 			let inputComparison = allUsers[i].email;
 			if (inputForgotValue == inputComparison) {
-				document.getElementById('requiredEmailForgot').style = 'color:transparent';
-				document.getElementById('sentMassageDoneMaserContainerMob').classList.add('sentMassageDoneMaserContainerMobSlide');
+				document.getElementById('requiredEmailForgot').style =
+					'color:transparent';
+				document
+					.getElementById('sentMassageDoneMaserContainerMob')
+					.classList.add('sentMassageDoneMaserContainerMobSlide');
 				forgotEmailIndex = i;
 				setTimeout(showPasswordResetCard, 3000);
 			} else {
-				document.getElementById('requiredEmailForgot').classList.add('requiredOn');
-				document.getElementById('requiredEmailForgot').innerHTML = `email is not available`;
+				document
+					.getElementById('requiredEmailForgot')
+					.classList.add('requiredOn');
+				document.getElementById(
+					'requiredEmailForgot'
+				).innerHTML = `email is not available`;
 			}
 		}
 	}
 }
 
 function showPasswordResetCard() {
-	document.getElementById('sentMassageDoneMaserContainerMob').classList.add('d-none');
-	document.getElementById('forgotPWMasterContainerMob').classList.add('d-none');
-	document.getElementById('resetPWMasterContainerMob').classList.remove('d-none');
+	document
+		.getElementById('sentMassageDoneMaserContainerMob')
+		.classList.add('d-none');
+	document
+		.getElementById('forgotPWMasterContainerMob')
+		.classList.add('d-none');
+	document
+		.getElementById('resetPWMasterContainerMob')
+		.classList.remove('d-none');
 }
 
 function backToSignInMob() {
-	document.getElementById('resetPWMasterContainerMob').classList.add('d-none');
-	document.getElementById('signInMasterContainerMob').classList.remove('d-none');
-	document.getElementById('pwResetContainerMob').classList.remove('pwResetContainerMobSlide');
+	document
+		.getElementById('resetPWMasterContainerMob')
+		.classList.add('d-none');
+	document
+		.getElementById('signInMasterContainerMob')
+		.classList.remove('d-none');
+	document
+		.getElementById('pwResetContainerMob')
+		.classList.remove('pwResetContainerMobSlide');
 }
 
 function resetbuttonContainerMob() {
-	document.getElementById('requiredNewPassword').classList.remove('requiredOn');
-	document.getElementById('requiredConfirmPassword').classList.remove('requiredOn');
-	document.getElementById('requiredNewPassword').innerHTML = `This field is required`;
-	document.getElementById('requiredConfirmPassword').innerHTML = `This field is required`;
+	document
+		.getElementById('requiredNewPassword')
+		.classList.remove('requiredOn');
+	document
+		.getElementById('requiredConfirmPassword')
+		.classList.remove('requiredOn');
+	document.getElementById(
+		'requiredNewPassword'
+	).innerHTML = `This field is required`;
+	document.getElementById(
+		'requiredConfirmPassword'
+	).innerHTML = `This field is required`;
 	let inputNewPassword = document.getElementById('inputNewPassword').value;
-	let inputConfirmPassword = document.getElementById('inputConfirmPassword').value;
+	let inputConfirmPassword = document.getElementById(
+		'inputConfirmPassword'
+	).value;
 	if (inputNewPassword == inputConfirmPassword) {
 		allUsers[forgotEmailIndex].password = inputNewPassword;
 		saveTask();
-		document.getElementById('pwResetContainerMob').classList.add('pwResetContainerMobSlide');
+		document
+			.getElementById('pwResetContainerMob')
+			.classList.add('pwResetContainerMobSlide');
 		setTimeout(backToLogInMob, 3000);
 	} else {
-		document.getElementById('requiredNewPassword').classList.add('requiredOn');
-		document.getElementById('requiredConfirmPassword').classList.add('requiredOn');
-		document.getElementById('requiredNewPassword').innerHTML = `password is not the same`;
-		document.getElementById('requiredConfirmPassword').innerHTML = `password is not the same`;
+		document
+			.getElementById('requiredNewPassword')
+			.classList.add('requiredOn');
+		document
+			.getElementById('requiredConfirmPassword')
+			.classList.add('requiredOn');
+		document.getElementById(
+			'requiredNewPassword'
+		).innerHTML = `password is not the same`;
+		document.getElementById(
+			'requiredConfirmPassword'
+		).innerHTML = `password is not the same`;
 	}
 }

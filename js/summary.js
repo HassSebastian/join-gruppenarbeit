@@ -35,6 +35,7 @@ async function initSummary() {
 	selectedMenuButton(1);
 	showDate();
 	greetUser();
+	greetingMobileAnimation();
 	loadContributorsLetter();
 }
 
@@ -364,10 +365,19 @@ function updateTaskUrgent(email, priority) {
 		yourUrgentTasksAmount++;
 }
 
-function greetingMobileAnimation() {
-	document.getElementById('greetMobileOverlay').classList.remove('d-none');
+let greetingOnce = false;
 
-	setTimeout(() => {
-		document.getElementById('greetMobileOverlay').classList.add('d-none');
-	}, 4000);
+function greetingMobileAnimation() {
+	if (window.innerWidth <= 768 && !greetingOnce) {
+		document
+			.getElementById('greetMobileOverlay')
+			.classList.remove('d-none');
+
+		setTimeout(() => {
+			document
+				.getElementById('greetMobileOverlay')
+				.classList.add('d-none');
+		}, 4000);
+		greetingOnce = true;
+	}
 }
