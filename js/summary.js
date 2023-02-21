@@ -23,14 +23,7 @@ async function initSummary() {
 	resetCounters();
 	resetYourTasksArrays(); // sonst addieren sich die tasks bei jedem Aufrufen
 	await loadAmountsForSummary(); // await später für server wichtig
-	await renderSummary(
-		allYourTasksAmount,
-		allYourToDoTasksAmount,
-		allYourInProgressTasksAmount,
-		allYourAwaitingFeedbackTasksAmount,
-		allYourDoneTasksAmount,
-		yourUrgentTasksAmount
-	);
+	await renderSummary(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount);
 	selectedMenuBtnId = 0;
 	selectedMenuButton(1);
 	showDate();
@@ -55,14 +48,7 @@ function resetYourTasksArrays() {
 	allYourDoneTasks = [];
 }
 
-function generateSummaryHtml(
-	allYourTasksAmount,
-	allYourToDoTasksAmount,
-	allYourInProgressTasksAmount,
-	allYourAwaitingFeedbackTasksAmount,
-	allYourDoneTasksAmount,
-	yourUrgentTasksAmount
-) {
+function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount) {
 	return /*html*/ `
 	<div class="summaryContainer">
 		<div class="title">
@@ -136,23 +122,10 @@ function generateSummaryHtml(
     `;
 }
 
-async function renderSummary(
-	allYourTasksAmount,
-	allYourToDoTasksAmount,
-	allYourInProgressTasksAmount,
-	allYourAwaitingFeedbackTasksAmount,
-	allYourDoneTasksAmount,
-	yourUrgentTasksAmount
-) {
+async function renderSummary(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount) {
 	document.getElementById('content').innerHTML = '';
-	document.getElementById('content').innerHTML += generateSummaryHtml(
-		allYourTasksAmount,
-		allYourToDoTasksAmount,
-		allYourInProgressTasksAmount,
-		allYourAwaitingFeedbackTasksAmount,
-		allYourDoneTasksAmount,
-		yourUrgentTasksAmount
-	);
+	document.getElementById('content').innerHTML += generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount);
+	greetUserInMobileUI();
 }
 
 // Hover Summary help-function
@@ -163,9 +136,7 @@ async function renderSummary(
  * @param {boolean} on if the cursor is on the div on == true
  */
 function changeImg(imgId, on) {
-	document.getElementById(imgId).src = `./assets/img/${penImage}${
-		on ? '_black' : ''
-	}.png`;
+	document.getElementById(imgId).src = `./assets/img/${penImage}${on ? '_black' : ''}.png`;
 }
 
 function toDoHoverOn() {
@@ -208,7 +179,9 @@ function greetUser() {
 	const hours = currentTime.getHours();
 	const greeting = getGreeting(hours);
 
-	document.getElementById('greetUser').innerHTML = `${greeting},`;
+	document.getElementById('greetUser').innerHTML = `${greeting}`;
+
+	document.getElementById('greetingMobile').innerHTML = `${greeting}`;
 }
 
 /**
@@ -220,6 +193,10 @@ function getGreeting(hours) {
 	if (hours >= 0 && hours < 12) return 'Good Morning';
 	if (hours >= 12 && hours < 18) return 'Good Day';
 	return 'Good Evening';
+}
+
+function greetUserInMobileUI() {
+	document.getElementById('nameToBeingGreeted').innerHTML = `${allUsers[loggedUser[0]].name}`;
 }
 
 /**
@@ -361,22 +338,17 @@ function updateTaskDone(email, workflowStatus, task) {
  * @param {string} priority
  */
 function updateTaskUrgent(email, priority) {
-	if (email === emailAddress && priority === 'Urgent')
-		yourUrgentTasksAmount++;
+	if (email === emailAddress && priority === 'Urgent') yourUrgentTasksAmount++;
 }
 
 let greetingOnce = false;
 
 function greetingMobileAnimation() {
 	if (window.innerWidth <= 768 && !greetingOnce) {
-		document
-			.getElementById('greetMobileOverlay')
-			.classList.remove('d-none');
+		document.getElementById('greetMobileOverlay').classList.remove('d-none');
 
 		setTimeout(() => {
-			document
-				.getElementById('greetMobileOverlay')
-				.classList.add('d-none');
+			document.getElementById('greetMobileOverlay').classList.add('d-none');
 		}, 2000);
 		greetingOnce = true;
 	}

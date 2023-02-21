@@ -341,6 +341,7 @@
 	order: 0;
 	flex-grow: 0;
 	overflow: scroll;
+	padding-top: 24px;
 }
 
 .taskBackground {
