@@ -21,7 +21,7 @@ let arrayMoveBtnText = [
 	},
 ];
 
-async function initMobilBoard() {
+/* async function initMobilBoard() {
 	await renderMobileBoardHtml();
 	selectedMenuButton(2);
 	await loadTask();
@@ -29,11 +29,11 @@ async function initMobilBoard() {
 	await renderAllCardsMobil();
 	logOutMasterContainerMob();
 	document.getElementById('greetingMasterContainer').classList.add('d-none');
-}
+} */
 
 async function renderMobileBoardHtml() {
-	document.getElementById('mobilContent').innerHTML = '';
-	document.getElementById('mobilContent').innerHTML = /*html*/ `
+	document.getElementById('content').innerHTML = '';
+	document.getElementById('content').innerHTML = /*html*/ `
         <span class="kanbanProjectManagementTool">
             Kanban Project Management Tool
         </span>
@@ -501,7 +501,7 @@ async function createTaskDataMobil() {
 }
 
 async function closeBoardAddTask() {
-	initMobilBoard();
+	initBoard(); /* oder initMobilBoard AAAAAAAARGGG */
 	closeAddTaskOverlay();
 	taskForce = [];
 }
@@ -509,27 +509,27 @@ async function closeBoardAddTask() {
 //   Task Card detail View
 
 async function startDetailViewOverlay() {
-	if (innerWidth <= 768) {
-		document.getElementById('boardTaskDetail').classList.remove('d-none');
-	}
+	/* if (innerWidth <= 768) { */
+	document.getElementById('boardPopup').classList.remove('d-none');
+	/* } */
 }
 
 function closeBoardMobilDetailOverlay() {
-	document.getElementById('boardTaskDetail').classList.add('d-none');
+	document.getElementById('boardPopup').classList.add('d-none');
 }
 
 function renderPopupTaskCardHtmlMobil(taskIndex) {
-	if (window.innerWidth > 768) {
+	/* 	if (window.innerWidth > 768) {
 		enablePopupWindow(taskIndex);
 		renderPopupTaskCardHtml(taskIndex);
-	} else {
-		let cardTitle = joinTaskArray[taskIndex]['title'];
-		let cardDescription = joinTaskArray[taskIndex]['descripten'];
-		let cardCategory = joinTaskArray[taskIndex]['category'];
-		let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
-		let taskPrio = joinTaskArray[taskIndex]['prio'];
-		document.getElementById('boardTaskDetail').innerHTML = '';
-		document.getElementById('boardTaskDetail').innerHTML = /*html*/ `
+	} else { */
+	let cardTitle = joinTaskArray[taskIndex]['title'];
+	let cardDescription = joinTaskArray[taskIndex]['descripten'];
+	let cardCategory = joinTaskArray[taskIndex]['category'];
+	let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
+	let taskPrio = joinTaskArray[taskIndex]['prio'];
+	document.getElementById('boardPopup').innerHTML = '';
+	document.getElementById('boardPopup').innerHTML = /*html*/ `
         <div class='boardTaskCardPopup'>
             <div class='scrollOverEdit'>
                 <div class='taskCardPopupCategoryMob' id='taskCardPopupCategory'>
@@ -573,12 +573,11 @@ function renderPopupTaskCardHtmlMobil(taskIndex) {
             </div>
         </div>`;
 
-		setTaskCardPopupCatColor(taskIndex);
-		setTaskCardPopupPrioBackground(taskIndex);
-		renderSubtaskMobil(taskIndex);
-		renderAssignToHtml2(taskIndex);
-		renderMoveBtnMobil(taskIndex);
-	}
+	setTaskCardPopupCatColor(taskIndex);
+	setTaskCardPopupPrioBackground(taskIndex);
+	renderSubtaskMobil(taskIndex);
+	renderAssignToHtml2(taskIndex);
+	renderMoveBtnMobil(taskIndex);
 }
 
 /*
@@ -608,14 +607,15 @@ async function renderSubtaskMobilHtml(taskIndex) {
 	}
 }
 
+//!diese Funktion muss irgendwie raus!!
 async function saveChangesDetailView() {
 	await saveTask();
 	await createWorkStatusArrays();
-	if (window.innerWidth < 1400) {
+	/* if (window.innerWidth < 1100) {
 		renderAllCardsMobil();
-	} else {
-		renderAllCards();
-	}
+	} else { */
+	renderAllCards();
+	/* 	} */
 }
 
 async function renderMoveBtnMobil(taskIndex) {
@@ -645,13 +645,13 @@ async function moveMobilTaskTo(taskIndex, newTaskStatus) {
 	joinTaskArray[taskIndex]['workFlowStatus'] = newTaskStatus;
 	await saveTask();
 	await createWorkStatusArrays();
-	renderAllCardsMobil();
-	if (window.innerWidth >= 768) {
-		closeBoardMobilDetailOverlay();
-	}
-	if (window.innerWidth > 768) {
+	renderAllCards();
+	/* 	if (window.innerWidth >= 768) { */
+	closeBoardMobilDetailOverlay();
+	/* } */
+	/* 	if (window.innerWidth > 768) {
 		disablePopupWindow();
-	}
+	} */
 }
 
 function taskCardAllowMove(taskIndex) {
@@ -815,7 +815,7 @@ async function closeSequenceEditTaskCard() {
 		document.getElementById('stylesheetAddTask').disabled = false;
 		initBoardResponsivTablet();
 	} else {
-		await renderMobileBoardHtml();
+		await renderBoard();
 		await createWorkStatusArrays();
 		renderAllCardsMobil();
 	}
@@ -824,7 +824,7 @@ async function closeSequenceEditTaskCard() {
 async function deleteButtonMobil(taskIndex) {
 	joinTaskArray.splice(taskIndex, 1);
 	await saveTask();
-	await renderMobileBoardHtml();
+	await renderBoard();
 	await createWorkStatusArrays();
 	renderAllCardsMobil();
 }

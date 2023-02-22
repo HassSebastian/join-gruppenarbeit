@@ -6,46 +6,42 @@
  * this function remove the d-none class from the popup window. The result is that the Popup Window is shown.
  */
 async function enablePopupWindow(taskIndex) {
-  if (document.getElementById(`taskCard${taskIndex}`)) {
-    document.getElementById("boardPopup").classList.remove("d-none");
-    // await enableBoardPopup();
-  } else {
-    document.getElementById("boardPopup").classList.remove("d-none");
-    setTimeout(() => {
-      document
-        .getElementById("boardAddTaskPopup")
-        .classList.add("boardAddTaskPopupOverlay");
-    }, 1);
-  }
+	if (document.getElementById(`taskCard${taskIndex}`)) {
+		document.getElementById('boardPopup').classList.remove('d-none');
+		// await enableBoardPopup();
+	} else {
+		document.getElementById('boardPopup').classList.remove('d-none');
+		setTimeout(() => {
+			document.getElementById('boardAddTaskPopup').classList.add('boardAddTaskPopupOverlay');
+		}, 1);
+	}
 }
 
 /**
  * this function add the d-none class to the popup window. The result is that the Popup Window not shown.
  */
 async function disablePopupWindow() {
-  if (document.getElementById("boardAddTaskPopup")) {
-    document
-      .getElementById("boardAddTaskPopup")
-      .classList.remove("boardAddTaskPopupOverlay");
-    setTimeout(() => {
-      document.getElementById("boardPopup").classList.add("d-none");
-    }, 500);
-  }
-  if (selectedMenuBtnId == 4) {
-  } else {
-    // setTimeout(await initBoard, 500);
-    setTimeout(() => {
-      document.getElementById("boardPopup").classList.add("d-none");
-    }, 500);
-    searchAfterPopup();
-  }
+	if (document.getElementById('boardAddTaskPopup')) {
+		document.getElementById('boardAddTaskPopup').classList.remove('boardAddTaskPopupOverlay');
+		setTimeout(() => {
+			document.getElementById('boardPopup').classList.add('d-none');
+		}, 500);
+	}
+	if (selectedMenuBtnId == 4) {
+	} else {
+		setTimeout(await initBoard, 500);
+		setTimeout(() => {
+			document.getElementById('boardPopup').classList.add('d-none');
+		}, 500);
+		searchAfterPopup();
+	}
 }
 
 /**
  * this function prevent the closure of the popup window when clicking on the Popup Task Card.
  */
 function stopClose(event) {
-  event.stopPropagation();
+	event.stopPropagation();
 }
 
 // basic function popup end
@@ -58,7 +54,7 @@ function stopClose(event) {
  * @returns true if the assignedList length is greater than 0.
  */
 function assignedToDataExists(assignedList) {
-  return assignedList.length > 0;
+	return assignedList.length > 0;
 }
 
 /**
@@ -67,8 +63,8 @@ function assignedToDataExists(assignedList) {
  * @param taskIndex - The index of the task in the task array.
  */
 async function renderSubtask(taskIndex) {
-  await renderSubtaskHtml(taskIndex);
-  setSubTaskStatus(taskIndex);
+	await renderSubtaskHtml(taskIndex);
+	setSubTaskStatus(taskIndex);
 }
 
 /**
@@ -77,7 +73,7 @@ async function renderSubtask(taskIndex) {
  * @returns true if the subtaskArray length is greater than 0.
  */
 function subtaskExist(subtaskArray) {
-  return subtaskArray.length > 0;
+	return subtaskArray.length > 0;
 }
 
 /**
@@ -85,12 +81,12 @@ function subtaskExist(subtaskArray) {
  * @param taskIndex - the index of the task in the joinTaskArray
  */
 function setSubTaskStatus(taskIndex) {
-  let subtaskArray = joinTaskArray[taskIndex]["subTasks"];
-  for (let i = 0; i < subtaskArray.length; i++) {
-    if (subtaskStatusIsTrue(i, subtaskArray)) {
-      document.getElementById(`subtask${i}`).checked = true;
-    }
-  }
+	let subtaskArray = joinTaskArray[taskIndex]['subTasks'];
+	for (let i = 0; i < subtaskArray.length; i++) {
+		if (subtaskStatusIsTrue(i, subtaskArray)) {
+			document.getElementById(`subtask${i}`).checked = true;
+		}
+	}
 }
 
 /**
@@ -102,7 +98,7 @@ function setSubTaskStatus(taskIndex) {
  * array subtaskArray.
  */
 function subtaskStatusIsTrue(subtaskIndex, subtaskArray) {
-  return subtaskArray[subtaskIndex]["subtaskStatus"];
+	return subtaskArray[subtaskIndex]['subtaskStatus'];
 }
 
 /**
@@ -113,14 +109,10 @@ function subtaskStatusIsTrue(subtaskIndex, subtaskArray) {
  * @param taskIndex - The index of the task in the array.
  */
 async function checkboxSubtaskSelected(subTaskIndex, taskIndex) {
-  let checkboxStatus = document.getElementById(
-    `subtask${subTaskIndex}`
-  ).checked;
-  joinTaskArray[taskIndex]["subTasks"][subTaskIndex]["subtaskStatus"] =
-    checkboxStatus;
-  joinTaskArray[taskIndex]["subTasks"][subTaskIndex]["subtaskStatus"] =
-    checkboxStatus;
-  await saveTask();
+	let checkboxStatus = document.getElementById(`subtask${subTaskIndex}`).checked;
+	joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'] = checkboxStatus;
+	joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'] = checkboxStatus;
+	await saveTask();
 }
 
 /**
@@ -129,11 +121,9 @@ async function checkboxSubtaskSelected(subTaskIndex, taskIndex) {
  * the task card information is stored.
  */
 function setTaskCardPopupCatColor(taskIndex) {
-  let cardCatColorIndex = joinTaskArray[taskIndex]["catColor"];
-  let cardCatColor = categoryBackgroundColors[cardCatColorIndex];
-  document.getElementById(
-    "taskCardPopupCategory"
-  ).style = `background-color: ${cardCatColor};`;
+	let cardCatColorIndex = joinTaskArray[taskIndex]['catColor'];
+	let cardCatColor = categoryBackgroundColors[cardCatColorIndex];
+	document.getElementById('taskCardPopupCategory').style = `background-color: ${cardCatColor};`;
 }
 
 /**
@@ -142,14 +132,12 @@ function setTaskCardPopupCatColor(taskIndex) {
  * the task card information is stored.
  */
 function setTaskCardPopupPrioBackground(taskIndex) {
-  let cardPrio = joinTaskArray[taskIndex]["prio"];
-  cardPrio = cardPrio.toLowerCase();
-  let cardPrioBackground = prioColorAndUrlArray[0][cardPrio][0];
-  let cardPrioImgSrc = prioColorAndUrlArray[0][cardPrio][1];
-  document.getElementById(
-    "prioContainer"
-  ).style = `background-color: ${cardPrioBackground};`;
-  document.getElementById("cardPrioImg").src = cardPrioImgSrc;
+	let cardPrio = joinTaskArray[taskIndex]['prio'];
+	cardPrio = cardPrio.toLowerCase();
+	let cardPrioBackground = prioColorAndUrlArray[0][cardPrio][0];
+	let cardPrioImgSrc = prioColorAndUrlArray[0][cardPrio][1];
+	document.getElementById('prioContainer').style = `background-color: ${cardPrioBackground};`;
+	document.getElementById('cardPrioImg').src = cardPrioImgSrc;
 }
 
 // Edit Taskcard popup
@@ -159,13 +147,13 @@ function setTaskCardPopupPrioBackground(taskIndex) {
  * @param taskIndex - the index of the task in the array of tasks
  */
 async function openEditTaskCard(taskIndex) {
-  resetAssignToList();
-  await renderEditTaskCardHtml(taskIndex);
-  showDeleteButton(taskIndex);
-  await renderLoggedUserInAssignDrobDownMenuIntoYou();
-  await renderContactsInAssignDropDownMenu();
-  renderEditTaskCardInputFields(taskIndex);
-  await boardEditTaskCardAssignPreseselction(taskIndex);
+	resetAssignToList();
+	await renderEditTaskCardHtml(taskIndex);
+	showDeleteButton(taskIndex);
+	await renderLoggedUserInAssignDrobDownMenuIntoYou();
+	await renderContactsInAssignDropDownMenu();
+	renderEditTaskCardInputFields(taskIndex);
+	await boardEditTaskCardAssignPreseselction(taskIndex);
 }
 
 /**
@@ -175,17 +163,17 @@ async function openEditTaskCard(taskIndex) {
  * @param taskIndex - the index of the task in the array
  */
 async function renderEditTaskCardInputFields(taskIndex) {
-  let cardTitle = joinTaskArray[taskIndex]["title"];
-  let cardDescription = joinTaskArray[taskIndex]["descripten"];
-  let cardDueDate = joinTaskArray[taskIndex]["dueDate"];
-  let taskPrio = joinTaskArray[taskIndex]["prio"];
-  boardEditedPrio = taskPrio;
-  let prioArray = { Urgent: 0, Medium: 1, Low: 2 };
-  let taskPrioNumber = prioArray[taskPrio];
-  await addPrio(taskPrioNumber);
-  document.getElementById("boardEditTitle").value = cardTitle;
-  document.getElementById("boardEditDecription").value = cardDescription;
-  document.getElementById("boardEditDueDate").value = cardDueDate;
+	let cardTitle = joinTaskArray[taskIndex]['title'];
+	let cardDescription = joinTaskArray[taskIndex]['descripten'];
+	let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
+	let taskPrio = joinTaskArray[taskIndex]['prio'];
+	boardEditedPrio = taskPrio;
+	let prioArray = { Urgent: 0, Medium: 1, Low: 2 };
+	let taskPrioNumber = prioArray[taskPrio];
+	await addPrio(taskPrioNumber);
+	document.getElementById('boardEditTitle').value = cardTitle;
+	document.getElementById('boardEditDecription').value = cardDescription;
+	document.getElementById('boardEditDueDate').value = cardDueDate;
 }
 
 /**
@@ -200,16 +188,16 @@ async function renderEditTaskCardInputFields(taskIndex) {
  * @param taskIndex - the index of the task in the joinTaskArray
  */
 async function boardEditTaskCardAssignPreseselction(taskIndex) {
-  let assignToArray = joinTaskArray[taskIndex]["assignedTo"];
-  for (let i = 0; i < assignToArray.length; i++) {
-    let refEmail = assignToArray[i]["email"];
-    for (let index = 0; index < coworkersToAssignTo.length; index++) {
-      let email = coworkersToAssignTo[index]["email"];
-      if (refEmail == email) {
-        addContactToTaskForceWithCheckBox(index);
-      }
-    }
-  }
+	let assignToArray = joinTaskArray[taskIndex]['assignedTo'];
+	for (let i = 0; i < assignToArray.length; i++) {
+		let refEmail = assignToArray[i]['email'];
+		for (let index = 0; index < coworkersToAssignTo.length; index++) {
+			let email = coworkersToAssignTo[index]['email'];
+			if (refEmail == email) {
+				addContactToTaskForceWithCheckBox(index);
+			}
+		}
+	}
 }
 
 /**
@@ -218,10 +206,10 @@ async function boardEditTaskCardAssignPreseselction(taskIndex) {
  * @param taskIndex - The index of the task in the array.
  */
 function setPrioPreselection(taskIndex) {
-  let preselectedPrio = joinTaskArray[taskIndex]["prio"];
-  let boardPrioStatusJson = { Urgent: 0, Medium: 1, Low: 2 };
-  addPrio(boardPrioStatusJson[preselectedPrio]);
-  boardEditedPrio = preselectedPrio;
+	let preselectedPrio = joinTaskArray[taskIndex]['prio'];
+	let boardPrioStatusJson = { Urgent: 0, Medium: 1, Low: 2 };
+	addPrio(boardPrioStatusJson[preselectedPrio]);
+	boardEditedPrio = preselectedPrio;
 }
 
 /**
@@ -229,11 +217,11 @@ function setPrioPreselection(taskIndex) {
  * and then empties the assignToArray and taskForce arrays.
  */
 function resetAssignToList() {
-  for (let i = 0; i < coworkersToAssignTo.length; i++) {
-    coworkersToAssignTo[i]["check"] = false;
-    assignToArray = [];
-    taskForce = [];
-  }
+	for (let i = 0; i < coworkersToAssignTo.length; i++) {
+		coworkersToAssignTo[i]['check'] = false;
+		assignToArray = [];
+		taskForce = [];
+	}
 }
 
 /**
@@ -242,28 +230,26 @@ function resetAssignToList() {
  * @param taskIndex - the index of the task in the array
  */
 async function getTaskChanges(taskIndex) {
-  let boardEditedTitle = document.getElementById("boardEditTitle").value;
-  let boardEditedDescripten = document.getElementById(
-    "boardEditDecription"
-  ).value;
-  let boardEditedDueDate = document.getElementById("boardEditDueDate").value;
-  joinTaskArray[taskIndex]["assignedTo"] = taskForce;
-  joinTaskArray[taskIndex]["title"] = boardEditedTitle;
-  joinTaskArray[taskIndex]["descripten"] = boardEditedDescripten;
-  joinTaskArray[taskIndex]["dueDate"] = boardEditedDueDate;
-  joinTaskArray[taskIndex]["prio"] = boardEditedPrio;
+	let boardEditedTitle = document.getElementById('boardEditTitle').value;
+	let boardEditedDescripten = document.getElementById('boardEditDecription').value;
+	let boardEditedDueDate = document.getElementById('boardEditDueDate').value;
+	joinTaskArray[taskIndex]['assignedTo'] = taskForce;
+	joinTaskArray[taskIndex]['title'] = boardEditedTitle;
+	joinTaskArray[taskIndex]['descripten'] = boardEditedDescripten;
+	joinTaskArray[taskIndex]['dueDate'] = boardEditedDueDate;
+	joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
 
-  await saveTask();
-  if (window.innerWidth > 1400) {
-    await renderBoard();
-    await createWorkStatusArrays();
-    await renderAllCards();
-  } else {
-    disablePopupWindow();
-    await renderMobileBoardHtml();
-    await createWorkStatusArrays();
-    await renderAllCardsMobil();
-  }
+	await saveTask();
+	/* if (window.innerWidth > 1100) { */
+	await renderBoard();
+	await createWorkStatusArrays();
+	await renderAllCards();
+	/* 	} else {
+		disablePopupWindow();
+		await renderMobileBoardHtml();
+		await createWorkStatusArrays();
+		await renderAllCardsMobil();
+	} */
 }
 
 /**
@@ -272,12 +258,12 @@ async function getTaskChanges(taskIndex) {
  * @param index - the index of the status in the statusNames array
  */
 function prioStatusChange(index) {
-  let statusNames = ["Urgent", "Medium", "Low"];
-  if (actualClickedPrioBtnIsSet(index, statusNames)) {
-    boardEditedPrio = "";
-  } else {
-    boardEditedPrio = statusNames[index];
-  }
+	let statusNames = ['Urgent', 'Medium', 'Low'];
+	if (actualClickedPrioBtnIsSet(index, statusNames)) {
+		boardEditedPrio = '';
+	} else {
+		boardEditedPrio = statusNames[index];
+	}
 }
 
 /**
@@ -289,7 +275,7 @@ function prioStatusChange(index) {
  * statusNames[index] == boardEditedPrio
  */
 function actualClickedPrioBtnIsSet(index, statusNames) {
-  return statusNames[index] == boardEditedPrio;
+	return statusNames[index] == boardEditedPrio;
 }
 
 // render function for the detail view of the task card end.
@@ -302,37 +288,35 @@ function actualClickedPrioBtnIsSet(index, statusNames) {
  * and rendering the contacts in the assign drop down menu.
  */
 async function showAddTaskPopupWindow() {
-  taskForce = [];
-  coworkersToAssignTo[loggedInUserIndex].check = false;
-  enablePopupWindow();
-  await renderAddTaskPopup();
-  await loadExitingCategories();
-  renderCategoryList();
-  newCatInputActive = false;
-  renderLoggedUserInAssignDrobDownMenuIntoYou(); // Das habe ich für das You eingefügt!
-  renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
-  setFutureDatesOnlyForInputDueDate();
-  loadContributorsLetter();
-  addSubtaskMain();
-  addContactToTaskForceWithCheckBox(loggedInUserIndex);
-  dropdownImgSettings();
+	taskForce = [];
+	coworkersToAssignTo[loggedInUserIndex].check = false;
+	enablePopupWindow();
+	await renderAddTaskPopup();
+	await loadExitingCategories();
+	renderCategoryList();
+	newCatInputActive = false;
+	renderLoggedUserInAssignDrobDownMenuIntoYou(); // Das habe ich für das You eingefügt!
+	renderContactsInAssignDropDownMenu(); //for dropdown menu in assignTo
+	setFutureDatesOnlyForInputDueDate();
+	loadContributorsLetter();
+	addSubtaskMain();
+	addContactToTaskForceWithCheckBox(loggedInUserIndex);
+	dropdownImgSettings();
 }
 
-
-function dropdownImgSettings(){
-  if (window.innerWidth <= 1100){
-    document.getElementById('dropdownImg').style = 'left: 392px !important;';
-    document.getElementById('assignDropDownImg').style = 'left: 392px !important;';
-  }
+function dropdownImgSettings() {
+	if (window.innerWidth <= 1100) {
+		document.getElementById('dropdownImg').style = 'left: 392px !important;';
+		document.getElementById('assignDropDownImg').style = 'left: 392px !important;';
+	}
 }
-
 
 /**
  * this function render the popup menu AddTask.
  */
 async function renderAddTaskPopup() {
-  document.getElementById("boardPopup").innerHTML = "";
-  document.getElementById("boardPopup").innerHTML = renderAddTaskPopupHtml();
+	document.getElementById('boardPopup').innerHTML = '';
+	document.getElementById('boardPopup').innerHTML = renderAddTaskPopupHtml();
 }
 
 /**
@@ -340,9 +324,9 @@ async function renderAddTaskPopup() {
  * @param taskIndex - the index of the task in the array
  */
 function showDeleteButton(taskIndex) {
-  if (joinTaskArray[taskIndex].workFlowStatus == 3) {
-    document.getElementById("deleteButton").classList.remove("d-none");
-  }
+	if (joinTaskArray[taskIndex].workFlowStatus == 3) {
+		document.getElementById('deleteButton').classList.remove('d-none');
+	}
 }
 
 /**
@@ -351,10 +335,9 @@ function showDeleteButton(taskIndex) {
  * @param taskIndex - The index of the task in the array.
  */
 async function deleteButton(taskIndex) {
-  joinTaskArray.splice(taskIndex, 1);
-  await saveTask();
-  await renderBoard();
-  await createWorkStatusArrays();
-  renderAllCards();
+	joinTaskArray.splice(taskIndex, 1);
+	await saveTask();
+	await renderBoard();
+	await createWorkStatusArrays();
+	renderAllCards();
 }
-

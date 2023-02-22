@@ -1657,12 +1657,12 @@ boardSubheaders > * {
 	left: 101px;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1100px) {
 	/* Btn hinzugefügt */
 	.moveBtnMobil {
 		display: flex !important;
 		position: absolute !important;
-		top: 777px !important;
+		bottom: 12px;
 		height: 57px !important;
 	}
 
@@ -1671,7 +1671,7 @@ boardSubheaders > * {
 	}
 
 	.boardSubtasksDiv {
-		height: 112px;
+		height: fit-content;
 	}
 }
 
@@ -1787,7 +1787,7 @@ boardSubheaders > * {
 		flex-direction: unset !important;
 		width: 420px !important;
 		flex-wrap: wrap;
-		height: 95px !important;
+		height: fit-content !important;
 		overflow: hidden;
 		overflow-y: scroll;
 	}
@@ -1920,7 +1920,7 @@ boardSubheaders > * {
 	}
 
 	.taskContainer {
-		width: unset;
+		width: 100%;
 	}
 
 	.taskHeadline {
@@ -1929,6 +1929,22 @@ boardSubheaders > * {
 
 	.taskContent {
 		width: unset;
+	}
+
+	.doneBar {
+		width: 100%;
+		justify-content: space-between;
+		/* gap: unset; */
+	}
+
+	.doneBarOuter {
+		max-width: 180px !important;
+		width: 100%;
+	}
+
+	.contributorsPrio {
+		justify-content: space-between;
+		width: 100%;
 	}
 }
 
