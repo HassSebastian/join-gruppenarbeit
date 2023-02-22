@@ -41,7 +41,7 @@
 	padding: 0px;
 	gap: 1px;
 	width: 176px;
-	height: 73px;
+	/* height: 73px; */
 	flex: none;
 	order: 0;
 	flex-grow: 0;
@@ -49,7 +49,7 @@
 
 .boardHeadline span {
 	width: 176px;
-	height: 73px;
+	/* height: 73px; */
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 700;
@@ -68,7 +68,7 @@
 	padding: 0px;
 	gap: 35px;
 	width: 423px;
-	height: 51px;
+	/* height: 51px; */
 	flex: none;
 	order: 1;
 	flex-grow: 0;
@@ -1822,7 +1822,7 @@ boardSubheaders > * {
 	.inProgressAreaHeader,
 	.awaitingFeedbackAreaHeader,
 	.doneAreaHeader {
-		max-width: 230px;
+		width: 250px;
 	}
 
 	#toDoDiv,
@@ -1836,6 +1836,10 @@ boardSubheaders > * {
 }
 
 @media screen and (max-width: 1024px) {
+	.boardHeadline span {
+		font-size: 50px;
+	}
+
 	.boardContainer {
 		top: 79px;
 	}
@@ -1848,12 +1852,19 @@ boardSubheaders > * {
 		height: fit-content;
 	}
 
+	.boardHeadline span {
+		font-size: 47px;
+	}
+
 	.inputOutContainer {
 		padding-top: 30px;
 	}
 
+	.canbanBoard {
+		padding-bottom: 79px;
+	}
 	.boardContainer {
-		padding: 35px 6px 6px 6px;
+		padding: 32px;
 		justify-content: unset;
 	}
 }
@@ -1868,6 +1879,10 @@ boardSubheaders > * {
 		line-height: 120%;
 	}
 
+	.boardHeadline span {
+		font-size: 36px;
+	}
+
 	.addTaskButton {
 		height: 40px;
 		width: 40px;
@@ -1879,11 +1894,21 @@ boardSubheaders > * {
 	.addTaskButton span {
 		display: none;
 	}
+	.inputOutContainer {
+		height: fit-content;
+	}
 
 	.plusOutContainer {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+
+	.toDoAreaHeader,
+	.inProgressAreaHeader,
+	.awaitingFeedbackAreaHeader,
+	.doneAreaHeader {
+		width: 100%;
 	}
 
 	.taskBackground {
@@ -1911,4 +1936,44 @@ boardSubheaders > * {
 	.kanbanboardTitleSummary {
 		display: none;
 	}
+}
+
+@media screen and (max-height: 768px) {
+	.boardHeadline span {
+		font-size: 36px;
+	}
+
+	.boardOverlay {
+		margin-bottom: 16px;
+	}
+
+	.kanbanboardTitleSummary {
+		display: none;
+	}
+
+	.addTaskButton {
+		right: 8px;
+		top: 8px;
+	}
+
+	.boardContainer {
+		padding: 8px;
+	}
+
+	.inputOutContainer {
+		padding-top: 16px;
+	}
+
+	/* .canbanContainer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 250px;
+		height: calc(100vh - 224px);
+		flex: none;
+		order: 0;
+		flex-grow: 0;
+		overflow: scroll;
+		padding-top: 24px;
+	} */
 }
