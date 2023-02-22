@@ -29,6 +29,15 @@
 	top: 171px;
 }
 
+.kanbanboardTitleSummary {
+	/* padding-bottom: 19px; */
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 120%;
+}
+
 .title h3 {
 	display: flex;
 	align-items: center;

@@ -1804,6 +1804,7 @@ boardSubheaders > * {
 
 	.canbanBoard {
 		flex-direction: column !important;
+		overflow-y: scroll;
 	}
 
 	.columnBoard {
@@ -1834,13 +1835,80 @@ boardSubheaders > * {
 	}
 }
 
+@media screen and (max-width: 1024px) {
+	.boardContainer {
+		top: 79px;
+	}
+}
+
 @media screen and (max-width: 768px) {
 	.boardOverlay {
 		flex-direction: column;
 		align-items: flex-start;
+		height: fit-content;
+	}
+
+	.inputOutContainer {
+		padding-top: 30px;
 	}
 
 	.boardContainer {
-		padding: 87px 6px 6px 6px;
+		padding: 35px 6px 6px 6px;
+		justify-content: unset;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.kanbanboardTitleSummary {
+		padding-bottom: 19px;
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 120%;
+	}
+
+	.addTaskButton {
+		height: 40px;
+		width: 40px;
+		position: absolute;
+		top: 90px;
+		right: 29px;
+	}
+
+	.addTaskButton span {
+		display: none;
+	}
+
+	.plusOutContainer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.taskBackground {
+		width: 100%;
+	}
+
+	.taskBackground {
+		display: block;
+	}
+
+	.taskContainer {
+		width: unset;
+	}
+
+	.taskHeadline {
+		width: unset;
+	}
+
+	.taskContent {
+		width: unset;
+	}
+}
+
+@media screen and (min-width: 480px) {
+	.kanbanboardTitleSummary {
+		display: none;
 	}
 }

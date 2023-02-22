@@ -6,6 +6,7 @@ function boardHtml() {
 	return /*html*/ `
     <div class="boardContainer">
 			<div class="boardOverlay">
+			<span class="kanbanboardTitleSummary"> Kanban Project Management Tool </span>
 				<div class="boardHeadline">
 					<span>Board</span>
 				</div>
