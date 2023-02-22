@@ -1835,4 +1835,12 @@ boardSubheaders > * {
 }
 
 @media screen and (max-width: 768px) {
+	.boardOverlay {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.boardContainer {
+		padding: 87px 6px 6px 6px;
+	}
 }
