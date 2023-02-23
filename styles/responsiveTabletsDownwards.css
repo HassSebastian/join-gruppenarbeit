@@ -1,82 +1,4 @@
 @media screen and (max-width: 768px) {
-	/* SUMMARAY */
-	.mobilMasterContainer,
-	header,
-	.navMasterContainerMob {
-		width: 100vw;
-	}
-
-	.outerContainer,
-	.mobileContent {
-		height: 100vh;
-	}
-
-	.mobilMasterContainer {
-		height: 100vh;
-	}
-
-	.summaryFloatingMasterContainer {
-		left: unset !important;
-		width: 100vw !important;
-		height: fit-content !important;
-		justify-content: center;
-		align-items: center !important;
-		top: 105px !important;
-		/* padding: 0 33px !important; */
-	}
-
-	.headingContainer {
-		width: 480px;
-		height: fit-content !important;
-	}
-
-	.summaryDisplayMobilContainer {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		height: fit-content;
-	}
-
-	.taskOverviewMob {
-		height: unset !important;
-		width: fit-content !important;
-	}
-
-	.cardsSummaryTop {
-		width: 150px !important;
-		height: 150px !important;
-	}
-
-	.ugencySummaryMob {
-		margin: 16px 0;
-		width: 100% !important;
-		height: 110px !important;
-	}
-
-	.toDoDataMob {
-		align-items: unset !important;
-		width: 100% !important;
-	}
-
-	.toDo,
-	.toDoDone {
-		flex: 1 !important;
-	}
-
-	nav {
-		position: fixed;
-		top: unset !important;
-		right: 0;
-		left: 0;
-		bottom: 0px !important; /*! Das für Abgabe wieder auf Null setzen! */
-		margin: unset !important;
-		width: unset !important;
-	}
-
-	/* .logOutMasterContainer {
-		right: 26px !important;
-	} */
-
 	/* ADD TASK */
 	.scroll {
 		width: unset;
@@ -84,23 +6,23 @@
 		bottom: 80px !important;
 	}
 
-	.addTaskTitleMobil,
-	.addTaskDescriptionMobil,
-	.addTaskPrioMobil,
-	.addTaskDateMob,
-	.addTaskAddCategoryBoxMob,
-	.addTaskAssignedBoxMob,
-	.subtaskMob,
-	.addTaskAssignedBoxMob button,
+	.addTaskTitle,
+	.addTaskDescription,
+	.addTaskPrio,
+	.addTaskDate,
+	.addTaskAddCategoryBox,
+	.addTaskAssignedBox,
+	.subtask,
+	.addTaskAssignedBox button,
 	.inputDiv {
 		width: 100% !important;
 	}
-	.addTaskTitleMobil input,
-	.addTaskDescriptionMobil textarea {
+	.addTaskTitle input,
+	.addTaskDescription textarea {
 		width: 100%;
 	}
 
-	.addTaskPrioMobil {
+	.addTaskPrio {
 		align-items: unset;
 	}
 
@@ -111,26 +33,6 @@
 
 	.addTaskCatList {
 		padding: unset;
-	}
-
-	/* Contacts */
-	.Frame_97Mob {
-		right: 0;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	/*   .new_contact_buttonMob {
-  
-  } */
-
-	.new_contactMob {
-		background: unset !important;
-		width: 100vw !important;
-		/* left: 0 !important; */
-		/* right: 0; */
-		/* 		margin-left: auto;
-		margin-right: auto; */
 	}
 }
 
@@ -148,7 +50,7 @@
 		width: 330px;
 	}
 
-	.summaryDisplayMobilContainer {
+	.summaryDisplayContainer {
 		width: 330px !important;
 	}
 
@@ -157,7 +59,7 @@
 		height: 100px !important;
 	}
 
-	.ugencySummaryMob {
+	.ugencySummary {
 		width: 330px !important;
 	}
 
@@ -176,39 +78,8 @@
 		width: unset !important;
 	}
 
-	.addTaskDateMob {
+	.addTaskDate {
 		margin-top: 14px;
-	}
-
-	/* Contacs */
-
-	.Frame_97Mob {
-		width: 100vw !important;
-	}
-
-	.Contact_listMob {
-		left: 18px !important;
-		right: 18px;
-		width: unset !important;
-	}
-
-	/*  .arrowContainerMob {
-    right: 36px !important;
-    left: unset !important;
-  } */
-
-	.editButtonContainerMob {
-		left: unset !important;
-		right: 36px;
-	}
-
-	.new_contactMob {
-		background: #ffffff !important;
-		width: 100vw !important;
-		/* left: 0 !important; */
-		right: 0;
-		/* margin-left: auto;
-		margin-right: auto; */
 	}
 
 	/* Help */
@@ -218,23 +89,23 @@
 		margin: 0 16px !important;
 	}
 
-	/*  .kanbanProjectManagementToolMob {
+	/*  .kanbanProjectManagementTool {
     left: unset 1
   } */
 
-	.helpOverlayMob {
+	.helpOverlay {
 		right: 16px !important;
 		left: 16px !important;
 	}
 
 	/* Legal Notice */
 
-	.kanbanProjectManagementToolMob {
+	.kanbanProjectManagementTool {
 		left: 16px !important;
 		right: 16px !important;
 	}
 
-	.textFieldContainerMob {
+	.textFieldContainer {
 		left: 16px !important;
 		right: 16px !important;
 	}
@@ -247,7 +118,7 @@
 		width: 100%;
 	}
 
-	.addTaskPrioIconsMob {
+	.addTaskPrioIcons {
 		flex-direction: column;
 		height: 140px;
 		width: 100%;
@@ -269,14 +140,14 @@
 		padding-right: 16px;
 	}
 
-	.addTaskPrioMobil {
+	.addTaskPrio {
 		height: fit-content;
 	}
 
 	/* Contacts */
-	.overlayMasterContainerMob {
+	/* .overlayMasterContainer {
 		width: 100vw !important;
-	}
+	} */
 
 	/* .centerNewContactHeader {
 		width: 100%;
@@ -291,60 +162,7 @@
 		width: 289px;
 	} */
 
-	.overlayBlackContainerMob {
+	/* .overlayBlackContainer {
 		width: 100vw !important;
-	}
-}
-
-@media screen and (max-height: 750px) {
-	/* Summary */
-	.kanbanProjectManagementTool,
-	.headlineDisMob {
-		display: none;
-	}
-
-	.headlineContainerMob {
-		height: 0 !important;
-		margin: 24px 0;
-	}
-
-	/* Baord */
-	/* .headlineContainerBoardMob { !So ???
-		top: 100px;
 	} */
-
-	/* Add Task */
-	.scroll {
-		top: 180px;
-	}
-
-	.frame164 {
-		display: none;
-	}
-
-	.frame154 {
-		top: 100px;
-	}
-
-	/* Contacts */
-
-	.blackContainerMob {
-		height: 270px !important;
-	}
-}
-
-@media screen and (max-height: 620px) {
-	/* SUMMARY */
-	/*  header {
-    display: none;
-  } */
-
-	.summaryFloatingMasterContainer {
-		top: 12px !important;
-	}
-
-	/* ADD TASK */
-	.addTaskDateMob div {
-		width: 100% !important;
-	}
 }

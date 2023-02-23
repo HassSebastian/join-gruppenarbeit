@@ -14,9 +14,14 @@ function renderAssignToHtml2(taskIndex) {
 			let assignToColor = colorIndex[assignedList[i].colorIndex];
 			let assignToTitle = name;
 			document.getElementById(divId).innerHTML += /*html*/ `
+        
                 <div  title='${assignToTitle}' style='background-color: ${assignToColor}'>
                     <span class='shortcut'>${nameLetters}</span>
-                </div>`;
+                </div>
+              
+            
+                
+                `;
 			/* 
                 ! Das Design stimmt nicht. Der NAme soll angezeigt werden und die Symbole untereinander */
 		}

@@ -1889,6 +1889,10 @@ boardSubheaders > * {
 }
 
 @media screen and (max-width: 480px) {
+	.boardContainer {
+		padding: 8px;
+	}
+
 	.kanbanboardTitleSummary {
 		padding-bottom: 19px;
 		font-family: 'Inter';
@@ -1906,8 +1910,8 @@ boardSubheaders > * {
 		height: 40px;
 		width: 40px;
 		position: absolute;
-		top: 90px;
-		right: 29px;
+		top: 8px;
+		right: 8px;
 	}
 
 	.addTaskButton span {
