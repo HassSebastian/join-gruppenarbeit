@@ -17,6 +17,8 @@ function renderAssignToHtml2(taskIndex) {
                 <div  title='${assignToTitle}' style='background-color: ${assignToColor}'>
                     <span class='shortcut'>${nameLetters}</span>
                 </div>`;
+			/* 
+                ! Das Design stimmt nicht. Der NAme soll angezeigt werden und die Symbole untereinander */
 		}
 	}
 }
