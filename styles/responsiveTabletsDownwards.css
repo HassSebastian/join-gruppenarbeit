@@ -130,14 +130,8 @@
 		height: 40px;
 		display: flex;
 		align-items: center;
-		padding-right: 16px;
-		padding-left: 16px;
-	}
-
-	#addTaskUrgentImg,
-	#addTaskMediumImg,
-	#addTaskLowImg {
-		padding-right: 16px;
+		/* 	padding-right: 16px;
+		padding-left: 16px; */
 	}
 
 	.addTaskPrio {
