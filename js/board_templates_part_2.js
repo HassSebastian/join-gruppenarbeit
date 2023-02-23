@@ -140,11 +140,41 @@ async function renderEditTaskCardHtml(taskIndex) {
         </div>`;
 }
 
+let addTaskContactsResponsiveOn = false;
+function startIntervalWhenOff() {
+	const interval = setInterval(() => {
+		if (window.innerWidth > 563 && !addTaskContactsResponsiveOn) {
+			showAddTaskPopupWindow();
+			addTaskContactsResponsiveOn = true;
+			clearInterval(interval);
+			startIntervalWhenOn();
+            console.log('checkOff')
+		}
+	}, 100);
+}
+
+function startIntervalWhenOn() {
+	const interval = setInterval(() => {
+		if (window.innerWidth < 563 && addTaskContactsResponsiveOn) {
+			showAddTaskPopupWindow();
+			addTaskContactsResponsiveOn = false;
+			clearInterval(interval);
+			startIntervalWhenOff();
+            console.log('checkOn')
+		}
+	}, 100);
+}
+
+function addTaskContactAutomaticResponisive() {
+	startIntervalWhenOff();
+	startIntervalWhenOn();
+}
 /**
  * this function returns the popup Menu html string
  * @returns - Board popup Menu html string.
  */
 function renderAddTaskPopupHtml() {
+	addTaskContactAutomaticResponisive();
 	if (window.innerWidth > 563) {
 		return /*html*/ `
         <div id='boardAddTaskPopup' onclick='stopClose(event)'>
@@ -310,7 +340,7 @@ function renderAddTaskPopupHtml() {
 
 	
 
-	<div class="mainAddTaskContainer">
+	<div class="mainAddTaskContainer mainAddTaskContainerContacts ">
 	<div class="taskAddedToBoard" id="taskCreatedIndication">
 				<div class="taskAddedToBoardContainer">
 					<span>Task added to board</span>
@@ -414,13 +444,13 @@ function renderAddTaskPopupHtml() {
 
 				<div class="addTaskCheckbox" id="subtaskCheckboxes"></div>
 			</div>
-			<div class="addTaskBtnOuterContainer" id="addTaskBtnOuterContainer">
-			<div class="addTaskBtnInnerContainer">
-				<button class="addTaskClear" onmouseover="addTaskClearOn()" onmouseout="addTaskClearOff()" onclick="clearFormularData()">
+			<div class="addTaskBtnOuterContainerContacts" id="addTaskBtnOuterContainer">
+			<div class="addTaskBtnInnerContainerContacts">
+				<button class="addTaskClearContacts" onclick="clearFormularData()">
 					<span>Clear</span>
-					<img id="addTaskClear" src="./assets/img/clearb.png" />
+					<img id="addTaskClears" src="./assets/img/clearb.png" />
 				</button>
-				<button class="addTaskCreate" onclick="checkInputs()">
+				<button class="addTaskCreateContacts" onclick="checkInputs()">
 					<span>Create Task</span>
 					<img src="./assets/img/createb.png" />
 				</button>
