@@ -12,7 +12,9 @@ async function enablePopupWindow(taskIndex) {
 	} else {
 		document.getElementById('boardPopup').classList.remove('d-none');
 		setTimeout(() => {
-			document.getElementById('boardAddTaskPopup').classList.add('boardAddTaskPopupOverlay');
+			if (window.innerWidth > 563) {
+				document.getElementById('boardAddTaskPopup').classList.add('boardAddTaskPopupOverlay');
+			}
 		}, 1);
 	}
 }
