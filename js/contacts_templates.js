@@ -4,16 +4,13 @@
  */
 function renderContentHTML() {
 	return /*html*/ `
-    <div class="shadowOverlay d-none" id="boardPopup" onclick="disablePopupWindow()"></div>
+    <div class="shadowOverlay d-none" id="boardPopup" onclick="closeNewContact(), closeEditContact()"></div>
 		<div class="contactsContainer">
 			<div class="Frame_97" id="Frame_97">
 				<div class="Contact_list" id="Contact_list"></div>
 			</div>
 			<div class="contactContainerRight" id="contactContainerRight">
                 <div class="contactContainerList">
-                    <div id="listing">
-                    <span onclick="showContactList()">List</span>
-                    </div>
 				<div class="better_with_a_team">
 					<h1>Contacts</h1>
 					<div class="vector_5"></div>
@@ -402,7 +399,10 @@ function openNewContactHTML() {
  */
 function showContactHTML(name, email, phone, letter, color, i) {
 	return /*html*/ `
-        <div class="showContactDetail">                       
+        <div class="showContactDetail">
+		    <div id="listing">
+                    <img onclick="showContactList()" src="assets/img/back_logo_black.png" alt="">
+                    </div>                       
             <div class="show_contact_ellipse_5" style='background:${colorIndex[color]}' onclick="deleteContactQuestion(${i})">
                 <span id="deleteContactQuestion">${letter}</span>
             </div>

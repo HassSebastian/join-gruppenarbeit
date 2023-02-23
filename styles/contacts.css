@@ -156,7 +156,7 @@
 
 .better_with_a_team {
 	position: relative;
-	top: 82px;
+	top: 32px;
 	left: 36px;
 	width: fit-content;
 	display: flex;
@@ -271,7 +271,7 @@
 	max-width: 461px;
 	height: fit-content;
 	left: 65px;
-	top: 137px;
+	top: 87px;
 }
 
 .showContactDetail {
@@ -950,6 +950,8 @@
 #listing {
 	position: absolute;
 	display: none;
+	margin-top: -32px;
+	font-family: 'Inter';
 }
 
 /**************************/
@@ -1036,6 +1038,7 @@
 	.contactContainerRight {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 	}
 
 	.showContact {
@@ -1062,12 +1065,15 @@
 
 	.edit_contact {
 		background-color: #2a3647;
-		min-width: 40px;
-		min-height: 40px;
+		min-width: 21px;
+		max-height: 21px;
+		border-radius: 30%;
 	}
 
 	.edit_contact img {
 		filter: brightness(100);
+		width: 16px;
+		max-height: 16px;
 	}
 
 	.edit_contact span {
@@ -1140,18 +1146,22 @@
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) { /* 768*/
 
 	.Frame_97 {
 		margin-left: 0px;
 	}
 
-	.better_with_a_team {
-		display: none;
-	}
-
 	.showContact {
 		margin-left: -50px;
+	}
+
+	.contactContainerList {
+		margin-top: 0;
+	}
+
+	.add_contact {
+		max-width: 100%;
 	}
 
 	.contact_information h2 {
@@ -1169,6 +1179,14 @@
 		right: 8px;
 		bottom: 87px;
 	}
+
+	.listing {
+		justify-content: flex-start;
+	}
+
+	.showContact{
+		max-width: fit-content;
+	}
 }
 
 @media (max-width: 453px) {
@@ -1180,7 +1198,7 @@
 	}
 
 	.Contact_list {
-		width: 90%;
+		width: 78,8%;
 	}
 
 	.contact {
@@ -1204,6 +1222,50 @@
 		border-bottom: 1px solid;
 	}
 
+	.add_contact {
+		width: 350px;
+	}
+
+	.fontAddContact {
+		font-size: 49px;
+		width: unset;
+	}
+
+	.fontTaskArBetter {
+		font-size: 18px;
+	}
+
+	.blackSiteContainer {
+		padding: 30.5px;
+	}
+
+	.name_logo_inContainer {
+		left: 118px;
+	}
+
+	.buttonOutContainer {
+		left: 103.5px;
+	}
+
+	.buttonNewOutContainer {
+		width: unset;
+	}
+
+	.nameContainer{
+		width: 309px;
+	}
+
+	.inputName {
+		width: unset;
+	}
+	
+	.closeLogo {
+		left: 310px;
+	}
+
+	.cancel {
+		display: none;
+	}
 
 }
 
