@@ -303,7 +303,7 @@ function renderAddTaskPopupHtml() {
 	} else {
 		return /*html*/ `
         <div class="addTaskMobileResponsiveBackground">
-        	<div class="testResponsiv" id="testResponsiv">
+        	<div class="testResponsiv testResponsiveAddTaskContact" id="testResponsiv">
 	<div class="addTaskHeadlineDiv">
 		<h2 class="addTHeadline">Add Task</h2>
 	</div>

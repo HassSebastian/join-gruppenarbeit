@@ -17,8 +17,16 @@
 	padding: 82px 0 0 123px;
 }
 
+.testResponsiveAddTaskContact {
+	margin-bottom: 0 !important;
+}
+
 .addTaskMobileResponsiveBackground {
 	background-color: #f6f7f8;
+	position: absolute;
+	top: 0;
+	bottom: 0px;
+	width: 100%;
 }
 
 .addTaskHeadlineDiv {
@@ -684,7 +692,8 @@
 .addTaskAssignedBox input::placeholder {
 	/* Chrome, Firefox, Opera, Safari 10.1+ */
 	color: black;
-	opacity: 1; /* Firefox */
+	opacity: 1;
+	/* Firefox */
 }
 
 .addTaskAssignedBox input:-ms-input-placeholder {
@@ -700,7 +709,8 @@
 .greyPlaceholder::placeholder {
 	/* Chrome, Firefox, Opera, Safari 10.1+ */
 	color: #d1d1d1 !important;
-	opacity: 1; /* Firefox */
+	opacity: 1;
+	/* Firefox */
 }
 
 .greyPlaceholder:-ms-input-placeholder {
@@ -996,6 +1006,7 @@
 	flex-grow: 0;
 	/* padding-top: 13px; */
 }
+
 .addTaskUrgent,
 .addTaskMedium,
 .addTaskLow {
@@ -1489,6 +1500,7 @@
 	.mainAddTaskContainer * {
 		font-size: 18px !important;
 	}
+
 	.addTaskHeadlineDiv {
 		height: fit-content;
 	}
@@ -1500,6 +1512,7 @@
 		display: flex;
 		align-items: center;
 	}
+
 	.requiredText {
 		font-size: 12px !important;
 	}
@@ -1521,6 +1534,7 @@
 	.sliderMenu {
 		top: 79px;
 	}
+
 	.testResponsiv {
 		padding: 0 50px 0 50px !important;
 	}
@@ -1530,9 +1544,11 @@
 		padding-top: 20px;
 		height: fit-content;
 	}
+
 	.addTaskHeadlineDiv {
 		width: 100%;
 	}
+
 	.mainAddTaskContainer {
 		flex-direction: column;
 		width: 100% !important;
@@ -1594,8 +1610,10 @@
 
 	.mainAddTaskContainer {
 		position: unset;
-		/* height: auto; */ /* !wie stell man dich richtig ein automatisch geht nicht */
+		/* height: auto; */
+		/* !wie stell man dich richtig ein automatisch geht nicht */
 	}
+
 	.addTaskRightContainer {
 		position: unset;
 	}
@@ -1610,12 +1628,28 @@
 		width: fit-content;
 		padding: 0;
 	}
+
 	.addTaskBtnInnerContainer {
 		width: unset;
 		height: 100%;
+		gap: 16px;
 	}
 
 	.addTaskClear {
+		height: 38px;
+		width: 38px;
+	}
+
+	.addTaskCreate {
+		height: 38px;
+		width: 38px;
+	}
+
+	.addTaskClear span {
+		display: none;
+	}
+
+	.addTaskCreate span {
 		display: none;
 	}
 }
@@ -1628,6 +1662,7 @@
 	.mainAddTaskContainer * {
 		font-size: 18px !important;
 	}
+
 	.addTaskHeadlineDiv {
 		height: fit-content;
 	}
@@ -1639,6 +1674,7 @@
 		display: flex;
 		align-items: center;
 	}
+
 	.requiredText {
 		font-size: 12px !important;
 	}
