@@ -141,13 +141,15 @@ async function renderEditTaskCardHtml(taskIndex) {
 }
 
 let addTaskContactsResponsiveOn = false;
+let addTaskOpen;
 function startIntervalWhenOff() {
 	const interval = setInterval(() => {
-		if (window.innerWidth > 563 && !addTaskContactsResponsiveOn) {
+		if (window.innerWidth > 563 && !addTaskContactsResponsiveOn && addTaskOpen) {
 			showAddTaskPopupWindow();
 			addTaskContactsResponsiveOn = true;
 			clearInterval(interval);
 			startIntervalWhenOn();
+			addTaskOpen = true;
 			console.log('checkOff');
 		}
 	}, 100);
@@ -155,11 +157,12 @@ function startIntervalWhenOff() {
 
 function startIntervalWhenOn() {
 	const interval = setInterval(() => {
-		if (window.innerWidth < 563 && addTaskContactsResponsiveOn) {
+		if (window.innerWidth < 563 && addTaskContactsResponsiveOn && addTaskOpen) {
 			showAddTaskPopupWindow();
 			addTaskContactsResponsiveOn = false;
 			clearInterval(interval);
 			startIntervalWhenOff();
+			addTaskOpen = true;
 			console.log('checkOn');
 		}
 	}, 100);
@@ -168,6 +171,14 @@ function startIntervalWhenOn() {
 function addTaskContactAutomaticResponisive() {
 	startIntervalWhenOff();
 	startIntervalWhenOn();
+}
+
+function trackThatAddTaskIsClose() {
+	addTaskOpen = false;
+}
+
+function allowAddTaskPopUp() {
+	addTaskOpen = true;
 }
 /**
  * this function returns the popup Menu html string
@@ -179,10 +190,11 @@ function renderAddTaskPopupHtml() {
 		document.getElementById('boardPopup').onclick = function () {
 			closeNewContact();
 			closeEditContact();
-		}
+			trackThatAddTaskIsClose();
+		};
 		return /*html*/ `
         <div id='boardAddTaskPopup' onclick='stopClose(event)'>
-            <img class='close_logo_edit_task' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'>
+            <img class='close_logo_edit_task' src='./assets/img/close_logo.png' onclick='disablePopupWindow(), trackThatAddTaskIsClose()'>
             <div class='boardAddTaskHeadlineDiv'>
                 <h2 class='addTHeadline'>Add Task</h2>
             </div>
@@ -192,7 +204,7 @@ function renderAddTaskPopupHtml() {
                         <span>Clear</span> 
                         <img id='addTaskClear' src='./assets/img/clearb.png'>
                     </button>
-                    <button class='addTaskCreate' onclick='checkInputs()'>
+                    <button class='addTaskCreate' onclick='checkInputs(), trackThatAddTaskIsClose()'>
                         <span>Create Task</span>
                         <img src='./assets/img/createb.png'>  
                     </button>
@@ -335,7 +347,7 @@ function renderAddTaskPopupHtml() {
         </div>
         `;
 	} else {
-		document.getElementById('boardPopup').removeAttribute('onclick');
+		document.getElementById('boardPopup').onclick = function () {};
 		return /*html*/ `
         <div class="addTaskMobileResponsiveBackground">
         	<div class="testResponsiv testResponsiveAddTaskContact" id="testResponsiv">
@@ -451,11 +463,11 @@ function renderAddTaskPopupHtml() {
 			</div>
 			<div class="addTaskBtnOuterContainerContacts" id="addTaskBtnOuterContainer">
 			<div class="addTaskBtnInnerContainerContacts">
-				<button class="addTaskClearContacts" onclick="closeNewContact(), closeEditContact();">
+				<button class="addTaskClearContacts" onclick="closeNewContact(), closeEditContact(), trackThatAddTaskIsClose()">
 					<span>Close</span>
 					<img id="addTaskClears" src="./assets/img/clearb.png" />
 				</button>
-				<button class="addTaskCreateContacts" onclick="checkInputs()">
+				<button class="addTaskCreateContacts" onclick="checkInputs(), trackThatAddTaskIsClose()">
 					<span>Create Task</span>
 					<img src="./assets/img/createb.png" />
 				</button>
