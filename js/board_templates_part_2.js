@@ -176,6 +176,7 @@ function addTaskContactAutomaticResponisive() {
 function renderAddTaskPopupHtml() {
 	addTaskContactAutomaticResponisive();
 	if (window.innerWidth > 563) {
+        document.getElementById('boardPopup').onclick = function() {closeNewContact(); closeEditContact();}
 		return /*html*/ `
         <div id='boardAddTaskPopup' onclick='stopClose(event)'>
             <img class='close_logo_edit_task' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'>
@@ -331,6 +332,7 @@ function renderAddTaskPopupHtml() {
         </div>
         `;
 	} else {
+        document.getElementById('boardPopup').removeAttribute("onclick");
 		return /*html*/ `
         <div class="addTaskMobileResponsiveBackground">
         	<div class="testResponsiv testResponsiveAddTaskContact" id="testResponsiv">
@@ -446,8 +448,8 @@ function renderAddTaskPopupHtml() {
 			</div>
 			<div class="addTaskBtnOuterContainerContacts" id="addTaskBtnOuterContainer">
 			<div class="addTaskBtnInnerContainerContacts">
-				<button class="addTaskClearContacts" onclick="clearFormularData()">
-					<span>Clear</span>
+				<button class="addTaskClearContacts" onclick="closeNewContact(), closeEditContact();">
+					<span>Close</span>
 					<img id="addTaskClears" src="./assets/img/clearb.png" />
 				</button>
 				<button class="addTaskCreateContacts" onclick="checkInputs()">
