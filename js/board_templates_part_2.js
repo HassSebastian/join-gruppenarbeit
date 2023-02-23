@@ -148,7 +148,7 @@ function startIntervalWhenOff() {
 			addTaskContactsResponsiveOn = true;
 			clearInterval(interval);
 			startIntervalWhenOn();
-            console.log('checkOff')
+			console.log('checkOff');
 		}
 	}, 100);
 }
@@ -160,7 +160,7 @@ function startIntervalWhenOn() {
 			addTaskContactsResponsiveOn = false;
 			clearInterval(interval);
 			startIntervalWhenOff();
-            console.log('checkOn')
+			console.log('checkOn');
 		}
 	}, 100);
 }
@@ -176,7 +176,10 @@ function addTaskContactAutomaticResponisive() {
 function renderAddTaskPopupHtml() {
 	addTaskContactAutomaticResponisive();
 	if (window.innerWidth > 563) {
-        document.getElementById('boardPopup').onclick = function() {closeNewContact(); closeEditContact();}
+		document.getElementById('boardPopup').onclick = function () {
+			closeNewContact();
+			closeEditContact();
+		}
 		return /*html*/ `
         <div id='boardAddTaskPopup' onclick='stopClose(event)'>
             <img class='close_logo_edit_task' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'>
@@ -332,7 +335,7 @@ function renderAddTaskPopupHtml() {
         </div>
         `;
 	} else {
-        document.getElementById('boardPopup').removeAttribute("onclick");
+		document.getElementById('boardPopup').removeAttribute('onclick');
 		return /*html*/ `
         <div class="addTaskMobileResponsiveBackground">
         	<div class="testResponsiv testResponsiveAddTaskContact" id="testResponsiv">

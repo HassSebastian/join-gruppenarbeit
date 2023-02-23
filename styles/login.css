@@ -1,7 +1,7 @@
 body {
 	margin: 0;
 	user-select: none;
-	box-sizing: border-box;
+	box-sizing: border-box !important;
 }
 
 .d-none {
@@ -23,6 +23,7 @@ body {
 	gap: 35px;
 	position: absolute;
 	width: fit-content;
+	height: fit-content;
 	right: 114px;
 	top: 67px;
 }
@@ -87,9 +88,9 @@ body {
 
 .logInLogoImgBlack {
 	position: absolute;
-	left: 5.35%;
-	right: 87.71%;
-	top: 7.81%;
+	left: 70px;
+	/* right: 87.71%; */
+	top: 80px;
 	bottom: 80.28%;
 	animation: logoBlack 2s ease-in-out;
 	cursor: pointer;
@@ -106,10 +107,8 @@ body {
 	}
 
 	to {
-		left: 5.35%;
-		right: 87.71%;
-		top: 7.81%;
-		bottom: 80.28%;
+		left: 70px;
+		top: 80px;
 		opacity: 1;
 		z-index: 1000;
 	}
@@ -478,7 +477,7 @@ body {
 	padding: 0px;
 	gap: 24px;
 	width: 315px;
-	height: 97px;
+	height: 100%;
 }
 
 .signUpHeadline span {
@@ -632,8 +631,8 @@ body {
 
 .arrowContainer {
 	position: absolute;
-	width: 37px;
-	height: 37px;
+	/* width: 37px;
+	height: 37px; */
 	left: 31px;
 	top: 35px;
 	flex: none;
@@ -641,14 +640,6 @@ body {
 	flex-grow: 0;
 	z-index: 3;
 	cursor: pointer;
-}
-
-.arrowContainer img {
-	position: absolute;
-	left: 16.67%;
-	right: 16.67%;
-	top: 17.59%;
-	bottom: 17.59%;
 }
 
 .contactSucc {
@@ -1191,6 +1182,10 @@ body {
 }
 
 @media screen and (max-width: 1024px), (max-height: 900px) {
+	.notAJoinUser {
+		right: 38px;
+	}
+
 	.loginMasterContainer {
 		width: 372px;
 		gap: unset;
@@ -1207,6 +1202,8 @@ body {
 
 	.logInHeadlineContainer span {
 		font-size: 47px;
+		height: unset;
+		padding-bottom: 24px;
 	}
 
 	.loginContainer {
@@ -1246,6 +1243,132 @@ body {
 	.guestButton {
 		width: 100%;
 		height: 51px !important;
+	}
+
+	/* SignUp */
+
+	.signUpHeadline span {
+		font-size: 47px;
+	}
+
+	.signUpMasterContainer {
+		max-width: 372px;
+		width: 100%;
+		padding: 35px 0;
+		justify-content: space-between;
+	}
+
+	.signupInputContainer {
+		width: 100%;
+		gap: unset;
+		justify-content: space-between;
+		height: 244px;
+		width: 320px;
+	}
+
+	.signupInnerContainer {
+		width: 100%;
+	}
+
+	.signupOutContainer {
+		width: 100%;
+	}
+
+	.signupaContainer {
+		width: 100%;
+	}
+
+	.signupInputSignUp {
+		width: 100%;
+	}
+
+	/* forgot password */
+	.forgotMasterContainer {
+		width: 372px;
+		box-sizing: border-box;
+		height: 502px;
+		padding: 10px 10px;
+		gap: unset; /* ja oder nein? */
+	}
+	.forgotPasswordHeadline {
+		width: 320px;
+		height: fit-content;
+	}
+
+	.forgotPasswordHeadline span {
+		font-size: 47px;
+		width: 100%;
+		height: fit-content;
+	}
+
+	.forgotPasswordContent {
+		width: 320px;
+		height: fit-content;
+	}
+
+	.forgotInputContainer {
+		width: 320px;
+	}
+
+	.forgotOutContainer {
+		width: 320px;
+	}
+
+	.forgotaContainer {
+		width: 320px;
+	}
+
+	.forgotInnerContainer {
+		width: 100%;
+		gap: unset;
+		position: relative;
+	}
+
+	.inputForgot {
+		display: flex;
+	}
+
+	.forgotInnerContainer img {
+		position: absolute;
+		right: 0px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	/* 	.notAJoinUser {
+		display: none;
+	} */
+
+	.notAJoinUser {
+		top: 38px;
+	}
+
+	.logInLogoImgBlack {
+		position: absolute;
+		left: 38px;
+		/* right: 87.71%; */
+		top: 38px;
+		bottom: 80.28%;
+		width: 64px;
+		height: 78.03px;
+	}
+
+	@keyframes logoBlack {
+		from {
+			left: 50%;
+			top: 50%;
+			width: 100.03px;
+			height: 121.97px;
+			opacity: 0;
+			z-index: 0;
+		}
+
+		to {
+			left: 38px;
+			top: 38px;
+			opacity: 1;
+			z-index: 1000;
+		}
 	}
 }
 
