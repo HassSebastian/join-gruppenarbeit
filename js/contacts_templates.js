@@ -409,7 +409,7 @@ function showContactHTML(name, email, phone, letter, color, i) {
             <div class="showContact_Name_addTask">
                 <div class="rightSideShowContacts">
                     <h1>${name}</h1>
-                    <span onclick="showAddTaskPopupWindow()">+ Add Task</span>
+                    <span onclick="allowAddTaskPopUp(), showAddTaskPopupWindow()">+ Add Task</span>
                 </div>
             </div>
         </div>
