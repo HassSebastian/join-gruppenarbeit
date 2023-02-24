@@ -1,17 +1,15 @@
 async function initHelp() {
-    await renderHelp();
+	await renderHelp();
 }
-
 
 function back() {
-    initSummary();
+	initSummary();
 }
 
-
 async function renderHelp() {
-    document.getElementById('content').innerHTML = '';
-    await enableHelp();
-    document.getElementById('content').innerHTML += /*html*/ `
+	document.getElementById('content').innerHTML = '';
+	await enableHelp();
+	document.getElementById('content').innerHTML += /*html*/ `
             <img src="./assets/img/back_logo_black.png" onclick="back()" class="backArrowimg">
             <span class="helpOverlayspan">Help</span>
         <div class="textFieldContainer">
