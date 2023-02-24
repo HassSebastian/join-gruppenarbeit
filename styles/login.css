@@ -1,7 +1,18 @@
 body {
-	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	overflow: hidden;
+	background-color: #f6f7f8;
+	font-family: 'Inter';
+	text-decoration: none;
 	user-select: none;
-	box-sizing: border-box !important;
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
 }
 
 .d-none {
@@ -439,14 +450,9 @@ body {
 	width: max-content;
 	height: 12px;
 	font-family: 'Poppins';
-	font-style: normal;
-	font-weight: 400;
 	font-size: 12px;
 	line-height: 120%;
-	flex: none;
 	color: transparent;
-	order: 1;
-	flex-grow: 0;
 }
 
 .requiredOn {
@@ -694,229 +700,143 @@ body {
 }
 
 /*forgotPW*/
-.forgotMasterContainer {
+.formForgot,
+.formRestPassword {
+	position: absolute;
+	height: 100vh;
+	width: 100%;
 	display: flex;
-	flex-direction: column;
 	align-items: center;
-	padding: 44px 35px;
-	gap: 35px;
+	justify-content: center;
+}
+
+.forgotPasswordWindow,
+.resetPasswordWindow {
+	position: relative;
 	width: 652px;
 	height: 462px;
-	background: #ffffff;
-	box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+	padding: 24px 35px;
 	border-radius: 30px;
+	background-color: white;
+	box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
 	overflow: hidden;
 }
 
-.forgotPasswordHeadline {
+.forgotPasswordWindow > img {
+	cursor: pointer;
+}
+
+.innerContainerForgotPassword,
+.innerResetContainer {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	padding: 0px;
-	gap: 24px;
-	width: 626px;
-	height: 97px;
-	flex: none;
-	order: 0;
-	flex-grow: 0;
-	z-index: 0;
-}
-
-.forgotPasswordHeadline span {
-	width: 626px;
-	height: 73px;
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 61px;
-	line-height: 120%;
-	text-align: center;
-	color: #000000;
-	flex: none;
-	order: 0;
-	flex-grow: 0;
-	padding-top: 32px;
-}
-
-.forgotPasswordHeadline div {
-	width: 150px;
-	height: 0;
-	border: 3px solid #29abe2;
-	transform: rotate(180deg);
-	flex: none;
-	order: 1;
-	flex-grow: 0;
-}
-
-.forgotPasswordContent {
-	width: 656px;
-	height: 50px;
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 21px;
-	line-height: 120%;
-	text-align: center;
-	color: #000000;
-	flex: none;
-	order: 1;
-	flex-grow: 0;
-	z-index: 1;
-}
-
-.forgotInputContainer {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	padding: 0px;
-	gap: 29px;
-	width: 422px;
-	height: 71px;
-	flex: none;
-	order: 1;
-	flex-grow: 0;
-	z-index: 1;
-}
-
-.forgotOutContainer {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	padding: 0px;
-	gap: 8px;
-	width: 422px;
-	height: 71px;
-	flex: none;
-	order: 0;
-	flex-grow: 0;
-}
-
-.forgotaContainer {
-	box-sizing: border-box;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	padding: 13px 21px;
-	gap: 10px;
-	width: 422px;
-	height: 51px;
-	background: #ffffff;
-	border: 1px solid #d1d1d1;
-	border-radius: 10px;
-	flex: none;
-	order: 0;
-	flex-grow: 0;
-}
-
-.forgotInnerContainer {
-	display: flex;
-	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0px;
-	gap: 10px;
-	width: 380px;
-	height: 25px;
-	flex: none;
-	order: 0;
-	flex-grow: 0;
 }
 
-.inputForgot {
-	width: max-content;
+.innerContainerForgotPassword h1,
+.innerResetContainer h1 {
+	font-size: 61px;
+	margin: unset;
+}
+
+.innerContainerForgotPassword h1 {
+	text-align: center;
+}
+
+.innerContainerForgotPassword p {
+	font-size: 21px;
+	text-align: center;
+}
+
+.forgotPasswordInputContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 422px;
+	gap: 8px;
+}
+
+.inputfieldContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 422px;
+	height: 51px;
+	padding: 13px 21px;
+	border: 1px solid #d1d1d1;
+	border-radius: 10px;
+}
+
+.inputfieldContainer input {
+	border: transparent;
 	height: 25px;
 	font-family: 'Inter';
+	margin: unset;
+	padding: unset;
+	outline: 0;
+	font-size: 21px;
+}
+
+.inputfieldContainer span {
+	width: 100%;
+	text-align: start;
+}
+
+.required {
+	font-family: 'Poppins';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 21px;
-	line-height: 120%;
-	color: #d1d1d1;
-	flex: none;
-	order: 0;
-	flex-grow: 0;
-	border: 0;
-	outline: 0;
-	color: black;
-}
-
-.forgotInnerContainer img {
-	width: 24px;
-	height: 24px;
-	flex: none;
-	order: 1;
-	flex-grow: 0;
-}
-
-.forgotButtonContainer {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: flex-start;
-	padding: 0px;
-	gap: 35px;
-	width: 264px;
-	height: 51px;
-	flex: none;
-	order: 3;
-	flex-grow: 0;
-	z-index: 3;
+	font-size: 12px;
+	width: 100%;
 }
 
 .forgotButton {
-	display: flex;
-	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	padding: 4px 0px;
-	gap: 10px;
 	width: 264px;
 	height: 51px;
 	background: #2a3647;
 	border-radius: 8px;
 	flex: none;
-	order: 0;
-	flex-grow: 0;
 	border: 0;
-}
-
-.forgotButton:hover {
-	background: #29abe2;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .forgotButton span {
 	width: 189px;
-	height: 25px;
 	font-family: 'Inter';
-	font-style: normal;
 	font-weight: 700;
 	font-size: 21px;
-	line-height: 120%;
 	color: #ffffff;
-	flex: none;
-	order: 0;
-	flex-grow: 0;
+	cursor: pointer;
 }
 
+/* Email has been sent */
+
 .sentMassageDoneMaserContainerMob {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	padding: 0px;
-	position: relative;
 	width: 326px;
 	height: 74px;
 	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
-	left: 0;
-	top: 390px;
+	bottom: 30px;
 	z-index: 3;
 	overflow: hidden;
-	transition: 500ms ease-in-out;
+	transform: translateY(300px);
+
 	border-radius: 10px;
 }
 
 .sentMassageDoneMaserContainerMobSlide {
-	transform: translateY(-300px);
+	transform: translateY(0px) !important;
+	transition: 500ms ease-in-out;
 }
 
 .sentMassageDoneMaserContainerMob span {
@@ -1182,6 +1102,7 @@ body {
 }
 
 @media screen and (max-width: 1024px), (max-height: 900px) {
+	/* login */
 	.notAJoinUser {
 		right: 38px;
 	}
@@ -1223,7 +1144,6 @@ body {
 	}
 
 	.rememberMeContainer {
-		margin-top: -20px;
 		flex-direction: column-reverse;
 		justify-content: space-between;
 		height: 69px;
@@ -1283,54 +1203,18 @@ body {
 	}
 
 	/* forgot password */
-	.forgotMasterContainer {
+	.forgotPasswordWindow {
 		width: 372px;
-		box-sizing: border-box;
-		height: 502px;
-		padding: 10px 10px;
-		gap: unset; /* ja oder nein? */
-	}
-	.forgotPasswordHeadline {
-		width: 320px;
-		height: fit-content;
 	}
 
-	.forgotPasswordHeadline span {
+	.innerContainerForgotPassword h1 {
 		font-size: 47px;
+	}
+
+	.forgotPasswordInputContainer,
+	.inputfieldContainer,
+	.inputfieldContainer input {
 		width: 100%;
-		height: fit-content;
-	}
-
-	.forgotPasswordContent {
-		width: 320px;
-		height: fit-content;
-	}
-
-	.forgotInputContainer {
-		width: 320px;
-	}
-
-	.forgotOutContainer {
-		width: 320px;
-	}
-
-	.forgotaContainer {
-		width: 320px;
-	}
-
-	.forgotInnerContainer {
-		width: 100%;
-		gap: unset;
-		position: relative;
-	}
-
-	.inputForgot {
-		display: flex;
-	}
-
-	.forgotInnerContainer img {
-		position: absolute;
-		right: 0px;
 	}
 }
 
@@ -1373,11 +1257,42 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-	#logIn {
-		padding: 0 29px;
+	/* login */
+	.logInLogoImgBlack {
+		position: absolute;
+		left: 16px;
+		/* right: 87.71%; */
+		top: 16px;
+		bottom: 80.28%;
+		width: 50px;
+		height: 61px;
 	}
 
-	.loginMasterContainer {
-		width: 100%;
+	@keyframes logoBlack {
+		from {
+			left: 50%;
+			top: 50%;
+			width: 100.03px;
+			height: 121.97px;
+			opacity: 0;
+			z-index: 0;
+		}
+
+		to {
+			left: 16px;
+			top: 16px;
+			opacity: 1;
+			z-index: 1000;
+		}
+	}
+
+	/* forgot password */
+
+	.innerContainerForgotPassword h1 {
+		font-size: 36px;
+	}
+
+	.innerContainerForgotPassword p {
+		font-size: 18px;
 	}
 }
