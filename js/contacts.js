@@ -94,13 +94,12 @@ async function userInAlphabetArray() {
 	alphabet();
 	setTimeout(() => {
 		contactListAutomaticResponisive();
-	showContact(0);
+		showContact(0);
 	}, 100);
 	showContact(0);
 }
 
 function contactListAutomaticResponisive() {
-	
 	if (window.innerWidth > 850) {
 		autoResponsive = true;
 	}
