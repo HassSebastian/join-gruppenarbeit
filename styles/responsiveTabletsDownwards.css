@@ -85,11 +85,11 @@
 	}
 
 	/* Help */
-	.helpContainer {
+	/* .helpContainer {
 		width: calc(100vw - 32px);
 		height: 100vh;
 		margin: 0 16px !important;
-	}
+	} */
 
 	/*  .kanbanProjectManagementTool {
     left: unset 1
