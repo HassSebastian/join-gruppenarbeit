@@ -389,7 +389,44 @@ tr td:nth-child(3) {
 	transition: 100ms ease-in-out;
 }
 
-/* slider menu end */
+/* Bottom menu for mobile devices */
+.mobileBottomMenu {
+	display: none;
+	flex-direction: row;
+	justify-content: space-around;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 79px;
+	width: 100%;
+	background-color: #2a3647;
+}
+
+.mobileMenuBtnContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 6px;
+}
+
+.mobileMenuBtnContainer img {
+	height: 30px;
+	width: 30px;
+}
+
+.mobileMenuContactButtonImage {
+	height: 30px;
+	width: 25px !important;
+}
+
+.mobileMenuBtnContainer span {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	color: #cdcdcd;
+}
 
 @media screen and (max-width: 1500px) {
 	.outerContainer {
@@ -461,6 +498,10 @@ tr td:nth-child(3) {
 
 	.overview {
 		gap: 24px !important;
+	}
+
+	.mobileBottomMenu {
+		display: flex;
 	}
 }
 
