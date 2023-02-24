@@ -170,14 +170,35 @@ function closeNewContact() {
 	document.getElementById('boardPopup').classList.add('d-none');
 }
 
+/* 
+!Bitte Änderungen anschauen und absegnen */
+function closeNewContact() {
+	const newContact = document.getElementById('new_contact');
+	if (!newContact) {
+		document.getElementById('boardPopup').classList.add('d-none');
+		return;
+	}
+
+	newContact.classList.add('d-none');
+	document.getElementById('boardPopup').classList.add('d-none');
+}
+
 /**
  * If the window width is less than 769px, render the content for mobile, otherwise remove the class
  * 'add_contact_slide' from the element with the id 'edit_contact'.
  *
  * After 500ms, add the class 'd-none' to the element with the id 'edit_contact'.
  */
+
+/* 
+!Bitte Änderungen anschauen und absegnen */
 function closeEditContact() {
-	document.getElementById('edit_contact').classList.add('d-none');
+	const editContact = document.getElementById('edit_contact');
+	if (!editContact) {
+		document.getElementById('boardPopup').classList.add('d-none');
+		return;
+	}
+	editContact.classList.add('d-none');
 	document.getElementById('boardPopup').classList.add('d-none');
 }
 
