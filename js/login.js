@@ -187,21 +187,37 @@ function backToSignInMob() {
 }
 
 function resetbuttonContainerMob() {
+	inputPasswordErrorMessageClear();
+	let inputNewPassword = document.getElementById('inputNewPassword').value;
+	let inputConfirmPassword = document.getElementById('inputConfirmPassword').value;
+	if (inputNewPassword == '' || inputConfirmPassword == '') {
+		inputPasswordErrorMessage();
+	} else {
+		if (inputNewPassword == inputConfirmPassword) {
+			newPasswordCheck(forgotEmailIndex, inputNewPassword);
+		} else {
+			inputPasswordErrorMessage();
+		}
+	}
+}
+
+function inputPasswordErrorMessageClear() {
 	document.getElementById('requiredNewPassword').classList.remove('requiredOn');
 	document.getElementById('requiredConfirmPassword').classList.remove('requiredOn');
 	document.getElementById('requiredNewPassword').innerHTML = `This field is required`;
 	document.getElementById('requiredConfirmPassword').innerHTML = `This field is required`;
-	let inputNewPassword = document.getElementById('inputNewPassword').value;
-	let inputConfirmPassword = document.getElementById('inputConfirmPassword').value;
-	if (inputNewPassword == inputConfirmPassword) {
-		allUsers[forgotEmailIndex].password = inputNewPassword;
-		saveTask();
-		document.getElementById('pwResetContainerMob').classList.add('pwResetContainerMobSlide');
-		setTimeout(backToLogInMob, 3000);
-	} else {
-		document.getElementById('requiredNewPassword').classList.add('requiredOn');
-		document.getElementById('requiredConfirmPassword').classList.add('requiredOn');
-		document.getElementById('requiredNewPassword').innerHTML = `password is not the same`;
-		document.getElementById('requiredConfirmPassword').innerHTML = `password is not the same`;
-	}
+}
+
+function inputPasswordErrorMessage() {
+	document.getElementById('requiredNewPassword').classList.add('requiredOn');
+	document.getElementById('requiredConfirmPassword').classList.add('requiredOn');
+	document.getElementById('requiredNewPassword').innerHTML = `password is not the same`;
+	document.getElementById('requiredConfirmPassword').innerHTML = `password is not the same`;
+}
+
+function newPasswordCheck(forgotEmailIndex, inputNewPassword) {
+	allUsers[forgotEmailIndex].password = inputNewPassword;
+	saveTask();
+	document.getElementById('pwResetContainerMob').classList.add('pwResetContainerMobSlide');
+	setTimeout(backToLogInMob, 3000);
 }
