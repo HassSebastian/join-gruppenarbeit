@@ -1421,10 +1421,10 @@
 }
 
 .taskCreatedIndication {
-	transform: translateX(0px);
+	transform: translateY(-680px);
 	transition-delay: 900ms;
 	transition-duration: 300ms;
-	transition: transform 100ms ease-in-out;
+	transition: transform 200ms ease-in-out;
 }
 
 .taskAddedToBoardContainer {
