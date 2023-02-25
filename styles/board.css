@@ -1139,7 +1139,7 @@ boardSubheaders > * {
 	align-items: flex-start;
 	padding: 0px;
 	gap: 25px;
-	width: 460px;
+	width: 86%;
 	height: 169px;
 	flex: none;
 	order: 6;
@@ -1885,6 +1885,10 @@ boardSubheaders > * {
 	.boardContainer {
 		padding: 32px;
 		justify-content: unset;
+	}
+	.boardTaskCardPopup{
+		height: 100%;
+		width: 100%;
 	}
 }
 
