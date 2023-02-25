@@ -2,6 +2,7 @@ let rememberUser = [];
 let loggedUser = [];
 let allUsers = [];
 let guestEmail = 'guest@web.de';
+let forgotEmailIndex;
 
 async function outLogoutMob() {
 	await initLoginMob();
@@ -151,27 +152,39 @@ function showForgotPasswordMob() {
 	document.getElementById('formForgotPassword').classList.remove('d-none');
 }
 
-let forgotEmailIndex;
 function sendMailButton() {
 	document.getElementById('requiredEmailForgot').classList.remove('requiredOn');
 	document.getElementById('requiredEmailForgot').innerHTML = `This field is required`;
 	let inputForgotValue = document.getElementById('inputForgot').value;
-	if (inputForgotValue.length == 0) {
+	if (inputForgotValue == '') {
 		document.getElementById('requiredEmailForgot').classList.add('requiredOn');
 	} else {
-		for (i = 0; i < allUsers.length; i++) {
-			let inputComparison = allUsers[i].email;
-			if (inputForgotValue == inputComparison) {
-				document.getElementById('requiredEmailForgot').style = 'color:transparent';
-				document.getElementById('sentMassageDoneMaserContainerMob').classList.add('sentMassageDoneMaserContainerMobSlide');
-				forgotEmailIndex = i;
-				setTimeout(showPasswordResetCard, 2000);
-			} else {
-				document.getElementById('requiredEmailForgot').classList.add('requiredOn');
-				document.getElementById('requiredEmailForgot').innerHTML = `email is not available`;
-			}
+		inputForgotValueOk(inputForgotValue);
+	}
+}
+
+function inputForgotValueOk(inputForgotValue) {
+	for (i = 0; i < allUsers.length; i++) {
+		let inputComparison = allUsers[i].email;
+		if (inputForgotValue == inputComparison) {
+			preparationShowPasswordResetCard(i);
+			setTimeout(showPasswordResetCard, 2000);
+			break;
+		} else {
+			comparisonFailed();
 		}
 	}
+}
+
+function preparationShowPasswordResetCard(i) {
+	document.getElementById('requiredEmailForgot').style = 'color:transparent';
+	document.getElementById('sentMassageDoneMaserContainerMob').classList.add('sentMassageDoneMaserContainerMobSlide');
+	forgotEmailIndex = i;
+}
+
+function comparisonFailed() {
+	document.getElementById('requiredEmailForgot').classList.add('requiredOn');
+	document.getElementById('requiredEmailForgot').innerHTML = `email is not available`;
 }
 
 function showPasswordResetCard() {

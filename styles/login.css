@@ -202,7 +202,7 @@ body {
 }
 
 .logInHeadlineContainer div {
-	width: 150px;
+	width: 110px;
 	height: 0px;
 	border: 3px solid #29abe2;
 	transform: rotate(180deg);
@@ -506,19 +506,17 @@ body {
 }
 
 .signupInputContainer {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 0px;
-	gap: 29px;
+	gap: 18px;
 	width: 422px;
 	height: 271px;
 	flex: none;
-	order: 1;
-	flex-grow: 0;
 	z-index: 1;
-	top: -30px;
-	position: relative;
+	top: 16px;
 }
 
 .signupOutContainer {
@@ -530,8 +528,6 @@ body {
 	width: 422px;
 	height: 71px;
 	flex: none;
-	order: 0;
-	flex-grow: 0;
 }
 
 .signupaContainer {
@@ -547,8 +543,6 @@ body {
 	border: 1px solid #d1d1d1;
 	border-radius: 10px;
 	flex: none;
-	order: 0;
-	flex-grow: 0;
 }
 
 .signupInnerContainer {
@@ -561,8 +555,6 @@ body {
 	width: 380px;
 	height: 25px;
 	flex: none;
-	order: 0;
-	flex-grow: 0;
 }
 
 .signupInnerContainer span {
@@ -575,16 +567,12 @@ body {
 	line-height: 120%;
 	color: #d1d1d1;
 	flex: none;
-	order: 0;
-	flex-grow: 0;
 }
 
 .signupInnerContainer img {
 	width: 24px;
 	height: 24px;
 	flex: none;
-	order: 1;
-	flex-grow: 0;
 }
 
 .signupInputSignUp {
@@ -609,8 +597,6 @@ body {
 	background: #2a3647;
 	border-radius: 8px;
 	flex: none;
-	order: 2;
-	flex-grow: 0;
 	z-index: 2;
 	border: 0;
 }
@@ -631,8 +617,6 @@ body {
 	line-height: 120%;
 	color: #ffffff;
 	flex: none;
-	order: 0;
-	flex-grow: 0;
 }
 
 .arrowContainer {
@@ -642,8 +626,6 @@ body {
 	left: 31px;
 	top: 35px;
 	flex: none;
-	order: 3;
-	flex-grow: 0;
 	z-index: 3;
 	cursor: pointer;
 }
@@ -680,8 +662,6 @@ body {
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
 	border-radius: 20px;
 	flex: none;
-	order: 0;
-	flex-grow: 0;
 }
 
 .contactSuccContainer span {
@@ -695,8 +675,6 @@ body {
 	color: #ffffff;
 	text-align: center;
 	flex: none;
-	order: 0;
-	flex-grow: 0;
 }
 
 /*forgotPW*/
@@ -722,7 +700,7 @@ body {
 	overflow: hidden;
 }
 
-.forgotPasswordWindow > img {
+.forgotPasswordWindow>img {
 	cursor: pointer;
 }
 
@@ -745,7 +723,7 @@ body {
 }
 
 .innerContainerForgotPassword p {
-	font-size: 21px;
+	font-size: 18px;
 	text-align: center;
 }
 
@@ -755,6 +733,7 @@ body {
 	align-items: center;
 	width: 422px;
 	gap: 8px;
+	margin-top: 8px;
 }
 
 .inputfieldContainer {
@@ -856,8 +835,6 @@ body {
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
 	border-radius: 20px;
 	flex: none;
-	order: 0;
-	flex-grow: 0;
 }
 
 /*forgotReset*/
@@ -866,8 +843,9 @@ body {
 	flex-direction: column;
 	align-items: center;
 	padding: 44px 85px;
-	gap: 35px;
+	gap: 20px;
 	height: 537px;
+	width: 652px;
 	background: #ffffff;
 	box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
 	border-radius: 30px;
@@ -879,27 +857,19 @@ body {
 	align-items: center;
 	padding: 0px;
 	gap: 24px;
-	width: 627px;
+	width: 100%;
 	height: 97px;
-	flex: none;
-	order: 0;
-	flex-grow: 0;
-	z-index: 0;
 }
 
 .forgotResetResetHeadline span {
-	width: 627px;
 	height: 73px;
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 700;
-	font-size: 61px;
+	font-size: 45px;
 	line-height: 120%;
 	text-align: center;
 	color: #000000;
-	flex: none;
-	order: 0;
-	flex-grow: 0;
 }
 
 .forgotResetResetHeadline div {
@@ -908,12 +878,9 @@ body {
 	border: 3px solid #29abe2;
 	transform: rotate(180deg);
 	flex: none;
-	order: 1;
-	flex-grow: 0;
 }
 
 .forgotResetContent {
-	width: 656px;
 	height: 50px;
 	font-family: 'Inter';
 	font-style: normal;
@@ -923,8 +890,6 @@ body {
 	text-align: center;
 	color: #000000;
 	flex: none;
-	order: 1;
-	flex-grow: 0;
 	z-index: 1;
 }
 
@@ -934,11 +899,9 @@ body {
 	align-items: flex-start;
 	padding: 0px;
 	gap: 29px;
-	width: 422px;
+	width: 90%;
 	height: 171px;
 	flex: none;
-	order: 2;
-	flex-grow: 0;
 	z-index: 2;
 }
 
@@ -948,11 +911,9 @@ body {
 	align-items: flex-start;
 	padding: 0px;
 	gap: 8px;
-	width: 422px;
+	width: 100%;
 	height: 71px;
 	flex: none;
-	order: 0;
-	flex-grow: 0;
 }
 
 .forgotResetaContainer {
@@ -962,14 +923,12 @@ body {
 	align-items: center;
 	padding: 13px 21px;
 	gap: 10px;
-	width: 422px;
+	width: 100%;
 	height: 51px;
 	background: #ffffff;
 	border: 1px solid #d1d1d1;
 	border-radius: 10px;
 	flex: none;
-	order: 0;
-	flex-grow: 0;
 }
 
 .forgotResetInnerContainer {
@@ -978,15 +937,13 @@ body {
 	align-items: center;
 	padding: 0px;
 	gap: 10px;
-	width: 380px;
+	width: 100%;
 	height: 25px;
 	flex: none;
-	order: 0;
-	flex-grow: 0;
 }
 
 .forgotResetInputPassword {
-	width: max-content;
+	width: 100%;
 	height: 25px;
 	font-family: 'Inter';
 	font-style: normal;
@@ -995,8 +952,6 @@ body {
 	line-height: 120%;
 	color: #d1d1d1;
 	flex: none;
-	order: 0;
-	flex-grow: 0;
 	border: 0;
 	outline: 0;
 	color: black;
@@ -1012,8 +967,6 @@ body {
 	width: 264px;
 	height: 51px;
 	flex: none;
-	order: 3;
-	flex-grow: 0;
 	z-index: 3;
 }
 
@@ -1024,13 +977,11 @@ body {
 	align-items: center;
 	padding: 4px 0px;
 	gap: 10px;
-	width: 264px;
+	width: 157px;
 	height: 51px;
 	background: #2a3647;
 	border-radius: 8px;
 	flex: none;
-	order: 0;
-	flex-grow: 0;
 	border: 0;
 	cursor: pointer;
 }
@@ -1050,8 +1001,6 @@ body {
 	line-height: 120%;
 	color: #ffffff;
 	flex: none;
-	order: 0;
-	flex-grow: 0;
 }
 
 .pwResetContainerMob {
@@ -1082,8 +1031,6 @@ body {
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
 	border-radius: 20px;
 	flex: none;
-	order: 0;
-	flex-grow: 0;
 }
 
 .pwResetHeadlineContainerMob span {
@@ -1097,11 +1044,11 @@ body {
 	color: #ffffff;
 	text-align: center;
 	flex: none;
-	order: 0;
-	flex-grow: 0;
 }
 
-@media screen and (max-width: 1024px), (max-height: 900px) {
+@media screen and (max-width: 1024px),
+(max-height: 900px) {
+
 	/* login */
 	.notAJoinUser {
 		right: 38px;
@@ -1145,9 +1092,12 @@ body {
 
 	.rememberMeContainer {
 		flex-direction: column-reverse;
-		justify-content: space-between;
+		/* justify-content: space-between; */
+		align-items: center;
 		height: 69px;
 		width: 327px;
+		gap: 20px;
+		padding-bottom: 30px;
 	}
 
 	.logInButtonContainer {
@@ -1179,11 +1129,9 @@ body {
 	}
 
 	.signupInputContainer {
-		width: 100%;
-		gap: unset;
-		justify-content: space-between;
 		height: 244px;
 		width: 320px;
+		top: 0;
 	}
 
 	.signupInnerContainer {
@@ -1203,25 +1151,46 @@ body {
 	}
 
 	/* forgot password */
+
+	.forgotResetMasterContainer {
+		width: 430px;
+		padding: 44px 40px;
+	}
+
+	.forgotResetResetHeadline {
+		height: 100px;
+	}
+
+	.forgotResetContent {
+		font-size: 18px;
+	}
+
+	.forgotResetResetHeadline span {
+		font-size: 36px;
+
+	}
+
 	.forgotPasswordWindow {
 		width: 372px;
 	}
 
 	.innerContainerForgotPassword h1 {
-		font-size: 47px;
+		font-size: 36px;
 	}
 
 	.forgotPasswordInputContainer,
 	.inputfieldContainer,
 	.inputfieldContainer input {
 		width: 100%;
+		gap: 16px;
+		margin-top: 8px;
 	}
 }
 
 @media screen and (max-width: 768px) {
-	/* 	.notAJoinUser {
+	.notAJoinUser span {
 		display: none;
-	} */
+	}
 
 	.notAJoinUser {
 		top: 38px;
@@ -1257,16 +1226,8 @@ body {
 }
 
 @media screen and (max-width: 480px) {
+
 	/* login */
-	.logInLogoImgBlack {
-		position: absolute;
-		left: 16px;
-		/* right: 87.71%; */
-		top: 16px;
-		bottom: 80.28%;
-		width: 50px;
-		height: 61px;
-	}
 
 	@keyframes logoBlack {
 		from {

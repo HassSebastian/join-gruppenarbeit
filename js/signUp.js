@@ -57,12 +57,8 @@ async function userSignIn(firstLetter, secondLetter, name, email, password, colo
 		phone: 'N/A',
 	});
 	await saveTask();
-	/* if (window.innerWidth < 768) {
-		contactSucc();
-	} else { */
 	contactSucc();
 	setTimeout(forwardScript, 2000);
-	/* } */
 }
 
 function forwardScript() {
@@ -71,11 +67,7 @@ function forwardScript() {
 			closeNewContact();
 			setTimeout(userInAlphabetArray, 500);
 		} else {
-			/* if (window.innerWidth < 768) {
-				backToLogInMob();
-			} else { */
 			window.location.href = './loginDesk.html';
-			/* } */
 		}
 	} else {
 		window.location.href = './loginDesk.html';
@@ -83,7 +75,9 @@ function forwardScript() {
 }
 
 function contactSucc() {
-	document.getElementById('contactSucc').classList.add('contactSuccSlide');
+	document.getElementById('contactSucc').classList.remove('d-none');
+	setTimeout(() => {	document.getElementById('contactSucc').classList.add('contactSuccSlide');
+},1);
 }
 
 /**

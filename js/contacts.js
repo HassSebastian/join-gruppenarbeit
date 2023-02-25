@@ -178,7 +178,6 @@ function closeNewContact() {
 		document.getElementById('boardPopup').classList.add('d-none');
 		return;
 	}
-
 	newContact.classList.add('d-none');
 	document.getElementById('boardPopup').classList.add('d-none');
 }
@@ -323,7 +322,6 @@ async function deleteContactQuestion(i) {
 	let email = allUsers[i].email;
 	let deleteQuestion = document.getElementById('deleteContactQuestion');
 	let deleteQuestionInner = document.getElementById('deleteContactQuestion').innerHTML;
-
 	if (guestLoggedIn || email == guestEmail) return;
 	if (deletionRequested(letter, deleteQuestionInner)) {
 		deleteQuestion.innerHTML = `Delete?`;
