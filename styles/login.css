@@ -1231,6 +1231,10 @@ body {
 		top: 16px;
 	}
 
+	.loginMasterContainer, .forgotPasswordWindow, .forgotResetMasterContainer, .signUpMasterContainer{
+		width: 100%;
+	}
+
 	@keyframes logoBlack {
 		from {
 			left: 50%;
@@ -1258,4 +1262,5 @@ body {
 	.innerContainerForgotPassword p {
 		font-size: 18px;
 	}
+
 }
