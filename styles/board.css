@@ -1886,7 +1886,7 @@ boardSubheaders > * {
 		padding: 32px;
 		justify-content: unset;
 	}
-	.boardTaskCardPopup{
+	.boardTaskCardPopup {
 		height: 100%;
 		width: 100%;
 		border-radius: 0;
@@ -1898,7 +1898,7 @@ boardSubheaders > * {
 }
 
 @media screen and (max-height: 780px) {
-	.boardTaskCardPopup{
+	.boardTaskCardPopup {
 		height: 100%;
 		overflow: scroll;
 	}
@@ -1907,6 +1907,11 @@ boardSubheaders > * {
 @media screen and (max-width: 480px) {
 	.boardContainer {
 		padding: 8px;
+	}
+
+	.boardContainer {
+		height: calc(100vh - 214px);
+		padding-bottom: unset !important;
 	}
 
 	.kanbanboardTitleSummary {
