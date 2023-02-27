@@ -11,8 +11,7 @@ function startSearch() {
 	let cards = document.querySelectorAll('.taskBackground'); // Select all elements with class "taskBackground"
 
 	document.getElementById('searchField').addEventListener('input', function () {
-		searchTerm = this.value.toLowerCase(); // Get the search term and convert to lowercase
-		searchTerm = this.value.trim();
+		searchTerm = this.value.trim().toLowerCase();
 		cards.forEach(function (card) {
 			let cardTitle = card.querySelector('.taskHeadlineContent').textContent.toLowerCase();
 			let cardDescription = card.querySelector('.taskContent').textContent.toLowerCase();
