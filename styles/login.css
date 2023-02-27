@@ -700,7 +700,7 @@ body {
 	overflow: hidden;
 }
 
-.forgotPasswordWindow>img {
+.forgotPasswordWindow > img {
 	cursor: pointer;
 }
 
@@ -1046,9 +1046,7 @@ body {
 	flex: none;
 }
 
-@media screen and (max-width: 1024px),
-(max-height: 900px) {
-
+@media screen and (max-width: 1024px), (max-height: 900px) {
 	/* login */
 	.notAJoinUser {
 		right: 38px;
@@ -1167,7 +1165,6 @@ body {
 
 	.forgotResetResetHeadline span {
 		font-size: 36px;
-
 	}
 
 	.forgotPasswordWindow {
@@ -1226,8 +1223,13 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-
 	/* login */
+
+	.logInLogoImgBlack {
+		position: absolute;
+		left: 16px;
+		top: 16px;
+	}
 
 	@keyframes logoBlack {
 		from {

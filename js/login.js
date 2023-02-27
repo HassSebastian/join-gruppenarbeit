@@ -14,9 +14,9 @@ async function initLoginMob() {
 	await loadTask();
 }
 
-function initSignIn() {
+/* function initSignIn() {
 	window.location.href = './signUp.html';
-}
+} */
 
 function forgotPassword() {
 	window.location.href = './forgotMyP_sendMail.html';
