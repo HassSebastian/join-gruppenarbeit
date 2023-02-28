@@ -1,3 +1,5 @@
+let greetingOnce = false;
+
 let loggedInUserIndex;
 let emailAddress;
 
@@ -13,7 +15,6 @@ let allYourToDoTasks = [];
 let allYourInProgressTasks = [];
 let allYourAwaitingFeedbackTasks = [];
 let allYourDoneTasks = [];
-let helloCheck = 0; // prevents errors when changing the size of the window on your desktop
 let penImage = 'to_do_pen';
 
 async function initSummary() {
@@ -45,7 +46,7 @@ function resetCounters() {
 }
 
 function resetYourTasksArrays() {
-	allYourToDoTasks = []; // Bossis Idee, für workflow 0-3
+	allYourToDoTasks = [];
 	allYourInProgressTasks = [];
 	allYourAwaitingFeedbackTasks = [];
 	allYourDoneTasks = [];
@@ -97,11 +98,12 @@ function showDate() {
 	document.getElementById('deadlineDate').innerHTML = dateString;
 }
 
-// greet User
+/*================ 
+GREETING FUNCTIONS
+=================*/
 
 /**
  * Depending on the time greet user being logged in
- * @param {number} helloCheck is 0 when width of window is bigger 768px
  */
 function greetUser() {
 	const currentTime = new Date();
@@ -124,10 +126,17 @@ function getGreeting(hours) {
 	return 'Good Evening';
 }
 
+/**
+ * Puts name of logged in user in mobile greeting ani
+ */
 function greetUserInMobileUI() {
 	document.getElementById('nameToBeingGreeted').innerHTML = `${allUsers[loggedUser[0]].name}`;
 }
 
+/**
+ * Makes sure that the greeting animation is only shown once
+ * on mobile devices.
+ */
 function greetingMobileAnimation() {
 	if (window.innerWidth <= 768 && !greetingOnce) {
 		document.getElementById('greetMobileOverlay').classList.remove('d-none');
@@ -139,6 +148,10 @@ function greetingMobileAnimation() {
 	}
 }
 
+/* =================
+MAIN SUMMARY SECTION
+====================*/
+
 /**
  * This function loads the logged in user's array,
  * gets the index of the logged in user, gets the email
@@ -148,7 +161,6 @@ async function loadAmountsForSummary() {
 	loadLoggedInUserArray();
 	getLoggedUserIndex();
 	getEmailAdrressOfLoggedUser();
-	/* updatingSummary(); */
 	getAllValuesForOverview();
 }
 
@@ -180,35 +192,64 @@ function getEmailAdrressOfLoggedUser() {
 	emailAddress == guestEmail ? (guestLoggedIn = true) : null;
 }
 
-let greetingOnce = false;
-
-// function to filter all tasks with emailAdress
+/**
+ * generic function
+ * @param {object} tasks of the logged in user
+ * @returns array of all tasks of the logged in user
+ */
 function allUserTasks(tasks) {
 	return tasks.filter((task) => task.assignedTo.some((person) => person.email === emailAddress));
 }
 
-function filterTasks(tasks, priority, emailAddress) {
-	return tasks.filter((task) => task.workFlowStatus === priority && task.assignedTo.some((person) => person.email === emailAddress));
+/**
+ *
+ * @param {object} tasks
+ * @param {number} status
+ * @param {string} emailAddress
+ * @returns array of tasks of priority x of the logged in user
+ */
+function filterTasks(tasks, status, emailAddress) {
+	return tasks.filter((task) => task.workFlowStatus === status && task.assignedTo.some((person) => person.email === emailAddress));
 }
 
+/**
+ *
+ * @param {object} tasks
+ * @param {string} priority
+ * @param {string} emailAddress
+ * @returns
+ */
 function filterTasksPriority(tasks, priority, emailAddress) {
 	return tasks.filter((task) => task.prio === priority && task.assignedTo.some((person) => person.email === emailAddress));
 }
 
 async function getAllValuesForOverview() {
+	getTasks();
+	getAmountTasks();
+}
+
+/**
+ * This function gets all tasks of the logged in user
+ * and filters them by status and priority.
+ */
+function getTasks() {
 	allYourTasks = allUserTasks(joinTaskArray);
 	allYourToDoTasks = filterTasks(joinTaskArray, 0, emailAddress);
 	allYourInProgressTasks = filterTasks(joinTaskArray, 1, emailAddress);
 	allYourAwaitingFeedbackTasks = filterTasks(joinTaskArray, 2, emailAddress);
 	allYourDoneTasks = filterTasks(joinTaskArray, 3, emailAddress);
 	allYourUrgentTasks = filterTasksPriority(joinTaskArray, 'Urgent', emailAddress);
+}
 
+/**
+ * This function gets the amount of tasks of the logged in user
+ * and filters them by status and priority.
+ */
+function getAmountTasks() {
 	allYourTasksAmount = allYourTasks.length;
 	allYourToDoTasksAmount = allYourToDoTasks.length;
 	allYourInProgressTasksAmount = allYourInProgressTasks.length;
 	allYourAwaitingFeedbackTasksAmount = allYourAwaitingFeedbackTasks.length;
 	allYourDoneTasksAmount = allYourDoneTasks.length;
 	allYourUrgentTasksAmount = allYourUrgentTasks.length;
-
-	console.log('test', allYourUrgentTasksAmount);
 }
