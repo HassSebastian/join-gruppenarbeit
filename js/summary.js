@@ -1,14 +1,14 @@
 let greetingOnce = false;
 
 let loggedInUserIndex;
-let emailAddress;
+let emailAddressLoggedUser;
 
-let allYourTasksAmount = 0;
-let allYourToDoTasksAmount = 0;
-let allYourInProgressTasksAmount = 0;
-let allYourAwaitingFeedbackTasksAmount = 0;
-let allYourDoneTasksAmount = 0;
-let allYourUrgentTasksAmount = 0;
+let numberInBoard = 0;
+let numberToDo = 0;
+let numberInProgress = 0;
+let numberAwaitingFeedback = 0;
+let numberDone = 0;
+let numberUrgent = 0;
 
 let allYourTasks = [];
 let allYourToDoTasks = [];
@@ -26,7 +26,7 @@ async function initSummary() {
 	resetCounters();
 	resetYourTasksArrays(); // sonst addieren sich die tasks bei jedem Aufrufen
 	await loadAmountsForSummary(); // await später für server wichtig
-	await renderSummary(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, allYourUrgentTasksAmount);
+	await renderSummary(numberInBoard, numberToDo, numberInProgress, numberAwaitingFeedback, numberDone, numberUrgent);
 	selectedMenuBtnId = 0;
 	selectedMenuButton(1);
 	showDate();
@@ -37,12 +37,12 @@ async function initSummary() {
 }
 
 function resetCounters() {
-	allYourTasksAmount = 0;
-	allYourToDoTasksAmount = 0;
-	allYourInProgressTasksAmount = 0;
-	allYourAwaitingFeedbackTasksAmount = 0;
-	allYourDoneTasksAmount = 0;
-	allYourUrgentTasksAmount = 0;
+	numberInBoard = 0;
+	numberToDo = 0;
+	numberInProgress = 0;
+	numberAwaitingFeedback = 0;
+	numberDone = 0;
+	numberUrgent = 0;
 }
 
 function resetYourTasksArrays() {
@@ -52,9 +52,9 @@ function resetYourTasksArrays() {
 	allYourDoneTasks = [];
 }
 
-async function renderSummary(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, allYourUrgentTasksAmount) {
+async function renderSummary(numberInBoard, numberToDo, numberInProgress, numberAwaitingFeedback, numberDone, numberUrgent) {
 	document.getElementById('content').innerHTML = '';
-	document.getElementById('content').innerHTML += generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, allYourUrgentTasksAmount);
+	document.getElementById('content').innerHTML += generateSummaryHtml(numberInBoard, numberToDo, numberInProgress, numberAwaitingFeedback, numberDone, numberUrgent);
 	greetUserInMobileUI();
 }
 
@@ -188,8 +188,8 @@ function getLoggedUserIndex() {
  * @param loggedInUserIndex - The index of the user in the users array.
  */
 function getEmailAdrressOfLoggedUser() {
-	emailAddress = allUsers[loggedInUserIndex].email;
-	emailAddress == guestEmail ? (guestLoggedIn = true) : null;
+	emailAddressLoggedUser = allUsers[loggedInUserIndex].email;
+	emailAddressLoggedUser == guestEmail ? (guestLoggedIn = true) : null;
 }
 
 /**
@@ -198,29 +198,29 @@ function getEmailAdrressOfLoggedUser() {
  * @returns array of all tasks of the logged in user
  */
 function allUserTasks(tasks) {
-	return tasks.filter((task) => task.assignedTo.some((person) => person.email === emailAddress));
+	return tasks.filter((task) => task.assignedTo.some((person) => person.email === emailAddressLoggedUser));
 }
 
 /**
  *
  * @param {object} tasks
  * @param {number} status
- * @param {string} emailAddress
+ * @param {string} emailAddressLoggedUser
  * @returns array of tasks of priority x of the logged in user
  */
-function filterTasks(tasks, status, emailAddress) {
-	return tasks.filter((task) => task.workFlowStatus === status && task.assignedTo.some((person) => person.email === emailAddress));
+function filterTasks(tasks, status, emailAddressLoggedUser) {
+	return tasks.filter((task) => task.workFlowStatus === status && task.assignedTo.some((person) => person.email === emailAddressLoggedUser));
 }
 
 /**
  *
  * @param {object} tasks
  * @param {string} priority
- * @param {string} emailAddress
+ * @param {string} emailAddressLoggedUser
  * @returns
  */
-function filterTasksPriority(tasks, priority, emailAddress) {
-	return tasks.filter((task) => task.prio === priority && task.assignedTo.some((person) => person.email === emailAddress));
+function filterTasksPriority(tasks, priority, emailAddressLoggedUser) {
+	return tasks.filter((task) => task.prio === priority && task.assignedTo.some((person) => person.email === emailAddressLoggedUser));
 }
 
 async function getAllValuesForOverview() {
@@ -234,11 +234,11 @@ async function getAllValuesForOverview() {
  */
 function getTasks() {
 	allYourTasks = allUserTasks(joinTaskArray);
-	allYourToDoTasks = filterTasks(joinTaskArray, 0, emailAddress);
-	allYourInProgressTasks = filterTasks(joinTaskArray, 1, emailAddress);
-	allYourAwaitingFeedbackTasks = filterTasks(joinTaskArray, 2, emailAddress);
-	allYourDoneTasks = filterTasks(joinTaskArray, 3, emailAddress);
-	allYourUrgentTasks = filterTasksPriority(joinTaskArray, 'Urgent', emailAddress);
+	allYourToDoTasks = filterTasks(joinTaskArray, 0, emailAddressLoggedUser);
+	allYourInProgressTasks = filterTasks(joinTaskArray, 1, emailAddressLoggedUser);
+	allYourAwaitingFeedbackTasks = filterTasks(joinTaskArray, 2, emailAddressLoggedUser);
+	allYourDoneTasks = filterTasks(joinTaskArray, 3, emailAddressLoggedUser);
+	allYourUrgentTasks = filterTasksPriority(joinTaskArray, 'Urgent', emailAddressLoggedUser);
 }
 
 /**
@@ -246,10 +246,10 @@ function getTasks() {
  * and filters them by status and priority.
  */
 function getAmountTasks() {
-	allYourTasksAmount = allYourTasks.length;
-	allYourToDoTasksAmount = allYourToDoTasks.length;
-	allYourInProgressTasksAmount = allYourInProgressTasks.length;
-	allYourAwaitingFeedbackTasksAmount = allYourAwaitingFeedbackTasks.length;
-	allYourDoneTasksAmount = allYourDoneTasks.length;
-	allYourUrgentTasksAmount = allYourUrgentTasks.length;
+	numberInBoard = allYourTasks.length;
+	numberToDo = allYourToDoTasks.length;
+	numberInProgress = allYourInProgressTasks.length;
+	numberAwaitingFeedback = allYourAwaitingFeedbackTasks.length;
+	numberDone = allYourDoneTasks.length;
+	numberUrgent = allYourUrgentTasks.length;
 }

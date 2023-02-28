@@ -912,12 +912,12 @@ function assignBoxBackToDefaultMode() {
 /**
  * Find the index of the member of the task force whose email address is the same as the email address
  * passed in as a parameter.
- * @param emailAddress - The email address of the member of the task force.
+ * @param emailAddressLoggedUser - The email address of the member of the task force.
  * @returns The index of the member of the task force.
  */
-function findIndexOfMemberOfTaskForce(emailAddress) {
+function findIndexOfMemberOfTaskForce(emailAddressLoggedUser) {
 	return taskForce.findIndex((memberOfTaskForce) => {
-		return memberOfTaskForce.email == emailAddress;
+		return memberOfTaskForce.email == emailAddressLoggedUser;
 	});
 }
 
@@ -978,8 +978,8 @@ function addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberInT
  */
 function addContactToTaskForceWithCheckBox(contact) {
 	let addedToTaskForce = coworkersToAssignTo[contact].check;
-	let emailAddress = coworkersToAssignTo[contact].email;
-	let indexOfMemberOfTaskForce = findIndexOfMemberOfTaskForce(emailAddress);
+	let emailAddressLoggedUser = coworkersToAssignTo[contact].email;
+	let indexOfMemberOfTaskForce = findIndexOfMemberOfTaskForce(emailAddressLoggedUser);
 	addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberOfTaskForce);
 	addedToTaskForce = !addedToTaskForce;
 	coworkersToAssignTo[contact].check = addedToTaskForce;

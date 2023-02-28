@@ -1,4 +1,4 @@
-function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, allYourUrgentTasksAmount) {
+function generateSummaryHtml(numberInBoard, numberToDo, numberInProgress, numberAwaitingFeedback, numberDone, numberUrgent) {
 	return /*html*/ `
 	<div class="summaryContainer">
 		<div class="title">
@@ -12,15 +12,15 @@ function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYour
 				<div class="overview">
 					<div class="taskOverview">
 						<div id="taskInBoard" onclick="initBoard()">
-							<span id="taskInBoardAmount" class="amountSummary">${allYourTasksAmount}</span>
+							<span id="taskInBoardAmount" class="amountSummary">${numberInBoard}</span>
 							<p class="nameTask">Task in Board</p>
 						</div>
 						<div id="taskInProgress" onclick="initBoard()">
-							<span id="taskInProgressAmount" class="amountSummary">${allYourInProgressTasksAmount}</span>
+							<span id="taskInProgressAmount" class="amountSummary">${numberInProgress}</span>
 							<p class="nameTask">Task in Progress</p>
 						</div>
 						<div id="awaitingFeedback" onclick="initBoard()">
-							<span id="awaitingFeedbackAmount" class="amountSummary">${allYourAwaitingFeedbackTasksAmount}</span>
+							<span id="awaitingFeedbackAmount" class="amountSummary">${numberAwaitingFeedback}</span>
 							<p class="nameTask">Awaiting Feedback</p>
 						</div>
 					</div>
@@ -31,7 +31,7 @@ function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYour
 									<img class="ugentImg" id="urgentImg" src="./assets/img/summary_urgent.png" />
 								</div>
 								<div class="ugentAmount">
-									<span id="ugencySummaryAmount" class="amountSummary">${allYourUrgentTasksAmount}</span>
+									<span id="ugencySummaryAmount" class="amountSummary">${numberUrgent}</span>
 									<p id="ugencySummaryurgent" class="nameTask">Urgent</p>
 								</div>
 								
@@ -47,14 +47,14 @@ function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYour
 						<div class="toDo" id="toDo" onmouseover="toDoHoverOn()" onmouseout="toDoHoverOff()">
 							<img id="toDoImg" src="./assets/img/to_do_pen.png" alt="" />
 							<div class="toDoAmountData">
-								<span id="toDoAmountTasks" class="amountSummary">${allYourToDoTasksAmount}</span>
+								<span id="toDoAmountTasks" class="amountSummary">${numberToDo}</span>
 								<p id="toDoAmountP" class="nameTask">to-Do</p>
 							</div>
 						</div>
 						<div class="toDoDone" id="toDoDone" onmouseover="toDoDoneHoverOn()" onmouseout="toDoDoneHoverOff()">
 							<img id="toDoDoneImg" src="./assets/img/done.png" alt="" />
 							<div class="toDoAmountData">
-								<span id="toDoDoneAmountTasks" class="amountSummary">${allYourDoneTasksAmount}</span>
+								<span id="toDoDoneAmountTasks" class="amountSummary">${numberDone}</span>
 								<p id="toDoDoneAmountP" class="nameTask">Done</p>
 							</div>
 						</div>

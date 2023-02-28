@@ -73,7 +73,7 @@ async function startFilter() {
 		let assignedList = joinTaskArray[i].assignedTo;
 		for (let index = 0; index < assignedList.length; index++) {
 			let assignedEmail = assignedList[index].email;
-			if (assignedEmail == emailAddress) {
+			if (assignedEmail == emailAddressLoggedUser) {
 				filteredTaskList.push(joinTaskArray[i]);
 				filteredTaskList[filteredTaskList.length - 1].taskIndex = i;
 			}
