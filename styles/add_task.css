@@ -70,7 +70,7 @@
 	width: 338px;
 	height: 61px;
 	right: 0;
-	bottom: -95px;
+	bottom: 0; /* MIt dem WErt passt es in der Desktopansicht */
 }
 
 .addTaskBtnOuterContainerContacts {
