@@ -1,12 +1,14 @@
 let loggedInUserIndex;
 let emailAddress;
+
 let allYourTasksAmount = 0;
 let allYourToDoTasksAmount = 0;
 let allYourInProgressTasksAmount = 0;
 let allYourAwaitingFeedbackTasksAmount = 0;
 let allYourDoneTasksAmount = 0;
-let yourUrgentTasksAmount = 0;
+let allYourUrgentTasksAmount = 0;
 
+let allYourTasks = [];
 let allYourToDoTasks = [];
 let allYourInProgressTasks = [];
 let allYourAwaitingFeedbackTasks = [];
@@ -23,13 +25,14 @@ async function initSummary() {
 	resetCounters();
 	resetYourTasksArrays(); // sonst addieren sich die tasks bei jedem Aufrufen
 	await loadAmountsForSummary(); // await später für server wichtig
-	await renderSummary(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount);
+	await renderSummary(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, allYourUrgentTasksAmount);
 	selectedMenuBtnId = 0;
 	selectedMenuButton(1);
 	showDate();
 	greetUser();
 	greetingMobileAnimation();
 	loadContributorsLetter();
+	getAllValuesForOverview();
 }
 
 function resetCounters() {
@@ -38,7 +41,7 @@ function resetCounters() {
 	allYourInProgressTasksAmount = 0;
 	allYourAwaitingFeedbackTasksAmount = 0;
 	allYourDoneTasksAmount = 0;
-	yourUrgentTasksAmount = 0;
+	allYourUrgentTasksAmount = 0;
 }
 
 function resetYourTasksArrays() {
@@ -48,7 +51,7 @@ function resetYourTasksArrays() {
 	allYourDoneTasks = [];
 }
 
-function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount) {
+function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, allYourUrgentTasksAmount) {
 	return /*html*/ `
 	<div class="summaryContainer">
 		<div class="title">
@@ -81,7 +84,7 @@ function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYour
 									<img class="ugentImg" id="urgentImg" src="./assets/img/summary_urgent.png" />
 								</div>
 								<div class="ugentAmount">
-									<span id="ugencySummaryAmount" class="amountSummary">${yourUrgentTasksAmount}</span>
+									<span id="ugencySummaryAmount" class="amountSummary">${allYourUrgentTasksAmount}</span>
 									<p id="ugencySummaryurgent" class="nameTask">Urgent</p>
 								</div>
 								
@@ -122,9 +125,9 @@ function generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYour
     `;
 }
 
-async function renderSummary(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount) {
+async function renderSummary(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, allYourUrgentTasksAmount) {
 	document.getElementById('content').innerHTML = '';
-	document.getElementById('content').innerHTML += generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, yourUrgentTasksAmount);
+	document.getElementById('content').innerHTML += generateSummaryHtml(allYourTasksAmount, allYourToDoTasksAmount, allYourInProgressTasksAmount, allYourAwaitingFeedbackTasksAmount, allYourDoneTasksAmount, allYourUrgentTasksAmount);
 	greetUserInMobileUI();
 }
 
@@ -199,6 +202,17 @@ function greetUserInMobileUI() {
 	document.getElementById('nameToBeingGreeted').innerHTML = `${allUsers[loggedUser[0]].name}`;
 }
 
+function greetingMobileAnimation() {
+	if (window.innerWidth <= 768 && !greetingOnce) {
+		document.getElementById('greetMobileOverlay').classList.remove('d-none');
+
+		setTimeout(() => {
+			document.getElementById('greetMobileOverlay').classList.add('d-none');
+		}, 2000);
+		greetingOnce = true;
+	}
+}
+
 /**
  * This function loads the logged in user's array,
  * gets the index of the logged in user, gets the email
@@ -208,7 +222,8 @@ async function loadAmountsForSummary() {
 	loadLoggedInUserArray();
 	getLoggedUserIndex();
 	getEmailAdrressOfLoggedUser();
-	updatingSummary();
+	/* updatingSummary(); */
+	getAllValuesForOverview();
 }
 
 /**
@@ -239,117 +254,35 @@ function getEmailAdrressOfLoggedUser() {
 	emailAddress == guestEmail ? (guestLoggedIn = true) : null;
 }
 
-/**
- * It loops through the joinTaskArray, and for each task,
- * it loops through the assignedTo array, and
- * for each member of the assignedTo array, it calls the itemsToUpdate function.
- */
-function updatingSummary() {
-	joinTaskArray.forEach((task) => {
-		const assignedTo = task.assignedTo;
-		const workflowStatus = task.workFlowStatus;
-		const priority = task.prio;
-		assignedTo.forEach((member) => {
-			const email = member.email;
-			itemsToUpdate(email, workflowStatus, priority, task);
-		});
-	});
-}
-
-/**
- * If the email address is the same as the email address of the user, then add one to the amount of
- * tasks that the user has.
- * @param {string} email - the email address of the person who is assigned to the task
- * @param {number}workflowStatus - 0 = To Do, 1 = In Progress, 2 = Awaiting Feedback, 3 = Done
- * @param {string} priority - 0 = Low, 1 = Medium, 2 = High, 3 = Urgent
- */
-function itemsToUpdate(email, workflowStatus, priority, task) {
-	updateTaskInBoard(email);
-	updateToDoTasks(email, workflowStatus, task);
-	updateTaskInProgress(email, workflowStatus, task);
-	updateTaskAwaitingFeedback(email, workflowStatus, task);
-	updateTaskDone(email, workflowStatus, task);
-	updateTaskUrgent(email, priority);
-}
-
-/**
- * Updates tasks in baord variable
- * @param {string} email
- */
-function updateTaskInBoard(email) {
-	if (email === emailAddress) allYourTasksAmount++;
-}
-
-/**
- * Updates tasks still to do
- * @param {string} email
- * @param {number} workflowStatus
- * @param {object} task
- */
-function updateToDoTasks(email, workflowStatus, task) {
-	if (email === emailAddress && workflowStatus === 0) {
-		allYourToDoTasksAmount++;
-		allYourToDoTasks.push(task);
-	}
-}
-
-/**
- * Updates tasks being in "in progress"
- * @param {string} email
- * @param {number} workflowStatus
- * @param {object} task
- */
-function updateTaskInProgress(email, workflowStatus, task) {
-	if (email === emailAddress && workflowStatus === 1) {
-		allYourInProgressTasksAmount++;
-		allYourInProgressTasks.push(task);
-	}
-}
-
-/**
- * Updates tasks in "awaiting feedback"
- * @param {string} email
- * @param {number} workflowStatus
- * @param {object} task
- */
-function updateTaskAwaitingFeedback(email, workflowStatus, task) {
-	if (email === emailAddress && workflowStatus === 2) {
-		allYourAwaitingFeedbackTasksAmount++;
-		allYourAwaitingFeedbackTasks.push(task);
-	}
-}
-
-/**
- * Updates done tasks
- * @param {string} email
- * @param {number} workflowStatus
- * @param {object} task
- */
-function updateTaskDone(email, workflowStatus, task) {
-	if (email === emailAddress && workflowStatus === 3) {
-		allYourDoneTasksAmount++;
-		allYourDoneTasks.push(task);
-	}
-}
-
-/**
- * Updates urgend tasks
- * @param {stringg} email
- * @param {string} priority
- */
-function updateTaskUrgent(email, priority) {
-	if (email === emailAddress && priority === 'Urgent') yourUrgentTasksAmount++;
-}
-
 let greetingOnce = false;
 
-function greetingMobileAnimation() {
-	if (window.innerWidth <= 768 && !greetingOnce) {
-		document.getElementById('greetMobileOverlay').classList.remove('d-none');
+// function to filter all tasks with emailAdress
+function allUserTasks(tasks) {
+	return tasks.filter((task) => task.assignedTo.some((person) => person.email === emailAddress));
+}
 
-		setTimeout(() => {
-			document.getElementById('greetMobileOverlay').classList.add('d-none');
-		}, 2000);
-		greetingOnce = true;
-	}
+function filterTasks(tasks, priority, emailAddress) {
+	return tasks.filter((task) => task.workFlowStatus === priority && task.assignedTo.some((person) => person.email === emailAddress));
+}
+
+function filterTasksPriority(tasks, priority, emailAddress) {
+	return tasks.filter((task) => task.prio === priority && task.assignedTo.some((person) => person.email === emailAddress));
+}
+
+async function getAllValuesForOverview() {
+	allYourTasks = allUserTasks(joinTaskArray);
+	allYourToDoTasks = filterTasks(joinTaskArray, 0, emailAddress);
+	allYourInProgressTasks = filterTasks(joinTaskArray, 1, emailAddress);
+	allYourAwaitingFeedbackTasks = filterTasks(joinTaskArray, 2, emailAddress);
+	allYourDoneTasks = filterTasks(joinTaskArray, 3, emailAddress);
+	allYourUrgentTasks = filterTasksPriority(joinTaskArray, 'Urgent', emailAddress);
+
+	allYourTasksAmount = allYourTasks.length;
+	allYourToDoTasksAmount = allYourToDoTasks.length;
+	allYourInProgressTasksAmount = allYourInProgressTasks.length;
+	allYourAwaitingFeedbackTasksAmount = allYourAwaitingFeedbackTasks.length;
+	allYourDoneTasksAmount = allYourDoneTasks.length;
+	allYourUrgentTasksAmount = allYourUrgentTasks.length;
+
+	console.log('test', allYourUrgentTasksAmount);
 }
