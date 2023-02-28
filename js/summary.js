@@ -62,33 +62,6 @@ async function renderSummary(numberInBoard, numberToDo, numberInProgress, number
 	greetUserInMobileUI();
 }
 
-// Hover Summary help-function
-
-/**
- * Right image gets chosen for hover effect
- * @param {string} imgId
- * @param {boolean} on if the cursor is on the div on == true
- */
-function changeImg(imgId, on) {
-	document.getElementById(imgId).src = `./assets/img/${penImage}${on ? '_black' : ''}.png`;
-}
-
-function toDoHoverOn() {
-	changeImg('toDoImg', true);
-}
-
-function toDoHoverOff() {
-	changeImg('toDoImg', false);
-}
-
-function toDoDoneHoverOn() {
-	changeImg('toDoDoneImg', true);
-}
-
-function toDoDoneHoverOff() {
-	changeImg('toDoDoneImg', false);
-}
-
 /**
  * Shows date in the summary
  */
