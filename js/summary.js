@@ -36,6 +36,10 @@ async function initSummary() {
 	getAllValuesForOverview();
 }
 
+function clearInnerHtmlById(id) {
+	document.getElementById(id).innerHTML = '';
+}
+
 function resetCounters() {
 	numberInBoard = 0;
 	numberToDo = 0;
@@ -53,7 +57,7 @@ function resetYourTasksArrays() {
 }
 
 async function renderSummary(numberInBoard, numberToDo, numberInProgress, numberAwaitingFeedback, numberDone, numberUrgent) {
-	document.getElementById('content').innerHTML = '';
+	clearInnerHtmlById('content');
 	document.getElementById('content').innerHTML += generateSummaryHtml(numberInBoard, numberToDo, numberInProgress, numberAwaitingFeedback, numberDone, numberUrgent);
 	greetUserInMobileUI();
 }
@@ -208,8 +212,8 @@ function allUserTasks(tasks) {
  * @param {string} emailAddressLoggedUser
  * @returns array of tasks of priority x of the logged in user
  */
-function filterTasks(tasks, status, emailAddressLoggedUser) {
-	return tasks.filter((task) => task.workFlowStatus === status && task.assignedTo.some((person) => person.email === emailAddressLoggedUser));
+function filterTasks(taskArray, status) {
+	return taskArray.filter((task) => task.workFlowStatus === status && task.assignedTo.some((person) => person.email === emailAddressLoggedUser));
 }
 
 /**
@@ -219,8 +223,8 @@ function filterTasks(tasks, status, emailAddressLoggedUser) {
  * @param {string} emailAddressLoggedUser
  * @returns
  */
-function filterTasksPriority(tasks, priority, emailAddressLoggedUser) {
-	return tasks.filter((task) => task.prio === priority && task.assignedTo.some((person) => person.email === emailAddressLoggedUser));
+function filterTasksPriority(taskArray, priority) {
+	return taskArray.filter((task) => task.prio === priority && task.assignedTo.some((person) => person.email === emailAddressLoggedUser));
 }
 
 async function getAllValuesForOverview() {
@@ -234,11 +238,11 @@ async function getAllValuesForOverview() {
  */
 function getTasks() {
 	allYourTasks = allUserTasks(joinTaskArray);
-	allYourToDoTasks = filterTasks(joinTaskArray, 0, emailAddressLoggedUser);
-	allYourInProgressTasks = filterTasks(joinTaskArray, 1, emailAddressLoggedUser);
-	allYourAwaitingFeedbackTasks = filterTasks(joinTaskArray, 2, emailAddressLoggedUser);
-	allYourDoneTasks = filterTasks(joinTaskArray, 3, emailAddressLoggedUser);
-	allYourUrgentTasks = filterTasksPriority(joinTaskArray, 'Urgent', emailAddressLoggedUser);
+	allYourToDoTasks = filterTasks(joinTaskArray, 0);
+	allYourInProgressTasks = filterTasks(joinTaskArray, 1);
+	allYourAwaitingFeedbackTasks = filterTasks(joinTaskArray, 2);
+	allYourDoneTasks = filterTasks(joinTaskArray, 3);
+	allYourUrgentTasks = filterTasksPriority(joinTaskArray, 'Urgent');
 }
 
 /**

@@ -421,10 +421,21 @@
 	color: white !important;
 }
 
-.toDo img,
-.toDoDone img {
+.toDoDoneSvgContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 69px;
 	height: 69px;
+	background-color: #2a3647;
+	border-radius: 50%;
+}
+
+.toDo svg,
+.toDoDone svg {
+	width: fit-content;
+	height: fit-content;
+	color: white;
 }
 
 .toDoAmountData {
@@ -489,6 +500,18 @@
 .toDoDone:hover p {
 	color: white !important;
 	background-color: #2a3647;
+}
+
+.toDoDone:hover .toDoDoneSvgContainer {
+	background-color: #ffffff;
+}
+
+.toDoDone:hover .toDoDoneSvgContainer svg {
+	color: black;
+}
+
+.toDoDone:hover .toDoDoneSvgContainer svg path {
+	stroke: black;
 }
 
 /* display: flex;
@@ -703,6 +726,12 @@ justify-content: center;
 
 	.deadlineText {
 		font-size: 14px;
+	}
+
+	.toDoDoneSvgContainer {
+		width: 40px;
+		height: 40px;
+		padding: 10px;
 	}
 }
 
