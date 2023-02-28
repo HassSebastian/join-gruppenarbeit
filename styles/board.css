@@ -1670,9 +1670,9 @@ boardSubheaders > * {
 	background-color: #2a3647;
 	color: white;
 	cursor: pointer;
-	position: absolute;
-	right: 41px;
-	bottom: 97px;
+	/* position: absolute; */
+	/* right: 41px;
+	bottom: 97px; */
 }
 
 .moveBtnMobil button:hover {
@@ -1681,12 +1681,15 @@ boardSubheaders > * {
 }
 
 @media screen and (max-width: 1100px) {
-	/* Btn hinzugefügt */
+	/* Btn hinzugefügt  Bossi 28.02*/
 	.moveBtnMobil {
 		display: flex !important;
-		/* position: absolute !important; */
-		/* bottom: 12px;
-		height: 57px !important; */
+		/* position: absolute !important;  */
+		bottom: 12px;
+		height: 57px !important;
+		width: 300px;
+		gap: 10px;
+		order: 6;
 	}
 
 	.moveBtnMobil button {
