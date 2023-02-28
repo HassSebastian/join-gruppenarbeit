@@ -68,14 +68,14 @@ let viewchange = false;
 	}
 }; */
 
-async function startChangetoDesktop() {
+/* async function startChangetoDesktop() {
 	if (!document.querySelector('#logIn')) {
 		await activateDesktop();
 		await loadApplicableSummary();
 		document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
 		viewchange = false;
 	}
-}
+} */
 
 /* async function startChangetoMobil(){
 	await activateMobil();
@@ -91,16 +91,16 @@ let stylesheetMobilDeactivationList = ['stylesheetsummary', 'stylesheetAddTask',
 
 let jsMobilDeactivationList = ['jsHelp', 'jsResponsiv', 'jsContacts', 'jsAddTaskTemplates'];
 
-async function deactivatMobil() {
+/* async function deactivatMobil() {
 	stylesheetDesktopDeactivationList.forEach((stylesheet) => {
 		document.getElementById(stylesheet).disabled = true;
 	});
 	jsDesktopDeactivationList.forEach((script) => {
 		document.getElementById(script).disabled = true;
 	});
-}
+} */
 
-async function activateMobil() {
+/* async function activateMobil() {
 	stylesheetDesktopDeactivationList.forEach((stylesheet) => {
 		document.getElementById(stylesheet).disabled = false;
 	});
@@ -116,9 +116,9 @@ async function deactivatDesktop() {
 	jsMobilDeactivationList.forEach((script) => {
 		document.getElementById(script).disabled = true;
 	});
-}
+} */
 
-async function activateDesktop() {
+/* async function activateDesktop() {
 	let loginPageActiv = document.querySelector('#logIn');
 	if (!document.querySelector('#logIn')) {
 		stylesheetMobilDeactivationList.forEach((stylesheet) => {
@@ -128,7 +128,7 @@ async function activateDesktop() {
 			document.getElementById(script).disabled = false;
 		});
 	}
-}
+} */
 
 async function init() {
 	await includeHTML();
