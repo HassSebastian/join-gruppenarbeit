@@ -54,15 +54,6 @@ function greetingManagement() {
 	greetingAnimationSmallerScreens();
 }
 
-function clearInnerHtmlById(id) {
-	document.getElementById(id).innerHTML = '';
-}
-
-//generic function of document.getElementById(id).innerHTML
-function setInnerHtmlById(id, html) {
-	document.getElementById(id).innerHTML = html;
-}
-
 function resetCounters() {
 	numberInBoard = 0;
 	numberToDo = 0;
