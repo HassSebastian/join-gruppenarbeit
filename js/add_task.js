@@ -322,7 +322,7 @@ function setSettingsForNewCategoryInput() {
 	document.getElementById('addTaskNewCatBtn').classList.remove('d-none');
 	document.getElementById('dropdownImg').classList.add('d-none');
 	document.getElementById('colorSelection').classList.remove('listD-none');
-	document.getElementById('sColor').innerHTML = '';
+	setInnerHtmlById('sColor', '');
 	addColorToCat(3);
 }
 

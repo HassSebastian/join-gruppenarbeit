@@ -10,3 +10,7 @@ function showElementById(id) {
 function hideElementById(id) {
 	document.getElementById(id).classList.add('d-none');
 }
+
+function showHideToggleElementById(id) {
+	document.getElementById(id).classList.toggle('d-none');
+}
