@@ -10,6 +10,7 @@ let numberAwaitingFeedback = 0;
 let numberDone = 0;
 let numberUrgent = 0;
 
+let allUpcomingTasks = [];
 let tasksInBoard = [];
 let toDoTasks = [];
 let inProgressTasks = [];
@@ -17,27 +18,49 @@ let awatingFeedbackTasks = [];
 let doneTasks = [];
 
 async function initSummary() {
-	sliderMenuShown = false;
 	await includeHTML();
 	await enableSummaryStyles();
 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	await loadTask();
+	resetsValues();
+	await loadAmountsForSummary();
+	loadSummary();
+}
+
+function resetsValues() {
 	resetCounters();
-	resetYourTasksArrays(); // sonst addieren sich die tasks bei jedem Aufrufen
-	await loadAmountsForSummary(); // await später für server wichtig
-	await renderSummary(numberInBoard, numberToDo, numberInProgress, numberAwaitingFeedback, numberDone, numberUrgent);
-	selectedMenuBtnId = 0;
-	selectedMenuButton(1);
-	/* showDate(); */
-	greetUser();
-	greetingMobileAnimation();
+	resetsTasksArrays();
+}
+
+function loadSummary() {
+	renderSummary();
+	selectsSummaryBtnSideMenu();
+	greetingManagement();
 	loadContributorsLetter();
 	getAllValuesForOverview();
 	showNextDueDate();
 }
 
+/**
+ * Selets btn in side menu (to be replaced with bootstrap)
+ */
+function selectsSummaryBtnSideMenu() {
+	selectedMenuBtnId = 0;
+	selectedMenuButton(1);
+}
+
+function greetingManagement() {
+	greetUser();
+	greetingMobileAnimation();
+}
+
 function clearInnerHtmlById(id) {
 	document.getElementById(id).innerHTML = '';
+}
+
+//generic function of document.getElementById(id).innerHTML
+function setInnerHtmlById(id, html) {
+	document.getElementById(id).innerHTML = html;
 }
 
 function resetCounters() {
@@ -49,31 +72,18 @@ function resetCounters() {
 	numberUrgent = 0;
 }
 
-function resetYourTasksArrays() {
+function resetsTasksArrays() {
 	toDoTasks = [];
 	inProgressTasks = [];
 	awatingFeedbackTasks = [];
 	doneTasks = [];
-	allUpcomingTask = [];
+	allUpcomingTasks = [];
 }
 
-async function renderSummary(numberInBoard, numberToDo, numberInProgress, numberAwaitingFeedback, numberDone, numberUrgent) {
-	clearInnerHtmlById('content');
+async function renderSummary() {
+	setInnerHtmlById('content', '');
 	document.getElementById('content').innerHTML += generateSummaryHtml(numberInBoard, numberToDo, numberInProgress, numberAwaitingFeedback, numberDone, numberUrgent);
 	greetUserInMobileUI();
-}
-
-/**
- * Shows date in the summary
- */
-function showDate() {
-	let currentDate = new Date();
-	let dateString = currentDate.toLocaleDateString('en-US', {
-		month: 'long',
-		day: '2-digit',
-		year: 'numeric',
-	});
-	document.getElementById('deadlineDate').innerHTML = dateString;
 }
 
 /*================ 
@@ -88,9 +98,8 @@ function greetUser() {
 	const hours = currentTime.getHours();
 	const greeting = getGreeting(hours);
 
-	document.getElementById('greetUser').innerHTML = `${greeting}`;
-
-	document.getElementById('greetingMobile').innerHTML = `${greeting}`;
+	setInnerHtmlById('greetUser', greeting);
+	setInnerHtmlById('greetingMobile', greeting);
 }
 
 /**
@@ -108,7 +117,11 @@ function getGreeting(hours) {
  * Puts name of logged in user in mobile greeting ani
  */
 function greetUserInMobileUI() {
-	document.getElementById('nameToBeingGreeted').innerHTML = `${allUsers[loggedUser[0]].name}`;
+	setInnerHtmlById('nameToBeingGreeted', userName());
+}
+
+function userName() {
+	return allUsers[loggedUser[0]].name;
 }
 
 /**
@@ -116,7 +129,7 @@ function greetUserInMobileUI() {
  * on mobile devices.
  */
 function greetingMobileAnimation() {
-	if (window.innerWidth <= 768 && !greetingOnce) {
+	if (window.innerWidth <= 1024 && !greetingOnce) {
 		document.getElementById('greetMobileOverlay').classList.remove('d-none');
 
 		setTimeout(() => {
@@ -176,7 +189,7 @@ function getEmailAdrressOfLoggedUser() {
  * @returns array of all tasks of the logged in user
  */
 function allUserTasks(tasks) {
-	return tasks.filter((task) => task.assignedTo.some((person) => person.email === emailAddressLoggedUser));
+	return tasks.filter((task) => task.assignedTo.some((person) => emailMatch(person)));
 }
 
 /**
@@ -187,7 +200,7 @@ function allUserTasks(tasks) {
  * @returns array of tasks of priority x of the logged in user
  */
 function filterTasks(taskArray, status) {
-	return taskArray.filter((task) => task.workFlowStatus === status && task.assignedTo.some((person) => person.email === emailAddressLoggedUser));
+	return taskArray.filter((task) => task.workFlowStatus === status && task.assignedTo.some((person) => emailMatch(person)));
 }
 
 /**
@@ -198,7 +211,16 @@ function filterTasks(taskArray, status) {
  * @returns
  */
 function filterTasksPriority(taskArray, priority) {
-	return taskArray.filter((task) => task.prio === priority && task.assignedTo.some((person) => person.email === emailAddressLoggedUser));
+	return taskArray.filter((task) => task.prio === priority && task.assignedTo.some((person) => emailMatch(person)));
+}
+
+/**
+ *
+ * @param {object} person
+ * @returns {boolean} true if email of person matches email of logged in user
+ */
+function emailMatch(person) {
+	return person.email === emailAddressLoggedUser;
 }
 
 async function getAllValuesForOverview() {
@@ -232,8 +254,6 @@ function getAmountTasks() {
 	numberUrgent = allYourUrgentTasks.length;
 }
 
-let allUpcomingTask = [];
-
 function showNextDueDate() {
 	getNextDueDate();
 	renderUpcomingDueDate();
@@ -246,8 +266,8 @@ function getNextDueDate() {
 		let convertedDate = new Date(task.dueDate);
 		task.dueDate = convertedDate;
 		selectAllUpcomingTasks(convertedDate, task);
-		//sorts allUpcomingTask array by date
-		allUpcomingTask.sort((a, b) => {
+
+		allUpcomingTasks.sort((a, b) => {
 			return new Date(a.dueDate) - new Date(b.dueDate);
 		});
 	});
@@ -260,7 +280,7 @@ function filterOnlyTasksWithDueDate() {
 }
 
 function nextUpcomingDate() {
-	return allUpcomingTask[0].dueDate;
+	return allUpcomingTasks[0].dueDate;
 }
 
 /**
@@ -270,24 +290,36 @@ function nextUpcomingDate() {
  */
 function selectAllUpcomingTasks(convertedDate, task) {
 	if (convertedDate > yesterday()) {
-		allUpcomingTask.push(task);
+		allUpcomingTasks.push(task);
 	}
 }
 
+/**
+ * Renders the next due date in the summary section
+ */
 function renderUpcomingDueDate() {
+	setInnerHtmlById('deadlineDate', formattedDueDate());
+}
+
+/**
+ *Formats due date for display
+ * @returns {string}formatted date of next due date
+ */
+function formattedDueDate() {
 	let nextDueDate = getNextDueDate();
 	if (nextDueDate == undefined) return;
 	let fullDateString = new Date(nextDueDate); // full date string
-	/* console.log(fullDateString); */
 	let formattedDateString = fullDateString.toLocaleDateString('en-US', {
 		month: 'long',
 		day: '2-digit',
 		year: 'numeric',
 	});
-	document.getElementById('deadlineDate').innerHTML = formattedDateString;
+	return formattedDateString;
 }
 
-//Return the date of yesterday
+/**
+ * @returns date of yesterday
+ */
 function yesterday() {
 	let today = new Date();
 	let yesterday = today.setDate(today.getDate() - 1);
