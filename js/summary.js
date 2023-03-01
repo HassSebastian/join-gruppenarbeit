@@ -10,12 +10,11 @@ let numberAwaitingFeedback = 0;
 let numberDone = 0;
 let numberUrgent = 0;
 
-let allYourTasks = [];
-let allYourToDoTasks = [];
-let allYourInProgressTasks = [];
-let allYourAwaitingFeedbackTasks = [];
-let allYourDoneTasks = [];
-let penImage = 'to_do_pen';
+let tasksInBoard = [];
+let toDoTasks = [];
+let inProgressTasks = [];
+let awatingFeedbackTasks = [];
+let doneTasks = [];
 
 async function initSummary() {
 	sliderMenuShown = false;
@@ -29,11 +28,12 @@ async function initSummary() {
 	await renderSummary(numberInBoard, numberToDo, numberInProgress, numberAwaitingFeedback, numberDone, numberUrgent);
 	selectedMenuBtnId = 0;
 	selectedMenuButton(1);
-	showDate();
+	/* showDate(); */
 	greetUser();
 	greetingMobileAnimation();
 	loadContributorsLetter();
 	getAllValuesForOverview();
+	showNextDueDate();
 }
 
 function clearInnerHtmlById(id) {
@@ -50,10 +50,11 @@ function resetCounters() {
 }
 
 function resetYourTasksArrays() {
-	allYourToDoTasks = [];
-	allYourInProgressTasks = [];
-	allYourAwaitingFeedbackTasks = [];
-	allYourDoneTasks = [];
+	toDoTasks = [];
+	inProgressTasks = [];
+	awatingFeedbackTasks = [];
+	doneTasks = [];
+	allUpcomingTask = [];
 }
 
 async function renderSummary(numberInBoard, numberToDo, numberInProgress, numberAwaitingFeedback, numberDone, numberUrgent) {
@@ -210,11 +211,11 @@ async function getAllValuesForOverview() {
  * and filters them by status and priority.
  */
 function getTasks() {
-	allYourTasks = allUserTasks(joinTaskArray);
-	allYourToDoTasks = filterTasks(joinTaskArray, 0);
-	allYourInProgressTasks = filterTasks(joinTaskArray, 1);
-	allYourAwaitingFeedbackTasks = filterTasks(joinTaskArray, 2);
-	allYourDoneTasks = filterTasks(joinTaskArray, 3);
+	tasksInBoard = allUserTasks(joinTaskArray);
+	toDoTasks = filterTasks(joinTaskArray, 0);
+	inProgressTasks = filterTasks(joinTaskArray, 1);
+	awatingFeedbackTasks = filterTasks(joinTaskArray, 2);
+	doneTasks = filterTasks(joinTaskArray, 3);
 	allYourUrgentTasks = filterTasksPriority(joinTaskArray, 'Urgent');
 }
 
@@ -223,10 +224,72 @@ function getTasks() {
  * and filters them by status and priority.
  */
 function getAmountTasks() {
-	numberInBoard = allYourTasks.length;
-	numberToDo = allYourToDoTasks.length;
-	numberInProgress = allYourInProgressTasks.length;
-	numberAwaitingFeedback = allYourAwaitingFeedbackTasks.length;
-	numberDone = allYourDoneTasks.length;
+	numberInBoard = tasksInBoard.length;
+	numberToDo = toDoTasks.length;
+	numberInProgress = inProgressTasks.length;
+	numberAwaitingFeedback = awatingFeedbackTasks.length;
+	numberDone = doneTasks.length;
 	numberUrgent = allYourUrgentTasks.length;
+}
+
+let allUpcomingTask = [];
+
+function showNextDueDate() {
+	getNextDueDate();
+	renderUpcomingDueDate();
+}
+
+//´return next due date of task in joinTaskArray
+function getNextDueDate() {
+	let tasks = tasksInBoard.filter((task) => task.dueDate != null);
+	tasks.forEach((task) => {
+		let convertedDate = new Date(task.dueDate);
+		task.dueDate = convertedDate;
+		selectAllUpcomingTasks(convertedDate, task);
+		//sorts allUpcomingTask array by date
+		allUpcomingTask.sort((a, b) => {
+			return new Date(a.dueDate) - new Date(b.dueDate);
+		});
+	});
+	return nextUpcomingDate();
+}
+
+function filterOnlyTasksWithDueDate() {
+	let tasks = tasksInBoard.filter((task) => task.dueDate != null);
+	return tasks;
+}
+
+function nextUpcomingDate() {
+	return allUpcomingTask[0].dueDate;
+}
+
+/**
+ * Pushes all upcoming tasks into allUpcomingTask array
+ * @param {string} convertedDate
+ * @param {object} task
+ */
+function selectAllUpcomingTasks(convertedDate, task) {
+	if (convertedDate > yesterday()) {
+		allUpcomingTask.push(task);
+	}
+}
+
+function renderUpcomingDueDate() {
+	let nextDueDate = getNextDueDate();
+	if (nextDueDate == undefined) return;
+	let fullDateString = new Date(nextDueDate); // full date string
+	/* console.log(fullDateString); */
+	let formattedDateString = fullDateString.toLocaleDateString('en-US', {
+		month: 'long',
+		day: '2-digit',
+		year: 'numeric',
+	});
+	document.getElementById('deadlineDate').innerHTML = formattedDateString;
+}
+
+//Return the date of yesterday
+function yesterday() {
+	let today = new Date();
+	let yesterday = today.setDate(today.getDate() - 1);
+	return yesterday;
 }
