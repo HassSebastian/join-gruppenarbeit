@@ -2118,6 +2118,11 @@ boardSubheaders > * {
 	.editTaskCardPrioBtn span{
 		display: none !important;
 	}
+
+	.moveBtnMobil{
+		flex-direction: column;
+		height: 124px !important;
+	}
 }
 
 @media screen and (min-width: 480px) {
