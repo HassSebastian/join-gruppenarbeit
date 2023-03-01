@@ -832,6 +832,10 @@ boardSubheaders > * {
 	margin-bottom: auto;
 	margin-left: auto;
 	margin-right: auto;
+
+	/* edited by Bossi 01.03 */
+	overflow: hidden;
+	overflow-y: scroll;
 }
 
 .taskCardPopupCategory {
@@ -1039,14 +1043,16 @@ boardSubheaders > * {
 }
 
 .close_logo {
-	position: absolute;
+	position: sticky;/* changed from absolute by Bossi 01.03*/
 	width: 21.65px;
 	height: 21.65px;
-	right: 41px;
-	top: 34px;
+	/* right: 41px; */
+	left: 96%;
+	/* top: 34px; */
+	top: 0px;
 	transform: rotate(90deg);
 	flex: none;
-	order: 9;
+	/* order: 9; */
 	flex-grow: 0;
 	z-index: 9;
 	cursor: pointer;
@@ -1059,10 +1065,12 @@ boardSubheaders > * {
 	align-items: center;
 	padding: 0px;
 	gap: 6px;
-	position: absolute;
+	/* position: absolute; */
+	position: sticky;
 	width: 57px;
 	height: 57px;
-	right: 41px;
+	/* right: 41px; */
+	left: calc(100% - 41px);
 	bottom: 30px;
 	background: #2a3647;
 	border-radius: 10px;
@@ -1572,6 +1580,8 @@ boardSubheaders > * {
 	height: 61px;
 	left: 508px;
 	top: 719px;
+	/* changed top by Bossi 01.03 */
+	/* top: 762px; */
 
 	background: #2a3647;
 	border-radius: 10px;
@@ -1657,6 +1667,85 @@ boardSubheaders > * {
 	top: 578px;
 	left: 101px;
 	width: 67.307%; /* inserted by Bossi 28.02 */
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 8px;
+	width: 100%;
+	height: fit-content;
+	flex: none;
+	order: 3;
+	flex-grow: 0;
+}
+
+.boardAddTaskAssignedBox h3 {
+	width: 118px;
+	height: 25px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 21px;
+	line-height: 120%;
+	color: #000000;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	margin-block-start: 0px;
+	margin-block-end: 0px;
+}
+
+.boardAddTaskAssignedBox button {
+	position: relative;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 18px 21px;
+	gap: 10px;
+	isolation: isolate;
+	width: 422px;
+	height: 51px;
+	background: #ffffff;
+	border: 1px solid #d1d1d1;
+	border-radius: 10px 10px 10px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	cursor: pointer;
+}
+
+.boardAddTaskAssignedBox input {
+	border: 0;
+	background-color: transparent;
+	outline: none;
+	font-family: 'Inter';
+	font-style: normal;
+	font-size: 21px;
+	font-weight: 400;
+	color: black;
+}
+
+.boardAddTaskAssignedBox ul{
+	width: 422px;
+}
+
+.boardAddTaskAssignedBox input::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: black;
+	opacity: 1;
+	/* Firefox */
+}
+
+.boardAddTaskAssignedBox input:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: black;
+}
+
+.boardAddTaskAssignedBox input::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: black;
 }
 
 .moveBtnMobil button {
@@ -1687,7 +1776,7 @@ boardSubheaders > * {
 		/* position: absolute !important;  */
 		bottom: 12px;
 		height: 57px !important;
-		width: 300px;
+		width: 310px;
 		gap: 10px;
 		order: 6;
 	}
@@ -1902,6 +1991,34 @@ boardSubheaders > * {
 	.taskCardPopupTask span {
 		font-size: 36px;
 	}
+
+	/* edit by Bossi 01.03 */
+	.boardEditTitleContainer,
+	.boardEditTitleContainer input,
+	.boardEditDescriptionContainer,
+	.boardEditDescriptionContainer textarea,
+	.boardEditDateContainer,
+	.boardEditDateContainer input,
+	.editTaskCardPrio,
+	.editTaskCardPrioBtn,
+	.boardAddTaskAssignedBox{
+		width: calc(100% - 50px) !important;
+		left: 25px;
+	}
+
+	.boardAddTaskAssignedBox button,
+	.boardAddTaskAssignedBox ul{
+		width: calc(100% - 50px) !important;
+	}
+
+	.boardAddTaskAssignedBox input{
+		width: 95%;
+	}
+
+	.editTaskOkBtn{
+		left: calc(100% - 158px);
+		top: 800px;
+	}
 }
 
 @media screen and (max-height: 780px) {
@@ -1997,11 +2114,29 @@ boardSubheaders > * {
 		justify-content: space-between;
 		width: 100%;
 	}
+
+	.editTaskCardPrioBtn span{
+		display: none !important;
+	}
 }
 
 @media screen and (min-width: 480px) {
 	.kanbanboardTitleSummary {
 		display: none;
+	}
+}
+
+
+@media screen and (max-width: 430px) {
+	.boardAddTaskAssignedBox input{
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.moveBtnMobil{
+		flex-direction: column;
+		height: 124px !important;
 	}
 }
 

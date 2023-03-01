@@ -86,8 +86,8 @@ async function renderEditTaskCardHtml(taskIndex) {
                     </div>
                 </div>
             </div>
-
-            <div class='addTaskAssignedBox boardAddTaskAssignedBox' id='addTaskAssignedBox'>
+                <!-- addTaskAssignedBox -->
+            <div class='boardAddTaskAssignedBox' id='addTaskAssignedBox'>
 			        <h3>Assigned to</h3>
 			        <button id='addTaskAssignedButton' onclick='enableDisableAssignList()'>
                     <input
@@ -500,6 +500,7 @@ function renderPopupTaskCardHtml(taskIndex) {
 	document.getElementById('boardPopup').innerHTML = '';
 	document.getElementById('boardPopup').innerHTML = /*html*/ `
         <div class='boardTaskCardPopup' onclick='stopClose(event)'>
+            <img class='close_logo' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'>
             <div class='taskCardPopupCategory' id='taskCardPopupCategory' title= 'Created by: ${creator}'>
                 <span>${cardCategory}</span>
             </div>
@@ -520,7 +521,7 @@ function renderPopupTaskCardHtml(taskIndex) {
         </div>
 
         <span class='assigned'>Assigned To:</span>
-        <img class='close_logo' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'>
+        <!-- <img class='close_logo' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'> -->
         <div class='editButton' onclick='openEditTaskCard(${taskIndex})'>
             <img src='./assets/img/edit_button.png'>
         </div>
