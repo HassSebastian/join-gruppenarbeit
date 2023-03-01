@@ -546,5 +546,5 @@ function renderPopupTaskCardHtml(taskIndex) {
 	setTaskCardPopupPrioBackground(taskIndex);
 	renderSubtask(taskIndex);
 	renderAssignToHtml2(taskIndex);
-	/* 	renderMoveBtnMobil(taskIndex); */
+	renderMoveBtnMobil(taskIndex);
 }
