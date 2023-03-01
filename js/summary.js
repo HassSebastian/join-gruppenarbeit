@@ -51,7 +51,7 @@ function selectsSummaryBtnSideMenu() {
 
 function greetingManagement() {
 	greetUser();
-	greetingMobileAnimation();
+	greetingAnimationSmallerScreens();
 }
 
 function clearInnerHtmlById(id) {
@@ -82,7 +82,14 @@ function resetsTasksArrays() {
 
 async function renderSummary() {
 	setInnerHtmlById('content', '');
-	document.getElementById('content').innerHTML += generateSummaryHtml(numberInBoard, numberToDo, numberInProgress, numberAwaitingFeedback, numberDone, numberUrgent);
+	document.getElementById('content').innerHTML += generateSummaryHtml(
+		numberInBoard,
+		numberToDo,
+		numberInProgress,
+		numberAwaitingFeedback,
+		numberDone,
+		numberUrgent
+	);
 	greetUserInMobileUI();
 }
 
@@ -128,12 +135,16 @@ function userName() {
  * Makes sure that the greeting animation is only shown once
  * on mobile devices.
  */
-function greetingMobileAnimation() {
+function greetingAnimationSmallerScreens() {
 	if (window.innerWidth <= 1024 && !greetingOnce) {
-		document.getElementById('greetMobileOverlay').classList.remove('d-none');
+		document
+			.getElementById('greetMobileOverlay')
+			.classList.remove('d-none');
 
 		setTimeout(() => {
-			document.getElementById('greetMobileOverlay').classList.add('d-none');
+			document
+				.getElementById('greetMobileOverlay')
+				.classList.add('d-none');
 		}, 2000);
 		greetingOnce = true;
 	}
@@ -189,7 +200,9 @@ function getEmailAdrressOfLoggedUser() {
  * @returns array of all tasks of the logged in user
  */
 function allUserTasks(tasks) {
-	return tasks.filter((task) => task.assignedTo.some((person) => emailMatch(person)));
+	return tasks.filter((task) =>
+		task.assignedTo.some((person) => emailMatch(person))
+	);
 }
 
 /**
@@ -200,7 +213,11 @@ function allUserTasks(tasks) {
  * @returns array of tasks of priority x of the logged in user
  */
 function filterTasks(taskArray, status) {
-	return taskArray.filter((task) => task.workFlowStatus === status && task.assignedTo.some((person) => emailMatch(person)));
+	return taskArray.filter(
+		(task) =>
+			task.workFlowStatus === status &&
+			task.assignedTo.some((person) => emailMatch(person))
+	);
 }
 
 /**
@@ -211,7 +228,11 @@ function filterTasks(taskArray, status) {
  * @returns
  */
 function filterTasksPriority(taskArray, priority) {
-	return taskArray.filter((task) => task.prio === priority && task.assignedTo.some((person) => emailMatch(person)));
+	return taskArray.filter(
+		(task) =>
+			task.prio === priority &&
+			task.assignedTo.some((person) => emailMatch(person))
+	);
 }
 
 /**
@@ -274,11 +295,9 @@ function getNextDueDate() {
 	return nextUpcomingDate();
 }
 
-function filterOnlyTasksWithDueDate() {
-	let tasks = tasksInBoard.filter((task) => task.dueDate != null);
-	return tasks;
-}
-
+/**
+ * @returns {string} next due date of task in joinTaskArray
+ */
 function nextUpcomingDate() {
 	return allUpcomingTasks[0].dueDate;
 }
