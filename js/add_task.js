@@ -516,33 +516,52 @@ function resetRequiredWarnings() {
 	document.getElementById('descReq').style = 'opacity: 0;';
 }
 
-// ToDo must be reworked when all selection possible !!!!!!!!!!!!!!!!
 function clearFormularData() {
-	document.getElementById('addTaskTitle').value = '';
-	descripten = document.getElementById('addTaskDescripten').value = '';
-	document.getElementById('selectedCat').innerHTML = /*html*/ `
-        <input disabled id='selectedCatInput' placeholder='Select task category' autocomplete='off'>
-        <span id='sColor'></span>
-        <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
-            <img src="../assets/img/new_cat_cancel.png">
-            <img src="../assets/img/bnt_divider.png" class='btnDivider'>
-            <img src="../assets/img/akar-icons_check.png">
-        </div>
-        <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
-	document.getElementById('dueDate').value = '';
-	resetSubtaskSelections();
-	selectedSubtasks = [];
-	document.getElementById('titleReq').style = 'opacity: 0;';
-	document.getElementById('dateReq').style = 'opacity: 0;';
-	document.getElementById('catReq').style = 'opacity: 0;';
-	document.getElementById('catReq').classList.add('listD-none');
-	resetAssignToList(); // edited by Bossi 04.01.2022, the function is in the board.js
+	clearTaskTitleAndDescription();
+	clearSelectedCategory();
+	clearDueDate();
+	clearSubtasks();
+	clearValidationMessages();
+	resetAssignToList();
 	emptySubTaskArray();
 	renderSubtasks();
 	closeCatList();
 	clearTaskForce();
 	addContactToTaskForceWithCheckBox(loggedInUserIndex);
-}
+  }
+  
+  function clearTaskTitleAndDescription() {
+	document.getElementById('addTaskTitle').value = '';
+	document.getElementById('addTaskDescripten').value = '';
+  }
+  
+  function clearSelectedCategory() {
+	document.getElementById('selectedCat').innerHTML = `
+	  <input disabled id='selectedCatInput' placeholder='Select task category' autocomplete='off'>
+	  <span id='sColor'></span>
+	  <div class='newCategoryImgDiv d-none' id='addTaskNewCatBtn'>
+		<img src="../assets/img/new_cat_cancel.png">
+		<img src="../assets/img/bnt_divider.png" class='btnDivider'>
+		<img src="../assets/img/akar-icons_check.png">
+	  </div>
+	  <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
+  }
+  
+  function clearDueDate() {
+	document.getElementById('dueDate').value = '';
+  }
+  
+  function clearSubtasks() {
+	resetSubtaskSelections();
+	selectedSubtasks = [];
+  }
+  
+  function clearValidationMessages() {
+	document.getElementById('titleReq').style.opacity = '0';
+	document.getElementById('dateReq').style.opacity = '0';
+	document.getElementById('catReq').style.opacity = '0';
+	document.getElementById('catReq').classList.add('listD-none');
+  }
 
 // save data to local storage/server!
 
