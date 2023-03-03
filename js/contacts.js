@@ -95,7 +95,7 @@ async function userInAlphabetArray() {
 	setTimeout(() => {
 		contactListAutomaticResponisive();
 		showContact(0);
-	}, 100);
+	}, 1);
 	showContact(0);
 }
 
