@@ -806,18 +806,14 @@ boardSubheaders > * {
 
 /* Copy from boardTaskCardPopup.css */
 .boardTaskCardPopup {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
 	padding: 50px;
-	gap: 25px;
+
 	isolation: isolate;
-	
+
 	/* width: 573px;
 	height: 774px;  changed by Bossi 28.02 to:*/
 	width: 623px;
 	height: 824px;
-	
 
 	background: #ffffff;
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
@@ -835,7 +831,21 @@ boardSubheaders > * {
 
 	/* edited by Bossi 01.03 */
 	overflow: hidden;
-	overflow-y: scroll;
+	/* overflow-y: scroll; */
+}
+
+.taskCardPopupTaskInnerContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 25px;
+	height: calc(100vh - 255px);
+}
+
+.boardTaskCardInnerContainer {
+	width: 100%;
+	height: 100%;
+	position: relative;
 }
 
 .taskCardPopupCategory {
@@ -845,7 +855,7 @@ boardSubheaders > * {
 	justify-content: center;
 	padding: 4px 36.5px;
 	gap: 10px;
-	min-width: 142px;
+	width: fit-content;
 	height: 40px;
 	background: #fc71ff;
 	border-radius: 8px;
@@ -853,6 +863,7 @@ boardSubheaders > * {
 	order: 0;
 	flex-grow: 0;
 	z-index: 0;
+	margin-bottom: 25px;
 }
 
 .taskCardPopupCategory span {
@@ -1043,13 +1054,14 @@ boardSubheaders > * {
 }
 
 .close_logo {
-	position: sticky;/* changed from absolute by Bossi 01.03*/
+	position: absolute; /* changed from absolute by Bossi 01.03*/
 	width: 21.65px;
 	height: 21.65px;
 	/* right: 41px; */
-	left: 96%;
+	/* left: 96%; */
 	/* top: 34px; */
-	top: 0px;
+	top: 32px;
+	right: 32px;
 	transform: rotate(90deg);
 	flex: none;
 	/* order: 9; */
@@ -1065,13 +1077,12 @@ boardSubheaders > * {
 	align-items: center;
 	padding: 0px;
 	gap: 6px;
-	/* position: absolute; */
-	position: sticky;
+	position: absolute;
 	width: 57px;
 	height: 57px;
-	/* right: 41px; */
-	left: calc(100% - 41px);
-	bottom: 30px;
+	right: 32px;
+	/* left: calc(100% - 41px); */
+	bottom: 32px;
 	background: #2a3647;
 	border-radius: 10px;
 	flex: none;
@@ -1373,10 +1384,12 @@ boardSubheaders > * {
 	padding: 0px;
 	gap: 5px;
 	position: absolute;
-	width: 422px;
+	/* width: 422px; */
 	height: 81px;
-	left: 101px;
+	/* left: 101px; */
 	top: 53px;
+	right: 0;
+	left: 0;
 }
 
 .boardEditTitleContainer span {
@@ -1400,7 +1413,7 @@ boardSubheaders > * {
 	align-items: center;
 	padding: 13px 21px;
 	gap: 10px;
-	width: 422px;
+	width: 100%;
 	height: 51px;
 	background: #ffffff;
 	border: 1px solid #d1d1d1;
@@ -1424,10 +1437,11 @@ boardSubheaders > * {
 	padding: 0px;
 	gap: 5px;
 	position: absolute;
-	width: 422px;
+	/* width: 422px; */
 	height: 149px;
-	left: 101px;
 	top: 154px;
+	right: 0;
+	left: 0;
 }
 
 .boardEditDescriptionContainer span {
@@ -1452,7 +1466,7 @@ boardSubheaders > * {
 	padding: 18px 21px;
 	gap: 10px;
 	isolation: isolate;
-	width: 422px;
+	width: 100%;
 	height: 119px;
 	background: #ffffff;
 	border: 1px solid #d1d1d1;
@@ -1476,9 +1490,10 @@ boardSubheaders > * {
 	padding: 0px;
 	gap: 5px;
 	position: absolute;
-	width: 422px;
+	width: 100%;
 	height: 81px;
-	left: 101px;
+	right: 0;
+	left: 0;
 	top: 333px;
 }
 
@@ -1504,7 +1519,7 @@ boardSubheaders > * {
 	padding: 18px 21px;
 	gap: 10px;
 	isolation: isolate;
-	width: 422px;
+	width: 100%;
 	height: 51px;
 	background: #ffffff;
 	border: 1px solid #d1d1d1;
@@ -1533,9 +1548,10 @@ boardSubheaders > * {
 	gap: 5px;
 
 	position: absolute;
-	width: 422px;
+	width: 100%;
 	height: 91px;
-	left: 101px;
+	left: 0;
+	right: 0;
 	top: 444px;
 }
 
@@ -1560,11 +1576,21 @@ boardSubheaders > * {
 	align-items: center;
 	padding: 0px;
 	gap: 10px;
-	width: 422px;
+	width: 100%;
 	height: 61px;
 	flex: none;
 	order: 1;
 	flex-grow: 0;
+}
+
+.btnsContainerboardTaskCardPopup {
+	position: absolute;
+	bottom: 24px;
+	right: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
 }
 
 .editTaskOkBtn {
@@ -1575,11 +1601,11 @@ boardSubheaders > * {
 	padding: 18px 10px;
 	gap: 10px;
 
-	position: absolute;
+	/* position: absolute; */
 	width: 83px;
 	height: 61px;
-	left: 508px;
-	top: 719px;
+	/* 	left: 508px;
+	top: 719px; */
 	/* changed top by Bossi 01.03 */
 	/* top: 762px; */
 
@@ -1612,7 +1638,7 @@ boardSubheaders > * {
 	align-items: center;
 	padding: 18px 10px;
 	gap: 10px;
-	position: absolute;
+	/* position: absolute; */
 	height: 61px;
 	left: 470.31px;
 	top: 787px;
@@ -1665,8 +1691,9 @@ boardSubheaders > * {
 .boardAddTaskAssignedBox {
 	position: absolute;
 	top: 578px;
-	left: 101px;
-	width: 67.307%; /* inserted by Bossi 28.02 */
+	left: 0;
+	right: 0;
+	/* width: 67.307%; */ /* inserted by Bossi 28.02 */
 
 	display: flex;
 	flex-direction: column;
@@ -1705,7 +1732,7 @@ boardSubheaders > * {
 	padding: 18px 21px;
 	gap: 10px;
 	isolation: isolate;
-	width: 422px;
+	width: 100%;
 	height: 51px;
 	background: #ffffff;
 	border: 1px solid #d1d1d1;
@@ -1727,8 +1754,8 @@ boardSubheaders > * {
 	color: black;
 }
 
-.boardAddTaskAssignedBox ul{
-	width: 422px;
+.boardAddTaskAssignedBox ul {
+	width: 100%;
 }
 
 .boardAddTaskAssignedBox input::placeholder {
@@ -1759,9 +1786,9 @@ boardSubheaders > * {
 	background-color: #2a3647;
 	color: white;
 	cursor: pointer;
-	/* position: absolute; */
-	/* right: 41px;
-	bottom: 97px; */
+	position: absolute;
+	/* right: 41px; */
+	bottom: 16px;
 }
 
 .moveBtnMobil button:hover {
@@ -1986,14 +2013,14 @@ boardSubheaders > * {
 		height: 100%;
 		width: 100%;
 		border-radius: 0;
-		overflow: scroll;
+		/* overflow: scroll; */
 	}
 	.taskCardPopupTask span {
 		font-size: 36px;
 	}
 
 	/* edit by Bossi 01.03 */
-	.boardEditTitleContainer,
+	/* .boardEditTitleContainer,
 	.boardEditTitleContainer input,
 	.boardEditDescriptionContainer,
 	.boardEditDescriptionContainer textarea,
@@ -2001,21 +2028,21 @@ boardSubheaders > * {
 	.boardEditDateContainer input,
 	.editTaskCardPrio,
 	.editTaskCardPrioBtn,
-	.boardAddTaskAssignedBox{
+	.boardAddTaskAssignedBox {
 		width: calc(100% - 50px) !important;
 		left: 25px;
-	}
-
+	} */
+	/* 
 	.boardAddTaskAssignedBox button,
-	.boardAddTaskAssignedBox ul{
+	.boardAddTaskAssignedBox ul {
 		width: calc(100% - 50px) !important;
-	}
+	} */
 
-	.boardAddTaskAssignedBox input{
+	.boardAddTaskAssignedBox input {
 		width: 95%;
 	}
 
-	.editTaskOkBtn{
+	.editTaskOkBtn {
 		left: calc(100% - 158px);
 		top: 800px;
 	}
@@ -2024,11 +2051,47 @@ boardSubheaders > * {
 @media screen and (max-height: 780px) {
 	.boardTaskCardPopup {
 		height: 100%;
-		overflow: scroll;
+		/* overflow: scroll; */
+	}
+
+	.deleteButton,
+	.editTaskOkBtn {
+		height: 45px;
 	}
 }
 
 @media screen and (max-width: 480px) {
+	.editButton,
+	.close_logo {
+		right: 16px;
+	}
+
+	.editButton {
+		bottom: 16px;
+	}
+
+	.boardTaskCardPopup {
+		padding: 24px 12px 0px 12px;
+	}
+
+	.taskCardPopupTaskInnerContainer {
+		overflow: scroll;
+	}
+
+	.btnsContainerboardTaskCardPopup {
+		position: absolute;
+		/* bottom: 24px; */
+		/* right: 24px; */
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		top: 12px;
+		left: 0;
+		right: 0;
+		bottom: unset;
+	}
+
 	.boardContainer {
 		padding: 8px;
 	}
@@ -2115,13 +2178,17 @@ boardSubheaders > * {
 		width: 100%;
 	}
 
-	.editTaskCardPrioBtn span{
+	.editTaskCardPrioBtn span {
 		display: none !important;
 	}
 
-	.moveBtnMobil{
+	.moveBtnMobil {
 		flex-direction: column;
 		height: 124px !important;
+	}
+
+	.boardAddTaskAssignedBox {
+		padding-bottom: 24px;
 	}
 }
 
@@ -2131,21 +2198,24 @@ boardSubheaders > * {
 	}
 }
 
-
 @media screen and (max-width: 430px) {
-	.boardAddTaskAssignedBox input{
+	.boardAddTaskAssignedBox input {
 		font-size: 16px;
 	}
 }
 
 @media screen and (max-width: 400px) {
-	.moveBtnMobil{
+	.moveBtnMobil {
 		flex-direction: column;
 		height: 124px !important;
 	}
 }
 
 @media screen and (max-height: 768px) {
+	.boardTaskCardInnerContainer {
+		overflow: scroll;
+	}
+
 	.boardHeadline span {
 		font-size: 36px;
 	}
@@ -2183,4 +2253,18 @@ boardSubheaders > * {
 		overflow: scroll;
 		padding-top: 24px;
 	} */
+
+	.btnsContainerboardTaskCardPopup {
+		position: absolute;
+		/* bottom: 24px; */
+		/* right: 24px; */
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		top: 12px;
+		left: 0;
+		right: 0;
+		bottom: unset;
+	}
 }

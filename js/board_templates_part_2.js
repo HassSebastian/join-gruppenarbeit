@@ -38,7 +38,9 @@ async function renderSubtaskHtml(taskIndex) {
 	if (subtaskExist(subtaskArray)) {
 		for (let i = 0; i < subtaskArray.length; i++) {
 			let subtaskText = subtaskArray[i]['subtaskText'];
-			document.getElementById('subtaskListTaskCard').innerHTML += /*html*/ `
+			document.getElementById(
+				'subtaskListTaskCard'
+			).innerHTML += /*html*/ `
                 <div>
                     <input type='checkbox' id='subtask${i}' onclick='checkboxSubtaskSelected(${i}, ${taskIndex}), renderBtnBySubtaskChange(${taskIndex})'>
                     <span>${subtaskText}</span>
@@ -55,88 +57,92 @@ async function renderEditTaskCardHtml(taskIndex) {
 	document.getElementById('boardPopup').innerHTML = '';
 	document.getElementById('boardPopup').innerHTML = /*html*/ `
         <div class='boardTaskCardPopup' onclick='stopClose(event)'>
-            <img class='close_logo' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'>
-            <div class='boardEditTitleContainer'>
-                <span>Title</span>
-                <input type='text' placeholder='Enter a title' id='boardEditTitle'>
-            </div>
-            <div class='boardEditDescriptionContainer'>
-                <span>Descripten</span>
-                <textarea name='Description'  cols='30' rows='10' placeholder='Enter Descriptiom' id='boardEditDecription'></textarea>
-            </div>
-            <div class='boardEditDateContainer'>
-                <span>Due Date</span>
-                <input type='date' id='boardEditDueDate'>
-            </div>
+        <img class='close_logo' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'>
+            <div class='boardTaskCardInnerContainer'>
+                <div class='boardEditTitleContainer'>
+                    <span>Title</span>
+                    <input type='text' placeholder='Enter a title' id='boardEditTitle'>
+                </div>
+                <div class='boardEditDescriptionContainer'>
+                    <span>Descripten</span>
+                    <textarea name='Description'  cols='30' rows='10' placeholder='Enter Descriptiom' id='boardEditDecription'></textarea>
+                </div>
+                <div class='boardEditDateContainer'>
+                    <span>Due Date</span>
+                    <input type='date' id='boardEditDueDate'>
+                </div>
 
-            <div class='editTaskCardPrio'>
-                <h3>Prio</h3>
-                <div class='editTaskCardPrioBtn'>
-                    <div class='addTaskUrgent' id='addTaskUrgent' onclick='addPrio(0); prioStatusChange(0)'>
-                        <span id='addTaskUrgentSpan'>Urgent</span>
-                        <img id='addTaskUrgentImg' src='../assets/img/urgent_arrows.png'>
-                    </div>
-                    <div class='addTaskMedium' id='addTaskMedium' onclick='addPrio(1); prioStatusChange(1)'>
-                        <span id='addTaskMediumSpan'>Medium</span>
-                        <img id='addTaskMediumImg' src='../assets/img/prio_medium.png'>
-                    </div>
-                    <div class='addTaskLow' id='addTaskLow' onclick='addPrio(2); prioStatusChange(2)'>
-                        <span id='addTaskLowSpan'>Low</span>
-                        <img id='addTaskLowImg' src='../assets/img/prio_low.png'>
+                <div class='editTaskCardPrio'>
+                    <h3>Prio</h3>
+                    <div class='editTaskCardPrioBtn'>
+                        <div class='addTaskUrgent' id='addTaskUrgent' onclick='addPrio(0); prioStatusChange(0)'>
+                            <span id='addTaskUrgentSpan'>Urgent</span>
+                            <img id='addTaskUrgentImg' src='../assets/img/urgent_arrows.png'>
+                        </div>
+                        <div class='addTaskMedium' id='addTaskMedium' onclick='addPrio(1); prioStatusChange(1)'>
+                            <span id='addTaskMediumSpan'>Medium</span>
+                            <img id='addTaskMediumImg' src='../assets/img/prio_medium.png'>
+                        </div>
+                        <div class='addTaskLow' id='addTaskLow' onclick='addPrio(2); prioStatusChange(2)'>
+                            <span id='addTaskLowSpan'>Low</span>
+                            <img id='addTaskLowImg' src='../assets/img/prio_low.png'>
+                        </div>
                     </div>
                 </div>
-            </div>
-                <!-- addTaskAssignedBox -->
-            <div class='boardAddTaskAssignedBox' id='addTaskAssignedBox'>
-			        <h3>Assigned to</h3>
-			        <button id='addTaskAssignedButton' onclick='enableDisableAssignList()'>
-                    <input
-                            disabled
-                            onclick='doNotCloseOnClick(event)'
-                            id='selectedAssign'
-                            name='selectedAssign'
-                            class='inputselectedAssign'
-                            placeholder='Select contacts to assign'
-                            autocomplete='off'
-                        />
-				
-                    <div
-                    id='assignToCancelConfirmImgContainer'
-                    class='assignToCancelConfirmImgContainer d-none'
-                    >
-                        <img
-                        onclick='assignBoxBackToDefaultMode(), enableAssignList()'
-                        class='assignToCancelIcon'
-                        src='assets/img/cancel-black.png'
-                        alt='cancel'
-                        />
-                        <img class='assignToDeviderIcon' src='assets/img/bnt_divider.png' />
-                        <img
-                        onclick='frontEndDeveloper()'
-                        class='assignToCheckIcon'
-                        src='assets/img/akar-icons_check.png'
-                        alt='confirm'
-                        />
+                    <!-- addTaskAssignedBox -->
+                <div class='boardAddTaskAssignedBox' id='addTaskAssignedBox'>
+                        <h3>Assigned to</h3>
+                        <button id='addTaskAssignedButton' onclick='enableDisableAssignList()'>
+                        <input
+                                disabled
+                                onclick='doNotCloseOnClick(event)'
+                                id='selectedAssign'
+                                name='selectedAssign'
+                                class='inputselectedAssign'
+                                placeholder='Select contacts to assign'
+                                autocomplete='off'
+                            />
+                    
+                        <div
+                        id='assignToCancelConfirmImgContainer'
+                        class='assignToCancelConfirmImgContainer d-none'
+                        >
+                            <img
+                            onclick='assignBoxBackToDefaultMode(), enableAssignList()'
+                            class='assignToCancelIcon'
+                            src='assets/img/cancel-black.png'
+                            alt='cancel'
+                            />
+                            <img class='assignToDeviderIcon' src='assets/img/bnt_divider.png' />
+                            <img
+                            onclick='frontEndDeveloper()'
+                            class='assignToCheckIcon'
+                            src='assets/img/akar-icons_check.png'
+                            alt='confirm'
+                            />
+                        </div>
+                        <img id='assignDropDownImg' src='assets/img/Vector 2.png' class='dropdownImg' />
+                        </button>
+                        <span id='assignReq'>This field is required</span>
+                        <div id='badgesTaskForce' class='badgesTaskForce'></div>
+                        <ul class='addTaskAssignList listD-none' id='dropdown2'>
+
+                        <li onclick='assigendContactEmail()' class='inviteNewContacts'>
+                            Invite new contacts<img
+                                class='assignInviteNewContactImage'
+                                src='assets/img/assigned_inviteNewContact.png'
+                                alt=''
+                            />
+                        </li>
                     </div>
-                    <img id='assignDropDownImg' src='assets/img/Vector 2.png' class='dropdownImg' />
+                
+            </div>
+            <div class="btnsContainerboardTaskCardPopup">
+                    <button class='editTaskOkBtn' onclick='getTaskChanges(${taskIndex})'>Ok <img src='../assets/img/akar-icons_check_white.png' ></button>
+                    <button class='deleteButton d-none' id='deleteButton' onclick='deleteButton(${taskIndex})'> <!--edit by Basti-->
+                        Delete <img src='../assets/img/akar-icons_check_white.png' >
                     </button>
-                    <span id='assignReq'>This field is required</span>
-                    <div id='badgesTaskForce' class='badgesTaskForce'></div>
-                    <ul class='addTaskAssignList listD-none' id='dropdown2'>
-
-                    <li onclick='assigendContactEmail()' class='inviteNewContacts'>
-                        Invite new contacts<img
-                            class='assignInviteNewContactImage'
-                            src='assets/img/assigned_inviteNewContact.png'
-                            alt=''
-                        />
-                    </li>
-                </div>
-
-            <button class='editTaskOkBtn' onclick='getTaskChanges(${taskIndex})'>Ok <img src='../assets/img/akar-icons_check_white.png' ></button>
-            <button class='deleteButton d-none' id='deleteButton' onclick='deleteButton(${taskIndex})'> <!--edit by Basti-->
-                Delete <img src='../assets/img/akar-icons_check_white.png' >
-            </button>
+                </div>    
         </div>`;
 }
 
@@ -144,7 +150,11 @@ let addTaskContactsResponsiveOn = false;
 let addTaskOpen;
 function startIntervalWhenOff() {
 	const interval = setInterval(() => {
-		if (window.innerWidth > 563 && !addTaskContactsResponsiveOn && addTaskOpen) {
+		if (
+			window.innerWidth > 563 &&
+			!addTaskContactsResponsiveOn &&
+			addTaskOpen
+		) {
 			showAddTaskPopupWindow();
 			addTaskContactsResponsiveOn = true;
 			clearInterval(interval);
@@ -157,7 +167,11 @@ function startIntervalWhenOff() {
 
 function startIntervalWhenOn() {
 	const interval = setInterval(() => {
-		if (window.innerWidth < 563 && addTaskContactsResponsiveOn && addTaskOpen) {
+		if (
+			window.innerWidth < 563 &&
+			addTaskContactsResponsiveOn &&
+			addTaskOpen
+		) {
 			showAddTaskPopupWindow();
 			addTaskContactsResponsiveOn = false;
 			clearInterval(interval);
@@ -507,38 +521,35 @@ function renderPopupTaskCardHtml(taskIndex) {
             <div class='taskCardPopupTask'>
                 <span>${cardTitle}</span>
             </div>
-            <span class='taskCardPopupDescription'>${cardDescription}</span>
-            <div class='taskCardPopupDateContainer'>
-                <span class='taskCardPopupDateText'>Due date:</span>
-                <span class='taskCardPopupDueDate'>${cardDueDate}</span>
-            </div>
-            <div class='taskCardPopupPriorityContainer'>
-            <span>Priority:</span>
-            <div class='urgency' id='prioContainer'>
-                <span>${taskPrio}</span>
-                <img src='./assets/img/urgent_white.png' id='cardPrioImg'>
-            </div>
-        </div>
+            <div class='taskCardPopupTaskInnerContainer'>
+                <span class='taskCardPopupDescription'>${cardDescription}</span>
+                <div class='taskCardPopupDateContainer'>
+                    <span class='taskCardPopupDateText'>Due date:</span>
+                    <span class='taskCardPopupDueDate'>${cardDueDate}</span>
+                </div>
+                <div class='taskCardPopupPriorityContainer'>
+                    <span>Priority:</span>
+                    <div class='urgency' id='prioContainer'>
+                        <span>${taskPrio}</span>
+                        <img src='./assets/img/urgent_white.png' id='cardPrioImg'>
+                    </div>
+                </div>
 
-        <span class='assigned'>Assigned To:</span>
-        <!-- <img class='close_logo' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'> -->
-        <div class='editButton' onclick='openEditTaskCard(${taskIndex})'>
-            <img src='./assets/img/edit_button.png'>
-        </div>
-    
-        <div class='members' id='members'>
-            
-        </div>
+                <span class='assigned'>Assigned To:</span>
+                <img class='close_logo' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'>
+                <div class='editButton' onclick='openEditTaskCard(${taskIndex})'>
+                    <img src='./assets/img/edit_button.png'>
+                </div>
         
-        <div class='boardSubtasksTitleDiv'>
-            <span class='boardSubtaskTitle'>Subtasks:</span>
+                <div class='members' id='members'></div>            
+            
+                <div class='boardSubtasksTitleDiv'>
+                    <span class='boardSubtaskTitle'>Subtasks:</span>    
+                </div >
+                <div class='boardSubtasksDiv' id='subtaskListTaskCard'></div>
                 
-        </div >
-        <div class='boardSubtasksDiv' id='subtaskListTaskCard'>
-            
-        </div>
-        <div class='moveBtnMobil d-none' id='moveBtnMobil'>
-        
+                <div class='moveBtnMobil d-none' id='moveBtnMobil'></div>
+                </div>
         </div>
         
         `;

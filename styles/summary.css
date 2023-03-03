@@ -151,6 +151,15 @@
 
 #taskInBoard,
 #taskInProgress,
+#awaitingFeedback,
+.ugencySummary,
+#toDo,
+#toDoDone {
+	cursor: pointer;
+}
+
+#taskInBoard,
+#taskInProgress,
 #awaitingFeedback {
 	display: flex;
 	flex-direction: column;
@@ -165,7 +174,6 @@
 	border-radius: 30px;
 	flex: none;
 	order: 2;
-	flex-grow: 0;
 }
 
 #taskInBoard:hover,

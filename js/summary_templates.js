@@ -1,4 +1,12 @@
-function generateSummaryHtml(numberInBoard, numberToDo, numberInProgress, numberAwaitingFeedback, numberDone, numberUrgent, nextDueDate = 'December 24, 2045') {
+function generateSummaryHtml(
+	numberInBoard,
+	numberToDo,
+	numberInProgress,
+	numberAwaitingFeedback,
+	numberDone,
+	numberUrgent,
+	nextDueDate = 'December 24, 2045'
+) {
 	return /*html*/ `
 	<div class="summaryContainer">
 		<div class="title">
@@ -24,7 +32,7 @@ function generateSummaryHtml(numberInBoard, numberToDo, numberInProgress, number
 							<p class="nameTask">Awaiting Feedback</p>
 						</div>
 					</div>
-					<div class="ugencySummary">
+					<div onclick="initBoard()" class="ugencySummary">
 						<div class="urgencyCenterContainer">
 							<div class="ugent">
 								<div class="ugentImgContainer">
@@ -44,7 +52,7 @@ function generateSummaryHtml(numberInBoard, numberToDo, numberInProgress, number
 						</div>
 					</div>
 					<div class="toDoData">
-						<div class="toDoDone" id="toDo">
+						<div onclick="initBoard()" class="toDoDone" id="toDo">
 							<div class="toDoDoneSvgContainer">
 								<svg class="summarySvg" width="24" height="34" viewBox="0 0 24 34" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 								<path d="M8.61559 29.262L3.05082 25.8847L17.211 2.55302C17.7841 1.60874 19.0141 1.30784 19.9584 1.88092L22.1037 3.1829C23.0479 3.75598 23.3488 4.98604 22.7758 5.93031L8.61559 29.262Z" fill="currentColor"/>
@@ -56,7 +64,7 @@ function generateSummaryHtml(numberInBoard, numberToDo, numberInProgress, number
 								<p id="toDoAmountP" class="nameTask">to-Do</p>
 							</div>
 						</div>
-						<div class="toDoDone" id="toDoDone">
+						<div onclick="initBoard()" class="toDoDone" id="toDoDone">
 							<div class="toDoDoneSvgContainer">
 								<svg class="summarySvg" width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M4.27832 15.0001L15.5071 26.0662L34.2217 3.93408" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
