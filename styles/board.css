@@ -1774,6 +1774,13 @@ boardSubheaders > * {
 	color: black;
 }
 
+.moveBtnMobil {
+	position: absolute;
+	left: 0;
+	bottom: 32px;
+	left: 32px;
+}
+
 .moveBtnMobil button {
 	border-radius: 10px;
 	/* display: flex;
@@ -1785,7 +1792,7 @@ boardSubheaders > * {
 	background-color: #2a3647;
 	color: white;
 	cursor: pointer;
-	position: absolute;
+	/* 	position: absolute; */
 	/* right: 41px; */
 	bottom: 16px;
 }
@@ -1800,7 +1807,7 @@ boardSubheaders > * {
 	.moveBtnMobil {
 		display: flex !important;
 		/* position: absolute !important;  */
-		bottom: 12px;
+		bottom: 32px;
 		height: 57px !important;
 		width: 310px;
 		gap: 10px;
@@ -2060,6 +2067,10 @@ boardSubheaders > * {
 }
 
 @media screen and (max-width: 480px) {
+	.moveBtnMobil {
+		bottom: 16px;
+	}
+
 	.editButton,
 	.close_logo {
 		right: 16px;
@@ -2213,6 +2224,10 @@ boardSubheaders > * {
 @media screen and (max-height: 768px) {
 	.boardTaskCardInnerContainer {
 		overflow: scroll;
+	}
+
+	.taskCardPopupTaskInnerContainer {
+		height: calc(100vh - 320px);
 	}
 
 	.boardHeadline span {
