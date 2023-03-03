@@ -1,5 +1,7 @@
 .legal-wrapper {
 	padding: 48px 48px 48px 48px;
+	overflow: scroll;
+	height: calc(100vh - 80px);
 }
 
 .legal-wrapper h2,
