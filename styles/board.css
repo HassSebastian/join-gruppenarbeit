@@ -1115,12 +1115,11 @@ boardSubheaders > * {
 	padding: 0px;
 	/* gap: 25px; */
 	width: 315px;
-	height: 45px;
+	height: fit-content;
 	flex: none;
 	order: 6;
 	flex-grow: 0;
 	z-index: 6;
-	overflow: scroll;
 }
 
 .members div {
