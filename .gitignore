@@ -2,3 +2,5 @@ up.bat
 .vscode
 test.html
 addTaskTest.css
+.prettierrc
+.gitignore
