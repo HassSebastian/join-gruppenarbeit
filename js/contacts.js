@@ -31,7 +31,7 @@ let newContactUser = [];
 let colorIndex = ['#02CF2F', '#EE00D6', '#0190E0', '#FF7200', '#FF2500', '#AF1616', '#FFC700', '#3E0099', '#462F8A', '#FF7A00', '#000000'];
 let check = 0;
 let listOpen = true;
-let autoResponsive = true;
+let autoResponsive = false;
 /**
  * This function is called when the user clicks on the contacts button in the menu. It loads the
  * contacts page and renders the content.
