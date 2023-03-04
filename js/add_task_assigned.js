@@ -20,8 +20,6 @@ function enableDisableAssignList() {
 		showBadgesTaskForce();
 	}
 	assignListStatus = !assignListStatus;
-	/* tabletViewAddMarginTopAssignList(); */ // edit by Bossi for responsivness 27.01
-	/* boardAddTaskMarginSettings(); */
 }
 
 function enableAssignList() {
@@ -193,7 +191,6 @@ function addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberInT
 		removeSelectedContactFromTaskForce(indexOfMemberInTaskForce);
 		renderBadgesMemberOfTaskForce();
 	}
-	// setTimeout(() => console.table(taskForce), 1);
 }
 
 /**
@@ -217,9 +214,7 @@ function addContactToTaskForceWithCheckBox(contact) {
 async function renderContactsInAssignDropDownMenu() {
 	let assignedContactList = document.getElementById('dropdown2');
 	coworkersToAssignTo.forEach((coworker, contact) => {
-		if (notLoggedUser(contact)) {
-			assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(coworker.name, contact);
-		}
+		if (notLoggedUser(contact)) assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(coworker.name, contact);
 	});
 }
 
@@ -252,7 +247,6 @@ async function renderLoggedUserInAssignDrobDownMenuIntoYou() {
 function setCheckStatusToFalse() {
 	taskForce.forEach((member) => {
 		member.check = false;
-		// log(member.checonsole.ck);
 	});
 }
 
