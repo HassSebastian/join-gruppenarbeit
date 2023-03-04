@@ -66,9 +66,6 @@ function transferallUserData() {
 
 /**
  * Creates a copy of allUsers without password
- * !Ich habe hier auskommentiert, weil es nur Fehler rausgibt.
- * Um keinen Fehler in der Anzeige zu verursachen, muss der guest in
- * allUsers und allFakeUser an der selben Stelle im jeweiligen Array stehen!
  */
 function creatingTransferObjectOfContacts() {
 	/* const users = guestLoggedIn
@@ -95,15 +92,19 @@ function addCheckAttributeToCoworkersToAssignTo() {
 	});
 }
 
-//? this are test function for the HTML 5 Form validation !
+/**
+ * On submit (enter) focus is on description
+ */
 function goToDescripten() {
 	document.getElementById('addTaskDescripten').focus();
 }
 
+/**
+ * On submit (enter) focus is on addTaskUrgent
+ */
 function goToPrio() {
 	document.getElementById('addTaskUrgent').focus();
 }
-//?this are test function for the HTML 5 Form validation end!
 
 /**
  * This function load the data(key:joinTaskArray) from local storage.
