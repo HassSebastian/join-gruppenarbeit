@@ -36,19 +36,7 @@ let menuSelectorStyles = [
 	},
 ];
 
-let colorUserIndex = [
-	'#02CF2F',
-	'#EE00D6',
-	'#0190E0',
-	'#FF7200',
-	'#FF2500',
-	'#AF1616',
-	'#FFC700',
-	'#3E0099',
-	'#462F8A',
-	'#FF7A00',
-	'#000000',
-];
+let colorUserIndex = ['#02CF2F', '#EE00D6', '#0190E0', '#FF7200', '#FF2500', '#AF1616', '#FFC700', '#3E0099', '#462F8A', '#FF7A00', '#000000'];
 
 let selectedMenuBtnId;
 let includeAttribute = 'w3-include-html';
@@ -95,38 +83,13 @@ let viewchange = false;
 	viewchange = false;
 } */
 
-let stylesheetDesktopDeactivationList = [
-	'stylsheetAddTaskMobil',
-	'stylesheetBoardMobil',
-	'stylesheetMobilTemplates',
-	'stylesheetMobilContacts',
-	'stylesheetMobilAddContacts',
-	'stylesheetSummaryMobil',
-	'stylesheetHelpMobil',
-];
+let stylesheetDesktopDeactivationList = ['stylsheetAddTaskMobil', 'stylesheetBoardMobil', 'stylesheetMobilTemplates', 'stylesheetMobilContacts', 'stylesheetMobilAddContacts', 'stylesheetSummaryMobil', 'stylesheetHelpMobil'];
 
-let jsDesktopDeactivationList = [
-	'jsMobilSummary',
-	'jsMobilAddTask',
-	'jsMobilBoard',
-	'jsHelpMobil',
-	'legalNoticeMobil',
-];
+let jsDesktopDeactivationList = ['jsMobilSummary', 'jsMobilAddTask', 'jsMobilBoard', 'jsHelpMobil', 'legalNoticeMobil'];
 
-let stylesheetMobilDeactivationList = [
-	'stylesheetsummary',
-	'stylesheetAddTask',
-	'stylesheetBoard',
-	'stylesheetContacts',
-	'stylesheetHelp',
-];
+let stylesheetMobilDeactivationList = ['stylesheetsummary', 'stylesheetAddTask', 'stylesheetBoard', 'stylesheetContacts', 'stylesheetHelp'];
 
-let jsMobilDeactivationList = [
-	'jsHelp',
-	'jsResponsiv',
-	'jsContacts',
-	'jsAddTaskTemplates',
-];
+let jsMobilDeactivationList = ['jsHelp', 'jsResponsiv', 'jsContacts', 'jsAddTaskTemplates'];
 
 /* async function deactivatMobil() {
 	stylesheetDesktopDeactivationList.forEach((stylesheet) => {
@@ -199,12 +162,10 @@ function selectedMenuButton(menuId) {
 
 function enableDisableScrollContent() {
 	if (selectedMenuBtnId == 4) {
-		document.getElementById('content').style =
-			'overflow: hidden; overflow-y: hidden;';
+		document.getElementById('content').style = 'overflow: hidden; overflow-y: hidden;';
 	}
 	if (selectedMenuBtnId == 3 || selectedMenuBtnId == 2) {
-		document.getElementById('content').style =
-			'overflow: hidden; overflow-y: scroll;';
+		document.getElementById('content').style = 'overflow: hidden; overflow-y: scroll;';
 	}
 }
 
@@ -220,16 +181,10 @@ function setMenuBtnStyle(menuId) {
 	let menuBtnId = menuSelectorStyles[menuId]['menuName'];
 	let img1Id = menuSelectorStyles[menuId]['img1Id'];
 	let img2Id = menuSelectorStyles[menuId]['img2Id'];
-	document.getElementById(menuBtnId).style =
-		menuSelectorStyles[0]['background'];
-	document.getElementById(menuBtnId + '_text').style =
-		menuSelectorStyles[0]['color'];
-	document
-		.getElementById(img1Id)
-		.classList.add(menuSelectorStyles[0]['disableImg']);
-	document
-		.getElementById(img2Id)
-		.classList.add(menuSelectorStyles[0]['enableImg']);
+	document.getElementById(menuBtnId).style = menuSelectorStyles[0]['background'];
+	document.getElementById(menuBtnId + '_text').style = menuSelectorStyles[0]['color'];
+	document.getElementById(img1Id).classList.add(menuSelectorStyles[0]['disableImg']);
+	document.getElementById(img2Id).classList.add(menuSelectorStyles[0]['enableImg']);
 	if (otherMenuBtnPreSelected()) {
 		deselectMenuButton(selectedMenuBtnId);
 	}
@@ -245,16 +200,10 @@ function setMenuBtnStyleSlider(menuId) {
 	menuBtnId = menuBtnId + '1';
 	img1Id = img1Id + '1';
 	img2Id = img2Id + '1';
-	document.getElementById(menuBtnId).style =
-		menuSelectorStyles[0]['background'];
-	document.getElementById(menuBtnId + '_text').style =
-		menuSelectorStyles[0]['color'];
-	document
-		.getElementById(img1Id)
-		.classList.add(menuSelectorStyles[0]['disableImg']);
-	document
-		.getElementById(img2Id)
-		.classList.add(menuSelectorStyles[0]['enableImg']);
+	document.getElementById(menuBtnId).style = menuSelectorStyles[0]['background'];
+	document.getElementById(menuBtnId + '_text').style = menuSelectorStyles[0]['color'];
+	document.getElementById(img1Id).classList.add(menuSelectorStyles[0]['disableImg']);
+	document.getElementById(img2Id).classList.add(menuSelectorStyles[0]['enableImg']);
 }
 
 function deselectMenuButtonSlider(menuId) {
@@ -265,20 +214,13 @@ function deselectMenuButtonSlider(menuId) {
 	img1Id = img1Id + '1';
 	img2Id = img2Id + '1';
 	if (legalNoticeNotSelected()) {
-		document.getElementById(menuBtnId).style =
-			menuSelectorStyles[0]['disabledBackground'];
-		document.getElementById(menuBtnId + '_text').style =
-			menuSelectorStyles[0]['color1'];
-		document
-			.getElementById(img1Id)
-			.classList.remove(menuSelectorStyles[0]['disableImg']);
-		document
-			.getElementById(img2Id)
-			.classList.remove(menuSelectorStyles[0]['enableImg']);
+		document.getElementById(menuBtnId).style = menuSelectorStyles[0]['disabledBackground'];
+		document.getElementById(menuBtnId + '_text').style = menuSelectorStyles[0]['color1'];
+		document.getElementById(img1Id).classList.remove(menuSelectorStyles[0]['disableImg']);
+		document.getElementById(img2Id).classList.remove(menuSelectorStyles[0]['enableImg']);
 	}
 	if (legalNoticeSelected()) {
-		document.getElementById(menuBtnId).style =
-			menuSelectorStyles[0]['disabledBackground'];
+		document.getElementById(menuBtnId).style = menuSelectorStyles[0]['disabledBackground'];
 	}
 }
 
@@ -288,8 +230,7 @@ function otherMenuBtnPreSelected() {
 
 function setLegalNoticeBtnStyle(menuId) {
 	let menuBtnId = menuSelectorStyles[menuId]['menuName'];
-	document.getElementById(menuBtnId).style =
-		menuSelectorStyles[0]['background'];
+	document.getElementById(menuBtnId).style = menuSelectorStyles[0]['background'];
 	if (otherMenuBtnPreSelected()) {
 		deselectMenuButton(selectedMenuBtnId);
 	}
@@ -300,20 +241,13 @@ function deselectMenuButton(menuId) {
 	let img1Id = menuSelectorStyles[menuId]['img1Id'];
 	let img2Id = menuSelectorStyles[menuId]['img2Id'];
 	if (legalNoticeNotSelected()) {
-		document.getElementById(menuBtnId).style =
-			menuSelectorStyles[0]['disabledBackground'];
-		document.getElementById(menuBtnId + '_text').style =
-			menuSelectorStyles[0]['color1'];
-		document
-			.getElementById(img1Id)
-			.classList.remove(menuSelectorStyles[0]['disableImg']);
-		document
-			.getElementById(img2Id)
-			.classList.remove(menuSelectorStyles[0]['enableImg']);
+		document.getElementById(menuBtnId).style = menuSelectorStyles[0]['disabledBackground'];
+		document.getElementById(menuBtnId + '_text').style = menuSelectorStyles[0]['color1'];
+		document.getElementById(img1Id).classList.remove(menuSelectorStyles[0]['disableImg']);
+		document.getElementById(img2Id).classList.remove(menuSelectorStyles[0]['enableImg']);
 	}
 	if (legalNoticeSelected()) {
-		document.getElementById(menuBtnId).style =
-			menuSelectorStyles[0]['disabledBackground'];
+		document.getElementById(menuBtnId).style = menuSelectorStyles[0]['disabledBackground'];
 	}
 	if (!document.querySelector('.mobileContent')) {
 		deselectMenuButtonSlider(menuId);
@@ -351,65 +285,19 @@ function logOut() {
 
 function loadContributorsLetter() {
 	let colorIndex = allUsers[loggedUser[0]].colorIndex;
-	document.getElementById(
-		'contributorsLogoHeadder'
-	).style = `background:${colorUserIndex[colorIndex]}`;
-	document.getElementById(
-		'contributorsLogoHeadderLetters'
-	).innerHTML = `<p style='color:white'>${allUsers[loggedUser].firstSecondLetter}</p>`;
+	document.getElementById('contributorsLogoHeadder').style = `background:${colorUserIndex[colorIndex]}`;
+	document.getElementById('contributorsLogoHeadderLetters').innerHTML = `<p style='color:white'>${allUsers[loggedUser].firstSecondLetter}</p>`;
 }
 
 // Load only applicable js and css. Edit by Bossi 29.01
 
-let stylesheetDesktopList = [
-	'stylesheetAddTask',
-	'stylesheetBoard',
-	'stylesheetContacts',
-	'stylesheetLegalNotice',
-	'stylesheetsummary',
-	'stylesheetBoardMobil',
-	'stylsheetAddTaskMobil',
-	'stylesheetHelp',
-];
+let stylesheetDesktopList = ['stylesheetAddTask', 'stylesheetBoard', 'stylesheetContacts', 'stylesheetLegalNotice', 'stylesheetsummary', 'stylesheetBoardMobil', 'stylsheetAddTaskMobil', 'stylesheetHelp'];
 
-let scriptDesktopList = [
-	'jsMiniBackend',
-	'jsResponsiv',
-	'jsScript',
-	'jsAddTask',
-	'jsAddTaskTemplates',
-	'jsBoardPart1',
-	'jsBoardPart2',
-	'jsBoardPart3',
-	'jsBoardTemplatesPart1',
-	'jsBoardTemplatesPart2',
-	'jsSignUp',
-	'jsSignUpTemplates',
-	'jsContactsTemplates',
-	'jsContacts',
-	'jslegalNotice',
-	'jslegalNotice',
-	'jsHelp',
-];
+let scriptDesktopList = ['jsMiniBackend', 'jsResponsiv', 'jsScript', 'jsAddTask', 'jsAddTaskTemplates', 'jsBoardPart1', 'jsBoardPart2', 'jsBoardPart3', 'jsBoardTemplatesPart1', 'jsBoardTemplatesPart2', 'jsSignUp', 'jsSignUpTemplates', 'jsContactsTemplates', 'jsContacts', 'jslegalNotice', 'jslegalNotice', 'jsHelp'];
 
-let stylesheetMobilList = [
-	'stylesheetBoardMobil',
-	'stylsheetAddTaskMobil',
-	'stylesheetMobilTemplates',
-	'stylesheetMobilContacts',
-	'stylesheetMobilAddContacts',
-	'stylesheetSummaryMobil',
-	'stylesheetHelpMobil',
-];
+let stylesheetMobilList = ['stylesheetBoardMobil', 'stylsheetAddTaskMobil', 'stylesheetMobilTemplates', 'stylesheetMobilContacts', 'stylesheetMobilAddContacts', 'stylesheetSummaryMobil', 'stylesheetHelpMobil'];
 
-let scriptMobilList = [
-	'jsMobilSummary',
-	'jsMobilAddTask',
-	'jsMobilBoard',
-	'jsMobilContacts',
-	'jsHelpMobil',
-	'legalNoticeMobil',
-];
+let scriptMobilList = ['jsMobilSummary', 'jsMobilAddTask', 'jsMobilBoard', 'jsMobilContacts', 'jsHelpMobil', 'legalNoticeMobil'];
 
 async function disableAllStyles() {
 	stylesheetDesktopList.forEach((stylesheet) => {

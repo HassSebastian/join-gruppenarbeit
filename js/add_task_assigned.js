@@ -50,9 +50,7 @@ function borderBottomOnAssignedBoxButton(id) {
  * Sets the placeholder of inputField to "contact email"
  */
 function assignChangeInputPlaceholderToContactEmail() {
-	document.getElementsByName(
-		'selectedAssign'
-	)[0].placeholder = `Contact email`;
+	document.getElementsByName('selectedAssign')[0].placeholder = `Contact email`;
 }
 
 /**
@@ -66,9 +64,7 @@ function enableInputaddTasAssign() {
  * Shows btn to delete or confirm filled in input
  */
 function showCancelConfirmButtons() {
-	document
-		.getElementById('assignToCancelConfirmImgContainer')
-		.classList.remove('d-none');
+	document.getElementById('assignToCancelConfirmImgContainer').classList.remove('d-none');
 }
 
 /**
@@ -102,9 +98,7 @@ function doNotCloseOnClick(event) {
 }
 
 function assignInputPlaceholderToDefaultMode() {
-	document.getElementsByName(
-		'selectedAssign'
-	)[0].placeholder = `Select contacts to Assign`;
+	document.getElementsByName('selectedAssign')[0].placeholder = `Select contacts to Assign`;
 }
 
 function assignInputValueToDefault() {
@@ -112,9 +106,7 @@ function assignInputValueToDefault() {
 }
 
 function hideCancelConfirmButtons() {
-	document
-		.getElementById('assignToCancelConfirmImgContainer')
-		.classList.add('d-none');
+	document.getElementById('assignToCancelConfirmImgContainer').classList.add('d-none');
 }
 
 function showAssignDropDownImg() {
@@ -130,9 +122,7 @@ function changeAssignPlaceholderColorToGrey() {
 }
 
 function changeAssignPlaceholderColorToDefault() {
-	document
-		.getElementById('selectedAssign')
-		.classList.remove('greyPlaceholder');
+	document.getElementById('selectedAssign').classList.remove('greyPlaceholder');
 }
 
 function assignBoxBackToDefaultMode() {
@@ -193,11 +183,7 @@ function removeSelectedContactFromTaskForce(index) {
  * @param contact - the contact that was selected
  * @param indexOfMemberInTaskForce - The index of the contact in the task force array.
  */
-function addRemoveToggleForTaskForce(
-	addedToTaskForce,
-	contact,
-	indexOfMemberInTaskForce
-) {
+function addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberInTaskForce) {
 	if (!addedToTaskForce) {
 		addCheckMarkToCheckBox(contact);
 		addSelectedContactToTaskForce(contact);
@@ -218,14 +204,8 @@ function addRemoveToggleForTaskForce(
 function addContactToTaskForceWithCheckBox(contact) {
 	let addedToTaskForce = coworkersToAssignTo[contact].check;
 	let emailAddressLoggedUser = coworkersToAssignTo[contact].email;
-	let indexOfMemberOfTaskForce = findIndexOfMemberOfTaskForce(
-		emailAddressLoggedUser
-	);
-	addRemoveToggleForTaskForce(
-		addedToTaskForce,
-		contact,
-		indexOfMemberOfTaskForce
-	);
+	let indexOfMemberOfTaskForce = findIndexOfMemberOfTaskForce(emailAddressLoggedUser);
+	addRemoveToggleForTaskForce(addedToTaskForce, contact, indexOfMemberOfTaskForce);
 	addedToTaskForce = !addedToTaskForce;
 	coworkersToAssignTo[contact].check = addedToTaskForce;
 }
@@ -238,11 +218,7 @@ async function renderContactsInAssignDropDownMenu() {
 	let assignedContactList = document.getElementById('dropdown2');
 	coworkersToAssignTo.forEach((coworker, contact) => {
 		if (notLoggedUser(contact)) {
-			assignedContactList.innerHTML +=
-				generateAssignContactListForDropDownMenu(
-					coworker.name,
-					contact
-				);
+			assignedContactList.innerHTML += generateAssignContactListForDropDownMenu(coworker.name, contact);
 		}
 	});
 }
@@ -305,12 +281,7 @@ function renderBadgesMemberOfTaskForce() {
 		const badgesIndex = member.colorIndex;
 
 		/* chooseColorForTaskForceBadge(initialFirstName, initialLastName); */
-		badgeContainer.innerHTML += generateBadgesTaskForceHtml(
-			i,
-			name,
-			initials,
-			badgesIndex
-		);
+		badgeContainer.innerHTML += generateBadgesTaskForceHtml(i, name, initials, badgesIndex);
 	});
 }
 
@@ -351,7 +322,5 @@ function clearTaskForce() {
  * Opens window with a message
  */
 function frontEndDeveloper() {
-	alert(
-		'This function is part of backend. The course is about frontend though'
-	);
+	alert('This function is part of backend. The course is about frontend though');
 }

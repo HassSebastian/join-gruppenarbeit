@@ -23,19 +23,9 @@ function resetRequiredLine(email, password, requiredEmail, requiredPassword) {
  * @param requiredEmail - the element that will be shown if the email is not valid
  * @param requiredPassword - the password input field
  */
-function calculateCheckCorrectInput(
-	email,
-	password,
-	requiredEmail,
-	requiredPassword
-) {
+function calculateCheckCorrectInput(email, password, requiredEmail, requiredPassword) {
 	if (email.value || password.value) {
-		if (
-			email.value.length < 8 ||
-			!email.value.includes('@') ||
-			!email.value.includes('.') ||
-			email.value[0] === ' '
-		) {
+		if (email.value.length < 8 || !email.value.includes('@') || !email.value.includes('.') || email.value[0] === ' ') {
 			requiredEmail.classList.add('requiredOn');
 		} else {
 			requiredEmail.classList.remove('requiredOn');
@@ -45,10 +35,7 @@ function calculateCheckCorrectInput(
 		} else {
 			requiredPassword.classList.remove('requiredOn');
 		}
-		if (
-			!requiredEmail.classList.contains('requiredOn') &&
-			!requiredPassword.classList.contains('requiredOn')
-		) {
+		if (!requiredEmail.classList.contains('requiredOn') && !requiredPassword.classList.contains('requiredOn')) {
 			userLogin(email.value, password.value);
 		}
 	} else {
@@ -111,13 +98,7 @@ function statusOK(email, password, requiredEmailLogin, requiredPasswordLogin) {
  * @param valueToCheck - email
  * @param check - 0
  */
-function calculateRememberDoubleUserCheck(
-	email,
-	password,
-	rememberUser,
-	valueToCheck,
-	check
-) {
+function calculateRememberDoubleUserCheck(email, password, rememberUser, valueToCheck, check) {
 	for (let i = 0; i < rememberUser.length; i++) {
 		let testValue = rememberUser[i].email;
 		if (testValue === valueToCheck) {

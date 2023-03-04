@@ -149,18 +149,12 @@ function joinTaskArrayExistInStorage() {
  */
 function enableDisableCatList() {
 	if (categoryListAndNewCategoryInputNotActive()) {
-		document
-			.getElementById('CatListDropdown')
-			.classList.remove('listD-none');
-		document
-			.getElementById('addTaskAssignedBox')
-			.classList.add('addMarginTop');
+		document.getElementById('CatListDropdown').classList.remove('listD-none');
+		document.getElementById('addTaskAssignedBox').classList.add('addMarginTop');
 		borderBottomOffAssignedBoxButton('selectedCat');
 	} else {
 		document.getElementById('CatListDropdown').classList.add('listD-none');
-		document
-			.getElementById('addTaskAssignedBox')
-			.classList.remove('addMarginTop');
+		document.getElementById('addTaskAssignedBox').classList.remove('addMarginTop');
 		borderBottomOnAssignedBoxButton('selectedCat');
 	}
 	catListStatus = !catListStatus;
@@ -193,11 +187,9 @@ function renderCategoryList() {
 		let categoryName = addTaskCategoryList[i]['category'];
 		let categoryColor = addTaskCategoryList[i]['catColor'];
 		if (categoryColorAvailable(categoryColor)) {
-			document.getElementById('CatListDropdown').innerHTML +=
-				dropdownCategoryListHtml(categoryName, categoryColor, i);
+			document.getElementById('CatListDropdown').innerHTML += dropdownCategoryListHtml(categoryName, categoryColor, i);
 		} else {
-			document.getElementById('CatListDropdown').innerHTML +=
-				dropdownCategoryListHtml1(categoryName, i);
+			document.getElementById('CatListDropdown').innerHTML += dropdownCategoryListHtml1(categoryName, i);
 		}
 	}
 }
@@ -333,10 +325,7 @@ function setSettingsForNewCategoryInput() {
 function setSettingsForExistingCategory(catId) {
 	let newCat = addTaskCategoryList[catId]['category'];
 	let categoryColor = addTaskCategoryList[catId]['catColor'];
-	document.getElementById('selectedCat').innerHTML = existingCategoryHtml(
-		newCat,
-		categoryColor
-	);
+	document.getElementById('selectedCat').innerHTML = existingCategoryHtml(newCat, categoryColor);
 	catColor = categoryColor;
 	enableDisableCatList();
 	document.getElementById('dropdownImg').classList.remove('d-none');
@@ -349,14 +338,10 @@ function setSettingsForExistingCategory(catId) {
  */
 function addColorToCat(colorId) {
 	if (catColor != '' || catColor == '0') {
-		document
-			.getElementById('color' + catColor + 'Div')
-			.classList.remove('colorDivSelected');
+		document.getElementById('color' + catColor + 'Div').classList.remove('colorDivSelected');
 		catColor = '';
 	}
-	document
-		.getElementById('color' + colorId + 'Div')
-		.classList.add('colorDivSelected');
+	document.getElementById('color' + colorId + 'Div').classList.add('colorDivSelected');
 	catColor = colorId;
 }
 
@@ -364,18 +349,14 @@ function addColorToCat(colorId) {
  * this function show a popup, that indicated that the new task is succsessfully created.
  */
 function showAddDiv() {
-	document
-		.getElementById('taskCreatedIndication')
-		.classList.add('taskCreatedIndication');
+	document.getElementById('taskCreatedIndication').classList.add('taskCreatedIndication');
 }
 
 /**
  * this function inhibited to show a popup, that indicated that the new task is succsessfuly created.
  */
 function notShowAddDiv() {
-	document
-		.getElementById('taskCreatedIndication')
-		.classList.remove('taskCreatedIndication');
+	document.getElementById('taskCreatedIndication').classList.remove('taskCreatedIndication');
 }
 
 /**
@@ -528,14 +509,14 @@ function clearFormularData() {
 	closeCatList();
 	clearTaskForce();
 	addContactToTaskForceWithCheckBox(loggedInUserIndex);
-  }
-  
-  function clearTaskTitleAndDescription() {
+}
+
+function clearTaskTitleAndDescription() {
 	document.getElementById('addTaskTitle').value = '';
 	document.getElementById('addTaskDescripten').value = '';
-  }
-  
-  function clearSelectedCategory() {
+}
+
+function clearSelectedCategory() {
 	document.getElementById('selectedCat').innerHTML = `
 	  <input disabled id='selectedCatInput' placeholder='Select task category' autocomplete='off'>
 	  <span id='sColor'></span>
@@ -545,23 +526,23 @@ function clearFormularData() {
 		<img src="../assets/img/akar-icons_check.png">
 	  </div>
 	  <img src="../assets/img/Vector 2.png" class='dropdownImg' id='dropdownImg'>`;
-  }
-  
-  function clearDueDate() {
+}
+
+function clearDueDate() {
 	document.getElementById('dueDate').value = '';
-  }
-  
-  function clearSubtasks() {
+}
+
+function clearSubtasks() {
 	resetSubtaskSelections();
 	selectedSubtasks = [];
-  }
-  
-  function clearValidationMessages() {
+}
+
+function clearValidationMessages() {
 	document.getElementById('titleReq').style.opacity = '0';
 	document.getElementById('dateReq').style.opacity = '0';
 	document.getElementById('catReq').style.opacity = '0';
 	document.getElementById('catReq').classList.add('listD-none');
-  }
+}
 
 // save data to local storage/server!
 
@@ -643,8 +624,7 @@ async function deleteJoinTaskArrayFromServer() {
 
 /******************************************************************************** */
 function addTaskClearOn() {
-	document.getElementById('addTaskClear').src =
-		'././assets/img/close_logo_blue.png';
+	document.getElementById('addTaskClear').src = '././assets/img/close_logo_blue.png';
 }
 
 function addTaskClearOff() {
@@ -670,29 +650,17 @@ function btnNotSelected(cListLength) {
 }
 
 function selectPrioBtn(selectedId, btnName) {
-	document
-		.getElementById(selectedId)
-		.classList.add(`${btnName.toLowerCase()}-color`);
+	document.getElementById(selectedId).classList.add(`${btnName.toLowerCase()}-color`);
 
-	document
-		.getElementById(`addTask${btnName}Span`)
-		.classList.add('color-white');
-	document.getElementById(
-		`addTask${btnName}Img`
-	).src = `./assets/img/${btnName.toLowerCase()}_white.png`;
+	document.getElementById(`addTask${btnName}Span`).classList.add('color-white');
+	document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}_white.png`;
 	prio = btnName;
 }
 
 function removeBtnSelection(btnName) {
-	document
-		.getElementById(`addTask${btnName}`)
-		.classList.remove(`${btnName.toLowerCase()}-color`);
-	document
-		.getElementById(`addTask${btnName}Span`)
-		.classList.remove('color-white');
-	document.getElementById(
-		`addTask${btnName}Img`
-	).src = `./assets/img/${btnName.toLowerCase()}.png`;
+	document.getElementById(`addTask${btnName}`).classList.remove(`${btnName.toLowerCase()}-color`);
+	document.getElementById(`addTask${btnName}Span`).classList.remove('color-white');
+	document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}.png`;
 }
 
 function unselectOtherBtn(idList) {
@@ -701,15 +669,9 @@ function unselectOtherBtn(idList) {
 		let cListLength = document.getElementById(selectedId).classList.length;
 		let btnName = selectedId.replace('addTask', '');
 		if (btnIsSelected(cListLength)) {
-			document
-				.getElementById(`addTask${btnName}`)
-				.classList.remove(`${btnName.toLowerCase()}-color`);
-			document
-				.getElementById(`addTask${btnName}Span`)
-				.classList.remove('color-white');
-			document.getElementById(
-				`addTask${btnName}Img`
-			).src = `./assets/img/${btnName.toLowerCase()}.png`;
+			document.getElementById(`addTask${btnName}`).classList.remove(`${btnName.toLowerCase()}-color`);
+			document.getElementById(`addTask${btnName}Span`).classList.remove('color-white');
+			document.getElementById(`addTask${btnName}Img`).src = `./assets/img/${btnName.toLowerCase()}.png`;
 		}
 	}
 }
@@ -794,9 +756,7 @@ async function subtaskListHtml() {
 }
 
 function subtaskSelectionChange(subTaskIndex) {
-	let actualSubTaskStatus = document.getElementById(
-		`subtask${subTaskIndex}`
-	).checked;
+	let actualSubTaskStatus = document.getElementById(`subtask${subTaskIndex}`).checked;
 	if (actualSubTaskStatus) {
 		subTaskArray[subTaskIndex]['subtaskStatus'] = true;
 	} else {

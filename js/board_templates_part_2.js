@@ -38,9 +38,7 @@ async function renderSubtaskHtml(taskIndex) {
 	if (subtaskExist(subtaskArray)) {
 		for (let i = 0; i < subtaskArray.length; i++) {
 			let subtaskText = subtaskArray[i]['subtaskText'];
-			document.getElementById(
-				'subtaskListTaskCard'
-			).innerHTML += /*html*/ `
+			document.getElementById('subtaskListTaskCard').innerHTML += /*html*/ `
                 <div>
                     <input type='checkbox' id='subtask${i}' onclick='checkboxSubtaskSelected(${i}, ${taskIndex}), renderBtnBySubtaskChange(${taskIndex})'>
                     <span>${subtaskText}</span>
@@ -150,11 +148,7 @@ let addTaskContactsResponsiveOn = false;
 let addTaskOpen;
 function startIntervalWhenOff() {
 	const interval = setInterval(() => {
-		if (
-			window.innerWidth > 563 &&
-			!addTaskContactsResponsiveOn &&
-			addTaskOpen
-		) {
+		if (window.innerWidth > 563 && !addTaskContactsResponsiveOn && addTaskOpen) {
 			showAddTaskPopupWindow();
 			addTaskContactsResponsiveOn = true;
 			clearInterval(interval);
@@ -167,11 +161,7 @@ function startIntervalWhenOff() {
 
 function startIntervalWhenOn() {
 	const interval = setInterval(() => {
-		if (
-			window.innerWidth < 563 &&
-			addTaskContactsResponsiveOn &&
-			addTaskOpen
-		) {
+		if (window.innerWidth < 563 && addTaskContactsResponsiveOn && addTaskOpen) {
 			showAddTaskPopupWindow();
 			addTaskContactsResponsiveOn = false;
 			clearInterval(interval);

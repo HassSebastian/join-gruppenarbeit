@@ -69,16 +69,14 @@ function calculateUserInAlphabetArray(arr) {
 function calculateAndShowAlphabet() {
 	for (let alphabetLetter in alphabetOrd) {
 		if (alphabetOrd[alphabetLetter].length > 0) {
-			document.getElementById('Contact_list').innerHTML +=
-				showLettersHTML(alphabetLetter);
+			document.getElementById('Contact_list').innerHTML += showLettersHTML(alphabetLetter);
 			for (i = 0; i < alphabetOrd[alphabetLetter].length; i++) {
 				let name = alphabetOrd[alphabetLetter][i].name;
 				let color = alphabetOrd[alphabetLetter][i].colorIndex;
 				let email = alphabetOrd[alphabetLetter][i].email;
 				let id = alphabetOrd[alphabetLetter][i].id;
 				let letter = alphabetOrd[alphabetLetter][i].letter;
-				document.getElementById(alphabetLetter).innerHTML +=
-					showAlphabetNames(name, color, email, id, letter);
+				document.getElementById(alphabetLetter).innerHTML += showAlphabetNames(name, color, email, id, letter);
 			}
 		}
 	}
@@ -106,41 +104,16 @@ function showContactQuerry(name, email, phone, letter, color, i, showContact) {
 
 function showContactHelp(name, email, phone, letter, color, i, showContact) {
 	showContact.innerHTML = '';
-	showContact.innerHTML = showContactHTML(
-		name,
-		email,
-		phone,
-		letter,
-		color,
-		i
-	);
+	showContact.innerHTML = showContactHTML(name, email, phone, letter, color, i);
 	showContact.classList.add('showContactSlide');
 }
 
-function addContactHelp(
-	name,
-	email,
-	phone,
-	newNameRequired,
-	newEmailRequired,
-	newPhoneRequired
-) {
+function addContactHelp(name, email, phone, newNameRequired, newEmailRequired, newPhoneRequired) {
 	checkNameInput(name, newNameRequired);
 	checkEmailInput(email, newEmailRequired);
 	checkPhoneInput(phone, newPhoneRequired);
-	if (
-		allInformationTypedIn(
-			newNameRequired,
-			newEmailRequired,
-			newPhoneRequired
-		)
-	) {
-		comparisonEmailAddress(
-			newEmailRequired,
-			name.value,
-			email.value,
-			phone.value
-		);
+	if (allInformationTypedIn(newNameRequired, newEmailRequired, newPhoneRequired)) {
+		comparisonEmailAddress(newEmailRequired, name.value, email.value, phone.value);
 	}
 }
 
@@ -179,37 +152,18 @@ function noNameInput(name) {
 }
 
 function noValidEmailInput(email) {
-	return (
-		email.value.length < 8 ||
-		!email.value.includes('@') ||
-		!email.value.includes('.') ||
-		email.value[0] === ' '
-	);
+	return email.value.length < 8 || !email.value.includes('@') || !email.value.includes('.') || email.value[0] === ' ';
 }
 
 function noPhoneNumber(phone) {
 	return phone.value.length < 8 || phone.value[0] === ' ';
 }
 
-function allInformationTypedIn(
-	newNameRequired,
-	newEmailRequired,
-	newPhoneRequired
-) {
-	return (
-		!newNameRequired.classList.contains('requiredOn') &&
-		!newEmailRequired.classList.contains('requiredOn') &&
-		!newPhoneRequired.classList.contains('requiredOn')
-	);
+function allInformationTypedIn(newNameRequired, newEmailRequired, newPhoneRequired) {
+	return !newNameRequired.classList.contains('requiredOn') && !newEmailRequired.classList.contains('requiredOn') && !newPhoneRequired.classList.contains('requiredOn');
 }
 
-function comparisonEmailHelp(
-	newEmailRequired,
-	name,
-	email,
-	phone,
-	valueToCheck
-) {
+function comparisonEmailHelp(newEmailRequired, name, email, phone, valueToCheck) {
 	check = 0;
 	for (let i = 0; i < allUsers.length; i++) {
 		let testValue = allUsers[i].email;
@@ -445,14 +399,7 @@ function showContactHTML(name, email, phone, letter, color, i) {
  * @param secondLetter - the second letter of the user's name
  * @param colorIndex - 0-5
  */
-async function addContactSave(
-	name,
-	email,
-	phone,
-	firstLetter,
-	secondLetter,
-	colorIndex
-) {
+async function addContactSave(name, email, phone, firstLetter, secondLetter, colorIndex) {
 	allUsers.push({
 		name: name,
 		email: email,
@@ -476,16 +423,7 @@ async function addContactSave(
  * @param colorIndex - the index of the color in the array of colors
  * @param i - the index of the user in the allUsers array
  */
-async function editContactSave(
-	name,
-	email,
-	password,
-	phone,
-	firstLetter,
-	secondLetter,
-	colorIndex,
-	i
-) {
+async function editContactSave(name, email, password, phone, firstLetter, secondLetter, colorIndex, i) {
 	allUsers[i] = {
 		name: name,
 		email: email,
@@ -504,8 +442,7 @@ async function editContactSave(
  * When the user hovers over the cancel button, the image changes to a blue version of the same image.
  */
 function cancelOn() {
-	document.getElementById('cancelImg').src =
-		'././assets/img/close_logo_blue.png';
+	document.getElementById('cancelImg').src = '././assets/img/close_logo_blue.png';
 }
 
 /**

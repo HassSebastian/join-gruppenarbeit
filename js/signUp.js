@@ -76,8 +76,9 @@ function forwardScript() {
 
 function contactSucc() {
 	document.getElementById('contactSucc').classList.remove('d-none');
-	setTimeout(() => {	document.getElementById('contactSucc').classList.add('contactSuccSlide');
-},1);
+	setTimeout(() => {
+		document.getElementById('contactSucc').classList.add('contactSuccSlide');
+	}, 1);
 }
 
 /**
