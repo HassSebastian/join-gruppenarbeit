@@ -241,17 +241,6 @@ async function renderLoggedUserInAssignDrobDownMenuIntoYou() {
 
 /**
  * Sets check status to false
- * !Warum zweimal???
- *
- */
-function setCheckStatusToFalse() {
-	taskForce.forEach((member) => {
-		member.check = false;
-	});
-}
-
-/**
- * Sets check status to false
  */
 function checkStatusToFalse() {
 	coworkersToAssignTo.forEach((coworker, i) => {
