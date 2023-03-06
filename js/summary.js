@@ -269,6 +269,7 @@ function getNextDueDate() {
  * @returns {string} next due date of task in joinTaskArray
  */
 function nextUpcomingDate() {
+	if (allUpcomingTasks.length == 0) return;
 	return allUpcomingTasks[0].dueDate;
 }
 
