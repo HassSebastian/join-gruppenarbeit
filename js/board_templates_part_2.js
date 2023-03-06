@@ -526,7 +526,7 @@ function renderPopupTaskCardHtml(taskIndex) {
                 </div>
 
                 <span class='assigned'>Assigned To:</span>
-                <img class='close_logo' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'>
+                <!-- <img class='close_logo' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'> -->
                 <div class='editButton' onclick='openEditTaskCard(${taskIndex})'>
                     <img src='./assets/img/edit_button.png'>
                 </div>

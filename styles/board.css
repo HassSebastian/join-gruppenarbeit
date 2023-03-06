@@ -831,7 +831,7 @@ boardSubheaders > * {
 
 	/* edited by Bossi 01.03 */
 	overflow: hidden;
-	/* overflow-y: scroll; */
+	overflow-y: scroll;
 }
 
 .taskCardPopupTaskInnerContainer {
@@ -1054,14 +1054,17 @@ boardSubheaders > * {
 }
 
 .close_logo {
-	position: absolute; /* changed from absolute by Bossi 01.03*/
+	position: sticky; /* changed from absolute by Bossi 01.03*/
 	width: 21.65px;
 	height: 21.65px;
 	/* right: 41px; */
 	/* left: 96%; */
 	/* top: 34px; */
-	top: 32px;
-	right: 32px;
+	top: 0px;
+	/* right: 32px; */
+	left: calc(100% - 21px);
+
+
 	transform: rotate(90deg);
 	flex: none;
 	/* order: 9; */
@@ -1159,7 +1162,7 @@ boardSubheaders > * {
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 0px;
-	gap: 25px;
+	gap: 10px;
 	width: 86%;
 	height: 169px;
 	flex: none;
@@ -1779,12 +1782,12 @@ boardSubheaders > * {
 	color: black;
 }
 
-.moveBtnMobil {
+/* .moveBtnMobil {
 	position: absolute;
 	left: 0;
 	bottom: 32px;
 	left: 32px;
-}
+} */
 
 .moveBtnMobil button {
 	border-radius: 10px;
@@ -1823,9 +1826,9 @@ boardSubheaders > * {
 		height: 57px !important;
 	}
 
-	.boardSubtasksDiv {
+	/* .boardSubtasksDiv {
 		height: fit-content;
-	}
+	} */
 }
 
 @media screen and (max-width: 1350px) {
@@ -2024,7 +2027,7 @@ boardSubheaders > * {
 		height: 100%;
 		width: 100%;
 		border-radius: 0;
-		/* overflow: scroll; */
+		overflow: scroll;
 	}
 	.taskCardPopupTask span {
 		font-size: 36px;
