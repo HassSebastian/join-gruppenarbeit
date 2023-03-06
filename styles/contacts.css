@@ -10,7 +10,7 @@
 .Frame_97 {
 	position: relative;
 	max-width: 453px;
-	height: 100vh;
+	height: calc(100vh - 90px);
 	left: 0;
 	background: #ffffff;
 	overflow: scroll;
