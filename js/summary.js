@@ -1,4 +1,5 @@
 let greetingOnce = false;
+let noDueDate = 'No due date';
 
 let loggedInUserIndex;
 let emailAddressLoggedUser;
@@ -297,7 +298,7 @@ function renderUpcomingDueDate() {
  */
 function formattedDueDate() {
 	let nextDueDate = getNextDueDate();
-	if (nextDueDate == undefined) return;
+	if (nextDueDate == undefined) return noDueDate;
 	let fullDateString = new Date(nextDueDate); // full date string
 	let formattedDateString = fullDateString.toLocaleDateString('en-US', {
 		month: 'long',

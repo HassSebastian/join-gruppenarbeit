@@ -1,4 +1,4 @@
-function generateSummaryHtml(numberInBoard, numberToDo, numberInProgress, numberAwaitingFeedback, numberDone, numberUrgent, nextDueDate = 'December 24, 2045') {
+function generateSummaryHtml(numberInBoard, numberToDo, numberInProgress, numberAwaitingFeedback, numberDone, numberUrgent, nextDueDate) {
 	return /*html*/ `
 	<div class="summaryContainer">
 		<div class="title">
