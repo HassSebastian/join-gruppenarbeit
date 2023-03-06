@@ -831,7 +831,7 @@ boardSubheaders > * {
 
 	/* edited by Bossi 01.03 */
 	overflow: hidden;
-	/* overflow-y: scroll; */
+	overflow-y: scroll;
 }
 
 .taskCardPopupTaskInnerContainer {
@@ -1054,14 +1054,17 @@ boardSubheaders > * {
 }
 
 .close_logo {
-	position: absolute; /* changed from absolute by Bossi 01.03*/
+	position: sticky; /* changed from absolute by Bossi 01.03*/
 	width: 21.65px;
 	height: 21.65px;
 	/* right: 41px; */
 	/* left: 96%; */
 	/* top: 34px; */
-	top: 32px;
-	right: 32px;
+	top: 0px;
+	/* right: 32px; */
+	left: calc(100% - 21px);
+
+
 	transform: rotate(90deg);
 	flex: none;
 	/* order: 9; */
@@ -1159,7 +1162,7 @@ boardSubheaders > * {
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 0px;
-	gap: 25px;
+	gap: 10px;
 	width: 86%;
 	height: 169px;
 	flex: none;
@@ -1386,7 +1389,8 @@ boardSubheaders > * {
 	/* width: 422px; */
 	height: 81px;
 	/* left: 101px; */
-	top: 53px;
+	/* top: 53px; */
+	top: 16px;
 	right: 0;
 	left: 0;
 }
@@ -1438,7 +1442,8 @@ boardSubheaders > * {
 	position: absolute;
 	/* width: 422px; */
 	height: 149px;
-	top: 154px;
+	/* top: 154px; */
+	top: 117px;
 	right: 0;
 	left: 0;
 }
@@ -1493,7 +1498,8 @@ boardSubheaders > * {
 	height: 81px;
 	right: 0;
 	left: 0;
-	top: 333px;
+	/* top: 333px; */
+	top: 296px;
 }
 
 .boardEditDateContainer span {
@@ -1551,7 +1557,8 @@ boardSubheaders > * {
 	height: 91px;
 	left: 0;
 	right: 0;
-	top: 444px;
+	/* top: 444px; */
+	top: 407px;
 }
 
 .editTaskCardPrio h3 {
@@ -1689,7 +1696,8 @@ boardSubheaders > * {
 
 .boardAddTaskAssignedBox {
 	position: absolute;
-	top: 578px;
+	/* top: 578px; */
+	top: 541px;
 	left: 0;
 	right: 0;
 	/* width: 67.307%; */ /* inserted by Bossi 28.02 */
@@ -1774,12 +1782,12 @@ boardSubheaders > * {
 	color: black;
 }
 
-.moveBtnMobil {
+/* .moveBtnMobil {
 	position: absolute;
 	left: 0;
 	bottom: 32px;
 	left: 32px;
-}
+} */
 
 .moveBtnMobil button {
 	border-radius: 10px;
@@ -1818,9 +1826,9 @@ boardSubheaders > * {
 		height: 57px !important;
 	}
 
-	.boardSubtasksDiv {
+	/* .boardSubtasksDiv {
 		height: fit-content;
-	}
+	} */
 }
 
 @media screen and (max-width: 1350px) {
@@ -2019,7 +2027,7 @@ boardSubheaders > * {
 		height: 100%;
 		width: 100%;
 		border-radius: 0;
-		/* overflow: scroll; */
+		overflow: scroll;
 	}
 	.taskCardPopupTask span {
 		font-size: 36px;
