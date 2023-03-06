@@ -1386,7 +1386,8 @@ boardSubheaders > * {
 	/* width: 422px; */
 	height: 81px;
 	/* left: 101px; */
-	top: 53px;
+	/* top: 53px; */
+	top: 16px;
 	right: 0;
 	left: 0;
 }
@@ -1438,7 +1439,8 @@ boardSubheaders > * {
 	position: absolute;
 	/* width: 422px; */
 	height: 149px;
-	top: 154px;
+	/* top: 154px; */
+	top: 117px;
 	right: 0;
 	left: 0;
 }
@@ -1493,7 +1495,8 @@ boardSubheaders > * {
 	height: 81px;
 	right: 0;
 	left: 0;
-	top: 333px;
+	/* top: 333px; */
+	top: 296px;
 }
 
 .boardEditDateContainer span {
@@ -1551,7 +1554,8 @@ boardSubheaders > * {
 	height: 91px;
 	left: 0;
 	right: 0;
-	top: 444px;
+	/* top: 444px; */
+	top: 407px;
 }
 
 .editTaskCardPrio h3 {
@@ -1689,7 +1693,8 @@ boardSubheaders > * {
 
 .boardAddTaskAssignedBox {
 	position: absolute;
-	top: 578px;
+	/* top: 578px; */
+	top: 541px;
 	left: 0;
 	right: 0;
 	/* width: 67.307%; */ /* inserted by Bossi 28.02 */
