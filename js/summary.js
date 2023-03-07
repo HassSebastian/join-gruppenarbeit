@@ -19,8 +19,8 @@ let awatingFeedbackTasks = [];
 let doneTasks = [];
 
 async function initSummary() {
-	await includeHTML();
-	await enableSummaryStyles();
+	/* await includeHTML();
+	await enableSummaryStyles(); */
 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	await loadTask();
 	resetsValues();

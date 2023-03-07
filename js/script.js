@@ -299,7 +299,7 @@ let stylesheetMobilList = ['stylesheetBoardMobil', 'stylsheetAddTaskMobil', 'sty
 
 let scriptMobilList = ['jsMobilSummary', 'jsMobilAddTask', 'jsMobilBoard', 'jsMobilContacts', 'jsHelpMobil', 'legalNoticeMobil'];
 
-async function disableAllStyles() {
+/* async function disableAllStyles() {
 	stylesheetDesktopList.forEach((stylesheet) => {
 		document.getElementById(stylesheet).disabled = true;
 	});
@@ -307,7 +307,7 @@ async function disableAllStyles() {
 		document.getElementById(stylesheet).disabled = true;
 	});
 	document.querySelector('.sliderMenu').classList.remove('showSliderMenu');
-}
+} */
 
 /**
  * ! DIESE FUNKTION AKTIVIERT DATEIEN DIE IMMER AKTIVIERT SEIN SOLLEN
@@ -322,13 +322,13 @@ function enableAllStyles() {
 }
 
 async function enableSummaryStyles() {
-	await disableAllStyles();
+	/* 	await disableAllStyles(); */
 	document.getElementById('stylesheetStyle').disabled = false;
 	document.getElementById('stylesheetsummary').disabled = false;
 }
 
 async function enableBoardStyles() {
-	await disableAllStyles();
+	/* await disableAllStyles(); */
 	document.getElementById('stylesheetBoard').disabled = false;
 	document.getElementById('stylesheetAddTask').disabled = false;
 }
