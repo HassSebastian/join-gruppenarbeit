@@ -9,7 +9,7 @@ async function initLegalNotice() {
 
 async function renderLegalNotice() {
 	document.getElementById('content').innerHTML = '';
-	await enableLegalNotice();
+	/* 	await enableLegalNotice(); */
 	document.getElementById('content').innerHTML += /*html*/ `
         <div class="legal-wrapper">
             <h1>Legal Notice</h1>

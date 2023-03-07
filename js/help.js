@@ -8,7 +8,7 @@ function back() {
 
 async function renderHelp() {
 	document.getElementById('content').innerHTML = '';
-	await enableHelp();
+	/* await enableHelp(); */
 	document.getElementById('content').innerHTML += /*html*/ `
     <div class="helpContainer">
     <div class="helpContentContainer">

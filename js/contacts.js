@@ -50,7 +50,7 @@ async function initContacts() {
  */
 async function renderContent() {
 	document.getElementById('content').innerHTML = '';
-	await enableContactsStyles();
+	/* await enableContactsStyles(); */
 	await loadTask();
 	document.getElementById('content').innerHTML = renderContentHTML();
 }

@@ -48,7 +48,7 @@ async function renderAddTask() {
 	setInnerHtmlById('content', '');
 	coworkersToAssignTo = transferallUserData();
 	addCheckAttributeToCoworkersToAssignTo();
-	await enableAddTaskStyles();
+	/* await enableAddTaskStyles(); */
 	await loadExitingCategories();
 	document.getElementById('content').innerHTML += generateAddTaskHtml();
 }
