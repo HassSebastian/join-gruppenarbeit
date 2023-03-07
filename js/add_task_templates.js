@@ -186,7 +186,7 @@ function existingCategoryHtml(newCat, categoryColor) {
  */
 function generateAssignContactListForDropDownMenu(name, contact) {
 	return /*html*/ `
-	<li onclick="addContactToTaskForceWithCheckBox(${contact})">
+	<li class="addTaskListElements" onclick="addContactToTaskForceWithCheckBox(${contact})">
 		${name}
 		<div  class="assignCheckboxContainer">
 			<img class="checkBox" src="assets/img/check_box.png" alt="checkbox" />

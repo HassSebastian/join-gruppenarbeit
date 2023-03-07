@@ -933,8 +933,12 @@
 }
 
 .addTaskAssignList li:hover {
-	background-color: #d1d1d1;
+	background-color: #d1d1d1 !important;
 	background-size: 100%;
+}
+
+.addTaskListElements:hover {
+	background-color: #d1d1d1 !important;
 }
 
 .assignCheckboxContainer {
