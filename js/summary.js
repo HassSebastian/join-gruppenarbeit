@@ -24,6 +24,7 @@ async function initSummary() {
 	setURL('https://gruppe-407.developerakademie.net/smallest_backend_ever');
 	await loadTask();
 	resetsValues();
+	selectedMenuButton(1);
 	await loadAmountsForSummary();
 	loadSummary();
 }
