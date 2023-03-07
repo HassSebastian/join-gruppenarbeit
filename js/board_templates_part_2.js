@@ -538,7 +538,7 @@ function renderPopupTaskCardHtml(taskIndex) {
                 </div >
                 <div class='boardSubtasksDiv' id='subtaskListTaskCard'></div>
                 
-                <div class='moveBtnMobil d-none' id='moveBtnMobil'></div>
+                <div class='moveBtnMobil' id='moveBtnMobil'></div>
                 </div>
         </div>
         

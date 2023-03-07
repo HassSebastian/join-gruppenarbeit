@@ -1064,7 +1064,6 @@ boardSubheaders > * {
 	/* right: 32px; */
 	left: calc(100% - 21px);
 
-
 	transform: rotate(90deg);
 	flex: none;
 	/* order: 9; */
@@ -1782,12 +1781,9 @@ boardSubheaders > * {
 	color: black;
 }
 
-/* .moveBtnMobil {
-	position: absolute;
-	left: 0;
-	bottom: 32px;
-	left: 32px;
-} */
+.moveBtnMobil {
+	display: none;
+}
 
 .moveBtnMobil button {
 	border-radius: 10px;
@@ -1813,7 +1809,7 @@ boardSubheaders > * {
 @media screen and (max-width: 1100px) {
 	/* Btn hinzugefügt  Bossi 28.02*/
 	.moveBtnMobil {
-		display: flex !important;
+		display: flex;
 		/* position: absolute !important;  */
 		bottom: 32px;
 		height: 57px !important;
