@@ -10,7 +10,7 @@
 .Frame_97 {
 	position: relative;
 	max-width: 453px;
-	height: calc(100vh - 90px);
+	height: calc(100vh - 79px);
 	left: 0;
 	background: #ffffff;
 	overflow: scroll;
@@ -1190,6 +1190,12 @@
 	}
 }
 
+@media screen and (max-width: 768px) {
+	.Frame_97 {
+		height: calc(100vh - 158px);
+	}
+}
+
 @media (max-width: 453px) {
 	/* .boardContainer {
 		height: calc(100vh - 214px);
@@ -1198,7 +1204,7 @@
 
 	.Frame_97 {
 		max-width: 100%;
-		height: calc(100% - 214px); /* 215px für eigentliches Gerät */
+		height: calc(100% - 158px); /* 215px für eigentliches Gerät */
 		background: #ffffff;
 		display: flex;
 	}
