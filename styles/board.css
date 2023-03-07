@@ -139,7 +139,7 @@
 
 .inputFontContainer input {
 	width: 100px;
-	height: 19px;
+	/* height: 19px; */
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 400;
