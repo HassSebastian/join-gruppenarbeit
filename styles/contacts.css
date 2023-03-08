@@ -135,6 +135,8 @@
 }
 
 .contactContainerRight {
+    display: flex;
+    flex-direction: column;
 	position: absolute;
 	top: 89px;
 	bottom: 0;
@@ -1146,6 +1148,12 @@
 	}
 }
 
+@media (max-width: 741px) {
+	.contactContainerRight {
+		display: none;
+	}
+}
+
 @media (max-width: 850px) {
 	/* 768*/
 
@@ -1196,7 +1204,7 @@
 	}
 }
 
-@media (max-width: 453px) {
+@media (max-width: 453px)  {
 	/* .boardContainer {
 		height: calc(100vh - 214px);
 		padding-bottom: unset !important;
