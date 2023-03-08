@@ -135,8 +135,8 @@
 }
 
 .contactContainerRight {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 	position: absolute;
 	top: 89px;
 	bottom: 0;
@@ -1050,6 +1050,9 @@
 	.rightSideShowContacts {
 		padding-left: 16px;
 	}
+	.nameOnDisplay {
+		font-size: 24px !important;
+	}
 
 	.showContact_information_edit {
 		display: flex;
@@ -1204,11 +1207,17 @@
 	}
 }
 
-@media (max-width: 453px)  {
-	/* .boardContainer {
-		height: calc(100vh - 214px);
-		padding-bottom: unset !important;
-	} */
+@media (max-width: 453px) {
+	.show_contact_ellipse_5 {
+		min-width: 80px;
+		min-height: 80px;
+		max-width: 80px;
+		max-height: 80px;
+	}
+
+	.show_contact_ellipse_5 span {
+		font-size: 24px;
+	}
 
 	.Frame_97 {
 		max-width: 100%;
