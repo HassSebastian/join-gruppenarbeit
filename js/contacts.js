@@ -92,13 +92,18 @@ async function userInAlphabetArray() {
 	};
 	chooseRightUserArray();
 	alphabet();
-	setTimeout(() => {contactListAutomaticResponisive();}, 1);
+	setTimeout(() => {
+		contactListAutomaticResponisive();
+	}, 1);
 }
 
 function contactListAutomaticResponisive() {
+	const rightContainer = document.getElementById('contactContainerRight');
+
 	if (window.innerWidth > 850) {
 		autoResponsive = true;
-		document.getElementById('contactContainerRight').style.display = "flex";
+		if (!rightContainer) return;
+		rightContainer.style.display = 'flex';
 	}
 
 	if (window.innerWidth < 850 && listOpen && autoResponsive) {
@@ -122,10 +127,9 @@ function alphabet() {
 function openEditContact(i) {
 	let email = allUsers[i].email;
 	if (guestLoggedIn) {
-		alert('please sign in first')
+		alert('please sign in first');
 	}
 	if (email == guestEmail) {
-
 	} else {
 		!guestLoggedIn ? openEditContactsOf(allUsers, i) : openEditContactsOf(allFakeUsers, i);
 	}
@@ -211,7 +215,7 @@ function showContact(i) {
 	if (!guestLoggedIn) showContactOf(allUsers, i);
 	if (guestLoggedIn) showContactOf(allFakeUsers, i);
 	showContactList();
-	document.getElementById('contactContainerRight').style.display = "flex";
+	document.getElementById('contactContainerRight').style.display = 'flex';
 }
 
 /**
@@ -231,19 +235,19 @@ function showContactOf(arr, i) {
 }
 
 function showContactList() {
-	let contactRight = document.getElementById('contactContainerRight')
+	let contactRight = document.getElementById('contactContainerRight');
 	if (!listOpen) {
 		document.getElementById('Frame_97').style.marginLeft = '0';
 		document.getElementById('contactContainerRight').style.removeProperty('left');
 		document.getElementById('listing').style.removeProperty('display');
 		listOpen = true;
-		contactRight.style.display = "none";
+		contactRight.style.display = 'none';
 	} else if (listOpen && window.innerWidth < 850 /*769*/) {
 		document.getElementById('Frame_97').style.marginLeft = '-460px';
 		document.getElementById('contactContainerRight').style.left = '0';
 		document.getElementById('listing').style.display = 'flex';
 		listOpen = false;
-		contactRight.style.display = "flex";
+		contactRight.style.display = 'flex';
 		contactListAutomaticResponisive();
 	}
 }
