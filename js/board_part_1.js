@@ -87,13 +87,22 @@ async function startFilter() {
  */
 async function createWorkStatusArrays() {
 	await resetWorkStatusArrays();
-	await startFilter();
+	// await startFilter();
+	// for (let index = 0; index < 4; index++) {
+	// 	for (let i = 0; i < filteredTaskList.length; i++) {
+	// 		let taskWorkStatus = filteredTaskList[i]['workFlowStatus'];
+	// 		let taskIndex = filteredTaskList[i].taskIndex;
+	// 		if (taskWorkStatus == index) {
+	// 			createWorkStatusArrayData(index, taskIndex);
+	// 		}
+	// 	}
+	// }
+
 	for (let index = 0; index < 4; index++) {
-		for (let i = 0; i < filteredTaskList.length; i++) {
-			let taskWorkStatus = filteredTaskList[i]['workFlowStatus'];
-			let taskIndex = filteredTaskList[i].taskIndex;
+		for (let i = 0; i < joinTaskArray.length; i++) {
+			let taskWorkStatus = joinTaskArray[i]['workFlowStatus'];
 			if (taskWorkStatus == index) {
-				createWorkStatusArrayData(index, taskIndex);
+				createWorkStatusArrayData(index, i);
 			}
 		}
 	}
