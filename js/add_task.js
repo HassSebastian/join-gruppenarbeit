@@ -38,6 +38,7 @@ async function initAddTask() {
 	addSubtaskMain();
 	addContactToTaskForceWithCheckBox(loggedInUserIndex);
 	setIndexOfGuest();
+	addPrio(1); /* Auf Wunsch von Mentor */
 }
 
 /**

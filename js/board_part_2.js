@@ -303,6 +303,7 @@ async function showAddTaskPopupWindow(workflow) {
 	loadContributorsLetter();
 	addSubtaskMain();
 	addContactToTaskForceWithCheckBox(loggedInUserIndex);
+	addPrio(1); // auf Wunsch von Mentor
 }
 
 /**
