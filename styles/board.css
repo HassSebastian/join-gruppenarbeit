@@ -6,7 +6,6 @@
 	bottom: 0;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	padding: 87px 16px 0 70px;
 }
 
@@ -2057,7 +2056,40 @@ boardSubheaders > * {
 		top: 800px;
 	}
 }
+@media screen and (max-height: 900px) {
+	.boardContainer {
+		position: absolute;
+		top: 89px;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: flex;
+		flex-direction: column;
+		padding: 0px 16px 0 50px;
+	}
 
+	.boardHeadline span {
+		font-size: 36px;
+	}
+
+	.boardOverlay {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0px;
+
+		width: 100%;
+		max-width: 1500px;
+		height: 73px;
+
+		top: 171px;
+		margin-bottom: 50px;
+	}
+
+	.canbanContainer {
+		height: calc(100vh - 243px);
+	}
+}
 @media screen and (max-height: 780px) {
 	.boardTaskCardPopup {
 		height: 100%;
@@ -2111,7 +2143,7 @@ boardSubheaders > * {
 	}
 
 	.boardContainer {
-		height: calc(100vh - 214px);
+		height: calc(100vh - 158px);
 		padding-bottom: unset !important;
 	}
 
