@@ -268,11 +268,11 @@ async function openSubPage(menuId) {
 	await window.open(url, target);
 }
 
-function renderList() {
-	renderSummary();
-	renderBoard(); //hinzu gefügt//
-	renderLegalNotice();
-}
+// function renderList() {
+// 	renderSummary();
+// 	renderBoard(); //hinzu gefügt//
+// 	renderLegalNotice();
+// }
 
 function logOutBtn() {
 	document.getElementById('logOut').classList.toggle('logOutOn');
