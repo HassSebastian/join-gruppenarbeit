@@ -436,6 +436,7 @@ async function editContactSave(name, email, password, phone, firstLetter, second
 	closeEditContact();
 	document.getElementById('showContact').classList.add('d-none');
 	userInAlphabetArray();
+    showContact(i);
 }
 
 /**

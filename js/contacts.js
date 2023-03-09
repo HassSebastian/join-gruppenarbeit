@@ -92,11 +92,7 @@ async function userInAlphabetArray() {
 	};
 	chooseRightUserArray();
 	alphabet();
-	setTimeout(() => {
-		contactListAutomaticResponisive();
-		showContact(0);
-	}, 1);
-	showContact(0);
+	setTimeout(() => {contactListAutomaticResponisive();}, 1);
 }
 
 function contactListAutomaticResponisive() {
@@ -126,6 +122,7 @@ function alphabet() {
 function openEditContact(i) {
 	let email = allUsers[i].email;
 	if (email == guestEmail) {
+		alert('please sign in first');
 	} else {
 		!guestLoggedIn ? openEditContactsOf(allUsers, i) : openEditContactsOf(allFakeUsers, i);
 	}
