@@ -710,7 +710,6 @@ function renderPopupTaskCard(taskIndex){
     let cardDueDate = joinTaskArray[taskIndex]['dueDate'];
     let taskPrio = joinTaskArray[taskIndex]['prio'];
     let subtaskArray = joinTaskArray[taskIndex]['subTasks'];
-    console.log(subtaskArray);
     document.getElementById('boardPopup').innerHTML = '';
     document.getElementById('boardPopup').innerHTML = /*html*/`
         &lt;div class="boardTaskCardPopup" onclick='stopClose(event)'>
@@ -826,10 +825,8 @@ function setSubTaskStatus(taskIndex){
 async function checkboxSubtaskSelected(subTaskIndex, taskIndex){
     let checkboxStatus = document.getElementById(`subtask${subTaskIndex}`).checked;
     joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'] = checkboxStatus;
-    console.log(taskIndex, subTaskIndex);
     let subTaskText= joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskText'];
     let subTaskStatus = joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'];
-    console.log(subTaskText, subTaskStatus);
     joinTaskArray[taskIndex]['subTasks'][subTaskIndex]['subtaskStatus'] = checkboxStatus;
     await saveTask();
 }

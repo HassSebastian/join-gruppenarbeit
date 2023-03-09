@@ -136,20 +136,17 @@ let arrayMoveBtnText = [
 
 function closeBoardMobilDetailOverlay() {
 	document.getElementById('boardPopup').classList.add('d-none');
-	console.log('Das brauche ich');
 }
 
 async function renderBtnBySubtaskChange(taskIndex) {
 	await saveChangesDetailView();
 	renderMoveBtnMobil(taskIndex);
-	console.log('Das brauche ich');
 }
 
 async function saveChangesDetailView() {
 	await saveTask();
 	await createWorkStatusArrays();
 	renderAllCards();
-	console.log('Das brauche ich');
 }
 
 async function renderMoveBtnMobil(taskIndex) {
@@ -165,7 +162,7 @@ async function renderMoveBtnMobil(taskIndex) {
 		let buttonText = buttonArray[i];
 		let newTaskStatus = newStatusArray[i];
 		renderMoveBtnMobilHtml(buttonText, newTaskStatus, taskIndex);
-		console.log('Das brauche ich');
+
 	}
 }
 
@@ -182,11 +179,9 @@ async function moveMobilTaskTo(taskIndex, newTaskStatus) {
 	await createWorkStatusArrays();
 	renderAllCards();
 	closeBoardMobilDetailOverlay();
-	console.log('Das brauche ich');
 }
 
 function taskCardAllowMove(taskIndex) {
-	console.log('Das brauche ich');
 	let endValue;
 	let doneBarDraggedElement = document.getElementById(`doneBar${taskIndex}`);
 	let doneBarOuterDraggedElement = document.getElementById(`doneBarOuter${taskIndex}`);

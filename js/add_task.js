@@ -478,7 +478,6 @@ function getReqiredFieldValues() {
 	title = title.trim();
 	dueDate = document.getElementById('dueDate').value;
 	dueDate = dueDate.trim();
-	console.log('duedate', dueDate);
 	descripten = document.getElementById('addTaskDescripten').value;
 	descripten = descripten.trim();
 	if (newCatInputActive) {

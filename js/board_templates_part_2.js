@@ -154,7 +154,6 @@ function startIntervalWhenOff() {
 			clearInterval(interval);
 			startIntervalWhenOn();
 			addTaskOpen = true;
-			console.log('checkOff');
 		}
 	}, 100);
 }
@@ -167,7 +166,6 @@ function startIntervalWhenOn() {
 			clearInterval(interval);
 			startIntervalWhenOff();
 			addTaskOpen = true;
-			console.log('checkOn');
 		}
 	}, 100);
 }
