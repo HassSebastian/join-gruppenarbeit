@@ -363,7 +363,7 @@ function showContactHTML(name, email, phone, letter, color, i) {
             <div class="showContact_Name_addTask">
                 <div class="rightSideShowContacts">
                     <h1 class="nameOnDisplay">${name}</h1>
-                    <span onclick="allowAddTaskPopUp(), showAddTaskPopupWindow()">+ Add Task</span>
+                    <span onclick="allowAddTaskPopUp(), showAddTaskPopupWindow(0)">+ Add Task</span>
                 </div>
             </div>
         </div>
@@ -436,7 +436,7 @@ async function editContactSave(name, email, password, phone, firstLetter, second
 	closeEditContact();
 	document.getElementById('showContact').classList.add('d-none');
 	userInAlphabetArray();
-    showContact(i);
+	showContact(i);
 }
 
 /**
