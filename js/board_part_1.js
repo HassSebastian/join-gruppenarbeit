@@ -336,6 +336,8 @@ function moveTo(area) {
 	let workFlowStatusDraggedElement = joinTaskArray[currentDraggedElement]['workFlowStatus'];
 	if ((doneBarWidth == doneBarOuterWidth && workFlowStatusDraggedElement >= 1) || (workFlowStatusDraggedElement < 1 && area < 2) || area < workFlowStatusDraggedElement) {
 		moveToNewArea(area);
+	} else {
+		alert('Please finish all subtasks')
 	}
 }
 
