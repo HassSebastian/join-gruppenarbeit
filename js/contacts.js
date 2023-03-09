@@ -131,7 +131,7 @@ function openEditContact(i) {
 	}
 	if (email == guestEmail) {
 	} else {
-		!guestLoggedIn ? openEditContactsOf(allUsers, i) : openEditContactsOf(allFakeUsers, i);
+		/* !guestLoggedIn ?  */ openEditContactsOf(allUsers, i) /* : openEditContactsOf(allFakeUsers, i) */;
 	}
 }
 
@@ -212,8 +212,8 @@ function closeEditContact() {
  * @param {number} i= index of user of allUsers or allFakeUsers
  */
 function showContact(i) {
-	if (!guestLoggedIn) showContactOf(allUsers, i);
-	if (guestLoggedIn) showContactOf(allFakeUsers, i);
+	showContactOf(allUsers, i);
+	/* if (guestLoggedIn) showContactOf(allFakeUsers, i); */
 	showContactList();
 	document.getElementById('contactContainerRight').style.display = 'flex';
 }
