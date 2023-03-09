@@ -735,6 +735,12 @@ function pushNewSubtaskDatatoArray(subTaskText) {
 	subTaskArray.push(subtaskJson);
 }
 
+function deleteSubtask(i) {
+	subTaskArray.splice(i);
+	renderSubtasks();
+	createSubtaskListToSave();
+}
+
 async function renderSubtasks() {
 	await subtaskListHtml();
 	for (let i = 0; i < subTaskArray.length; i++) {
@@ -751,7 +757,7 @@ async function subtaskListHtml() {
 		document.getElementById('subtaskCheckboxes').innerHTML += /*html*/ `
         <div>
             <input type="checkbox" id='subtask${i}' onclick='subtaskSelectionChange(${i})'>
-            <span>${subTaskTitle}</span>
+            <span>${subTaskTitle}</span> <img onclick='deleteSubtask(${i})' src="assets/img/bin.png" alt="" style="height: 16px; width: 16px; margin-left: 8px;">
         </div>`;
 	}
 }
