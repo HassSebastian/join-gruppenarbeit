@@ -1928,6 +1928,10 @@ boardSubheaders > * {
 }
 
 @media screen and (max-width: 1100px) {
+	.boardOverlay {
+		margin-bottom: 40px;
+	}
+
 	.boardContainer {
 		padding-right: 53px;
 	}
@@ -2005,7 +2009,7 @@ boardSubheaders > * {
 	}
 
 	.inputOutContainer {
-		padding-top: 30px;
+		padding-top: 20px;
 	}
 
 	.canbanBoard {
@@ -2100,6 +2104,10 @@ boardSubheaders > * {
 }
 
 @media screen and (max-width: 480px) {
+	.boardOverlay {
+		margin-bottom: 20px;
+	}
+
 	.moveBtnMobil {
 		bottom: 16px;
 	}
