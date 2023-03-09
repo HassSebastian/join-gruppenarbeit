@@ -188,7 +188,7 @@ function allowAddTaskPopUp() {
  * this function returns the popup Menu html string
  * @returns - Board popup Menu html string.
  */
-function renderAddTaskPopupHtml() {
+function renderAddTaskPopupHtml(workflow) {
 	addTaskContactAutomaticResponisive();
 	if (window.innerWidth > 563) {
 		document.getElementById('boardPopup').onclick = function () {
@@ -208,7 +208,7 @@ function renderAddTaskPopupHtml() {
                         <span>Clear</span> 
                         <img id='addTaskClear' src='./assets/img/clearb.png'>
                     </button>
-                    <button class='addTaskCreate' onclick='checkInputs(), trackThatAddTaskIsClose()'>
+                    <button class='addTaskCreate' onclick='checkInputs(${workflow}), trackThatAddTaskIsClose()'>
                         <span>Create Task</span>
                         <img src='./assets/img/createb.png'>  
                     </button>

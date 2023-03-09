@@ -364,13 +364,13 @@ function notShowAddDiv() {
  * this function check over some subfunction, all required form values are valid. If not it starts subfuction
  * to indicated the required fields.
  */
-function checkInputs() {
+function checkInputs(workflow) {
 	getReqiredFieldValues();
 	resetRequiredWarnings();
 	if (requiredFieldAreNotValid()) {
 		setRequiredTextWarnings();
 	} else {
-		createTaskData();
+		createTaskData(workflow);
 	}
 }
 
@@ -547,12 +547,12 @@ function clearValidationMessages() {
 
 // save data to local storage/server!
 
-async function createTaskData() {
+async function createTaskData(workflow) {
 	await loadTask();
 	getDataFromFomular();
 	await createAssignToListForSave();
 	await minOneSubtask();
-	fillTaskData();
+	fillTaskData(workflow);
 	pushTaskData();
 	saveTask();
 	showAddDiv();
@@ -586,7 +586,7 @@ async function createAssignToListForSave() {
 /**
  * this fuction collect all data for the Taskcard in a JSON format.
  */
-function fillTaskData() {
+function fillTaskData(workflow) {
 	setSubtaskStatusForBoardToFalse();
 	taskData = {
 		title: title,
@@ -597,7 +597,7 @@ function fillTaskData() {
 		dueDate: dueDate,
 		prio: prio,
 		subTasks: selectedSubtasks,
-		workFlowStatus: 0,
+		workFlowStatus: workflow,
 		creator: allUsers[loggedInUserIndex]['name'],
 	};
 	catColor = '';

@@ -289,11 +289,11 @@ function actualClickedPrioBtnIsSet(index, statusNames) {
  * the existing categories, rendering the category list, setting the new category input to inactive,
  * and rendering the contacts in the assign drop down menu.
  */
-async function showAddTaskPopupWindow() {
+async function showAddTaskPopupWindow(workflow) {
 	taskForce = [];
 	coworkersToAssignTo[loggedInUserIndex].check = false;
 	enablePopupWindow();
-	await renderAddTaskPopup();
+	await renderAddTaskPopup(workflow);
 	await loadExitingCategories();
 	renderCategoryList();
 	newCatInputActive = false;
@@ -308,9 +308,9 @@ async function showAddTaskPopupWindow() {
 /**
  * this function render the popup menu AddTask.
  */
-async function renderAddTaskPopup() {
+async function renderAddTaskPopup(workflow) {
 	document.getElementById('boardPopup').innerHTML = '';
-	document.getElementById('boardPopup').innerHTML = renderAddTaskPopupHtml();
+	document.getElementById('boardPopup').innerHTML = renderAddTaskPopupHtml(workflow);
 }
 
 /**

@@ -20,7 +20,7 @@ function boardHtml() {
 							<img src="./assets/img/search_logo.png" />
 						</div>
 					</div>
-					<button class="addTaskButton" onclick="showAddTaskPopupWindow()">
+					<button class="addTaskButton" onclick="showAddTaskPopupWindow(0)">
 						<span>Add task</span>
 						<div class="plusOutContainer">
 							<img src="./assets/img/plus_logo_white.png" />
@@ -32,7 +32,7 @@ function boardHtml() {
 				<div class="columnBoard">
 					<div class="toDoAreaHeader">
 						<span>To do</span>
-						<button class="menuPlusButton" onclick="showAddTaskPopupWindow()"></button>
+						<button class="menuPlusButton" onclick="showAddTaskPopupWindow(0)"></button>
 					</div>
 					<div class="canbanContainer dragArea" id="dropArea0" ondrop="moveTo(0); removeHighlight('dropArea0')" ondragleave="removeHighlight('dropArea0')" ondragover="allowDrop(event); highlight('dropArea0')">
 						<div id="toDoDiv"></div>
@@ -42,7 +42,7 @@ function boardHtml() {
 				<div class="columnBoard">
 					<div class="inProgressAreaHeader">
 						<span>In progress</span>
-						<button class="menuPlusButton" onclick="showAddTaskPopupWindow()"></button>
+						<button class="menuPlusButton" onclick="showAddTaskPopupWindow(1)"></button>
 					</div>
 					<div class="canbanContainer dragArea" id="dropArea1" ondrop="moveTo(1); removeHighlight('dropArea1')" ondragleave="removeHighlight('dropArea1')" ondragover="allowDrop(event); highlight('dropArea1')">
 						<div id="progressDiv"></div>
@@ -52,7 +52,7 @@ function boardHtml() {
 				<div class="columnBoard">
 					<div class="awaitingFeedbackAreaHeader">
 						<span>Anwaiting Feedback</span>
-						<button class="menuPlusButton" onclick="showAddTaskPopupWindow()"></button>
+						<button class="menuPlusButton" onclick="showAddTaskPopupWindow(2)"></button>
 					</div>
 					<div class="canbanContainer dragArea" id="dropArea2" ondrop="moveTo(2); removeHighlight('dropArea2')" ondragleave="removeHighlight('dropArea2')" ondragover="allowDrop(event); highlight('dropArea2')">
 						<div id="awaitingDiv"></div>
@@ -62,7 +62,7 @@ function boardHtml() {
 				<div class="columnBoard">
 					<div class="doneAreaHeader">
 						<span>Done</span>
-						<button class="menuPlusButton" onclick="showAddTaskPopupWindow()"></button>
+						<button class="menuPlusButton" onclick="showAddTaskPopupWindow(3)"></button>
 					</div>
 					<div class="canbanContainer dragArea" id="dropArea3" ondrop="moveTo(3); removeHighlight('dropArea3')" ondragleave="removeHighlight('dropArea3')" ondragover="allowDrop(event); highlight('dropArea3')">
 						<div id="doneDiv"></div>
