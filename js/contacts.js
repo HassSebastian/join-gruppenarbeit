@@ -95,6 +95,9 @@ async function userInAlphabetArray() {
 	setTimeout(() => {
 		contactListAutomaticResponisive();
 	}, 1);
+	if (window.innerWidth > 850) {
+		showContact(i);
+	}
 }
 
 function contactListAutomaticResponisive() {
@@ -104,6 +107,7 @@ function contactListAutomaticResponisive() {
 		autoResponsive = true;
 		if (!rightContainer) return;
 		rightContainer.style.display = 'flex';
+		showContact(i);
 	}
 
 	if (window.innerWidth < 850 && listOpen && autoResponsive) {
@@ -237,6 +241,7 @@ function showContactOf(arr, i) {
 
 function showContactList() {
 	let contactRight = document.getElementById('contactContainerRight');
+	const listing = document.getElementById('listing');
 	if (!listOpen) {
 		document.getElementById('Frame_97').style.marginLeft = '0';
 		document.getElementById('contactContainerRight').style.removeProperty('left');
@@ -246,6 +251,7 @@ function showContactList() {
 	} else if (listOpen && window.innerWidth < 850 /*769*/) {
 		document.getElementById('Frame_97').style.marginLeft = '-460px';
 		document.getElementById('contactContainerRight').style.left = '0';
+		if (!listing) return;
 		document.getElementById('listing').style.display = 'flex';
 		listOpen = false;
 		contactRight.style.display = 'flex';
