@@ -51,7 +51,7 @@ function boardHtml() {
 
 				<div class="columnBoard">
 					<div class="awaitingFeedbackAreaHeader">
-						<span>Anwaiting Feedback</span>
+						<span>Awaiting Feedback</span>
 						<button class="menuPlusButton" onclick="showAddTaskPopupWindow(2)"></button>
 					</div>
 					<div class="canbanContainer dragArea" id="dropArea2" ondrop="moveTo(2); removeHighlight('dropArea2')" ondragleave="removeHighlight('dropArea2')" ondragover="allowDrop(event); highlight('dropArea2')">
