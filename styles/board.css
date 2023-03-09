@@ -1805,27 +1805,6 @@ boardSubheaders > * {
 	/* opacity: 0.8; */
 }
 
-@media screen and (max-width: 1100px) {
-	/* Btn hinzugefügt  Bossi 28.02*/
-	.moveBtnMobil {
-		display: flex;
-		/* position: absolute !important;  */
-		bottom: 32px;
-		height: 57px !important;
-		width: 310px;
-		gap: 10px;
-		order: 6;
-	}
-
-	.moveBtnMobil button {
-		height: 57px !important;
-	}
-
-	/* .boardSubtasksDiv {
-		height: fit-content;
-	} */
-}
-
 @media screen and (max-width: 1350px) {
 	.boardContainer {
 		padding-left: 53px;
@@ -1984,6 +1963,24 @@ boardSubheaders > * {
 		width: 100%;
 		gap: 6px;
 	}
+
+	.moveBtnMobil {
+		display: flex;
+		/* position: absolute !important;  */
+		bottom: 32px;
+		height: 57px !important;
+		width: 310px;
+		gap: 10px;
+		order: 6;
+	}
+
+	.moveBtnMobil button {
+		height: 57px !important;
+	}
+
+	.canbanContainer {
+		height: fit-content !important;
+	}
 }
 
 @media screen and (max-width: 1024px) {
@@ -2056,7 +2053,7 @@ boardSubheaders > * {
 		top: 800px;
 	}
 }
-@media screen and (max-height: 900px) {
+/* @media screen and (max-height: 900px) {
 	.boardContainer {
 		position: absolute;
 		top: 89px;
@@ -2087,9 +2084,9 @@ boardSubheaders > * {
 	}
 
 	.canbanContainer {
-		height: calc(100vh - 243px);
+		height: calc(100vh - 217px);
 	}
-}
+} */
 @media screen and (max-height: 780px) {
 	.boardTaskCardPopup {
 		height: 100%;
