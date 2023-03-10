@@ -1,4 +1,6 @@
 let searchTerm;
+let addTaskContactsResponsiveOn = false;
+let addTaskOpen;
 let arrayMoveBtnText = [
 	{
 		workStatus: 0,
@@ -178,4 +180,41 @@ function taskCardAllowMove(taskIndex) {
 		endValue = 1;
 	}
 	return endValue;
+}
+
+function startIntervalWhenOff() {
+	const interval = setInterval(() => {
+		if (window.innerWidth > 563 && !addTaskContactsResponsiveOn && addTaskOpen) {
+			showAddTaskPopupWindow();
+			addTaskContactsResponsiveOn = true;
+			clearInterval(interval);
+			startIntervalWhenOn();
+			addTaskOpen = true;
+		}
+	}, 100);
+}
+
+function startIntervalWhenOn() {
+	const interval = setInterval(() => {
+		if (window.innerWidth < 563 && addTaskContactsResponsiveOn && addTaskOpen) {
+			showAddTaskPopupWindow();
+			addTaskContactsResponsiveOn = false;
+			clearInterval(interval);
+			startIntervalWhenOff();
+			addTaskOpen = true;
+		}
+	}, 100);
+}
+
+function addTaskContactAutomaticResponisive() {
+	startIntervalWhenOff();
+	startIntervalWhenOn();
+}
+
+function trackThatAddTaskIsClose() {
+	addTaskOpen = false;
+}
+
+function allowAddTaskPopUp() {
+	addTaskOpen = true;
 }
