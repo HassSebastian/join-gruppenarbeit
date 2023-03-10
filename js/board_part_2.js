@@ -1,14 +1,11 @@
-// Testarea PopupCard ***********************************************************************************************
-
 // basic function for the popup window
 
 /**
  * this function remove the d-none class from the popup window. The result is that the Popup Window is shown.
  */
 async function enablePopupWindow(taskIndex) {
-	if (document.getElementById(`taskCard${taskIndex}`)) {
+	if (taskCardSelected(taskIndex)) {
 		document.getElementById('boardPopup').classList.remove('d-none');
-		// await enableBoardPopup();
 	} else {
 		document.getElementById('boardPopup').classList.remove('d-none');
 		setTimeout(() => {
@@ -20,16 +17,25 @@ async function enablePopupWindow(taskIndex) {
 }
 
 /**
+ * this function determind, taskCard clicked or not.
+ * @param {number} taskIndex - the index of the task in the joinTaskArray.
+ * @returns {boolean} - true or false
+ */
+function taskCardSelected(taskIndex){
+	return document.getElementById(`taskCard${taskIndex}`);
+}
+
+/**
  * this function add the d-none class to the popup window. The result is that the Popup Window not shown.
  */
 async function disablePopupWindow() {
-	if (document.getElementById('boardAddTaskPopup')) {
+	if (boardAddTaskOpened()) {
 		document.getElementById('boardAddTaskPopup').classList.remove('boardAddTaskPopupOverlay');
 		setTimeout(() => {
 			document.getElementById('boardPopup').classList.add('d-none');
 		}, 500);
 	}
-	if (selectedMenuBtnId == 4) {
+	if (contactsSelected()) {
 	} else {
 		setTimeout(await initBoard, 500);
 		setTimeout(() => {
@@ -40,15 +46,27 @@ async function disablePopupWindow() {
 }
 
 /**
+ * this function determind, AddTask Card in Board opened or not.
+ * @returns {boolean} - true or false
+ */
+function boardAddTaskOpened(){
+	return document.getElementById('boardAddTaskPopup');
+}
+
+/**
+ * this function determind, Menubutton Contacts selected or not.
+ * @returns {boolean} - true or false
+ */
+function contactsSelected(){
+	return selectedMenuBtnId == 4;
+}
+
+/**
  * this function prevent the closure of the popup window when clicking on the Popup Task Card.
  */
 function stopClose(event) {
 	event.stopPropagation();
 }
-
-// basic function popup end
-
-// render function for the detail view of the task card.
 
 /**
  * If the length of the assignedList is greater than 0, then return true. Otherwise, return false.
@@ -130,7 +148,7 @@ function setTaskCardPopupCatColor(taskIndex) {
 
 /**
  * This function sets the background color of the prio button and transfers the url of the image associated with the prio button.
- * @param {*} taskIndex --this value is equal to the index number of the main array 'joinTaskArray', where
+ * @param {number} taskIndex --this value is equal to the index number of the main array 'joinTaskArray', where
  * the task card information is stored.
  */
 function setTaskCardPopupPrioBackground(taskIndex) {
@@ -146,7 +164,7 @@ function setTaskCardPopupPrioBackground(taskIndex) {
 
 /**
  * It opens a modal window with a form to edit a task.
- * @param taskIndex - the index of the task in the array of tasks
+ * @param {number} taskIndex - the index of the task in the array of tasks.
  */
 async function openEditTaskCard(taskIndex) {
 	resetAssignToList();
@@ -240,18 +258,10 @@ async function getTaskChanges(taskIndex) {
 	joinTaskArray[taskIndex]['descripten'] = boardEditedDescripten;
 	joinTaskArray[taskIndex]['dueDate'] = boardEditedDueDate;
 	joinTaskArray[taskIndex]['prio'] = boardEditedPrio;
-
 	await saveTask();
-	/* if (window.innerWidth > 1100) { */
 	await renderBoard();
 	await createWorkStatusArrays();
 	await renderAllCards();
-	/* 	} else {
-		disablePopupWindow();
-		await renderMobileBoardHtml();
-		await createWorkStatusArrays();
-		await renderAllCardsMobil();
-	} */
 }
 
 /**
@@ -279,10 +289,6 @@ function prioStatusChange(index) {
 function actualClickedPrioBtnIsSet(index, statusNames) {
 	return statusNames[index] == boardEditedPrio;
 }
-
-// render function for the detail view of the task card end.
-
-// render function for the creation of a new task card.
 
 /**
  * Show the add task popup window by enabling the popup window, rendering the add task popup, loading

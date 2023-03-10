@@ -28,7 +28,6 @@ async function initBoard() {
 	renderAllCards();
 	loadContributorsLetter();
 	coworkersToAssignTo = transferallUserData();
-	/* await checkBoardInitMode(); */
 }
 
 async function initBoardNormal() {
@@ -45,12 +44,18 @@ async function initBoardNormal() {
  */
 async function renderBoard() {
 	document.getElementById('content').innerHTML = '';
-	if (!(selectedMenuBtnId == 2)) {
-		/* await enableBoardStyles(); */
+	if (!boardSelected()) {
 		await loadTask();
 	}
 	document.getElementById('content').innerHTML += boardHtml();
-	// document.getElementById('content').innerHTML += boardHtmlRESPOSIV();
+}
+
+/**
+ * this function check, Board selected or not.
+ * @returns - true if Board not selected, userwise false.
+ */
+function boardSelected(){
+	return (selectedMenuBtnId == 2);
 }
 
 /**
@@ -137,7 +142,7 @@ function createWorkStatusJson(cardTitle, cardDescription, cardCatColor, cardCate
  * This function renders all the cards in the Kanban board.
  */
 async function renderAllCards() {
-	if (selectedMenuBtnId == 2) {
+	if (boardSelected()) {
 		renderToDoCards();
 		renderInProgressCards();
 		renderAwaitingFeedbackCards();
@@ -328,19 +333,48 @@ function allowDrop(ev) {
 	ev.preventDefault();
 }
 
+/**
+ * this function move the task card to dropped area if allowed.
+ * @param {*} area - is a number that equal to the different columns (To do, In progess, Awaiting feedback, Done)
+ */
+
 function moveTo(area) {
 	let doneBarDraggedElement = document.getElementById(`doneBar${currentDraggedElement}`);
 	let doneBarOuterDraggedElement = document.getElementById(`doneBarOuter${currentDraggedElement}`);
 	let doneBarWidth = doneBarDraggedElement.offsetWidth;
 	let doneBarOuterWidth = doneBarOuterDraggedElement.offsetWidth;
 	let workFlowStatusDraggedElement = joinTaskArray[currentDraggedElement]['workFlowStatus'];
-	if ((doneBarWidth == doneBarOuterWidth && workFlowStatusDraggedElement >= 1) || (workFlowStatusDraggedElement < 1 && area < 2) || area < workFlowStatusDraggedElement) {
+	if ((allSubtasksDone(doneBarWidth, doneBarOuterWidth) && workFlowStatusDraggedElement >= 1) || dragAreaIsZeroOrOne(workFlowStatusDraggedElement, area)) {
 		moveToNewArea(area);
 	} else {
 		alert('Please finish all subtasks')
 	}
 }
 
+/**
+ * this function returns true if all Subtasks done.
+ * @param {*} doneBarWidth - this value is equal to the width of the inner Donebar('blue').
+ * @param {*} doneBarOuterWidth - this value is equal to the width of the Donebar Frame.
+ * @returns 
+ */
+function allSubtasksDone(doneBarWidth, doneBarOuterWidth){
+	return doneBarWidth == doneBarOuterWidth;
+}
+
+/**
+ * 
+ * @param {*} workFlowStatusDraggedElement - is equal to the workFlowStatus of the dragged Element.
+ * @param {*} area - is a number that equal to the different columns (To do, In progess, Awaiting feedback, Done)
+ * @returns 
+ */
+function dragAreaIsZeroOrOne(workFlowStatusDraggedElement, area){
+	return (workFlowStatusDraggedElement < 1 && area < 2) || (area < workFlowStatusDraggedElement);
+}
+
+/**
+ * change the 'workFlowStatus' of the dragged Taskcard to the dropped area.
+ * @param {*} area - is a number that equal to the different columns (To do, In progess, Awaiting feedback)
+ */
 async function moveToNewArea(area) {
 	joinTaskArray[currentDraggedElement]['workFlowStatus'] = area;
 	await saveTask();
