@@ -1082,6 +1082,7 @@ boardSubheaders > * {
     order: 10;
 	z-index: 10;
 	gap: 10px;	
+	background: #ffffff;
 }
 
 .editButton {
@@ -1177,18 +1178,23 @@ boardSubheaders > * {
 
 .boardSubtasksDiv {
 	display: flex;
-	flex-direction: column;
+	/* changed by Bossi  flex-direction*/
+	/* flex-direction: column; */
 	align-items: flex-start;
 	padding: 0px;
 	gap: 10px;
 	width: 86%;
-	height: 169px;
+	/* height: 169px; */
+	/* changed by Bossi */
+	min-height: 102px;
 	flex: none;
 	order: 6;
-	flex-grow: 0;
+	
 	z-index: 6;
+	/* changed by Bossi flex-grow, overflow */
+	/* flex-grow: 0;
 	overflow: hidden;
-	overflow-y: scroll;
+	overflow-y: scroll; */
 	/* height changed and flex-wrap hinzugefügt */
 	flex-wrap: wrap;
 }
