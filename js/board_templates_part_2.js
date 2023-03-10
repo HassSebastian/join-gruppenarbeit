@@ -525,9 +525,11 @@ function renderPopupTaskCardHtml(taskIndex) {
 
                 <span class='assigned'>Assigned To:</span>
                 <!-- <img class='close_logo' src='./assets/img/close_logo.png' onclick='disablePopupWindow()'> -->
-                <div class='editButton' onclick='openEditTaskCard(${taskIndex})'>
+                <!-- <div class='editButton' onclick='openEditTaskCard(${taskIndex})'>
                     <img src='./assets/img/edit_button.png'>
-                </div>
+                </div> -->
+            
+                
         
                 <div class='members' id='members'></div>            
             
@@ -535,9 +537,18 @@ function renderPopupTaskCardHtml(taskIndex) {
                     <span class='boardSubtaskTitle'>Subtasks:</span>    
                 </div >
                 <div class='boardSubtasksDiv' id='subtaskListTaskCard'></div>
-                
-                <div class='moveBtnMobil' id='moveBtnMobil'></div>
+
+                <div class='detailBtnDiv'>
+                    <div class='editButton' onclick='openEditTaskCard(${taskIndex})'>
+                        <img src='./assets/img/edit_button.png'>
+                    </div>
+                    <div class='moveBtnMobil' id='moveBtnMobil'>
+
+                    </div>
                 </div>
+
+                </div>
+                
         </div>
         
         `;
